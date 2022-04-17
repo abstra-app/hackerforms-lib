@@ -44,6 +44,7 @@ def read(msg: str, button_text: str = "Next") -> str
 ``` python
 def read_date(msg: str, button_text: str = "Next") -> str
 ```
+the response will be in the `YYYY-MM-DD` format
 
 ## file
 
