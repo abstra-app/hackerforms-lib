@@ -16,6 +16,7 @@ def display(msg: str, button_text: str = "Next") -> None
 ``` python
 def display_image(image_str: str, button_text: str = "Next", subtitle: str = "") -> None
 ```
+the `image_str` param should be an url or the encoded base64 of the image
 
 ## link
 
@@ -28,6 +29,7 @@ def display_link(link_url: str, button_text: str = "Next", link_text: str = "Cli
 ``` python
 def display_file(file, button_text: str = "Next") -> None
 ```
+the `file` param should be the file url of a [file-like](https://docs.python.org/3/glossary.html#term-file-like-object) object
 
 # Inputs
 
@@ -51,7 +53,7 @@ the response will be in the `YYYY-MM-DD` format
 ``` python
 def read_file(msg: str, button_text: str = "Next") -> FileResponse
 ```
-the response type `FileResponse` has attributes `url` (string) and `content` (bytes)
+the response type `FileResponse` has attributes `url` (string), `content` (bytes) and `file` (TemporaryFile)
 
 ## multiple choice
 
