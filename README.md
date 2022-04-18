@@ -27,7 +27,7 @@ def display_link(link_url: str, button_text: str = "Next", link_text: str = "Cli
 ## file
 
 ``` python
-def display_file(file, button_text: str = "Next") -> None
+def display_file(file, button_text: str = "Next", download_text: str = "Download here") -> None
 ```
 the `file` param should be the file url of a [file-like](https://docs.python.org/3/glossary.html#term-file-like-object) object
 
