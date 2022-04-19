@@ -41,6 +41,17 @@ These functions ask for some input from the user.
 def read(msg: str, button_text: str = "Next") -> str
 ```
 
+## long text
+
+``` python
+def read_textarea(msg: str, button_text: str = "Next") -> str
+```
+## number
+
+``` python
+def read_number(msg: str, button_text: str = "Next") -> number
+```
+
 ## date
 
 ``` python
