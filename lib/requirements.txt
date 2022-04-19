@@ -1,0 +1,4 @@
+setuptools==62.1.0
+requests==2.27.1
+lxml==4.4.1
+python-docx
