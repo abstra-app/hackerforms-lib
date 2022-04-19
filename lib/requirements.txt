@@ -2,3 +2,4 @@ setuptools==62.1.0
 requests==2.27.1
 python-docx
 pulp
+openpyxl
