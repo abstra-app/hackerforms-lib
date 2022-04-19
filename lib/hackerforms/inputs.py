@@ -5,52 +5,60 @@ from .socket import send, receive
 
 
 def read(msg: str, button_text: str = "Next") -> str:
-    send({
+    return read_form([{
         'message': msg,
         'type': 'text-input',
         'buttonText': button_text,
-    })
-    return receive('payload')
+    }], button_text)
 
 
 def read_date(msg: str, button_text: str = "Next") -> str:
-    send({
+    return read_form([{
         'message': msg,
         'type': 'date-input',
         'buttonText': button_text,
-    })
-    return receive('payload')
+    }], button_text)
 
 
 def read_file(msg: str, button_text: str = "Next") -> FileResponse:
-    send({
+    return read_form([{
         'message': msg,
         'type': 'file-input',
         'buttonText': button_text
-    })
-    url = receive('payload')
-    return FileResponse(url)
+    }], button_text)
 
 
 def read_multiple_choice(msg: str,
                          options: Union[List[str], List[Dict]],
                          button_text: str = "Next",
                          multiple: bool = False) -> str:
-    send({
+    return read_form([{
         'message': msg,
         'type': 'multiple-choice-input',
-        'buttonText': button_text,
         'options': options,
         'multiple': multiple
-    })
-    return receive('payload')
+    }], button_text)
 
 
 def read_dropdown(name: str, options: Union[List[str], List[Dict]], button_text: str = "Next") -> str:
-    send({
+    return read_form([{
         'message': name,
         'type': 'dropdown-input',
-        'buttonText': button_text,
         'options': options
+    }], button_text)
+
+def read_form(fields: List[Dict], button_text: str = "Next"):
+    send({
+        'type': 'form-input',
+        'fields': fields,
+        'buttonText': button_text
     })
-    return receive('payload')
+    answers = receive('payload')
+    
+    def convertAnswer(field: Dict, answer: any):
+        if field['type'] == 'file-input':
+            return FileResponse(answer)
+        else:
+            return answer
+    
+    return list(map(convertAnswer, fields, answers))
