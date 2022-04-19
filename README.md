@@ -31,6 +31,13 @@ def display_file(file, button_text: str = "Next", download_text: str = "Download
 ```
 the `file` param should be the file url of a [file-like](https://docs.python.org/3/glossary.html#term-file-like-object) object
 
+## html
+
+``` python
+def display_html(html, button_text: str = "Next") -> None
+```
+the `html` param is a string in the format of a html document
+
 # Inputs
 
 These functions ask for some input from the user.
