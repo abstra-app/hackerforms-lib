@@ -68,8 +68,6 @@ def read_textarea(msg: str, button_text: str = "Next") -> str
 ``` python
 def read_number(msg: str, button_text: str = "Next") -> number
 ```
-
->>>>>>> 69a4582a1cd7785425d2f004812543e94dc9d28e
 ## date
 
 ``` python
