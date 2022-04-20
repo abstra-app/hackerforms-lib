@@ -47,7 +47,17 @@ These functions ask for some input from the user.
 ``` python
 def read(msg: str, button_text: str = "Next") -> str
 ```
+## email
 
+``` python
+def read_email(msg: str, button_text: str = "Next") -> str
+```
+## phone
+
+``` python
+def read_phone(msg: str, button_text: str = "Next") -> dict
+```
+the response has attributes `raw` (number) and `masked` (string)
 ## long text
 
 ``` python
@@ -58,7 +68,6 @@ def read_textarea(msg: str, button_text: str = "Next") -> str
 ``` python
 def read_number(msg: str, button_text: str = "Next") -> number
 ```
-
 ## date
 
 ``` python
