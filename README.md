@@ -40,7 +40,16 @@ These functions ask for some input from the user.
 ``` python
 def read(msg: str, button_text: str = "Next") -> str
 ```
+## email
 
+``` python
+def read_email(msg: str, button_text: str = "Next") -> str
+```
+## phone
+
+``` python
+def read_phone(msg: str, button_text: str = "Next") -> str
+```
 ## date
 
 ``` python

@@ -12,6 +12,21 @@ def read(msg: str, button_text: str = "Next") -> str:
     })
     return receive('payload')
 
+def read_email(msg: str, button_text: str = "Next") -> str:
+    send({
+        'message': msg,
+        'type': 'email-input',
+        'buttonText': button_text,
+    })
+    return receive('payload')
+
+def read_phone(msg: str, button_text: str = "Next") -> str:
+    send({
+        'message': msg,
+        'type': 'phone-input',
+        'buttonText': button_text,
+    })
+    return receive('payload')
 
 def read_date(msg: str, button_text: str = "Next") -> str:
     send({
