@@ -67,16 +67,62 @@ class MultipleChoiceInput(Input):
 
 class DropdownInput(Input):
     type = 'dropdown-input'
-    def __init__(self, message: str, options: Union[List[str], List[Dict]]):
+    def __init__(self, name: str, options: Union[List[str], List[Dict]]):
+        self.name = name
+        self.options = options
+
+    def json(self):
+        return {
+            'type': self.type,
+            'message': self.name,
+            'options': self.options,
+        }
+
+class TextareaInput(Input):
+    type = 'textarea-input'
+    def __init__(self, message: str):
         self.message = message
-        self.option = options
 
     def json(self):
         return {
             'type': self.type,
             'message': self.message,
-            'options': self.options,
         }
+
+class NumberInput(Input):
+    type = 'number-input'
+    def __init__(self, message: str):
+        self.message = message
+
+    def json(self):
+        return {
+            'type': self.type,
+            'message': self.message,
+        }
+
+class EmailInput(Input):
+    type = 'email-input'
+    def __init__(self, message: str):
+        self.message = message
+
+    def json(self):
+        return {
+            'type': self.type,
+            'message': self.message,
+        }
+
+
+class PhoneInput(Input):
+    type = 'phone-input'
+    def __init__(self, message: str):
+        self.message = message
+
+    def json(self):
+        return {
+            'type': self.type,
+            'message': self.message,
+        }
+
 
 def read_text(message: str, button_text: str = "Next") -> Dict:
     return read_form([TextInput(message)], button_text)
@@ -99,11 +145,19 @@ def read_multiple_choice(message: str,
 
 
 def read_dropdown(name: str, options: Union[List[str], List[Dict]], button_text: str = "Next") -> Dict:
-    return {
-        'type': 'dropdown-input',
-        'message': name,
-        'options': options
-    }
+    return read_form([DropdownInput(name, options)])
+
+def read_textarea(message: str, button_text: str = "Next") -> str:
+    return read_form([TextareaInput(message)], button_text)
+    
+def read_number(message: str, button_text: str = "Next") -> str:
+    return read_form([NumberInput(message)], button_text)
+
+def read_email(message: str, button_text: str = "Next") -> str:
+    return read_form([EmailInput(message)], button_text)
+
+def read_phone(message: str, button_text: str = "Next") -> dict:
+    return read_form([PhoneInput(message)], button_text)
 
 def read_form(inputs: List[Input], button_text: str = "Next"):
     send({

@@ -85,7 +85,7 @@ def display_link(link_url: str, link_text: str = "Click here", button_text: str 
 def display_file(file, download_text: str = "Download here", button_text: str = "Next") -> None:
     return display([FileOutput(file, download_text)], button_text)
 
-def display_html(html, download_text: str = "Download here", button_text: str = "Next") -> None:
+def display_html(html: str, button_text: str = "Next", download_text: str = "Download here") -> None:
     return display([HTMLOutput(html, download_text)], button_text)
 
 def display(outputs: List[Output], button_text: str = "Next"):
