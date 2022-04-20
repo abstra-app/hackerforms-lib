@@ -40,7 +40,7 @@ def display_file(file, button_text: str = "Next", download_text: str = "Download
     })
     receive()
 
-def display_html(html, button_text: str = "Next", download_text: str = "Download here") -> None:
+def display_html(html: str, button_text: str = "Next", download_text: str = "Download here") -> None:
     send({
         'message': html,
         'type': 'html-output',

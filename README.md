@@ -31,6 +31,13 @@ def display_file(file, button_text: str = "Next", download_text: str = "Download
 ```
 the `file` param should be the file url of a [file-like](https://docs.python.org/3/glossary.html#term-file-like-object) object
 
+## html
+
+``` python
+def display_html(html, button_text: str = "Next") -> None
+```
+the `html` param is a string in the format of a html document
+
 # Inputs
 
 These functions ask for some input from the user.
@@ -51,6 +58,18 @@ def read_email(msg: str, button_text: str = "Next") -> str
 def read_phone(msg: str, button_text: str = "Next") -> dict
 ```
 the response has attributes `raw` (number) and `masked` (string)
+## long text
+
+``` python
+def read_textarea(msg: str, button_text: str = "Next") -> str
+```
+## number
+
+``` python
+def read_number(msg: str, button_text: str = "Next") -> number
+```
+
+>>>>>>> 69a4582a1cd7785425d2f004812543e94dc9d28e
 ## date
 
 ``` python
