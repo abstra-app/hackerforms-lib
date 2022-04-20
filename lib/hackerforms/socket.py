@@ -7,7 +7,7 @@ from .utils import serialize, deserialize
 
 SOCK_RECV_SIZE = 32 * 1024
 sock = socket(AF_INET, SOCK_STREAM)
-sock.connect(("", int(os.environ.get('PORT'))))
+sock.connect((os.environ.get("BROKER_IP", ""), int(os.environ.get('PORT'))))
 
 
 def send(data):
