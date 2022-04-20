@@ -20,7 +20,7 @@ def read_email(msg: str, button_text: str = "Next") -> str:
     })
     return receive('payload')
 
-def read_phone(msg: str, button_text: str = "Next") -> str:
+def read_phone(msg: str, button_text: str = "Next") -> dict:
     send({
         'message': msg,
         'type': 'phone-input',
