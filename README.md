@@ -48,8 +48,9 @@ def read_email(msg: str, button_text: str = "Next") -> str
 ## phone
 
 ``` python
-def read_phone(msg: str, button_text: str = "Next") -> str
+def read_phone(msg: str, button_text: str = "Next") -> dict
 ```
+the response has attributes `raw` (number) and `masked` (string)
 ## date
 
 ``` python
