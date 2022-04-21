@@ -3,4 +3,3 @@ requests==2.27.1
 python-docx
 pulp
 openpyxl
-tensorflow
