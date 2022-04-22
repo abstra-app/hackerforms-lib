@@ -1,71 +1,16 @@
-from abc import abstractmethod, ABC
-from .apis import upload_file
-class Output(ABC):
-    type: str
+from .form import *
 
-    @abstractmethod
-    def json():
-        pass
+def display_text(msg: str, button_text: str = 'Next'):
+    return Form(button_text).display_text(msg).run()
 
-class TextOutput(Output):
-    type = 'text-output'
-    def __init__(self, message: str):
-        self.message = message
+def display_image(image_str: str, subtitle: str = "", button_text: str = 'Next'):
+    return Form(button_text).display_image(image_str, subtitle).run()
 
-    def json(self):
-        return {
-            'type': self.type,
-            'message': self.message,
-        }
+def display_link(link_url: str, link_text: str = "Click here", button_text: str = 'Next'):
+    return Form(button_text).display_link(link_url, link_text).run()
 
-class ImageOutput(Output):
-    type = 'image-output'
-    def __init__(self, image_str: str, subtitle: str = ""):
-        self.image_str = image_str
-        self.subtitle = subtitle
+def display_file(file, download_text: str = "Download here", button_text: str = 'Next'):
+    return Form(button_text).display_file(file, download_text).run()
 
-    def json(self):
-        return {
-            'type': self.type,
-            'image_str': self.image_str,
-            'subtitle': self.subtitle,
-        }
-
-class LinkOutput(Output):
-    type = 'link-output'
-    def __init__(self, link_url: str, link_text: str = "Click here"):
-        self.link_url = link_url
-        self.link_text = link_text
-
-    def json(self):
-        return {
-            'type': self.type,
-            'message': self.link_url,
-            'linkText': self.link_text,
-        }
-
-class FileOutput(Output):
-    type = 'file-output'
-    def __init__(self, file, download_text: str = "Download here"):
-        self.file = file
-        self.download_text = download_text
-
-    def json(self):
-        return {
-            'type': self.type,
-            'message': self.file if isinstance(self.file, str) else upload_file(self.file),
-            'downloadText': self.download_text,
-        }
-
-class HTMLOutput(Output):
-    type = 'html-output'
-    def __init__(self, html, download_text: str = "Download here"):
-        self.html = html
-        self.download_text = download_text
-
-    def json(self):
-        return {
-            'type': self.type,
-            'message': self.html,
-            'downloadText': self.download_text,
-        }
+def display_html(html: str, download_text: str = "Download here", button_text: str = 'Next'):
+    return Form(button_text).display_html(html, download_text).run()

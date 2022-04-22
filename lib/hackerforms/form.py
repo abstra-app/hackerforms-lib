@@ -1,48 +1,47 @@
 from typing import List, Dict
 from .socket import send, receive
-from .outputs import *
-from .inputs import *
+from .input_types import *
+from .output_types import *
 
 class Form:
-    def __init__(self, title: str = '', button_text: str = 'Next'):
-        self.title = title
+    def __init__(self, button_text: str = 'Next'):
         self.button_text = button_text
         self.fields: List[Union[Input, Output]] = []
 
-    def read_text(self, key: str, message: str):
-        self.fields.append(TextInput(key, message))
+    def read_text(self, message: str, key: str = ''):
+        self.fields.append(TextInput(key or message, message))
         return self
 
-    def read_textarea(self, key: str, message: str):
-        self.fields.append(TextareaInput(key, message))
+    def read_textarea(self, message: str, key: str = ''):
+        self.fields.append(TextareaInput(key or message, message))
         return self
         
-    def read_number(self, key: str, message: str):
-        self.fields.append(NumberInput(key, message))
+    def read_number(self, message: str, key: str = ''):
+        self.fields.append(NumberInput(key or message, message))
         return self
 
-    def read_email(self, key: str, message: str):
-        self.fields.append(EmailInput(key, message))
+    def read_email(self, message: str, key: str = ''):
+        self.fields.append(EmailInput(key or message, message))
         return self
 
-    def read_phone(self, key: str, message: str):
-        self.fields.append(PhoneInput(key, message))
+    def read_phone(self, message: str, key: str = ''):
+        self.fields.append(PhoneInput(key or message, message))
         return self
 
-    def read_date(self, key: str, message: str):
-        self.fields.append(DateInput(key, message))
+    def read_date(self, message: str, key: str = ''):
+        self.fields.append(DateInput(key or message, message))
         return self
 
-    def read_file(self, key: str, message: str):
-        self.fields.append(FileInput(key, message))
+    def read_file(self, message: str, key: str = ''):
+        self.fields.append(FileInput(key or message, message))
         return self
 
-    def read_dropdown(self, key: str, name: str, options: Union[List[str], List[Dict]]):
-        self.fields.append(DropdownInput(key, name, options))
+    def read_dropdown(self, name: str, options: Union[List[str], List[Dict]], key: str = ''):
+        self.fields.append(DropdownInput(key or name, name, options))
         return self
 
-    def read_multiple_choice(self, key: str, message: str, options: Union[List[str], List[Dict]], multiple: bool = False):
-        self.fields.append(MultipleChoiceInput(key, message, options, multiple))
+    def read_multiple_choice(self, message: str, options: Union[List[str], List[Dict]], multiple: bool = False, key: str = ''):
+        self.fields.append(MultipleChoiceInput(key or message, message, options, multiple))
         return self
 
     def display_text(self, msg: str):
@@ -73,6 +72,11 @@ class Form:
         })
         form_answers: Dict = receive('payload')
         answer: Dict = {}
+
+        if len(self.fields) == 1:
+            field = self.fields[0]
+            return field.convertAnswer(form_answers[field.key])
+
         for field in self.fields:
             if isinstance(field, Input):
                 answer[field.key] = field.convertAnswer(form_answers[field.key])

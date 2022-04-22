@@ -1,145 +1,29 @@
-from abc import abstractmethod, ABC
 from typing import List, Union, Dict
+from .form import *
 
-from .type_classes import FileResponse
+def read_text(message: str, button_text: str = 'Next'):
+    return Form(button_text).read_text(message).run()
 
-class Input(ABC):
-    type: str
+def read_textarea(message: str, button_text: str = 'Next'):
+    return Form(button_text).read_textarea(message).run()
 
-    def __init__(self, key: str) -> None:
-        super().__init__()
-        self.key = key
+def read_number(message: str, button_text: str = 'Next'):
+    return Form(button_text).read_number(message).run()
 
-    @abstractmethod
-    def json():
-        pass
+def read_email(message: str, button_text: str = 'Next'):
+    return Form(button_text).read_email(message).run()
 
-    def convertAnswer(self, answer):
-        return answer
-    
-class TextInput(Input):
-    type = 'text-input'
-    def __init__(self, key: str, message: str):
-        super().__init__(key)
-        self.message = message
+def read_phone(message: str, button_text: str = 'Next'):
+    return Form(button_text).read_phone(message).run()
 
-    def json(self):
-        return {
-            'type': self.type,
-            'key': self.key,
-            'message': self.message,
-        }
+def read_date(message: str, button_text: str = 'Next'):
+    return Form(button_text).read_date(message).run()
 
-class DateInput(Input):
-    type = 'date-input'
-    def __init__(self, key: str, message: str):
-        super().__init__(key)
-        self.message = message
+def read_file(message: str, button_text: str = 'Next'):
+    return Form(button_text).read_file(message).run()
 
-    def json(self):
-        return {
-            'type': self.type,
-            'key': self.key,
-            'message': self.message,
-        }
+def read_dropdown(name: str, options: Union[List[str], List[Dict]], button_text: str = 'Next'):
+    return Form(button_text).read_dropdown(name, options).run()
 
-class FileInput(Input):
-    type = 'file-input'
-    def __init__(self, key: str, message: str):
-        super().__init__(key)
-        self.message = message
-
-    def json(self):
-        return {
-            'type': self.type,
-            'key': self.key,
-            'message': self.message,
-        }
-
-    def convertAnswer(self, answer):
-        return FileResponse(answer)
-
-class MultipleChoiceInput(Input):
-    type = 'multiple-choice-input'
-    def __init__(self, key: str, message: str, options: Union[List[str], List[Dict]], multiple: bool = False):
-        super().__init__(key)
-        self.message = message
-        self.options = options
-        self.multiple = multiple
-
-    def json(self):
-        return {
-            'type': self.type,
-            'key': self.key,
-            'message': self.message,
-            'options': self.options,
-            'multiple': self.multiple,
-        }
-
-class DropdownInput(Input):
-    type = 'dropdown-input'
-    def __init__(self, key: str, name: str, options: Union[List[str], List[Dict]]):
-        super().__init__(key)
-        self.name = name
-        self.options = options
-
-    def json(self):
-        return {
-            'type': self.type,
-            'key': self.key,
-            'message': self.name,
-            'options': self.options,
-        }
-
-class TextareaInput(Input):
-    type = 'textarea-input'
-    def __init__(self, key: str, message: str):
-        super().__init__(key)
-        self.message = message
-
-    def json(self):
-        return {
-            'type': self.type,
-            'key': self.key,
-            'message': self.message,
-        }
-
-class NumberInput(Input):
-    type = 'number-input'
-    def __init__(self, key: str, message: str):
-        super().__init__(key)
-        self.message = message
-
-    def json(self):
-        return {
-            'type': self.type,
-            'key': self.key,
-            'message': self.message,
-        }
-
-class EmailInput(Input):
-    type = 'email-input'
-    def __init__(self, key: str, message: str):
-        super().__init__(key)
-        self.message = message
-
-    def json(self):
-        return {
-            'type': self.type,
-            'key': self.key,
-            'message': self.message,
-        }
-
-
-class PhoneInput(Input):
-    type = 'phone-input'
-    def __init__(self, key: str, message: str):
-        super().__init__(key)
-        self.message = message
-
-    def json(self):
-        return {
-            'type': self.type,
-            'key': self.key,
-            'message': self.message,
-        }
+def read_multiple_choice(message: str, options: Union[List[str], List[Dict]], multiple: bool = False, button_text: str = 'Next'):
+    return Form(button_text).read_multiple_choice(message, options, multiple).run()
