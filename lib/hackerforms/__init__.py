@@ -1,2 +1,1 @@
-from .inputs import *
-from .outputs import *
+from .form import *
