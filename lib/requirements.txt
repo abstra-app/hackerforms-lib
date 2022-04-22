@@ -1,5 +1,11 @@
-setuptools==62.1.0
-requests==2.27.1
+setuptools
+requests
 python-docx
 pulp
 openpyxl
+numpy
+pandas
+matplotlib
+plotly
+lxml
+tensorflow
