@@ -3,6 +3,40 @@ from typing import List, Dict
 from .apis import upload_file
 from .socket import send, receive
 
+class Display:
+    def __init__(self, title: str = '', button_text: str = 'Next'):
+        self.title = title
+        self.button_text = button_text
+        self.outputs: List[Output] = []
+
+    def display_text(self, msg: str):
+        self.outputs.append(TextOutput(msg))
+        return self
+
+    def display_image(self, image_str: str, subtitle: str = ""):
+        self.outputs.append(ImageOutput(image_str, subtitle))
+        return self
+
+    def display_link(self, link_url: str, link_text: str = "Click here"):
+        self.outputs.append(LinkOutput(link_url, link_text))
+        return self
+
+    def display_file(self, file, download_text: str = "Download here"):
+        self.outputs.append(FileOutput(file, download_text))
+        return self
+
+    def display_html(self, html: str, download_text: str = "Download here"):
+        self.outputs.append(HTMLOutput(html, download_text))
+        return self
+    
+    def run(self):
+        send({
+            'type': 'outputs',
+            'fields': [output.json() for output in self.outputs],
+            'buttonText': self.button_text
+        })
+        receive()
+
 class Output(ABC):
     type: str
 
@@ -72,26 +106,3 @@ class HTMLOutput(Output):
             'message': self.html,
             'downloadText': self.download_text,
         }
-
-def display_text(msg: str, button_text: str = "Next") -> None:
-    return display([TextOutput(msg)], button_text)
-
-def display_image(image_str: str, subtitle: str = "", button_text: str = "Next") -> None:
-    return display([ImageOutput(image_str, subtitle)], button_text)
-
-def display_link(link_url: str, link_text: str = "Click here", button_text: str = "Next") -> None:
-    return display([LinkOutput(link_url, link_text)], button_text)
-
-def display_file(file, download_text: str = "Download here", button_text: str = "Next") -> None:
-    return display([FileOutput(file, download_text)], button_text)
-
-def display_html(html: str, button_text: str = "Next", download_text: str = "Download here") -> None:
-    return display([HTMLOutput(html, download_text)], button_text)
-
-def display(outputs: List[Output], button_text: str = "Next"):
-    send({
-        'type': 'outputs',
-        'fields': [output.json() for output in outputs],
-        'buttonText': button_text
-    })
-    receive()

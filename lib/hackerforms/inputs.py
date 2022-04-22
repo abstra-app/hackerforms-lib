@@ -5,7 +5,7 @@ from .type_classes import FileResponse
 from .socket import send, receive
 
 class Form:
-    def __init__(self, title: str, button_text: str = 'Next'):
+    def __init__(self, title: str = '', button_text: str = 'Next'):
         self.title = title
         self.button_text = button_text
         self.inputs: List[Input] = []
