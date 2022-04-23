@@ -1,8 +1,8 @@
 from typing import List, Union, Dict
 from .form import *
 
-def read_text(message: str, button_text: str = 'Next'):
-    return Form(button_text).read_text(message).run()
+def read(message: str, button_text: str = 'Next'):
+    return Form(button_text).read(message).run()
 
 def read_textarea(message: str, button_text: str = 'Next'):
     return Form(button_text).read_textarea(message).run()

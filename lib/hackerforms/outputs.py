@@ -1,7 +1,7 @@
 from .form import *
 
-def display_text(msg: str, button_text: str = 'Next'):
-    return Form(button_text).display_text(msg).run()
+def display(msg: str, button_text: str = 'Next'):
+    return Form(button_text).display(msg).run()
 
 def display_image(image_str: str, subtitle: str = "", button_text: str = 'Next'):
     return Form(button_text).display_image(image_str, subtitle).run()

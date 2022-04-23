@@ -8,7 +8,7 @@ class Form:
         self.button_text = button_text
         self.fields: List[Union[Input, Output]] = []
 
-    def read_text(self, message: str, key: str = ''):
+    def read(self, message: str, key: str = ''):
         self.fields.append(TextInput(key or message, message))
         return self
 
@@ -44,7 +44,7 @@ class Form:
         self.fields.append(MultipleChoiceInput(key or message, message, options, multiple))
         return self
 
-    def display_text(self, msg: str):
+    def display(self, msg: str):
         self.fields.append(TextOutput(msg))
         return self
 
