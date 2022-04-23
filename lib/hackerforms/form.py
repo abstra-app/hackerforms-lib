@@ -73,11 +73,12 @@ class Form:
         form_answers: Dict = receive('payload')
         answer: Dict = {}
 
-        if len(self.fields) == 1:
-            field = self.fields[0]
-            return field.convertAnswer(form_answers[field.key])
+        inputs = list(filter(lambda field: isinstance(field, Input), self.fields))
 
-        for field in self.fields:
-            if isinstance(field, Input):
-                answer[field.key] = field.convertAnswer(form_answers[field.key])
+        if len(inputs) == 1:
+            input = inputs[0]
+            return input.convertAnswer(form_answers[input.key])
+
+        for input in inputs:
+            answer[input.key] = input.convertAnswer(form_answers[input.key])
         return answer
