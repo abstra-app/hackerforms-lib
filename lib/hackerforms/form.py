@@ -68,6 +68,10 @@ class Form:
     def display_pandas(self, df: pd.DataFrame):
         self.fields.append(PandasOutput(df))
         return self
+    
+    def display_plotly(self, fig):
+        self.fields.append(PlotlyOutput(fig))
+        return self
 
     def run(self):
         send({

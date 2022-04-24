@@ -80,3 +80,14 @@ class PandasOutput(Output):
             'type': self.type,
             'table': json.loads(self.df.to_json(orient="table"))
         }
+
+class PlotlyOutput(Output):
+    type = 'plotly-output'
+    def __init__(self, fig):
+        self.fig = fig
+
+    def json(self):
+        return {
+            'type': self.type,
+            'figure': json.loads(self.fig.to_json())
+        }

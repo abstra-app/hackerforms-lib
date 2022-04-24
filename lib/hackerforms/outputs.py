@@ -17,3 +17,6 @@ def display_html(html: str, button_text: str = 'Next'):
 
 def display_pandas(df: pd.DataFrame, button_text: str = 'Next'):
     return Form(button_text).display_pandas(df).run()
+
+def display_plotly(fig, button_text: str = 'Next'):
+    return Form(button_text).display_plotly(fig).run()
