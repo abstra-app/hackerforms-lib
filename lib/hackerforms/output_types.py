@@ -1,5 +1,6 @@
 from abc import abstractmethod, ABC
 from .apis import upload_file
+import json
 
 class Output(ABC):
     type: str
@@ -60,13 +61,22 @@ class FileOutput(Output):
 
 class HTMLOutput(Output):
     type = 'html-output'
-    def __init__(self, html, download_text: str = "Download here"):
+    def __init__(self, html):
         self.html = html
-        self.download_text = download_text
 
     def json(self):
         return {
             'type': self.type,
-            'message': self.html,
-            'downloadText': self.download_text,
+            'html': self.html
+        }
+
+class PandasOutput(Output):
+    type = 'pandas-output'
+    def __init__(self, df):
+        self.df = df
+    
+    def json(self):
+        return {
+            'type': self.type,
+            'table': json.loads(self.df.to_json(orient="table"))
         }

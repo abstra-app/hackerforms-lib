@@ -2,6 +2,7 @@ from typing import List, Dict
 from .socket import send, receive
 from .input_types import *
 from .output_types import *
+import pandas as pd
 
 class Form:
     def __init__(self, button_text: str = 'Next'):
@@ -60,8 +61,12 @@ class Form:
         self.fields.append(FileOutput(file, download_text))
         return self
 
-    def display_html(self, html: str, download_text: str = "Download here"):
-        self.fields.append(HTMLOutput(html, download_text))
+    def display_html(self, html: str):
+        self.fields.append(HTMLOutput(html))
+        return self
+
+    def display_pandas(self, df: pd.DataFrame):
+        self.fields.append(PandasOutput(df))
         return self
 
     def run(self):
