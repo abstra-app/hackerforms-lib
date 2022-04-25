@@ -6,8 +6,8 @@ from .utils import serialize, deserialize
 
 
 session_id = os.environ.get('SESSION_ID')
-host = 'ws://localhost:8080'
-# host = 'wss://hackerforms-broker.abstra.cloud'
+# host = 'ws://localhost:8080'
+host = 'wss://hackerforms-broker.abstra.cloud'
 
 ws = create_connection(
     f'{host}/lib?sessionId={session_id}')
