@@ -8,4 +8,5 @@ pandas
 matplotlib
 plotly
 lxml
+xlrd
 tensorflow
