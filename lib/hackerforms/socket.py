@@ -1,21 +1,24 @@
 import os
 import atexit
-from socket import socket, AF_INET, SOCK_STREAM
+from websocket import create_connection
 
 from .utils import serialize, deserialize
 
 
-SOCK_RECV_SIZE = 32 * 1024
-sock = socket(AF_INET, SOCK_STREAM)
-sock.connect((os.environ.get("BROKER_IP", ""), int(os.environ.get('PORT'))))
+session_id = os.environ.get('SESSION_ID')
+# host = 'ws://localhost:8080'
+host = 'wss://hackerforms-broker.abstra.cloud'
+
+ws = create_connection(
+    f'{host}/lib?sessionId={session_id}')
 
 
 def send(data):
-    sock.sendall(serialize(data))
+    ws.send(serialize(data))
 
 
 def receive(path: str = ''):
-    data = deserialize(sock.recv(SOCK_RECV_SIZE))
+    data = deserialize(ws.recv())
     if not path:
         return data
     return data.get(path, None)
@@ -23,4 +26,4 @@ def receive(path: str = ''):
 
 @atexit.register
 def close():
-    sock.close()
+    ws.close()
