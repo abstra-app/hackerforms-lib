@@ -1,5 +1,7 @@
 setuptools
 requests
+websocket-client
+
 python-docx
 pulp
 openpyxl
