@@ -5,11 +5,11 @@ from .utils import serialize, deserialize
 
 
 session_id = os.environ.get('SESSION_ID')
-# host = 'ws://localhost:8080'
-host = 'wss://hackerforms-broker.abstra.cloud'
+# ws_host = os.environ.get('WS_HOST', 'ws://localhost:8080')
+ws_host = os.environ.get('WS_HOST', 'wss://hackerforms-broker.abstra.cloud')
 
 ws = create_connection(
-    f'{host}/lib?sessionId={session_id}')
+    f'{ws_host}/lib?sessionId={session_id}')
 
 start = ws.recv()
 if start != 'start':
