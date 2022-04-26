@@ -1,17 +1,18 @@
+import atexit
 import os
 import webbrowser
 from websocket import create_connection
 
-from .exit_hook import register
+from .exit_hook import hooks
 from .utils import serialize, deserialize
 
 
 session_id = os.environ.get('SESSION_ID')
-# ws_host = os.environ.get('WS_HOST', 'ws://localhost:8080')
-ws_host = os.environ.get('WS_HOST', 'wss://hackerforms-broker.abstra.cloud')
+ws_host = os.environ.get('WS_HOST', 'ws://localhost:8080')
+# ws_host = os.environ.get('WS_HOST', 'wss://hackerforms-broker.abstra.cloud')
 
-# frontend_host = os.environ.get('FRONTEND_HOST', 'http://localhost:8001')
-frontend_host = os.environ.get('FRONTEND_HOST', 'https://hackerforms.com')
+frontend_host = os.environ.get('FRONTEND_HOST', 'http://localhost:8001')
+# frontend_host = os.environ.get('FRONTEND_HOST', 'https://hackerforms.com')
 
 
 def send(data):
@@ -41,4 +42,11 @@ while start != 'start':
     start = receive('type')
 
 
-register(send, ws)
+@atexit.register
+def close():
+    send({
+        'type': 'program:end',
+        'exitCode': hooks.exit_code,
+        'exception': hooks.exception
+    })
+    ws.close()

@@ -1,7 +1,4 @@
-import atexit
 import sys
-
-from websocket import WebSocket
 
 
 class ExitHooks(object):
@@ -24,16 +21,3 @@ class ExitHooks(object):
 
 
 hooks = ExitHooks()
-
-
-def close(send: function, ws: WebSocket):
-    send({
-        'type': 'program:end',
-        'exitCode': hooks.exit_code,
-        'exception': hooks.exception
-    })
-    ws.close()
-
-
-def register(send: function, ws: WebSocket):
-    atexit.register(close, send=send, ws=ws)
