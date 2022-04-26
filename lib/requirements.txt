@@ -12,3 +12,4 @@ plotly
 lxml
 xlrd
 tensorflow
+boto3
