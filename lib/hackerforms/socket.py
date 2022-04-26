@@ -8,11 +8,11 @@ from .utils import serialize, deserialize
 
 
 session_id = os.environ.get('SESSION_ID')
-ws_host = os.environ.get('WS_HOST', 'ws://localhost:8080')
-# ws_host = os.environ.get('WS_HOST', 'wss://hackerforms-broker.abstra.cloud')
+# ws_host = os.environ.get('WS_HOST', 'ws://localhost:8080')
+ws_host = os.environ.get('WS_HOST', 'wss://hackerforms-broker.abstra.cloud')
 
-frontend_host = os.environ.get('FRONTEND_HOST', 'http://localhost:8001')
-# frontend_host = os.environ.get('FRONTEND_HOST', 'https://hackerforms.com')
+# frontend_host = os.environ.get('FRONTEND_HOST', 'http://localhost:8001')
+frontend_host = os.environ.get('FRONTEND_HOST', 'https://hackerforms.com')
 
 
 def send(data):
@@ -33,9 +33,10 @@ def receive(path: str = ''):
 if session_id == None:
     ws = create_connection(f'{ws_host}/lib')
     session_id = receive('sessionId')
-    webbrowser.open(f'${frontend_host}/local/{session_id}')
+    webbrowser.open(f'{frontend_host}/local/{session_id}')
 else:
     ws = create_connection(f'{ws_host}/lib?sessionId={session_id}')
+
 
 start = None
 while start != 'start':
