@@ -1,8 +1,9 @@
 import os
-import atexit
-from websocket import create_connection
-from .utils import serialize, deserialize
 import webbrowser
+from websocket import create_connection
+
+from .exit_hook import register
+from .utils import serialize, deserialize
 
 
 session_id = os.environ.get('SESSION_ID')
@@ -40,7 +41,4 @@ while start != 'start':
     start = receive('type')
 
 
-@atexit.register
-def close():
-    send({'type': 'program:end'})
-    ws.close()
+register(send, ws)
