@@ -12,6 +12,10 @@ host = 'wss://hackerforms-broker.abstra.cloud'
 ws = create_connection(
     f'{host}/lib?sessionId={session_id}')
 
+start = ws.recv()
+if start != 'start':
+    raise Exception('Broker not started')
+
 
 def send(data):
     ws.send(serialize(data))
