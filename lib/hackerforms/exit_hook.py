@@ -1,7 +1,7 @@
 import atexit
 import sys
 
-from simple_websocket_server import WebSocket
+from websocket import WebSocket
 
 
 class ExitHooks(object):
