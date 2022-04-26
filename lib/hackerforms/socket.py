@@ -6,37 +6,38 @@ import webbrowser
 
 
 session_id = os.environ.get('SESSION_ID')
-# ws_host = os.environ.get('WS_HOST', 'ws://localhost:8080')
-ws_host = os.environ.get('WS_HOST', 'wss://hackerforms-broker.abstra.cloud')
+ws_host = os.environ.get('WS_HOST', 'ws://localhost:8080')
+# ws_host = os.environ.get('WS_HOST', 'wss://hackerforms-broker.abstra.cloud')
 
-ws = create_connection(
-    f'{ws_host}/lib?sessionId={session_id}')
-
-if session_id == None:
-    session_id = ws.recv()
-    webbrowser.open(f'localhost:8001/play?sessionId={session_id}')
-
-
-start = ws.recv()
-while start != 'start':
-    start = ws.recv()
 
 def send(data):
     ws.send(serialize(data))
 
 
 def receive(path: str = ''):
-    raw_data = ws.recv()
+    data = deserialize(ws.recv())
 
-    if raw_data == 'keep-alive':
+    if data['type'] == 'keep-alive':
         return receive(path)
 
-    data = deserialize(raw_data)
     if not path:
         return data
     return data.get(path, None)
 
 
+if session_id == None:
+    ws = create_connection(f'{ws_host}/lib')
+    session_id = receive('sessionId')
+    webbrowser.open(f'http://localhost:8001/local/{session_id}')
+else:
+    ws = create_connection(f'{ws_host}/lib?sessionId={session_id}')
+
+start = None
+while start != 'start':
+    start = receive('type')
+
+
 @atexit.register
 def close():
+    send({'type': 'program:end'})
     ws.close()
