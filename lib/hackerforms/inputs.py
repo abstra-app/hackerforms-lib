@@ -1,87 +1,29 @@
 from typing import List, Union, Dict
+from .form import *
 
-from .type_classes import FileResponse
-from .socket import send, receive
+def read(message: str, button_text: str = 'Next'):
+    return Form(button_text).read(message).run()
 
+def read_textarea(message: str, button_text: str = 'Next'):
+    return Form(button_text).read_textarea(message).run()
 
-def read(msg: str, button_text: str = "Next") -> str:
-    send({
-        'message': msg,
-        'type': 'text-input',
-        'buttonText': button_text,
-    })
-    return receive('payload')
+def read_number(message: str, button_text: str = 'Next'):
+    return Form(button_text).read_number(message).run()
 
-def read_textarea(msg: str, button_text: str = "Next") -> str:
-    send({
-        'message': msg,
-        'type': 'textarea-input',
-        'buttonText': button_text,
-    })
-    return receive('payload')
-    
-def read_number(msg: str, button_text: str = "Next") -> str:
-    send({
-        'message': msg,
-        'type': 'number-input',
-        'buttonText': button_text,
-    })
-    return receive('payload')
+def read_email(message: str, button_text: str = 'Next'):
+    return Form(button_text).read_email(message).run()
 
-def read_email(msg: str, button_text: str = "Next") -> str:
-    send({
-        'message': msg,
-        'type': 'email-input',
-        'buttonText': button_text,
-    })
-    return receive('payload')
+def read_phone(message: str, button_text: str = 'Next'):
+    return Form(button_text).read_phone(message).run()
 
-def read_phone(msg: str, button_text: str = "Next") -> dict:
-    send({
-        'message': msg,
-        'type': 'phone-input',
-        'buttonText': button_text,
-    })
-    return receive('payload')
+def read_date(message: str, button_text: str = 'Next'):
+    return Form(button_text).read_date(message).run()
 
-def read_date(msg: str, button_text: str = "Next") -> str:
-    send({
-        'message': msg,
-        'type': 'date-input',
-        'buttonText': button_text,
-    })
-    return receive('payload')
+def read_file(message: str, button_text: str = 'Next'):
+    return Form(button_text).read_file(message).run()
 
+def read_dropdown(name: str, options: Union[List[str], List[Dict]], button_text: str = 'Next'):
+    return Form(button_text).read_dropdown(name, options).run()
 
-def read_file(msg: str, button_text: str = "Next") -> FileResponse:
-    send({
-        'message': msg,
-        'type': 'file-input',
-        'buttonText': button_text
-    })
-    url = receive('payload')
-    return FileResponse(url)
-
-
-def read_multiple_choice(msg: str,
-                         options: Union[List[str], List[Dict]],
-                         button_text: str = "Next",
-                         multiple: bool = False) -> str:
-    send({
-        'message': msg,
-        'type': 'multiple-choice-input',
-        'buttonText': button_text,
-        'options': options,
-        'multiple': multiple
-    })
-    return receive('payload')
-
-
-def read_dropdown(name: str, options: Union[List[str], List[Dict]], button_text: str = "Next") -> str:
-    send({
-        'message': name,
-        'type': 'dropdown-input',
-        'buttonText': button_text,
-        'options': options
-    })
-    return receive('payload')
+def read_multiple_choice(message: str, options: Union[List[str], List[Dict]], multiple: bool = False, button_text: str = 'Next'):
+    return Form(button_text).read_multiple_choice(message, options, multiple).run()

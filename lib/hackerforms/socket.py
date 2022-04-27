@@ -1,26 +1,53 @@
-import os
 import atexit
-from socket import socket, AF_INET, SOCK_STREAM
+import os
+import webbrowser
+from websocket import create_connection
 
+from .exit_hook import hooks
 from .utils import serialize, deserialize
 
 
-SOCK_RECV_SIZE = 32 * 1024
-sock = socket(AF_INET, SOCK_STREAM)
-sock.connect(("", int(os.environ.get('PORT'))))
+session_id = os.environ.get('SESSION_ID')
+# ws_host = os.environ.get('WS_HOST', 'ws://localhost:8080')
+ws_host = os.environ.get('WS_HOST', 'wss://hackerforms-broker.abstra.cloud')
+
+# frontend_host = os.environ.get('FRONTEND_HOST', 'http://localhost:8001')
+frontend_host = os.environ.get('FRONTEND_HOST', 'https://hackerforms.com')
 
 
 def send(data):
-    sock.sendall(serialize(data))
+    ws.send(serialize(data))
 
 
 def receive(path: str = ''):
-    data = deserialize(sock.recv(SOCK_RECV_SIZE))
+    data = deserialize(ws.recv())
+
+    if data['type'] == 'keep-alive':
+        return receive(path)
+
     if not path:
         return data
     return data.get(path, None)
 
 
+if session_id == None:
+    ws = create_connection(f'{ws_host}/lib')
+    session_id = receive('sessionId')
+    webbrowser.open(f'{frontend_host}/local/{session_id}')
+else:
+    ws = create_connection(f'{ws_host}/lib?sessionId={session_id}')
+
+
+start = None
+while start != 'start':
+    start = receive('type')
+
+
 @atexit.register
 def close():
-    sock.close()
+    send({
+        'type': 'program:end',
+        'exitCode': hooks.exit_code,
+        'exception': hooks.exception
+    })
+    ws.close()

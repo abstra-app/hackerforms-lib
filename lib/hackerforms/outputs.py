@@ -1,49 +1,22 @@
-from .apis import upload_file
-from .socket import send, receive
+from .form import *
 
+def display(msg: str, button_text: str = 'Next'):
+    return Form(button_text).display(msg).run()
 
-def display(msg: str, button_text: str = "Next") -> None:
-    send({
-        'message': msg,
-        'type': 'text-output',
-        'buttonText': button_text
-    })
-    receive()
+def display_image(image_str: str, subtitle: str = "", button_text: str = 'Next'):
+    return Form(button_text).display_image(image_str, subtitle).run()
 
+def display_link(link_url: str, link_text: str = "Click here", button_text: str = 'Next'):
+    return Form(button_text).display_link(link_url, link_text).run()
 
-def display_image(image_str: str, button_text: str = "Next", subtitle: str = "") -> None:
-    send({
-        'message': image_str,
-        'type': 'image-output',
-        'buttonText': button_text,
-        "subtitle": subtitle
-    })
-    receive()
+def display_file(file, download_text: str = "Download here", button_text: str = 'Next'):
+    return Form(button_text).display_file(file, download_text).run()
 
+def display_html(html: str, button_text: str = 'Next'):
+    return Form(button_text).display_html(html).run()
 
-def display_link(link_url: str, button_text: str = "Next", link_text: str = "Click here") -> None:
-    send({
-        'message': link_url,
-        'type': 'link-output',
-        'buttonText': button_text,
-        "linkText": link_text
-    })
-    receive()
+def display_pandas(df: pd.DataFrame, button_text: str = 'Next'):
+    return Form(button_text).display_pandas(df).run()
 
-
-def display_file(file, button_text: str = "Next", download_text: str = "Download here") -> None:
-    send({
-        'message': file if isinstance(file, str) else upload_file(file),
-        'type': 'file-output',
-        'buttonText': button_text,
-        "downloadText": download_text
-    })
-    receive()
-
-def display_html(html: str, button_text: str = "Next", download_text: str = "Download here") -> None:
-    send({
-        'message': html,
-        'type': 'html-output',
-        'buttonText': button_text
-    })
-    receive()
+def display_plotly(fig, button_text: str = 'Next'):
+    return Form(button_text).display_plotly(fig).run()
