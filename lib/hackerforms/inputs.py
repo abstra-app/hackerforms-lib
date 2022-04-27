@@ -22,8 +22,8 @@ def read_date(message: str, button_text: str = 'Next'):
 def read_file(message: str, button_text: str = 'Next'):
     return Form(button_text).read_file(message).run()
 
-def read_dropdown(name: str, options: Union[List[str], List[Dict]], button_text: str = 'Next'):
-    return Form(button_text).read_dropdown(name, options).run()
+def read_dropdown(message: str, options: Union[List[str], List[Dict]], button_text: str = 'Next'):
+    return Form(button_text).read_dropdown(message, options).run()
 
 def read_multiple_choice(message: str, options: Union[List[str], List[Dict]], multiple: bool = False, button_text: str = 'Next'):
     return Form(button_text).read_multiple_choice(message, options, multiple).run()
