@@ -1,7 +1,7 @@
 from abc import abstractmethod, ABC
 from typing import List, Union, Dict
 
-from .type_classes import FileResponse
+from .type_classes import FileResponse, PhoneResponse
 
 class Input(ABC):
     type: str
@@ -16,7 +16,7 @@ class Input(ABC):
 
     def convertAnswer(self, answer):
         return answer
-    
+  
 class TextInput(Input):
     type = 'text-input'
     def __init__(self, key: str, message: str):
@@ -143,3 +143,6 @@ class PhoneInput(Input):
             'key': self.key,
             'message': self.message,
         }
+
+    def convertAnswer(self, answer):
+        return PhoneResponse(answer)
