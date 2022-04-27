@@ -1,7 +1,8 @@
 from typing import List, Union, Dict
+from .type_classes import *
 from .form import *
 
-def read(message: str, button_text: str = 'Next'):
+def read(message: str, button_text: str = 'Next') -> str:
     '''Read a text value from the user simple text input
 
     Args:
@@ -13,7 +14,7 @@ def read(message: str, button_text: str = 'Next'):
     '''
     return Form(button_text).read(message).run()
 
-def read_textarea(message: str, button_text: str = 'Next'):
+def read_textarea(message: str, button_text: str = 'Next') -> str:
     '''Read a text value from the user with a text area input
 
     Args:
@@ -25,7 +26,7 @@ def read_textarea(message: str, button_text: str = 'Next'):
     '''
     return Form(button_text).read_textarea(message).run()
 
-def read_number(message: str, button_text: str = 'Next'):
+def read_number(message: str, button_text: str = 'Next') -> int:
     '''Read a number value from the user
 
     Args:
@@ -37,7 +38,7 @@ def read_number(message: str, button_text: str = 'Next'):
     '''
     return Form(button_text).read_number(message).run()
 
-def read_email(message: str, button_text: str = 'Next'):
+def read_email(message: str, button_text: str = 'Next') -> str:
     '''Read an email value from the user
 
     Args:
@@ -49,7 +50,7 @@ def read_email(message: str, button_text: str = 'Next'):
     '''
     return Form(button_text).read_email(message).run()
 
-def read_phone(message: str, button_text: str = 'Next'):
+def read_phone(message: str, button_text: str = 'Next') -> PhoneResponse:
     '''Read a phone number value from the user
 
     Args:
@@ -57,11 +58,11 @@ def read_phone(message: str, button_text: str = 'Next'):
         button_text (str): The text to display on the button that will submit the value
 
     Returns:
-        str: The value entered by the user
+        PhoneResponse: The value entered by the user
     '''
     return Form(button_text).read_phone(message).run()
 
-def read_date(message: str, button_text: str = 'Next'):
+def read_date(message: str, button_text: str = 'Next') -> str:
     '''Read a date value from the user
 
     Args:
@@ -73,7 +74,7 @@ def read_date(message: str, button_text: str = 'Next'):
     '''
     return Form(button_text).read_date(message).run()
 
-def read_file(message: str, button_text: str = 'Next'):
+def read_file(message: str, button_text: str = 'Next') -> FileResponse:
     '''Read a file value from the user
 
     Args:
@@ -81,7 +82,7 @@ def read_file(message: str, button_text: str = 'Next'):
         button_text (str): The text to display on the button that will submit the value
 
     Returns:
-        { "file": File, "url": string, "content": bytes }: The file uploaded by the user the user
+        FileResponse: The file uploaded by the user the user
     '''
     return Form(button_text).read_file(message).run()
 
@@ -90,7 +91,7 @@ def read_dropdown(message: str, options: Union[List[str], List[Dict]], button_te
 
     Args:
         message (str): The message to display to the user
-        options (list): The options to display to the user
+        options (list): The options to display to the user, eg. ['Option 1', 'Option 2'] or [{'label': 'Option 1', 'value': '1'}, {'label': 'Option 2', 'value': '2'}]
         button_text (str): The text to display on the button that will submit the value
 
     Returns:
@@ -103,7 +104,7 @@ def read_multiple_choice(message: str, options: Union[List[str], List[Dict]], mu
 
     Args:
         message (str): The message to display to the user
-        options (list): The options to display to the user
+        options (list): The options to display to the user, eg. ['Option 1', 'Option 2'] or [{'label': 'Option 1', 'value': '1'}, {'label': 'Option 2', 'value': '2'}]
         multiple (bool): Whether the user can select multiple options
         button_text (str): The text to display on the button that will submit the value
 

@@ -1,5 +1,6 @@
 from tempfile import TemporaryFile
 import requests
+from dataclasses import dataclass
 
 
 class FileResponse:
@@ -11,3 +12,8 @@ class FileResponse:
         self.file = TemporaryFile()
         self.file.write(self.content)
         self.file.seek(0)
+
+@dataclass
+class PhoneResponse:
+    masked: str
+    raw: str

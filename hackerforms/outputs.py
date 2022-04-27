@@ -15,7 +15,7 @@ def display_image(image_str: str, subtitle: str = "", button_text: str = 'Next')
     '''Display an image to the user
 
     Args:
-        image_str (str): The url of the image to display to the user
+        image_str (str): The url or base64 encoding of the image to display to the user
         subtitle (str): The subtitle of the image
         button_text (str): The text to display on the button that will continue the form
     '''

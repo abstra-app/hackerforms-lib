@@ -118,7 +118,7 @@ class Form:
 
         Args:
             name: The name of the dropdown
-            options: The options of the dropdown
+            options: The options of the dropdown, eg. ['Option 1', 'Option 2'] or [{'label': 'Option 1', 'value': '1'}, {'label': 'Option 2', 'value': '2'}]
             key: The key of the input's value on the form result. Defaults to the message arg
         
         Returns:
@@ -132,7 +132,7 @@ class Form:
 
         Args:
             message: The message that will be displayed to the user
-            options: The options of the multiple choice
+            options: The options of the multiple choice, eg. ['Option 1', 'Option 2'] or [{'label': 'Option 1', 'value': '1'}, {'label': 'Option 2', 'value': '2'}]
             multiple: Whether the user can select multiple options
             key: The key of the input's value on the form result. Defaults to the message arg
         
@@ -159,7 +159,7 @@ class Form:
         '''Add an image to the page
 
         Args:
-            image_str: The url of the image to display to the user
+            image_str: The url or base64 encoding of the image to display to the user
             subtitle: The subtitle of the image
         
         Returns:
