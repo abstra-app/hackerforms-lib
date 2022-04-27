@@ -1,15 +1,3 @@
 setuptools
 requests
 websocket-client
-
-python-docx
-pulp
-openpyxl
-numpy
-pandas
-matplotlib
-plotly
-lxml
-xlrd
-tensorflow
-boto3

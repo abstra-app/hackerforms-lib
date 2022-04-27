@@ -2,7 +2,7 @@ from typing import List, Dict
 from .socket import send, receive
 from .input_types import *
 from .output_types import *
-import pandas as pd
+
 
 class Form:
     def __init__(self, button_text: str = 'Next'):
@@ -16,7 +16,7 @@ class Form:
     def read_textarea(self, message: str, key: str = ''):
         self.fields.append(TextareaInput(key or message, message))
         return self
-        
+
     def read_number(self, message: str, key: str = ''):
         self.fields.append(NumberInput(key or message, message))
         return self
@@ -42,7 +42,8 @@ class Form:
         return self
 
     def read_multiple_choice(self, message: str, options: Union[List[str], List[Dict]], multiple: bool = False, key: str = ''):
-        self.fields.append(MultipleChoiceInput(key or message, message, options, multiple))
+        self.fields.append(MultipleChoiceInput(
+            key or message, message, options, multiple))
         return self
 
     def display(self, msg: str):
@@ -65,10 +66,10 @@ class Form:
         self.fields.append(HTMLOutput(html))
         return self
 
-    def display_pandas(self, df: pd.DataFrame):
+    def display_pandas(self, df):
         self.fields.append(PandasOutput(df))
         return self
-    
+
     def display_plotly(self, fig):
         self.fields.append(PlotlyOutput(fig))
         return self
@@ -82,7 +83,8 @@ class Form:
         form_answers: Dict = receive('payload')
         answer: Dict = {}
 
-        inputs = list(filter(lambda field: isinstance(field, Input), self.fields))
+        inputs = list(
+            filter(lambda field: isinstance(field, Input), self.fields))
 
         if len(inputs) == 1:
             input = inputs[0]
