@@ -68,7 +68,7 @@ def display_plotly(fig, button_text: str = 'Next'):
     '''Display a plotly figure to the user
 
     Args:
-        fig (Figure): The figure to display to the user
+        fig (plotly.Figure): The figure to display to the user
         button_text (str): The text to display on the button that will continue the form
     '''
     return Form(button_text).display_plotly(fig).run()
