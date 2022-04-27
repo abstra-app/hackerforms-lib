@@ -58,7 +58,7 @@ def display_pandas(df, button_text: str = 'Next'):
     '''Display a pandas dataframe to the user
 
     Args:
-        df (DataFrame): The dataframe to display to the user
+        df (pandas.DataFrame): The dataframe to display to the user
         button_text (str): The text to display on the button that will continue the form
     '''
     return Form(button_text).display_pandas(df).run()
