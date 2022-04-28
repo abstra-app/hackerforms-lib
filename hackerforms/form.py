@@ -113,18 +113,19 @@ class Form:
         self.fields.append(FileInput(key or message, message))
         return self
 
-    def read_dropdown(self, name: str, options: Union[List[str], List[Dict]], key: str = ''):
+    def read_dropdown(self, name: str, options: Union[List[str], List[Dict]], multiple: bool = False, key: str = ''):
         '''Add a dropdown input on the page
 
         Args:
             name: The name of the dropdown
             options: The options of the dropdown, eg. ['Option 1', 'Option 2'] or [{'label': 'Option 1', 'value': '1'}, {'label': 'Option 2', 'value': '2'}]
+             multiple: Whether the user can select multiple options
             key: The key of the input's value on the form result. Defaults to the message arg
         
         Returns:
             The form object
         '''
-        self.fields.append(DropdownInput(key or name, name, options))
+        self.fields.append(DropdownInput(key or name, name, options, multiple))
         return self
 
     def read_multiple_choice(self, message: str, options: Union[List[str], List[Dict]], multiple: bool = False, key: str = ''):
