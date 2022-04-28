@@ -78,11 +78,10 @@ class MultipleChoiceInput(Input):
 
 class DropdownInput(Input):
     type = 'dropdown-input'
-    def __init__(self, key: str, name: str, options: Union[List[str], List[Dict]], multiple: bool = False):
+    def __init__(self, key: str, name: str, options: Union[List[str], List[Dict]]):
         super().__init__(key)
         self.name = name
         self.options = options
-        self.multiple = multiple
 
     def json(self):
         return {
@@ -90,7 +89,6 @@ class DropdownInput(Input):
             'key': self.key,
             'message': self.name,
             'options': self.options,
-            'multiple': self.multiple,
         }
 
 class TextareaInput(Input):
@@ -147,4 +145,4 @@ class PhoneInput(Input):
         }
 
     def convertAnswer(self, answer):
-        return PhoneResponse(raw=answer['raw'],masked=answer['masked'])
+        return PhoneResponse(answer)
