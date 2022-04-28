@@ -41,7 +41,7 @@ else:
 
 start = { "type": None }
 while start["type"] != 'start':
-    start = deserialize(ws.recv())
+    start = receive()
 
 set_params(start["params"])
 
