@@ -1,6 +1,6 @@
 from typing import List, Union, Dict
 from .type_classes import *
-from .form import *
+from .page import *
 
 def read(message: str, button_text: str = 'Next') -> str:
     '''Read a text value from the user simple text input
@@ -12,7 +12,7 @@ def read(message: str, button_text: str = 'Next') -> str:
     Returns:
         str: The value entered by the user
     '''
-    return Form(button_text).read(message).run()
+    return Page(button_text).read(message).run()
 
 def read_textarea(message: str, button_text: str = 'Next') -> str:
     '''Read a text value from the user with a text area input
@@ -24,7 +24,7 @@ def read_textarea(message: str, button_text: str = 'Next') -> str:
     Returns:
         str: The value entered by the user
     '''
-    return Form(button_text).read_textarea(message).run()
+    return Page(button_text).read_textarea(message).run()
 
 def read_number(message: str, button_text: str = 'Next') -> int:
     '''Read a number value from the user
@@ -36,7 +36,7 @@ def read_number(message: str, button_text: str = 'Next') -> int:
     Returns:
         int: The value entered by the user
     '''
-    return Form(button_text).read_number(message).run()
+    return Page(button_text).read_number(message).run()
 
 def read_email(message: str, button_text: str = 'Next') -> str:
     '''Read an email value from the user
@@ -48,7 +48,7 @@ def read_email(message: str, button_text: str = 'Next') -> str:
     Returns:
         str: The value entered by the user
     '''
-    return Form(button_text).read_email(message).run()
+    return Page(button_text).read_email(message).run()
 
 def read_phone(message: str, button_text: str = 'Next') -> PhoneResponse:
     '''Read a phone number value from the user
@@ -60,7 +60,7 @@ def read_phone(message: str, button_text: str = 'Next') -> PhoneResponse:
     Returns:
         PhoneResponse: The value entered by the user
     '''
-    return Form(button_text).read_phone(message).run()
+    return Page(button_text).read_phone(message).run()
 
 def read_date(message: str, button_text: str = 'Next') -> str:
     '''Read a date value from the user
@@ -72,7 +72,7 @@ def read_date(message: str, button_text: str = 'Next') -> str:
     Returns:
         str: The value entered by the user
     '''
-    return Form(button_text).read_date(message).run()
+    return Page(button_text).read_date(message).run()
 
 def read_file(message: str, button_text: str = 'Next') -> FileResponse:
     '''Read a file value from the user
@@ -84,7 +84,7 @@ def read_file(message: str, button_text: str = 'Next') -> FileResponse:
     Returns:
         FileResponse: The file uploaded by the user the user
     '''
-    return Form(button_text).read_file(message).run()
+    return Page(button_text).read_file(message).run()
 
 def read_dropdown(message: str, options: Union[List[str], List[Dict]], button_text: str = 'Next'):
     '''Read a dropdown value from the user
@@ -97,7 +97,7 @@ def read_dropdown(message: str, options: Union[List[str], List[Dict]], button_te
     Returns:
         str: The value selected by the user
     '''
-    return Form(button_text).read_dropdown(message, options).run()
+    return Page(button_text).read_dropdown(message, options).run()
 
 def read_multiple_choice(message: str, options: Union[List[str], List[Dict]], multiple: bool = False, button_text: str = 'Next'): 
     '''Read a multiple choice value from the user
@@ -111,4 +111,4 @@ def read_multiple_choice(message: str, options: Union[List[str], List[Dict]], mu
     Returns:
         list, any: The values/value selected by the user
     '''
-    return Form(button_text).read_multiple_choice(message, options, multiple).run()
+    return Page(button_text).read_multiple_choice(message, options, multiple).run()

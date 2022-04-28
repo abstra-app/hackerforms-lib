@@ -1,4 +1,4 @@
-from .form import *
+from .page import *
 from .inputs import *
 from .outputs import *
 from .stdio import *

@@ -4,7 +4,7 @@ from .input_types import *
 from .output_types import *
 
 
-class Form:
+class Page:
     '''A form page that can be displayed to the user
 
     This is a page that can be displayed to the user. It can be used to
