@@ -86,18 +86,19 @@ def read_file(message: str, button_text: str = 'Next') -> FileResponse:
     '''
     return get_single_value(Page().read_file(message).run(button_text))
 
-def read_dropdown(message: str, options: Union[List[str], List[Dict]], button_text: str = 'Next'):
+def read_dropdown(message: str, options: Union[List[str], List[Dict]], multiple: bool = False, button_text: str = 'Next'):
     '''Read a dropdown value from the user
 
     Args:
         message (str): The message to display to the user
         options (list): The options to display to the user, eg. ['Option 1', 'Option 2'] or [{'label': 'Option 1', 'value': '1'}, {'label': 'Option 2', 'value': '2'}]
+        multiple (bool): Whether the user can select multiple options
         button_text (str): The text to display on the button that will submit the value
 
     Returns:
         str: The value selected by the user
     '''
-    return get_single_value(Page().read_dropdown(message, options).run(button_text))
+    return get_single_value(Page().read_dropdown(message, options, multiple).run(button_text))
 
 def read_multiple_choice(message: str, options: Union[List[str], List[Dict]], multiple: bool = False, button_text: str = 'Next'): 
     '''Read a multiple choice value from the user
