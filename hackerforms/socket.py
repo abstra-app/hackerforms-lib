@@ -38,10 +38,11 @@ else:
     ws = create_connection(f'{ws_host}/lib?sessionId={session_id}')
 
 
-start = None
-while start != 'start':
-    start = receive('type')
+start = { "type": None }
+while start["type"] != 'start':
+    start = deserialize(ws.recv())
 
+print(start["params"])
 
 @atexit.register
 def close():
