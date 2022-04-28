@@ -8,7 +8,7 @@ def display(msg: str, button_text: str = 'Next'):
         msg (str): The message to display to the user
         button_text (str): The text to display on the button that will continue the form
     '''
-    return Page(button_text).display(msg).run()
+    return Page().display(msg).run(button_text)
 
 
 def display_image(image_str: str, subtitle: str = "", button_text: str = 'Next'):
@@ -19,7 +19,7 @@ def display_image(image_str: str, subtitle: str = "", button_text: str = 'Next')
         subtitle (str): The subtitle of the image
         button_text (str): The text to display on the button that will continue the form
     '''
-    return Page(button_text).display_image(image_str, subtitle).run()
+    return Page().display_image(image_str, subtitle).run(button_text)
 
 
 def display_link(link_url: str, link_text: str = "Click here", button_text: str = 'Next'):
@@ -30,7 +30,7 @@ def display_link(link_url: str, link_text: str = "Click here", button_text: str 
         link_text (str): The text to display on the link
         button_text (str): The text to display on the button that will continue the form
     '''
-    return Page(button_text).display_link(link_url, link_text).run()
+    return Page().display_link(link_url, link_text).run(button_text)
 
 
 def display_file(file, download_text: str = "Download here", button_text: str = 'Next'):
@@ -41,7 +41,7 @@ def display_file(file, download_text: str = "Download here", button_text: str = 
         download_text (str): The text to display on the button that will download the file
         button_text (str): The text to display on the button that will continue the form
     '''
-    return Page(button_text).display_file(file, download_text).run()
+    return Page().display_file(file, download_text).run(button_text)
 
 
 def display_html(html: str, button_text: str = 'Next'):
@@ -51,7 +51,7 @@ def display_html(html: str, button_text: str = 'Next'):
         html (str): The html snippet to display to the user
         button_text (str): The text to display on the button that will continue the form
     '''
-    return Page(button_text).display_html(html).run()
+    return Page().display_html(html).run(button_text)
 
 
 def display_pandas(df, button_text: str = 'Next'):
@@ -61,7 +61,7 @@ def display_pandas(df, button_text: str = 'Next'):
         df (pandas.DataFrame): The dataframe to display to the user
         button_text (str): The text to display on the button that will continue the form
     '''
-    return Page(button_text).display_pandas(df).run()
+    return Page().display_pandas(df).run(button_text)
 
 
 def display_plotly(fig, button_text: str = 'Next'):
@@ -71,4 +71,4 @@ def display_plotly(fig, button_text: str = 'Next'):
         fig (plotly.Figure): The figure to display to the user
         button_text (str): The text to display on the button that will continue the form
     '''
-    return Page(button_text).display_plotly(fig).run()
+    return Page().display_plotly(fig).run(button_text)

@@ -12,12 +12,7 @@ class Page:
     inputs and outputs, use the run method to display the form to the
     user and collect the answers.
     '''
-    def __init__(self, button_text: str = 'Next'):
-        '''
-        Args:
-            button_text: The text of the button that is used to submit the form
-        '''
-        self.button_text = button_text
+    def __init__(self):
         self.fields: List[Union[Input, Output]] = []
 
     def read(self, message: str, key: str = ''):
@@ -139,8 +134,7 @@ class Page:
         Returns:
             The form object
         '''
-        self.fields.append(MultipleChoiceInput(
-            key or message, message, options, multiple))
+        self.fields.append(MultipleChoiceInput(key or message, message, options, multiple))
         return self
 
     def display(self, msg: str):
@@ -230,8 +224,11 @@ class Page:
         self.fields.append(PlotlyOutput(fig))
         return self
 
-    def run(self):
+    def run(self, button_text: str = 'Next') -> Dict:
         '''Run the form
+
+        Args:
+            button_text: The text of the button that is used to submit the form
 
         Returns:
             The form result as a dict with the keys being the key of the input and the value being the value of the input
@@ -239,17 +236,13 @@ class Page:
         send({
             'type': 'form',
             'fields': [field.json() for field in self.fields],
-            'buttonText': self.button_text
+            'buttonText': button_text
         })
         form_answers: Dict = receive('payload')
         answer: Dict = {}
 
         inputs = list(
             filter(lambda field: isinstance(field, Input), self.fields))
-
-        if len(inputs) == 1:
-            input = inputs[0]
-            return input.convertAnswer(form_answers[input.key])
 
         for input in inputs:
             answer[input.key] = input.convertAnswer(form_answers[input.key])
