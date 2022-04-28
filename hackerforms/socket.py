@@ -5,6 +5,7 @@ from websocket import create_connection
 
 from .exit_hook import hooks
 from .utils import serialize, deserialize
+from .parameters import set_params
 
 
 session_id = os.environ.get('SESSION_ID')
@@ -38,10 +39,11 @@ else:
     ws = create_connection(f'{ws_host}/lib?sessionId={session_id}')
 
 
-start = None
-while start != 'start':
-    start = receive('type')
+start = { "type": None }
+while start["type"] != 'start':
+    start = receive()
 
+set_params(start["params"])
 
 @atexit.register
 def close():
