@@ -10,6 +10,8 @@ pip install twine
 
 ## Build
 
+Bump the version number in `setup.py`
+
 Build the package:
 
 ```sh
