@@ -138,16 +138,16 @@ class Page:
         self.fields.append(MultipleChoiceInput(key or message, message, options, multiple))
         return self
 
-    def display(self, msg: str):
+    def display(self, message: str):
         '''Add a message to the page
 
         Args:
-            msg: The message to display to the user
+            message: The message to display to the user
         
         Returns:
             The form object
         '''
-        self.fields.append(TextOutput(msg))
+        self.fields.append(TextOutput(message))
         return self
 
     def display_image(self, image_str: str, subtitle: str = ""):

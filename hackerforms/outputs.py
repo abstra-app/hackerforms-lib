@@ -1,14 +1,14 @@
 from .page import *
 
 
-def display(msg: str, button_text: str = 'Next'):
+def display(message: str, button_text: str = 'Next'):
     '''Display a message to the user
 
     Args:
-        msg (str): The message to display to the user
+        message (str): The message to display to the user
         button_text (str): The text to display on the button that will continue the form
     '''
-    return Page().display(msg).run(button_text)
+    return Page().display(message).run(button_text)
 
 
 def display_image(image_str: str, subtitle: str = "", button_text: str = 'Next'):
