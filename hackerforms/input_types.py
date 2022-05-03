@@ -108,15 +108,17 @@ class TextareaInput(Input):
 
 class NumberInput(Input):
     type = 'number-input'
-    def __init__(self, key: str, message: str):
+    def __init__(self, key: str, message: str, integer: bool = False):
         super().__init__(key)
         self.message = message
+        self.integer  = integer
 
     def json(self):
         return {
             'type': self.type,
             'key': self.key,
             'message': self.message,
+            'integer': self.integer,
         }
 
 class EmailInput(Input):

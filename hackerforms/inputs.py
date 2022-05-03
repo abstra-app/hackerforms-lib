@@ -26,17 +26,18 @@ def read_textarea(message: str, button_text: str = 'Next') -> str:
     '''
     return get_single_value(Page().read_textarea(message).run(button_text))
 
-def read_number(message: str, button_text: str = 'Next') -> int:
+def read_number(message: str, integer: bool = False, button_text: str = 'Next') -> int:
     '''Read a number value from the user
 
     Args:
         message (str): The message to display to the user
+        integer: Allow integer numbers only
         button_text (str): The text to display on the button that will submit the value
 
     Returns:
         int: The value entered by the user
     '''
-    return get_single_value(Page().read_number(message).run(button_text))
+    return get_single_value(Page().read_number(message, integer).run(button_text))
 
 def read_email(message: str, button_text: str = 'Next') -> str:
     '''Read an email value from the user

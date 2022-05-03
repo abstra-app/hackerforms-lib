@@ -41,17 +41,18 @@ class Page:
         self.fields.append(TextareaInput(key or message, message))
         return self
 
-    def read_number(self, message: str, key: str = ''):
+    def read_number(self, message: str, integer: bool = False, key: str = ''):
         '''Add a number input on the page
 
         Args:
             message: The message that will be displayed to the user
+            integer: Allow integer numbers only
             key: The key of the input's value on the form result. Defaults to the message arg
         
         Returns:
             The form object
         '''
-        self.fields.append(NumberInput(key or message, message))
+        self.fields.append(NumberInput(key or message, message, integer))
         return self
 
     def read_email(self, message: str, key: str = ''):
