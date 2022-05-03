@@ -1,5 +1,6 @@
 from abc import abstractmethod, ABC
 from typing import List, Union, Dict
+from datetime import date
 
 from .type_classes import FileResponse, PhoneResponse
 
@@ -42,6 +43,18 @@ class DateInput(Input):
             'key': self.key,
             'message': self.message,
         }
+
+    def convertAnswer(self, answer: str):
+        '''Convert answer from string to date
+
+        Args:
+            answer (str): Date format YYYY-MM-DD
+        '''
+        split_answer = answer.split('-')
+        year = int(split_answer[0])
+        month = int(split_answer[1])
+        day = int(split_answer[2])
+        return date(year, month, day)
 
 class FileInput(Input):
     type = 'file-input'
