@@ -70,7 +70,7 @@ def read_date(message: str, button_text: str = 'Next') -> str:
         button_text (str): The text to display on the button that will submit the value
 
     Returns:
-        str: The value entered by the user
+        datetime.date: The value entered by the user
     '''
     return get_single_value(Page().read_date(message).run(button_text))
 
