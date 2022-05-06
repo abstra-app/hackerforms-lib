@@ -1,7 +1,8 @@
 from abc import abstractmethod, ABC
 from .apis import upload_file
+from validators import url
+from urllib.parse import quote
 import json
-
 class Output(ABC):
     type: str
 
@@ -94,15 +95,19 @@ class PlotlyOutput(Output):
 
 class IFrameOutput(Output):
     type = 'iframe-output'
-    def __init__(self, html, width, height):
-        self.html = html
+    def __init__(self, url_or_html, width, height):
+        if url(url_or_html):
+            self.url = url_or_html
+        else:
+            self.url = f"data:text/html,{quote(url_or_html)}" 
+        
         self.width = width
         self.height = height
     
     def json(self):
         return {
             'type': self.type,
-            'html': self.html,
+            'url': self.url,
             'width': self.width,
             'height': self.height,
         }
