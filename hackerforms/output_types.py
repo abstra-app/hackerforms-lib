@@ -91,3 +91,19 @@ class PlotlyOutput(Output):
             'type': self.type,
             'figure': json.loads(self.fig.to_json())
         }
+
+class IFrameOutput(Output):
+    type = 'iframe-output'
+    def __init__(self, html, width, height):
+        self.html = html
+        self.width = width
+        self.height = height
+    
+    def json(self):
+        return {
+            'type': self.type,
+            'html': self.html,
+            'width': self.width,
+            'height': self.height,
+        }
+

@@ -72,3 +72,14 @@ def display_plotly(fig, button_text: str = 'Next'):
         button_text (str): The text to display on the button that will continue the form
     '''
     return Page().display_plotly(fig).run(button_text)
+
+
+def display_iframe(html: str, width: int = 800, height: int = 600, button_text: str = 'Next'):
+    '''Dsiplay an inline iframe to the user
+
+    Args:
+        html (str): The html document to display to the user
+        button_text (str): The text to display on the button that will continue the form
+    '''
+
+    return Page().display_iframe(html, width, height).run(button_text)
