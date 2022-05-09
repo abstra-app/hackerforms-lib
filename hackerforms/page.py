@@ -225,7 +225,7 @@ class Page:
         self.fields.append(PlotlyOutput(fig))
         return self
 
-    def display_iframe(self, html: str, width: int, height: int):
+    def display_iframe(self, url_or_html: str, width: int, height: int):
         '''Add an iframe to the page
 
         Args:
@@ -234,7 +234,7 @@ class Page:
         Returns:
             The iframe object
         '''
-        self.fields.append(IFrameOutput(html, width, height))
+        self.fields.append(IFrameOutput(url_or_html, width, height))
         return self
 
     def run(self, button_text: str = 'Next') -> Dict:
