@@ -229,7 +229,9 @@ class Page:
         '''Add an iframe to the page
 
         Args:
-            html: The html document to display to the user
+            url_or_html:  The link to the document or the own document to display
+            width: The width of the iframe
+            height: The height of the iframe
         
         Returns:
             The iframe object
