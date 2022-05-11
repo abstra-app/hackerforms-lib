@@ -1,6 +1,6 @@
 from .socket import send, receive
 
-def authenticate():
+def get_user():
   """Get the users email and verify it
 
   This method will request users to fill in their email addresses and 

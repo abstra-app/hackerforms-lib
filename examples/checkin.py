@@ -162,7 +162,7 @@ while terms_accepted == False:
   else:
    terms_accepted = False
 
-#mandar response pro airtable
+# Send response to Airtable
 head = {'Authorization': 'Bearer ' + api_key, "Content-Type": "application/json"}
 data = {"records": [
     {
