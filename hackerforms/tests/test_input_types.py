@@ -1,4 +1,5 @@
 from ..input_types import inputs
+from ..output_types import outputs
 import json
 
 def test_function():
@@ -14,7 +15,7 @@ def load_metadata():
     return json.load(f)
 
 def load_field_examples():
-  return [input.example().json() for input in inputs]
+  return [field.example().json() for field in (inputs + outputs)]
 
 def assert_field_exists_in_metadata(field_example, fields_metadata):
   assert field_example["type"] in fields_metadata
