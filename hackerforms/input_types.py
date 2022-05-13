@@ -31,6 +31,10 @@ class TextInput(Input):
             'message': self.message,
         }
 
+    @staticmethod
+    def example():
+        return TextInput('name', 'What is your name?')
+
 class DateInput(Input):
     type = 'date-input'
     def __init__(self, key: str, message: str):
@@ -56,6 +60,10 @@ class DateInput(Input):
         day = int(split_answer[2])
         return date(year, month, day)
 
+    @staticmethod
+    def example():
+        return DateInput('birthday', 'What is your birthday?')
+
 class FileInput(Input):
     type = 'file-input'
     def __init__(self, key: str, message: str):
@@ -71,6 +79,10 @@ class FileInput(Input):
 
     def convertAnswer(self, answer):
         return FileResponse(answer)
+
+    @staticmethod
+    def example():
+        return FileInput('file', 'Upload a file')
 
 class MultipleChoiceInput(Input):
     type = 'multiple-choice-input'
@@ -88,6 +100,10 @@ class MultipleChoiceInput(Input):
             'options': self.options,
             'multiple': self.multiple,
         }
+    
+    @staticmethod
+    def example():
+        return MultipleChoiceInput('color', 'What is your favorite color?', ['Red', 'Blue', 'Green'])
 
 class DropdownInput(Input):
     type = 'dropdown-input'
@@ -105,6 +121,10 @@ class DropdownInput(Input):
             'options': self.options,
             'multiple': self.multiple,
         }
+    
+    @staticmethod
+    def example():
+        return DropdownInput('color', 'What is your favorite color?', ['Red', 'Blue', 'Green'])
 
 class TextareaInput(Input):
     type = 'textarea-input'
@@ -119,6 +139,10 @@ class TextareaInput(Input):
             'message': self.message,
         }
 
+    @staticmethod
+    def example():
+        return TextareaInput('description', 'What is your description?')
+
 class NumberInput(Input):
     type = 'number-input'
     def __init__(self, key: str, message: str):
@@ -131,6 +155,10 @@ class NumberInput(Input):
             'key': self.key,
             'message': self.message,
         }
+    
+    @staticmethod
+    def example():
+        return NumberInput('age', 'How old are you?')
 
 class EmailInput(Input):
     type = 'email-input'
@@ -144,6 +172,10 @@ class EmailInput(Input):
             'key': self.key,
             'message': self.message,
         }
+
+    @staticmethod
+    def example():
+        return EmailInput('email', 'What is your email?')
 
 
 class PhoneInput(Input):
@@ -161,3 +193,19 @@ class PhoneInput(Input):
 
     def convertAnswer(self, answer):
         return PhoneResponse(raw=answer['raw'],masked=answer['masked'])
+
+    @staticmethod
+    def example():
+        return PhoneInput('phone', 'What is your phone number?')
+
+inputs = [
+    TextInput,
+    DateInput,
+    FileInput,
+    MultipleChoiceInput,
+    DropdownInput,
+    TextareaInput,
+    NumberInput,
+    EmailInput,
+    PhoneInput
+]
