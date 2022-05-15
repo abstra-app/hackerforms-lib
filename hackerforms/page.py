@@ -137,6 +137,21 @@ class Page:
         '''
         self.fields.append(MultipleChoiceInput(key or message, message, options, multiple))
         return self
+    
+    def read_cards(self, label, options, multiple = False, key = None):
+        '''Add a cards input on the page
+
+        Args:
+            label: The text that will be displayed to the user
+            options: The options of the multiple choice, eg. ['Option 1', 'Option 2'] or [{'label': 'Option 1', 'value': '1'}, {'label': 'Option 2', 'value': '2'}]
+            multiple: Whether the user can select multiple options
+            key: The key of the input's value on the form result. Defaults to the label arg
+        
+        Returns:
+            The form object
+        '''
+        self.fields.append(CardsInput(key or label, label, options, multiple))
+        return self
 
     def display(self, message: str):
         '''Add a message to the page

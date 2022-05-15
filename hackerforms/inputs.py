@@ -114,5 +114,20 @@ def read_multiple_choice(message: str, options: Union[List[str], List[Dict]], mu
     '''
     return get_single_value(Page().read_multiple_choice(message, options, multiple).run(button_text))
 
+def read_cards(label: str, options, multiple: bool = False, button_text: str = 'Next'):
+    '''Display multiple clickable cards to the user
+
+    Args:
+        label (str): The text related to this field
+        options (list): The options to display to the user, eg. ['Option 1', 'Option 2'] or [{'label': 'Option 1', 'value': '1'}, {'label': 'Option 2', 'value': '2'}]
+        multiple (bool): Whether the user can select multiple options
+        button_text (str): The text to display on the button that will submit the value
+
+    Returns:
+        list, any: The values/value selected by the user
+    '''
+
+    return get_single_value(Page().read_cards(label, options, multiple).run(button_text))
+
 def get_single_value(answer: Dict):
     return list(answer.values())[0]

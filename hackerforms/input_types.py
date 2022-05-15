@@ -89,6 +89,24 @@ class MultipleChoiceInput(Input):
             'multiple': self.multiple,
         }
 
+class CardsInput(Input):
+    type = 'cards-input'
+
+    def __init__(self, key: str, label: str, options, multiple: bool = False) -> None:
+        super().__init__(key)
+        self.label = label
+        self.options = options
+        self.multiple = multiple
+    
+    def json(self):
+        return {
+            'type': self.type,
+            'key': self.key,
+            'label': self.label,
+            'options': self.options,
+            'multiple': self.multiple
+        }
+
 class DropdownInput(Input):
     type = 'dropdown-input'
     def __init__(self, key: str, name: str, options: Union[List[str], List[Dict]], multiple: bool = False):
