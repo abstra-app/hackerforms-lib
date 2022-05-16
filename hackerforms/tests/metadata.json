@@ -174,7 +174,20 @@
     },
     "pandas-output": {
       "table": {
-        "type": "array"
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array"
+          },
+          "schema": {
+            "type": "object",
+            "properties": {
+              "fields": {
+                "type": "array"
+              }
+            }
+          }
+        }
       }
     },
     "plotly-output": {
@@ -187,10 +200,10 @@
         "type": "string"
       },
       "width": {
-        "type": "number"
+        "type": "string"
       },
       "height": {
-        "type": "number"
+        "type": "string"
       }
     }
   }
