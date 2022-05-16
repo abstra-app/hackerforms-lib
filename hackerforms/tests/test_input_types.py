@@ -1,6 +1,9 @@
 from ..input_types import inputs
 from ..output_types import outputs
 import json
+import os
+
+METADATA_FILEPATH = os.path.join(os.path.dirname(__file__), 'metadata.json')
 
 def test_function():
   fields_metadata = load_metadata()["fields"]
@@ -11,7 +14,7 @@ def test_function():
     assert_fields_props_are_right(field_example, fields_metadata[field_example["type"]])
 
 def load_metadata():
-  with open("./metadata.json") as f:
+  with open(METADATA_FILEPATH) as f:
     return json.load(f)
 
 def load_field_test_instances():
