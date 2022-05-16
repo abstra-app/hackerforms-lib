@@ -4,7 +4,7 @@ import json
 
 def test_function():
   fields_metadata = load_metadata()["fields"]
-  generated_fields = load_field_examples()
+  generated_fields = load_field_test_instances()
   assert_field_examples_contains_all_fields(generated_fields, fields_metadata)
   for field_example in generated_fields:
     assert_field_exists_in_metadata(field_example, fields_metadata)
@@ -14,8 +14,8 @@ def load_metadata():
   with open("./metadata.json") as f:
     return json.load(f)
 
-def load_field_examples():
-  return [field.example().json() for field in (inputs + outputs)]
+def load_field_test_instances():
+  return [field.test_instance().json() for field in (inputs + outputs)]
 
 def assert_field_exists_in_metadata(field_example, fields_metadata):
   assert field_example["type"] in fields_metadata

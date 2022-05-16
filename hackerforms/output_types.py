@@ -22,7 +22,7 @@ class TextOutput(Output):
         }
     
     @staticmethod
-    def example():
+    def test_instance():
         return TextOutput('Hello, world!')
 
 class ImageOutput(Output):
@@ -39,7 +39,7 @@ class ImageOutput(Output):
         }
     
     @staticmethod
-    def example():
+    def test_instance():
         return ImageOutput('https://i.imgur.com/XyqQZ.jpg', 'A cute cat')
 
 class LinkOutput(Output):
@@ -56,7 +56,7 @@ class LinkOutput(Output):
         }
 
     @staticmethod
-    def example():
+    def test_instance():
         return LinkOutput('https://www.google.com', 'Google')
 
 class FileOutput(Output):
@@ -73,7 +73,7 @@ class FileOutput(Output):
         }
     
     @staticmethod
-    def example():
+    def test_instance():
         return FileOutput('https://www.google.com', 'Google')
 
 class HTMLOutput(Output):
@@ -88,7 +88,7 @@ class HTMLOutput(Output):
         }
     
     @staticmethod
-    def example():
+    def test_instance():
         return HTMLOutput('<h1>Hello, world!</h1>')
 
 class PandasOutput(Output):
@@ -103,7 +103,7 @@ class PandasOutput(Output):
         }
 
     @staticmethod
-    def example():
+    def test_instance():
         import pandas as pd
         df = pd.DataFrame({"A": [1, 2, 3], "B": [4, 5, 6]})
         return PandasOutput(df)
@@ -120,7 +120,7 @@ class PlotlyOutput(Output):
         }
     
     @staticmethod
-    def example():
+    def test_instance():
         import plotly.graph_objs as go
         import plotly.express as px
         fig = px.scatter(x=[1, 2, 3], y=[4, 5, 6])
@@ -146,7 +146,7 @@ class IFrameOutput(Output):
         }
 
     @staticmethod
-    def example():
+    def test_instance():
         return IFrameOutput('https://www.google.com', '100%', '100%')
 
 outputs = [

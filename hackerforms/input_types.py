@@ -32,7 +32,7 @@ class TextInput(Input):
         }
 
     @staticmethod
-    def example():
+    def test_instance():
         return TextInput('name', 'What is your name?')
 
 class DateInput(Input):
@@ -61,7 +61,7 @@ class DateInput(Input):
         return date(year, month, day)
 
     @staticmethod
-    def example():
+    def test_instance():
         return DateInput('birthday', 'What is your birthday?')
 
 class FileInput(Input):
@@ -81,7 +81,7 @@ class FileInput(Input):
         return FileResponse(answer)
 
     @staticmethod
-    def example():
+    def test_instance():
         return FileInput('file', 'Upload a file')
 
 class MultipleChoiceInput(Input):
@@ -102,7 +102,7 @@ class MultipleChoiceInput(Input):
         }
     
     @staticmethod
-    def example():
+    def test_instance():
         return MultipleChoiceInput('color', 'What is your favorite color?', ['Red', 'Blue', 'Green'])
 
 class DropdownInput(Input):
@@ -123,7 +123,7 @@ class DropdownInput(Input):
         }
     
     @staticmethod
-    def example():
+    def test_instance():
         return DropdownInput('color', 'What is your favorite color?', ['Red', 'Blue', 'Green'])
 
 class TextareaInput(Input):
@@ -140,7 +140,7 @@ class TextareaInput(Input):
         }
 
     @staticmethod
-    def example():
+    def test_instance():
         return TextareaInput('description', 'What is your description?')
 
 class NumberInput(Input):
@@ -157,7 +157,7 @@ class NumberInput(Input):
         }
     
     @staticmethod
-    def example():
+    def test_instance():
         return NumberInput('age', 'How old are you?')
 
 class EmailInput(Input):
@@ -174,7 +174,7 @@ class EmailInput(Input):
         }
 
     @staticmethod
-    def example():
+    def test_instance():
         return EmailInput('email', 'What is your email?')
 
 
@@ -195,7 +195,7 @@ class PhoneInput(Input):
         return PhoneResponse(raw=answer['raw'],masked=answer['masked'])
 
     @staticmethod
-    def example():
+    def test_instance():
         return PhoneInput('phone', 'What is your phone number?')
 
 inputs = [
