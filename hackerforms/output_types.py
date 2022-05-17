@@ -20,7 +20,7 @@ class TextOutput(Output):
             'type': self.type,
             'message': self.message,
         }
-    
+
 class ImageOutput(Output):
     type = 'image-output'
     def __init__(self, image_str: str, subtitle: str = ""):
@@ -33,7 +33,7 @@ class ImageOutput(Output):
             'image_str': self.image_str,
             'subtitle': self.subtitle,
         }
-    
+
 class LinkOutput(Output):
     type = 'link-output'
     def __init__(self, link_url: str, link_text: str = "Click here"):
@@ -59,7 +59,7 @@ class FileOutput(Output):
             'message': self.file if isinstance(self.file, str) else upload_file(self.file),
             'downloadText': self.download_text,
         }
-    
+
 class HTMLOutput(Output):
     type = 'html-output'
     def __init__(self, html):
@@ -70,7 +70,7 @@ class HTMLOutput(Output):
             'type': self.type,
             'html': self.html
         }
-    
+
 class PandasOutput(Output):
     type = 'pandas-output'
     def __init__(self, df):
@@ -92,7 +92,7 @@ class PlotlyOutput(Output):
             'type': self.type,
             'figure': json.loads(self.fig.to_json())
         }
-    
+
 class IFrameOutput(Output):
     type = 'iframe-output'
     def __init__(self, url_or_html, width, height):
@@ -111,3 +111,4 @@ class IFrameOutput(Output):
             'width': self.width,
             'height': self.height,
         }
+

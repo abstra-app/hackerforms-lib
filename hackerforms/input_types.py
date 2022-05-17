@@ -88,7 +88,7 @@ class MultipleChoiceInput(Input):
             'options': self.options,
             'multiple': self.multiple,
         }
-    
+
 class DropdownInput(Input):
     type = 'dropdown-input'
     def __init__(self, key: str, name: str, options: Union[List[str], List[Dict]], multiple: bool = False):
@@ -105,7 +105,7 @@ class DropdownInput(Input):
             'options': self.options,
             'multiple': self.multiple,
         }
-    
+
 class TextareaInput(Input):
     type = 'textarea-input'
     def __init__(self, key: str, message: str):
@@ -131,7 +131,7 @@ class NumberInput(Input):
             'key': self.key,
             'message': self.message,
         }
-    
+
 class EmailInput(Input):
     type = 'email-input'
     def __init__(self, key: str, message: str):
