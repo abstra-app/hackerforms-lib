@@ -8,6 +8,6 @@ from .socket import initialize as _initialize_socket
 import os
 
 
-if os.environ["ENV"] != "test":
+if os.environ.get("ENV") != "test":
   _initialize_socket()
   _initialize_stdio()
