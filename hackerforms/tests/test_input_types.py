@@ -1,7 +1,6 @@
-from ..input_types import inputs
-from ..output_types import outputs
 import json
 import os
+from .example_instances import example_instances
 
 METADATA_FILEPATH = os.path.join(os.path.dirname(__file__), 'metadata.json')
 
@@ -18,7 +17,7 @@ def load_metadata():
     return json.load(f)
 
 def load_field_test_instances():
-  return [field.test_instance().json() for field in (inputs + outputs)]
+  return [example_instance.json() for example_instance in example_instances]
 
 def assert_field_exists_in_metadata(field_example, fields_metadata):
   assert field_example["type"] in fields_metadata

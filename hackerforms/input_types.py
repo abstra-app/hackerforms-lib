@@ -31,10 +31,6 @@ class TextInput(Input):
             'message': self.message,
         }
 
-    @staticmethod
-    def test_instance():
-        return TextInput('name', 'What is your name?')
-
 class DateInput(Input):
     type = 'date-input'
     def __init__(self, key: str, message: str):
@@ -60,10 +56,6 @@ class DateInput(Input):
         day = int(split_answer[2])
         return date(year, month, day)
 
-    @staticmethod
-    def test_instance():
-        return DateInput('birthday', 'What is your birthday?')
-
 class FileInput(Input):
     type = 'file-input'
     def __init__(self, key: str, message: str):
@@ -79,10 +71,6 @@ class FileInput(Input):
 
     def convertAnswer(self, answer):
         return FileResponse(answer)
-
-    @staticmethod
-    def test_instance():
-        return FileInput('file', 'Upload a file')
 
 class MultipleChoiceInput(Input):
     type = 'multiple-choice-input'
@@ -101,10 +89,6 @@ class MultipleChoiceInput(Input):
             'multiple': self.multiple,
         }
     
-    @staticmethod
-    def test_instance():
-        return MultipleChoiceInput('color', 'What is your favorite color?', ['Red', 'Blue', 'Green'])
-
 class DropdownInput(Input):
     type = 'dropdown-input'
     def __init__(self, key: str, name: str, options: Union[List[str], List[Dict]], multiple: bool = False):
@@ -122,10 +106,6 @@ class DropdownInput(Input):
             'multiple': self.multiple,
         }
     
-    @staticmethod
-    def test_instance():
-        return DropdownInput('color', 'What is your favorite color?', ['Red', 'Blue', 'Green'])
-
 class TextareaInput(Input):
     type = 'textarea-input'
     def __init__(self, key: str, message: str):
@@ -138,10 +118,6 @@ class TextareaInput(Input):
             'key': self.key,
             'message': self.message,
         }
-
-    @staticmethod
-    def test_instance():
-        return TextareaInput('description', 'What is your description?')
 
 class NumberInput(Input):
     type = 'number-input'
@@ -156,10 +132,6 @@ class NumberInput(Input):
             'message': self.message,
         }
     
-    @staticmethod
-    def test_instance():
-        return NumberInput('age', 'How old are you?')
-
 class EmailInput(Input):
     type = 'email-input'
     def __init__(self, key: str, message: str):
@@ -172,10 +144,6 @@ class EmailInput(Input):
             'key': self.key,
             'message': self.message,
         }
-
-    @staticmethod
-    def test_instance():
-        return EmailInput('email', 'What is your email?')
 
 
 class PhoneInput(Input):
@@ -193,19 +161,3 @@ class PhoneInput(Input):
 
     def convertAnswer(self, answer):
         return PhoneResponse(raw=answer['raw'],masked=answer['masked'])
-
-    @staticmethod
-    def test_instance():
-        return PhoneInput('phone', 'What is your phone number?')
-
-inputs = [
-    TextInput,
-    DateInput,
-    FileInput,
-    MultipleChoiceInput,
-    DropdownInput,
-    TextareaInput,
-    NumberInput,
-    EmailInput,
-    PhoneInput
-]

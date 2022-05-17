@@ -21,10 +21,6 @@ class TextOutput(Output):
             'message': self.message,
         }
     
-    @staticmethod
-    def test_instance():
-        return TextOutput('Hello, world!')
-
 class ImageOutput(Output):
     type = 'image-output'
     def __init__(self, image_str: str, subtitle: str = ""):
@@ -38,10 +34,6 @@ class ImageOutput(Output):
             'subtitle': self.subtitle,
         }
     
-    @staticmethod
-    def test_instance():
-        return ImageOutput('https://i.imgur.com/XyqQZ.jpg', 'A cute cat')
-
 class LinkOutput(Output):
     type = 'link-output'
     def __init__(self, link_url: str, link_text: str = "Click here"):
@@ -54,10 +46,6 @@ class LinkOutput(Output):
             'message': self.link_url,
             'linkText': self.link_text,
         }
-
-    @staticmethod
-    def test_instance():
-        return LinkOutput('https://www.google.com', 'Google')
 
 class FileOutput(Output):
     type = 'file-output'
@@ -72,10 +60,6 @@ class FileOutput(Output):
             'downloadText': self.download_text,
         }
     
-    @staticmethod
-    def test_instance():
-        return FileOutput('https://www.google.com', 'Google')
-
 class HTMLOutput(Output):
     type = 'html-output'
     def __init__(self, html):
@@ -87,10 +71,6 @@ class HTMLOutput(Output):
             'html': self.html
         }
     
-    @staticmethod
-    def test_instance():
-        return HTMLOutput('<h1>Hello, world!</h1>')
-
 class PandasOutput(Output):
     type = 'pandas-output'
     def __init__(self, df):
@@ -101,12 +81,6 @@ class PandasOutput(Output):
             'type': self.type,
             'table': json.loads(self.df.to_json(orient="table"))
         }
-
-    @staticmethod
-    def test_instance():
-        import pandas as pd
-        df = pd.DataFrame({"A": [1, 2, 3], "B": [4, 5, 6]})
-        return PandasOutput(df)
 
 class PlotlyOutput(Output):
     type = 'plotly-output'
@@ -119,13 +93,6 @@ class PlotlyOutput(Output):
             'figure': json.loads(self.fig.to_json())
         }
     
-    @staticmethod
-    def test_instance():
-        import plotly.graph_objs as go
-        import plotly.express as px
-        fig = px.scatter(x=[1, 2, 3], y=[4, 5, 6])
-        return PlotlyOutput(fig)
-
 class IFrameOutput(Output):
     type = 'iframe-output'
     def __init__(self, url_or_html, width, height):
@@ -144,18 +111,3 @@ class IFrameOutput(Output):
             'width': self.width,
             'height': self.height,
         }
-
-    @staticmethod
-    def test_instance():
-        return IFrameOutput('https://www.google.com', '100%', '100%')
-
-outputs = [
-    TextOutput,
-    ImageOutput,
-    LinkOutput,
-    FileOutput,
-    HTMLOutput,
-    PandasOutput,
-    PlotlyOutput,
-    IFrameOutput
-]
