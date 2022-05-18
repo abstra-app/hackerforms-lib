@@ -103,7 +103,7 @@ def read_file(message: str, button_text: str = 'Next') -> FileResponse:
     return get_single_value(Page().read_file(message).run(button_text))
 
 
-def read_dropdown(message: str, options: Union[List[str], List[Dict]], multiple: bool = False, button_text: str = 'Next', initial_value: Union[str, List[str]] = [{"label": "1", "value": "1"}, {"label": "2", "value": "2"}], placeholder: str = "Choose your option") -> Union[str, List[str]]:
+def read_dropdown(message: str, options: Union[List[str], List[Dict]], multiple: bool = False, button_text: str = 'Next', initial_value: Union[Union[str, float], List[Union[str, float]]] = None, placeholder: str = "Choose your option") -> Union[str, List[str]]:
     '''Read a dropdown value from the user
 
     Args:
@@ -120,7 +120,7 @@ def read_dropdown(message: str, options: Union[List[str], List[Dict]], multiple:
     return get_single_value(Page().read_dropdown(message, options, multiple, initial_value, placeholder).run(button_text))
 
 
-def read_multiple_choice(message: str, options: Union[List[str], List[Dict]], multiple: bool = False, button_text: str = 'Next', initial_value: Union[List[str], List[Dict]] = [{"label": "1", "value": "1"}, {"label": "2", "value": "2"}], placeholder: str = "Choose your option"):
+def read_multiple_choice(message: str, options: Union[List[str], List[Dict]], multiple: bool = False, button_text: str = 'Next', initial_value: Union[Union[str, float], List[Union[str, float]]] = None, placeholder: str = "Choose your option"):
     '''Read a multiple choice value from the user
 
     Args:

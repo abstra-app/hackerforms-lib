@@ -92,7 +92,7 @@ class FileInput(Input):
 class MultipleChoiceInput(Input):
     type = 'multiple-choice-input'
 
-    def __init__(self, key: str, message: str, options: Union[List[str], List[Dict]], multiple: bool = False, initial_value: Union[List[str], List[Dict]] = [{"label": "1", "value": "1"}, {"label": "2", "value": "2"}], placeholder: str = "Choose your option"):
+    def __init__(self, key: str, message: str, options: Union[List[str], List[Dict]], multiple: bool = False, initial_value: Union[Union[str, float], List[Union[str, float]]] = "", placeholder: str = "Choose your option"):
         super().__init__(key)
         self.message = message
         self.options = options
@@ -115,7 +115,7 @@ class MultipleChoiceInput(Input):
 class DropdownInput(Input):
     type = 'dropdown-input'
 
-    def __init__(self, key: str, name: str, options: Union[List[str], List[Dict]], multiple: bool = False, initial_value: Union[List[str], List[Dict]] = [{"label": "1", "value": "1"}, {"label": "2", "value": "2"}], placeholder: str = "Choose your option"):
+    def __init__(self, key: str, name: str, options: Union[List[str], List[Dict]], multiple: bool = False, initial_value: Union[Union[str, float], List[Union[str, float]]] = "", placeholder: str = "Choose your option"):
         super().__init__(key)
         self.name = name
         self.options = options
