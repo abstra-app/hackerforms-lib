@@ -16,7 +16,7 @@ class Input(ABC):
     def json():
         pass
 
-    def convertAnswer(self, answer):
+    def convert_answer(self, answer):
         return answer
 
 
@@ -55,12 +55,15 @@ class DateInput(Input):
             'initialValue': self.initialValue
         }
 
-    def convertAnswer(self, answer: str):
+    def convert_answer(self, answer: str):
         '''Convert answer from string to date
 
         Args:
             answer (str): Date format YYYY-MM-DD
         '''
+        if not answer:
+            return None
+
         split_answer = answer.split('-')
         year = int(split_answer[0])
         month = int(split_answer[1])
@@ -82,8 +85,8 @@ class FileInput(Input):
             'message': self.message,
         }
 
-    def convertAnswer(self, answer):
-        return FileResponse(answer)
+    def convert_answer(self, answer):
+        return FileResponse(answer) if answer else None
 
 
 class MultipleChoiceInput(Input):
@@ -207,5 +210,5 @@ class PhoneInput(Input):
             'placeholder': self.placeholder
         }
 
-    def convertAnswer(self, answer):
-        return PhoneResponse(raw=answer['raw'], masked=answer['masked'])
+    def convert_answer(self, answer):
+        return PhoneResponse(raw=answer['raw'], masked=answer['masked']) if answer else None

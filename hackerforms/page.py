@@ -12,6 +12,7 @@ class Page:
     inputs and outputs, use the run method to display the form to the
     user and collect the answers.
     '''
+
     def __init__(self):
         self.fields: List[Union[Input, Output]] = []
 
@@ -21,7 +22,7 @@ class Page:
         Args:
             message: The message that will be displayed to the user
             key: The key of the input's value on the form result. Defaults to the message arg
-        
+
         Returns:
             The form object
         '''
@@ -34,7 +35,7 @@ class Page:
         Args:
             message: The message that will be displayed to the user
             key: The key of the input's value on the form result. Defaults to the message arg
-        
+
         Returns:
             The form object
         '''
@@ -47,7 +48,7 @@ class Page:
         Args:
             message: The message that will be displayed to the user
             key: The key of the input's value on the form result. Defaults to the message arg
-        
+
         Returns:
             The form object
         '''
@@ -60,7 +61,7 @@ class Page:
         Args:
             message: The message that will be displayed to the user
             key: The key of the input's value on the form result. Defaults to the message arg
-        
+
         Returns:
             The form object
         '''
@@ -73,7 +74,7 @@ class Page:
         Args:
             message: The message that will be displayed to the user
             key: The key of the input's value on the form result. Defaults to the message arg
-        
+
         Returns:
             The form object
         '''
@@ -86,7 +87,7 @@ class Page:
         Args:
             message: The message that will be displayed to the user
             key: The key of the input's value on the form result. Defaults to the message arg
-        
+
         Returns:
             The form object
         '''
@@ -101,7 +102,7 @@ class Page:
         Args:
             message: The message that will be displayed to the user
             key: The key of the input's value on the form result. Defaults to the message arg
-        
+
         Returns:
             The form object
         '''
@@ -116,7 +117,7 @@ class Page:
             options: The options of the dropdown, eg. ['Option 1', 'Option 2'] or [{'label': 'Option 1', 'value': '1'}, {'label': 'Option 2', 'value': '2'}]
              multiple: Whether the user can select multiple options
             key: The key of the input's value on the form result. Defaults to the message arg
-        
+
         Returns:
             The form object
         '''
@@ -131,11 +132,12 @@ class Page:
             options: The options of the multiple choice, eg. ['Option 1', 'Option 2'] or [{'label': 'Option 1', 'value': '1'}, {'label': 'Option 2', 'value': '2'}]
             multiple: Whether the user can select multiple options
             key: The key of the input's value on the form result. Defaults to the message arg
-        
+
         Returns:
             The form object
         '''
-        self.fields.append(MultipleChoiceInput(key or message, message, options, multiple))
+        self.fields.append(MultipleChoiceInput(
+            key or message, message, options, multiple))
         return self
 
     def display(self, message: str):
@@ -143,7 +145,7 @@ class Page:
 
         Args:
             message: The message to display to the user
-        
+
         Returns:
             The form object
         '''
@@ -156,7 +158,7 @@ class Page:
         Args:
             image_str: The url or base64 encoding of the image to display to the user
             subtitle: The subtitle of the image
-        
+
         Returns:
             The form object
         '''
@@ -169,7 +171,7 @@ class Page:
         Args:
             link_url: The url of the link
             link_text: The text of the link
-        
+
         Returns:
             The form object
         '''
@@ -194,7 +196,7 @@ class Page:
 
         Args:
             html: The html to display to the user
-        
+
         Returns:
             The form object
         '''
@@ -206,7 +208,7 @@ class Page:
 
         Args:
             df: The pandas dataframe to display to the user
-        
+
         Returns:
             The form object
         '''
@@ -218,7 +220,7 @@ class Page:
 
         Args:
             fig: The plotly figure to display to the user
-        
+
         Returns:
             The form object
         '''
@@ -232,7 +234,7 @@ class Page:
             url_or_html:  The link to the document or the own document to display
             width: The width of the iframe
             height: The height of the iframe
-        
+
         Returns:
             The iframe object
         '''
@@ -260,5 +262,5 @@ class Page:
             filter(lambda field: isinstance(field, Input), self.fields))
 
         for input in inputs:
-            answer[input.key] = input.convertAnswer(form_answers[input.key])
+            answer[input.key] = input.convert_answer(form_answers[input.key])
         return answer
