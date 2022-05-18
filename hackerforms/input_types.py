@@ -193,7 +193,7 @@ class EmailInput(Input):
 class PhoneInput(Input):
     type = 'phone-input'
 
-    def __init__(self, key: str, message: str, initial_value: str = "", placeholder: str = "Your answer here"):
+    def __init__(self, key: str, message: str, initial_value: str = "", placeholder: str = ""):
         super().__init__(key)
         self.message = message
         self.initial_value = initial_value

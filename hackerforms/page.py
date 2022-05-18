@@ -80,7 +80,7 @@ class Page:
             key or message, message, initial_value, placeholder))
         return self
 
-    def read_phone(self, message: str, initial_value: str = '', placeholder: str = 'Your answer here', key: str = ''):
+    def read_phone(self, message: str, initial_value: str = '', placeholder: str = '', key: str = ''):
         '''Add a phone input on the page
 
         Args:

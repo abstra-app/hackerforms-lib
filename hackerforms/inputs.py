@@ -61,7 +61,7 @@ def read_email(message: str, button_text: str = 'Next', initial_value: str = '',
     return get_single_value(Page().read_email(message, initial_value, placeholder).run(button_text))
 
 
-def read_phone(message: str, button_text: str = 'Next', initial_value: str = '', placeholder: str = 'Your answer here') -> PhoneResponse:
+def read_phone(message: str, button_text: str = 'Next', initial_value: str = '', placeholder: str = '') -> PhoneResponse:
     '''Read a phone number value from the user
 
     Args:
