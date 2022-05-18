@@ -158,7 +158,7 @@ class Page:
             The form object
         '''
         self.fields.append(MultipleChoiceInput(
-            key or message, message, options, multiple, initial_value, placeholder))
+            key or message, message, options, multiple, initial_value))
         return self
 
     def display(self, message: str):
