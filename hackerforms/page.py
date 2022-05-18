@@ -96,7 +96,7 @@ class Page:
             key or message, message, initial_value, placeholder))
         return self
 
-    def read_date(self, message: str, key: str = '', initial_value: str = ''):
+    def read_date(self, message: str, key: str = '', initial_value: date = None):
         '''Add a date input on the page
 
         Args:

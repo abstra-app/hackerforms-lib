@@ -76,7 +76,7 @@ def read_phone(message: str, button_text: str = 'Next', initial_value: str = '',
     return get_single_value(Page().read_phone(message, initial_value, placeholder).run(button_text))
 
 
-def read_date(message: str, button_text: str = 'Next', initial_value: str = '') -> str:
+def read_date(message: str, button_text: str = 'Next', initial_value: date = None) -> str:
     '''Read a date value from the user
 
     Args:

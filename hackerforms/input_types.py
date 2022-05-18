@@ -42,7 +42,7 @@ class TextInput(Input):
 class DateInput(Input):
     type = 'date-input'
 
-    def __init__(self, key: str, message: str, initial_value: str = ""):
+    def __init__(self, key: str, message: str, initial_value: date = None):
         super().__init__(key)
         self.message = message
         self.initial_value = initial_value
@@ -52,7 +52,7 @@ class DateInput(Input):
             'type': self.type,
             'key': self.key,
             'message': self.message,
-            'initialValue': self.initial_value
+            'initialValue': self.initial_value.isoformat() if self.initial_value else ''
         }
 
     def convert_answer(self, answer: str):
