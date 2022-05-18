@@ -18,6 +18,14 @@
       "message": {
         "type": "string",
         "description": "The message to display above the input"
+      },
+      "initialValue": {
+        "type": "string",
+        "description": "The initial value of the input"
+      },
+      "placeholder": {
+        "type": "string",
+        "description": "The placeholder text to display in the input"
       }
     },
     "textarea-input": {
@@ -28,6 +36,14 @@
       "message": {
         "type": "string",
         "description": "The message to display above the input"
+      },
+      "initialValue": {
+        "type": "string",
+        "description": "The initial value of the input"
+      },
+      "placeholder": {
+        "type": "string",
+        "description": "The placeholder text to display in the input"
       }
     },
     "number-input": {
@@ -38,6 +54,14 @@
       "message": {
         "type": "string",
         "description": "The message to display above the input"
+      },
+      "initialValue": {
+        "type": "number",
+        "description": "The initial value of the input"
+      },
+      "placeholder": {
+        "type": "string",
+        "description": "The placeholder text to display in the input"
       }
     },
     "email-input": {
@@ -48,6 +72,14 @@
       "message": {
         "type": "string",
         "description": "The message to display above the input"
+      },
+      "placeholder": {
+        "type": "string",
+        "description": "The placeholder text to display in the input"
+      },
+      "initialValue": {
+        "type": "string",
+        "description": "The initial value of the input"
       }
     },
     "phone-input": {
@@ -58,6 +90,14 @@
       "message": {
         "type": "string",
         "description": "The message to display above the input"
+      },
+      "initialValue": {
+        "type": "string",
+        "description": "The initial value of the input"
+      },
+      "placeholder": {
+        "type": "string",
+        "description": "The placeholder text to display in the input"
       }
     },
     "multiple-choice-input": {
@@ -72,6 +112,30 @@
       "multiple": {
         "type": "boolean",
         "description": "Whether the input should accept multiple answers"
+      },
+      "initialValue": {
+        "type": "array",
+        "description": "The initial value of the input",
+        "items": {
+          "type": [
+            "string",
+            "object"
+          ],
+          "properties": {
+            "key": {
+              "type": "string",
+              "description": "The key of the option on the returning object"
+            },
+            "value": {
+              "type": "any",
+              "description": "The value of the option on the returning object"
+            }
+          }
+        }
+      },
+      "placeholder": {
+        "type": "string",
+        "description": "The placeholder text to display in the input"
       },
       "options": {
         "type": "array",
@@ -102,6 +166,10 @@
       "message": {
         "type": "string",
         "description": "The message to display above the input"
+      },
+      "initialValue": {
+        "type": "string",
+        "description": "The initial value of the input"
       }
     },
     "dropdown-input": {
@@ -116,6 +184,30 @@
       "multiple": {
         "type": "boolean",
         "description": "Whether the input should accept multiple answers"
+      },
+      "placeholder": {
+        "type": "string",
+        "description": "The placeholder text to display in the input"
+      },
+      "initialValue": {
+        "type": "array",
+        "description": "The initial value of the input",
+        "items": {
+          "type": [
+            "string",
+            "object"
+          ],
+          "properties": {
+            "key": {
+              "type": "string",
+              "description": "The key of the option on the returning object"
+            },
+            "value": {
+              "type": "any",
+              "description": "The value of the option on the returning object"
+            }
+          }
+        }
       },
       "options": {
         "type": "array",
