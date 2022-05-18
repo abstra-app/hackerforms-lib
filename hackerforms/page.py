@@ -16,7 +16,7 @@ class Page:
     def __init__(self):
         self.fields: List[Union[Input, Output]] = []
 
-    def read(self, message: str, key: str = '', initial_value: str = '', placeholder: str = 'Your answer here'):
+    def read(self, message: str, initial_value: str = '', placeholder: str = 'Your answer here', key: str = ''):
         '''Add a text input on the page
 
         Args:
@@ -32,7 +32,7 @@ class Page:
             TextInput(key or message, message, initial_value, placeholder))
         return self
 
-    def read_textarea(self, message: str, key: str = '', initial_value: str = '', placeholder: str = 'Your answer here'):
+    def read_textarea(self, message: str, initial_value: str = '', placeholder: str = 'Your answer here', key: str = ''):
         '''Add a textarea input on the page
 
         Args:
@@ -48,7 +48,7 @@ class Page:
             key or message, message, initial_value, placeholder))
         return self
 
-    def read_number(self, message: str, key: str = '', initial_value: float = 0, placeholder: str = 'Your answer here'):
+    def read_number(self, message: str, initial_value: float = 0, placeholder: str = 'Your answer here', key: str = ''):
         '''Add a number input on the page
 
         Args:
@@ -64,7 +64,7 @@ class Page:
             key or message, message, initial_value, placeholder))
         return self
 
-    def read_email(self, message: str, key: str = '', initial_value: str = '', placeholder: str = 'Your answer here'):
+    def read_email(self, message: str, initial_value: str = '', placeholder: str = 'Your answer here', key: str = ''):
         '''Add a email input on the page
 
         Args:
@@ -80,7 +80,7 @@ class Page:
             key or message, message, initial_value, placeholder))
         return self
 
-    def read_phone(self, message: str, key: str = '', initial_value: str = '', placeholder: str = 'Your answer here'):
+    def read_phone(self, message: str, initial_value: str = '', placeholder: str = 'Your answer here', key: str = ''):
         '''Add a phone input on the page
 
         Args:
@@ -96,7 +96,7 @@ class Page:
             key or message, message, initial_value, placeholder))
         return self
 
-    def read_date(self, message: str, key: str = '', initial_value: date = None):
+    def read_date(self, message: str, initial_value: date = None, key: str = ''):
         '''Add a date input on the page
 
         Args:
@@ -125,7 +125,7 @@ class Page:
         self.fields.append(FileInput(key or message, message))
         return self
 
-    def read_dropdown(self, name: str, options: Union[List[str], List[Dict]], multiple: bool = False, key: str = '', initial_value: Union[str, List[str]] = [{"label": "1", "value": "1"}, {"label": "2", "value": "2"}], placeholder: str = "Choose your option"):
+    def read_dropdown(self, name: str, options: Union[List[str], List[Dict]], multiple: bool = False, initial_value: Union[str, List[str]] = [{"label": "1", "value": "1"}, {"label": "2", "value": "2"}], placeholder: str = "Choose your option", key: str = ''):
         '''Add a dropdown input on the page
 
         Args:
@@ -143,7 +143,7 @@ class Page:
                                          options, multiple, initial_value, placeholder))
         return self
 
-    def read_multiple_choice(self, message: str, options: Union[List[str], List[Dict]], multiple: bool = False, key: str = '', initial_value: Union[str, List[str]] = [{"label": "1", "value": "1"}, {"label": "2", "value": "2"}], placeholder: str = "Choose your option"):
+    def read_multiple_choice(self, message: str, options: Union[List[str], List[Dict]], multiple: bool = False, initial_value: Union[str, List[str]] = [{"label": "1", "value": "1"}, {"label": "2", "value": "2"}], placeholder: str = "Choose your option", key: str = ''):
         '''Add a multiple choice input on the page
 
         Args:
