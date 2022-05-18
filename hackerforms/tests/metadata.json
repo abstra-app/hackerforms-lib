@@ -114,23 +114,17 @@
         "description": "Whether the input should accept multiple answers"
       },
       "initialValue": {
-        "type": "array",
+        "type": [
+          "string",
+          "number",
+          "array"
+        ],
         "description": "The initial value of the input",
         "items": {
           "type": [
             "string",
-            "object"
-          ],
-          "properties": {
-            "key": {
-              "type": "string",
-              "description": "The key of the option on the returning object"
-            },
-            "value": {
-              "type": "any",
-              "description": "The value of the option on the returning object"
-            }
-          }
+            "number"
+          ]
         }
       },
       "placeholder": {
@@ -190,23 +184,17 @@
         "description": "The placeholder text to display in the input"
       },
       "initialValue": {
-        "type": "array",
+        "type": [
+          "string",
+          "number",
+          "array"
+        ],
         "description": "The initial value of the input",
         "items": {
           "type": [
             "string",
-            "object"
-          ],
-          "properties": {
-            "key": {
-              "type": "string",
-              "description": "The key of the option on the returning object"
-            },
-            "value": {
-              "type": "any",
-              "description": "The value of the option on the returning object"
-            }
-          }
+            "number"
+          ]
         }
       },
       "options": {
