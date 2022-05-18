@@ -283,5 +283,5 @@ class Page:
             filter(lambda field: isinstance(field, Input), self.fields))
 
         for input in inputs:
-            answer[input.key] = input.convertAnswer(form_answers[input.key])
+            answer[input.key] = input.convert_answer(form_answers[input.key])
         return answer
