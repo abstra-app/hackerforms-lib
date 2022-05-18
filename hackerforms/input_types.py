@@ -92,12 +92,11 @@ class FileInput(Input):
 class MultipleChoiceInput(Input):
     type = 'multiple-choice-input'
 
-    def __init__(self, key: str, message: str, options: Union[List[str], List[Dict]], multiple: bool = False, initial_value: Union[Union[str, float], List[Union[str, float]]] = "", placeholder: str = "Choose your option"):
+    def __init__(self, key: str, message: str, options: Union[List[str], List[Dict]], multiple: bool = False, initial_value: Union[Union[str, float], List[Union[str, float]]] = ""):
         super().__init__(key)
         self.message = message
         self.options = options
         self.multiple = multiple
-        self.placeholder = placeholder
         self.initial_value = initial_value
 
     def json(self):
@@ -107,7 +106,6 @@ class MultipleChoiceInput(Input):
             'message': self.message,
             'options': self.options,
             'multiple': self.multiple,
-            'placeholder': self.placeholder,
             'initialValue': self.initial_value
         }
 
