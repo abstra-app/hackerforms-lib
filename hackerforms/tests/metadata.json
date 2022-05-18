@@ -128,10 +128,6 @@
           ]
         }
       },
-      "placeholder": {
-        "type": "string",
-        "description": "The placeholder text to display in the input"
-      },
       "options": {
         "type": "array",
         "description": "The options that the user can select from",
