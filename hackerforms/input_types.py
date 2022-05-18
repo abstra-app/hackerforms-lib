@@ -23,10 +23,10 @@ class Input(ABC):
 class TextInput(Input):
     type = 'text-input'
 
-    def __init__(self, key: str, message: str, initialValue: str = "", placeholder: str = "Your answer here"):
+    def __init__(self, key: str, message: str, initial_value: str = "", placeholder: str = "Your answer here"):
         super().__init__(key)
         self.message = message
-        self.initialValue = initialValue
+        self.initial_value = initial_value
         self.placeholder = placeholder
 
     def json(self):
@@ -34,7 +34,7 @@ class TextInput(Input):
             'type': self.type,
             'key': self.key,
             'message': self.message,
-            'initialValue': self.initialValue,
+            'initialValue': self.initial_value,
             'placeholder': self.placeholder
         }
 
@@ -42,17 +42,17 @@ class TextInput(Input):
 class DateInput(Input):
     type = 'date-input'
 
-    def __init__(self, key: str, message: str, initialValue: str = ""):
+    def __init__(self, key: str, message: str, initial_value: str = ""):
         super().__init__(key)
         self.message = message
-        self.initialValue = initialValue
+        self.initial_value = initial_value
 
     def json(self):
         return {
             'type': self.type,
             'key': self.key,
             'message': self.message,
-            'initialValue': self.initialValue
+            'initialValue': self.initial_value
         }
 
     def convertAnswer(self, answer: str):
@@ -89,13 +89,13 @@ class FileInput(Input):
 class MultipleChoiceInput(Input):
     type = 'multiple-choice-input'
 
-    def __init__(self, key: str, message: str, options: Union[List[str], List[Dict]], multiple: bool = False, initialValue: Union[List[str], List[Dict]] = [{"label": "1", "value": "1"}, {"label": "2", "value": "2"}], placeholder: str = "Choose your option"):
+    def __init__(self, key: str, message: str, options: Union[List[str], List[Dict]], multiple: bool = False, initial_value: Union[List[str], List[Dict]] = [{"label": "1", "value": "1"}, {"label": "2", "value": "2"}], placeholder: str = "Choose your option"):
         super().__init__(key)
         self.message = message
         self.options = options
         self.multiple = multiple
         self.placeholder = placeholder
-        self.initialValue = initialValue
+        self.initial_value = initial_value
 
     def json(self):
         return {
@@ -105,20 +105,20 @@ class MultipleChoiceInput(Input):
             'options': self.options,
             'multiple': self.multiple,
             'placeholder': self.placeholder,
-            'initialValue': self.initialValue
+            'initialValue': self.initial_value
         }
 
 
 class DropdownInput(Input):
     type = 'dropdown-input'
 
-    def __init__(self, key: str, name: str, options: Union[List[str], List[Dict]], multiple: bool = False, initialValue: Union[List[str], List[Dict]] = [{"label": "1", "value": "1"}, {"label": "2", "value": "2"}], placeholder: str = "Choose your option"):
+    def __init__(self, key: str, name: str, options: Union[List[str], List[Dict]], multiple: bool = False, initial_value: Union[List[str], List[Dict]] = [{"label": "1", "value": "1"}, {"label": "2", "value": "2"}], placeholder: str = "Choose your option"):
         super().__init__(key)
         self.name = name
         self.options = options
         self.multiple = multiple
         self.placeholder = placeholder
-        self.initialValue = initialValue
+        self.initial_value = initial_value
 
     def json(self):
         return {
@@ -128,17 +128,17 @@ class DropdownInput(Input):
             'options': self.options,
             'multiple': self.multiple,
             'placeholder': self.placeholder,
-            'initialValue': self.initialValue
+            'initialValue': self.initial_value
         }
 
 
 class TextareaInput(Input):
     type = 'textarea-input'
 
-    def __init__(self, key: str, message: str, initialValue: str = "", placeholder: str = "Your answer here"):
+    def __init__(self, key: str, message: str, initial_value: str = "", placeholder: str = "Your answer here"):
         super().__init__(key)
         self.message = message
-        self.initialValue = initialValue
+        self.initial_value = initial_value
         self.placeholder = placeholder
 
     def json(self):
@@ -146,7 +146,7 @@ class TextareaInput(Input):
             'type': self.type,
             'key': self.key,
             'message': self.message,
-            'initialValue': self.initialValue,
+            'initialValue': self.initial_value,
             'placeholder': self.placeholder
         }
 
@@ -154,10 +154,10 @@ class TextareaInput(Input):
 class NumberInput(Input):
     type = 'number-input'
 
-    def __init__(self, key: str, message: str, initialValue: float = 0, placeholder: str = "Your answer here"):
+    def __init__(self, key: str, message: str, initial_value: float = 0, placeholder: str = "Your answer here"):
         super().__init__(key)
         self.message = message
-        self.initialValue = initialValue
+        self.initial_value = initial_value
         self.placeholder = placeholder
 
     def json(self):
@@ -165,7 +165,7 @@ class NumberInput(Input):
             'type': self.type,
             'key': self.key,
             'message': self.message,
-            'initialValue': self.initialValue,
+            'initialValue': self.initial_value,
             'placeholder': self.placeholder
         }
 
@@ -173,10 +173,10 @@ class NumberInput(Input):
 class EmailInput(Input):
     type = 'email-input'
 
-    def __init__(self, key: str, message: str, initialValue: str = "", placeholder: str = "Your answer here"):
+    def __init__(self, key: str, message: str, initial_value: str = "", placeholder: str = "Your answer here"):
         super().__init__(key)
         self.message = message
-        self.initialValue = initialValue
+        self.initial_value = initial_value
         self.placeholder = placeholder
 
     def json(self):
@@ -184,7 +184,7 @@ class EmailInput(Input):
             'type': self.type,
             'key': self.key,
             'message': self.message,
-            'initialValue': self.initialValue,
+            'initialValue': self.initial_value,
             'placeholder': self.placeholder
         }
 
@@ -192,10 +192,10 @@ class EmailInput(Input):
 class PhoneInput(Input):
     type = 'phone-input'
 
-    def __init__(self, key: str, message: str, initialValue: str = "", placeholder: str = "Your answer here"):
+    def __init__(self, key: str, message: str, initial_value: str = "", placeholder: str = "Your answer here"):
         super().__init__(key)
         self.message = message
-        self.initialValue = initialValue
+        self.initial_value = initial_value
         self.placeholder = placeholder
 
     def json(self):
@@ -203,7 +203,7 @@ class PhoneInput(Input):
             'type': self.type,
             'key': self.key,
             'message': self.message,
-            'initialValue': self.initialValue,
+            'initialValue': self.initial_value,
             'placeholder': self.placeholder
         }
 
