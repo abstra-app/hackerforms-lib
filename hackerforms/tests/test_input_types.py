@@ -41,7 +41,6 @@ def assert_fields_props_are_right(field_example, field_metadata):
 
 def types_compatible(prop, schema):
     if type(schema["type"]) == list:
-        print(prop, schema)
         return any(types_compatible(prop, {**schema, "type": type}) for type in schema["type"])
 
     if schema["type"] == "string":
@@ -55,7 +54,7 @@ def types_compatible(prop, schema):
     if schema["type"] == "object":
         return type(prop) == dict
     if schema["type"] == "null":
-        return type(prop) == None
+        return prop == None
     if schema["type"] == "any":
         return True
     raise Exception(f"Unknown type: {schema['type']}")
