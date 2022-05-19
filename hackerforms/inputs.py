@@ -120,7 +120,7 @@ def read_dropdown(message: str, options: Union[List[str], List[Dict]], multiple:
     return get_single_value(Page().read_dropdown(message, options, multiple, initial_value, placeholder).run(button_text))
 
 
-def read_multiple_choice(message: str, options: Union[List[str], List[Dict]], multiple: bool = False, button_text: str = 'Next', initial_value: Union[Union[str, float], List[Union[str, float]]] = None, placeholder: str = "Choose your option"):
+def read_multiple_choice(message: str, options: Union[List[str], List[Dict]], multiple: bool = False, button_text: str = 'Next', initial_value: Union[Union[str, float], List[Union[str, float]]] = None):
     '''Read a multiple choice value from the user
 
     Args:
@@ -129,12 +129,11 @@ def read_multiple_choice(message: str, options: Union[List[str], List[Dict]], mu
         multiple (bool): Whether the user can select multiple options
         button_text (str): The text to display on the button that will submit the value
         initial_value (str, list): The initial value to display to the user
-        placeholder (str): The placeholder text to display to the user
 
     Returns:
         list, any: The values/value selected by the user
     '''
-    return get_single_value(Page().read_multiple_choice(message, options, multiple, initial_value, placeholder).run(button_text))
+    return get_single_value(Page().read_multiple_choice(message, options, multiple, initial_value).run(button_text))
 
 
 def get_single_value(answer: Dict):
