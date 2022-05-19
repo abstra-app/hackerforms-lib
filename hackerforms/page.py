@@ -152,7 +152,6 @@ class Page:
             multiple: Whether the user can select multiple options
             key: The key of the input's value on the form result. Defaults to the message arg
             initial_value: The initial value of the input
-            placeholder: The placeholder of the input
 
         Returns:
             The form object
