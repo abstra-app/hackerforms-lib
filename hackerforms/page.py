@@ -143,7 +143,7 @@ class Page:
                                          options, multiple, initial_value, placeholder))
         return self
 
-    def read_multiple_choice(self, message: str, options: Union[List[str], List[Dict]], multiple: bool = False, initial_value: Union[Union[str, float], List[Union[str, float]]] = None, placeholder: str = "Choose your option", key: str = ''):
+    def read_multiple_choice(self, message: str, options: Union[List[str], List[Dict]], multiple: bool = False, initial_value: Union[Union[str, float], List[Union[str, float]]] = None, key: str = ''):
         '''Add a multiple choice input on the page
 
         Args:
