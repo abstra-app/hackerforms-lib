@@ -167,7 +167,7 @@ class Page:
             label: The text that will be displayed to the user
             options: The options of the multiple choice, eg. [
                         {'title': 'Option 1', 'image': 'https://image_1.png', 'description': 'option 1 description'}, 
-                        {'label': 'Option 2', 'image': 'https://image_2.png', 'description': 'option 2 description'}]
+                        {'title': 'Option 2', 'image': 'https://image_2.png', 'description': 'option 2 description'}]
             multiple: Whether the user can select multiple options
             initial_value: The initial value of the input
             key: The key of the input's value on the form result. Defaults to the label arg

@@ -136,14 +136,14 @@ def read_multiple_choice(message: str, options: Union[List[str], List[Dict]], mu
     return get_single_value(Page().read_multiple_choice(message, options, multiple, initial_value).run(button_text))
 
 
-def read_cards(label: str, options, multiple: bool = False, button_text: str = 'Next', initial_value: Union[Union[str, float], List[Union[str, float]]] = None):
+def read_cards(label: str, options: List[Dict], multiple: bool = False, button_text: str = 'Next', initial_value: Union[Union[str, float], List[Union[str, float]]] = None):
     '''Display multiple clickable cards to the user
 
     Args:
         label (str): The text related to this field
         options (list): The options to display to the user, eg. [
                             {'title': 'Option 1', 'image': 'https://image_1.png', 'description': 'option 1 description'}, 
-                            {'label': 'Option 2', 'image': 'https://image_2.png', 'description': 'option 2 description'}]
+                            {'title': 'Option 2', 'image': 'https://image_2.png', 'description': 'option 2 description'}]
         multiple (bool): Whether the user can select multiple options
         button_text (str): The text to display on the button that will submit the value
         initial_value (list): The initial value to display to the user
