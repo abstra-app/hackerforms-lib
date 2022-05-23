@@ -108,6 +108,25 @@ class MultipleChoiceInput(Input):
             'initialValue': self.initial_value
         }
 
+class CardsInput(Input):
+    type = 'cards-input'
+
+    def __init__(self, key: str, label: str, options, multiple: bool = False, initial_value: Union[Union[str, float], List[Union[str, float]]] = None) -> None:
+        super().__init__(key)
+        self.label = label
+        self.options = options
+        self.multiple = multiple
+        self.initial_value = initial_value
+    
+    def json(self):
+        return {
+            'type': self.type,
+            'key': self.key,
+            'label': self.label,
+            'options': self.options,
+            'multiple': self.multiple,
+            'initialValue': self.initial_value
+        }
 
 class DropdownInput(Input):
     type = 'dropdown-input'
