@@ -16,6 +16,7 @@ example_instances = [
     EmailInput('email', 'What is your email address?'),
     PhoneInput('phone', 'What is your phone number?'),
     ListInput('list', ListItemSchema().read("Name")),
+    CardsInput('card', 'What is your favorite color?', options=[{'title': 'red', 'image': 'redImage', 'description': 'red'}, {'title': 'blue', 'image': 'blueImage', 'description': 'blue'}, {'title': 'green', 'image': 'greenImage', 'description': 'green'}]),
     TextOutput('Hello, world!'),
     ImageOutput('https://i.imgur.com/XyqQZ.jpg', 'A cute cat'),
     LinkOutput('https://www.google.com', 'Google'),
