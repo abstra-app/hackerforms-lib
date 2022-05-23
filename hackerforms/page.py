@@ -170,16 +170,16 @@ class FieldSchema:
             key or message, message, options, multiple, initial_value))
         return self
 
-    def read_list(self, definition, key: str = ''):
+    def read_list(self, item_schema, key: str = ''):
         '''Add a list input on the page
 
         Args:
-            definition: The definition of the list
+            item_schema: The schema for the items of the list
 
         Returns:
             The form object
         '''
-        self.fields.append(ListInput(key, definition))
+        self.fields.append(ListInput(key, item_schema))
         return self
 
     def display(self, message: str):

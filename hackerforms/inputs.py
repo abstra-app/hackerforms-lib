@@ -135,17 +135,17 @@ def read_multiple_choice(message: str, options: Union[List[str], List[Dict]], mu
     '''
     return get_single_value(Page().read_multiple_choice(message, options, multiple, initial_value).run(button_text))
 
-def read_list(definition, button_text: str = 'Next'):
+def read_list(item_schema, button_text: str = 'Next'):
     '''Read a list value from the user
 
     Args:
-        definition (ListDefinition): The definition of the list
+        item_schema (ListItemSchema): The schema for the items of the list
         button_text (str): The text to display on the button that will submit the value
 
     Returns:
         list: The values entered by the user
     '''
-    return get_single_value(Page().read_list(definition).run(button_text))
+    return get_single_value(Page().read_list(item_schema).run(button_text))
 
 
 def get_single_value(answer: Dict):
