@@ -210,3 +210,20 @@ class PhoneInput(Input):
 
     def convert_answer(self, answer):
         return PhoneResponse(raw=answer['raw'], masked=answer['masked']) if answer else None
+
+class ListInput(Input):
+    type = 'list-input'
+
+    def __init__(self, key: str, definition):
+        super().__init__(key)
+        self.definition = definition
+
+    def json(self):
+        return {
+            'type': self.type,
+            'key': self.key,
+            'definition': self.definition.json()
+        }
+
+    def convert_answer(self, answers):
+        return [self.definition.convert_answer(answer) for answer in answers]

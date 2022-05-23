@@ -160,6 +160,18 @@ class Page:
             key or message, message, options, multiple, initial_value))
         return self
 
+    def read_list(self, definition, key: str = ''):
+        '''Add a list input on the page
+
+        Args:
+            definition: The definition of the list
+
+        Returns:
+            The form object
+        '''
+        self.fields.append(ListInput(key, definition))
+        return self
+
     def display(self, message: str):
         '''Add a message to the page
 
@@ -272,10 +284,22 @@ class Page:
         '''
         send({
             'type': 'form',
-            'fields': [field.json() for field in self.fields],
+            'fields': self.json(),
             'buttonText': button_text
         })
         form_answers: Dict = receive('payload')
+        
+        return self.convert_answer(form_answers)
+
+    def convert_answer(self, form_answers: Dict) -> Dict:
+        '''Convert the answer from the form to the expected format
+
+        Args:
+            answer: The answer from the form
+
+        Returns:
+            The converted answer
+        '''
         answer: Dict = {}
 
         inputs = list(
@@ -284,3 +308,11 @@ class Page:
         for input in inputs:
             answer[input.key] = input.convert_answer(form_answers[input.key])
         return answer
+
+    def json(self):
+        '''Get the json representation of the form
+
+        Returns:
+            The json representation of the form
+        '''
+        return [field.json() for field in self.fields]
