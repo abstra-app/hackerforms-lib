@@ -213,16 +213,16 @@ class PhoneInput(Input):
 class ListInput(Input):
     type = 'list-input'
 
-    def __init__(self, key: str, itemSchema):
+    def __init__(self, key: str, item_schema):
         super().__init__(key)
-        self.itemSchema = itemSchema
+        self.item_schema = item_schema
 
     def json(self):
         return {
             'type': self.type,
             'key': self.key,
-            'itemSchema': self.itemSchema.json()
+            'itemSchema': self.item_schema.json()
         }
 
     def convert_answer(self, answers):
-        return [self.itemSchema.convert_answer(answer) for answer in answers]
+        return [self.item_schema.convert_answer(answer) for answer in answers]
