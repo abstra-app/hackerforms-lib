@@ -225,6 +225,71 @@
         "type": "any"
       }
     },
+    "cards-input": {
+      "key": {
+        "type": "string",
+        "description": "The key of the input on the returning object"
+      },
+      "label": {
+        "type": "string",
+        "description": "The label of the input"
+      },
+      "multiple": {
+        "type": "boolean",
+        "description": "Whether the input can have multiple values"
+      },
+      "initialValue": {
+        "type": [
+          "object",
+          "array",
+          "null"
+        ],
+        "description": "The initial value of the input",
+        "items": {
+          "type": "object",
+          "properties": {
+            "title": {
+              "type": "string"
+            },
+            "image": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            }
+          }
+        },
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "image": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          }
+        }
+      },
+      "options": {
+        "type": "array",
+        "description": "The options that the user can select from",
+        "items": {
+          "type": "object",
+          "properties": {
+            "title": {
+              "type": "string"
+            },
+            "image": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
     "text-output": {
       "message": {
         "type": "string"
