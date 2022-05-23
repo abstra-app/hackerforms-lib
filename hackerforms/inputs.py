@@ -2,31 +2,38 @@ from typing import List, Union, Dict
 from .type_classes import *
 from .page import *
 
-def read(message: str, button_text: str = 'Next') -> str:
+
+def read(message: str, button_text: str = 'Next', initial_value: str = '', placeholder: str = 'Your answer here') -> str:
     '''Read a text value from the user simple text input
 
     Args:
         message (str): The message to display to the user
         button_text (str): The text to display on the button that will submit the value
+        initial_value (str): The initial value to display to the user
+        placeholder (str): The placeholder text to display to the user
 
     Returns:
         str: The value entered by the user
     '''
-    return get_single_value(Page().read(message).run(button_text))
+    return get_single_value(Page().read(message, initial_value, placeholder).run(button_text))
 
-def read_textarea(message: str, button_text: str = 'Next') -> str:
+
+def read_textarea(message: str, button_text: str = 'Next', initial_value: str = '', placeholder: str = 'Your answer here') -> str:
     '''Read a text value from the user with a text area input
 
     Args:
         message (str): The message to display to the user
         button_text (str): The text to display on the button that will submit the value
+        initial_value (str): The initial value to display to the user
+        placeholder (str): The placeholder text to display to the user
 
     Returns:
         str: The value entered by the user
     '''
-    return get_single_value(Page().read_textarea(message).run(button_text))
+    return get_single_value(Page().read_textarea(message, initial_value, placeholder).run(button_text))
 
-def read_number(message: str, button_text: str = 'Next') -> int:
+
+def read_number(message: str, button_text: str = 'Next', initial_value: float = 0, placeholder: str = 'Your answer here') -> int:
     '''Read a number value from the user
 
     Args:
@@ -36,43 +43,52 @@ def read_number(message: str, button_text: str = 'Next') -> int:
     Returns:
         int: The value entered by the user
     '''
-    return get_single_value(Page().read_number(message).run(button_text))
+    return get_single_value(Page().read_number(message, initial_value, placeholder).run(button_text))
 
-def read_email(message: str, button_text: str = 'Next') -> str:
+
+def read_email(message: str, button_text: str = 'Next', initial_value: str = '', placeholder: str = 'Your answer here') -> str:
     '''Read an email value from the user
 
     Args:
         message (str): The message to display to the user
         button_text (str): The text to display on the button that will submit the value
+        initial_value (str): The initial value to display to the user
+        placeholder (str): The placeholder text to display to the user
 
     Returns:
         str: The value entered by the user
     '''
-    return get_single_value(Page().read_email(message).run(button_text))
+    return get_single_value(Page().read_email(message, initial_value, placeholder).run(button_text))
 
-def read_phone(message: str, button_text: str = 'Next') -> PhoneResponse:
+
+def read_phone(message: str, button_text: str = 'Next', initial_value: str = '', placeholder: str = '') -> PhoneResponse:
     '''Read a phone number value from the user
 
     Args:
         message (str): The message to display to the user  
         button_text (str): The text to display on the button that will submit the value
+        initial_value (str): The initial value to display to the user
+        placeholder (str): The placeholder text to display to the user
 
     Returns:
         PhoneResponse: The value entered by the user
     '''
-    return get_single_value(Page().read_phone(message).run(button_text))
+    return get_single_value(Page().read_phone(message, initial_value, placeholder).run(button_text))
 
-def read_date(message: str, button_text: str = 'Next') -> str:
+
+def read_date(message: str, button_text: str = 'Next', initial_value: date = None) -> str:
     '''Read a date value from the user
 
     Args:
         message (str): The message to display to the user
         button_text (str): The text to display on the button that will submit the value
+        initial_value (str): The initial value to display to the user
 
     Returns:
         datetime.date: The value entered by the user
     '''
-    return get_single_value(Page().read_date(message).run(button_text))
+    return get_single_value(Page().read_date(message, initial_value).run(button_text))
+
 
 def read_file(message: str, button_text: str = 'Next') -> FileResponse:
     '''Read a file value from the user
@@ -86,7 +102,8 @@ def read_file(message: str, button_text: str = 'Next') -> FileResponse:
     '''
     return get_single_value(Page().read_file(message).run(button_text))
 
-def read_dropdown(message: str, options: Union[List[str], List[Dict]], multiple: bool = False, button_text: str = 'Next'):
+
+def read_dropdown(message: str, options: Union[List[str], List[Dict]], multiple: bool = False, button_text: str = 'Next', initial_value: Union[Union[str, float], List[Union[str, float]]] = None, placeholder: str = "Choose your option") -> Union[str, List[str]]:
     '''Read a dropdown value from the user
 
     Args:
@@ -94,13 +111,16 @@ def read_dropdown(message: str, options: Union[List[str], List[Dict]], multiple:
         options (list): The options to display to the user, eg. ['Option 1', 'Option 2'] or [{'label': 'Option 1', 'value': '1'}, {'label': 'Option 2', 'value': '2'}]
         multiple (bool): Whether the user can select multiple options
         button_text (str): The text to display on the button that will submit the value
+        initial_value (str, list): The initial value to display to the user
+        placeholder (str): The placeholder text to display to the user
 
     Returns:
         str: The value selected by the user
     '''
-    return get_single_value(Page().read_dropdown(message, options, multiple).run(button_text))
+    return get_single_value(Page().read_dropdown(message, options, multiple, initial_value, placeholder).run(button_text))
 
-def read_multiple_choice(message: str, options: Union[List[str], List[Dict]], multiple: bool = False, button_text: str = 'Next'): 
+
+def read_multiple_choice(message: str, options: Union[List[str], List[Dict]], multiple: bool = False, button_text: str = 'Next', initial_value: Union[Union[str, float], List[Union[str, float]]] = None):
     '''Read a multiple choice value from the user
 
     Args:
@@ -108,26 +128,31 @@ def read_multiple_choice(message: str, options: Union[List[str], List[Dict]], mu
         options (list): The options to display to the user, eg. ['Option 1', 'Option 2'] or [{'label': 'Option 1', 'value': '1'}, {'label': 'Option 2', 'value': '2'}]
         multiple (bool): Whether the user can select multiple options
         button_text (str): The text to display on the button that will submit the value
+        initial_value (str, list): The initial value to display to the user
 
     Returns:
         list, any: The values/value selected by the user
     '''
-    return get_single_value(Page().read_multiple_choice(message, options, multiple).run(button_text))
+    return get_single_value(Page().read_multiple_choice(message, options, multiple, initial_value).run(button_text))
 
-def read_cards(label: str, options, multiple: bool = False, button_text: str = 'Next'):
+
+def read_cards(label: str, options, multiple: bool = False, button_text: str = 'Next', initial_value: Union[Union[str, float], List[Union[str, float]]] = None):
     '''Display multiple clickable cards to the user
 
     Args:
         label (str): The text related to this field
-        options (list): The options to display to the user, eg. ['Option 1', 'Option 2'] or [{'label': 'Option 1', 'value': '1'}, {'label': 'Option 2', 'value': '2'}]
+        options (list): The options to display to the user, eg. [
+                            {'title': 'Option 1', 'image': 'https://image_1.png', 'description': 'option 1 description'}, 
+                            {'label': 'Option 2', 'image': 'https://image_2.png', 'description': 'option 2 description'}]
         multiple (bool): Whether the user can select multiple options
         button_text (str): The text to display on the button that will submit the value
+        initial_value (list): The initial value to display to the user
 
     Returns:
-        list, any: The values/value selected by the user
+        list, any: The options/option selected by the user
     '''
 
-    return get_single_value(Page().read_cards(label, options, multiple).run(button_text))
+    return get_single_value(Page().read_cards(label, options, multiple, initial_value).run(button_text))
 
 def get_single_value(answer: Dict):
     return list(answer.values())[0]

@@ -4,6 +4,7 @@ from datetime import date
 
 from .type_classes import FileResponse, PhoneResponse
 
+
 class Input(ABC):
     type: str
 
@@ -15,49 +16,64 @@ class Input(ABC):
     def json():
         pass
 
-    def convertAnswer(self, answer):
+    def convert_answer(self, answer):
         return answer
-  
+
+
 class TextInput(Input):
     type = 'text-input'
-    def __init__(self, key: str, message: str):
+
+    def __init__(self, key: str, message: str, initial_value: str = "", placeholder: str = "Your answer here"):
         super().__init__(key)
         self.message = message
+        self.initial_value = initial_value
+        self.placeholder = placeholder
 
     def json(self):
         return {
             'type': self.type,
             'key': self.key,
             'message': self.message,
+            'initialValue': self.initial_value,
+            'placeholder': self.placeholder
         }
+
 
 class DateInput(Input):
     type = 'date-input'
-    def __init__(self, key: str, message: str):
+
+    def __init__(self, key: str, message: str, initial_value: date = None):
         super().__init__(key)
         self.message = message
+        self.initial_value = initial_value
 
     def json(self):
         return {
             'type': self.type,
             'key': self.key,
             'message': self.message,
+            'initialValue': self.initial_value.isoformat() if self.initial_value else ''
         }
 
-    def convertAnswer(self, answer: str):
+    def convert_answer(self, answer: str):
         '''Convert answer from string to date
 
         Args:
             answer (str): Date format YYYY-MM-DD
         '''
+        if not answer:
+            return None
+
         split_answer = answer.split('-')
         year = int(split_answer[0])
         month = int(split_answer[1])
         day = int(split_answer[2])
         return date(year, month, day)
 
+
 class FileInput(Input):
     type = 'file-input'
+
     def __init__(self, key: str, message: str):
         super().__init__(key)
         self.message = message
@@ -69,16 +85,19 @@ class FileInput(Input):
             'message': self.message,
         }
 
-    def convertAnswer(self, answer):
-        return FileResponse(answer)
+    def convert_answer(self, answer):
+        return FileResponse(answer) if answer else None
+
 
 class MultipleChoiceInput(Input):
     type = 'multiple-choice-input'
-    def __init__(self, key: str, message: str, options: Union[List[str], List[Dict]], multiple: bool = False):
+
+    def __init__(self, key: str, message: str, options: Union[List[str], List[Dict]], multiple: bool = False, initial_value: Union[Union[str, float], List[Union[str, float]]] = None):
         super().__init__(key)
         self.message = message
         self.options = options
         self.multiple = multiple
+        self.initial_value = initial_value
 
     def json(self):
         return {
@@ -87,16 +106,18 @@ class MultipleChoiceInput(Input):
             'message': self.message,
             'options': self.options,
             'multiple': self.multiple,
+            'initialValue': self.initial_value
         }
 
 class CardsInput(Input):
     type = 'cards-input'
 
-    def __init__(self, key: str, label: str, options, multiple: bool = False) -> None:
+    def __init__(self, key: str, label: str, options, multiple: bool = False, initial_value: Union[Union[str, float], List[Union[str, float]]] = None) -> None:
         super().__init__(key)
         self.label = label
         self.options = options
         self.multiple = multiple
+        self.initial_value = initial_value
     
     def json(self):
         return {
@@ -104,16 +125,20 @@ class CardsInput(Input):
             'key': self.key,
             'label': self.label,
             'options': self.options,
-            'multiple': self.multiple
+            'multiple': self.multiple,
+            'initialValue': self.initial_value
         }
 
 class DropdownInput(Input):
     type = 'dropdown-input'
-    def __init__(self, key: str, name: str, options: Union[List[str], List[Dict]], multiple: bool = False):
+
+    def __init__(self, key: str, name: str, options: Union[List[str], List[Dict]], multiple: bool = False, initial_value: Union[Union[str, float], List[Union[str, float]]] = None, placeholder: str = "Choose your option"):
         super().__init__(key)
         self.name = name
         self.options = options
         self.multiple = multiple
+        self.placeholder = placeholder
+        self.initial_value = initial_value
 
     def json(self):
         return {
@@ -122,60 +147,85 @@ class DropdownInput(Input):
             'message': self.name,
             'options': self.options,
             'multiple': self.multiple,
+            'placeholder': self.placeholder,
+            'initialValue': self.initial_value
         }
+
 
 class TextareaInput(Input):
     type = 'textarea-input'
-    def __init__(self, key: str, message: str):
+
+    def __init__(self, key: str, message: str, initial_value: str = "", placeholder: str = "Your answer here"):
         super().__init__(key)
         self.message = message
+        self.initial_value = initial_value
+        self.placeholder = placeholder
 
     def json(self):
         return {
             'type': self.type,
             'key': self.key,
             'message': self.message,
+            'initialValue': self.initial_value,
+            'placeholder': self.placeholder
         }
+
 
 class NumberInput(Input):
     type = 'number-input'
-    def __init__(self, key: str, message: str):
+
+    def __init__(self, key: str, message: str, initial_value: float = 0, placeholder: str = "Your answer here"):
         super().__init__(key)
         self.message = message
+        self.initial_value = initial_value
+        self.placeholder = placeholder
 
     def json(self):
         return {
             'type': self.type,
             'key': self.key,
             'message': self.message,
+            'initialValue': self.initial_value,
+            'placeholder': self.placeholder
         }
+
 
 class EmailInput(Input):
     type = 'email-input'
-    def __init__(self, key: str, message: str):
+
+    def __init__(self, key: str, message: str, initial_value: str = "", placeholder: str = "Your answer here"):
         super().__init__(key)
         self.message = message
+        self.initial_value = initial_value
+        self.placeholder = placeholder
 
     def json(self):
         return {
             'type': self.type,
             'key': self.key,
             'message': self.message,
+            'initialValue': self.initial_value,
+            'placeholder': self.placeholder
         }
 
 
 class PhoneInput(Input):
     type = 'phone-input'
-    def __init__(self, key: str, message: str):
+
+    def __init__(self, key: str, message: str, initial_value: str = "", placeholder: str = ""):
         super().__init__(key)
         self.message = message
+        self.initial_value = initial_value
+        self.placeholder = placeholder
 
     def json(self):
         return {
             'type': self.type,
             'key': self.key,
             'message': self.message,
+            'initialValue': self.initial_value,
+            'placeholder': self.placeholder
         }
 
-    def convertAnswer(self, answer):
-        return PhoneResponse(raw=answer['raw'],masked=answer['masked'])
+    def convert_answer(self, answer):
+        return PhoneResponse(raw=answer['raw'], masked=answer['masked']) if answer else None
