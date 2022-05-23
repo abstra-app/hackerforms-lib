@@ -216,6 +216,15 @@
         }
       }
     },
+    "list-input": {
+      "key": {
+        "type": "string",
+        "description": "The key of the input on the returning object"
+      },
+      "itemSchema": {
+        "type": "any"
+      }
+    },
     "text-output": {
       "message": {
         "type": "string"
