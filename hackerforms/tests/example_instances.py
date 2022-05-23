@@ -1,3 +1,4 @@
+from ..page import Page
 from ..input_types import *
 from ..output_types import *
 import pandas as pd
@@ -14,6 +15,7 @@ example_instances = [
     NumberInput('number', 'What is your favorite number?'),
     EmailInput('email', 'What is your email address?'),
     PhoneInput('phone', 'What is your phone number?'),
+    ListInput('list', Page().read("Name")),
     TextOutput('Hello, world!'),
     ImageOutput('https://i.imgur.com/XyqQZ.jpg', 'A cute cat'),
     LinkOutput('https://www.google.com', 'Google'),
