@@ -135,6 +135,18 @@ def read_multiple_choice(message: str, options: Union[List[str], List[Dict]], mu
     '''
     return get_single_value(Page().read_multiple_choice(message, options, multiple, initial_value).run(button_text))
 
+def read_list(item_schema, button_text: str = 'Next'):
+    '''Read a list value from the user
+
+    Args:
+        item_schema (ListItemSchema): The schema for the items of the list
+        button_text (str): The text to display on the button that will submit the value
+
+    Returns:
+        list: The values entered by the user
+    '''
+    return get_single_value(Page().read_list(item_schema).run(button_text))
+
 
 def read_cards(label: str, options: List[Dict], multiple: bool = False, button_text: str = 'Next', initial_value: Union[Union[str, float], List[Union[str, float]]] = None):
     '''Display multiple clickable cards to the user

@@ -4,7 +4,6 @@ from datetime import date
 
 from .type_classes import FileResponse, PhoneResponse
 
-
 class Input(ABC):
     type: str
 
@@ -229,3 +228,20 @@ class PhoneInput(Input):
 
     def convert_answer(self, answer):
         return PhoneResponse(raw=answer['raw'], masked=answer['masked']) if answer else None
+
+class ListInput(Input):
+    type = 'list-input'
+
+    def __init__(self, key: str, item_schema):
+        super().__init__(key)
+        self.item_schema = item_schema
+
+    def json(self):
+        return {
+            'type': self.type,
+            'key': self.key,
+            'itemSchema': self.item_schema.json()
+        }
+
+    def convert_answer(self, answers):
+        return [self.item_schema.convert_answer(answer) for answer in answers]

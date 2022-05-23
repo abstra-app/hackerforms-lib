@@ -4,17 +4,27 @@ from .input_types import *
 from .output_types import *
 
 
-class Page:
-    '''A form page that can be displayed to the user
-
-    This is a page that can be displayed to the user. It can be used to
-    show data as well as collect informations. After configuring the
-    inputs and outputs, use the run method to display the form to the
-    user and collect the answers.
-    '''
-
+class FieldSchema:
     def __init__(self):
         self.fields: List[Union[Input, Output]] = []
+
+    def convert_answer(self, form_answers: Dict) -> Dict:
+        '''Convert the answer from the form to the expected format
+
+        Args:
+            answer: The answer from the form
+
+        Returns:
+            The converted answer
+        '''
+        answer: Dict = {}
+
+        inputs = list(
+            filter(lambda field: isinstance(field, Input), self.fields))
+
+        for input in inputs:
+            answer[input.key] = input.convert_answer(form_answers[input.key])
+        return answer
 
     def read(self, message: str, initial_value: str = '', placeholder: str = 'Your answer here', key: str = ''):
         '''Add a text input on the page
@@ -178,6 +188,18 @@ class Page:
         self.fields.append(CardsInput(key or label, label, options, multiple, initial_value))
         return self
 
+    def read_list(self, item_schema, key: str = ''):
+        '''Add a list input on the page
+
+        Args:
+            item_schema: The schema for the items of the list
+
+        Returns:
+            The form object
+        '''
+        self.fields.append(ListInput(key, item_schema))
+        return self
+
     def display(self, message: str):
         '''Add a message to the page
 
@@ -279,6 +301,19 @@ class Page:
         self.fields.append(IFrameOutput(url_or_html, width, height))
         return self
 
+class Page(FieldSchema):
+    '''A form page that can be displayed to the user
+
+    This is a page that can be displayed to the user. It can be used to
+    show data as well as collect informations. After configuring the
+    inputs and outputs, use the run method to display the form to the
+    user and collect the answers.
+    '''
+
+    def __init__(self):
+        super().__init__()
+
+
     def run(self, button_text: str = 'Next') -> Dict:
         '''Run the form
 
@@ -290,15 +325,26 @@ class Page:
         '''
         send({
             'type': 'form',
-            'fields': [field.json() for field in self.fields],
+            'fields': self.json(),
             'buttonText': button_text
         })
         form_answers: Dict = receive('payload')
-        answer: Dict = {}
+        
+        return self.convert_answer(form_answers)
 
-        inputs = list(
-            filter(lambda field: isinstance(field, Input), self.fields))
+class ListItemSchema(FieldSchema):
+    '''A schema for a list item
 
-        for input in inputs:
-            answer[input.key] = input.convert_answer(form_answers[input.key])
-        return answer
+    This schema is used to define the schema of a list item.
+    '''
+    def __init__(self):
+        super().__init__()
+
+    def json(self):
+        '''Get the json representation of the form
+
+        Returns:
+            The json representation of the form
+        '''
+        return [field.json() for field in self.fields]
+    
