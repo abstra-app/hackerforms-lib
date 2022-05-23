@@ -159,6 +159,24 @@ class Page:
         self.fields.append(MultipleChoiceInput(
             key or message, message, options, multiple, initial_value))
         return self
+    
+    def read_cards(self, label, options, multiple = False, initial_value: Union[Union[str, float], List[Union[str, float]]] = None, key: str = ''):
+        '''Add a cards input on the page
+
+        Args:
+            label: The text that will be displayed to the user
+            options: The options of the multiple choice, eg. [
+                        {'title': 'Option 1', 'image': 'https://image_1.png', 'description': 'option 1 description'}, 
+                        {'title': 'Option 2', 'image': 'https://image_2.png', 'description': 'option 2 description'}]
+            multiple: Whether the user can select multiple options
+            initial_value: The initial value of the input
+            key: The key of the input's value on the form result. Defaults to the label arg
+        
+        Returns:
+            The form object
+        '''
+        self.fields.append(CardsInput(key or label, label, options, multiple, initial_value))
+        return self
 
     def display(self, message: str):
         '''Add a message to the page
