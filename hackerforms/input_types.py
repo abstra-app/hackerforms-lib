@@ -232,15 +232,17 @@ class PhoneInput(Input):
 class ListInput(Input):
     type = 'list-input'
 
-    def __init__(self, key: str, item_schema):
+    def __init__(self, key: str, item_schema, initial_value = [{}]):
         super().__init__(key)
         self.item_schema = item_schema
+        self.initial_value = initial_value
 
     def json(self):
         return {
             'type': self.type,
             'key': self.key,
-            'itemSchema': self.item_schema.json()
+            'itemSchema': self.item_schema.json(),
+            'initialValue': self.initial_value
         }
 
     def convert_answer(self, answers):
