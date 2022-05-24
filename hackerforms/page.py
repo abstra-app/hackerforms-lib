@@ -26,6 +26,14 @@ class FieldSchema:
             answer[input.key] = input.convert_answer(form_answers[input.key])
         return answer
 
+    def json(self):
+        '''Get the json representation of the form
+
+        Returns:
+            The json representation of the form
+        '''
+        return [field.json() for field in self.fields]
+
     def read(self, message: str, initial_value: str = '', placeholder: str = 'Your answer here', key: str = ''):
         '''Add a text input on the page
 
@@ -339,12 +347,4 @@ class ListItemSchema(FieldSchema):
     '''
     def __init__(self):
         super().__init__()
-
-    def json(self):
-        '''Get the json representation of the form
-
-        Returns:
-            The json representation of the form
-        '''
-        return [field.json() for field in self.fields]
     
