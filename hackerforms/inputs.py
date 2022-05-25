@@ -135,7 +135,7 @@ def read_multiple_choice(message: str, options: Union[List[str], List[Dict]], mu
     '''
     return get_single_value(Page().read_multiple_choice(message, options, multiple, initial_value).run(button_text))
 
-def read_list(item_schema, initial_value=[{}], button_text: str = 'Next'):
+def read_list(item_schema, button_text: str = 'Next', initial_value=[{}]):
     '''Read a list value from the user
 
     Args:
