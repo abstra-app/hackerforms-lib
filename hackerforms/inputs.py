@@ -3,7 +3,7 @@ from .type_classes import *
 from .page import *
 
 
-def read(message: str, button_text: str = 'Next', initial_value: str = '', placeholder: str = 'Your answer here') -> str:
+def read(message: str, button_text: str = 'Next', initial_value: str = '', placeholder: str = 'Your answer here', hint: str = None) -> str:
     '''Read a text value from the user simple text input
 
     Args:
@@ -15,10 +15,10 @@ def read(message: str, button_text: str = 'Next', initial_value: str = '', place
     Returns:
         str: The value entered by the user
     '''
-    return get_single_value(Page().read(message, initial_value, placeholder).run(button_text))
+    return get_single_value(Page().read(message, initial_value, placeholder, hint=hint).run(button_text))
 
 
-def read_textarea(message: str, button_text: str = 'Next', initial_value: str = '', placeholder: str = 'Your answer here') -> str:
+def read_textarea(message: str, button_text: str = 'Next', initial_value: str = '', placeholder: str = 'Your answer here', hint: str = None) -> str:
     '''Read a text value from the user with a text area input
 
     Args:
@@ -30,10 +30,10 @@ def read_textarea(message: str, button_text: str = 'Next', initial_value: str = 
     Returns:
         str: The value entered by the user
     '''
-    return get_single_value(Page().read_textarea(message, initial_value, placeholder).run(button_text))
+    return get_single_value(Page().read_textarea(message, initial_value, placeholder, hint=hint).run(button_text))
 
 
-def read_number(message: str, button_text: str = 'Next', initial_value: float = 0, placeholder: str = 'Your answer here') -> int:
+def read_number(message: str, button_text: str = 'Next', initial_value: float = 0, placeholder: str = 'Your answer here', hint: str = None) -> int:
     '''Read a number value from the user
 
     Args:
@@ -43,10 +43,10 @@ def read_number(message: str, button_text: str = 'Next', initial_value: float = 
     Returns:
         int: The value entered by the user
     '''
-    return get_single_value(Page().read_number(message, initial_value, placeholder).run(button_text))
+    return get_single_value(Page().read_number(message, initial_value, placeholder, hint=hint).run(button_text))
 
 
-def read_email(message: str, button_text: str = 'Next', initial_value: str = '', placeholder: str = 'Your answer here') -> str:
+def read_email(message: str, button_text: str = 'Next', initial_value: str = '', placeholder: str = 'Your answer here', hint: str = None) -> str:
     '''Read an email value from the user
 
     Args:
@@ -58,10 +58,10 @@ def read_email(message: str, button_text: str = 'Next', initial_value: str = '',
     Returns:
         str: The value entered by the user
     '''
-    return get_single_value(Page().read_email(message, initial_value, placeholder).run(button_text))
+    return get_single_value(Page().read_email(message, initial_value, placeholder, hint=hint).run(button_text))
 
 
-def read_phone(message: str, button_text: str = 'Next', initial_value: str = '', placeholder: str = '') -> PhoneResponse:
+def read_phone(message: str, button_text: str = 'Next', initial_value: str = '', placeholder: str = '', hint: str = None) -> PhoneResponse:
     '''Read a phone number value from the user
 
     Args:
@@ -73,10 +73,10 @@ def read_phone(message: str, button_text: str = 'Next', initial_value: str = '',
     Returns:
         PhoneResponse: The value entered by the user
     '''
-    return get_single_value(Page().read_phone(message, initial_value, placeholder).run(button_text))
+    return get_single_value(Page().read_phone(message, initial_value, placeholder, hint=hint).run(button_text))
 
 
-def read_date(message: str, button_text: str = 'Next', initial_value: date = None) -> str:
+def read_date(message: str, button_text: str = 'Next', initial_value: date = None, hint: str = None) -> str:
     '''Read a date value from the user
 
     Args:
@@ -87,10 +87,10 @@ def read_date(message: str, button_text: str = 'Next', initial_value: date = Non
     Returns:
         datetime.date: The value entered by the user
     '''
-    return get_single_value(Page().read_date(message, initial_value).run(button_text))
+    return get_single_value(Page().read_date(message, initial_value, hint=hint).run(button_text))
 
 
-def read_file(message: str, button_text: str = 'Next') -> FileResponse:
+def read_file(message: str, button_text: str = 'Next', hint: str = None) -> FileResponse:
     '''Read a file value from the user
 
     Args:
@@ -100,10 +100,10 @@ def read_file(message: str, button_text: str = 'Next') -> FileResponse:
     Returns:
         FileResponse: The file uploaded by the user the user
     '''
-    return get_single_value(Page().read_file(message).run(button_text))
+    return get_single_value(Page().read_file(message, hint=hint).run(button_text))
 
 
-def read_dropdown(message: str, options: Union[List[str], List[Dict]], multiple: bool = False, button_text: str = 'Next', initial_value: Union[Union[str, float], List[Union[str, float]]] = None, placeholder: str = "Choose your option") -> Union[str, List[str]]:
+def read_dropdown(message: str, options: Union[List[str], List[Dict]], multiple: bool = False, button_text: str = 'Next', initial_value: Union[Union[str, float], List[Union[str, float]]] = None, placeholder: str = "Choose your option", hint: str = None) -> Union[str, List[str]]:
     '''Read a dropdown value from the user
 
     Args:
@@ -117,10 +117,10 @@ def read_dropdown(message: str, options: Union[List[str], List[Dict]], multiple:
     Returns:
         str: The value selected by the user
     '''
-    return get_single_value(Page().read_dropdown(message, options, multiple, initial_value, placeholder).run(button_text))
+    return get_single_value(Page().read_dropdown(message, options, multiple, initial_value, placeholder, hint=hint).run(button_text))
 
 
-def read_multiple_choice(message: str, options: Union[List[str], List[Dict]], multiple: bool = False, button_text: str = 'Next', initial_value: Union[Union[str, float], List[Union[str, float]]] = None):
+def read_multiple_choice(message: str, options: Union[List[str], List[Dict]], multiple: bool = False, button_text: str = 'Next', initial_value: Union[Union[str, float], List[Union[str, float]]] = None, hint: str = None):
     '''Read a multiple choice value from the user
 
     Args:
@@ -133,9 +133,9 @@ def read_multiple_choice(message: str, options: Union[List[str], List[Dict]], mu
     Returns:
         list, any: The values/value selected by the user
     '''
-    return get_single_value(Page().read_multiple_choice(message, options, multiple, initial_value).run(button_text))
+    return get_single_value(Page().read_multiple_choice(message, options, multiple, initial_value, hint=hint).run(button_text))
 
-def read_list(item_schema, button_text: str = 'Next', initial_value=[{}]):
+def read_list(item_schema, button_text: str = 'Next', initial_value=[{}], hint: str = None):
     '''Read a list value from the user
 
     Args:
@@ -145,10 +145,10 @@ def read_list(item_schema, button_text: str = 'Next', initial_value=[{}]):
     Returns:
         list: The values entered by the user
     '''
-    return get_single_value(Page().read_list(item_schema, initial_value=initial_value).run(button_text))
+    return get_single_value(Page().read_list(item_schema, initial_value=initial_value, hint=hint).run(button_text))
 
 
-def read_cards(label: str, options: List[Dict], multiple: bool = False, button_text: str = 'Next', initial_value: Union[Union[str, float], List[Union[str, float]]] = None):
+def read_cards(label: str, options: List[Dict], multiple: bool = False, button_text: str = 'Next', initial_value: Union[Union[str, float], List[Union[str, float]]] = None, hint: str = None):
     '''Display multiple clickable cards to the user
 
     Args:
@@ -164,7 +164,7 @@ def read_cards(label: str, options: List[Dict], multiple: bool = False, button_t
         list, any: The options/option selected by the user
     '''
 
-    return get_single_value(Page().read_cards(label, options, multiple, initial_value).run(button_text))
+    return get_single_value(Page().read_cards(label, options, multiple, initial_value, hint=hint).run(button_text))
 
 def get_single_value(answer: Dict):
     return list(answer.values())[0]
