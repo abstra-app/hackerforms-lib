@@ -5,6 +5,13 @@
         "type": "string",
         "description": "The key of the input on the returning object"
       },
+      "hint": {
+        "type": [
+          "string",
+          "null"
+        ],
+        "description": "message describing the input"
+      },
       "message": {
         "type": "string",
         "description": "The message to display above the input"
@@ -14,6 +21,13 @@
       "key": {
         "type": "string",
         "description": "The key of the input on the returning object"
+      },
+      "hint": {
+        "type": [
+          "string",
+          "null"
+        ],
+        "description": "message describing the input"
       },
       "message": {
         "type": "string",
@@ -33,6 +47,13 @@
         "type": "string",
         "description": "The key of the input on the returning object"
       },
+      "hint": {
+        "type": [
+          "string",
+          "null"
+        ],
+        "description": "message describing the input"
+      },
       "message": {
         "type": "string",
         "description": "The message to display above the input"
@@ -50,6 +71,13 @@
       "key": {
         "type": "string",
         "description": "The key of the input on the returning object"
+      },
+      "hint": {
+        "type": [
+          "string",
+          "null"
+        ],
+        "description": "message describing the input"
       },
       "message": {
         "type": "string",
@@ -69,6 +97,13 @@
         "type": "string",
         "description": "The key of the input on the returning object"
       },
+      "hint": {
+        "type": [
+          "string",
+          "null"
+        ],
+        "description": "message describing the input"
+      },
       "message": {
         "type": "string",
         "description": "The message to display above the input"
@@ -87,6 +122,13 @@
         "type": "string",
         "description": "The key of the input on the returning object"
       },
+      "hint": {
+        "type": [
+          "string",
+          "null"
+        ],
+        "description": "message describing the input"
+      },
       "message": {
         "type": "string",
         "description": "The message to display above the input"
@@ -104,6 +146,13 @@
       "key": {
         "type": "string",
         "description": "The key of the input on the returning object"
+      },
+      "hint": {
+        "type": [
+          "string",
+          "null"
+        ],
+        "description": "message describing the input"
       },
       "message": {
         "type": "string",
@@ -154,6 +203,13 @@
         "type": "string",
         "description": "The key of the input on the returning object"
       },
+      "hint": {
+        "type": [
+          "string",
+          "null"
+        ],
+        "description": "message describing the input"
+      },
       "message": {
         "type": "string",
         "description": "The message to display above the input"
@@ -167,6 +223,13 @@
       "key": {
         "type": "string",
         "description": "The key of the input on the returning object"
+      },
+      "hint": {
+        "type": [
+          "string",
+          "null"
+        ],
+        "description": "message describing the input"
       },
       "message": {
         "type": "string",
@@ -221,6 +284,13 @@
         "type": "string",
         "description": "The key of the input on the returning object"
       },
+      "hint": {
+        "type": [
+          "string",
+          "null"
+        ],
+        "description": "message describing the input"
+      },
       "itemSchema": {
         "type": "any"
       },
@@ -232,6 +302,13 @@
       "key": {
         "type": "string",
         "description": "The key of the input on the returning object"
+      },
+      "hint": {
+        "type": [
+          "string",
+          "null"
+        ],
+        "description": "message describing the input"
       },
       "label": {
         "type": "string",
