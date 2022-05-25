@@ -34,7 +34,7 @@ class FieldSchema:
         '''
         return [field.json() for field in self.fields]
 
-    def read(self, message: str, initial_value: str = '', placeholder: str = 'Your answer here', key: str = ''):
+    def read(self, message: str, initial_value: str = '', placeholder: str = 'Your answer here', key: str = '', required: bool = True):
         '''Add a text input on the page
 
         Args:
@@ -47,7 +47,7 @@ class FieldSchema:
             The form object
         '''
         self.fields.append(
-            TextInput(key or message, message, initial_value, placeholder))
+            TextInput(key or message, message, initial_value, placeholder, required))
         return self
 
     def read_textarea(self, message: str, initial_value: str = '', placeholder: str = 'Your answer here', key: str = ''):

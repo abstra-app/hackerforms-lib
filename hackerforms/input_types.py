@@ -22,11 +22,12 @@ class Input(ABC):
 class TextInput(Input):
     type = 'text-input'
 
-    def __init__(self, key: str, message: str, initial_value: str = "", placeholder: str = "Your answer here"):
+    def __init__(self, key: str, message: str, initial_value: str = "", placeholder: str = "Your answer here", required: bool = True):
         super().__init__(key)
         self.message = message
         self.initial_value = initial_value
         self.placeholder = placeholder
+        self.required = required
 
     def json(self):
         return {
@@ -34,7 +35,8 @@ class TextInput(Input):
             'key': self.key,
             'message': self.message,
             'initialValue': self.initial_value,
-            'placeholder': self.placeholder
+            'placeholder': self.placeholder,
+            'required': self.required
         }
 
 

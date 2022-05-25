@@ -3,7 +3,7 @@ from .type_classes import *
 from .page import *
 
 
-def read(message: str, button_text: str = 'Next', initial_value: str = '', placeholder: str = 'Your answer here') -> str:
+def read(message: str, button_text: str = 'Next', initial_value: str = '', placeholder: str = 'Your answer here', required: bool = True) -> str:
     '''Read a text value from the user simple text input
 
     Args:
@@ -15,7 +15,7 @@ def read(message: str, button_text: str = 'Next', initial_value: str = '', place
     Returns:
         str: The value entered by the user
     '''
-    return get_single_value(Page().read(message, initial_value, placeholder).run(button_text))
+    return get_single_value(Page().read(message, initial_value, placeholder, required).run(button_text))
 
 
 def read_textarea(message: str, button_text: str = 'Next', initial_value: str = '', placeholder: str = 'Your answer here') -> str:
