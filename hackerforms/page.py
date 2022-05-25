@@ -34,7 +34,7 @@ class FieldSchema:
         '''
         return [field.json() for field in self.fields]
 
-    def read(self, message: str, initial_value: str = '', placeholder: str = 'Your answer here', key: str = ''):
+    def read(self, message: str, initial_value: str = '', placeholder: str = 'Your answer here', key: str = '', hint: str = None):
         '''Add a text input on the page
 
         Args:
@@ -47,10 +47,10 @@ class FieldSchema:
             The form object
         '''
         self.fields.append(
-            TextInput(key or message, message, initial_value, placeholder))
+            TextInput(key or message, message, initial_value, placeholder, hint=hint))
         return self
 
-    def read_textarea(self, message: str, initial_value: str = '', placeholder: str = 'Your answer here', key: str = ''):
+    def read_textarea(self, message: str, initial_value: str = '', placeholder: str = 'Your answer here', key: str = '', hint: str = None):
         '''Add a textarea input on the page
 
         Args:
@@ -63,10 +63,10 @@ class FieldSchema:
             The form object
         '''
         self.fields.append(TextareaInput(
-            key or message, message, initial_value, placeholder))
+            key or message, message, initial_value, placeholder, hint=hint))
         return self
 
-    def read_number(self, message: str, initial_value: float = 0, placeholder: str = 'Your answer here', key: str = ''):
+    def read_number(self, message: str, initial_value: float = 0, placeholder: str = 'Your answer here', key: str = '', hint: str = None):
         '''Add a number input on the page
 
         Args:
@@ -79,10 +79,10 @@ class FieldSchema:
             The form object
         '''
         self.fields.append(NumberInput(
-            key or message, message, initial_value, placeholder))
+            key or message, message, initial_value, placeholder, hint=hint))
         return self
 
-    def read_email(self, message: str, initial_value: str = '', placeholder: str = 'Your answer here', key: str = ''):
+    def read_email(self, message: str, initial_value: str = '', placeholder: str = 'Your answer here', key: str = '', hint: str = None):
         '''Add a email input on the page
 
         Args:
@@ -95,10 +95,10 @@ class FieldSchema:
             The form object
         '''
         self.fields.append(EmailInput(
-            key or message, message, initial_value, placeholder))
+            key or message, message, initial_value, placeholder, hint=hint))
         return self
 
-    def read_phone(self, message: str, initial_value: str = '', placeholder: str = '', key: str = ''):
+    def read_phone(self, message: str, initial_value: str = '', placeholder: str = '', key: str = '', hint: str = None):
         '''Add a phone input on the page
 
         Args:
@@ -111,10 +111,10 @@ class FieldSchema:
             The form object
         '''
         self.fields.append(PhoneInput(
-            key or message, message, initial_value, placeholder))
+            key or message, message, initial_value, placeholder, hint=hint))
         return self
 
-    def read_date(self, message: str, initial_value: date = None, key: str = ''):
+    def read_date(self, message: str, initial_value: date = None, key: str = '', hint: str = None):
         '''Add a date input on the page
 
         Args:
@@ -125,10 +125,10 @@ class FieldSchema:
         Returns:
             The form object
         '''
-        self.fields.append(DateInput(key or message, message, initial_value))
+        self.fields.append(DateInput(key or message, message, initial_value, hint=hint))
         return self
 
-    def read_file(self, message: str, key: str = ''):
+    def read_file(self, message: str, key: str = '', hint: str = None):
         '''Add a file input on the page
 
         The file will be returned in the form result as a dict with the format { "file": File, "url": str, "content": bytes }
@@ -140,10 +140,10 @@ class FieldSchema:
         Returns:
             The form object
         '''
-        self.fields.append(FileInput(key or message, message))
+        self.fields.append(FileInput(key or message, message, hint=hint))
         return self
 
-    def read_dropdown(self, name: str, options: Union[List[str], List[Dict]], multiple: bool = False, initial_value: Union[Union[str, float], List[Union[str, float]]] = None, placeholder: str = "Choose your option", key: str = ''):
+    def read_dropdown(self, name: str, options: Union[List[str], List[Dict]], multiple: bool = False, initial_value: Union[Union[str, float], List[Union[str, float]]] = None, placeholder: str = "Choose your option", key: str = '', hint: str = None):
         '''Add a dropdown input on the page
 
         Args:
@@ -158,10 +158,10 @@ class FieldSchema:
             The form object
         '''
         self.fields.append(DropdownInput(key or name, name,
-                                         options, multiple, initial_value, placeholder))
+                                         options, multiple, initial_value, placeholder, hint=hint))
         return self
 
-    def read_multiple_choice(self, message: str, options: Union[List[str], List[Dict]], multiple: bool = False, initial_value: Union[Union[str, float], List[Union[str, float]]] = None, key: str = ''):
+    def read_multiple_choice(self, message: str, options: Union[List[str], List[Dict]], multiple: bool = False, initial_value: Union[Union[str, float], List[Union[str, float]]] = None, key: str = '', hint: str = None):
         '''Add a multiple choice input on the page
 
         Args:
@@ -175,10 +175,10 @@ class FieldSchema:
             The form object
         '''
         self.fields.append(MultipleChoiceInput(
-            key or message, message, options, multiple, initial_value))
+            key or message, message, options, multiple, initial_value, hint=hint))
         return self
     
-    def read_cards(self, label, options, multiple = False, initial_value: Union[Union[str, float], List[Union[str, float]]] = None, key: str = ''):
+    def read_cards(self, label, options, multiple = False, initial_value: Union[Union[str, float], List[Union[str, float]]] = None, key: str = '', hint: str = None):
         '''Add a cards input on the page
 
         Args:
@@ -193,10 +193,10 @@ class FieldSchema:
         Returns:
             The form object
         '''
-        self.fields.append(CardsInput(key or label, label, options, multiple, initial_value))
+        self.fields.append(CardsInput(key or label, label, options, multiple, initial_value, hint=hint))
         return self
 
-    def read_list(self, item_schema, initial_value=[{}], key: str = ''):
+    def read_list(self, item_schema, initial_value=[{}], key: str = '', hint: str = None):
         '''Add a list input on the page
 
         Args:
@@ -205,7 +205,7 @@ class FieldSchema:
         Returns:
             The form object
         '''
-        self.fields.append(ListInput(key, item_schema, initial_value=initial_value))
+        self.fields.append(ListInput(key, item_schema, initial_value=initial_value, hint=hint))
         return self
 
     def display(self, message: str):
