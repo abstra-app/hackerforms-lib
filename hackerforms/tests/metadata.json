@@ -223,6 +223,9 @@
       },
       "itemSchema": {
         "type": "any"
+      },
+      "initialValue": {
+        "type": "array"
       }
     },
     "cards-input": {

@@ -196,7 +196,7 @@ class FieldSchema:
         self.fields.append(CardsInput(key or label, label, options, multiple, initial_value))
         return self
 
-    def read_list(self, item_schema, key: str = ''):
+    def read_list(self, item_schema, initial_value=[{}], key: str = ''):
         '''Add a list input on the page
 
         Args:
@@ -205,7 +205,7 @@ class FieldSchema:
         Returns:
             The form object
         '''
-        self.fields.append(ListInput(key, item_schema))
+        self.fields.append(ListInput(key, item_schema, initial_value=initial_value))
         return self
 
     def display(self, message: str):
