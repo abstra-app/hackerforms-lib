@@ -21,7 +21,8 @@ class FieldSchema:
 
         inputs = list(
             filter(lambda field: isinstance(field, Input), self.fields))
-
+        print(inputs)
+        print(form_answers)
         for input in inputs:
             answer[input.key] = input.convert_answer(form_answers[input.key])
         return answer
@@ -34,7 +35,7 @@ class FieldSchema:
         '''
         return [field.json() for field in self.fields]
 
-    def read(self, message: str, initial_value: str = '', placeholder: str = 'Your answer here', key: str = '', required: bool = True):
+    def read(self, message: str, initial_value: str = '', placeholder: str = 'Your answer here', required: any = True, key: str = ''):
         '''Add a text input on the page
 
         Args:
@@ -42,6 +43,7 @@ class FieldSchema:
             key: The key of the input's value on the form result. Defaults to the message arg
             initial_value: The initial value of the input
             placeholder: The placeholder of the input
+            required: Whether the input is required or not
 
         Returns:
             The form object
@@ -50,7 +52,7 @@ class FieldSchema:
             TextInput(key or message, message, initial_value, placeholder, required))
         return self
 
-    def read_textarea(self, message: str, initial_value: str = '', placeholder: str = 'Your answer here', key: str = ''):
+    def read_textarea(self, message: str, initial_value: str = '', placeholder: str = 'Your answer here', required: any = True, key: str = ''):
         '''Add a textarea input on the page
 
         Args:
@@ -58,15 +60,16 @@ class FieldSchema:
             key: The key of the input's value on the form result. Defaults to the message arg
             initial_value: The initial value of the input
             placeholder: The placeholder of the input
+            required: Whether the input is required or not
 
         Returns:
             The form object
         '''
         self.fields.append(TextareaInput(
-            key or message, message, initial_value, placeholder))
+            key or message, message, initial_value, placeholder, required))
         return self
 
-    def read_number(self, message: str, initial_value: float = 0, placeholder: str = 'Your answer here', key: str = ''):
+    def read_number(self, message: str, initial_value: float = 0, placeholder: str = 'Your answer here', required: any = True, key: str = ''):
         '''Add a number input on the page
 
         Args:
@@ -74,15 +77,16 @@ class FieldSchema:
             key: The key of the input's value on the form result. Defaults to the message arg
             initial_value: The initial value of the input
             placeholder: The placeholder of the input
+            required: Whether the input is required or not
 
         Returns:
             The form object
         '''
         self.fields.append(NumberInput(
-            key or message, message, initial_value, placeholder))
+            key or message, message, initial_value, placeholder, required))
         return self
 
-    def read_email(self, message: str, initial_value: str = '', placeholder: str = 'Your answer here', key: str = ''):
+    def read_email(self, message: str, initial_value: str = '', placeholder: str = 'Your answer here', required: any = True, key: str = ''):
         '''Add a email input on the page
 
         Args:
@@ -90,15 +94,16 @@ class FieldSchema:
             key: The key of the input's value on the form result. Defaults to the message arg
             initial_value: The initial value of the input
             placeholder: The placeholder of the input
+            required: Whether the input is required or not
 
         Returns:
             The form object
         '''
         self.fields.append(EmailInput(
-            key or message, message, initial_value, placeholder))
+            key or message, message, initial_value, placeholder, required))
         return self
 
-    def read_phone(self, message: str, initial_value: str = '', placeholder: str = '', key: str = ''):
+    def read_phone(self, message: str, initial_value: str = '', placeholder: str = '', required: any = True, key: str = ''):
         '''Add a phone input on the page
 
         Args:
@@ -106,29 +111,31 @@ class FieldSchema:
             key: The key of the input's value on the form result. Defaults to the message arg
             initial_value: The initial value of the input
             placeholder: The placeholder of the input
+            required: Whether the input is required or not
 
         Returns:
             The form object
         '''
         self.fields.append(PhoneInput(
-            key or message, message, initial_value, placeholder))
+            key or message, message, initial_value, placeholder, required))
         return self
 
-    def read_date(self, message: str, initial_value: date = None, key: str = ''):
+    def read_date(self, message: str, initial_value: date = None, required: any = True, key: str = ''):
         '''Add a date input on the page
 
         Args:
             message: The message that will be displayed to the user
             key: The key of the input's value on the form result. Defaults to the message arg
             initial_value: The initial value of the input
+            required: Whether the input is required or not
 
         Returns:
             The form object
         '''
-        self.fields.append(DateInput(key or message, message, initial_value))
+        self.fields.append(DateInput(key or message, message, initial_value, required))
         return self
 
-    def read_file(self, message: str, key: str = ''):
+    def read_file(self, message: str, required: any = True, key: str = ''):
         '''Add a file input on the page
 
         The file will be returned in the form result as a dict with the format { "file": File, "url": str, "content": bytes }
@@ -136,32 +143,34 @@ class FieldSchema:
         Args:
             message: The message that will be displayed to the user
             key: The key of the input's value on the form result. Defaults to the message arg
+            required: Whether the input is required or not
 
         Returns:
             The form object
         '''
-        self.fields.append(FileInput(key or message, message))
+        self.fields.append(FileInput(key or message, message, required))
         return self
 
-    def read_dropdown(self, name: str, options: Union[List[str], List[Dict]], multiple: bool = False, initial_value: Union[Union[str, float], List[Union[str, float]]] = None, placeholder: str = "Choose your option", key: str = ''):
+    def read_dropdown(self, name: str, options: Union[List[str], List[Dict]], multiple: bool = False, initial_value: Union[Union[str, float], List[Union[str, float]]] = None, placeholder: str = "Choose your option", required: any = True, key: str = ''):
         '''Add a dropdown input on the page
 
         Args:
             name: The name of the dropdown
             options: The options of the dropdown, eg. ['Option 1', 'Option 2'] or [{'label': 'Option 1', 'value': '1'}, {'label': 'Option 2', 'value': '2'}]
-             multiple: Whether the user can select multiple options
+            multiple: Whether the user can select multiple options
             key: The key of the input's value on the form result. Defaults to the message arg
             initial_value: The initial value of the input
             placeholder: The placeholder of the input
+            required: Whether the input is required or not
 
         Returns:
             The form object
         '''
         self.fields.append(DropdownInput(key or name, name,
-                                         options, multiple, initial_value, placeholder))
+                                         options, multiple, initial_value, placeholder, required))
         return self
 
-    def read_multiple_choice(self, message: str, options: Union[List[str], List[Dict]], multiple: bool = False, initial_value: Union[Union[str, float], List[Union[str, float]]] = None, key: str = ''):
+    def read_multiple_choice(self, message: str, options: Union[List[str], List[Dict]], multiple: bool = False, initial_value: Union[Union[str, float], List[Union[str, float]]] = None, required: any = True, key: str = ''):
         '''Add a multiple choice input on the page
 
         Args:
@@ -170,15 +179,16 @@ class FieldSchema:
             multiple: Whether the user can select multiple options
             key: The key of the input's value on the form result. Defaults to the message arg
             initial_value: The initial value of the input
+            required: Whether the input is required or not
 
         Returns:
             The form object
         '''
         self.fields.append(MultipleChoiceInput(
-            key or message, message, options, multiple, initial_value))
+            key or message, message, options, multiple, initial_value, required))
         return self
     
-    def read_cards(self, label, options, multiple = False, initial_value: Union[Union[str, float], List[Union[str, float]]] = None, key: str = ''):
+    def read_cards(self, label, options, multiple = False, initial_value: Union[Union[str, float], List[Union[str, float]]] = None, required: any = True, key: str = ''):
         '''Add a cards input on the page
 
         Args:
@@ -189,11 +199,12 @@ class FieldSchema:
             multiple: Whether the user can select multiple options
             initial_value: The initial value of the input
             key: The key of the input's value on the form result. Defaults to the label arg
+            required: Whether the input is required or not
         
         Returns:
             The form object
         '''
-        self.fields.append(CardsInput(key or label, label, options, multiple, initial_value))
+        self.fields.append(CardsInput(key or label, label, options, multiple, initial_value, required))
         return self
 
     def read_list(self, item_schema, initial_value=[{}], key: str = ''):
