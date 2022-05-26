@@ -5,9 +5,20 @@
         "type": "string",
         "description": "The key of the input on the returning object"
       },
+      "hint": {
+        "type": [
+          "string",
+          "null"
+        ],
+        "description": "message describing the input"
+      },
       "message": {
         "type": "string",
         "description": "The message to display above the input"
+      },
+      "required": {
+        "type": ["boolean","string"],
+        "description": "Whether the input is required or not"
       }
     },
     "text-input": {
@@ -15,6 +26,13 @@
         "type": "string",
         "description": "The key of the input on the returning object"
       },
+      "hint": {
+        "type": [
+          "string",
+          "null"
+        ],
+        "description": "message describing the input"
+      },
       "message": {
         "type": "string",
         "description": "The message to display above the input"
@@ -26,6 +44,10 @@
       "placeholder": {
         "type": "string",
         "description": "The placeholder text to display in the input"
+      },
+      "required": {
+        "type": ["boolean","string"],
+        "description": "Whether the input is required or not"
       }
     },
     "textarea-input": {
@@ -33,6 +55,13 @@
         "type": "string",
         "description": "The key of the input on the returning object"
       },
+      "hint": {
+        "type": [
+          "string",
+          "null"
+        ],
+        "description": "message describing the input"
+      },
       "message": {
         "type": "string",
         "description": "The message to display above the input"
@@ -44,12 +73,23 @@
       "placeholder": {
         "type": "string",
         "description": "The placeholder text to display in the input"
+      },
+      "required": {
+        "type": ["boolean","string"],
+        "description": "Whether the input is required or not"
       }
     },
     "number-input": {
       "key": {
         "type": "string",
         "description": "The key of the input on the returning object"
+      },
+      "hint": {
+        "type": [
+          "string",
+          "null"
+        ],
+        "description": "message describing the input"
       },
       "message": {
         "type": "string",
@@ -62,6 +102,10 @@
       "placeholder": {
         "type": "string",
         "description": "The placeholder text to display in the input"
+      },
+      "required": {
+        "type": ["boolean","string"],
+        "description": "Whether the input is required or not"
       }
     },
     "email-input": {
@@ -69,6 +113,13 @@
         "type": "string",
         "description": "The key of the input on the returning object"
       },
+      "hint": {
+        "type": [
+          "string",
+          "null"
+        ],
+        "description": "message describing the input"
+      },
       "message": {
         "type": "string",
         "description": "The message to display above the input"
@@ -80,6 +131,10 @@
       "initialValue": {
         "type": "string",
         "description": "The initial value of the input"
+      },
+      "required": {
+        "type": ["boolean","string"],
+        "description": "Whether the input is required or not"
       }
     },
     "phone-input": {
@@ -87,6 +142,13 @@
         "type": "string",
         "description": "The key of the input on the returning object"
       },
+      "hint": {
+        "type": [
+          "string",
+          "null"
+        ],
+        "description": "message describing the input"
+      },
       "message": {
         "type": "string",
         "description": "The message to display above the input"
@@ -98,12 +160,23 @@
       "placeholder": {
         "type": "string",
         "description": "The placeholder text to display in the input"
+      },
+      "required": {
+        "type": ["boolean","string"],
+        "description": "Whether the input is required or not"
       }
     },
     "multiple-choice-input": {
       "key": {
         "type": "string",
         "description": "The key of the input on the returning object"
+      },
+      "hint": {
+        "type": [
+          "string",
+          "null"
+        ],
+        "description": "message describing the input"
       },
       "message": {
         "type": "string",
@@ -127,6 +200,10 @@
             "number"
           ]
         }
+      },
+      "required": {
+        "type": ["boolean","string"],
+        "description": "Whether the input is required or not"
       },
       "options": {
         "type": "array",
@@ -154,6 +231,13 @@
         "type": "string",
         "description": "The key of the input on the returning object"
       },
+      "hint": {
+        "type": [
+          "string",
+          "null"
+        ],
+        "description": "message describing the input"
+      },
       "message": {
         "type": "string",
         "description": "The message to display above the input"
@@ -161,12 +245,23 @@
       "initialValue": {
         "type": "string",
         "description": "The initial value of the input"
+      },
+      "required": {
+        "type": ["boolean","string"],
+        "description": "Whether the input is required or not"
       }
     },
     "dropdown-input": {
       "key": {
         "type": "string",
         "description": "The key of the input on the returning object"
+      },
+      "hint": {
+        "type": [
+          "string",
+          "null"
+        ],
+        "description": "message describing the input"
       },
       "message": {
         "type": "string",
@@ -195,6 +290,10 @@
           ]
         }
       },
+      "required": {
+        "type": ["boolean","string"],
+        "description": "Whether the input is required or not"
+      },
       "options": {
         "type": "array",
         "description": "The options that the user can select from",
@@ -221,6 +320,13 @@
         "type": "string",
         "description": "The key of the input on the returning object"
       },
+      "hint": {
+        "type": [
+          "string",
+          "null"
+        ],
+        "description": "message describing the input"
+      },
       "itemSchema": {
         "type": "any"
       },
@@ -232,6 +338,13 @@
       "key": {
         "type": "string",
         "description": "The key of the input on the returning object"
+      },
+      "hint": {
+        "type": [
+          "string",
+          "null"
+        ],
+        "description": "message describing the input"
       },
       "label": {
         "type": "string",
