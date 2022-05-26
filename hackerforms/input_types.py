@@ -22,7 +22,7 @@ class Input(ABC):
 class TextInput(Input):
     type = 'text-input'
 
-    def __init__(self, key: str, message: str, initial_value: str = "", placeholder: str = "Your answer here", required: any = True, hint: str = None):
+    def __init__(self, key: str, message: str, initial_value: str = "", placeholder: str = "Your answer here", required: Union[bool, str] = True, hint: str = None):
         super().__init__(key)
         self.message = message
         self.initial_value = initial_value
@@ -45,7 +45,7 @@ class TextInput(Input):
 class DateInput(Input):
     type = 'date-input'
 
-    def __init__(self, key: str, message: str, initial_value: date = None, required: any = True, hint: str = None):
+    def __init__(self, key: str, message: str, initial_value: date = None, required: Union[bool, str] = True, hint: str = None):
         super().__init__(key)
         self.message = message
         self.initial_value = initial_value
@@ -81,7 +81,7 @@ class DateInput(Input):
 class FileInput(Input):
     type = 'file-input'
 
-    def __init__(self, key: str, message: str, required: any = True, hint: str = None):
+    def __init__(self, key: str, message: str, required: Union[bool, str] = True, hint: str = None):
         super().__init__(key)
         self.message = message
         self.required = required
@@ -103,7 +103,7 @@ class FileInput(Input):
 class MultipleChoiceInput(Input):
     type = 'multiple-choice-input'
 
-    def __init__(self, key: str, message: str, options: Union[List[str], List[Dict]], multiple: bool = False, initial_value: Union[Union[str, float], List[Union[str, float]]] = None, required: any = True, hint: str = None):
+    def __init__(self, key: str, message: str, options: Union[List[str], List[Dict]], multiple: bool = False, initial_value: Union[Union[str, float], List[Union[str, float]]] = None, required: Union[bool, str] = True, hint: str = None):
         super().__init__(key)
         self.message = message
         self.options = options
@@ -127,7 +127,7 @@ class MultipleChoiceInput(Input):
 class CardsInput(Input):
     type = 'cards-input'
 
-    def __init__(self, key: str, label: str, options, multiple: bool = False, initial_value: Union[Union[str, float], List[Union[str, float]]] = None, required: any = True, hint: str = None) -> None:
+    def __init__(self, key: str, label: str, options, multiple: bool = False, initial_value: Union[Union[str, float], List[Union[str, float]]] = None, required: Union[bool, str] = True, hint: str = None) -> None:
         super().__init__(key)
         self.label = label
         self.options = options
@@ -151,7 +151,7 @@ class CardsInput(Input):
 class DropdownInput(Input):
     type = 'dropdown-input'
 
-    def __init__(self, key: str, name: str, options: Union[List[str], List[Dict]], multiple: bool = False, initial_value: Union[Union[str, float], List[Union[str, float]]] = None, placeholder: str = "Choose your option", required: any = True, hint: str = None):
+    def __init__(self, key: str, name: str, options: Union[List[str], List[Dict]], multiple: bool = False, initial_value: Union[Union[str, float], List[Union[str, float]]] = None, placeholder: str = "Choose your option", required: Union[bool, str] = True, hint: str = None):
         super().__init__(key)
         self.name = name
         self.options = options
@@ -178,7 +178,7 @@ class DropdownInput(Input):
 class TextareaInput(Input):
     type = 'textarea-input'
 
-    def __init__(self, key: str, message: str, initial_value: str = "", placeholder: str = "Your answer here", required: any = True, hint: str = None):
+    def __init__(self, key: str, message: str, initial_value: str = "", placeholder: str = "Your answer here", required: Union[bool, str] = True, hint: str = None):
         super().__init__(key)
         self.message = message
         self.initial_value = initial_value
@@ -201,7 +201,7 @@ class TextareaInput(Input):
 class NumberInput(Input):
     type = 'number-input'
 
-    def __init__(self, key: str, message: str, initial_value: float = 0, placeholder: str = "Your answer here", required: any = True, hint: str = None):
+    def __init__(self, key: str, message: str, initial_value: float = 0, placeholder: str = "Your answer here", required: Union[bool, str] = True, hint: str = None):
         super().__init__(key)
         self.message = message
         self.initial_value = initial_value
@@ -224,7 +224,7 @@ class NumberInput(Input):
 class EmailInput(Input):
     type = 'email-input'
 
-    def __init__(self, key: str, message: str, initial_value: str = "", placeholder: str = "Your answer here", required: any = True, hint: str = None):
+    def __init__(self, key: str, message: str, initial_value: str = "", placeholder: str = "Your answer here", required: Union[bool, str] = True, hint: str = None):
         super().__init__(key)
         self.message = message
         self.initial_value = initial_value
@@ -247,7 +247,7 @@ class EmailInput(Input):
 class PhoneInput(Input):
     type = 'phone-input'
 
-    def __init__(self, key: str, message: str, initial_value: str = "", placeholder: str = "", required: any = True, hint: str = None):
+    def __init__(self, key: str, message: str, initial_value: str = "", placeholder: str = "", required: Union[bool, str] = True, hint: str = None):
         super().__init__(key)
         self.message = message
         self.initial_value = initial_value
