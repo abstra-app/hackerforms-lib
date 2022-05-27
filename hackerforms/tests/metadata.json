@@ -17,7 +17,10 @@
         "description": "The message to display above the input"
       },
       "required": {
-        "type": ["boolean","string"],
+        "type": [
+          "boolean",
+          "string"
+        ],
         "description": "Whether the input is required or not"
       }
     },
@@ -46,7 +49,10 @@
         "description": "The placeholder text to display in the input"
       },
       "required": {
-        "type": ["boolean","string"],
+        "type": [
+          "boolean",
+          "string"
+        ],
         "description": "Whether the input is required or not"
       }
     },
@@ -75,7 +81,10 @@
         "description": "The placeholder text to display in the input"
       },
       "required": {
-        "type": ["boolean","string"],
+        "type": [
+          "boolean",
+          "string"
+        ],
         "description": "Whether the input is required or not"
       }
     },
@@ -104,7 +113,10 @@
         "description": "The placeholder text to display in the input"
       },
       "required": {
-        "type": ["boolean","string"],
+        "type": [
+          "boolean",
+          "string"
+        ],
         "description": "Whether the input is required or not"
       }
     },
@@ -128,13 +140,16 @@
         "type": "string",
         "description": "The placeholder text to display in the input"
       },
+      "required": {
+        "type": [
+          "boolean",
+          "string"
+        ],
+        "description": "Whether the input is required or not"
+      },
       "initialValue": {
         "type": "string",
         "description": "The initial value of the input"
-      },
-      "required": {
-        "type": ["boolean","string"],
-        "description": "Whether the input is required or not"
       }
     },
     "phone-input": {
@@ -162,7 +177,10 @@
         "description": "The placeholder text to display in the input"
       },
       "required": {
-        "type": ["boolean","string"],
+        "type": [
+          "boolean",
+          "string"
+        ],
         "description": "Whether the input is required or not"
       }
     },
@@ -186,6 +204,13 @@
         "type": "boolean",
         "description": "Whether the input should accept multiple answers"
       },
+      "required": {
+        "type": [
+          "boolean",
+          "string"
+        ],
+        "description": "Whether the input is required or not"
+      },
       "initialValue": {
         "type": [
           "string",
@@ -200,10 +225,6 @@
             "number"
           ]
         }
-      },
-      "required": {
-        "type": ["boolean","string"],
-        "description": "Whether the input is required or not"
       },
       "options": {
         "type": "array",
@@ -242,13 +263,16 @@
         "type": "string",
         "description": "The message to display above the input"
       },
+      "required": {
+        "type": [
+          "boolean",
+          "string"
+        ],
+        "description": "Whether the input is required or not"
+      },
       "initialValue": {
         "type": "string",
         "description": "The initial value of the input"
-      },
-      "required": {
-        "type": ["boolean","string"],
-        "description": "Whether the input is required or not"
       }
     },
     "dropdown-input": {
@@ -275,6 +299,13 @@
         "type": "string",
         "description": "The placeholder text to display in the input"
       },
+      "required": {
+        "type": [
+          "boolean",
+          "string"
+        ],
+        "description": "Whether the input is required or not"
+      },
       "initialValue": {
         "type": [
           "string",
@@ -289,10 +320,6 @@
             "number"
           ]
         }
-      },
-      "required": {
-        "type": ["boolean","string"],
-        "description": "Whether the input is required or not"
       },
       "options": {
         "type": "array",
@@ -355,7 +382,10 @@
         "description": "Whether the input can have multiple values"
       },
       "required": {
-        "type": ["boolean","string"],
+        "type": [
+          "boolean",
+          "string"
+        ],
         "description": "Whether the input is required or not"
       },
       "initialValue": {
