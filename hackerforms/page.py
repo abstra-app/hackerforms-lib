@@ -21,8 +21,7 @@ class FieldSchema:
 
         inputs = list(
             filter(lambda field: isinstance(field, Input), self.fields))
-        print(inputs)
-        print(form_answers)
+        
         for input in inputs:
             answer[input.key] = input.convert_answer(form_answers[input.key])
         return answer
