@@ -15,6 +15,13 @@
       "message": {
         "type": "string",
         "description": "The message to display above the input"
+      },
+      "required": {
+        "type": [
+          "boolean",
+          "string"
+        ],
+        "description": "Whether the input is required or not"
       }
     },
     "text-input": {
@@ -40,6 +47,13 @@
       "placeholder": {
         "type": "string",
         "description": "The placeholder text to display in the input"
+      },
+      "required": {
+        "type": [
+          "boolean",
+          "string"
+        ],
+        "description": "Whether the input is required or not"
       }
     },
     "textarea-input": {
@@ -65,6 +79,13 @@
       "placeholder": {
         "type": "string",
         "description": "The placeholder text to display in the input"
+      },
+      "required": {
+        "type": [
+          "boolean",
+          "string"
+        ],
+        "description": "Whether the input is required or not"
       }
     },
     "number-input": {
@@ -90,6 +111,13 @@
       "placeholder": {
         "type": "string",
         "description": "The placeholder text to display in the input"
+      },
+      "required": {
+        "type": [
+          "boolean",
+          "string"
+        ],
+        "description": "Whether the input is required or not"
       }
     },
     "email-input": {
@@ -111,6 +139,13 @@
       "placeholder": {
         "type": "string",
         "description": "The placeholder text to display in the input"
+      },
+      "required": {
+        "type": [
+          "boolean",
+          "string"
+        ],
+        "description": "Whether the input is required or not"
       },
       "initialValue": {
         "type": "string",
@@ -140,6 +175,13 @@
       "placeholder": {
         "type": "string",
         "description": "The placeholder text to display in the input"
+      },
+      "required": {
+        "type": [
+          "boolean",
+          "string"
+        ],
+        "description": "Whether the input is required or not"
       }
     },
     "multiple-choice-input": {
@@ -161,6 +203,13 @@
       "multiple": {
         "type": "boolean",
         "description": "Whether the input should accept multiple answers"
+      },
+      "required": {
+        "type": [
+          "boolean",
+          "string"
+        ],
+        "description": "Whether the input is required or not"
       },
       "initialValue": {
         "type": [
@@ -214,6 +263,13 @@
         "type": "string",
         "description": "The message to display above the input"
       },
+      "required": {
+        "type": [
+          "boolean",
+          "string"
+        ],
+        "description": "Whether the input is required or not"
+      },
       "initialValue": {
         "type": "string",
         "description": "The initial value of the input"
@@ -242,6 +298,13 @@
       "placeholder": {
         "type": "string",
         "description": "The placeholder text to display in the input"
+      },
+      "required": {
+        "type": [
+          "boolean",
+          "string"
+        ],
+        "description": "Whether the input is required or not"
       },
       "initialValue": {
         "type": [
@@ -317,6 +380,13 @@
       "multiple": {
         "type": "boolean",
         "description": "Whether the input can have multiple values"
+      },
+      "required": {
+        "type": [
+          "boolean",
+          "string"
+        ],
+        "description": "Whether the input is required or not"
       },
       "initialValue": {
         "type": [
