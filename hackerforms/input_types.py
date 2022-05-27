@@ -22,11 +22,12 @@ class Input(ABC):
 class TextInput(Input):
     type = 'text-input'
 
-    def __init__(self, key: str, message: str, initial_value: str = "", placeholder: str = "Your answer here", hint: str = None):
+    def __init__(self, key: str, message: str, initial_value: str = "", placeholder: str = "Your answer here", required: Union[bool, str] = True, hint: str = None):
         super().__init__(key)
         self.message = message
         self.initial_value = initial_value
         self.placeholder = placeholder
+        self.required = required
         self.hint = hint
 
     def json(self):
@@ -35,18 +36,20 @@ class TextInput(Input):
             'key': self.key,
             'message': self.message,
             'initialValue': self.initial_value,
-            'hint': self.hint,
-            'placeholder': self.placeholder
+            'placeholder': self.placeholder,
+            'required': self.required,
+            'hint': self.hint
         }
 
 
 class DateInput(Input):
     type = 'date-input'
 
-    def __init__(self, key: str, message: str, initial_value: date = None, hint: str = None):
+    def __init__(self, key: str, message: str, initial_value: date = None, required: Union[bool, str] = True, hint: str = None):
         super().__init__(key)
         self.message = message
         self.initial_value = initial_value
+        self.required = required
         self.hint = hint
 
     def json(self):
@@ -55,7 +58,8 @@ class DateInput(Input):
             'key': self.key,
             'hint': self.hint,
             'message': self.message,
-            'initialValue': self.initial_value.isoformat() if self.initial_value else ''
+            'initialValue': self.initial_value.isoformat() if self.initial_value else '',
+            'required': self.required
         }
 
     def convert_answer(self, answer: str):
@@ -77,9 +81,10 @@ class DateInput(Input):
 class FileInput(Input):
     type = 'file-input'
 
-    def __init__(self, key: str, message: str, hint: str = None):
+    def __init__(self, key: str, message: str, required: Union[bool, str] = True, hint: str = None):
         super().__init__(key)
         self.message = message
+        self.required = required
         self.hint = hint
 
     def json(self):
@@ -88,6 +93,7 @@ class FileInput(Input):
             'key': self.key,
             'hint': self.hint,
             'message': self.message,
+            'required': self.required
         }
 
     def convert_answer(self, answer):
@@ -97,12 +103,13 @@ class FileInput(Input):
 class MultipleChoiceInput(Input):
     type = 'multiple-choice-input'
 
-    def __init__(self, key: str, message: str, options: Union[List[str], List[Dict]], multiple: bool = False, initial_value: Union[Union[str, float], List[Union[str, float]]] = None, hint: str = None):
+    def __init__(self, key: str, message: str, options: Union[List[str], List[Dict]], multiple: bool = False, initial_value: Union[Union[str, float], List[Union[str, float]]] = None, required: Union[bool, str] = True, hint: str = None):
         super().__init__(key)
         self.message = message
         self.options = options
         self.multiple = multiple
         self.initial_value = initial_value
+        self.required = required
         self.hint = hint
 
     def json(self):
@@ -113,18 +120,20 @@ class MultipleChoiceInput(Input):
             'options': self.options,
             'hint': self.hint,
             'multiple': self.multiple,
-            'initialValue': self.initial_value
+            'initialValue': self.initial_value,
+            'required': self.required
         }
 
 class CardsInput(Input):
     type = 'cards-input'
 
-    def __init__(self, key: str, label: str, options, multiple: bool = False, initial_value: Union[Union[str, float], List[Union[str, float]]] = None, hint: str = None) -> None:
+    def __init__(self, key: str, label: str, options, multiple: bool = False, initial_value: Union[Union[str, float], List[Union[str, float]]] = None, required: Union[bool, str] = True, hint: str = None) -> None:
         super().__init__(key)
         self.label = label
         self.options = options
         self.multiple = multiple
         self.initial_value = initial_value
+        self.required = required
         self.hint = hint
     
     def json(self):
@@ -135,19 +144,21 @@ class CardsInput(Input):
             'hint': self.hint,
             'options': self.options,
             'multiple': self.multiple,
-            'initialValue': self.initial_value
+            'initialValue': self.initial_value,
+            'required': self.required
         }
 
 class DropdownInput(Input):
     type = 'dropdown-input'
 
-    def __init__(self, key: str, name: str, options: Union[List[str], List[Dict]], multiple: bool = False, initial_value: Union[Union[str, float], List[Union[str, float]]] = None, placeholder: str = "Choose your option", hint: str = None):
+    def __init__(self, key: str, name: str, options: Union[List[str], List[Dict]], multiple: bool = False, initial_value: Union[Union[str, float], List[Union[str, float]]] = None, placeholder: str = "Choose your option", required: Union[bool, str] = True, hint: str = None):
         super().__init__(key)
         self.name = name
         self.options = options
         self.multiple = multiple
         self.placeholder = placeholder
         self.initial_value = initial_value
+        self.required = required
         self.hint = hint
 
     def json(self):
@@ -159,18 +170,20 @@ class DropdownInput(Input):
             'hint': self.hint,
             'multiple': self.multiple,
             'placeholder': self.placeholder,
-            'initialValue': self.initial_value
+            'initialValue': self.initial_value,
+            'required': self.required
         }
 
 
 class TextareaInput(Input):
     type = 'textarea-input'
 
-    def __init__(self, key: str, message: str, initial_value: str = "", placeholder: str = "Your answer here", hint: str = None):
+    def __init__(self, key: str, message: str, initial_value: str = "", placeholder: str = "Your answer here", required: Union[bool, str] = True, hint: str = None):
         super().__init__(key)
         self.message = message
         self.initial_value = initial_value
         self.placeholder = placeholder
+        self.required = required
         self.hint = hint
 
     def json(self):
@@ -179,19 +192,21 @@ class TextareaInput(Input):
             'key': self.key,
             'message': self.message,
             'initialValue': self.initial_value,
-            'hint': self.hint,
-            'placeholder': self.placeholder
+            'placeholder': self.placeholder,
+            'required': self.required,
+            'hint': self.hint
         }
 
 
 class NumberInput(Input):
     type = 'number-input'
 
-    def __init__(self, key: str, message: str, initial_value: float = 0, placeholder: str = "Your answer here", hint: str = None):
+    def __init__(self, key: str, message: str, initial_value: float = 0, placeholder: str = "Your answer here", required: Union[bool, str] = True, hint: str = None):
         super().__init__(key)
         self.message = message
         self.initial_value = initial_value
         self.placeholder = placeholder
+        self.required = required
         self.hint = hint
 
     def json(self):
@@ -200,19 +215,21 @@ class NumberInput(Input):
             'key': self.key,
             'message': self.message,
             'initialValue': self.initial_value,
-            'hint': self.hint,
-            'placeholder': self.placeholder
+            'placeholder': self.placeholder,
+            'required': self.required,
+            'hint': self.hint
         }
 
 
 class EmailInput(Input):
     type = 'email-input'
 
-    def __init__(self, key: str, message: str, initial_value: str = "", placeholder: str = "Your answer here", hint: str = None):
+    def __init__(self, key: str, message: str, initial_value: str = "", placeholder: str = "Your answer here", required: Union[bool, str] = True, hint: str = None):
         super().__init__(key)
         self.message = message
         self.initial_value = initial_value
         self.placeholder = placeholder
+        self.required = required
         self.hint = hint
 
     def json(self):
@@ -221,19 +238,21 @@ class EmailInput(Input):
             'key': self.key,
             'message': self.message,
             'initialValue': self.initial_value,
-            'hint': self.hint,
-            'placeholder': self.placeholder
+            'placeholder': self.placeholder,
+            'required': self.required,
+            'hint': self.hint
         }
 
 
 class PhoneInput(Input):
     type = 'phone-input'
 
-    def __init__(self, key: str, message: str, initial_value: str = "", placeholder: str = "", hint: str = None):
+    def __init__(self, key: str, message: str, initial_value: str = "", placeholder: str = "", required: Union[bool, str] = True, hint: str = None):
         super().__init__(key)
         self.message = message
         self.initial_value = initial_value
         self.placeholder = placeholder
+        self.required = required
         self.hint = hint
 
     def json(self):
@@ -242,8 +261,9 @@ class PhoneInput(Input):
             'key': self.key,
             'message': self.message,
             'initialValue': self.initial_value,
-            'hint': self.hint,
-            'placeholder': self.placeholder
+            'placeholder': self.placeholder,
+            'required': self.required,
+            'hint': self.hint
         }
 
     def convert_answer(self, answer):
