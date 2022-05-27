@@ -354,6 +354,10 @@
         "type": "boolean",
         "description": "Whether the input can have multiple values"
       },
+      "required": {
+        "type": ["boolean","string"],
+        "description": "Whether the input is required or not"
+      },
       "initialValue": {
         "type": [
           "object",
