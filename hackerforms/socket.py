@@ -17,7 +17,7 @@ def initialize():
     ws_host = os.environ.get('WS_HOST', 'wss://hackerforms-broker.abstra.cloud')
 
     # frontend_host = os.environ.get('FRONTEND_HOST', 'http://localhost:8001')
-    frontend_host = os.environ.get('FRONTEND_HOST', 'https://hackerforms.com')
+    frontend_host = os.environ.get('FRONTEND_HOST', 'https://console.abstracloud.com')
 
     if session_id == None:
         ws = create_connection(f'{ws_host}/lib')
@@ -44,6 +44,7 @@ def receive(path: str = ''):
     if not initialized: return
     data = deserialize(ws.recv())
 
+    print(path, data)
     if data['type'] == 'keep-alive':
         return receive(path)
 
