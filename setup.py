@@ -9,12 +9,13 @@ README = (HERE / "README.md").read_text()
 
 setup(
     name='hackerforms',
-    version='0.3.0',
+    version='0.3.1',
     description='Hacker Forms',
     long_description=README,
     long_description_content_type="text/markdown",
     url="https://github.com/abstra-app/hackerforms-lib",
     license='MIT',
     packages=['hackerforms'],
-    install_requires=['setuptools', 'requests', 'websocket-client', 'validators']
+    install_requires=['setuptools', 'requests',
+                      'websocket-client', 'validators']
 )
