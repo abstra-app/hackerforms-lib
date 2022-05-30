@@ -18,6 +18,7 @@ def read(message: str, button_text: str = 'Next', initial_value: str = '', place
     '''
     return get_single_value(Page().read(message, initial_value, placeholder, required, hint=hint).run(button_text))
 
+
 def read_textarea(message: str, button_text: str = 'Next', initial_value: str = '', placeholder: str = 'Your answer here', required: Union[bool, str] = True, hint: str = None) -> str:
     '''Read a text value from the user with a text area input
 
@@ -32,6 +33,21 @@ def read_textarea(message: str, button_text: str = 'Next', initial_value: str = 
         str: The value entered by the user
     '''
     return get_single_value(Page().read_textarea(message, initial_value, placeholder, required, hint=hint).run(button_text))
+
+
+def read_tag(message: str, button_text: str = 'Next', initial_value: List[Union[str, float]] = [""], required: Union[bool, str] = True, hint: str = None) -> List[Union[str, float]]:
+    '''Read a tag value from the user
+
+    Args:
+        message (str): The message to display to the user
+        button_text (str): The text to display on the button that will submit the value
+        initial_value (str or float): The initial value to display to the user
+        required (bool or str): Whether the input is required or not eg. "this field is required"
+
+    Returns:
+        List[Union[str,float]]: The value entered by the user
+    '''
+    return get_single_value(Page().read_tag(message, initial_value, required, hint=hint).run(button_text))
 
 
 def read_number(message: str, button_text: str = 'Next', initial_value: float = 0, placeholder: str = 'Your answer here', required: Union[bool, str] = True, hint: str = None) -> int:
@@ -145,6 +161,7 @@ def read_multiple_choice(message: str, options: Union[List[str], List[Dict]], mu
     '''
     return get_single_value(Page().read_multiple_choice(message, options, multiple, initial_value, required, hint=hint).run(button_text))
 
+
 def read_list(item_schema, button_text: str = 'Next', initial_value=[{}], hint: str = None):
     '''Read a list value from the user
 
@@ -176,6 +193,7 @@ def read_cards(label: str, options: List[Dict], multiple: bool = False, button_t
     '''
 
     return get_single_value(Page().read_cards(label, options, multiple, initial_value, required, hint=hint).run(button_text))
+
 
 def get_single_value(answer: Dict):
     return list(answer.values())[0]
