@@ -81,9 +81,10 @@ class DateInput(Input):
 class FileInput(Input):
     type = 'file-input'
 
-    def __init__(self, key: str, message: str, required: Union[bool, str] = True, hint: str = None):
+    def __init__(self, key: str, message: str, initial_value: str = "", required: Union[bool, str] = True, hint: str = None):
         super().__init__(key)
         self.message = message
+        self.initial_value = initial_value
         self.required = required
         self.hint = hint
 
@@ -93,6 +94,7 @@ class FileInput(Input):
             'key': self.key,
             'hint': self.hint,
             'message': self.message,
+            "initial_value": self.initial_value,
             'required': self.required
         }
 

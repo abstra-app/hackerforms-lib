@@ -97,18 +97,19 @@ def read_date(message: str, button_text: str = 'Next', initial_value: date = Non
     return get_single_value(Page().read_date(message, initial_value, required, hint=hint).run(button_text))
 
 
-def read_file(message: str, button_text: str = 'Next', required: Union[bool, str] = True, hint: str = None) -> FileResponse:
+def read_file(message: str, button_text: str = 'Next', initial_value: str = '', required: Union[bool, str] = True, hint: str = None) -> FileResponse:
     '''Read a file value from the user
 
     Args:
         message (str): The message to display to the user
         button_text (str): The text to display on the button that will submit the value
+        initial_value (str): The initial value to display to the user
         required (bool or str): Whether the input is required or not eg. "this field is required"
 
     Returns:
         FileResponse: The file uploaded by the user the user
     '''
-    return get_single_value(Page().read_file(message, required, hint=hint).run(button_text))
+    return get_single_value(Page().read_file(message, initial_value, required, hint=hint).run(button_text))
 
 
 def read_dropdown(message: str, options: Union[List[str], List[Dict]], multiple: bool = False, button_text: str = 'Next', initial_value: Union[Union[str, float], List[Union[str, float]]] = None, placeholder: str = "Choose your option", required: Union[bool, str] = True, hint: str = None) -> Union[str, List[str]]:

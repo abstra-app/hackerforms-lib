@@ -134,7 +134,7 @@ class FieldSchema:
         self.fields.append(DateInput(key or message, message, initial_value, required, hint=hint))
         return self
 
-    def read_file(self, message: str, required: Union[bool, str] = True, key: str = '', hint: str = None):
+    def read_file(self, message: str, initial_value: date = None, required: Union[bool, str] = True, key: str = '', hint: str = None):
         '''Add a file input on the page
 
         The file will be returned in the form result as a dict with the format { "file": File, "url": str, "content": bytes }
@@ -142,12 +142,13 @@ class FieldSchema:
         Args:
             message: The message that will be displayed to the user
             key: The key of the input's value on the form result. Defaults to the message arg
+            initial_value: The initial value of the input
             required: Whether the input is required or not
 
         Returns:
             The form object
         '''
-        self.fields.append(FileInput(key or message, message, required, hint=hint))
+        self.fields.append(FileInput(key or message, message, initial_value, required, hint=hint))
         return self
 
     def read_dropdown(self, name: str, options: Union[List[str], List[Dict]], multiple: bool = False, initial_value: Union[Union[str, float], List[Union[str, float]]] = None, placeholder: str = "Choose your option", required: Union[bool, str] = True, key: str = '', hint: str = None):
