@@ -35,7 +35,7 @@ def read_textarea(message: str, button_text: str = 'Next', initial_value: str = 
     return get_single_value(Page().read_textarea(message, initial_value, placeholder, required, hint=hint).run(button_text))
 
 
-def read_tag(message: str, button_text: str = 'Next', initial_value: List[Union[str, float]] = [""], required: Union[bool, str] = True, hint: str = None) -> List[Union[str, float]]:
+def read_tag(message: str, button_text: str = 'Next', initial_value: List[Union[str, float]] = [""], placeholder: str = 'Your answer here', required: Union[bool, str] = True, hint: str = None) -> List[Union[str, float]]:
     '''Read a tag value from the user
 
     Args:
@@ -47,7 +47,7 @@ def read_tag(message: str, button_text: str = 'Next', initial_value: List[Union[
     Returns:
         List[Union[str,float]]: The value entered by the user
     '''
-    return get_single_value(Page().read_tag(message, initial_value, required, hint=hint).run(button_text))
+    return get_single_value(Page().read_tag(message, initial_value, placeholder, required, hint=hint).run(button_text))
 
 
 def read_number(message: str, button_text: str = 'Next', initial_value: float = 0, placeholder: str = 'Your answer here', required: Union[bool, str] = True, hint: str = None) -> int:

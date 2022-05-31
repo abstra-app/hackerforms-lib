@@ -68,7 +68,7 @@ class FieldSchema:
             key or message, message, initial_value, placeholder, required, hint=hint))
         return self
 
-    def read_tag(self, message: str, initial_value: List[Union[str, float]] = [""], required: Union[bool, str] = True, key: str = '', hint: str = None):
+    def read_tag(self, message: str, initial_value: List[Union[str, float]] = [""], placeholder: str = 'Your answer here', required: Union[bool, str] = True, key: str = '', hint: str = None):
         '''Add a tag input on the page
 
         Args:
@@ -81,7 +81,7 @@ class FieldSchema:
             The form object
         '''
         self.fields.append(TagInput(key or message, message,
-                                    initial_value, required, hint=hint))
+                                    initial_value, placeholder, required, hint=hint))
         return self
 
     def read_number(self, message: str, initial_value: float = 0, placeholder: str = 'Your answer here', required: Union[bool, str] = True, key: str = '', hint: str = None):
