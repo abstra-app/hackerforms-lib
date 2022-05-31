@@ -1,5 +1,5 @@
 {
-  "fields": {
+  "widgets": {
     "file-input": {
       "key": {
         "type": "string",
