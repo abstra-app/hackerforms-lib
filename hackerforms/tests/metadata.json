@@ -213,10 +213,7 @@
       },
       "initialValue": {
         "type": [
-          "string",
-          "number",
-          "array",
-          "null"
+          "any"
         ],
         "description": "The initial value of the input",
         "items": {
@@ -308,10 +305,7 @@
       },
       "initialValue": {
         "type": [
-          "string",
-          "number",
-          "array",
-          "null"
+          "any"
         ],
         "description": "The initial value of the input",
         "items": {
