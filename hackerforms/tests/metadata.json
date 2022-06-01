@@ -253,12 +253,7 @@
         "description": "Whether the input is required or not"
       },
       "initialValue": {
-        "type": [
-          "string",
-          "number",
-          "array",
-          "null"
-        ],
+        "type": "any",
         "description": "The initial value of the input",
         "items": {
           "type": [
@@ -348,12 +343,7 @@
         "description": "Whether the input is required or not"
       },
       "initialValue": {
-        "type": [
-          "string",
-          "number",
-          "array",
-          "null"
-        ],
+        "type": "any",
         "description": "The initial value of the input",
         "items": {
           "type": [
