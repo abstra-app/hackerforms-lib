@@ -168,7 +168,7 @@ class FieldSchema:
             FileInput(key or message, message, required, hint=hint))
         return self
 
-    def read_dropdown(self, name: str, options: Union[List[str], List[Dict]], multiple: bool = False, initial_value: Union[Union[str, float], List[Union[str, float]]] = None, placeholder: str = "Choose your option", required: Union[bool, str] = True, key: str = '', hint: str = None):
+    def read_dropdown(self, name: str, options: Union[List[str], List[Dict]], multiple: bool = False, initial_value = None, placeholder: str = "Choose your option", required: Union[bool, str] = True, key: str = '', hint: str = None):
         '''Add a dropdown input on the page
 
         Args:
@@ -187,7 +187,7 @@ class FieldSchema:
                                          options, multiple, initial_value, placeholder, required, hint=hint))
         return self
 
-    def read_multiple_choice(self, message: str, options: Union[List[str], List[Dict]], multiple: bool = False, initial_value: Union[Union[str, float], List[Union[str, float]]] = None, required: Union[bool, str] = True, key: str = '', hint: str = None):
+    def read_multiple_choice(self, message: str, options: Union[List[str], List[Dict]], multiple: bool = False, initial_value = None, required: Union[bool, str] = True, key: str = '', hint: str = None):
         '''Add a multiple choice input on the page
 
         Args:

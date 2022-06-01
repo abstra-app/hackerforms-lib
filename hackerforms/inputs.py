@@ -127,7 +127,7 @@ def read_file(message: str, button_text: str = 'Next', required: Union[bool, str
     return get_single_value(Page().read_file(message, required, hint=hint).run(button_text))
 
 
-def read_dropdown(message: str, options: Union[List[str], List[Dict]], multiple: bool = False, button_text: str = 'Next', initial_value: Union[Union[str, float], List[Union[str, float]]] = None, placeholder: str = "Choose your option", required: Union[bool, str] = True, hint: str = None) -> Union[str, List[str]]:
+def read_dropdown(message: str, options: Union[List[str], List[Dict]], multiple: bool = False, button_text: str = 'Next', initial_value = None, placeholder: str = "Choose your option", required: Union[bool, str] = True, hint: str = None) -> Union[str, List[str]]:
     '''Read a dropdown value from the user
 
     Args:
@@ -135,7 +135,7 @@ def read_dropdown(message: str, options: Union[List[str], List[Dict]], multiple:
         options (list): The options to display to the user, eg. ['Option 1', 'Option 2'] or [{'label': 'Option 1', 'value': '1'}, {'label': 'Option 2', 'value': '2'}]
         multiple (bool): Whether the user can select multiple options
         button_text (str): The text to display on the button that will submit the value
-        initial_value (str, list): The initial value to display to the user
+        initial_value: The initial value to display to the user
         placeholder (str): The placeholder text to display to the user
         required (bool or str): Whether the input is required or not eg. "this field is required" 
 
@@ -145,7 +145,7 @@ def read_dropdown(message: str, options: Union[List[str], List[Dict]], multiple:
     return get_single_value(Page().read_dropdown(message, options, multiple, initial_value, placeholder, required, hint=hint).run(button_text))
 
 
-def read_multiple_choice(message: str, options: Union[List[str], List[Dict]], multiple: bool = False, button_text: str = 'Next', initial_value: Union[Union[str, float], List[Union[str, float]]] = None, required: Union[bool, str] = True, hint: str = None):
+def read_multiple_choice(message: str, options: Union[List[str], List[Dict]], multiple: bool = False, button_text: str = 'Next', initial_value = None, required: Union[bool, str] = True, hint: str = None):
     '''Read a multiple choice value from the user
 
     Args:
@@ -153,7 +153,7 @@ def read_multiple_choice(message: str, options: Union[List[str], List[Dict]], mu
         options (list): The options to display to the user, eg. ['Option 1', 'Option 2'] or [{'label': 'Option 1', 'value': '1'}, {'label': 'Option 2', 'value': '2'}]
         multiple (bool): Whether the user can select multiple options
         button_text (str): The text to display on the button that will submit the value
-        initial_value (str, list): The initial value to display to the user
+        initial_value: The initial value to display to the user
         required (bool or str): Whether the input is required or not eg. "this field is required"
 
     Returns:
