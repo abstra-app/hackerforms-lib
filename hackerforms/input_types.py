@@ -94,7 +94,7 @@ class FileInput(Input):
             'key': self.key,
             'hint': self.hint,
             'message': self.message,
-            "initial_value": self.initial_value,
+            "initialValue": self.initial_value,
             'required': self.required
         }
 

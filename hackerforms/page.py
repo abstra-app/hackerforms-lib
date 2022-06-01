@@ -134,7 +134,7 @@ class FieldSchema:
         self.fields.append(DateInput(key or message, message, initial_value, required, hint=hint))
         return self
 
-    def read_file(self, message: str, initial_value: date = None, required: Union[bool, str] = True, key: str = '', hint: str = None):
+    def read_file(self, message: str, initial_value: str = '', required: Union[bool, str] = True, key: str = '', hint: str = None):
         '''Add a file input on the page
 
         The file will be returned in the form result as a dict with the format { "file": File, "url": str, "content": bytes }
