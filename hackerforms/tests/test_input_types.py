@@ -6,14 +6,14 @@ METADATA_FILEPATH = os.path.join(os.path.dirname(__file__), 'metadata.json')
 
 
 def test_function():
-    fields_metadata = load_metadata()["fields"]
-    generated_fields = load_field_test_instances()
-    assert_field_examples_contains_all_fields(
-        generated_fields, fields_metadata)
-    for field_example in generated_fields:
-        assert_field_exists_in_metadata(field_example, fields_metadata)
-        assert_fields_props_are_right(
-            field_example, fields_metadata[field_example["type"]])
+    widgets_metadata = load_metadata()["widgets"]
+    generated_widgets = load_widget_test_instances()
+    assert_widget_examples_contains_all_widgets(
+        generated_widgets, widgets_metadata)
+    for widget_example in generated_widgets:
+        assert_widget_exists_in_metadata(widget_example, widgets_metadata)
+        assert_widgets_props_are_right(
+            widget_example, widgets_metadata[widget_example["type"]])
 
 
 def load_metadata():
@@ -21,22 +21,22 @@ def load_metadata():
         return json.load(f)
 
 
-def load_field_test_instances():
+def load_widget_test_instances():
     return [example_instance.json() for example_instance in example_instances]
 
 
-def assert_field_exists_in_metadata(field_example, fields_metadata):
-    assert field_example["type"] in fields_metadata
+def assert_widget_exists_in_metadata(widget_example, widgets_metadata):
+    assert widget_example["type"] in widgets_metadata
 
 
-def assert_fields_props_are_right(field_example, field_metadata):
-    for prop in field_metadata:
-        assert prop in field_example
-        assert types_compatible(field_example[prop], field_metadata[prop])
-    for prop in field_example:
+def assert_widgets_props_are_right(widget_example, widget_metadata):
+    for prop in widget_metadata:
+        assert prop in widget_example
+        assert types_compatible(widget_example[prop], widget_metadata[prop])
+    for prop in widget_example:
         if prop == "type":
             continue
-        assert prop in field_metadata
+        assert prop in widget_metadata
 
 
 def types_compatible(prop, schema):
@@ -76,6 +76,6 @@ def to_generic_type(type):
     raise Exception(f"Unknown type: {type}")
 
 
-def assert_field_examples_contains_all_fields(generated_fields, fields_metadata):
-    for field_type in fields_metadata:
-        assert any(field["type"] == field_type for field in generated_fields)
+def assert_widget_examples_contains_all_widgets(generated_widgets, widgets_metadata):
+    for widget_type in widgets_metadata:
+        assert any(widget["type"] == widget_type for widget in generated_widgets)
