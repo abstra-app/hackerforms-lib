@@ -4,6 +4,7 @@ from datetime import date
 
 from .type_classes import FileResponse, PhoneResponse
 
+
 class Input(ABC):
     type: str
 
@@ -23,6 +24,29 @@ class TextInput(Input):
     type = 'text-input'
 
     def __init__(self, key: str, message: str, initial_value: str = "", placeholder: str = "Your answer here", required: Union[bool, str] = True, hint: str = None):
+        super().__init__(key)
+        self.message = message
+        self.initial_value = initial_value
+        self.placeholder = placeholder
+        self.required = required
+        self.hint = hint
+
+    def json(self):
+        return {
+            'type': self.type,
+            'key': self.key,
+            'message': self.message,
+            'initialValue': self.initial_value,
+            'placeholder': self.placeholder,
+            'required': self.required,
+            'hint': self.hint
+        }
+
+
+class TagInput(Input):
+    type = 'tag-input'
+
+    def __init__(self, key: str, message: str, initial_value: List[Union[str, float]] = [""], placeholder: str = "Your answer here", required: Union[bool, str] = True, hint: str = None):
         super().__init__(key)
         self.message = message
         self.initial_value = initial_value
@@ -124,6 +148,7 @@ class MultipleChoiceInput(Input):
             'required': self.required
         }
 
+
 class CardsInput(Input):
     type = 'cards-input'
 
@@ -135,7 +160,7 @@ class CardsInput(Input):
         self.initial_value = initial_value
         self.required = required
         self.hint = hint
-    
+
     def json(self):
         return {
             'type': self.type,
@@ -147,6 +172,7 @@ class CardsInput(Input):
             'initialValue': self.initial_value,
             'required': self.required
         }
+
 
 class DropdownInput(Input):
     type = 'dropdown-input'
@@ -269,10 +295,11 @@ class PhoneInput(Input):
     def convert_answer(self, answer):
         return PhoneResponse(raw=answer['raw'], masked=answer['masked']) if answer else None
 
+
 class ListInput(Input):
     type = 'list-input'
 
-    def __init__(self, key: str, item_schema, initial_value = [{}], hint: str = None):
+    def __init__(self, key: str, item_schema, initial_value=[{}], hint: str = None):
         super().__init__(key)
         self.item_schema = item_schema
         self.initial_value = initial_value
