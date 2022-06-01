@@ -68,6 +68,22 @@ class WidgetSchema:
             key or message, message, initial_value, placeholder, required, hint=hint))
         return self
 
+    def read_tag(self, message: str, initial_value: List[Union[str, float]] = [""], placeholder: str = 'Your answer here', required: Union[bool, str] = True, key: str = '', hint: str = None):
+        '''Add a tag input on the page
+
+        Args:
+            message: The message that will be displayed to the user
+            key: The key of the input's value on the form result. Defaults to the message arg
+            initial_value: The initial value of the input
+            required: Whether the input is required or not
+
+        Returns:
+            The form object
+        '''
+        self.fields.append(TagInput(key or message, message,
+                                    initial_value, placeholder, required, hint=hint))
+        return self
+
     def read_number(self, message: str, initial_value: float = 0, placeholder: str = 'Your answer here', required: Union[bool, str] = True, key: str = '', hint: str = None):
         '''Add a number input on the page
 
@@ -150,7 +166,7 @@ class WidgetSchema:
         self.widgets.append(FileInput(key or message, message, required, hint=hint))
         return self
 
-    def read_dropdown(self, name: str, options: Union[List[str], List[Dict]], multiple: bool = False, initial_value: Union[Union[str, float], List[Union[str, float]]] = None, placeholder: str = "Choose your option", required: Union[bool, str] = True, key: str = '', hint: str = None):
+    def read_dropdown(self, name: str, options: Union[List[str], List[Dict]], multiple: bool = False, initial_value = None, placeholder: str = "Choose your option", required: Union[bool, str] = True, key: str = '', hint: str = None):
         '''Add a dropdown input on the page
 
         Args:
@@ -169,7 +185,7 @@ class WidgetSchema:
                                          options, multiple, initial_value, placeholder, required, hint=hint))
         return self
 
-    def read_multiple_choice(self, message: str, options: Union[List[str], List[Dict]], multiple: bool = False, initial_value: Union[Union[str, float], List[Union[str, float]]] = None, required: Union[bool, str] = True, key: str = '', hint: str = None):
+    def read_multiple_choice(self, message: str, options: Union[List[str], List[Dict]], multiple: bool = False, initial_value = None, required: Union[bool, str] = True, key: str = '', hint: str = None):
         '''Add a multiple choice input on the page
 
         Args:
@@ -186,8 +202,8 @@ class WidgetSchema:
         self.widgets.append(MultipleChoiceInput(
             key or message, message, options, multiple, initial_value, required, hint=hint))
         return self
-    
-    def read_cards(self, label, options, multiple = False, initial_value: Union[Union[str, float], List[Union[str, float]]] = None, required: Union[bool, str] = True, key: str = '', hint: str = None):
+
+    def read_cards(self, label, options, multiple=False, initial_value: Union[Union[str, float], List[Union[str, float]]] = None, required: Union[bool, str] = True, key: str = '', hint: str = None):
         '''Add a cards input on the page
 
         Args:
@@ -199,7 +215,7 @@ class WidgetSchema:
             initial_value: The initial value of the input
             key: The key of the input's value on the form result. Defaults to the label arg
             required: Whether the input is required or not
-        
+
         Returns:
             The form object
         '''
@@ -331,7 +347,6 @@ class Page(WidgetSchema):
     def __init__(self):
         super().__init__()
 
-
     def run(self, button_text: str = 'Next') -> Dict:
         '''Run the form
 
@@ -347,7 +362,7 @@ class Page(WidgetSchema):
             'buttonText': button_text
         })
         form_answers: Dict = receive('payload')
-        
+
         return self.convert_answer(form_answers)
 
 class ListItemSchema(WidgetSchema):
@@ -355,6 +370,6 @@ class ListItemSchema(WidgetSchema):
 
     This schema is used to define the schema of a list item.
     '''
+
     def __init__(self):
         super().__init__()
-    
