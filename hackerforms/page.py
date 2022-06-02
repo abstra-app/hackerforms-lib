@@ -4,9 +4,9 @@ from .input_types import *
 from .output_types import *
 
 
-class FieldSchema:
+class WidgetSchema:
     def __init__(self):
-        self.fields: List[Union[Input, Output]] = []
+        self.widgets: List[Union[Input, Output]] = []
 
     def convert_answer(self, form_answers: Dict) -> Dict:
         '''Convert the answer from the form to the expected format
@@ -20,8 +20,8 @@ class FieldSchema:
         answer: Dict = {}
 
         inputs = list(
-            filter(lambda field: isinstance(field, Input), self.fields))
-
+            filter(lambda widget: isinstance(widget, Input), self.widgets))
+        
         for input in inputs:
             answer[input.key] = input.convert_answer(form_answers[input.key])
         return answer
@@ -32,7 +32,7 @@ class FieldSchema:
         Returns:
             The json representation of the form
         '''
-        return [field.json() for field in self.fields]
+        return [widget.json() for widget in self.widgets]
 
     def read(self, message: str, initial_value: str = '', placeholder: str = 'Your answer here', required: Union[bool, str] = True, key: str = '', hint: str = None):
         '''Add a text input on the page
@@ -47,7 +47,7 @@ class FieldSchema:
         Returns:
             The form object
         '''
-        self.fields.append(
+        self.widgets.append(
             TextInput(key or message, message, initial_value, placeholder, required, hint=hint))
         return self
 
@@ -64,7 +64,7 @@ class FieldSchema:
         Returns:
             The form object
         '''
-        self.fields.append(TextareaInput(
+        self.widgets.append(TextareaInput(
             key or message, message, initial_value, placeholder, required, hint=hint))
         return self
 
@@ -97,7 +97,7 @@ class FieldSchema:
         Returns:
             The form object
         '''
-        self.fields.append(NumberInput(
+        self.widgets.append(NumberInput(
             key or message, message, initial_value, placeholder, required, hint=hint))
         return self
 
@@ -114,7 +114,7 @@ class FieldSchema:
         Returns:
             The form object
         '''
-        self.fields.append(EmailInput(
+        self.widgets.append(EmailInput(
             key or message, message, initial_value, placeholder, required, hint=hint))
         return self
 
@@ -131,7 +131,7 @@ class FieldSchema:
         Returns:
             The form object
         '''
-        self.fields.append(PhoneInput(
+        self.widgets.append(PhoneInput(
             key or message, message, initial_value, placeholder, required, hint=hint))
         return self
 
@@ -147,8 +147,7 @@ class FieldSchema:
         Returns:
             The form object
         '''
-        self.fields.append(DateInput(key or message, message,
-                                     initial_value, required, hint=hint))
+        self.widgets.append(DateInput(key or message, message, initial_value, required, hint=hint))
         return self
 
     def read_file(self, message: str, initial_value: str = '', required: Union[bool, str] = True, key: str = '', hint: str = None):
@@ -165,8 +164,7 @@ class FieldSchema:
         Returns:
             The form object
         '''
-        self.fields.append(
-            FileInput(key or message, message, initial_value, required, hint=hint))
+        self.widgets.append(FileInput(key or message, message, initial_value, required, hint=hint))
         return self
 
     def read_dropdown(self, name: str, options: Union[List[str], List[Dict]], multiple: bool = False, initial_value = None, placeholder: str = "Choose your option", required: Union[bool, str] = True, key: str = '', hint: str = None):
@@ -184,7 +182,7 @@ class FieldSchema:
         Returns:
             The form object
         '''
-        self.fields.append(DropdownInput(key or name, name,
+        self.widgets.append(DropdownInput(key or name, name,
                                          options, multiple, initial_value, placeholder, required, hint=hint))
         return self
 
@@ -202,7 +200,7 @@ class FieldSchema:
         Returns:
             The form object
         '''
-        self.fields.append(MultipleChoiceInput(
+        self.widgets.append(MultipleChoiceInput(
             key or message, message, options, multiple, initial_value, required, hint=hint))
         return self
 
@@ -222,8 +220,7 @@ class FieldSchema:
         Returns:
             The form object
         '''
-        self.fields.append(CardsInput(
-            key or label, label, options, multiple, initial_value, required, hint=hint))
+        self.widgets.append(CardsInput(key or label, label, options, multiple, initial_value, required, hint=hint))
         return self
 
     def read_list(self, item_schema, initial_value=[{}], key: str = '', hint: str = None):
@@ -235,8 +232,7 @@ class FieldSchema:
         Returns:
             The form object
         '''
-        self.fields.append(
-            ListInput(key, item_schema, initial_value=initial_value, hint=hint))
+        self.widgets.append(ListInput(key, item_schema, initial_value=initial_value, hint=hint))
         return self
 
     def display(self, message: str):
@@ -248,7 +244,7 @@ class FieldSchema:
         Returns:
             The form object
         '''
-        self.fields.append(TextOutput(message))
+        self.widgets.append(TextOutput(message))
         return self
 
     def display_image(self, image_str: str, subtitle: str = ""):
@@ -261,7 +257,7 @@ class FieldSchema:
         Returns:
             The form object
         '''
-        self.fields.append(ImageOutput(image_str, subtitle))
+        self.widgets.append(ImageOutput(image_str, subtitle))
         return self
 
     def display_link(self, link_url: str, link_text: str = "Click here"):
@@ -274,7 +270,7 @@ class FieldSchema:
         Returns:
             The form object
         '''
-        self.fields.append(LinkOutput(link_url, link_text))
+        self.widgets.append(LinkOutput(link_url, link_text))
         return self
 
     def display_file(self, file, download_text: str = "Download here"):
@@ -287,7 +283,7 @@ class FieldSchema:
         Returns:
             The form object
         '''
-        self.fields.append(FileOutput(file, download_text))
+        self.widgets.append(FileOutput(file, download_text))
         return self
 
     def display_html(self, html: str):
@@ -299,7 +295,7 @@ class FieldSchema:
         Returns:
             The form object
         '''
-        self.fields.append(HTMLOutput(html))
+        self.widgets.append(HTMLOutput(html))
         return self
 
     def display_pandas(self, df):
@@ -311,7 +307,7 @@ class FieldSchema:
         Returns:
             The form object
         '''
-        self.fields.append(PandasOutput(df))
+        self.widgets.append(PandasOutput(df))
         return self
 
     def display_plotly(self, fig):
@@ -323,7 +319,7 @@ class FieldSchema:
         Returns:
             The form object
         '''
-        self.fields.append(PlotlyOutput(fig))
+        self.widgets.append(PlotlyOutput(fig))
         return self
 
     def display_iframe(self, url_or_html: str, width: int, height: int):
@@ -337,11 +333,10 @@ class FieldSchema:
         Returns:
             The iframe object
         '''
-        self.fields.append(IFrameOutput(url_or_html, width, height))
+        self.widgets.append(IFrameOutput(url_or_html, width, height))
         return self
 
-
-class Page(FieldSchema):
+class Page(WidgetSchema):
     '''A form page that can be displayed to the user
 
     This is a page that can be displayed to the user. It can be used to
@@ -364,15 +359,14 @@ class Page(FieldSchema):
         '''
         send({
             'type': 'form',
-            'fields': self.json(),
+            'widgets': self.json(),
             'buttonText': button_text
         })
         form_answers: Dict = receive('payload')
 
         return self.convert_answer(form_answers)
 
-
-class ListItemSchema(FieldSchema):
+class ListItemSchema(WidgetSchema):
     '''A schema for a list item
 
     This schema is used to define the schema of a list item.
