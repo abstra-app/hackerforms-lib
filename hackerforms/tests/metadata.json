@@ -1,5 +1,5 @@
 {
-  "fields": {
+  "widgets": {
     "file-input": {
       "key": {
         "type": "string",
@@ -15,6 +15,10 @@
       "message": {
         "type": "string",
         "description": "The message to display above the input"
+      },
+      "initialValue": {
+        "type": "string",
+        "description": "The initial value of the input"
       },
       "required": {
         "type": [
@@ -86,6 +90,47 @@
           "string"
         ],
         "description": "Whether the input is required or not"
+      }
+    },
+    "tag-input": {
+      "key": {
+        "type": "string",
+        "description": "The key of the input on the returning object"
+      },
+      "hint": {
+        "type": [
+          "string",
+          "null"
+        ],
+        "description": "message describing the input"
+      },
+      "message": {
+        "type": "string",
+        "description": "The message to display above the input"
+      },
+      "initialValue": {
+        "type": [
+          "array",
+          "null"
+        ],
+        "description": "The initial value of the input",
+        "items": {
+          "type": [
+            "string",
+            "number"
+          ]
+        }
+      },
+      "required": {
+        "type": [
+          "boolean",
+          "string"
+        ],
+        "description": "Whether the input is required or not"
+      },
+      "placeholder": {
+        "type": "string",
+        "description": "The placeholder text to display in the input"
       }
     },
     "number-input": {
@@ -212,12 +257,7 @@
         "description": "Whether the input is required or not"
       },
       "initialValue": {
-        "type": [
-          "string",
-          "number",
-          "array",
-          "null"
-        ],
+        "type": "any",
         "description": "The initial value of the input",
         "items": {
           "type": [
@@ -307,12 +347,7 @@
         "description": "Whether the input is required or not"
       },
       "initialValue": {
-        "type": [
-          "string",
-          "number",
-          "array",
-          "null"
-        ],
+        "type": "any",
         "description": "The initial value of the input",
         "items": {
           "type": [
