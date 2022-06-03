@@ -20,6 +20,17 @@ class TextOutput(Output):
             'type': self.type,
             'message': self.message,
         }
+
+class MarkdownOutput(Output):
+    type = 'markdown-output'
+    def __init__(self, text: str):
+        self.text = text
+
+    def json(self):
+        return {
+            'type': self.type,
+            'text': self.text,
+        }
     
 class ImageOutput(Output):
     type = 'image-output'

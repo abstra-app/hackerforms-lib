@@ -476,6 +476,11 @@
         "type": "string"
       }
     },
+    "markdown-output": {
+      "text": {
+        "type": "string"
+      }
+    },
     "image-output": {
       "image_str": {
         "type": "string"

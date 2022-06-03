@@ -246,6 +246,18 @@ class WidgetSchema:
         self.widgets.append(TextOutput(message))
         return self
 
+    def display_markdown(self, text: str):
+        '''Add a formatted text to the page
+
+        Args:
+            text: The text to display to the user
+
+        Returns:
+            The form object
+        '''
+        self.widgets.append(TextOutput(text))
+        return self
+
     def display_image(self, image_str: str, subtitle: str = ""):
         '''Add an image to the page
 
