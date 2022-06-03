@@ -23,6 +23,7 @@ example_instances = [
     CardsInput('card', 'What is your favorite color?', options=[{'title': 'red', 'image': 'redImage', 'description': 'red'}, {
                'title': 'blue', 'image': 'blueImage', 'description': 'blue'}, {'title': 'green', 'image': 'greenImage', 'description': 'green'}]),
     TextOutput('Hello, world!'),
+    MarkdownOutput('## This is a h2 tag'),
     ImageOutput('https://i.imgur.com/XyqQZ.jpg', 'A cute cat'),
     LinkOutput('https://www.google.com', 'Google'),
     FileOutput('https://www.google.com', 'Google'),
