@@ -16,6 +16,10 @@
         "type": "string",
         "description": "The message to display above the input"
       },
+      "initialValue": {
+        "type": "string",
+        "description": "The initial value of the input"
+      },
       "required": {
         "type": [
           "boolean",
