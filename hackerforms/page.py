@@ -250,12 +250,12 @@ class WidgetSchema:
         '''Add a formatted text to the page
 
         Args:
-            text: The text to display to the user
+            text: The formatted text to display to the user
 
         Returns:
             The form object
         '''
-        self.widgets.append(TextOutput(text))
+        self.widgets.append(MarkdownOutput(text))
         return self
 
     def display_image(self, image_str: str, subtitle: str = ""):

@@ -14,7 +14,7 @@ def display_markdown(text: str, button_text: str = 'Next'):
     '''Display a formatted text to the user
 
     Args:
-        text (str): The text to display to the user
+        text (str): The formatted text to display to the user
         button_text (str): The text to display on the button that will continue the form
     '''
     return Page().display_markdown(text).run(button_text)
