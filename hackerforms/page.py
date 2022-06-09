@@ -261,6 +261,9 @@ class WidgetSchema:
     def execute_js(self, code: str, key: str = ''):
         """Execute JavaScript on the page
 
+        Args:
+            code: The JS code to be executed
+
         Returns:
             string: Serialized return value of the executed JavaScript
         """

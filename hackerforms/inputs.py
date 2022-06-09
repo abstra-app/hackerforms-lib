@@ -128,6 +128,7 @@ def read_file(message: str, button_text: str = 'Next', initial_value: str = '', 
     '''
     return get_single_value(Page().read_file(message, initial_value, required, hint=hint).run(button_text))
 
+
 def read_image(message: str, button_text: str = 'Next', initial_value: str = '', required: Union[bool, str] = True, hint: str = None) -> FileResponse:
     '''Read a image file value from the user
 
@@ -188,7 +189,7 @@ def read_list(item_schema, button_text: str = 'Next', initial_value=[{}], min: i
     Returns:
         list: The values entered by the user
     '''
-    return get_single_value(Page().read_list(item_schema, initial_value=initial_value,min=min, max=max, hint=hint).run(button_text))
+    return get_single_value(Page().read_list(item_schema, initial_value=initial_value, min=min, max=max, hint=hint).run(button_text))
 
 
 def read_cards(label: str, options: List[Dict], multiple: bool = False, button_text: str = 'Next', initial_value: Union[Union[str, float], List[Union[str, float]]] = None, required: Union[bool, str] = True, hint: str = None):
@@ -218,8 +219,11 @@ def get_single_value(answer: Dict):
 def execute_js(code: str):
     """Execute JavaScript on the page
 
+    Args:
+        code: The JS code to be executed
+
     Returns:
       string: Serialized return value of the executed JavaScript
     """
 
-    return get_single_value(Page().execute_js(code).run())
+    return get_single_value(Page().execute_js(code).run(button_text))
