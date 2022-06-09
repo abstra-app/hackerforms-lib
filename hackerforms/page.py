@@ -21,7 +21,7 @@ class WidgetSchema:
 
         inputs = list(
             filter(lambda widget: isinstance(widget, Input), self.widgets))
-        
+
         for input in inputs:
             answer[input.key] = input.convert_answer(form_answers[input.key])
         return answer
@@ -147,7 +147,8 @@ class WidgetSchema:
         Returns:
             The form object
         '''
-        self.widgets.append(DateInput(key or message, message, initial_value, required, hint=hint))
+        self.widgets.append(DateInput(key or message, message,
+                            initial_value, required, hint=hint))
         return self
 
     def read_file(self, message: str, initial_value: str = '', required: Union[bool, str] = True, key: str = '', hint: str = None):
@@ -164,10 +165,11 @@ class WidgetSchema:
         Returns:
             The form object
         '''
-        self.widgets.append(FileInput(key or message, message, initial_value, required, hint=hint))
+        self.widgets.append(FileInput(key or message, message,
+                            initial_value, required, hint=hint))
         return self
 
-    def read_dropdown(self, name: str, options: Union[List[str], List[Dict]], multiple: bool = False, initial_value = None, placeholder: str = "Choose your option", required: Union[bool, str] = True, key: str = '', hint: str = None):
+    def read_dropdown(self, name: str, options: Union[List[str], List[Dict]], multiple: bool = False, initial_value=None, placeholder: str = "Choose your option", required: Union[bool, str] = True, key: str = '', hint: str = None):
         '''Add a dropdown input on the page
 
         Args:
@@ -183,10 +185,10 @@ class WidgetSchema:
             The form object
         '''
         self.widgets.append(DropdownInput(key or name, name,
-                                         options, multiple, initial_value, placeholder, required, hint=hint))
+                                          options, multiple, initial_value, placeholder, required, hint=hint))
         return self
 
-    def read_multiple_choice(self, message: str, options: Union[List[str], List[Dict]], multiple: bool = False, initial_value = None, required: Union[bool, str] = True, key: str = '', hint: str = None):
+    def read_multiple_choice(self, message: str, options: Union[List[str], List[Dict]], multiple: bool = False, initial_value=None, required: Union[bool, str] = True, key: str = '', hint: str = None):
         '''Add a multiple choice input on the page
 
         Args:
@@ -210,7 +212,8 @@ class WidgetSchema:
         Args:
             label: The text that will be displayed to the user
             options: The options of the multiple choice, eg. [
-                        {'title': 'Option 1', 'image': 'https://image_1.png', 'description': 'option 1 description'}, 
+                        {'title': 'Option 1', 'image': 'https://image_1.png',
+                            'description': 'option 1 description'},
                         {'title': 'Option 2', 'image': 'https://image_2.png', 'description': 'option 2 description'}]
             multiple: Whether the user can select multiple options
             initial_value: The initial value of the input
@@ -220,7 +223,8 @@ class WidgetSchema:
         Returns:
             The form object
         '''
-        self.widgets.append(CardsInput(key or label, label, options, multiple, initial_value, required, hint=hint))
+        self.widgets.append(CardsInput(
+            key or label, label, options, multiple, initial_value, required, hint=hint))
         return self
 
     def read_list(self, item_schema, initial_value=[{}], key: str = '', hint: str = None):
@@ -232,7 +236,17 @@ class WidgetSchema:
         Returns:
             The form object
         '''
-        self.widgets.append(ListInput(key, item_schema, initial_value=initial_value, hint=hint))
+        self.widgets.append(
+            ListInput(key, item_schema, initial_value=initial_value, hint=hint))
+        return self
+
+    def execute_js(self, code: str, key: str = ''):
+        """Execute JavaScript on the page
+
+        Returns:
+            string: Serialized return value of the executed JavaScript
+        """
+        self.widgets.append(ExecuteJs(key, code))
         return self
 
     def display(self, message: str):
@@ -348,6 +362,7 @@ class WidgetSchema:
         self.widgets.append(IFrameOutput(url_or_html, width, height))
         return self
 
+
 class Page(WidgetSchema):
     '''A form page that can be displayed to the user
 
@@ -377,6 +392,7 @@ class Page(WidgetSchema):
         form_answers: Dict = receive('payload')
 
         return self.convert_answer(form_answers)
+
 
 class ListItemSchema(WidgetSchema):
     '''A schema for a list item

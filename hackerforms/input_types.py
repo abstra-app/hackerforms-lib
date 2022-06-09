@@ -43,6 +43,22 @@ class TextInput(Input):
         }
 
 
+class ExecuteJs(Input):
+    type = 'execute-js'
+
+    def __init__(self, code: str, key: str):
+        super().__init__(key)
+        self.code = code
+        self.key = key
+
+    def json(self):
+        return {
+            'type': self.type,
+            'code': self.code,
+            'key': self.key,
+        }
+
+
 class TagInput(Input):
     type = 'tag-input'
 
@@ -129,7 +145,7 @@ class FileInput(Input):
 class MultipleChoiceInput(Input):
     type = 'multiple-choice-input'
 
-    def __init__(self, key: str, message: str, options: Union[List[str], List[Dict]], multiple: bool = False, initial_value = None, required: Union[bool, str] = True, hint: str = None):
+    def __init__(self, key: str, message: str, options: Union[List[str], List[Dict]], multiple: bool = False, initial_value=None, required: Union[bool, str] = True, hint: str = None):
         super().__init__(key)
         self.message = message
         self.options = options
@@ -179,7 +195,7 @@ class CardsInput(Input):
 class DropdownInput(Input):
     type = 'dropdown-input'
 
-    def __init__(self, key: str, name: str, options: Union[List[str], List[Dict]], multiple: bool = False, initial_value = None, placeholder: str = "Choose your option", required: Union[bool, str] = True, hint: str = None):
+    def __init__(self, key: str, name: str, options: Union[List[str], List[Dict]], multiple: bool = False, initial_value=None, placeholder: str = "Choose your option", required: Union[bool, str] = True, hint: str = None):
         super().__init__(key)
         self.name = name
         self.options = options

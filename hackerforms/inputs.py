@@ -128,7 +128,7 @@ def read_file(message: str, button_text: str = 'Next', initial_value: str = '', 
     return get_single_value(Page().read_file(message, initial_value, required, hint=hint).run(button_text))
 
 
-def read_dropdown(message: str, options: Union[List[str], List[Dict]], multiple: bool = False, button_text: str = 'Next', initial_value = None, placeholder: str = "Choose your option", required: Union[bool, str] = True, hint: str = None) -> Union[str, List[str]]:
+def read_dropdown(message: str, options: Union[List[str], List[Dict]], multiple: bool = False, button_text: str = 'Next', initial_value=None, placeholder: str = "Choose your option", required: Union[bool, str] = True, hint: str = None) -> Union[str, List[str]]:
     '''Read a dropdown value from the user
 
     Args:
@@ -146,7 +146,7 @@ def read_dropdown(message: str, options: Union[List[str], List[Dict]], multiple:
     return get_single_value(Page().read_dropdown(message, options, multiple, initial_value, placeholder, required, hint=hint).run(button_text))
 
 
-def read_multiple_choice(message: str, options: Union[List[str], List[Dict]], multiple: bool = False, button_text: str = 'Next', initial_value = None, required: Union[bool, str] = True, hint: str = None):
+def read_multiple_choice(message: str, options: Union[List[str], List[Dict]], multiple: bool = False, button_text: str = 'Next', initial_value=None, required: Union[bool, str] = True, hint: str = None):
     '''Read a multiple choice value from the user
 
     Args:
@@ -198,3 +198,13 @@ def read_cards(label: str, options: List[Dict], multiple: bool = False, button_t
 
 def get_single_value(answer: Dict):
     return list(answer.values())[0]
+
+
+def execute_js(code: str):
+    """Execute JavaScript on the page
+
+    Returns:
+      string: Serialized return value of the executed JavaScript
+    """
+
+    return get_single_value(Page().execute_js(code).run())
