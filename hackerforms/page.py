@@ -246,7 +246,7 @@ class WidgetSchema:
         Returns:
             string: Serialized return value of the executed JavaScript
         """
-        self.widgets.append(ExecuteJs(key, code))
+        self.widgets.append(ExecuteJs(code, key))
         return self
 
     def display(self, message: str):
