@@ -1,4 +1,5 @@
 from typing import List, Union, Dict
+
 from .type_classes import *
 from .page import *
 
@@ -134,6 +135,21 @@ def read_file(**kwargs) -> FileResponse:
     '''
     button_text = kwargs.get('button_text', 'Next')
     return get_single_value(Page().read_file(**kwargs).run(button_text))
+
+
+def read_image(message: str, button_text: str = 'Next', initial_value: str = '', required: Union[bool, str] = True, hint: str = None) -> FileResponse:
+    '''Read a image file value from the user
+
+    Args:
+        message (str): The message to display to the user
+        button_text (str): The text to display on the button that will submit the value
+        initial_value (str): The initial value to display to the user
+        required (bool or str): Whether the input is required or not eg. "this field is required"
+
+    Returns:
+        FileResponse: The image file uploaded by the user the user
+    '''
+    return get_single_value(Page().read_image(message, initial_value, required, hint=hint).run(button_text))
 
 
 def read_dropdown(**kwargs) -> Union[str, List[str]]:

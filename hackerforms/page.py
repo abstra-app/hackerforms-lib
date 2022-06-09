@@ -18,7 +18,6 @@ class WidgetSchema:
             The converted answer
         '''
         answer: Dict = {}
-
         inputs = list(
             filter(lambda widget: isinstance(widget, Input), self.widgets))
 
@@ -177,6 +176,24 @@ class WidgetSchema:
             FileInput(key=key or message, message=message, **kwargs))
         return self
 
+    def read_image(self, message: str, initial_value: str = '', required: Union[bool, str] = True, key: str = '', hint: str = None):
+        '''Add a image file input on the page
+
+        The file will be returned in the form result as a dict with the format { "file": File, "url": str, "content": bytes }
+
+        Args:
+            message: The message that will be displayed to the user
+            key: The key of the input's value on the form result. Defaults to the message arg
+            initial_value: The initial value of the input
+            required: Whether the input is required or not
+
+        Returns:
+            The form object
+        '''
+        self.widgets.append(ImageInput(
+            key or message, message, initial_value, required, hint=hint))
+        return self
+
     def read_dropdown(self, name: str, key: str = '', **kwargs):
         '''Add a dropdown input on the page
 
@@ -300,6 +317,7 @@ class WidgetSchema:
             link_url: The url of the link
             link_text: The text of the link
             columns: The number of columns of the link
+            same_tab: Whether the link should open in the same tab or not
 
         Returns:
             The form object
@@ -417,3 +435,20 @@ class ListItemSchema(WidgetSchema):
 
     def __init__(self):
         super().__init__()
+
+    def convert_answer(self, form_answers: Dict) -> Dict:
+        '''Convert the answer from the form to the expected format
+
+        Args:
+            answer: The answer from the form
+
+        Returns:
+            The converted answer
+        '''
+        answer: Dict = form_answers
+        inputs = list(
+            filter(lambda widget: isinstance(widget, Input), self.widgets))
+
+        for input in inputs:
+            answer[input.key] = input.convert_answer(form_answers[input.key])
+        return answer

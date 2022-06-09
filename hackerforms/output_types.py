@@ -67,13 +67,15 @@ class LinkOutput(Output):
         self.link_url = kwargs.get('link_url')
         self.link_text = kwargs.get('link_text', 'Click here')
         self.column = kwargs.get('column', 1)
+        self.same_tab = kwargs.get('same_tab', False)
 
     def json(self):
         return {
             'type': self.type,
             'message': self.link_url,
             'linkText': self.link_text,
-            'column': self.column
+            'column': self.column,
+            'sameTab': self.same_tab,
         }
 
 

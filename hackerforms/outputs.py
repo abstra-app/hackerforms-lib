@@ -42,6 +42,7 @@ def display_link(**kwargs):
         link_url (str): The url of the link to display to the user
         link_text (str): The text to display on the link
         button_text (str): The text to display on the button that will continue the form
+        same_tab (bool): Whether to open the link in the same tab or not
     '''
     button_text = kwargs.get('button_text', 'Next')
     return Page().display_link(**kwargs).run(button_text)

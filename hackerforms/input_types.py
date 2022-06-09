@@ -134,6 +134,30 @@ class FileInput(Input):
         return FileResponse(answer) if answer else None
 
 
+class ImageInput(Input):
+    type = 'image-input'
+
+    def __init__(self, key: str, message: str, initial_value: str = "", required: Union[bool, str] = True, hint: str = None):
+        super().__init__(key)
+        self.message = message
+        self.initial_value = initial_value
+        self.required = required
+        self.hint = hint
+
+    def json(self):
+        return {
+            'type': self.type,
+            'key': self.key,
+            'hint': self.hint,
+            'message': self.message,
+            "initialValue": self.initial_value,
+            'required': self.required
+        }
+
+    def convert_answer(self, answer):
+        return FileResponse(answer) if answer else None
+
+
 class MultipleChoiceInput(Input):
     type = 'multiple-choice-input'
 
@@ -326,6 +350,8 @@ class ListInput(Input):
         super().__init__(key)
         self.item_schema = kwargs.get('item_schema')
         self.initial_value = kwargs.get('initial_value', [{}])
+        self.min = kwargs.get('min', None)
+        self.max = kwargs.get('max', None)
         self.hint = kwargs.get('hint', None)
         self.columns = kwargs.get('columns', 1)
 
@@ -337,6 +363,8 @@ class ListInput(Input):
             'itemSchema': self.item_schema.json(),
             'initialValue': self.initial_value,
             'columns': self.columns,
+            'min': self.min,
+            'max': self.max
         }
 
     def convert_answer(self, answers):
