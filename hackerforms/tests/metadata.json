@@ -394,6 +394,18 @@
       },
       "initialValue": {
         "type": "array"
+      },
+      "min": {
+        "type": [
+          "number",
+          "null"
+        ]
+      },
+      "max": {
+        "type": [
+          "number",
+          "null"
+        ]
       }
     },
     "cards-input": {
