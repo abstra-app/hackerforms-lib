@@ -7,7 +7,7 @@ from .page import *
 def read(**kwargs) -> str:
     '''Read a text value from the user simple text input
 
-    Args:
+    Keyword Arg:
         message (str): The message to display to the user
         button_text (str): The text to display on the button that will submit the value
         initial_value (str): The initial value to display to the user
@@ -24,7 +24,7 @@ def read(**kwargs) -> str:
 def read_textarea(**kwargs) -> str:
     '''Read a text value from the user with a text area input
 
-    Args:
+    Keyword Arg:
         message (str): The message to display to the user
         button_text (str): The text to display on the button that will submit the value
         initial_value (str): The initial value to display to the user
@@ -41,7 +41,7 @@ def read_textarea(**kwargs) -> str:
 def read_tag(**kwargs) -> List[Union[str, float]]:
     '''Read a tag value from the user
 
-    Args:
+    Keyword Arg:
         message (str): The message to display to the user
         button_text (str): The text to display on the button that will submit the value
         initial_value (str or float): The initial value to display to the user
@@ -57,7 +57,7 @@ def read_tag(**kwargs) -> List[Union[str, float]]:
 def read_number(**kwargs) -> int:
     '''Read a number value from the user
 
-    Args:
+    Keyword Arg:
         message (str): The message to display to the user
         button_text (str): The text to display on the button that will submit the value
         initial_value (str): The initial value to display to the user
@@ -74,7 +74,7 @@ def read_number(**kwargs) -> int:
 def read_email(**kwargs) -> str:
     '''Read an email value from the user
 
-    Args:
+    Keyword Arg:
         message (str): The message to display to the user
         button_text (str): The text to display on the button that will submit the value
         initial_value (str): The initial value to display to the user
@@ -91,7 +91,7 @@ def read_email(**kwargs) -> str:
 def read_phone(**kwargs) -> PhoneResponse:
     '''Read a phone number value from the user
 
-    Args:
+    Keyword Arg:
         message (str): The message to display to the user  
         button_text (str): The text to display on the button that will submit the value
         initial_value (str): The initial value to display to the user
@@ -108,7 +108,7 @@ def read_phone(**kwargs) -> PhoneResponse:
 def read_date(**kwargs) -> str:
     '''Read a date value from the user
 
-    Args:
+    Keyword Arg:
         message (str): The message to display to the user
         button_text (str): The text to display on the button that will submit the value
         initial_value (str): The initial value to display to the user
@@ -124,7 +124,7 @@ def read_date(**kwargs) -> str:
 def read_file(**kwargs) -> FileResponse:
     '''Read a file value from the user
 
-    Args:
+    Keyword Arg:
         message (str): The message to display to the user
         button_text (str): The text to display on the button that will submit the value
         initial_value (str): The initial value to display to the user
@@ -140,7 +140,7 @@ def read_file(**kwargs) -> FileResponse:
 def read_image(message: str, button_text: str = 'Next', initial_value: str = '', required: Union[bool, str] = True, hint: str = None) -> FileResponse:
     '''Read a image file value from the user
 
-    Args:
+    Keyword Arg:
         message (str): The message to display to the user
         button_text (str): The text to display on the button that will submit the value
         initial_value (str): The initial value to display to the user
@@ -155,7 +155,7 @@ def read_image(message: str, button_text: str = 'Next', initial_value: str = '',
 def read_dropdown(**kwargs) -> Union[str, List[str]]:
     '''Read a dropdown value from the user
 
-    Args:
+    Keyword Arg:
         message (str): The message to display to the user
         options (list): The options to display to the user, eg. ['Option 1', 'Option 2'] or [{'label': 'Option 1', 'value': '1'}, {'label': 'Option 2', 'value': '2'}]
         multiple (bool): Whether the user can select multiple options
@@ -174,7 +174,7 @@ def read_dropdown(**kwargs) -> Union[str, List[str]]:
 def read_multiple_choice(**kwargs) -> Union[str, List[str]]:
     '''Read a multiple choice value from the user
 
-    Args:
+    Keyword Arg:
         message (str): The message to display to the user
         options (list): The options to display to the user, eg. ['Option 1', 'Option 2'] or [{'label': 'Option 1', 'value': '1'}, {'label': 'Option 2', 'value': '2'}]
         multiple (bool): Whether the user can select multiple options
@@ -192,7 +192,7 @@ def read_multiple_choice(**kwargs) -> Union[str, List[str]]:
 def read_list(**kwargs) -> List[str]:
     '''Read a list value from the user
 
-    Args:
+    Keyword Arg:
         item_schema (ListItemSchema): The schema for the items of the list
         button_text (str): The text to display on the button that will submit the value
 
@@ -206,7 +206,7 @@ def read_list(**kwargs) -> List[str]:
 def read_cards(**kwargs):
     '''Display multiple clickable cards to the user
 
-    Args:
+    Keyword Arg:
         label (str): The text related to this field
         options (list): The options to display to the user, eg. [
                             {'title': 'Option 1', 'image': 'https://image_1.png', 'description': 'option 1 description'}, 

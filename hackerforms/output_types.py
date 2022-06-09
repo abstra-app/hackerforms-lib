@@ -17,7 +17,7 @@ class TextOutput(Output):
     type = 'text-output'
 
     def __init__(self, **kwargs):
-        self.message = kwargs.get('message', '')
+        self.message = kwargs.get('message')
         self.column = kwargs.get('column', 1)
 
     def json(self):
@@ -32,7 +32,7 @@ class MarkdownOutput(Output):
     type = 'markdown-output'
 
     def __init__(self, **kwargs):
-        self.text = kwargs.get('text', '')
+        self.text = kwargs.get('text')
         self.column = kwargs.get('column', 1)
 
     def json(self):
@@ -151,8 +151,8 @@ class IFrameOutput(Output):
         else:
             self.url = f"data:text/html,{quote(url_or_html)}"
 
-        self.width = kwargs.get('width', '100%')
-        self.height = kwargs.get('height', '100%')
+        self.width = kwargs.get('width')
+        self.height = kwargs.get('height')
         self.column = kwargs.get('column', 1)
 
     def json(self):

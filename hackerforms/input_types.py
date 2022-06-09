@@ -222,6 +222,7 @@ class DropdownInput(Input):
         self.initial_value = kwargs.get('initial_value', None)
         self.required = kwargs.get('required', True)
         self.hint = kwargs.get('hint', None)
+        self.multiple = kwargs.get('multiple', False)
         self.placeholder = kwargs.get('placeholder', 'Choose an option')
         self.columns = kwargs.get('columns', 1)
 

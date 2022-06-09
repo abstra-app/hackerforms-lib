@@ -36,7 +36,7 @@ class WidgetSchema:
     def read(self, message: str, key: str = '', **kwargs):
         '''Add a text input on the page
 
-        Args:
+        Keyword Arg:
             message: The message that will be displayed to the user
             key: The key of the input's value on the form result. Defaults to the message arg
             initial_value: The initial value of the input
@@ -54,7 +54,7 @@ class WidgetSchema:
     def read_textarea(self, message: str, key: str = '', **kwargs):
         '''Add a textarea input on the page
 
-        Args:
+        Keyword Arg:
             message: The message that will be displayed to the user
             key: The key of the input's value on the form result. Defaults to the message arg
             initial_value: The initial value of the input
@@ -72,7 +72,7 @@ class WidgetSchema:
     def read_tag(self, message: str, key: str = '', **kwargs):
         '''Add a tag input on the page
 
-        Args:
+        Keyword Arg:
             message: The message that will be displayed to the user
             key: The key of the input's value on the form result. Defaults to the message arg
             initial_value: The initial value of the input
@@ -89,7 +89,7 @@ class WidgetSchema:
     def read_number(self, message: str, key: str = '', **kwargs):
         '''Add a number input on the page
 
-        Args:
+        Keyword Arg:
             message: The message that will be displayed to the user
             key: The key of the input's value on the form result. Defaults to the message arg
             initial_value: The initial value of the input
@@ -107,7 +107,7 @@ class WidgetSchema:
     def read_email(self, message: str, key: str = '', **kwargs):
         '''Add a email input on the page
 
-        Args:
+        Keyword Arg:
             message: The message that will be displayed to the user
             key: The key of the input's value on the form result. Defaults to the message arg
             initial_value: The initial value of the input
@@ -125,7 +125,7 @@ class WidgetSchema:
     def read_phone(self, message: str, key: str = '', **kwargs):
         '''Add a phone input on the page
 
-        Args:
+        Keyword Arg:
             message: The message that will be displayed to the user
             key: The key of the input's value on the form result. Defaults to the message arg
             initial_value: The initial value of the input
@@ -143,7 +143,7 @@ class WidgetSchema:
     def read_date(self, message: str, key: str = '', **kwargs):
         '''Add a date input on the page
 
-        Args:
+        Keyword Arg:
             message: The message that will be displayed to the user
             key: The key of the input's value on the form result. Defaults to the message arg
             initial_value: The initial value of the input
@@ -162,7 +162,7 @@ class WidgetSchema:
 
         The file will be returned in the form result as a dict with the format { "file": File, "url": str, "content": bytes }
 
-        Args:
+        Keyword Arg:
             message: The message that will be displayed to the user
             key: The key of the input's value on the form result. Defaults to the message arg
             initial_value: The initial value of the input
@@ -181,7 +181,7 @@ class WidgetSchema:
 
         The file will be returned in the form result as a dict with the format { "file": File, "url": str, "content": bytes }
 
-        Args:
+        Keyword Arg:
             message: The message that will be displayed to the user
             key: The key of the input's value on the form result. Defaults to the message arg
             initial_value: The initial value of the input
@@ -197,7 +197,7 @@ class WidgetSchema:
     def read_dropdown(self, name: str, key: str = '', **kwargs):
         '''Add a dropdown input on the page
 
-        Args:
+        Keyword Arg:
             name: The name of the dropdown
             options: The options of the dropdown, eg. ['Option 1', 'Option 2'] or [{'label': 'Option 1', 'value': '1'}, {'label': 'Option 2', 'value': '2'}]
             multiple: Whether the user can select multiple options
@@ -217,7 +217,7 @@ class WidgetSchema:
     def read_multiple_choice(self, message: str, key: str = '', **kwargs):
         '''Add a multiple choice input on the page
 
-        Args:
+        Keyword Arg:
             message: The message that will be displayed to the user
             options: The options of the multiple choice, eg. ['Option 1', 'Option 2'] or [{'label': 'Option 1', 'value': '1'}, {'label': 'Option 2', 'value': '2'}]
             multiple: Whether the user can select multiple options
@@ -236,7 +236,7 @@ class WidgetSchema:
     def read_cards(self, label: str, key: str = '', **kwargs):
         '''Add a cards input on the page
 
-        Args:
+        Keyword Arg:
             label: The text that will be displayed to the user
             options: The options of the multiple choice, eg. [
                         {'title': 'Option 1', 'image': 'https://image_1.png', 'description': 'option 1 description'}, 
@@ -257,7 +257,7 @@ class WidgetSchema:
     def read_list(self, key: str = '', **kwargs):
         '''Add a list input on the page
 
-        Args:
+        Keyword Arg:
             key: The key of the input's value on the form result. Defaults to the message arg
             item_schema: The schema for the items of the list
             columns: The number of columns of the input
@@ -273,7 +273,7 @@ class WidgetSchema:
     def display(self, **kwargs):
         '''Add a message to the page
 
-        Args:
+        Keyword Arg:
             message: The message to display to the user
             columns: The number of columns of the message
 
@@ -286,7 +286,7 @@ class WidgetSchema:
     def display_markdown(self, **kwargs):
         '''Add a formatted text to the page
 
-        Args:
+        Keyword Arg:
             text: The formatted text to display to the user
             columns: The number of columns of the text
 
@@ -299,7 +299,7 @@ class WidgetSchema:
     def display_image(self, **kwargs):
         '''Add an image to the page
 
-        Args:
+        Keyword Arg:
             image_str: The url or base64 encoding of the image to display to the user
             subtitle: The subtitle of the image
             columns: The number of columns of the image
@@ -313,7 +313,7 @@ class WidgetSchema:
     def display_link(self, **kwargs):
         '''Add a link to the page
 
-        Args:
+        Keyword Arg:
             link_url: The url of the link
             link_text: The text of the link
             columns: The number of columns of the link
@@ -328,7 +328,7 @@ class WidgetSchema:
     def display_file(self, **kwargs):
         '''Add a button for the user to download a file to the page
 
-        Args:
+        Keyword Arg:
             file: The file to download
             download_text: The text of the button
             columns: The number of columns of the button
@@ -342,7 +342,7 @@ class WidgetSchema:
     def display_html(self, **kwargs):
         '''Add an html snippet to the page
 
-        Args:
+        Keyword Arg:
             html: The html to display to the user
             columns: The number of columns of the html
 
@@ -355,7 +355,7 @@ class WidgetSchema:
     def display_pandas(self, **kwargs):
         '''Add a pandas dataframe to the page
 
-        Args:
+        Keyword Arg:
             df: The pandas dataframe to display to the user
             columns: The number of columns of the dataframe
 
@@ -368,7 +368,7 @@ class WidgetSchema:
     def display_plotly(self, **kwargs):
         '''Add a plotly figure to the page
 
-        Args:
+        Keyword Arg:
             fig: The plotly figure to display to the user
             columns: The number of columns of the figure
 
@@ -381,7 +381,7 @@ class WidgetSchema:
     def display_iframe(self, **kwargs):
         '''Add an iframe to the page
 
-        Args:
+        Keyword Arg:
             url_or_html:  The link to the document or the own document to display
             width: The width of the iframe
             height: The height of the iframe
