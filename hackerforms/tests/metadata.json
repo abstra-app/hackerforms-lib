@@ -28,6 +28,34 @@
         "description": "Whether the input is required or not"
       }
     },
+    "image-input": {
+      "key": {
+        "type": "string",
+        "description": "The key of the input on the returning object"
+      },
+      "hint": {
+        "type": [
+          "string",
+          "null"
+        ],
+        "description": "message describing the input"
+      },
+      "message": {
+        "type": "string",
+        "description": "The message to display above the input"
+      },
+      "initialValue": {
+        "type": "string",
+        "description": "The initial value of the input"
+      },
+      "required": {
+        "type": [
+          "boolean",
+          "string"
+        ],
+        "description": "Whether the input is required or not"
+      }
+    },
     "text-input": {
       "key": {
         "type": "string",
@@ -511,6 +539,9 @@
       },
       "linkText": {
         "type": "string"
+      },
+      "sameTab": {
+        "type": "boolean"
       }
     },
     "file-output": {
