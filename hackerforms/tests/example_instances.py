@@ -32,4 +32,5 @@ example_instances = [
     PandasOutput(pd.DataFrame({'a': [1, 2, 3], 'b': [4, 5, 6]})),
     PlotlyOutput(go.Figure(data=[go.Scatter(x=[1, 2, 3], y=[2, 1, 2])])),
     IFrameOutput('<h1>Hello, world!</h1>', '100%', '100%'),
+    ExecuteJs("console.log('Hello World')", 'A key')
 ]
