@@ -140,6 +140,28 @@ class FileInput(Input):
 
     def convert_answer(self, answer):
         return FileResponse(answer) if answer else None
+class ImageInput(Input):
+    type = 'image-input'
+
+    def __init__(self, key: str, message: str, initial_value: str = "", required: Union[bool, str] = True, hint: str = None):
+        super().__init__(key)
+        self.message = message
+        self.initial_value = initial_value
+        self.required = required
+        self.hint = hint
+
+    def json(self):
+        return {
+            'type': self.type,
+            'key': self.key,
+            'hint': self.hint,
+            'message': self.message,
+            "initialValue": self.initial_value,
+            'required': self.required
+        }
+
+    def convert_answer(self, answer):
+        return FileResponse(answer) if answer else None
 
 
 class MultipleChoiceInput(Input):
@@ -317,10 +339,12 @@ class PhoneInput(Input):
 class ListInput(Input):
     type = 'list-input'
 
-    def __init__(self, key: str, item_schema, initial_value=[{}], hint: str = None):
+    def __init__(self, key: str, item_schema, initial_value=[{}], min: int = None, max: int = None, hint: str = None):
         super().__init__(key)
         self.item_schema = item_schema
         self.initial_value = initial_value
+        self.min = min
+        self.max = max
         self.hint = hint
 
     def json(self):
@@ -329,8 +353,9 @@ class ListInput(Input):
             'key': self.key,
             'hint': self.hint,
             'itemSchema': self.item_schema.json(),
-            'initialValue': self.initial_value
+            'initialValue': self.initial_value,
+            'min': self.min,
+            'max': self.max
         }
-
     def convert_answer(self, answers):
         return [self.item_schema.convert_answer(answer) for answer in answers]

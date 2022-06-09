@@ -18,7 +18,6 @@ class WidgetSchema:
             The converted answer
         '''
         answer: Dict = {}
-
         inputs = list(
             filter(lambda widget: isinstance(widget, Input), self.widgets))
 
@@ -169,6 +168,24 @@ class WidgetSchema:
                             initial_value, required, hint=hint))
         return self
 
+    def read_image(self, message: str, initial_value: str = '', required: Union[bool, str] = True, key: str = '', hint: str = None):
+        '''Add a image file input on the page
+
+        The file will be returned in the form result as a dict with the format { "file": File, "url": str, "content": bytes }
+
+        Args:
+            message: The message that will be displayed to the user
+            key: The key of the input's value on the form result. Defaults to the message arg
+            initial_value: The initial value of the input
+            required: Whether the input is required or not
+
+        Returns:
+            The form object
+        '''
+        self.widgets.append(ImageInput(
+            key or message, message, initial_value, required, hint=hint))
+        return self
+
     def read_dropdown(self, name: str, options: Union[List[str], List[Dict]], multiple: bool = False, initial_value=None, placeholder: str = "Choose your option", required: Union[bool, str] = True, key: str = '', hint: str = None):
         '''Add a dropdown input on the page
 
@@ -227,7 +244,7 @@ class WidgetSchema:
             key or label, label, options, multiple, initial_value, required, hint=hint))
         return self
 
-    def read_list(self, item_schema, initial_value=[{}], key: str = '', hint: str = None):
+    def read_list(self, item_schema, initial_value=[{}], min: int = None, max: int = None, key: str = '', hint: str = None):
         '''Add a list input on the page
 
         Args:
@@ -236,8 +253,9 @@ class WidgetSchema:
         Returns:
             The form object
         '''
-        self.widgets.append(
-            ListInput(key, item_schema, initial_value=initial_value, hint=hint))
+
+        self.widgets.append(ListInput(
+            key, item_schema, initial_value=initial_value, min=min, max=max, hint=hint))
         return self
 
     def execute_js(self, code: str, key: str = ''):
@@ -286,17 +304,18 @@ class WidgetSchema:
         self.widgets.append(ImageOutput(image_str, subtitle))
         return self
 
-    def display_link(self, link_url: str, link_text: str = "Click here"):
+    def display_link(self, link_url: str, link_text: str = "Click here", same_tab: bool = False):
         '''Add a link to the page
 
         Args:
             link_url: The url of the link
             link_text: The text of the link
+            same_tab: Whether the link should open in the same tab or not
 
         Returns:
             The form object
         '''
-        self.widgets.append(LinkOutput(link_url, link_text))
+        self.widgets.append(LinkOutput(link_url, link_text, same_tab))
         return self
 
     def display_file(self, file, download_text: str = "Download here"):
@@ -402,3 +421,20 @@ class ListItemSchema(WidgetSchema):
 
     def __init__(self):
         super().__init__()
+
+    def convert_answer(self, form_answers: Dict) -> Dict:
+        '''Convert the answer from the form to the expected format
+
+        Args:
+            answer: The answer from the form
+
+        Returns:
+            The converted answer
+        '''
+        answer: Dict = form_answers
+        inputs = list(
+            filter(lambda widget: isinstance(widget, Input), self.widgets))
+
+        for input in inputs:
+            answer[input.key] = input.convert_answer(form_answers[input.key])
+        return answer

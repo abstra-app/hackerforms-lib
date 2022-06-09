@@ -47,15 +47,17 @@ class ImageOutput(Output):
     
 class LinkOutput(Output):
     type = 'link-output'
-    def __init__(self, link_url: str, link_text: str = "Click here"):
+    def __init__(self, link_url: str, link_text: str = "Click here", same_tab: bool = False):
         self.link_url = link_url
         self.link_text = link_text
+        self.same_tab = same_tab
 
     def json(self):
         return {
             'type': self.type,
             'message': self.link_url,
             'linkText': self.link_text,
+            'sameTab': self.same_tab,
         }
 
 class FileOutput(Output):
