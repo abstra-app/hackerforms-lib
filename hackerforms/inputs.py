@@ -12,7 +12,6 @@ def read(**kwargs) -> str:
         initial_value (str): The initial value to display to the user
         placeholder (str): The placeholder text to display to the user
         required (bool or str): Whether the input is required or not eg. "this field is required"
-        columns (int): The number of columns to use for the input
 
     Returns:
         str: The value entered by the user
@@ -30,7 +29,6 @@ def read_textarea(**kwargs) -> str:
         initial_value (str): The initial value to display to the user
         placeholder (str): The placeholder text to display to the user
         required (bool or str): Whether the input is required or not eg. "this field is required"
-        columns (int): The number of columns to use for the input
 
     Returns:
         str: The value entered by the user
@@ -47,7 +45,6 @@ def read_tag(**kwargs) -> List[Union[str, float]]:
         button_text (str): The text to display on the button that will submit the value
         initial_value (str or float): The initial value to display to the user
         required (bool or str): Whether the input is required or not eg. "this field is required"
-        columns (int): The number of columns to use for the input
 
     Returns:
         List[Union[str,float]]: The value entered by the user
@@ -65,7 +62,6 @@ def read_number(**kwargs) -> int:
         initial_value (str): The initial value to display to the user
         placeholder (str): The placeholder text to display to the user
         required (bool or str): Whether the input is required or not eg. "this field is required"
-        columns (int): The number of columns to use for the input
 
     Returns:
         int: The value entered by the user
@@ -83,7 +79,6 @@ def read_email(**kwargs) -> str:
         initial_value (str): The initial value to display to the user
         placeholder (str): The placeholder text to display to the user
         required (bool or str): Whether the input is required or not eg. "this field is required"
-        columns (int): The number of columns to use for the input
 
     Returns:
         str: The value entered by the user
@@ -101,7 +96,6 @@ def read_phone(**kwargs) -> PhoneResponse:
         initial_value (str): The initial value to display to the user
         placeholder (str): The placeholder text to display to the user
         required (bool or str): Whether the input is required or not eg. "this field is required"
-        columns (int): The number of columns to use for the input
 
     Returns:
         PhoneResponse: The value entered by the user
@@ -118,7 +112,6 @@ def read_date(**kwargs) -> str:
         button_text (str): The text to display on the button that will submit the value
         initial_value (str): The initial value to display to the user
         required (bool or str): Whether the input is required or not eg. "this field is required"
-        columns (int): The number of columns to use for the input
 
     Returns:
         datetime.date: The value entered by the user
@@ -135,7 +128,6 @@ def read_file(**kwargs) -> FileResponse:
         button_text (str): The text to display on the button that will submit the value
         initial_value (str): The initial value to display to the user
         required (bool or str): Whether the input is required or not eg. "this field is required"
-        columns (int): The number of columns to use for the input
 
     Returns:
         FileResponse: The file uploaded by the user the user
@@ -154,8 +146,7 @@ def read_dropdown(**kwargs) -> Union[str, List[str]]:
         button_text (str): The text to display on the button that will submit the value
         initial_value: The initial value to display to the user
         placeholder (str): The placeholder text to display to the user
-        required (bool or str): Whether the input is required or not eg. "this field is required" 
-        columns (int): The number of columns to use for the input
+        required (bool or str): Whether the input is required or not eg. "this field is required"
 
     Returns:
         str: The value selected by the user
