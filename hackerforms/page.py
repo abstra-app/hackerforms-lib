@@ -18,7 +18,6 @@ class WidgetSchema:
             The converted answer
         '''
         answer: Dict = {}
-
         inputs = list(
             filter(lambda widget: isinstance(widget, Input), self.widgets))
         
@@ -223,7 +222,7 @@ class WidgetSchema:
         self.widgets.append(CardsInput(key or label, label, options, multiple, initial_value, required, hint=hint))
         return self
 
-    def read_list(self, item_schema, initial_value=[{}], key: str = '', hint: str = None):
+    def read_list(self, item_schema, initial_value=[{}], min: int = None, max: int = None, key: str = '', hint: str = None):
         '''Add a list input on the page
 
         Args:
@@ -232,7 +231,7 @@ class WidgetSchema:
         Returns:
             The form object
         '''
-        self.widgets.append(ListInput(key, item_schema, initial_value=initial_value, hint=hint))
+        self.widgets.append(ListInput(key, item_schema, initial_value=initial_value, min=min, max=max, hint=hint))
         return self
 
     def display(self, message: str):
@@ -386,3 +385,20 @@ class ListItemSchema(WidgetSchema):
 
     def __init__(self):
         super().__init__()
+
+    def convert_answer(self, form_answers: Dict) -> Dict:
+        '''Convert the answer from the form to the expected format
+
+        Args:
+            answer: The answer from the form
+
+        Returns:
+            The converted answer
+        '''
+        answer: Dict = form_answers
+        inputs = list(
+            filter(lambda widget: isinstance(widget, Input), self.widgets))
+        
+        for input in inputs:
+            answer[input.key] = input.convert_answer(form_answers[input.key])
+        return answer
