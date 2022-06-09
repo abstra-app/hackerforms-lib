@@ -21,7 +21,7 @@ class WidgetSchema:
 
         inputs = list(
             filter(lambda widget: isinstance(widget, Input), self.widgets))
-        
+
         for input in inputs:
             answer[input.key] = input.convert_answer(form_answers[input.key])
         return answer
@@ -34,7 +34,7 @@ class WidgetSchema:
         '''
         return [widget.json() for widget in self.widgets]
 
-    def read(self, message: str, initial_value: str = '', placeholder: str = 'Your answer here', required: Union[bool, str] = True, key: str = '', hint: str = None):
+    def read(self, message: str, key: str = '', **kwargs):
         '''Add a text input on the page
 
         Args:
@@ -43,15 +43,16 @@ class WidgetSchema:
             initial_value: The initial value of the input
             placeholder: The placeholder of the input
             required: Whether the input is required or not
+            columns: The number of columns of the input
 
         Returns:
             The form object
         '''
         self.widgets.append(
-            TextInput(key or message, message, initial_value, placeholder, required, hint=hint))
+            TextInput(key=key or message, message=message, **kwargs))
         return self
 
-    def read_textarea(self, message: str, initial_value: str = '', placeholder: str = 'Your answer here', required: Union[bool, str] = True, key: str = '', hint: str = None):
+    def read_textarea(self, message: str, key: str = '', **kwargs):
         '''Add a textarea input on the page
 
         Args:
@@ -60,15 +61,16 @@ class WidgetSchema:
             initial_value: The initial value of the input
             placeholder: The placeholder of the input
             required: Whether the input is required or not
+            columns: The number of columns of the input
 
         Returns:
             The form object
         '''
         self.widgets.append(TextareaInput(
-            key or message, message, initial_value, placeholder, required, hint=hint))
+            key=key or message, message=message, **kwargs))
         return self
 
-    def read_tag(self, message: str, initial_value: List[Union[str, float]] = [""], placeholder: str = 'Your answer here', required: Union[bool, str] = True, key: str = '', hint: str = None):
+    def read_tag(self, message: str, key: str = '', **kwargs):
         '''Add a tag input on the page
 
         Args:
@@ -76,15 +78,16 @@ class WidgetSchema:
             key: The key of the input's value on the form result. Defaults to the message arg
             initial_value: The initial value of the input
             required: Whether the input is required or not
+            columns: The number of columns of the input
 
         Returns:
             The form object
         '''
-        self.fields.append(TagInput(key or message, message,
-                                    initial_value, placeholder, required, hint=hint))
+        self.fields.append(TagInput(key=key or message, message=message,
+                                    **kwargs))
         return self
 
-    def read_number(self, message: str, initial_value: float = 0, placeholder: str = 'Your answer here', required: Union[bool, str] = True, key: str = '', hint: str = None):
+    def read_number(self, message: str, key: str = '', **kwargs):
         '''Add a number input on the page
 
         Args:
@@ -93,15 +96,16 @@ class WidgetSchema:
             initial_value: The initial value of the input
             placeholder: The placeholder of the input
             required: Whether the input is required or not
+            columns: The number of columns of the input
 
         Returns:
             The form object
         '''
         self.widgets.append(NumberInput(
-            key or message, message, initial_value, placeholder, required, hint=hint))
+            key=key or message, message=message, **kwargs))
         return self
 
-    def read_email(self, message: str, initial_value: str = '', placeholder: str = 'Your answer here', required: Union[bool, str] = True, key: str = '', hint: str = None):
+    def read_email(self, message: str, key: str = '', **kwargs):
         '''Add a email input on the page
 
         Args:
@@ -110,15 +114,16 @@ class WidgetSchema:
             initial_value: The initial value of the input
             placeholder: The placeholder of the input
             required: Whether the input is required or not
+            columns: The number of columns of the input
 
         Returns:
             The form object
         '''
         self.widgets.append(EmailInput(
-            key or message, message, initial_value, placeholder, required, hint=hint))
+            key=key or message, message=message, **kwargs))
         return self
 
-    def read_phone(self, message: str, initial_value: str = '', placeholder: str = '', required: Union[bool, str] = True, key: str = '', hint: str = None):
+    def read_phone(self, message: str, key: str = '', **kwargs):
         '''Add a phone input on the page
 
         Args:
@@ -127,15 +132,16 @@ class WidgetSchema:
             initial_value: The initial value of the input
             placeholder: The placeholder of the input
             required: Whether the input is required or not
+            columns: The number of columns of the input
 
         Returns:
             The form object
         '''
         self.widgets.append(PhoneInput(
-            key or message, message, initial_value, placeholder, required, hint=hint))
+            key=key or message, message=message, **kwargs))
         return self
 
-    def read_date(self, message: str, initial_value: date = None, required: Union[bool, str] = True, key: str = '', hint: str = None):
+    def read_date(self, message: str, key: str = '', **kwargs):
         '''Add a date input on the page
 
         Args:
@@ -143,14 +149,16 @@ class WidgetSchema:
             key: The key of the input's value on the form result. Defaults to the message arg
             initial_value: The initial value of the input
             required: Whether the input is required or not
+            columns: The number of columns of the input
 
         Returns:
             The form object
         '''
-        self.widgets.append(DateInput(key or message, message, initial_value, required, hint=hint))
+        self.widgets.append(
+            DateInput(key=key or message, message=message, **kwargs))
         return self
 
-    def read_file(self, message: str, initial_value: str = '', required: Union[bool, str] = True, key: str = '', hint: str = None):
+    def read_file(self, message: str, key: str = '', **kwargs):
         '''Add a file input on the page
 
         The file will be returned in the form result as a dict with the format { "file": File, "url": str, "content": bytes }
@@ -160,14 +168,16 @@ class WidgetSchema:
             key: The key of the input's value on the form result. Defaults to the message arg
             initial_value: The initial value of the input
             required: Whether the input is required or not
+            columns: The number of columns of the input
 
         Returns:
             The form object
         '''
-        self.widgets.append(FileInput(key or message, message, initial_value, required, hint=hint))
+        self.widgets.append(
+            FileInput(key=key or message, message=message, **kwargs))
         return self
 
-    def read_dropdown(self, name: str, options: Union[List[str], List[Dict]], multiple: bool = False, initial_value = None, placeholder: str = "Choose your option", required: Union[bool, str] = True, key: str = '', hint: str = None):
+    def read_dropdown(self, name: str, key: str = '', **kwargs):
         '''Add a dropdown input on the page
 
         Args:
@@ -178,15 +188,16 @@ class WidgetSchema:
             initial_value: The initial value of the input
             placeholder: The placeholder of the input
             required: Whether the input is required or not
+            columns: The number of columns of the input
 
         Returns:
             The form object
         '''
-        self.widgets.append(DropdownInput(key or name, name,
-                                         options, multiple, initial_value, placeholder, required, hint=hint))
+        self.widgets.append(DropdownInput(key=key or name, name=name,
+                                          **kwargs))
         return self
 
-    def read_multiple_choice(self, message: str, options: Union[List[str], List[Dict]], multiple: bool = False, initial_value = None, required: Union[bool, str] = True, key: str = '', hint: str = None):
+    def read_multiple_choice(self, message: str, key: str = '', **kwargs):
         '''Add a multiple choice input on the page
 
         Args:
@@ -196,15 +207,16 @@ class WidgetSchema:
             key: The key of the input's value on the form result. Defaults to the message arg
             initial_value: The initial value of the input
             required: Whether the input is required or not
+            columns: The number of columns of the input
 
         Returns:
             The form object
         '''
         self.widgets.append(MultipleChoiceInput(
-            key or message, message, options, multiple, initial_value, required, hint=hint))
+            key=key or message, message=message, **kwargs))
         return self
 
-    def read_cards(self, label, options, multiple=False, initial_value: Union[Union[str, float], List[Union[str, float]]] = None, required: Union[bool, str] = True, key: str = '', hint: str = None):
+    def read_cards(self, label: str, key: str = '', **kwargs):
         '''Add a cards input on the page
 
         Args:
@@ -216,137 +228,153 @@ class WidgetSchema:
             initial_value: The initial value of the input
             key: The key of the input's value on the form result. Defaults to the label arg
             required: Whether the input is required or not
+            columns: The number of columns of the input
 
         Returns:
             The form object
         '''
-        self.widgets.append(CardsInput(key or label, label, options, multiple, initial_value, required, hint=hint))
+        self.widgets.append(CardsInput(
+            key=key or label, label=label, **kwargs))
         return self
 
-    def read_list(self, item_schema, initial_value=[{}], key: str = '', hint: str = None):
+    def read_list(self, key: str = '', **kwargs):
         '''Add a list input on the page
 
         Args:
+            key: The key of the input's value on the form result. Defaults to the message arg
             item_schema: The schema for the items of the list
+            columns: The number of columns of the input
+            hint: The hint that will be displayed to the user
+            initial_value: The initial value of the input
 
         Returns:
             The form object
         '''
-        self.widgets.append(ListInput(key, item_schema, initial_value=initial_value, hint=hint))
+        self.widgets.append(ListInput(key=key, **kwargs))
         return self
 
-    def display(self, message: str):
+    def display(self, **kwargs):
         '''Add a message to the page
 
         Args:
             message: The message to display to the user
+            columns: The number of columns of the message
 
         Returns:
             The form object
         '''
-        self.widgets.append(TextOutput(message))
+        self.widgets.append(TextOutput(**kwargs))
         return self
 
-    def display_markdown(self, text: str):
+    def display_markdown(self, **kwargs):
         '''Add a formatted text to the page
 
         Args:
             text: The formatted text to display to the user
+            columns: The number of columns of the text
 
         Returns:
             The form object
         '''
-        self.widgets.append(MarkdownOutput(text))
+        self.widgets.append(MarkdownOutput(**kwargs))
         return self
 
-    def display_image(self, image_str: str, subtitle: str = ""):
+    def display_image(self, **kwargs):
         '''Add an image to the page
 
         Args:
             image_str: The url or base64 encoding of the image to display to the user
             subtitle: The subtitle of the image
+            columns: The number of columns of the image
 
         Returns:
             The form object
         '''
-        self.widgets.append(ImageOutput(image_str, subtitle))
+        self.widgets.append(ImageOutput(**kwargs))
         return self
 
-    def display_link(self, link_url: str, link_text: str = "Click here"):
+    def display_link(self, **kwargs):
         '''Add a link to the page
 
         Args:
             link_url: The url of the link
             link_text: The text of the link
+            columns: The number of columns of the link
 
         Returns:
             The form object
         '''
-        self.widgets.append(LinkOutput(link_url, link_text))
+        self.widgets.append(LinkOutput(**kwargs))
         return self
 
-    def display_file(self, file, download_text: str = "Download here"):
+    def display_file(self, **kwargs):
         '''Add a button for the user to download a file to the page
 
         Args:
             file: The file to download
             download_text: The text of the button
+            columns: The number of columns of the button
 
         Returns:
             The form object
         '''
-        self.widgets.append(FileOutput(file, download_text))
+        self.widgets.append(FileOutput(**kwargs))
         return self
 
-    def display_html(self, html: str):
+    def display_html(self, **kwargs):
         '''Add an html snippet to the page
 
         Args:
             html: The html to display to the user
+            columns: The number of columns of the html
 
         Returns:
             The form object
         '''
-        self.widgets.append(HTMLOutput(html))
+        self.widgets.append(HTMLOutput(**kwargs))
         return self
 
-    def display_pandas(self, df):
+    def display_pandas(self, **kwargs):
         '''Add a pandas dataframe to the page
 
         Args:
             df: The pandas dataframe to display to the user
+            columns: The number of columns of the dataframe
 
         Returns:
             The form object
         '''
-        self.widgets.append(PandasOutput(df))
+        self.widgets.append(PandasOutput(**kwargs))
         return self
 
-    def display_plotly(self, fig):
+    def display_plotly(self, **kwargs):
         '''Add a plotly figure to the page
 
         Args:
             fig: The plotly figure to display to the user
+            columns: The number of columns of the figure
 
         Returns:
             The form object
         '''
-        self.widgets.append(PlotlyOutput(fig))
+        self.widgets.append(PlotlyOutput(**kwargs))
         return self
 
-    def display_iframe(self, url_or_html: str, width: int, height: int):
+    def display_iframe(self, **kwargs):
         '''Add an iframe to the page
 
         Args:
             url_or_html:  The link to the document or the own document to display
             width: The width of the iframe
             height: The height of the iframe
+            columns: The number of columns of the iframe
 
         Returns:
             The iframe object
         '''
-        self.widgets.append(IFrameOutput(url_or_html, width, height))
+        self.widgets.append(IFrameOutput(**kwargs))
         return self
+
 
 class Page(WidgetSchema):
     '''A form page that can be displayed to the user
@@ -360,11 +388,12 @@ class Page(WidgetSchema):
     def __init__(self):
         super().__init__()
 
-    def run(self, button_text: str = 'Next') -> Dict:
+    def run(self, button_text: str = 'Next', columns: float = 1) -> Dict:
         '''Run the form
 
         Args:
             button_text: The text of the button that is used to submit the form
+            columns: The number of columns of the form
 
         Returns:
             The form result as a dict with the keys being the key of the input and the value being the value of the input
@@ -372,11 +401,13 @@ class Page(WidgetSchema):
         send({
             'type': 'form',
             'widgets': self.json(),
-            'buttonText': button_text
+            'buttonText': button_text,
+            'columns': columns
         })
         form_answers: Dict = receive('payload')
 
         return self.convert_answer(form_answers)
+
 
 class ListItemSchema(WidgetSchema):
     '''A schema for a list item

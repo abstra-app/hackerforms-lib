@@ -3,7 +3,7 @@ from .type_classes import *
 from .page import *
 
 
-def read(message: str, button_text: str = 'Next', initial_value: str = '', placeholder: str = 'Your answer here', required: Union[bool, str] = True, hint: str = None) -> str:
+def read(**kwargs) -> str:
     '''Read a text value from the user simple text input
 
     Args:
@@ -12,14 +12,16 @@ def read(message: str, button_text: str = 'Next', initial_value: str = '', place
         initial_value (str): The initial value to display to the user
         placeholder (str): The placeholder text to display to the user
         required (bool or str): Whether the input is required or not eg. "this field is required"
+        columns (int): The number of columns to use for the input
 
     Returns:
         str: The value entered by the user
     '''
-    return get_single_value(Page().read(message, initial_value, placeholder, required, hint=hint).run(button_text))
+    button_text = kwargs.get('button_text', 'Next')
+    return get_single_value(Page().read(**kwargs).run(button_text))
 
 
-def read_textarea(message: str, button_text: str = 'Next', initial_value: str = '', placeholder: str = 'Your answer here', required: Union[bool, str] = True, hint: str = None) -> str:
+def read_textarea(**kwargs) -> str:
     '''Read a text value from the user with a text area input
 
     Args:
@@ -28,14 +30,16 @@ def read_textarea(message: str, button_text: str = 'Next', initial_value: str = 
         initial_value (str): The initial value to display to the user
         placeholder (str): The placeholder text to display to the user
         required (bool or str): Whether the input is required or not eg. "this field is required"
+        columns (int): The number of columns to use for the input
 
     Returns:
         str: The value entered by the user
     '''
-    return get_single_value(Page().read_textarea(message, initial_value, placeholder, required, hint=hint).run(button_text))
+    button_text = kwargs.get('button_text', 'Next')
+    return get_single_value(Page().read_textarea(**kwargs).run(button_text))
 
 
-def read_tag(message: str, button_text: str = 'Next', initial_value: List[Union[str, float]] = [""], placeholder: str = 'Your answer here', required: Union[bool, str] = True, hint: str = None) -> List[Union[str, float]]:
+def read_tag(**kwargs) -> List[Union[str, float]]:
     '''Read a tag value from the user
 
     Args:
@@ -43,14 +47,16 @@ def read_tag(message: str, button_text: str = 'Next', initial_value: List[Union[
         button_text (str): The text to display on the button that will submit the value
         initial_value (str or float): The initial value to display to the user
         required (bool or str): Whether the input is required or not eg. "this field is required"
+        columns (int): The number of columns to use for the input
 
     Returns:
         List[Union[str,float]]: The value entered by the user
     '''
-    return get_single_value(Page().read_tag(message, initial_value, placeholder, required, hint=hint).run(button_text))
+    button_text = kwargs.get('button_text', 'Next')
+    return get_single_value(Page().read_tag(**kwargs).run(button_text))
 
 
-def read_number(message: str, button_text: str = 'Next', initial_value: float = 0, placeholder: str = 'Your answer here', required: Union[bool, str] = True, hint: str = None) -> int:
+def read_number(**kwargs) -> int:
     '''Read a number value from the user
 
     Args:
@@ -59,14 +65,16 @@ def read_number(message: str, button_text: str = 'Next', initial_value: float = 
         initial_value (str): The initial value to display to the user
         placeholder (str): The placeholder text to display to the user
         required (bool or str): Whether the input is required or not eg. "this field is required"
+        columns (int): The number of columns to use for the input
 
     Returns:
         int: The value entered by the user
     '''
-    return get_single_value(Page().read_number(message, initial_value, placeholder, required, hint=hint).run(button_text))
+    button_text = kwargs.get('button_text', 'Next')
+    return get_single_value(Page().read_number(**kwargs).run(button_text))
 
 
-def read_email(message: str, button_text: str = 'Next', initial_value: str = '', placeholder: str = 'Your answer here', required: Union[bool, str] = True, hint: str = None) -> str:
+def read_email(**kwargs) -> str:
     '''Read an email value from the user
 
     Args:
@@ -75,14 +83,16 @@ def read_email(message: str, button_text: str = 'Next', initial_value: str = '',
         initial_value (str): The initial value to display to the user
         placeholder (str): The placeholder text to display to the user
         required (bool or str): Whether the input is required or not eg. "this field is required"
+        columns (int): The number of columns to use for the input
 
     Returns:
         str: The value entered by the user
     '''
-    return get_single_value(Page().read_email(message, initial_value, placeholder, required, hint=hint).run(button_text))
+    button_text = kwargs.get('button_text', 'Next')
+    return get_single_value(Page().read_email(**kwargs).run(button_text))
 
 
-def read_phone(message: str, button_text: str = 'Next', initial_value: str = '', placeholder: str = '', required: Union[bool, str] = True, hint: str = None) -> PhoneResponse:
+def read_phone(**kwargs) -> PhoneResponse:
     '''Read a phone number value from the user
 
     Args:
@@ -91,14 +101,16 @@ def read_phone(message: str, button_text: str = 'Next', initial_value: str = '',
         initial_value (str): The initial value to display to the user
         placeholder (str): The placeholder text to display to the user
         required (bool or str): Whether the input is required or not eg. "this field is required"
+        columns (int): The number of columns to use for the input
 
     Returns:
         PhoneResponse: The value entered by the user
     '''
-    return get_single_value(Page().read_phone(message, initial_value, placeholder, required, hint=hint).run(button_text))
+    button_text = kwargs.get('button_text', 'Next')
+    return get_single_value(Page().read_phone(**kwargs).run(button_text))
 
 
-def read_date(message: str, button_text: str = 'Next', initial_value: date = None, required: Union[bool, str] = True, hint: str = None) -> str:
+def read_date(**kwargs) -> str:
     '''Read a date value from the user
 
     Args:
@@ -106,14 +118,16 @@ def read_date(message: str, button_text: str = 'Next', initial_value: date = Non
         button_text (str): The text to display on the button that will submit the value
         initial_value (str): The initial value to display to the user
         required (bool or str): Whether the input is required or not eg. "this field is required"
+        columns (int): The number of columns to use for the input
 
     Returns:
         datetime.date: The value entered by the user
     '''
-    return get_single_value(Page().read_date(message, initial_value, required, hint=hint).run(button_text))
+    button_text = kwargs.get('button_text', 'Next')
+    return get_single_value(Page().read_date(**kwargs).run(button_text))
 
 
-def read_file(message: str, button_text: str = 'Next', initial_value: str = '', required: Union[bool, str] = True, hint: str = None) -> FileResponse:
+def read_file(**kwargs) -> FileResponse:
     '''Read a file value from the user
 
     Args:
@@ -121,14 +135,16 @@ def read_file(message: str, button_text: str = 'Next', initial_value: str = '', 
         button_text (str): The text to display on the button that will submit the value
         initial_value (str): The initial value to display to the user
         required (bool or str): Whether the input is required or not eg. "this field is required"
+        columns (int): The number of columns to use for the input
 
     Returns:
         FileResponse: The file uploaded by the user the user
     '''
-    return get_single_value(Page().read_file(message, initial_value, required, hint=hint).run(button_text))
+    button_text = kwargs.get('button_text', 'Next')
+    return get_single_value(Page().read_file(**kwargs).run(button_text))
 
 
-def read_dropdown(message: str, options: Union[List[str], List[Dict]], multiple: bool = False, button_text: str = 'Next', initial_value = None, placeholder: str = "Choose your option", required: Union[bool, str] = True, hint: str = None) -> Union[str, List[str]]:
+def read_dropdown(**kwargs) -> Union[str, List[str]]:
     '''Read a dropdown value from the user
 
     Args:
@@ -139,14 +155,16 @@ def read_dropdown(message: str, options: Union[List[str], List[Dict]], multiple:
         initial_value: The initial value to display to the user
         placeholder (str): The placeholder text to display to the user
         required (bool or str): Whether the input is required or not eg. "this field is required" 
+        columns (int): The number of columns to use for the input
 
     Returns:
         str: The value selected by the user
     '''
-    return get_single_value(Page().read_dropdown(message, options, multiple, initial_value, placeholder, required, hint=hint).run(button_text))
+    button_text = kwargs.get('button_text', 'Next')
+    return get_single_value(Page().read_dropdown(**kwargs).run(button_text))
 
 
-def read_multiple_choice(message: str, options: Union[List[str], List[Dict]], multiple: bool = False, button_text: str = 'Next', initial_value = None, required: Union[bool, str] = True, hint: str = None):
+def read_multiple_choice(**kwargs) -> Union[str, List[str]]:
     '''Read a multiple choice value from the user
 
     Args:
@@ -160,10 +178,11 @@ def read_multiple_choice(message: str, options: Union[List[str], List[Dict]], mu
     Returns:
         list, any: The values/value selected by the user
     '''
-    return get_single_value(Page().read_multiple_choice(message, options, multiple, initial_value, required, hint=hint).run(button_text))
+    button_text = kwargs.get('button_text', 'Next')
+    return get_single_value(Page().read_multiple_choice(**kwargs).run(button_text))
 
 
-def read_list(item_schema, button_text: str = 'Next', initial_value=[{}], hint: str = None):
+def read_list(**kwargs) -> List[str]:
     '''Read a list value from the user
 
     Args:
@@ -173,10 +192,11 @@ def read_list(item_schema, button_text: str = 'Next', initial_value=[{}], hint: 
     Returns:
         list: The values entered by the user
     '''
-    return get_single_value(Page().read_list(item_schema, initial_value=initial_value, hint=hint).run(button_text))
+    button_text = kwargs.get('button_text', 'Next')
+    return get_single_value(Page().read_list(**kwargs).run(button_text))
 
 
-def read_cards(label: str, options: List[Dict], multiple: bool = False, button_text: str = 'Next', initial_value: Union[Union[str, float], List[Union[str, float]]] = None, required: Union[bool, str] = True, hint: str = None):
+def read_cards(**kwargs):
     '''Display multiple clickable cards to the user
 
     Args:
@@ -193,7 +213,8 @@ def read_cards(label: str, options: List[Dict], multiple: bool = False, button_t
         list, any: The options/option selected by the user
     '''
 
-    return get_single_value(Page().read_cards(label, options, multiple, initial_value, required, hint=hint).run(button_text))
+    button_text = kwargs.get('button_text', 'Next')
+    return get_single_value(Page().read_cards(**kwargs).run(button_text))
 
 
 def get_single_value(answer: Dict):
