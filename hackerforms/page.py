@@ -165,6 +165,23 @@ class WidgetSchema:
         '''
         self.widgets.append(FileInput(key or message, message, initial_value, required, hint=hint))
         return self
+    
+    def read_image(self, message: str, initial_value: str = '', required: Union[bool, str] = True, key: str = '', hint: str = None):
+        '''Add a image file input on the page
+
+        The file will be returned in the form result as a dict with the format { "file": File, "url": str, "content": bytes }
+
+        Args:
+            message: The message that will be displayed to the user
+            key: The key of the input's value on the form result. Defaults to the message arg
+            initial_value: The initial value of the input
+            required: Whether the input is required or not
+
+        Returns:
+            The form object
+        '''
+        self.widgets.append(ImageInput(key or message, message, initial_value, required, hint=hint))
+        return self
 
     def read_dropdown(self, name: str, options: Union[List[str], List[Dict]], multiple: bool = False, initial_value = None, placeholder: str = "Choose your option", required: Union[bool, str] = True, key: str = '', hint: str = None):
         '''Add a dropdown input on the page
@@ -271,17 +288,18 @@ class WidgetSchema:
         self.widgets.append(ImageOutput(image_str, subtitle))
         return self
 
-    def display_link(self, link_url: str, link_text: str = "Click here"):
+    def display_link(self, link_url: str, link_text: str = "Click here", same_tab: bool = False):
         '''Add a link to the page
 
         Args:
             link_url: The url of the link
             link_text: The text of the link
+            same_tab: Whether the link should open in the same tab or not
 
         Returns:
             The form object
         '''
-        self.widgets.append(LinkOutput(link_url, link_text))
+        self.widgets.append(LinkOutput(link_url, link_text, same_tab))
         return self
 
     def display_file(self, file, download_text: str = "Download here"):

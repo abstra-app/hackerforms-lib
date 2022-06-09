@@ -31,15 +31,16 @@ def display_image(image_str: str, subtitle: str = "", button_text: str = 'Next')
     return Page().display_image(image_str, subtitle).run(button_text)
 
 
-def display_link(link_url: str, link_text: str = "Click here", button_text: str = 'Next'):
+def display_link(link_url: str, link_text: str = "Click here", same_tab: bool = False, button_text: str = 'Next'):
     '''Display a link to the user
     
     Args:
         link_url (str): The url of the link to display to the user
         link_text (str): The text to display on the link
         button_text (str): The text to display on the button that will continue the form
+        same_tab (bool): Whether to open the link in the same tab or not
     '''
-    return Page().display_link(link_url, link_text).run(button_text)
+    return Page().display_link(link_url, link_text, same_tab).run(button_text)
 
 
 def display_file(file, download_text: str = "Download here", button_text: str = 'Next'):

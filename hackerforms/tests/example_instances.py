@@ -11,6 +11,7 @@ example_instances = [
              ['python', 'javascript', 'c++']),
     DateInput('date', 'When is your birthday?'),
     FileInput('file', 'Upload a file'),
+    ImageInput('file', 'Upload a image file'),
     MultipleChoiceInput(
         'multiple-choice', 'What is your favorite color?', options=['Red', 'Blue', 'Green']),
     DropdownInput('dropdown', 'What is your favorite color?',
