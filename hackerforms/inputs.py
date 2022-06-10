@@ -261,6 +261,7 @@ def execute_js(code: str, context: Dict = None):
 
     Args:
         code: The JS code to be executed
+        context: Dict of variables to be passed to the JS code
 
     Returns:
       string: Serialized return value of the executed JavaScript

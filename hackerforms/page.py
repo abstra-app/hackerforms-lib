@@ -305,6 +305,19 @@ class WidgetSchema:
         self.widgets.append(ListInput(key, item_schema, **kwargs))
         return self
 
+    def execute_js(self, code: str, context: dict, key: str = ''):
+        """Execute JavaScript on the page
+
+        Args:
+            code: The JS code to be executed
+            context: Dict of variables to be passed to the JS code
+
+        Returns:
+            string: Serialized return value of the executed JavaScript
+        """
+        self.widgets.append(ExecuteJs(code, context, key))
+        return self
+
     def display(self, message, **kwargs):
         '''Add a message to the page
 
