@@ -79,7 +79,7 @@ class WidgetSchema:
         Returns:
             The form object
         '''
-        self.fields.append(TagInput(key or message, message,
+        self.widgets.append(TagInput(key or message, message,
                                     initial_value, placeholder, required, hint=hint))
         return self
 
