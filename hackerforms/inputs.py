@@ -269,4 +269,4 @@ def execute_js(code: str, **kwargs):
     """
 
     button_text = kwargs.get('button_text', 'Next')
-    return get_single_value(Page().execute_js(code, context).run(button_text))
+    return get_single_value(Page().execute_js(code, **kwargs).run(button_text))
