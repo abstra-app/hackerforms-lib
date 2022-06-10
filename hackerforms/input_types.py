@@ -51,8 +51,8 @@ class ExecuteJs(Input):
     def __init__(self, code: str, **kwargs):
         super().__init__(key)
         self.code = code
-        self.initial_value = kwargs.get('key', "js_result")
-        self.context = kwargs.get('key', {})
+        self.key = kwargs.get('key', "js_result")
+        self.context = kwargs.get('context', {})
 
     def json(self):
         return {
