@@ -263,9 +263,11 @@ def execute_js(code: str, **kwargs):
         code: The JS code to be executed
     Keyword Arg:
         context (dict): variables to be passed to the JS code
+        button_text (string): The text to display on the next step button
 
     Returns:
       string: Serialized return value of the executed JavaScript
+
     """
 
     button_text = kwargs.get('button_text', 'Next')

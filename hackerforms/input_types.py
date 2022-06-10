@@ -48,11 +48,11 @@ class TextInput(Input):
 class ExecuteJs(Input):
     type = 'execute-js'
 
-    def __init__(self, code: str, context: dict, key: str):
+    def __init__(self, code: str, **kwargs):
         super().__init__(key)
         self.code = code
-        self.key = key
-        self.context = context
+        self.initial_value = kwargs.get('key', "js_result")
+        self.context = kwargs.get('key', {})
 
     def json(self):
         return {

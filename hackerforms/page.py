@@ -318,7 +318,7 @@ class WidgetSchema:
             string: Serialized return value of the executed JavaScript
         """
 
-        key = kwargs.get('key', '')
+        key = kwargs.get('key', 'js_result')
         context = kwargs.get('context', {})
         self.widgets.append(ExecuteJs(code, context, key))
         return self
