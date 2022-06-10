@@ -305,16 +305,21 @@ class WidgetSchema:
         self.widgets.append(ListInput(key, item_schema, **kwargs))
         return self
 
-    def execute_js(self, code: str, context: dict, key: str = ''):
+    def execute_js(self, code: str, **kwargs):
         """Execute JavaScript on the page
 
         Args:
             code: The JS code to be executed
-            context: Dict of variables to be passed to the JS code
+        Keyword Arg:
+            context (dict): variables to be passed to the JS code
+            key (string): The key of the return value on the form result. Defaults to empty string
 
         Returns:
             string: Serialized return value of the executed JavaScript
         """
+
+        key = kwargs.get('key', '')
+        context = kwargs.get('context', {})
         self.widgets.append(ExecuteJs(code, context, key))
         return self
 

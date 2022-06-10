@@ -256,15 +256,17 @@ def get_single_value(answer: Dict):
     return list(answer.values())[0]
 
 
-def execute_js(code: str, context: Dict = None):
+def execute_js(code: str, **kwargs):
     """Execute JavaScript on the page
 
     Args:
         code: The JS code to be executed
-        context: Dict of variables to be passed to the JS code
+    Keyword Arg:
+        context (dict): variables to be passed to the JS code
 
     Returns:
       string: Serialized return value of the executed JavaScript
     """
 
-    return get_single_value(Page().execute_js(code, context).run())
+    button_text = kwargs.get('button_text', 'Next')
+    return get_single_value(Page().execute_js(code, context).run(button_text))
