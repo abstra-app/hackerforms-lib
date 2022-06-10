@@ -1,97 +1,125 @@
 from .page import *
 
 
-def display(message: str, button_text: str = 'Next'):
+def display(message: str, **kwargs):
     '''Display a message to the user
 
-    Args:
+    Positional Arg:
         message (str): The message to display to the user
+
+    Keyword Arg:
         button_text (str): The text to display on the button that will continue the form
     '''
-    return Page().display(message).run(button_text)
+    button_text = kwargs.get('button_text', 'Next')
+    return Page().display(message, **kwargs).run(button_text)
 
-def display_markdown(text: str, button_text: str = 'Next'):
+
+def display_markdown(text: str, **kwargs):
     '''Display a formatted text to the user
 
-    Args:
+    Positional Arg:
         text (str): The formatted text to display to the user
+
+    Keyword Arg:
         button_text (str): The text to display on the button that will continue the form
     '''
-    return Page().display_markdown(text).run(button_text)
+    button_text = kwargs.get('button_text', 'Next')
+    return Page().display_markdown(text, **kwargs).run(button_text)
 
 
-def display_image(image_str: str, subtitle: str = "", button_text: str = 'Next'):
+def display_image(image_str: str, **kwargs):
     '''Display an image to the user
 
-    Args:
+    Positional Arg:
         image_str (str): The url or base64 encoding of the image to display to the user
+
+    Keyword Arg:
         subtitle (str): The subtitle of the image
         button_text (str): The text to display on the button that will continue the form
     '''
-    return Page().display_image(image_str, subtitle).run(button_text)
+    button_text = kwargs.get('button_text', 'Next')
+    return Page().display_image(image_str, **kwargs).run(button_text)
 
 
-def display_link(link_url: str, link_text: str = "Click here", same_tab: bool = False, button_text: str = 'Next'):
+def display_link(link_url: str, **kwargs):
     '''Display a link to the user
-    
-    Args:
+
+    Positional Arg:
         link_url (str): The url of the link to display to the user
+
+    Keyword Arg:
         link_text (str): The text to display on the link
         button_text (str): The text to display on the button that will continue the form
         same_tab (bool): Whether to open the link in the same tab or not
     '''
-    return Page().display_link(link_url, link_text, same_tab).run(button_text)
+    button_text = kwargs.get('button_text', 'Next')
+    return Page().display_link(link_url, **kwargs).run(button_text)
 
 
-def display_file(file, download_text: str = "Download here", button_text: str = 'Next'):
+def display_file(file, **kwargs):
     '''Display a button for the user to download a file
 
-    Args:
+    Positional Arg:
         file (File): The file to download
+
+    Keyword Arg:
         download_text (str): The text to display on the button that will download the file
         button_text (str): The text to display on the button that will continue the form
     '''
-    return Page().display_file(file, download_text).run(button_text)
+    button_text = kwargs.get('button_text', 'Next')
+    return Page().display_file(file, **kwargs).run(button_text)
 
 
-def display_html(html: str, button_text: str = 'Next'):
+def display_html(html: str, **kwargs):
     '''Display a html snippet to the user
 
-    Args:
+    Positional Arg:
         html (str): The html snippet to display to the user
+
+    Keyword Arg:
         button_text (str): The text to display on the button that will continue the form
     '''
-    return Page().display_html(html).run(button_text)
+    button_text = kwargs.get('button_text', 'Next')
+    return Page().display_html(html, **kwargs).run(button_text)
 
 
-def display_pandas(df, button_text: str = 'Next'):
+def display_pandas(df, **kwargs):
     '''Display a pandas dataframe to the user
 
-    Args:
+    Positional Arg:
         df (pandas.DataFrame): The dataframe to display to the user
+
+    Keyword Arg:
         button_text (str): The text to display on the button that will continue the form
     '''
-    return Page().display_pandas(df).run(button_text)
+    button_text = kwargs.get('button_text', 'Next')
+    return Page().display_pandas(df, **kwargs).run(button_text)
 
 
-def display_plotly(fig, button_text: str = 'Next'):
+def display_plotly(fig, **kwargs):
     '''Display a plotly figure to the user
 
-    Args:
+    Positional Arg:
         fig (plotly.Figure): The figure to display to the user
+
+    Keyword Arg:
         button_text (str): The text to display on the button that will continue the form
     '''
-    return Page().display_plotly(fig).run(button_text)
+    button_text = kwargs.get('button_text', 'Next')
+    return Page().display_plotly(fig, **kwargs).run(button_text)
 
 
-def display_iframe(url_or_html: str, width: int = 800, height: int = 600, button_text: str = 'Next'):
+def display_iframe(url_or_html: str, **kwargs):
     '''Display an inline iframe to the user
 
-    Args:
+    Positional Arg:
         url_or_html (str): The link to the document or the own document to display to the user
+
+    Keyword Arg:
         width (int): The width of the iframe
         height (int): The height of the iframe
         button_text (str): The text to display on the button that will continue the form
     '''
+    button_text = kwargs.get('button_text', 'Next')
 
-    return Page().display_iframe(url_or_html, width, height).run(button_text)
+    return Page().display_iframe(url_or_html, **kwargs).run(button_text)
