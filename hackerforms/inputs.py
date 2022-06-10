@@ -4,11 +4,13 @@ from .type_classes import *
 from .page import *
 
 
-def read(**kwargs) -> str:
+def read(message: str, **kwargs) -> str:
     '''Read a text value from the user simple text input
 
-    Keyword Arg:
+    Positional Arg:
         message (str): The message to display to the user
+
+    Keyword Arg:
         button_text (str): The text to display on the button that will submit the value
         initial_value (str): The initial value to display to the user
         placeholder (str): The placeholder text to display to the user
@@ -18,14 +20,16 @@ def read(**kwargs) -> str:
         str: The value entered by the user
     '''
     button_text = kwargs.get('button_text', 'Next')
-    return get_single_value(Page().read(**kwargs).run(button_text))
+    return get_single_value(Page().read(message, **kwargs).run(button_text))
 
 
-def read_textarea(**kwargs) -> str:
+def read_textarea(message: str, **kwargs) -> str:
     '''Read a text value from the user with a text area input
 
-    Keyword Arg:
+    Positional Arg:
         message (str): The message to display to the user
+
+    Keyword Arg:
         button_text (str): The text to display on the button that will submit the value
         initial_value (str): The initial value to display to the user
         placeholder (str): The placeholder text to display to the user
@@ -35,14 +39,16 @@ def read_textarea(**kwargs) -> str:
         str: The value entered by the user
     '''
     button_text = kwargs.get('button_text', 'Next')
-    return get_single_value(Page().read_textarea(**kwargs).run(button_text))
+    return get_single_value(Page().read_textarea(message, **kwargs).run(button_text))
 
 
-def read_tag(**kwargs) -> List[Union[str, float]]:
+def read_tag(message: str, **kwargs) -> List[Union[str, float]]:
     '''Read a tag value from the user
 
-    Keyword Arg:
+    Positional Arg:
         message (str): The message to display to the user
+
+    Keyword Arg:
         button_text (str): The text to display on the button that will submit the value
         initial_value (str or float): The initial value to display to the user
         required (bool or str): Whether the input is required or not eg. "this field is required"
@@ -51,11 +57,14 @@ def read_tag(**kwargs) -> List[Union[str, float]]:
         List[Union[str,float]]: The value entered by the user
     '''
     button_text = kwargs.get('button_text', 'Next')
-    return get_single_value(Page().read_tag(**kwargs).run(button_text))
+    return get_single_value(Page().read_tag(message, **kwargs).run(button_text))
 
 
-def read_number(**kwargs) -> int:
+def read_number(message: str, **kwargs) -> int:
     '''Read a number value from the user
+
+    Positional Arg:
+        message (str): The message to display to the user
 
     Keyword Arg:
         message (str): The message to display to the user
@@ -68,14 +77,16 @@ def read_number(**kwargs) -> int:
         int: The value entered by the user
     '''
     button_text = kwargs.get('button_text', 'Next')
-    return get_single_value(Page().read_number(**kwargs).run(button_text))
+    return get_single_value(Page().read_number(message, **kwargs).run(button_text))
 
 
-def read_email(**kwargs) -> str:
+def read_email(message: str, **kwargs) -> str:
     '''Read an email value from the user
 
-    Keyword Arg:
+    Positional Arg:
         message (str): The message to display to the user
+
+    Keyword Arg:
         button_text (str): The text to display on the button that will submit the value
         initial_value (str): The initial value to display to the user
         placeholder (str): The placeholder text to display to the user
@@ -85,14 +96,16 @@ def read_email(**kwargs) -> str:
         str: The value entered by the user
     '''
     button_text = kwargs.get('button_text', 'Next')
-    return get_single_value(Page().read_email(**kwargs).run(button_text))
+    return get_single_value(Page().read_email(message, **kwargs).run(button_text))
 
 
-def read_phone(**kwargs) -> PhoneResponse:
+def read_phone(message: str, **kwargs) -> PhoneResponse:
     '''Read a phone number value from the user
 
-    Keyword Arg:
-        message (str): The message to display to the user  
+    Positional Arg:
+        message (str): The message to display to the user
+
+    Keyword Arg:  
         button_text (str): The text to display on the button that will submit the value
         initial_value (str): The initial value to display to the user
         placeholder (str): The placeholder text to display to the user
@@ -102,14 +115,16 @@ def read_phone(**kwargs) -> PhoneResponse:
         PhoneResponse: The value entered by the user
     '''
     button_text = kwargs.get('button_text', 'Next')
-    return get_single_value(Page().read_phone(**kwargs).run(button_text))
+    return get_single_value(Page().read_phone(message, **kwargs).run(button_text))
 
 
-def read_date(**kwargs) -> str:
+def read_date(message: str, **kwargs) -> str:
     '''Read a date value from the user
 
-    Keyword Arg:
+    Positional Arg:
         message (str): The message to display to the user
+
+    Keyword Arg:
         button_text (str): The text to display on the button that will submit the value
         initial_value (str): The initial value to display to the user
         required (bool or str): Whether the input is required or not eg. "this field is required"
@@ -118,14 +133,16 @@ def read_date(**kwargs) -> str:
         datetime.date: The value entered by the user
     '''
     button_text = kwargs.get('button_text', 'Next')
-    return get_single_value(Page().read_date(**kwargs).run(button_text))
+    return get_single_value(Page().read_date(message, **kwargs).run(button_text))
 
 
-def read_file(**kwargs) -> FileResponse:
+def read_file(message: str, **kwargs) -> FileResponse:
     '''Read a file value from the user
 
-    Keyword Arg:
+    Positional Arg:
         message (str): The message to display to the user
+
+    Keyword Arg:
         button_text (str): The text to display on the button that will submit the value
         initial_value (str): The initial value to display to the user
         required (bool or str): Whether the input is required or not eg. "this field is required"
@@ -134,14 +151,16 @@ def read_file(**kwargs) -> FileResponse:
         FileResponse: The file uploaded by the user the user
     '''
     button_text = kwargs.get('button_text', 'Next')
-    return get_single_value(Page().read_file(**kwargs).run(button_text))
+    return get_single_value(Page().read_file(message, **kwargs).run(button_text))
 
 
-def read_image(message: str, button_text: str = 'Next', initial_value: str = '', required: Union[bool, str] = True, hint: str = None) -> FileResponse:
+def read_image(message: str, **kwargs) -> FileResponse:
     '''Read a image file value from the user
 
-    Keyword Arg:
+    Positional Arg:
         message (str): The message to display to the user
+
+    Keyword Arg:
         button_text (str): The text to display on the button that will submit the value
         initial_value (str): The initial value to display to the user
         required (bool or str): Whether the input is required or not eg. "this field is required"
@@ -149,15 +168,18 @@ def read_image(message: str, button_text: str = 'Next', initial_value: str = '',
     Returns:
         FileResponse: The image file uploaded by the user the user
     '''
-    return get_single_value(Page().read_image(message, initial_value, required, hint=hint).run(button_text))
+    button_text = kwargs.get('button_text', 'Next')
+    return get_single_value(Page().read_image(message, **kwargs).run(button_text))
 
 
-def read_dropdown(**kwargs) -> Union[str, List[str]]:
+def read_dropdown(message: str, options: Union[List[str], List[Dict]], **kwargs) -> Union[str, List[str]]:
     '''Read a dropdown value from the user
 
-    Keyword Arg:
+    Positional Arg:
         message (str): The message to display to the user
         options (list): The options to display to the user, eg. ['Option 1', 'Option 2'] or [{'label': 'Option 1', 'value': '1'}, {'label': 'Option 2', 'value': '2'}]
+
+    Keyword Arg:
         multiple (bool): Whether the user can select multiple options
         button_text (str): The text to display on the button that will submit the value
         initial_value: The initial value to display to the user
@@ -168,15 +190,17 @@ def read_dropdown(**kwargs) -> Union[str, List[str]]:
         str: The value selected by the user
     '''
     button_text = kwargs.get('button_text', 'Next')
-    return get_single_value(Page().read_dropdown(**kwargs).run(button_text))
+    return get_single_value(Page().read_dropdown(message, options, **kwargs).run(button_text))
 
 
-def read_multiple_choice(**kwargs) -> Union[str, List[str]]:
+def read_multiple_choice(message: str, options: Union[List[str], List[Dict]], **kwargs) -> Union[str, List[str]]:
     '''Read a multiple choice value from the user
 
-    Keyword Arg:
+    Positional Arg:
         message (str): The message to display to the user
         options (list): The options to display to the user, eg. ['Option 1', 'Option 2'] or [{'label': 'Option 1', 'value': '1'}, {'label': 'Option 2', 'value': '2'}]
+
+    Keyword Arg:
         multiple (bool): Whether the user can select multiple options
         button_text (str): The text to display on the button that will submit the value
         initial_value: The initial value to display to the user
@@ -186,31 +210,35 @@ def read_multiple_choice(**kwargs) -> Union[str, List[str]]:
         list, any: The values/value selected by the user
     '''
     button_text = kwargs.get('button_text', 'Next')
-    return get_single_value(Page().read_multiple_choice(**kwargs).run(button_text))
+    return get_single_value(Page().read_multiple_choice(message, options, **kwargs).run(button_text))
 
 
-def read_list(**kwargs) -> List[str]:
+def read_list(item_schema, **kwargs) -> List[str]:
     '''Read a list value from the user
 
-    Keyword Arg:
+    Positional Arg:
         item_schema (ListItemSchema): The schema for the items of the list
+
+    Keyword Arg:
         button_text (str): The text to display on the button that will submit the value
 
     Returns:
         list: The values entered by the user
     '''
     button_text = kwargs.get('button_text', 'Next')
-    return get_single_value(Page().read_list(**kwargs).run(button_text))
+    return get_single_value(Page().read_list(item_schema, **kwargs).run(button_text))
 
 
-def read_cards(**kwargs):
+def read_cards(label: str, options: List[Dict], **kwargs):
     '''Display multiple clickable cards to the user
 
-    Keyword Arg:
+    Positional Arg:
         label (str): The text related to this field
         options (list): The options to display to the user, eg. [
                             {'title': 'Option 1', 'image': 'https://image_1.png', 'description': 'option 1 description'}, 
                             {'title': 'Option 2', 'image': 'https://image_2.png', 'description': 'option 2 description'}]
+
+    Keyword Arg:
         multiple (bool): Whether the user can select multiple options
         button_text (str): The text to display on the button that will submit the value
         initial_value (list): The initial value to display to the user
@@ -221,7 +249,7 @@ def read_cards(**kwargs):
     '''
 
     button_text = kwargs.get('button_text', 'Next')
-    return get_single_value(Page().read_cards(**kwargs).run(button_text))
+    return get_single_value(Page().read_cards(label, options, **kwargs).run(button_text))
 
 
 def get_single_value(answer: Dict):

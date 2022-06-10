@@ -16,8 +16,8 @@ class Output(ABC):
 class TextOutput(Output):
     type = 'text-output'
 
-    def __init__(self, **kwargs):
-        self.message = kwargs.get('message')
+    def __init__(self, message: str, **kwargs):
+        self.message = message
         self.column = kwargs.get('column', 1)
 
     def json(self):
@@ -31,8 +31,8 @@ class TextOutput(Output):
 class MarkdownOutput(Output):
     type = 'markdown-output'
 
-    def __init__(self, **kwargs):
-        self.text = kwargs.get('text')
+    def __init__(self, text: str, **kwargs):
+        self.text = text
         self.column = kwargs.get('column', 1)
 
     def json(self):
@@ -46,8 +46,8 @@ class MarkdownOutput(Output):
 class ImageOutput(Output):
     type = 'image-output'
 
-    def __init__(self, **kwargs):
-        self.image_str = kwargs.get('image_str')
+    def __init__(self, image_str: str, **kwargs):
+        self.image_str = image_str
         self.subtitle = kwargs.get('subtitle', '')
         self.column = kwargs.get('column', 1)
 
@@ -63,8 +63,8 @@ class ImageOutput(Output):
 class LinkOutput(Output):
     type = 'link-output'
 
-    def __init__(self, **kwargs):
-        self.link_url = kwargs.get('link_url')
+    def __init__(self, link_url: str, **kwargs):
+        self.link_url = link_url
         self.link_text = kwargs.get('link_text', 'Click here')
         self.column = kwargs.get('column', 1)
         self.same_tab = kwargs.get('same_tab', False)
@@ -82,8 +82,8 @@ class LinkOutput(Output):
 class FileOutput(Output):
     type = 'file-output'
 
-    def __init__(self, **kwargs):
-        self.file = kwargs.get('file')
+    def __init__(self, file, **kwargs):
+        self.file = file
         self.download_text = kwargs.get('download_text', 'Download here')
         self.column = kwargs.get('column', 1)
 
@@ -99,8 +99,8 @@ class FileOutput(Output):
 class HTMLOutput(Output):
     type = 'html-output'
 
-    def __init__(self, **kwargs):
-        self.html = kwargs.get('html')
+    def __init__(self, html, **kwargs):
+        self.html = html
         self.column = kwargs.get('column', 1)
 
     def json(self):
@@ -114,7 +114,7 @@ class HTMLOutput(Output):
 class PandasOutput(Output):
     type = 'pandas-output'
 
-    def __init__(self, **kwargs):
+    def __init__(self, df, **kwargs):
         self.df = kwargs.get('df')
         self.column = kwargs.get('column', 1)
 
@@ -129,8 +129,8 @@ class PandasOutput(Output):
 class PlotlyOutput(Output):
     type = 'plotly-output'
 
-    def __init__(self, **kwargs):
-        self.fig = kwargs.get('fig')
+    def __init__(self, fig, **kwargs):
+        self.fig = fig
         self.column = kwargs.get('column', 1)
 
     def json(self):
@@ -144,15 +144,14 @@ class PlotlyOutput(Output):
 class IFrameOutput(Output):
     type = 'iframe-output'
 
-    def __init__(self, **kwargs):
-        url_or_html = kwargs.get('url_or_html')
+    def __init__(self, url_or_html, **kwargs):
         if url(url_or_html):
             self.url = url_or_html
         else:
             self.url = f"data:text/html,{quote(url_or_html)}"
 
-        self.width = kwargs.get('width')
-        self.height = kwargs.get('height')
+        self.width = kwargs.get('width', 800)
+        self.height = kwargs.get('height', 600)
         self.column = kwargs.get('column', 1)
 
     def json(self):

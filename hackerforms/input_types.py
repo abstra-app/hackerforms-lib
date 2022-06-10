@@ -23,9 +23,9 @@ class Input(ABC):
 class TextInput(Input):
     type = 'text-input'
 
-    def __init__(self, key: str, **kwargs):
+    def __init__(self, key: str, message: str, **kwargs):
         super().__init__(key)
-        self.message = kwargs.get('message')
+        self.message = message
         self.initial_value = kwargs.get('initial_value', '')
         self.placeholder = kwargs.get('placeholder', 'Your answer here')
         self.required = kwargs.get('required', True)
@@ -48,9 +48,9 @@ class TextInput(Input):
 class TagInput(Input):
     type = 'tag-input'
 
-    def __init__(self, key: str, **kwargs):
+    def __init__(self, key: str, message: str, **kwargs):
         super().__init__(key)
-        self.message = kwargs.get('message')
+        self.message = message
         self.initial_value = kwargs.get('initial_value', [""])
         self.placeholder = kwargs.get('placeholder', 'Your answer here')
         self.required = kwargs.get('required', True)
@@ -73,9 +73,9 @@ class TagInput(Input):
 class DateInput(Input):
     type = 'date-input'
 
-    def __init__(self, key: str, **kwargs):
+    def __init__(self, key: str, message: str, **kwargs):
         super().__init__(key)
-        self.message = kwargs.get('message')
+        self.message = message
         self.initial_value = kwargs.get('initial_value', None)
         self.required = kwargs.get('required', True)
         self.hint = kwargs.get('hint', None)
@@ -111,9 +111,9 @@ class DateInput(Input):
 class FileInput(Input):
     type = 'file-input'
 
-    def __init__(self, key: str, **kwargs):
+    def __init__(self, key: str, message: str, **kwargs):
         super().__init__(key)
-        self.message = kwargs.get('message')
+        self.message = message
         self.initial_value = kwargs.get('initial_value', '')
         self.required = kwargs.get('required', True)
         self.hint = kwargs.get('hint', None)
@@ -137,12 +137,12 @@ class FileInput(Input):
 class ImageInput(Input):
     type = 'image-input'
 
-    def __init__(self, key: str, message: str, initial_value: str = "", required: Union[bool, str] = True, hint: str = None):
+    def __init__(self, key: str, message: str, **kwargs):
         super().__init__(key)
         self.message = message
-        self.initial_value = initial_value
-        self.required = required
-        self.hint = hint
+        self.initial_value = kwargs.get('initial_value', '')
+        self.required = kwargs.get('required', True)
+        self.hint = kwargs.get('hint', None)
 
     def json(self):
         return {
@@ -161,10 +161,10 @@ class ImageInput(Input):
 class MultipleChoiceInput(Input):
     type = 'multiple-choice-input'
 
-    def __init__(self, key: str, **kwargs):
+    def __init__(self, key: str, message: str, options: Union[List[str], List[Dict]], **kwargs):
         super().__init__(key)
-        self.message = kwargs.get('message')
-        self.options = kwargs.get('options')
+        self.message = message
+        self.options = options
         self.multiple = kwargs.get('multiple', False)
         self.initial_value = kwargs.get('initial_value', None)
         self.required = kwargs.get('required', True)
@@ -188,10 +188,10 @@ class MultipleChoiceInput(Input):
 class CardsInput(Input):
     type = 'cards-input'
 
-    def __init__(self, key: str, **kwargs) -> None:
+    def __init__(self, key: str, label: str, options, **kwargs) -> None:
         super().__init__(key)
-        self.label = kwargs.get('label')
-        self.options = kwargs.get('options')
+        self.label = label
+        self.options = options
         self.multiple = kwargs.get('multiple', False)
         self.initial_value = kwargs.get('initial_value', None)
         self.required = kwargs.get('required', True)
@@ -215,10 +215,10 @@ class CardsInput(Input):
 class DropdownInput(Input):
     type = 'dropdown-input'
 
-    def __init__(self, key: str, **kwargs):
+    def __init__(self, key: str, name: str, options: Union[List[str], List[Dict]], **kwargs):
         super().__init__(key)
-        self.name = kwargs.get('name')
-        self.options = kwargs.get('options')
+        self.name = name
+        self.options = options
         self.initial_value = kwargs.get('initial_value', None)
         self.required = kwargs.get('required', True)
         self.hint = kwargs.get('hint', None)
@@ -244,9 +244,9 @@ class DropdownInput(Input):
 class TextareaInput(Input):
     type = 'textarea-input'
 
-    def __init__(self, key: str, **kwargs):
+    def __init__(self, key: str, message: str, **kwargs):
         super().__init__(key)
-        self.message = kwargs.get('message')
+        self.message = message
         self.initial_value = kwargs.get('initial_value', '')
         self.required = kwargs.get('required', True)
         self.hint = kwargs.get('hint', None)
@@ -269,9 +269,9 @@ class TextareaInput(Input):
 class NumberInput(Input):
     type = 'number-input'
 
-    def __init__(self, key: str, **kwargs):
+    def __init__(self, key: str, message: str, **kwargs):
         super().__init__(key)
-        self.message = kwargs.get('message')
+        self.message = message
         self.initial_value = kwargs.get('initial_value', 0)
         self.required = kwargs.get('required', True)
         self.hint = kwargs.get('hint', None)
@@ -294,9 +294,9 @@ class NumberInput(Input):
 class EmailInput(Input):
     type = 'email-input'
 
-    def __init__(self, key: str, **kwargs):
+    def __init__(self, key: str, message: str, **kwargs):
         super().__init__(key)
-        self.message = kwargs.get('message')
+        self.message = message
         self.initial_value = kwargs.get('initial_value', '')
         self.required = kwargs.get('required', True)
         self.hint = kwargs.get('hint', None)
@@ -319,9 +319,9 @@ class EmailInput(Input):
 class PhoneInput(Input):
     type = 'phone-input'
 
-    def __init__(self, key: str, **kwargs):
+    def __init__(self, key: str, message: str, **kwargs):
         super().__init__(key)
-        self.message = kwargs.get('message')
+        self.message = message
         self.initial_value = kwargs.get('initial_value', '')
         self.required = kwargs.get('required', True)
         self.hint = kwargs.get('hint', None)
@@ -347,9 +347,9 @@ class PhoneInput(Input):
 class ListInput(Input):
     type = 'list-input'
 
-    def __init__(self, key: str, **kwargs):
+    def __init__(self, key: str, item_schema, **kwargs):
         super().__init__(key)
-        self.item_schema = kwargs.get('item_schema')
+        self.item_schema = item_schema
         self.initial_value = kwargs.get('initial_value', [{}])
         self.min = kwargs.get('min', None)
         self.max = kwargs.get('max', None)
