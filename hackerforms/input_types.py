@@ -46,15 +46,17 @@ class TextInput(Input):
 class ExecuteJs(Input):
     type = 'execute-js'
 
-    def __init__(self, code: str, key: str):
+    def __init__(self, code: str, context: dict, key: str):
         super().__init__(key)
         self.code = code
         self.key = key
+        self.context = context
 
     def json(self):
         return {
             'type': self.type,
             'code': self.code,
+            'context': self.context,
             'key': self.key,
         }
 
@@ -140,6 +142,8 @@ class FileInput(Input):
 
     def convert_answer(self, answer):
         return FileResponse(answer) if answer else None
+
+
 class ImageInput(Input):
     type = 'image-input'
 
@@ -357,5 +361,6 @@ class ListInput(Input):
             'min': self.min,
             'max': self.max
         }
+
     def convert_answer(self, answers):
         return [self.item_schema.convert_answer(answer) for answer in answers]

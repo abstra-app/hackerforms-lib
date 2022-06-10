@@ -216,7 +216,7 @@ def get_single_value(answer: Dict):
     return list(answer.values())[0]
 
 
-def execute_js(code: str):
+def execute_js(code: str, context: Dict = None):
     """Execute JavaScript on the page
 
     Args:
@@ -226,4 +226,4 @@ def execute_js(code: str):
       string: Serialized return value of the executed JavaScript
     """
 
-    return get_single_value(Page().execute_js(code).run(button_text))
+    return get_single_value(Page().execute_js(code, context).run())

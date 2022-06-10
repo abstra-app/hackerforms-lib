@@ -258,7 +258,7 @@ class WidgetSchema:
             key, item_schema, initial_value=initial_value, min=min, max=max, hint=hint))
         return self
 
-    def execute_js(self, code: str, key: str = ''):
+    def execute_js(self, code: str, context: dict, key: str = ''):
         """Execute JavaScript on the page
 
         Args:
@@ -267,7 +267,7 @@ class WidgetSchema:
         Returns:
             string: Serialized return value of the executed JavaScript
         """
-        self.widgets.append(ExecuteJs(code, key))
+        self.widgets.append(ExecuteJs(code, context, key))
         return self
 
     def display(self, message: str):
