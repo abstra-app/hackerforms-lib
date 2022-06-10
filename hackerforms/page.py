@@ -83,14 +83,16 @@ class WidgetSchema:
         Keyword Arg:
             key: The key of the input's value on the form result. Defaults to the message arg
             initial_value: The initial value of the input
+            placehlder: The placeholder of the input
             required: Whether the input is required or not
             columns: The number of columns of the input
+            hint: The hint of the input
 
         Returns:
             The form object
         '''
         key = kwargs.get('key', message)
-        self.fields.append(TagInput(key, message, **kwargs))
+        self.widgets.append(TagInput(key, message, **kwargs))
         return self
 
     def read_number(self, message: str, **kwargs):
