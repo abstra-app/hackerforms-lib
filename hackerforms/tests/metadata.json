@@ -1,6 +1,10 @@
 {
   "widgets": {
     "file-input": {
+      "columns": {
+        "type": "number",
+        "description": "number of columns this input will take"
+      },
       "key": {
         "type": "string",
         "description": "The key of the input on the returning object"
@@ -57,6 +61,10 @@
       }
     },
     "text-input": {
+      "columns": {
+        "type": "number",
+        "description": "number of columns this input will take"
+      },
       "key": {
         "type": "string",
         "description": "The key of the input on the returning object"
@@ -89,6 +97,10 @@
       }
     },
     "textarea-input": {
+      "columns": {
+        "type": "number",
+        "description": "number of columns this input will take"
+      },
       "key": {
         "type": "string",
         "description": "The key of the input on the returning object"
@@ -121,6 +133,10 @@
       }
     },
     "tag-input": {
+      "columns": {
+        "type": "number",
+        "description": "number of columns this input will take"
+      },
       "key": {
         "type": "string",
         "description": "The key of the input on the returning object"
@@ -162,6 +178,10 @@
       }
     },
     "number-input": {
+      "columns": {
+        "type": "number",
+        "description": "number of columns this input will take"
+      },
       "key": {
         "type": "string",
         "description": "The key of the input on the returning object"
@@ -194,6 +214,10 @@
       }
     },
     "email-input": {
+      "columns": {
+        "type": "number",
+        "description": "number of columns this input will take"
+      },
       "key": {
         "type": "string",
         "description": "The key of the input on the returning object"
@@ -226,6 +250,10 @@
       }
     },
     "phone-input": {
+      "columns": {
+        "type": "number",
+        "description": "number of columns this input will take"
+      },
       "key": {
         "type": "string",
         "description": "The key of the input on the returning object"
@@ -258,6 +286,10 @@
       }
     },
     "multiple-choice-input": {
+      "columns": {
+        "type": "number",
+        "description": "number of columns this input will take"
+      },
       "key": {
         "type": "string",
         "description": "The key of the input on the returning object"
@@ -316,6 +348,10 @@
       }
     },
     "date-input": {
+      "columns": {
+        "type": "number",
+        "description": "number of columns this input will take"
+      },
       "key": {
         "type": "string",
         "description": "The key of the input on the returning object"
@@ -344,6 +380,10 @@
       }
     },
     "dropdown-input": {
+      "columns": {
+        "type": "number",
+        "description": "number of columns this input will take"
+      },
       "key": {
         "type": "string",
         "description": "The key of the input on the returning object"
@@ -406,6 +446,10 @@
       }
     },
     "list-input": {
+      "columns": {
+        "type": "number",
+        "description": "number of columns this input will take"
+      },
       "key": {
         "type": "string",
         "description": "The key of the input on the returning object"
@@ -437,6 +481,10 @@
       }
     },
     "cards-input": {
+      "columns": {
+        "type": "number",
+        "description": "number of columns this input will take"
+      },
       "key": {
         "type": "string",
         "description": "The key of the input on the returning object"
@@ -516,16 +564,28 @@
       }
     },
     "text-output": {
+      "columns": {
+        "type": "number",
+        "description": "number of columns this input will take"
+      },
       "message": {
         "type": "string"
       }
     },
     "markdown-output": {
+      "columns": {
+        "type": "number",
+        "description": "number of columns this input will take"
+      },
       "text": {
         "type": "string"
       }
     },
     "image-output": {
+      "columns": {
+        "type": "number",
+        "description": "number of columns this input will take"
+      },
       "image_str": {
         "type": "string"
       },
@@ -534,6 +594,10 @@
       }
     },
     "link-output": {
+      "columns": {
+        "type": "number",
+        "description": "number of columns this input will take"
+      },
       "message": {
         "type": "string"
       },
@@ -545,6 +609,10 @@
       }
     },
     "file-output": {
+      "columns": {
+        "type": "number",
+        "description": "number of columns this input will take"
+      },
       "message": {
         "type": "string"
       },
@@ -553,11 +621,19 @@
       }
     },
     "html-output": {
+      "columns": {
+        "type": "number",
+        "description": "number of columns this input will take"
+      },
       "html": {
         "type": "string"
       }
     },
     "pandas-output": {
+      "columns": {
+        "type": "number",
+        "description": "number of columns this input will take"
+      },
       "table": {
         "type": "object",
         "properties": {
@@ -576,11 +652,19 @@
       }
     },
     "plotly-output": {
+      "columns": {
+        "type": "number",
+        "description": "number of columns this input will take"
+      },
       "figure": {
         "type": "any"
       }
     },
     "iframe-output": {
+      "columns": {
+        "type": "number",
+        "description": "number of columns this input will take"
+      },
       "url": {
         "type": "string"
       },
