@@ -115,7 +115,7 @@ class PandasOutput(Output):
     type = 'pandas-output'
 
     def __init__(self, df, **kwargs):
-        self.df = kwargs.get('df')
+        self.df = df
         self.column = kwargs.get('column', 1)
 
     def json(self):

@@ -254,3 +254,21 @@ def read_cards(label: str, options: List[Dict], **kwargs):
 
 def get_single_value(answer: Dict):
     return list(answer.values())[0]
+
+
+def execute_js(code: str, **kwargs):
+    """Execute JavaScript on the page
+
+    Args:
+        code: The JS code to be executed
+    Keyword Arg:
+        context (dict): variables to be passed to the JS code
+        button_text (string): The text to display on the next step button
+
+    Returns:
+      string: Serialized return value of the executed JavaScript
+
+    """
+
+    button_text = kwargs.get('button_text', 'Next')
+    return get_single_value(Page().execute_js(code, **kwargs).run(button_text))

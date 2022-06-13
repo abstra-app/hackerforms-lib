@@ -45,6 +45,24 @@ class TextInput(Input):
         }
 
 
+class ExecuteJs(Input):
+    type = 'execute-js'
+
+    def __init__(self, code: str, **kwargs):
+        super().__init__(key)
+        self.code = code
+        self.key = kwargs.get('key', "js_result")
+        self.context = kwargs.get('context', {})
+
+    def json(self):
+        return {
+            'type': self.type,
+            'code': self.code,
+            'context': self.context,
+            'key': self.key,
+        }
+
+
 class TagInput(Input):
     type = 'tag-input'
 
