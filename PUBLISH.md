@@ -12,6 +12,8 @@ pip install twine
 
 Bump the version number in `setup.py`
 
+Delete the `dist` directory, if present
+
 Build the package:
 
 ```sh
