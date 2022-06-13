@@ -319,8 +319,7 @@ class WidgetSchema:
         """
 
         key = kwargs.get('key', 'js_result')
-        context = kwargs.get('context', {})
-        self.widgets.append(ExecuteJs(code, context, key))
+        self.widgets.append(ExecuteJs(key, code, **kwargs))
         return self
 
     def display(self, message, **kwargs):
