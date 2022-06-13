@@ -12,7 +12,7 @@ pip install twine
 
 Bump the version number in `setup.py`
 
-Delete the `dist` directory, if present
+Delete the `dist` and `build` directories, if present
 
 Build the package:
 
