@@ -563,6 +563,20 @@
         }
       }
     },
+    "execute-js": {
+      "key": {
+        "type": "string",
+        "description": "The key of the input on the returning object"
+      },
+      "code": {
+        "type": "string",
+        "description": "The JS code to be executed."
+      },
+      "context": {
+        "type": "object",
+        "description": "A dictionary of variables to be passed to the code."
+      }
+    },
     "text-output": {
       "columns": {
         "type": "number",
