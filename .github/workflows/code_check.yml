@@ -11,6 +11,8 @@ on:
 jobs:
   code_check:
     runs-on: ubuntu-latest
+    env:
+      ENV: test
 
     strategy:
       matrix:
