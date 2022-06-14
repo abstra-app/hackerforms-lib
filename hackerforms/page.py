@@ -218,7 +218,7 @@ class WidgetSchema:
         self.widgets.append(ImageInput(key, message, **kwargs))
         return self
 
-    def read_dropdown(self, name: str, **kwargs):
+    def read_dropdown(self, name: str, options, **kwargs):
         '''Add a dropdown input on the page
 
         Positional Arg:
@@ -237,7 +237,7 @@ class WidgetSchema:
             The form object
         '''
         key = kwargs.get('key', name)
-        self.widgets.append(DropdownInput(key, name, **kwargs))
+        self.widgets.append(DropdownInput(key, name, options, **kwargs))
         return self
 
     def read_multiple_choice(self, message: str, options: Union[List[str], List[Dict]], **kwargs):
