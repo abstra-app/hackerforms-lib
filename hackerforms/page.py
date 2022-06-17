@@ -49,7 +49,7 @@ class WidgetSchema:
         Returns:
             The form object
         '''
-        key = kwargs.get('key', message)
+        key = kwargs.pop('key', message)
         self.widgets.append(
             TextInput(key, message, **kwargs))
         return self
@@ -70,7 +70,7 @@ class WidgetSchema:
         Returns:
             The form object
         '''
-        key = kwargs.get('key', message)
+        key = kwargs.pop('key', message)
         self.widgets.append(TextareaInput(key, message, **kwargs))
         return self
 
@@ -91,7 +91,7 @@ class WidgetSchema:
         Returns:
             The form object
         '''
-        key = kwargs.get('key', message)
+        key = kwargs.pop('key', message)
         self.widgets.append(TagInput(key, message, **kwargs))
         return self
 
@@ -111,7 +111,7 @@ class WidgetSchema:
         Returns:
             The form object
         '''
-        key = kwargs.get('key', message)
+        key = kwargs.pop('key', message)
         self.widgets.append(NumberInput(key, message, **kwargs))
         return self
 
@@ -131,7 +131,7 @@ class WidgetSchema:
         Returns:
             The form object
         '''
-        key = kwargs.get('key', message)
+        key = kwargs.pop('key', message)
         self.widgets.append(EmailInput(key, message, **kwargs))
         return self
 
@@ -151,7 +151,7 @@ class WidgetSchema:
         Returns:
             The form object
         '''
-        key = kwargs.get('key', message)
+        key = kwargs.pop('key', message)
         self.widgets.append(PhoneInput(
             key, message, **kwargs))
         return self
@@ -171,7 +171,7 @@ class WidgetSchema:
         Returns:
             The form object
         '''
-        key = kwargs.get('key', message)
+        key = kwargs.pop('key', message)
         self.widgets.append(
             DateInput(key, message, **kwargs))
         return self
@@ -193,7 +193,7 @@ class WidgetSchema:
         Returns:
             The form object
         '''
-        key = kwargs.get('key', message)
+        key = kwargs.pop('key', message)
         self.widgets.append(
             FileInput(key, message, **kwargs))
         return self
@@ -214,7 +214,7 @@ class WidgetSchema:
         Returns:
             The form object
         '''
-        key = kwargs.get('key', message)
+        key = kwargs.pop('key', message)
         self.widgets.append(ImageInput(key, message, **kwargs))
         return self
 
@@ -236,7 +236,7 @@ class WidgetSchema:
         Returns:
             The form object
         '''
-        key = kwargs.get('key', name)
+        key = kwargs.pop('key', name)
         self.widgets.append(DropdownInput(key, name, options, **kwargs))
         return self
 
@@ -257,7 +257,7 @@ class WidgetSchema:
         Returns:
             The form object
         '''
-        key = kwargs.get('key', message)
+        key = kwargs.pop('key', message)
         self.widgets.append(MultipleChoiceInput(
             key, message, options, **kwargs))
         return self
@@ -282,7 +282,7 @@ class WidgetSchema:
         Returns:
             The form object
         '''
-        key = kwargs.get('key', label)
+        key = kwargs.pop('key', label)
         self.widgets.append(CardsInput(key, label, options, **kwargs))
         return self
 
@@ -301,7 +301,7 @@ class WidgetSchema:
         Returns:
             The form object
         '''
-        key = kwargs.get('key', '')
+        key = kwargs.pop('key', '')
         self.widgets.append(ListInput(key, item_schema, **kwargs))
         return self
 
@@ -318,7 +318,7 @@ class WidgetSchema:
             string: Serialized return value of the executed JavaScript
         """
 
-        key = kwargs.get('key', 'js_result')
+        key = kwargs.pop('key', 'js_result')
         self.widgets.append(ExecuteJs(key, code, **kwargs))
         return self
 
