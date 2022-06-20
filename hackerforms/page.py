@@ -322,6 +322,25 @@ class WidgetSchema:
         self.widgets.append(ExecuteJs(key, code, **kwargs))
         return self
 
+    def select_pandas_rows(self, df, **kwargs):
+        '''Display a pandas dataframe as a table on the page and allow the user to select rows
+
+        Positional Arg:
+            df: The pandas dataframe to be displayed
+
+        Keyword Arg:
+            key: The key of the input's value on the form result. Defaults to the message arg
+            required: Whether the input is required or not
+            hint: The hint that will be displayed to the user
+            columns: The number of columns of the input
+
+        Returns:
+            The form object
+        '''
+        key = kwargs.pop('key', 'rows')
+        self.widgets.append(PandasRowSelectionInput(key, df, **kwargs))
+        return self
+
     def display(self, message, **kwargs):
         '''Add a message to the page
 
