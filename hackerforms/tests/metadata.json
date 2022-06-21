@@ -33,6 +33,10 @@
       }
     },
     "image-input": {
+      "columns": {
+        "type": "number",
+        "description": "number of columns this input will take"
+      },
       "key": {
         "type": "string",
         "description": "The key of the input on the returning object"
@@ -575,6 +579,46 @@
       "context": {
         "type": "object",
         "description": "A dictionary of variables to be passed to the code."
+      }
+    },
+    "pandas-row-selection-input": {
+      "columns": {
+        "type": "number",
+        "description": "number of columns this input will take"
+      },
+      "key": {
+        "type": "string",
+        "description": "The key of the input on the returning object"
+      },
+      "hint": {
+        "type": [
+          "string",
+          "null"
+        ],
+        "description": "message describing the input"
+      },
+      "required": {
+        "type": [
+          "boolean",
+          "string"
+        ],
+        "description": "Whether the input is required or not"
+      },
+      "table": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array"
+          },
+          "schema": {
+            "type": "object",
+            "properties": {
+              "fields": {
+                "type": "array"
+              }
+            }
+          }
+        }
       }
     },
     "text-output": {
