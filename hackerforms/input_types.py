@@ -137,6 +137,7 @@ class FileInput(Input):
         self.required = kwargs.get('required', True)
         self.hint = kwargs.get('hint', None)
         self.columns = kwargs.get('columns', 1)
+        self.multiple = kwargs.get('multiple', False)
 
     def json(self):
         return {
@@ -147,6 +148,7 @@ class FileInput(Input):
             "initialValue": self.initial_value,
             'required': self.required,
             'columns': self.columns,
+            'multiple': self.multiple,
         }
 
     def convert_answer(self, answer):
@@ -163,6 +165,7 @@ class ImageInput(Input):
         self.required = kwargs.get('required', True)
         self.hint = kwargs.get('hint', None)
         self.columns = kwargs.get('columns', 1)
+        self.multiple = kwargs.get('multiple', False)
 
     def json(self):
         return {
@@ -172,7 +175,8 @@ class ImageInput(Input):
             'message': self.message,
             "initialValue": self.initial_value,
             'columns': self.columns,
-            'required': self.required
+            'required': self.required,
+            'multiple': self.multiple,
         }
 
     def convert_answer(self, answer):

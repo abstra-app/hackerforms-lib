@@ -30,6 +30,10 @@
           "string"
         ],
         "description": "Whether the input is required or not"
+      },
+      "multiple": {
+        "type": "boolean",
+        "description": "Whether the input accepts multiple values or not"
       }
     },
     "image-input": {
@@ -62,6 +66,10 @@
           "string"
         ],
         "description": "Whether the input is required or not"
+      },
+      "multiple": {
+        "type": "boolean",
+        "description": "Whether the input accepts multiple values or not"
       }
     },
     "text-input": {
