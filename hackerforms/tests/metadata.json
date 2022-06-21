@@ -21,8 +21,14 @@
         "description": "The message to display above the input"
       },
       "initialValue": {
-        "type": "string",
-        "description": "The initial value of the input"
+        "type": [
+          "string",
+          "array"
+        ],
+        "description": "The initial value of the input",
+        "items": {
+          "type": "string"
+        }
       },
       "required": {
         "type": [
@@ -57,8 +63,14 @@
         "description": "The message to display above the input"
       },
       "initialValue": {
-        "type": "string",
-        "description": "The initial value of the input"
+        "type": [
+          "string",
+          "array"
+        ],
+        "description": "The initial value of the input",
+        "items": {
+          "type": "string"
+        }
       },
       "required": {
         "type": [
