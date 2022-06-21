@@ -152,7 +152,13 @@ class FileInput(Input):
         }
 
     def convert_answer(self, answer):
-        return FileResponse(answer) if answer else None
+        if not answer:
+            return None
+        
+        if not self.multiple:
+            return FileResponse(answer)
+
+        return [FileResponse(item) for item in answer]
 
 
 class ImageInput(Input):
@@ -180,7 +186,13 @@ class ImageInput(Input):
         }
 
     def convert_answer(self, answer):
-        return FileResponse(answer) if answer else None
+        if not answer:
+            return None
+        
+        if not self.multiple:
+            return FileResponse(answer)
+
+        return [FileResponse(item) for item in answer]
 
 
 class MultipleChoiceInput(Input):
