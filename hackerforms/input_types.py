@@ -162,6 +162,7 @@ class ImageInput(Input):
         self.initial_value = kwargs.get('initial_value', '')
         self.required = kwargs.get('required', True)
         self.hint = kwargs.get('hint', None)
+        self.columns = kwargs.get('columns', 1)
 
     def json(self):
         return {
@@ -170,6 +171,7 @@ class ImageInput(Input):
             'hint': self.hint,
             'message': self.message,
             "initialValue": self.initial_value,
+            'columns': self.columns,
             'required': self.required
         }
 

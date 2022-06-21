@@ -23,6 +23,7 @@ example_instances = [
     ListInput('list', ListItemSchema().read("Name")),
     CardsInput('card', 'What is your favorite color?', options=[{'title': 'red', 'image': 'redImage', 'description': 'red'}, {
                'title': 'blue', 'image': 'blueImage', 'description': 'blue'}, {'title': 'green', 'image': 'greenImage', 'description': 'green'}]),
+    PandasRowSelectionInput("key", pd.DataFrame({'a': [1, 2, 3], 'b': [4, 5, 6]})),
     TextOutput('Hello, world!'),
     MarkdownOutput('## This is a h2 tag'),
     ImageOutput('https://i.imgur.com/XyqQZ.jpg', subtitle = 'A cute cat'),
