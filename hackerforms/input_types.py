@@ -1,6 +1,7 @@
 from abc import abstractmethod, ABC
 from typing import List, Union, Dict
 from datetime import date
+import json
 
 from .type_classes import FileResponse, PhoneResponse
 
@@ -388,3 +389,23 @@ class ListInput(Input):
 
     def convert_answer(self, answers):
         return [self.item_schema.convert_answer(answer) for answer in answers]
+
+class PandasRowSelectionInput(Input):
+    type = 'pandas-row-selection-input'
+
+    def __init__(self, key: str, df, **kwargs):
+        super().__init__(key)
+        self.df = df
+        self.required = kwargs.get('required', True)
+        self.hint = kwargs.get('hint', None)
+        self.columns = kwargs.get('columns', 1)
+
+    def json(self):
+        return {
+            'type': self.type,
+            'key': self.key,
+            'hint': self.hint,
+            'table': json.loads(self.df.to_json(orient="table")),
+            'required': self.required,
+            'columns': self.columns,
+        }

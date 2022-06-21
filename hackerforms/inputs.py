@@ -251,11 +251,6 @@ def read_cards(label: str, options: List[Dict], **kwargs):
     button_text = kwargs.get('button_text', 'Next')
     return get_single_value(Page().read_cards(label, options, **kwargs).run(button_text))
 
-
-def get_single_value(answer: Dict):
-    return list(answer.values())[0]
-
-
 def execute_js(code: str, **kwargs):
     """Execute JavaScript on the page
 
@@ -272,3 +267,22 @@ def execute_js(code: str, **kwargs):
 
     button_text = kwargs.get('button_text', 'Next')
     return get_single_value(Page().execute_js(code, **kwargs).run(button_text))
+
+def select_pandas_rows(df, **kwargs) -> PhoneResponse:
+    '''Display a pandas dataframe as a table and allow the user to select rows
+
+    Positional Arg:
+        df (pandas.DataFrame): The pandas dataframe to be displayed
+
+    Keyword Arg:
+        required: Whether the input is required or not
+        button_text (string): The text to display on the next step button
+
+    Returns:
+        The list of selected rows
+    '''
+    button_text = kwargs.get('button_text', 'Next')
+    return get_single_value(Page().select_pandas_rows(df, **kwargs).run(button_text))
+
+def get_single_value(answer: Dict):
+    return list(answer.values())[0]
