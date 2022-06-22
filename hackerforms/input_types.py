@@ -70,7 +70,7 @@ class TagInput(Input):
     def __init__(self, key: str, message: str, **kwargs):
         super().__init__(key)
         self.message = message
-        self.initial_value = kwargs.get('initial_value', [""])
+        self.initial_value = kwargs.get('initial_value', [])
         self.placeholder = kwargs.get('placeholder', 'Your answer here')
         self.required = kwargs.get('required', True)
         self.hint = kwargs.get('hint', None)
