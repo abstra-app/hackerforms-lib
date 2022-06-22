@@ -5,15 +5,16 @@
         "type": "number",
         "description": "number of columns this input will take"
       },
+      "fullWidth": {
+        "type": "boolean",
+        "description": "Whether the widget should take up the full width of the page"
+      },
       "key": {
         "type": "string",
         "description": "The key of the input on the returning object"
       },
       "hint": {
-        "type": [
-          "string",
-          "null"
-        ],
+        "type": ["string", "null"],
         "description": "message describing the input"
       },
       "message": {
@@ -21,20 +22,14 @@
         "description": "The message to display above the input"
       },
       "initialValue": {
-        "type": [
-          "string",
-          "array"
-        ],
+        "type": ["string", "array"],
         "description": "The initial value of the input",
         "items": {
           "type": "string"
         }
       },
       "required": {
-        "type": [
-          "boolean",
-          "string"
-        ],
+        "type": ["boolean", "string"],
         "description": "Whether the input is required or not"
       },
       "multiple": {
@@ -47,15 +42,16 @@
         "type": "number",
         "description": "number of columns this input will take"
       },
+      "fullWidth": {
+        "type": "boolean",
+        "description": "Whether the widget should take up the full width of the page"
+      },
       "key": {
         "type": "string",
         "description": "The key of the input on the returning object"
       },
       "hint": {
-        "type": [
-          "string",
-          "null"
-        ],
+        "type": ["string", "null"],
         "description": "message describing the input"
       },
       "message": {
@@ -63,20 +59,14 @@
         "description": "The message to display above the input"
       },
       "initialValue": {
-        "type": [
-          "string",
-          "array"
-        ],
+        "type": ["string", "array"],
         "description": "The initial value of the input",
         "items": {
           "type": "string"
         }
       },
       "required": {
-        "type": [
-          "boolean",
-          "string"
-        ],
+        "type": ["boolean", "string"],
         "description": "Whether the input is required or not"
       },
       "multiple": {
@@ -89,15 +79,16 @@
         "type": "number",
         "description": "number of columns this input will take"
       },
+      "fullWidth": {
+        "type": "boolean",
+        "description": "Whether the widget should take up the full width of the page"
+      },
       "key": {
         "type": "string",
         "description": "The key of the input on the returning object"
       },
       "hint": {
-        "type": [
-          "string",
-          "null"
-        ],
+        "type": ["string", "null"],
         "description": "message describing the input"
       },
       "message": {
@@ -113,10 +104,7 @@
         "description": "The placeholder text to display in the input"
       },
       "required": {
-        "type": [
-          "boolean",
-          "string"
-        ],
+        "type": ["boolean", "string"],
         "description": "Whether the input is required or not"
       }
     },
@@ -125,15 +113,16 @@
         "type": "number",
         "description": "number of columns this input will take"
       },
+      "fullWidth": {
+        "type": "boolean",
+        "description": "Whether the widget should take up the full width of the page"
+      },
       "key": {
         "type": "string",
         "description": "The key of the input on the returning object"
       },
       "hint": {
-        "type": [
-          "string",
-          "null"
-        ],
+        "type": ["string", "null"],
         "description": "message describing the input"
       },
       "message": {
@@ -149,10 +138,7 @@
         "description": "The placeholder text to display in the input"
       },
       "required": {
-        "type": [
-          "boolean",
-          "string"
-        ],
+        "type": ["boolean", "string"],
         "description": "Whether the input is required or not"
       }
     },
@@ -161,15 +147,16 @@
         "type": "number",
         "description": "number of columns this input will take"
       },
+      "fullWidth": {
+        "type": "boolean",
+        "description": "Whether the widget should take up the full width of the page"
+      },
       "key": {
         "type": "string",
         "description": "The key of the input on the returning object"
       },
       "hint": {
-        "type": [
-          "string",
-          "null"
-        ],
+        "type": ["string", "null"],
         "description": "message describing the input"
       },
       "message": {
@@ -177,23 +164,14 @@
         "description": "The message to display above the input"
       },
       "initialValue": {
-        "type": [
-          "array",
-          "null"
-        ],
+        "type": ["array", "null"],
         "description": "The initial value of the input",
         "items": {
-          "type": [
-            "string",
-            "number"
-          ]
+          "type": ["string", "number"]
         }
       },
       "required": {
-        "type": [
-          "boolean",
-          "string"
-        ],
+        "type": ["boolean", "string"],
         "description": "Whether the input is required or not"
       },
       "placeholder": {
@@ -206,15 +184,16 @@
         "type": "number",
         "description": "number of columns this input will take"
       },
+      "fullWidth": {
+        "type": "boolean",
+        "description": "Whether the widget should take up the full width of the page"
+      },
       "key": {
         "type": "string",
         "description": "The key of the input on the returning object"
       },
       "hint": {
-        "type": [
-          "string",
-          "null"
-        ],
+        "type": ["string", "null"],
         "description": "message describing the input"
       },
       "message": {
@@ -230,10 +209,7 @@
         "description": "The placeholder text to display in the input"
       },
       "required": {
-        "type": [
-          "boolean",
-          "string"
-        ],
+        "type": ["boolean", "string"],
         "description": "Whether the input is required or not"
       }
     },
@@ -242,15 +218,16 @@
         "type": "number",
         "description": "number of columns this input will take"
       },
+      "fullWidth": {
+        "type": "boolean",
+        "description": "Whether the widget should take up the full width of the page"
+      },
       "key": {
         "type": "string",
         "description": "The key of the input on the returning object"
       },
       "hint": {
-        "type": [
-          "string",
-          "null"
-        ],
+        "type": ["string", "null"],
         "description": "message describing the input"
       },
       "message": {
@@ -262,10 +239,7 @@
         "description": "The placeholder text to display in the input"
       },
       "required": {
-        "type": [
-          "boolean",
-          "string"
-        ],
+        "type": ["boolean", "string"],
         "description": "Whether the input is required or not"
       },
       "initialValue": {
@@ -278,15 +252,16 @@
         "type": "number",
         "description": "number of columns this input will take"
       },
+      "fullWidth": {
+        "type": "boolean",
+        "description": "Whether the widget should take up the full width of the page"
+      },
       "key": {
         "type": "string",
         "description": "The key of the input on the returning object"
       },
       "hint": {
-        "type": [
-          "string",
-          "null"
-        ],
+        "type": ["string", "null"],
         "description": "message describing the input"
       },
       "message": {
@@ -302,10 +277,7 @@
         "description": "The placeholder text to display in the input"
       },
       "required": {
-        "type": [
-          "boolean",
-          "string"
-        ],
+        "type": ["boolean", "string"],
         "description": "Whether the input is required or not"
       }
     },
@@ -314,15 +286,16 @@
         "type": "number",
         "description": "number of columns this input will take"
       },
+      "fullWidth": {
+        "type": "boolean",
+        "description": "Whether the widget should take up the full width of the page"
+      },
       "key": {
         "type": "string",
         "description": "The key of the input on the returning object"
       },
       "hint": {
-        "type": [
-          "string",
-          "null"
-        ],
+        "type": ["string", "null"],
         "description": "message describing the input"
       },
       "message": {
@@ -334,30 +307,21 @@
         "description": "Whether the input should accept multiple answers"
       },
       "required": {
-        "type": [
-          "boolean",
-          "string"
-        ],
+        "type": ["boolean", "string"],
         "description": "Whether the input is required or not"
       },
       "initialValue": {
         "type": "any",
         "description": "The initial value of the input",
         "items": {
-          "type": [
-            "string",
-            "number"
-          ]
+          "type": ["string", "number"]
         }
       },
       "options": {
         "type": "array",
         "description": "The options that the user can select from",
         "items": {
-          "type": [
-            "string",
-            "object"
-          ],
+          "type": ["string", "object"],
           "properties": {
             "key": {
               "type": "string",
@@ -376,15 +340,16 @@
         "type": "number",
         "description": "number of columns this input will take"
       },
+      "fullWidth": {
+        "type": "boolean",
+        "description": "Whether the widget should take up the full width of the page"
+      },
       "key": {
         "type": "string",
         "description": "The key of the input on the returning object"
       },
       "hint": {
-        "type": [
-          "string",
-          "null"
-        ],
+        "type": ["string", "null"],
         "description": "message describing the input"
       },
       "message": {
@@ -392,10 +357,7 @@
         "description": "The message to display above the input"
       },
       "required": {
-        "type": [
-          "boolean",
-          "string"
-        ],
+        "type": ["boolean", "string"],
         "description": "Whether the input is required or not"
       },
       "initialValue": {
@@ -408,15 +370,16 @@
         "type": "number",
         "description": "number of columns this input will take"
       },
+      "fullWidth": {
+        "type": "boolean",
+        "description": "Whether the widget should take up the full width of the page"
+      },
       "key": {
         "type": "string",
         "description": "The key of the input on the returning object"
       },
       "hint": {
-        "type": [
-          "string",
-          "null"
-        ],
+        "type": ["string", "null"],
         "description": "message describing the input"
       },
       "message": {
@@ -432,30 +395,21 @@
         "description": "The placeholder text to display in the input"
       },
       "required": {
-        "type": [
-          "boolean",
-          "string"
-        ],
+        "type": ["boolean", "string"],
         "description": "Whether the input is required or not"
       },
       "initialValue": {
         "type": "any",
         "description": "The initial value of the input",
         "items": {
-          "type": [
-            "string",
-            "number"
-          ]
+          "type": ["string", "number"]
         }
       },
       "options": {
         "type": "array",
         "description": "The options that the user can select from",
         "items": {
-          "type": [
-            "string",
-            "object"
-          ],
+          "type": ["string", "object"],
           "properties": {
             "key": {
               "type": "string",
@@ -474,15 +428,16 @@
         "type": "number",
         "description": "number of columns this input will take"
       },
+      "fullWidth": {
+        "type": "boolean",
+        "description": "Whether the widget should take up the full width of the page"
+      },
       "key": {
         "type": "string",
         "description": "The key of the input on the returning object"
       },
       "hint": {
-        "type": [
-          "string",
-          "null"
-        ],
+        "type": ["string", "null"],
         "description": "message describing the input"
       },
       "itemSchema": {
@@ -492,16 +447,10 @@
         "type": "array"
       },
       "min": {
-        "type": [
-          "number",
-          "null"
-        ]
+        "type": ["number", "null"]
       },
       "max": {
-        "type": [
-          "number",
-          "null"
-        ]
+        "type": ["number", "null"]
       }
     },
     "cards-input": {
@@ -509,15 +458,16 @@
         "type": "number",
         "description": "number of columns this input will take"
       },
+      "fullWidth": {
+        "type": "boolean",
+        "description": "Whether the widget should take up the full width of the page"
+      },
       "key": {
         "type": "string",
         "description": "The key of the input on the returning object"
       },
       "hint": {
-        "type": [
-          "string",
-          "null"
-        ],
+        "type": ["string", "null"],
         "description": "message describing the input"
       },
       "label": {
@@ -529,18 +479,11 @@
         "description": "Whether the input can have multiple values"
       },
       "required": {
-        "type": [
-          "boolean",
-          "string"
-        ],
+        "type": ["boolean", "string"],
         "description": "Whether the input is required or not"
       },
       "initialValue": {
-        "type": [
-          "object",
-          "array",
-          "null"
-        ],
+        "type": ["object", "array", "null"],
         "description": "The initial value of the input",
         "items": {
           "type": "object",
@@ -606,22 +549,20 @@
         "type": "number",
         "description": "number of columns this input will take"
       },
+      "fullWidth": {
+        "type": "boolean",
+        "description": "Whether the widget should take up the full width of the page"
+      },
       "key": {
         "type": "string",
         "description": "The key of the input on the returning object"
       },
       "hint": {
-        "type": [
-          "string",
-          "null"
-        ],
+        "type": ["string", "null"],
         "description": "message describing the input"
       },
       "required": {
-        "type": [
-          "boolean",
-          "string"
-        ],
+        "type": ["boolean", "string"],
         "description": "Whether the input is required or not"
       },
       "table": {
@@ -646,6 +587,10 @@
         "type": "number",
         "description": "number of columns this input will take"
       },
+      "fullWidth": {
+        "type": "boolean",
+        "description": "Whether the widget should take up the full width of the page"
+      },
       "message": {
         "type": "string"
       }
@@ -655,6 +600,10 @@
         "type": "number",
         "description": "number of columns this input will take"
       },
+      "fullWidth": {
+        "type": "boolean",
+        "description": "Whether the widget should take up the full width of the page"
+      },
       "text": {
         "type": "string"
       }
@@ -663,6 +612,10 @@
       "columns": {
         "type": "number",
         "description": "number of columns this input will take"
+      },
+      "fullWidth": {
+        "type": "boolean",
+        "description": "Whether the widget should take up the full width of the page"
       },
       "image_str": {
         "type": "string"
@@ -675,6 +628,10 @@
       "columns": {
         "type": "number",
         "description": "number of columns this input will take"
+      },
+      "fullWidth": {
+        "type": "boolean",
+        "description": "Whether the widget should take up the full width of the page"
       },
       "message": {
         "type": "string"
@@ -691,6 +648,10 @@
         "type": "number",
         "description": "number of columns this input will take"
       },
+      "fullWidth": {
+        "type": "boolean",
+        "description": "Whether the widget should take up the full width of the page"
+      },
       "message": {
         "type": "string"
       },
@@ -703,6 +664,10 @@
         "type": "number",
         "description": "number of columns this input will take"
       },
+      "fullWidth": {
+        "type": "boolean",
+        "description": "Whether the widget should take up the full width of the page"
+      },
       "html": {
         "type": "string"
       }
@@ -711,6 +676,10 @@
       "columns": {
         "type": "number",
         "description": "number of columns this input will take"
+      },
+      "fullWidth": {
+        "type": "boolean",
+        "description": "Whether the widget should take up the full width of the page"
       },
       "table": {
         "type": "object",
@@ -734,6 +703,10 @@
         "type": "number",
         "description": "number of columns this input will take"
       },
+      "fullWidth": {
+        "type": "boolean",
+        "description": "Whether the widget should take up the full width of the page"
+      },
       "figure": {
         "type": "any"
       }
@@ -742,6 +715,10 @@
       "columns": {
         "type": "number",
         "description": "number of columns this input will take"
+      },
+      "fullWidth": {
+        "type": "boolean",
+        "description": "Whether the widget should take up the full width of the page"
       },
       "url": {
         "type": "string"
