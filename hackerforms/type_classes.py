@@ -1,4 +1,4 @@
-from tempfile import TemporaryFile
+from tempfile import NamedTemporaryFile
 import requests
 from dataclasses import dataclass
 
@@ -9,14 +9,15 @@ class FileResponse:
     Attributes:
         file (file): The file object
         url (str): The url of the file
+        name (str): The slugified name of the file
         content (bytes): The content of the file
     '''
     def __init__(self, url):
         res = requests.get(url)
         self.content = res.content
         self.url = url
-
-        self.file = TemporaryFile()
+        self.name = url.split('/')[-1]
+        self.file = NamedTemporaryFile()
         self.file.write(self.content)
         self.file.seek(0)
 
