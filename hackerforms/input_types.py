@@ -445,6 +445,7 @@ class PandasRowSelectionInput(Input):
         self.required = kwargs.get('required', True)
         self.hint = kwargs.get('hint', None)
         self.columns = kwargs.get('columns', 1)
+        self.full_width = kwargs.get('full_width', False)
 
     def json(self):
         return {
@@ -454,4 +455,5 @@ class PandasRowSelectionInput(Input):
             'table': json.loads(self.df.to_json(orient="table")),
             'required': self.required,
             'columns': self.columns,
+            'fullWidth': self.full_width,
         }
