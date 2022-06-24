@@ -392,6 +392,7 @@ class ListInput(Input):
         self.max = kwargs.get('max', None)
         self.hint = kwargs.get('hint', None)
         self.columns = kwargs.get('columns', 1)
+        self.add_button_text = kwargs.get('add_button_text', '+')
 
     def json(self):
         return {
@@ -402,7 +403,8 @@ class ListInput(Input):
             'initialValue': self.initial_value,
             'columns': self.columns,
             'min': self.min,
-            'max': self.max
+            'max': self.max,
+            'addButtonText': self.add_button_text,
         }
 
     def convert_answer(self, answers):

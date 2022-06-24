@@ -502,6 +502,10 @@
           "number",
           "null"
         ]
+      },
+      "addButtonText": {
+        "type": "string",
+        "description": "The add new item button label"
       }
     },
     "cards-input": {
