@@ -32,6 +32,7 @@ class TextInput(Input):
         self.required = kwargs.get('required', True)
         self.hint = kwargs.get('hint', None)
         self.columns = kwargs.get('columns', 1)
+        self.full_width = kwargs.get('full_width', False)
 
     def json(self):
         return {
@@ -43,6 +44,7 @@ class TextInput(Input):
             'required': self.required,
             'hint': self.hint,
             'columns': self.columns,
+            'fullWidth': self.full_width
         }
 
 
@@ -75,6 +77,7 @@ class TagInput(Input):
         self.required = kwargs.get('required', True)
         self.hint = kwargs.get('hint', None)
         self.columns = kwargs.get('columns', 1)
+        self.full_width = kwargs.get('full_width', False)
 
     def json(self):
         return {
@@ -86,6 +89,7 @@ class TagInput(Input):
             'required': self.required,
             'hint': self.hint,
             'columns': self.columns,
+            'fullWidth': self.full_width
         }
 
 
@@ -99,6 +103,7 @@ class DateInput(Input):
         self.required = kwargs.get('required', True)
         self.hint = kwargs.get('hint', None)
         self.columns = kwargs.get('columns', 1)
+        self.full_width = kwargs.get('full_width', False)
 
     def json(self):
         return {
@@ -109,6 +114,7 @@ class DateInput(Input):
             'initialValue': self.initial_value.isoformat() if self.initial_value else '',
             'required': self.required,
             'columns': self.columns,
+            'fullWidth': self.full_width
         }
 
     def convert_answer(self, answer: str):
@@ -138,6 +144,7 @@ class FileInput(Input):
         self.hint = kwargs.get('hint', None)
         self.columns = kwargs.get('columns', 1)
         self.multiple = kwargs.get('multiple', False)
+        self.full_width = kwargs.get('full_width', False)
 
     def json(self):
         return {
@@ -149,12 +156,13 @@ class FileInput(Input):
             'required': self.required,
             'columns': self.columns,
             'multiple': self.multiple,
+            'fullWidth': self.full_width
         }
 
     def convert_answer(self, answer):
         if not answer:
             return None
-        
+
         if not self.multiple:
             return FileResponse(answer)
 
@@ -172,6 +180,7 @@ class ImageInput(Input):
         self.hint = kwargs.get('hint', None)
         self.columns = kwargs.get('columns', 1)
         self.multiple = kwargs.get('multiple', False)
+        self.full_width = kwargs.get('full_width', False)
 
     def json(self):
         return {
@@ -183,12 +192,14 @@ class ImageInput(Input):
             'columns': self.columns,
             'required': self.required,
             'multiple': self.multiple,
+            'required': self.required,
+            'fullWidth': self.full_width,
         }
 
     def convert_answer(self, answer):
         if not answer:
             return None
-        
+
         if not self.multiple:
             return FileResponse(answer)
 
@@ -207,6 +218,7 @@ class MultipleChoiceInput(Input):
         self.required = kwargs.get('required', True)
         self.hint = kwargs.get('hint', None)
         self.columns = kwargs.get('columns', 1)
+        self.full_width = kwargs.get('full_width', False)
 
     def json(self):
         return {
@@ -219,6 +231,7 @@ class MultipleChoiceInput(Input):
             'initialValue': self.initial_value,
             'required': self.required,
             'columns': self.columns,
+            'fullWidth': self.full_width,
         }
 
 
@@ -234,6 +247,7 @@ class CardsInput(Input):
         self.required = kwargs.get('required', True)
         self.hint = kwargs.get('hint', None)
         self.columns = kwargs.get('columns', 1)
+        self.full_width = kwargs.get('full_width', False)
 
     def json(self):
         return {
@@ -246,6 +260,7 @@ class CardsInput(Input):
             'initialValue': self.initial_value,
             'required': self.required,
             'columns': self.columns,
+            'fullWidth': self.full_width,
         }
 
 
@@ -262,6 +277,7 @@ class DropdownInput(Input):
         self.multiple = kwargs.get('multiple', False)
         self.placeholder = kwargs.get('placeholder', 'Choose an option')
         self.columns = kwargs.get('columns', 1)
+        self.full_width = kwargs.get('full_width', False)
 
     def json(self):
         return {
@@ -275,6 +291,7 @@ class DropdownInput(Input):
             'initialValue': self.initial_value,
             'required': self.required,
             'columns': self.columns,
+            'fullWidth': self.full_width,
         }
 
 
@@ -289,6 +306,7 @@ class TextareaInput(Input):
         self.hint = kwargs.get('hint', None)
         self.placeholder = kwargs.get('placeholder', 'Your answer here')
         self.columns = kwargs.get('columns', 1)
+        self.full_width = kwargs.get('full_width', False)
 
     def json(self):
         return {
@@ -300,6 +318,7 @@ class TextareaInput(Input):
             'required': self.required,
             'hint': self.hint,
             'columns': self.columns,
+            'fullWidth': self.full_width,
         }
 
 
@@ -314,6 +333,7 @@ class NumberInput(Input):
         self.hint = kwargs.get('hint', None)
         self.placeholder = kwargs.get('placeholder', 'Your answer here')
         self.columns = kwargs.get('columns', 1)
+        self.full_width = kwargs.get('full_width', False)
 
     def json(self):
         return {
@@ -325,6 +345,7 @@ class NumberInput(Input):
             'required': self.required,
             'hint': self.hint,
             'columns': self.columns,
+            'fullWidth': self.full_width,
         }
 
 
@@ -339,6 +360,7 @@ class EmailInput(Input):
         self.hint = kwargs.get('hint', None)
         self.placeholder = kwargs.get('placeholder', 'Your email here')
         self.columns = kwargs.get('columns', 1)
+        self.full_width = kwargs.get('full_width', False)
 
     def json(self):
         return {
@@ -350,6 +372,7 @@ class EmailInput(Input):
             'required': self.required,
             'hint': self.hint,
             'columns': self.columns,
+            'fullWidth': self.full_width,
         }
 
 
@@ -364,6 +387,7 @@ class PhoneInput(Input):
         self.hint = kwargs.get('hint', None)
         self.placeholder = kwargs.get('placeholder', '')
         self.columns = kwargs.get('columns', 1)
+        self.full_width = kwargs.get('full_width', False)
 
     def json(self):
         return {
@@ -375,6 +399,7 @@ class PhoneInput(Input):
             'required': self.required,
             'hint': self.hint,
             'columns': self.columns,
+            'fullWidth': self.full_width,
         }
 
     def convert_answer(self, answer):
@@ -393,6 +418,7 @@ class ListInput(Input):
         self.hint = kwargs.get('hint', None)
         self.columns = kwargs.get('columns', 1)
         self.add_button_text = kwargs.get('add_button_text', '+')
+        self.full_width = kwargs.get('full_width', False)
 
     def json(self):
         return {
@@ -405,10 +431,12 @@ class ListInput(Input):
             'min': self.min,
             'max': self.max,
             'addButtonText': self.add_button_text,
+            'fullWidth': self.full_width,
         }
 
     def convert_answer(self, answers):
         return [self.item_schema.convert_answer(answer) for answer in answers]
+
 
 class PandasRowSelectionInput(Input):
     type = 'pandas-row-selection-input'
@@ -419,6 +447,7 @@ class PandasRowSelectionInput(Input):
         self.required = kwargs.get('required', True)
         self.hint = kwargs.get('hint', None)
         self.columns = kwargs.get('columns', 1)
+        self.full_width = kwargs.get('full_width', False)
 
     def json(self):
         return {
@@ -428,4 +457,5 @@ class PandasRowSelectionInput(Input):
             'table': json.loads(self.df.to_json(orient="table")),
             'required': self.required,
             'columns': self.columns,
+            'fullWidth': self.full_width,
         }

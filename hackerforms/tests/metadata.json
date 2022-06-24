@@ -5,6 +5,10 @@
         "type": "number",
         "description": "number of columns this input will take"
       },
+      "fullWidth": {
+        "type": "boolean",
+        "description": "Whether the widget should take up the full width of the page"
+      },
       "key": {
         "type": "string",
         "description": "The key of the input on the returning object"
@@ -46,6 +50,10 @@
       "columns": {
         "type": "number",
         "description": "number of columns this input will take"
+      },
+      "fullWidth": {
+        "type": "boolean",
+        "description": "Whether the widget should take up the full width of the page"
       },
       "key": {
         "type": "string",
@@ -89,6 +97,10 @@
         "type": "number",
         "description": "number of columns this input will take"
       },
+      "fullWidth": {
+        "type": "boolean",
+        "description": "Whether the widget should take up the full width of the page"
+      },
       "key": {
         "type": "string",
         "description": "The key of the input on the returning object"
@@ -125,6 +137,10 @@
         "type": "number",
         "description": "number of columns this input will take"
       },
+      "fullWidth": {
+        "type": "boolean",
+        "description": "Whether the widget should take up the full width of the page"
+      },
       "key": {
         "type": "string",
         "description": "The key of the input on the returning object"
@@ -160,6 +176,10 @@
       "columns": {
         "type": "number",
         "description": "number of columns this input will take"
+      },
+      "fullWidth": {
+        "type": "boolean",
+        "description": "Whether the widget should take up the full width of the page"
       },
       "key": {
         "type": "string",
@@ -206,6 +226,10 @@
         "type": "number",
         "description": "number of columns this input will take"
       },
+      "fullWidth": {
+        "type": "boolean",
+        "description": "Whether the widget should take up the full width of the page"
+      },
       "key": {
         "type": "string",
         "description": "The key of the input on the returning object"
@@ -241,6 +265,10 @@
       "columns": {
         "type": "number",
         "description": "number of columns this input will take"
+      },
+      "fullWidth": {
+        "type": "boolean",
+        "description": "Whether the widget should take up the full width of the page"
       },
       "key": {
         "type": "string",
@@ -278,6 +306,10 @@
         "type": "number",
         "description": "number of columns this input will take"
       },
+      "fullWidth": {
+        "type": "boolean",
+        "description": "Whether the widget should take up the full width of the page"
+      },
       "key": {
         "type": "string",
         "description": "The key of the input on the returning object"
@@ -313,6 +345,10 @@
       "columns": {
         "type": "number",
         "description": "number of columns this input will take"
+      },
+      "fullWidth": {
+        "type": "boolean",
+        "description": "Whether the widget should take up the full width of the page"
       },
       "key": {
         "type": "string",
@@ -376,6 +412,10 @@
         "type": "number",
         "description": "number of columns this input will take"
       },
+      "fullWidth": {
+        "type": "boolean",
+        "description": "Whether the widget should take up the full width of the page"
+      },
       "key": {
         "type": "string",
         "description": "The key of the input on the returning object"
@@ -407,6 +447,10 @@
       "columns": {
         "type": "number",
         "description": "number of columns this input will take"
+      },
+      "fullWidth": {
+        "type": "boolean",
+        "description": "Whether the widget should take up the full width of the page"
       },
       "key": {
         "type": "string",
@@ -474,6 +518,10 @@
         "type": "number",
         "description": "number of columns this input will take"
       },
+      "fullWidth": {
+        "type": "boolean",
+        "description": "Whether the widget should take up the full width of the page"
+      },
       "key": {
         "type": "string",
         "description": "The key of the input on the returning object"
@@ -512,6 +560,10 @@
       "columns": {
         "type": "number",
         "description": "number of columns this input will take"
+      },
+      "fullWidth": {
+        "type": "boolean",
+        "description": "Whether the widget should take up the full width of the page"
       },
       "key": {
         "type": "string",
@@ -610,6 +662,10 @@
         "type": "number",
         "description": "number of columns this input will take"
       },
+      "fullWidth": {
+        "type": "boolean",
+        "description": "Whether the widget should take up the full width of the page"
+      },
       "key": {
         "type": "string",
         "description": "The key of the input on the returning object"
@@ -650,6 +706,10 @@
         "type": "number",
         "description": "number of columns this input will take"
       },
+      "fullWidth": {
+        "type": "boolean",
+        "description": "Whether the widget should take up the full width of the page"
+      },
       "message": {
         "type": "string"
       }
@@ -659,6 +719,10 @@
         "type": "number",
         "description": "number of columns this input will take"
       },
+      "fullWidth": {
+        "type": "boolean",
+        "description": "Whether the widget should take up the full width of the page"
+      },
       "text": {
         "type": "string"
       }
@@ -667,6 +731,10 @@
       "columns": {
         "type": "number",
         "description": "number of columns this input will take"
+      },
+      "fullWidth": {
+        "type": "boolean",
+        "description": "Whether the widget should take up the full width of the page"
       },
       "image_str": {
         "type": "string"
@@ -679,6 +747,10 @@
       "columns": {
         "type": "number",
         "description": "number of columns this input will take"
+      },
+      "fullWidth": {
+        "type": "boolean",
+        "description": "Whether the widget should take up the full width of the page"
       },
       "message": {
         "type": "string"
@@ -695,6 +767,10 @@
         "type": "number",
         "description": "number of columns this input will take"
       },
+      "fullWidth": {
+        "type": "boolean",
+        "description": "Whether the widget should take up the full width of the page"
+      },
       "message": {
         "type": "string"
       },
@@ -707,6 +783,10 @@
         "type": "number",
         "description": "number of columns this input will take"
       },
+      "fullWidth": {
+        "type": "boolean",
+        "description": "Whether the widget should take up the full width of the page"
+      },
       "html": {
         "type": "string"
       }
@@ -715,6 +795,10 @@
       "columns": {
         "type": "number",
         "description": "number of columns this input will take"
+      },
+      "fullWidth": {
+        "type": "boolean",
+        "description": "Whether the widget should take up the full width of the page"
       },
       "table": {
         "type": "object",
@@ -738,6 +822,10 @@
         "type": "number",
         "description": "number of columns this input will take"
       },
+      "fullWidth": {
+        "type": "boolean",
+        "description": "Whether the widget should take up the full width of the page"
+      },
       "figure": {
         "type": "any"
       }
@@ -746,6 +834,10 @@
       "columns": {
         "type": "number",
         "description": "number of columns this input will take"
+      },
+      "fullWidth": {
+        "type": "boolean",
+        "description": "Whether the widget should take up the full width of the page"
       },
       "url": {
         "type": "string"
