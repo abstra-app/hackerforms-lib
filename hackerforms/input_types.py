@@ -417,6 +417,7 @@ class ListInput(Input):
         self.max = kwargs.get('max', None)
         self.hint = kwargs.get('hint', None)
         self.columns = kwargs.get('columns', 1)
+        self.add_button_text = kwargs.get('add_button_text', '+')
         self.full_width = kwargs.get('full_width', False)
 
     def json(self):
@@ -429,6 +430,7 @@ class ListInput(Input):
             'columns': self.columns,
             'min': self.min,
             'max': self.max,
+            'addButtonText': self.add_button_text,
             'fullWidth': self.full_width,
         }
 
