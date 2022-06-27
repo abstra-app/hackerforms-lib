@@ -243,6 +243,7 @@ class CardsInput(Input):
         self.label = label
         self.options = options
         self.multiple = kwargs.get('multiple', False)
+        self.search = kwargs.get('search', False)
         self.initial_value = kwargs.get('initial_value', None)
         self.required = kwargs.get('required', True)
         self.hint = kwargs.get('hint', None)
@@ -257,6 +258,7 @@ class CardsInput(Input):
             'hint': self.hint,
             'options': self.options,
             'multiple': self.multiple,
+            'search': self.search,
             'initialValue': self.initial_value,
             'required': self.required,
             'columns': self.columns,

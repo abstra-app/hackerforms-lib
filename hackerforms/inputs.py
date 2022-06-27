@@ -240,6 +240,7 @@ def read_cards(label: str, options: List[Dict], **kwargs):
 
     Keyword Arg:
         multiple (bool): Whether the user can select multiple options
+        search (bool): Enable a search input
         button_text (str): The text to display on the button that will submit the value
         initial_value (list): The initial value to display to the user
         required (bool or str): Whether the input is required or not eg. "this field is required"
