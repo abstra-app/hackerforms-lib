@@ -273,7 +273,7 @@ class WidgetSchema:
 
         Keyword Arg:
             multiple: Whether the user can select multiple options
-            search: Enable a search input
+            searchable: Enable a search input
             initial_value: The initial value of the input
             key: The key of the input's value on the form result. Defaults to the label arg
             required: Whether the input is required or not
