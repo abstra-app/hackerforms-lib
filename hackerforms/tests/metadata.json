@@ -584,7 +584,7 @@
         "type": "boolean",
         "description": "Whether the input can have multiple values"
       },
-      "search": {
+      "searchable": {
         "type": "boolean",
         "description": "Display a search input"
       },
