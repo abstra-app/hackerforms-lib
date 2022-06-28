@@ -272,8 +272,8 @@ class WidgetSchema:
                 {'title': 'Option 2', 'image': 'https://image_2.png', 'description': 'option 2 description'}]
 
         Keyword Arg:
-
             multiple: Whether the user can select multiple options
+            searchable: Enable a search input
             initial_value: The initial value of the input
             key: The key of the input's value on the form result. Defaults to the label arg
             required: Whether the input is required or not
