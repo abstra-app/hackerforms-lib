@@ -6,7 +6,7 @@ Launch interactive Python scripts as beautiful form-like apps
 ## Installation
 
 ```bash
-pip install hackerforms-lib
+pip install hackerforms
 ```
 ## Links
 
