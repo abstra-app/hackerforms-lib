@@ -1,13 +1,17 @@
-# hackerforms-lib
+# Hackerforms
 Launch interactive Python scripts as beautiful form-like apps
 
 [Try it now on Abstra Cloud](https://www.abstracloud.com/forms)
 
-## Local installation
+## Installation
 
-- Run `pip install hackerforms`
+```bash
+pip install hackerforms-lib
+```
+## Links
 
-## Examples
+- [Examples](https://github.com/abstra-app/hackerforms-examples/tree/master/python)
+- [Docs](https://docs.abstracloud.com/)
 
-Check out the examples in the [hackerforms-examples](https://github.com/abstra-app/hackerforms-examples/tree/master/python) repository.
+
 
