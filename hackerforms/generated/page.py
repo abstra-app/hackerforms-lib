@@ -179,7 +179,7 @@ class WidgetSchema:
     self.widgets.append(ImageInput(key, message, **kwargs))
     return self
   
-  def read_list(self, **kwargs):
+  def read_list(self, item_schema: typing.Any, **kwargs):
     '''Read a list value from the user
 
       Positional Arg(s):
@@ -194,7 +194,7 @@ class WidgetSchema:
         The form object
     '''
     key = kwargs.get('key', '')
-    self.widgets.append(ListInput(key, **kwargs))
+    self.widgets.append(ListInput(key, item_schema, **kwargs))
     return self
   
   def read_multiple_choice(self, message: str, options: typing.Union[typing.List[str], typing.List[typing.Dict]], **kwargs):
@@ -240,7 +240,7 @@ class WidgetSchema:
     self.widgets.append(NumberInput(key, message, **kwargs))
     return self
   
-  def read_pandas_row_selection(self, **kwargs):
+  def read_pandas_row_selection(self, df: typing.Any, **kwargs):
     '''Display a pandas dataframe as a table and allow the user to select rows
 
       Positional Arg(s):
@@ -256,7 +256,7 @@ class WidgetSchema:
         The form object
     '''
     key = kwargs.get('key', '')
-    self.widgets.append(PandasRowSelectionInput(key, **kwargs))
+    self.widgets.append(PandasRowSelectionInput(key, df, **kwargs))
     return self
   
   def read_phone(self, message: str, **kwargs):

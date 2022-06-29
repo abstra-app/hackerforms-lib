@@ -128,7 +128,7 @@ def read_image(message: str, **kwargs):
   button_text = kwargs.get('button_text', 'Next')
   return get_single_value(Page().read_image(message, **kwargs).run(button_text))
 
-def read_list(**kwargs):
+def read_list(item_schema: typing.Any, **kwargs):
   '''Read a list value from the user
 
       Positional Arg(s):
@@ -141,7 +141,7 @@ def read_list(**kwargs):
             list: The values entered by the user
         '''
   button_text = kwargs.get('button_text', 'Next')
-  return get_single_value(Page().read_list(**kwargs).run(button_text))
+  return get_single_value(Page().read_list(item_schema, **kwargs).run(button_text))
 
 def read_multiple_choice(message: str, options: typing.Union[typing.List[str], typing.List[typing.Dict]], **kwargs):
   '''Read a multiple choice value from the user
@@ -180,7 +180,7 @@ def read_number(message: str, **kwargs):
   button_text = kwargs.get('button_text', 'Next')
   return get_single_value(Page().read_number(message, **kwargs).run(button_text))
 
-def read_pandas_row_selection(**kwargs):
+def read_pandas_row_selection(df: typing.Any, **kwargs):
   '''Display a pandas dataframe as a table and allow the user to select rows
 
       Positional Arg(s):
@@ -194,7 +194,7 @@ def read_pandas_row_selection(**kwargs):
             The list of selected rows
         '''
   button_text = kwargs.get('button_text', 'Next')
-  return get_single_value(Page().read_pandas_row_selection(**kwargs).run(button_text))
+  return get_single_value(Page().read_pandas_row_selection(df, **kwargs).run(button_text))
 
 def read_phone(message: str, **kwargs):
   '''Read a phone number value from the user

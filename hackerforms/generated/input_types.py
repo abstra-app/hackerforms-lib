@@ -634,7 +634,7 @@ class PhoneInput(Input):
 class ListInput(Input):
     type = 'list-input'
 
-    def __init__(self, key: str, item_schema, **kwargs):
+    def __init__(self, key: str, item_schema: Any, **kwargs):
         '''Read a list value from the user
 
         Positional Arg(s):
@@ -678,7 +678,7 @@ class PandasRowSelectionInput(Input):
 
     type = 'pandas-row-selection-input'
 
-    def __init__(self, key: str, df, **kwargs):
+    def __init__(self, key: str, df: Any, **kwargs):
         """Display a pandas dataframe as a table and allow the user to select rows
 
             Positional Arg(s):
