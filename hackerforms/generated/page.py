@@ -72,7 +72,7 @@ class WidgetSchema:
       Returns:
         The form object
     '''
-    key = kwargs.get('key', 'label')
+    key = kwargs.get('key', label)
     self.widgets.append(CardsInput(key, label, **kwargs))
     return self
   
@@ -92,7 +92,7 @@ class WidgetSchema:
       Returns:
         The form object
     '''
-    key = kwargs.get('key', 'message')
+    key = kwargs.get('key', message)
     self.widgets.append(DateInput(key, message, **kwargs))
     return self
   
@@ -114,7 +114,7 @@ class WidgetSchema:
       Returns:
         The form object
     '''
-    key = kwargs.get('key', 'message')
+    key = kwargs.get('key', message)
     self.widgets.append(DropdownInput(key, message, options, **kwargs))
     return self
   
@@ -135,7 +135,7 @@ class WidgetSchema:
       Returns:
         The form object
     '''
-    key = kwargs.get('key', 'message')
+    key = kwargs.get('key', message)
     self.widgets.append(EmailInput(key, message, **kwargs))
     return self
   
@@ -155,7 +155,7 @@ class WidgetSchema:
       Returns:
         The form object
     '''
-    key = kwargs.get('key', 'message')
+    key = kwargs.get('key', message)
     self.widgets.append(FileInput(key, message, **kwargs))
     return self
   
@@ -175,7 +175,7 @@ class WidgetSchema:
       Returns:
         The form object
     '''
-    key = kwargs.get('key', 'message')
+    key = kwargs.get('key', message)
     self.widgets.append(ImageInput(key, message, **kwargs))
     return self
   
@@ -187,13 +187,13 @@ class WidgetSchema:
       
       Keyword Arg(s):
         columns: The number of columns of the input
-        key: The key of the input's value on the form result. Defaults to empty string
+        key: The key of the input's value on the form result. Defaults to the "result" arg
         
 
       Returns:
         The form object
     '''
-    key = kwargs.get('key', '')
+    key = kwargs.get('key', "result")
     self.widgets.append(ListInput(key, item_schema, **kwargs))
     return self
   
@@ -214,7 +214,7 @@ class WidgetSchema:
       Returns:
         The form object
     '''
-    key = kwargs.get('key', 'message')
+    key = kwargs.get('key', message)
     self.widgets.append(MultipleChoiceInput(key, message, options, **kwargs))
     return self
   
@@ -236,7 +236,7 @@ class WidgetSchema:
       Returns:
         The form object
     '''
-    key = kwargs.get('key', 'message')
+    key = kwargs.get('key', message)
     self.widgets.append(NumberInput(key, message, **kwargs))
     return self
   
@@ -249,13 +249,13 @@ class WidgetSchema:
       Keyword Arg(s):
         required: Whether the input is required or not
         columns: The number of columns of the input
-        key: The key of the input's value on the form result. Defaults to empty string
+        key: The key of the input's value on the form result. Defaults to the "result" arg
         
 
       Returns:
         The form object
     '''
-    key = kwargs.get('key', '')
+    key = kwargs.get('key', "result")
     self.widgets.append(PandasRowSelectionInput(key, df, **kwargs))
     return self
   
@@ -276,7 +276,7 @@ class WidgetSchema:
       Returns:
         The form object
     '''
-    key = kwargs.get('key', 'message')
+    key = kwargs.get('key', message)
     self.widgets.append(PhoneInput(key, message, **kwargs))
     return self
   
@@ -296,7 +296,7 @@ class WidgetSchema:
       Returns:
         The form object
     '''
-    key = kwargs.get('key', 'message')
+    key = kwargs.get('key', message)
     self.widgets.append(TagInput(key, message, **kwargs))
     return self
   
@@ -318,7 +318,7 @@ class WidgetSchema:
         The form object
     '''
 
-    key = kwargs.get('key', 'message')
+    key = kwargs.get('key', message)
     self.widgets.append(TextInput(key, message, **kwargs))
     return self
   
@@ -339,7 +339,7 @@ class WidgetSchema:
       Returns:
         The form object
     '''
-    key = kwargs.get('key', 'message')
+    key = kwargs.get('key', message)
     self.widgets.append(TextareaInput(key, message, **kwargs))
     return self
 
