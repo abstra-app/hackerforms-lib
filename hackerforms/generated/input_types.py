@@ -44,6 +44,7 @@ class TextInput(Input):
         self.required = kwargs.get('required', True)
         self.hint = kwargs.get('hint', None)
         self.columns = kwargs.get('columns', 1)
+        self.full_width = kwargs.get('full_width', False)
 
     def json(self):
         return {
@@ -55,6 +56,7 @@ class TextInput(Input):
             'required': self.required,
             'hint': self.hint,
             'columns': self.columns,
+            'fullWidth': self.full_width
         }
 
     def convert_answer(self, answer: str) -> str:
@@ -109,11 +111,12 @@ class TagInput(Input):
         '''
         super().__init__(key)
         self.message = message
-        self.initial_value = kwargs.get('initial_value', [""])
+        self.initial_value = kwargs.get('initial_value', [])
         self.placeholder = kwargs.get('placeholder', 'Your answer here')
         self.required = kwargs.get('required', True)
         self.hint = kwargs.get('hint', None)
         self.columns = kwargs.get('columns', 1)
+        self.full_width = kwargs.get('full_width', False)
 
     def json(self):
         return {
@@ -125,6 +128,7 @@ class TagInput(Input):
             'required': self.required,
             'hint': self.hint,
             'columns': self.columns,
+            'fullWidth': self.full_width
         }
 
     def convert_answer(self, answer: List[Union[str,float]]) -> List[Union[str,float]]:
@@ -158,6 +162,7 @@ class DateInput(Input):
         self.required = kwargs.get('required', True)
         self.hint = kwargs.get('hint', None)
         self.columns = kwargs.get('columns', 1)
+        self.full_width = kwargs.get('full_width', False)
 
     def json(self):
         return {
@@ -168,6 +173,7 @@ class DateInput(Input):
             'initialValue': self.initial_value.isoformat() if self.initial_value else '',
             'required': self.required,
             'columns': self.columns,
+            'fullWidth': self.full_width
         }
 
     def convert_answer(self, answer: str) -> Optional[datetime.date]:
@@ -227,7 +233,13 @@ class FileInput(Input):
         Returns:
             FileResponse: The file uploaded by the user the user
         '''
-        return FileResponse(answer) if answer else None
+        if not answer:
+            return None
+
+        if not self.multiple:
+            return FileResponse(answer)
+
+        return [FileResponse(item) for item in answer]
 
 
 class ImageInput(Input):
@@ -249,6 +261,9 @@ class ImageInput(Input):
         self.initial_value = kwargs.get('initial_value', '')
         self.required = kwargs.get('required', True)
         self.hint = kwargs.get('hint', None)
+        self.columns = kwargs.get('columns', 1)
+        self.multiple = kwargs.get('multiple', False)
+        self.full_width = kwargs.get('full_width', False)
 
     def json(self):
         return {
@@ -257,7 +272,10 @@ class ImageInput(Input):
             'hint': self.hint,
             'message': self.message,
             "initialValue": self.initial_value,
-            'required': self.required
+            'columns': self.columns,
+            'required': self.required,
+            'multiple': self.multiple,
+            'fullWidth': self.full_width,
         }
 
     def convert_answer(self, answer) -> Optional[FileResponse]:
@@ -292,6 +310,7 @@ class MultipleChoiceInput(Input):
         self.required = kwargs.get('required', True)
         self.hint = kwargs.get('hint', None)
         self.columns = kwargs.get('columns', 1)
+        self.full_width = kwargs.get('full_width', False)
 
     def json(self):
         return {
@@ -304,6 +323,7 @@ class MultipleChoiceInput(Input):
             'initialValue': self.initial_value,
             'required': self.required,
             'columns': self.columns,
+            'fullWidth': self.full_width,
         }
 
     def convert_answer(self, answer: Union[List, Any]) -> Union[List, Any]:
@@ -337,10 +357,12 @@ class CardsInput(Input):
         self.label = label
         self.options = options
         self.multiple = kwargs.get('multiple', False)
+        self.searchable = kwargs.get('searchable', False)
         self.initial_value = kwargs.get('initial_value', None)
         self.required = kwargs.get('required', True)
         self.hint = kwargs.get('hint', None)
         self.columns = kwargs.get('columns', 1)
+        self.full_width = kwargs.get('full_width', False)
 
     def json(self):
         return {
@@ -350,9 +372,11 @@ class CardsInput(Input):
             'hint': self.hint,
             'options': self.options,
             'multiple': self.multiple,
+            'searchable': self.searchable,
             'initialValue': self.initial_value,
             'required': self.required,
             'columns': self.columns,
+            'fullWidth': self.full_width,
         }
 
     def convert_answer(self, answer: Union[List, Any]) -> Union[List, Any]:
@@ -390,6 +414,7 @@ class DropdownInput(Input):
         self.multiple = kwargs.get('multiple', False)
         self.placeholder = kwargs.get('placeholder', 'Choose an option')
         self.columns = kwargs.get('columns', 1)
+        self.full_width = kwargs.get('full_width', False)
 
     def json(self):
         return {
@@ -403,6 +428,7 @@ class DropdownInput(Input):
             'initialValue': self.initial_value,
             'required': self.required,
             'columns': self.columns,
+            'fullWidth': self.full_width,
         }
 
     def convert_answer(self, answer: str) -> str:
@@ -437,17 +463,19 @@ class TextareaInput(Input):
         self.placeholder = kwargs.get('placeholder', 'Your answer here')
         self.columns = kwargs.get('columns', 1)
         self.hint = kwargs.get('hint', None)
+        self.full_width = kwargs.get('full_width', False)
 
     def json(self):
         return {
-                'type': self.type,
-                'key': self.key,
-                'message': self.message,
-                'initialValue': self.initial_value,
-                'placeholder': self.placeholder,
-                'required': self.required,
-                'columns': self.columns,
-                'hint': self.hint,
+            'type': self.type,
+            'key': self.key,
+            'message': self.message,
+            'initialValue': self.initial_value,
+            'placeholder': self.placeholder,
+            'required': self.required,
+            'columns': self.columns,
+            'hint': self.hint,
+            'fullWidth': self.full_width,
         }
 
     def convert_answer(self, answer: str) -> str:
@@ -482,6 +510,7 @@ class NumberInput(Input):
         self.hint = kwargs.get('hint', None)
         self.placeholder = kwargs.get('placeholder', 'Your answer here')
         self.columns = kwargs.get('columns', 1)
+        self.full_width = kwargs.get('full_width', False)
 
     def json(self):
         return {
@@ -493,6 +522,7 @@ class NumberInput(Input):
             'required': self.required,
             'hint': self.hint,
             'columns': self.columns,
+            'fullWidth': self.full_width,
         }
 
     def convert_answer(self, answer: int) -> int:
@@ -526,6 +556,7 @@ class EmailInput(Input):
         self.hint = kwargs.get('hint', None)
         self.placeholder = kwargs.get('placeholder', 'Your email here')
         self.columns = kwargs.get('columns', 1)
+        self.full_width = kwargs.get('full_width', False)
 
     def json(self):
         return {
@@ -537,6 +568,7 @@ class EmailInput(Input):
             'required': self.required,
             'hint': self.hint,
             'columns': self.columns,
+            'fullWidth': self.full_width,
         }
 
     def convert_answer(self, answer: str) -> str:
@@ -570,6 +602,7 @@ class PhoneInput(Input):
         self.hint = kwargs.get('hint', None)
         self.placeholder = kwargs.get('placeholder', '')
         self.columns = kwargs.get('columns', 1)
+        self.full_width = kwargs.get('full_width', False)
 
     def json(self):
         return {
@@ -581,6 +614,7 @@ class PhoneInput(Input):
             'required': self.required,
             'hint': self.hint,
             'columns': self.columns,
+            'fullWidth': self.full_width,
         }
 
     def convert_answer(self, answer) -> Optional[PhoneResponse]:
