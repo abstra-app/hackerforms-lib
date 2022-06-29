@@ -1,6 +1,7 @@
 import json
 import requests
 
+
 def upload_file(file):
     response = requests.post("https://upload.abstra.cloud/hackerforms/upload",
                              data=json.dumps({'filepath': file.name}),

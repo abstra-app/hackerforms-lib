@@ -1,7 +1,9 @@
+from ..page import ListItemSchema
 from ..input_types import *
 from ..output_types import *
 import pandas as pd
 import plotly.graph_objs as go
+
 
 example_instances = [
     TextInput('text', 'What is your name?'),
@@ -18,8 +20,10 @@ example_instances = [
     NumberInput('number', 'What is your favorite number?'),
     EmailInput('email', 'What is your email address?'),
     PhoneInput('phone', 'What is your phone number?'),
+    ListInput('list', ListItemSchema().read("Name")),
     CardsInput('card', 'What is your favorite color?', options=[{'title': 'red', 'image': 'redImage', 'description': 'red'}, {
                'title': 'blue', 'image': 'blueImage', 'description': 'blue'}, {'title': 'green', 'image': 'greenImage', 'description': 'green'}]),
+    PandasRowSelectionInput("key", pd.DataFrame({'a': [1, 2, 3], 'b': [4, 5, 6]})),
     TextOutput('Hello, world!'),
     MarkdownOutput('## This is a h2 tag'),
     ImageOutput('https://i.imgur.com/XyqQZ.jpg', subtitle = 'A cute cat'),
@@ -28,7 +32,6 @@ example_instances = [
     HTMLOutput('<h1>Hello, world!</h1>'),
     PandasOutput(pd.DataFrame({'a': [1, 2, 3], 'b': [4, 5, 6]})),
     PlotlyOutput(go.Figure(data=[go.Scatter(x=[1, 2, 3], y=[2, 1, 2])])),
-    IFrameOutput('<h1>Hello, world!</h1>', width='100%', height='100%', column=1),
-    ExecuteJs("A key", "console.log('Hello World')", context={}),
-    PandasRowSelectionInput( 'dataframe', pd.DataFrame(data={'col1': [1, 2], 'col2': [3, 4]}))
+    IFrameOutput('<h1>Hello, world!</h1>', width='100%', height='100%'),
+    ExecuteJs("A key", "console.log('Hello World')", context={})
 ]

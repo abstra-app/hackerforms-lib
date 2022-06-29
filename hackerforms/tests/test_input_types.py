@@ -4,9 +4,9 @@ from .example_instances import example_instances
 
 METADATA_FILEPATH = os.path.join(os.path.dirname(__file__), 'metadata.json')
 
+
 def test_function():
     widgets_metadata = load_metadata()["widgets"]
-    del widgets_metadata["list-input"]
     generated_widgets = load_widget_test_instances()
     assert_widget_examples_contains_all_widgets(
         generated_widgets, widgets_metadata)
@@ -14,6 +14,7 @@ def test_function():
         assert_widget_exists_in_metadata(widget_example, widgets_metadata)
         assert_widgets_props_are_right(
             widget_example, widgets_metadata[widget_example["type"]])
+
 
 def load_metadata():
     with open(METADATA_FILEPATH) as f:
@@ -28,17 +29,14 @@ def assert_widget_exists_in_metadata(widget_example, widgets_metadata):
     assert widget_example["type"] in widgets_metadata
 
 
-def assert_widgets_props_are_right(widget_example, metadata_widget):
-    for prop in metadata_widget['params']:
+def assert_widgets_props_are_right(widget_example, widget_metadata):
+    for prop in widget_metadata:
         assert prop in widget_example
-        assert types_compatible(widget_example[prop], metadata_widget['params'][prop])
-    for prop in metadata_widget['optionals']:
-        assert prop in widget_example
-        assert types_compatible(widget_example[prop], metadata_widget['optionals'][prop])
+        assert types_compatible(widget_example[prop], widget_metadata[prop])
     for prop in widget_example:
         if prop == "type":
             continue
-        assert prop in metadata_widget['params'] or prop in metadata_widget['optionals']
+        assert prop in widget_metadata
 
 
 def types_compatible(prop, schema):
@@ -80,5 +78,4 @@ def to_generic_type(type):
 
 def assert_widget_examples_contains_all_widgets(generated_widgets, widgets_metadata):
     for widget_type in widgets_metadata:
-        if widget_type != "list-input":
-            assert any(widget["type"] == widget_type for widget in generated_widgets if widget["type"] != "list-input")
+        assert any(widget["type"] == widget_type for widget in generated_widgets)

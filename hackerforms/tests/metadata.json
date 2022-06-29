@@ -1,0 +1,857 @@
+{
+  "widgets": {
+    "file-input": {
+      "columns": {
+        "type": "number",
+        "description": "number of columns this input will take"
+      },
+      "fullWidth": {
+        "type": "boolean",
+        "description": "Whether the widget should take up the full width of the page"
+      },
+      "key": {
+        "type": "string",
+        "description": "The key of the input on the returning object"
+      },
+      "hint": {
+        "type": [
+          "string",
+          "null"
+        ],
+        "description": "message describing the input"
+      },
+      "message": {
+        "type": "string",
+        "description": "The message to display above the input"
+      },
+      "initialValue": {
+        "type": [
+          "string",
+          "array"
+        ],
+        "description": "The initial value of the input",
+        "items": {
+          "type": "string"
+        }
+      },
+      "required": {
+        "type": [
+          "boolean",
+          "string"
+        ],
+        "description": "Whether the input is required or not"
+      },
+      "multiple": {
+        "type": "boolean",
+        "description": "Whether the input accepts multiple values or not"
+      }
+    },
+    "image-input": {
+      "columns": {
+        "type": "number",
+        "description": "number of columns this input will take"
+      },
+      "fullWidth": {
+        "type": "boolean",
+        "description": "Whether the widget should take up the full width of the page"
+      },
+      "key": {
+        "type": "string",
+        "description": "The key of the input on the returning object"
+      },
+      "hint": {
+        "type": [
+          "string",
+          "null"
+        ],
+        "description": "message describing the input"
+      },
+      "message": {
+        "type": "string",
+        "description": "The message to display above the input"
+      },
+      "initialValue": {
+        "type": [
+          "string",
+          "array"
+        ],
+        "description": "The initial value of the input",
+        "items": {
+          "type": "string"
+        }
+      },
+      "required": {
+        "type": [
+          "boolean",
+          "string"
+        ],
+        "description": "Whether the input is required or not"
+      },
+      "multiple": {
+        "type": "boolean",
+        "description": "Whether the input accepts multiple values or not"
+      }
+    },
+    "text-input": {
+      "columns": {
+        "type": "number",
+        "description": "number of columns this input will take"
+      },
+      "fullWidth": {
+        "type": "boolean",
+        "description": "Whether the widget should take up the full width of the page"
+      },
+      "key": {
+        "type": "string",
+        "description": "The key of the input on the returning object"
+      },
+      "hint": {
+        "type": [
+          "string",
+          "null"
+        ],
+        "description": "message describing the input"
+      },
+      "message": {
+        "type": "string",
+        "description": "The message to display above the input"
+      },
+      "initialValue": {
+        "type": "string",
+        "description": "The initial value of the input"
+      },
+      "placeholder": {
+        "type": "string",
+        "description": "The placeholder text to display in the input"
+      },
+      "required": {
+        "type": [
+          "boolean",
+          "string"
+        ],
+        "description": "Whether the input is required or not"
+      }
+    },
+    "textarea-input": {
+      "columns": {
+        "type": "number",
+        "description": "number of columns this input will take"
+      },
+      "fullWidth": {
+        "type": "boolean",
+        "description": "Whether the widget should take up the full width of the page"
+      },
+      "key": {
+        "type": "string",
+        "description": "The key of the input on the returning object"
+      },
+      "hint": {
+        "type": [
+          "string",
+          "null"
+        ],
+        "description": "message describing the input"
+      },
+      "message": {
+        "type": "string",
+        "description": "The message to display above the input"
+      },
+      "initialValue": {
+        "type": "string",
+        "description": "The initial value of the input"
+      },
+      "placeholder": {
+        "type": "string",
+        "description": "The placeholder text to display in the input"
+      },
+      "required": {
+        "type": [
+          "boolean",
+          "string"
+        ],
+        "description": "Whether the input is required or not"
+      }
+    },
+    "tag-input": {
+      "columns": {
+        "type": "number",
+        "description": "number of columns this input will take"
+      },
+      "fullWidth": {
+        "type": "boolean",
+        "description": "Whether the widget should take up the full width of the page"
+      },
+      "key": {
+        "type": "string",
+        "description": "The key of the input on the returning object"
+      },
+      "hint": {
+        "type": [
+          "string",
+          "null"
+        ],
+        "description": "message describing the input"
+      },
+      "message": {
+        "type": "string",
+        "description": "The message to display above the input"
+      },
+      "initialValue": {
+        "type": [
+          "array",
+          "null"
+        ],
+        "description": "The initial value of the input",
+        "items": {
+          "type": [
+            "string",
+            "number"
+          ]
+        }
+      },
+      "required": {
+        "type": [
+          "boolean",
+          "string"
+        ],
+        "description": "Whether the input is required or not"
+      },
+      "placeholder": {
+        "type": "string",
+        "description": "The placeholder text to display in the input"
+      }
+    },
+    "number-input": {
+      "columns": {
+        "type": "number",
+        "description": "number of columns this input will take"
+      },
+      "fullWidth": {
+        "type": "boolean",
+        "description": "Whether the widget should take up the full width of the page"
+      },
+      "key": {
+        "type": "string",
+        "description": "The key of the input on the returning object"
+      },
+      "hint": {
+        "type": [
+          "string",
+          "null"
+        ],
+        "description": "message describing the input"
+      },
+      "message": {
+        "type": "string",
+        "description": "The message to display above the input"
+      },
+      "initialValue": {
+        "type": "number",
+        "description": "The initial value of the input"
+      },
+      "placeholder": {
+        "type": "string",
+        "description": "The placeholder text to display in the input"
+      },
+      "required": {
+        "type": [
+          "boolean",
+          "string"
+        ],
+        "description": "Whether the input is required or not"
+      }
+    },
+    "email-input": {
+      "columns": {
+        "type": "number",
+        "description": "number of columns this input will take"
+      },
+      "fullWidth": {
+        "type": "boolean",
+        "description": "Whether the widget should take up the full width of the page"
+      },
+      "key": {
+        "type": "string",
+        "description": "The key of the input on the returning object"
+      },
+      "hint": {
+        "type": [
+          "string",
+          "null"
+        ],
+        "description": "message describing the input"
+      },
+      "message": {
+        "type": "string",
+        "description": "The message to display above the input"
+      },
+      "placeholder": {
+        "type": "string",
+        "description": "The placeholder text to display in the input"
+      },
+      "required": {
+        "type": [
+          "boolean",
+          "string"
+        ],
+        "description": "Whether the input is required or not"
+      },
+      "initialValue": {
+        "type": "string",
+        "description": "The initial value of the input"
+      }
+    },
+    "phone-input": {
+      "columns": {
+        "type": "number",
+        "description": "number of columns this input will take"
+      },
+      "fullWidth": {
+        "type": "boolean",
+        "description": "Whether the widget should take up the full width of the page"
+      },
+      "key": {
+        "type": "string",
+        "description": "The key of the input on the returning object"
+      },
+      "hint": {
+        "type": [
+          "string",
+          "null"
+        ],
+        "description": "message describing the input"
+      },
+      "message": {
+        "type": "string",
+        "description": "The message to display above the input"
+      },
+      "initialValue": {
+        "type": "string",
+        "description": "The initial value of the input"
+      },
+      "placeholder": {
+        "type": "string",
+        "description": "The placeholder text to display in the input"
+      },
+      "required": {
+        "type": [
+          "boolean",
+          "string"
+        ],
+        "description": "Whether the input is required or not"
+      }
+    },
+    "multiple-choice-input": {
+      "columns": {
+        "type": "number",
+        "description": "number of columns this input will take"
+      },
+      "fullWidth": {
+        "type": "boolean",
+        "description": "Whether the widget should take up the full width of the page"
+      },
+      "key": {
+        "type": "string",
+        "description": "The key of the input on the returning object"
+      },
+      "hint": {
+        "type": [
+          "string",
+          "null"
+        ],
+        "description": "message describing the input"
+      },
+      "message": {
+        "type": "string",
+        "description": "The message to display above the input"
+      },
+      "multiple": {
+        "type": "boolean",
+        "description": "Whether the input should accept multiple answers"
+      },
+      "required": {
+        "type": [
+          "boolean",
+          "string"
+        ],
+        "description": "Whether the input is required or not"
+      },
+      "initialValue": {
+        "type": "any",
+        "description": "The initial value of the input",
+        "items": {
+          "type": [
+            "string",
+            "number"
+          ]
+        }
+      },
+      "options": {
+        "type": "array",
+        "description": "The options that the user can select from",
+        "items": {
+          "type": [
+            "string",
+            "object"
+          ],
+          "properties": {
+            "key": {
+              "type": "string",
+              "description": "The key of the option on the returning object"
+            },
+            "value": {
+              "type": "any",
+              "description": "The value of the option on the returning object"
+            }
+          }
+        }
+      }
+    },
+    "date-input": {
+      "columns": {
+        "type": "number",
+        "description": "number of columns this input will take"
+      },
+      "fullWidth": {
+        "type": "boolean",
+        "description": "Whether the widget should take up the full width of the page"
+      },
+      "key": {
+        "type": "string",
+        "description": "The key of the input on the returning object"
+      },
+      "hint": {
+        "type": [
+          "string",
+          "null"
+        ],
+        "description": "message describing the input"
+      },
+      "message": {
+        "type": "string",
+        "description": "The message to display above the input"
+      },
+      "required": {
+        "type": [
+          "boolean",
+          "string"
+        ],
+        "description": "Whether the input is required or not"
+      },
+      "initialValue": {
+        "type": "string",
+        "description": "The initial value of the input"
+      }
+    },
+    "dropdown-input": {
+      "columns": {
+        "type": "number",
+        "description": "number of columns this input will take"
+      },
+      "fullWidth": {
+        "type": "boolean",
+        "description": "Whether the widget should take up the full width of the page"
+      },
+      "key": {
+        "type": "string",
+        "description": "The key of the input on the returning object"
+      },
+      "hint": {
+        "type": [
+          "string",
+          "null"
+        ],
+        "description": "message describing the input"
+      },
+      "message": {
+        "type": "string",
+        "description": "The message to display above the input"
+      },
+      "multiple": {
+        "type": "boolean",
+        "description": "Whether the input should accept multiple answers"
+      },
+      "placeholder": {
+        "type": "string",
+        "description": "The placeholder text to display in the input"
+      },
+      "required": {
+        "type": [
+          "boolean",
+          "string"
+        ],
+        "description": "Whether the input is required or not"
+      },
+      "initialValue": {
+        "type": "any",
+        "description": "The initial value of the input",
+        "items": {
+          "type": [
+            "string",
+            "number"
+          ]
+        }
+      },
+      "options": {
+        "type": "array",
+        "description": "The options that the user can select from",
+        "items": {
+          "type": [
+            "string",
+            "object"
+          ],
+          "properties": {
+            "key": {
+              "type": "string",
+              "description": "The key of the option on the returning object"
+            },
+            "value": {
+              "type": "any",
+              "description": "The value of the option on the returning object"
+            }
+          }
+        }
+      }
+    },
+    "list-input": {
+      "columns": {
+        "type": "number",
+        "description": "number of columns this input will take"
+      },
+      "fullWidth": {
+        "type": "boolean",
+        "description": "Whether the widget should take up the full width of the page"
+      },
+      "key": {
+        "type": "string",
+        "description": "The key of the input on the returning object"
+      },
+      "hint": {
+        "type": [
+          "string",
+          "null"
+        ],
+        "description": "message describing the input"
+      },
+      "itemSchema": {
+        "type": "any"
+      },
+      "initialValue": {
+        "type": "array"
+      },
+      "min": {
+        "type": [
+          "number",
+          "null"
+        ]
+      },
+      "max": {
+        "type": [
+          "number",
+          "null"
+        ]
+      },
+      "addButtonText": {
+        "type": "string",
+        "description": "The add new item button label"
+      }
+    },
+    "cards-input": {
+      "columns": {
+        "type": "number",
+        "description": "number of columns this input will take"
+      },
+      "fullWidth": {
+        "type": "boolean",
+        "description": "Whether the widget should take up the full width of the page"
+      },
+      "key": {
+        "type": "string",
+        "description": "The key of the input on the returning object"
+      },
+      "hint": {
+        "type": [
+          "string",
+          "null"
+        ],
+        "description": "message describing the input"
+      },
+      "label": {
+        "type": "string",
+        "description": "The label of the input"
+      },
+      "multiple": {
+        "type": "boolean",
+        "description": "Whether the input can have multiple values"
+      },
+      "searchable": {
+        "type": "boolean",
+        "description": "Display a search input"
+      },
+      "required": {
+        "type": [
+          "boolean",
+          "string"
+        ],
+        "description": "Whether the input is required or not"
+      },
+      "initialValue": {
+        "type": [
+          "object",
+          "array",
+          "null"
+        ],
+        "description": "The initial value of the input",
+        "items": {
+          "type": "object",
+          "properties": {
+            "title": {
+              "type": "string"
+            },
+            "image": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            }
+          }
+        },
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "image": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          }
+        }
+      },
+      "options": {
+        "type": "array",
+        "description": "The options that the user can select from",
+        "items": {
+          "type": "object",
+          "properties": {
+            "title": {
+              "type": "string"
+            },
+            "image": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "execute-js": {
+      "key": {
+        "type": "string",
+        "description": "The key of the input on the returning object"
+      },
+      "code": {
+        "type": "string",
+        "description": "The JS code to be executed."
+      },
+      "context": {
+        "type": "object",
+        "description": "A dictionary of variables to be passed to the code."
+      }
+    },
+    "pandas-row-selection-input": {
+      "columns": {
+        "type": "number",
+        "description": "number of columns this input will take"
+      },
+      "fullWidth": {
+        "type": "boolean",
+        "description": "Whether the widget should take up the full width of the page"
+      },
+      "key": {
+        "type": "string",
+        "description": "The key of the input on the returning object"
+      },
+      "hint": {
+        "type": [
+          "string",
+          "null"
+        ],
+        "description": "message describing the input"
+      },
+      "required": {
+        "type": [
+          "boolean",
+          "string"
+        ],
+        "description": "Whether the input is required or not"
+      },
+      "table": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array"
+          },
+          "schema": {
+            "type": "object",
+            "properties": {
+              "fields": {
+                "type": "array"
+              }
+            }
+          }
+        }
+      }
+    },
+    "text-output": {
+      "columns": {
+        "type": "number",
+        "description": "number of columns this input will take"
+      },
+      "fullWidth": {
+        "type": "boolean",
+        "description": "Whether the widget should take up the full width of the page"
+      },
+      "message": {
+        "type": "string"
+      }
+    },
+    "markdown-output": {
+      "columns": {
+        "type": "number",
+        "description": "number of columns this input will take"
+      },
+      "fullWidth": {
+        "type": "boolean",
+        "description": "Whether the widget should take up the full width of the page"
+      },
+      "text": {
+        "type": "string"
+      }
+    },
+    "image-output": {
+      "columns": {
+        "type": "number",
+        "description": "number of columns this input will take"
+      },
+      "fullWidth": {
+        "type": "boolean",
+        "description": "Whether the widget should take up the full width of the page"
+      },
+      "image_str": {
+        "type": "string"
+      },
+      "subtitle": {
+        "type": "string"
+      }
+    },
+    "link-output": {
+      "columns": {
+        "type": "number",
+        "description": "number of columns this input will take"
+      },
+      "fullWidth": {
+        "type": "boolean",
+        "description": "Whether the widget should take up the full width of the page"
+      },
+      "message": {
+        "type": "string"
+      },
+      "linkText": {
+        "type": "string"
+      },
+      "sameTab": {
+        "type": "boolean"
+      }
+    },
+    "file-output": {
+      "columns": {
+        "type": "number",
+        "description": "number of columns this input will take"
+      },
+      "fullWidth": {
+        "type": "boolean",
+        "description": "Whether the widget should take up the full width of the page"
+      },
+      "message": {
+        "type": "string"
+      },
+      "downloadText": {
+        "type": "string"
+      }
+    },
+    "html-output": {
+      "columns": {
+        "type": "number",
+        "description": "number of columns this input will take"
+      },
+      "fullWidth": {
+        "type": "boolean",
+        "description": "Whether the widget should take up the full width of the page"
+      },
+      "html": {
+        "type": "string"
+      }
+    },
+    "pandas-output": {
+      "columns": {
+        "type": "number",
+        "description": "number of columns this input will take"
+      },
+      "fullWidth": {
+        "type": "boolean",
+        "description": "Whether the widget should take up the full width of the page"
+      },
+      "table": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array"
+          },
+          "schema": {
+            "type": "object",
+            "properties": {
+              "fields": {
+                "type": "array"
+              }
+            }
+          }
+        }
+      }
+    },
+    "plotly-output": {
+      "columns": {
+        "type": "number",
+        "description": "number of columns this input will take"
+      },
+      "fullWidth": {
+        "type": "boolean",
+        "description": "Whether the widget should take up the full width of the page"
+      },
+      "figure": {
+        "type": "any"
+      }
+    },
+    "iframe-output": {
+      "columns": {
+        "type": "number",
+        "description": "number of columns this input will take"
+      },
+      "fullWidth": {
+        "type": "boolean",
+        "description": "Whether the widget should take up the full width of the page"
+      },
+      "url": {
+        "type": "string"
+      },
+      "width": {
+        "type": "string"
+      },
+      "height": {
+        "type": "string"
+      }
+    }
+  }
+}
