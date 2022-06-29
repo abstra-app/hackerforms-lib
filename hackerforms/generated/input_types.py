@@ -283,7 +283,13 @@ class ImageInput(Input):
         Returns:
             FileResponse: The image file uploaded by the user the user
         '''
-        return FileResponse(answer) if answer else None
+        if not answer:
+            return None
+
+        if not self.multiple:
+            return FileResponse(answer)
+
+        return [FileResponse(item) for item in answer]
 
 
 class MultipleChoiceInput(Input):
@@ -644,6 +650,8 @@ class ListInput(Input):
         self.max = kwargs.get('max', None)
         self.hint = kwargs.get('hint', None)
         self.columns = kwargs.get('columns', 1)
+        self.add_button_text = kwargs.get('add_button_text', '+')
+        self.full_width = kwargs.get('full_width', False)
 
     def json(self):
         return {
@@ -654,7 +662,9 @@ class ListInput(Input):
             'initialValue': self.initial_value,
             'columns': self.columns,
             'min': self.min,
-            'max': self.max
+            'max': self.max,
+            'addButtonText': self.add_button_text,
+            'fullWidth': self.full_width,
         }
 
     def convert_answer(self, answers) -> List:
