@@ -149,7 +149,6 @@ class FileOutput(Output):
             'message': self.file if isinstance(self.file, str) else upload_file(self.file),
             'downloadText': self.download_text,
             'columns': self.columns,
-            'file': self.file,
             'fullWidth': self.full_width,
         }
 

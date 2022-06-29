@@ -1,4 +1,4 @@
-from tempfile import TemporaryFile
+from tempfile import NamedTemporaryFile
 import requests
 from dataclasses import dataclass
 
@@ -14,8 +14,9 @@ class FileResponse:
         res = requests.get(url)
         self.content = res.content
         self.url = url
+        self.name = url.split('/')[-1]
 
-        self.file = TemporaryFile()
+        self.file = NamedTemporaryFile()
         self.file.write(self.content)
         self.file.seek(0)
 

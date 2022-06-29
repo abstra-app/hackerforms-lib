@@ -971,10 +971,6 @@
       "type": "file-output",
       "description": "Display a button for the user to download a file",
       "params": {
-        "file": {
-          "type": "string",
-          "description": "The file to display"
-        },
         "message": {
           "type": "string"
         }
