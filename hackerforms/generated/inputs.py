@@ -22,7 +22,7 @@ def execute_js(code: str, **kwargs):
     button_text = kwargs.get('button_text', 'Next')
     return get_single_value(Page().execute_js(code, **kwargs).run(button_text))
 
-def read_cards(label: str, **kwargs):
+def read_cards(label: str, options: typing.Any, **kwargs):
   '''Read cards from the user
 
       Positional Arg(s):
@@ -38,7 +38,7 @@ def read_cards(label: str, **kwargs):
             list, any: The options/option selected by the user
         '''
   button_text = kwargs.get('button_text', 'Next')
-  return get_single_value(Page().read_cards(label, **kwargs).run(button_text))
+  return get_single_value(Page().read_cards(label, options, **kwargs).run(button_text))
 
 def read_date(message: str, **kwargs):
   '''Read a date value from the user

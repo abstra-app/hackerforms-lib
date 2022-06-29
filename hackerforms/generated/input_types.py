@@ -344,7 +344,7 @@ class MultipleChoiceInput(Input):
 class CardsInput(Input):
     type = 'cards-input'
 
-    def __init__(self, key: str, label: str, options, **kwargs):
+    def __init__(self, key: str, label: str, options: Any, **kwargs):
         '''Read cards from the user
 
         Positional Arg(s):

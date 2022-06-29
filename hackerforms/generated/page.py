@@ -55,7 +55,7 @@ class WidgetSchema:
 
   
   
-  def read_cards(self, label: str, **kwargs):
+  def read_cards(self, label: str, options: typing.Any, **kwargs):
     '''Read cards from the user
 
       Positional Arg(s):
@@ -73,7 +73,7 @@ class WidgetSchema:
         The form object
     '''
     key = kwargs.get('key', label)
-    self.widgets.append(CardsInput(key, label, **kwargs))
+    self.widgets.append(CardsInput(key, label, options, **kwargs))
     return self
   
   def read_date(self, message: str, **kwargs):
