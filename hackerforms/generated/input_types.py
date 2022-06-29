@@ -206,6 +206,8 @@ class FileInput(Input):
         self.required = kwargs.get('required', True)
         self.hint = kwargs.get('hint', None)
         self.columns = kwargs.get('columns', 1)
+        self.multiple = kwargs.get('multiple', False)
+        self.full_width = kwargs.get('full_width', False)
 
     def json(self):
         return {
@@ -216,6 +218,8 @@ class FileInput(Input):
             "initialValue": self.initial_value,
             'required': self.required,
             'columns': self.columns,
+            'multiple': self.multiple,
+            'fullWidth': self.full_width
         }
 
     def convert_answer(self, answer) -> Optional[FileResponse]:
