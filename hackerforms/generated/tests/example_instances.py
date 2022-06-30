@@ -10,6 +10,7 @@ example_instances = [
     DateInput('date', 'When is your birthday?'),
     FileInput('file', 'Upload a file'),
     ImageInput('file', 'Upload a image file'),
+    VideoInput('file', 'Upload a video file'),
     MultipleChoiceInput(
         'multiple-choice', 'What is your favorite color?', options=['Red', 'Blue', 'Green']),
     DropdownInput('dropdown', 'What is your favorite color?',

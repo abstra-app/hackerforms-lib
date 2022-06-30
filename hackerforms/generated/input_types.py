@@ -6,6 +6,7 @@ import json
 
 from .response_types import FileResponse, PhoneResponse
 
+
 class Input(ABC):
     type: str
 
@@ -20,6 +21,7 @@ class Input(ABC):
     @abstractmethod
     def convert_answer(self, answer):
         pass
+
 
 class TextInput(Input):
     type = 'text-input'
@@ -67,7 +69,6 @@ class TextInput(Input):
         return answer
 
 
-
 class ExecuteJs(Input):
     type = 'execute-js'
 
@@ -91,7 +92,6 @@ class ExecuteJs(Input):
             string: Serialized return value of the executed JavaScript
         '''
         return answer
-
 
 
 class TagInput(Input):
@@ -131,14 +131,13 @@ class TagInput(Input):
             'fullWidth': self.full_width
         }
 
-    def convert_answer(self, answer: List[Union[str,float]]) -> List[Union[str,float]]:
+    def convert_answer(self, answer: List[Union[str, float]]) -> List[Union[str, float]]:
         '''
         Returns:
             List[Union[str,float]]: The value entered by the user
         '''
-        
-        return answer
 
+        return answer
 
 
 class DateInput(Input):
@@ -292,6 +291,56 @@ class ImageInput(Input):
         return [FileResponse(item) for item in answer]
 
 
+class VideoInput(Input):
+    type = 'video-input'
+
+    def __init__(self, key: str, message: str, **kwargs):
+        '''Read a video file value from the user
+
+        Positional Arg(s):
+            message (str): The message to display to the user
+
+        Keyword Arg(s):
+            button_text (str): The text to display on the button that will submit the value
+            initial_value (str): The initial value to display to the user
+            required (bool or str): Whether the input is required or not eg. "this field is required"
+        '''
+        super().__init__(key)
+        self.message = message
+        self.initial_value = kwargs.get('initial_value', '')
+        self.required = kwargs.get('required', True)
+        self.hint = kwargs.get('hint', None)
+        self.columns = kwargs.get('columns', 1)
+        self.multiple = kwargs.get('multiple', False)
+        self.full_width = kwargs.get('full_width', False)
+
+    def json(self):
+        return {
+            'type': self.type,
+            'key': self.key,
+            'hint': self.hint,
+            'message': self.message,
+            "initialValue": self.initial_value,
+            'columns': self.columns,
+            'required': self.required,
+            'multiple': self.multiple,
+            'fullWidth': self.full_width,
+        }
+
+    def convert_answer(self, answer) -> Optional[FileResponse]:
+        '''
+        Returns:
+            FileResponse: The video file uploaded by the user the user
+        '''
+        if not answer:
+            return None
+
+        if not self.multiple:
+            return FileResponse(answer)
+
+        return [FileResponse(item) for item in answer]
+
+
 class MultipleChoiceInput(Input):
     type = 'multiple-choice-input'
 
@@ -338,7 +387,6 @@ class MultipleChoiceInput(Input):
             list, any: The values/value selected by the user
         '''
         return answer
-
 
 
 class CardsInput(Input):
@@ -393,7 +441,6 @@ class CardsInput(Input):
         return answer
 
 
-
 class DropdownInput(Input):
     type = 'dropdown-input'
 
@@ -445,7 +492,6 @@ class DropdownInput(Input):
         return answer
 
 
-
 class TextareaInput(Input):
     type = 'textarea-input'
 
@@ -490,7 +536,6 @@ class TextareaInput(Input):
             str: The value entered by the user
         '''
         return answer
-
 
 
 class NumberInput(Input):
@@ -539,7 +584,6 @@ class NumberInput(Input):
         return answer
 
 
-
 class EmailInput(Input):
     type = 'email-input'
 
@@ -583,7 +627,6 @@ class EmailInput(Input):
             str: The value entered by the user
         '''
         return answer
-
 
 
 class PhoneInput(Input):
@@ -674,6 +717,7 @@ class ListInput(Input):
         '''
         return [self.item_schema.convert_answer(answer) for answer in answers]
 
+
 class PandasRowSelectionInput(Input):
 
     type = 'pandas-row-selection-input'
@@ -687,7 +731,7 @@ class PandasRowSelectionInput(Input):
             Keyword Arg(s):
                 required: Whether the input is required or not
                 button_text (string): The text to display on the next step button
-            
+
         """
         super().__init__(key)
         self.df = df

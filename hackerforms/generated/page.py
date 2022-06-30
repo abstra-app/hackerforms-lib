@@ -342,6 +342,26 @@ class WidgetSchema:
     key = kwargs.pop('key', message)
     self.widgets.append(TextareaInput(key, message, **kwargs))
     return self
+  
+  def read_video(self, message: str, **kwargs):
+    '''Read a video file value from the user
+
+      Positional Arg(s):
+        message (str): The message to display to the user
+      
+      Keyword Arg(s):
+        initial_value (str): The initial value to display to the user
+        required (bool or str): Whether the input is required or not eg. "this field is required"
+        columns: The number of columns of the input
+        key: The key of the input's value on the form result. Defaults to the message arg
+        
+
+      Returns:
+        The form object
+    '''
+    key = kwargs.pop('key', message)
+    self.widgets.append(VideoInput(key, message, **kwargs))
+    return self
 
   
   

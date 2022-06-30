@@ -267,5 +267,22 @@ def read_textarea(message: str, **kwargs):
   button_text = kwargs.get('button_text', 'Next')
   return get_single_value(Page().read_textarea(message, **kwargs).run(button_text))
 
+def read_video(message: str, **kwargs):
+  '''Read a video file value from the user
+
+      Positional Arg(s):
+        message (str): The message to display to the user
+      
+      Keyword Arg(s):
+        button_text (str): The text to display on the button that will submit the value
+        initial_value (str): The initial value to display to the user
+        required (bool or str): Whether the input is required or not eg. "this field is required"
+        
+        Returns:
+            FileResponse: The video file uploaded by the user the user
+        '''
+  button_text = kwargs.get('button_text', 'Next')
+  return get_single_value(Page().read_video(message, **kwargs).run(button_text))
+
 def get_single_value(answer: Dict):
   return list(answer.values())[0]

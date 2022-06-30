@@ -109,6 +109,62 @@
         }
       }
     },
+    "video-input": {
+      "name": "VideoInput",
+      "libFunc": "read_video",
+      "type": "video-input",
+      "description": "",
+      "params": {
+        "key": {
+          "type": "string",
+          "description": "The key of the input on the returning object"
+        },
+        "message": {
+          "type": "string",
+          "description": "The message to display above the input"
+        }
+      },
+      "optionals": {
+        "columns": {
+          "type": "number",
+          "description": "number of columns this input will take"
+        },
+        "fullWidth": {
+          "type": "boolean",
+          "description": "Whether the widget should take up the full width of the page"
+        },
+        "hint": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "message describing the input",
+          "default": null
+        },
+        "initialValue": {
+          "type": [
+            "string",
+            "array"
+          ],
+          "description": "The initial value of the input",
+          "items": {
+            "type": "string"
+          }
+        },
+        "required": {
+          "type": [
+            "boolean",
+            "string"
+          ],
+          "description": "Whether the input is required or not",
+          "default": true
+        },
+        "multiple": {
+          "type": "boolean",
+          "description": "Whether the input accepts multiple values or not"
+        }
+      }
+    },
     "text-input": {
       "name": "TextInput",
       "libFunc": "read_text",
