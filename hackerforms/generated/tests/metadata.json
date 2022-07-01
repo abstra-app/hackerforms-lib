@@ -926,6 +926,99 @@
         }
       }
     },
+    "html-list-input": {
+      "name": "HtmlListInput",
+      "libFunc": "read_html_list",
+      "type": "html-list-input",
+      "description": "Read a list of html values from the user ",
+      "params": {
+        "key": {
+          "type": "string",
+          "description": "The key of the input on the returning object"
+        },
+        "label": {
+          "type": "string",
+          "description": "The label of the input"
+        },
+        "options": {
+          "type": "array",
+          "description": "The options that the user can select from",
+          "items": {
+            "type": "object",
+            "properties": {
+              "html": {
+                "type": "string"
+              },
+              "value": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      },
+      "optionals": {
+        "columns": {
+          "type": "number",
+          "description": "number of columns this input will take"
+        },
+        "fullWidth": {
+          "type": "boolean",
+          "description": "Whether the widget should take up the full width of the page"
+        },
+        "hint": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "message describing the input",
+          "default": null
+        },
+        "multiple": {
+          "type": "boolean",
+          "description": "Whether the input can have multiple values",
+          "default": false
+        },
+        "required": {
+          "type": [
+            "boolean",
+            "string"
+          ],
+          "description": "Whether the input is required or not",
+          "default": true
+        },
+        "css": {
+          "type": "string"
+        },
+        "initialValue": {
+          "type": [
+            "object",
+            "array",
+            "null"
+          ],
+          "description": "The initial value of the input",
+          "items": {
+            "type": "object",
+            "properties": {
+              "html": {
+                "type": "string"
+              },
+              "value": {
+                "type": "string"
+              }
+            },
+            "default": null
+          },
+          "properties": {
+            "html": {
+              "type": "string"
+            },
+            "value": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
     "text-output": {
       "name": "TextOutput",
       "libFunc": "display_text",

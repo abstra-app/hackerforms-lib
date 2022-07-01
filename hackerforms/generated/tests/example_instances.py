@@ -31,5 +31,6 @@ example_instances = [
     PlotlyOutput(go.Figure(data=[go.Scatter(x=[1, 2, 3], y=[2, 1, 2])])),
     IFrameOutput('<h1>Hello, world!</h1>', width='100%', height='100%', column=1),
     ExecuteJs("A key", "console.log('Hello World')", context={}),
-    PandasRowSelectionInput( 'dataframe', pd.DataFrame(data={'col1': [1, 2], 'col2': [3, 4]}))
+    PandasRowSelectionInput( 'dataframe', pd.DataFrame(data={'col1': [1, 2], 'col2': [3, 4]})),
+    HTMLListInput('htmlcard', 'Select an item below', options=[{'html': '<div><p>product: productA</p></div>', 'value': 'productA'}, {'html': '<div><p>product: productB</p></div>', 'value': 'productB'}], css="p {color: blue}")
 ]

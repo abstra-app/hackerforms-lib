@@ -159,6 +159,28 @@ class WidgetSchema:
     self.widgets.append(FileInput(key, message, **kwargs))
     return self
   
+  def read_html_list(self, label: str, options: typing.Any, **kwargs):
+    '''Read list of html values from the user
+
+      Positional Arg(s):
+        label (str): The text related to this fieldoptions (list): The options to display to the user, eg. [{'html': '<div class="container"><p>Info 1A</><p>Info 1B</p></div>', 'value': 'info1'},{'html': '<div class="container"><p>Info 2A</><p>Info 2B</p></div>', 'value': 'info2'}]
+      
+      Keyword Arg(s):
+        css (str): The css related to the html item in options
+        multiple (bool): Whether the user can select multiple options
+        initial_value (list): The initial value to display to the user
+        required (bool or str): Whether the input is required or not eg. "this field is required"
+        columns: The number of columns of the input
+        key: The key of the input's value on the form result. Defaults to the label arg
+        
+
+      Returns:
+        The form object
+    '''
+    key = kwargs.pop('key', label)
+    self.widgets.append(HTMLListInput(key, label, options, **kwargs))
+    return self
+  
   def read_image(self, message: str, **kwargs):
     '''Read a image file value from the user
 

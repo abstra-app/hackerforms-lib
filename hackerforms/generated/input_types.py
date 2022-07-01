@@ -757,3 +757,55 @@ class PandasRowSelectionInput(Input):
             The list of selected rows
         '''
         return answer
+
+class HTMLListInput(Input):
+    type = 'html-list-input'
+
+    def __init__(self, key: str, label: str, options: Any, **kwargs):
+        '''Read list of html values from the user
+
+        Positional Arg(s):
+            label (str): The text related to this field
+            options (list): The options to display to the user, eg. [
+                                {'html': '<div class="container"><p>Info 1A</><p>Info 1B</p></div>', 'value': 'info1'}, 
+                                {'html': '<div class="container"><p>Info 2A</><p>Info 2B</p></div>', 'value': 'info2'}]
+
+        Keyword Arg(s):
+            css (str): The css related to the html item in options
+            multiple (bool): Whether the user can select multiple options
+            button_text (str): The text to display on the button that will submit the value
+            initial_value (list): The initial value to display to the user
+            required (bool or str): Whether the input is required or not eg. "this field is required"
+        '''
+        super().__init__(key)
+        self.label = label
+        self.options = options
+        self.css = kwargs.get('css', None)
+        self.multiple = kwargs.get('multiple', False)
+        self.initial_value = kwargs.get('initial_value', None)
+        self.required = kwargs.get('required', True)
+        self.hint = kwargs.get('hint', None)
+        self.columns = kwargs.get('columns', 1)
+        self.full_width = kwargs.get('full_width', False)
+
+    def json(self):
+        return {
+            'type': self.type,
+            'key': self.key,
+            'label': self.label,
+            'hint': self.hint,
+            'options': self.options,
+            'css': self.css,
+            'multiple': self.multiple,
+            'initialValue': self.initial_value,
+            'required': self.required,
+            'columns': self.columns,
+            'fullWidth': self.full_width,
+        }
+
+    def convert_answer(self, answer: Union[List, Any]) -> Union[List, Any]:
+        '''
+        Returns:
+            list, any: The options/option selected by the user
+        '''
+        return answer

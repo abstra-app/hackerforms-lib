@@ -111,6 +111,25 @@ def read_file(message: str, **kwargs):
   button_text = kwargs.get('button_text', 'Next')
   return get_single_value(Page().read_file(message, **kwargs).run(button_text))
 
+def read_html_list(label: str, options: typing.Any, **kwargs):
+  '''Read list of html values from the user
+
+      Positional Arg(s):
+        label (str): The text related to this fieldoptions (list): The options to display to the user, eg. [{'html': '<div class="container"><p>Info 1A</><p>Info 1B</p></div>', 'value': 'info1'},{'html': '<div class="container"><p>Info 2A</><p>Info 2B</p></div>', 'value': 'info2'}]
+      
+      Keyword Arg(s):
+        css (str): The css related to the html item in options
+        multiple (bool): Whether the user can select multiple options
+        button_text (str): The text to display on the button that will submit the value
+        initial_value (list): The initial value to display to the user
+        required (bool or str): Whether the input is required or not eg. "this field is required"
+        
+        Returns:
+            list, any: The options/option selected by the user
+        '''
+  button_text = kwargs.get('button_text', 'Next')
+  return get_single_value(Page().read_html_list(label, options, **kwargs).run(button_text))
+
 def read_image(message: str, **kwargs):
   '''Read a image file value from the user
 
