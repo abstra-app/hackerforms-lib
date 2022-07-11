@@ -5,7 +5,7 @@
 ###############################################################################
 from abc import abstractmethod, ABC
 from typing import List, Union, Dict, Optional, Any
-from datetime import date
+import time
 import datetime
 import json
 
@@ -156,7 +156,7 @@ class DateInput(Input):
 
         Keyword Arg(s):
             button_text (str): The text to display on the button that will submit the value
-            initial_value (str): The initial value to display to the user
+            initial_value (datetime.date, time.struct_time, str): The initial value to display to the user
             required (bool or str): Whether the input is required or not eg. "this field is required"
 
         '''
@@ -168,13 +168,21 @@ class DateInput(Input):
         self.columns = kwargs.get('columns', 1)
         self.full_width = kwargs.get('full_width', False)
 
+    @classmethod
+    def convert_value(cls, value: Union[datetime.date, time.struct_time, str]) -> str:
+        if isinstance(value, datetime.date):
+            return value.isoformat()
+        elif isinstance(value, time.struct_time):
+            return datetime.datetime.fromtimestamp(time.mktime(value)).isoformat()
+        return value
+
     def json(self):
         return {
             'type': self.type,
             'key': self.key,
             'hint': self.hint,
             'message': self.message,
-            'initialValue': self.initial_value.isoformat() if self.initial_value else '',
+            'initialValue': DateInput.convert_answer(self.initial_value) if self.initial_value else '',
             'required': self.required,
             'columns': self.columns,
             'fullWidth': self.full_width
@@ -192,7 +200,7 @@ class DateInput(Input):
         year = int(split_answer[0])
         month = int(split_answer[1])
         day = int(split_answer[2])
-        return date(year, month, day)
+        return datetime.date(year, month, day)
 
 
 class FileInput(Input):
@@ -762,6 +770,7 @@ class PandasRowSelectionInput(Input):
             The list of selected rows
         '''
         return answer
+
 
 class HTMLListInput(Input):
     type = 'html-list-input'

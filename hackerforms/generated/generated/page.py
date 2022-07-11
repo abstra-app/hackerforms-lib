@@ -83,7 +83,7 @@ class WidgetSchema:
         message (str): The message to display to the user
       
       Keyword Arg(s):
-        initial_value (str): The initial value to display to the user
+        initial_value (datetime.date, time.struct_time, str): The initial value to display to the user
         required (bool or str): Whether the input is required or not eg. "this field is required"
         columns: The number of columns of the input
         key: The key of the input's value on the form result. Defaults to the message arg
