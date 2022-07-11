@@ -169,7 +169,7 @@ class DateInput(Input):
         self.full_width = kwargs.get('full_width', False)
 
     @staticmethod
-    def convert_value(cls, value: Union[datetime.date, time.struct_time, str]) -> str:
+    def convert_value(value: Union[datetime.date, time.struct_time, str]) -> str:
         if isinstance(value, datetime.date):
             return value.isoformat()
         elif isinstance(value, time.struct_time):
