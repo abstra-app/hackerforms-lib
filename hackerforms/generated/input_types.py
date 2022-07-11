@@ -168,7 +168,7 @@ class DateInput(Input):
         self.columns = kwargs.get('columns', 1)
         self.full_width = kwargs.get('full_width', False)
 
-    @classmethod
+    @staticmethod
     def convert_value(cls, value: Union[datetime.date, time.struct_time, str]) -> str:
         if isinstance(value, datetime.date):
             return value.isoformat()
