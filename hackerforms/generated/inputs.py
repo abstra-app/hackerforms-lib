@@ -48,7 +48,7 @@ def read_date(message: str, **kwargs):
       
       Keyword Arg(s):
         button_text (str): The text to display on the button that will submit the value
-        initial_value (datetime.date, time.struct_time, str): The initial value to display to the user
+        initial_value (datetime.date or time.struct_time or str (YYYY-MM-DD)): The initial value to display to the user
         required (bool or str): Whether the input is required or not eg. "this field is required"
         
         Returns:
