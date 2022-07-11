@@ -182,7 +182,7 @@ class DateInput(Input):
             'key': self.key,
             'hint': self.hint,
             'message': self.message,
-            'initialValue': DateInput.convert_answer(self.initial_value) if self.initial_value else '',
+            'initialValue': DateInput.convert_value(self.initial_value) if self.initial_value else '',
             'required': self.required,
             'columns': self.columns,
             'fullWidth': self.full_width
