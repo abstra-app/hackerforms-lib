@@ -303,5 +303,5 @@ def read_video(message: str, **kwargs):
   button_text = kwargs.get('button_text', 'Next')
   return get_single_value(Page().read_video(message, **kwargs).run(button_text))
 
-def get_single_value(answer: Dict):
+def get_single_value(answer: typing.Dict):
   return list(answer.values())[0]
