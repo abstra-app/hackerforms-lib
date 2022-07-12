@@ -10,5 +10,5 @@ import os
 
 
 if os.environ.get("ENV") != "test":
-  _initialize_socket()
-  _initialize_stdio()
+    _initialize_socket()
+    _initialize_stdio()
