@@ -5,23 +5,23 @@
 ###############################################################################
 
 import typing
-from typing import Dict
+import io
 from ..socket import send, receive
 from .input_types import *
 from .output_types import *
 
 class WidgetSchema:
   def __init__(self):
-    self.widgets: List[Union[Input, Output]] = []
+    self.widgets: typing.List[typing.Union[Input, Output]] = []
 
-  def convert_answer(self, form_answers: Dict) -> Dict:
+  def convert_answer(self, form_answers: typing.Dict) -> typing.Dict:
     '''Convert the answer from the form to the expected format
     Args:
         answer: The answer from the form
     Returns:
         The converted answer
     '''
-    answer: Dict = {}
+    answer: typing.Dict = {}
     inputs = list(
         filter(lambda widget: isinstance(widget, Input), self.widgets))
     
@@ -387,7 +387,7 @@ class WidgetSchema:
 
   
   
-  def display_file(self, file: typing.Any, **kwargs):
+  def display_file(self, file: typing.Union[str, io.IOBase], **kwargs):
     '''Display a button for the user to download a file
       
 
@@ -444,7 +444,7 @@ class WidgetSchema:
     self.widgets.append(IFrameOutput(url_or_html, **kwargs))
     return self
   
-  def display_image(self, **kwargs):
+  def display_image(self, image: typing.Union[str, io.IOBase], **kwargs):
     '''Display an image to the user
       
 
@@ -460,7 +460,7 @@ class WidgetSchema:
       Returns:
         The form object
     '''
-    self.widgets.append(ImageOutput(**kwargs))
+    self.widgets.append(ImageOutput(image, **kwargs))
     return self
   
   def display_link(self, link_url: str, **kwargs):
@@ -567,7 +567,7 @@ class Page(WidgetSchema):
     def __init__(self):
         super().__init__()
 
-    def run(self, button_text: str = 'Next', columns: float = 1) -> Dict:
+    def run(self, button_text: str = 'Next', columns: float = 1) -> typing.Dict:
         '''Run the form
 
         Args:
@@ -583,7 +583,7 @@ class Page(WidgetSchema):
             'buttonText': button_text,
             'columns': columns
         })
-        form_answers: Dict = receive('payload')
+        form_answers: typing.Dict = receive('payload')
 
         return self.convert_answer(form_answers)
 
@@ -597,7 +597,7 @@ class ListItemSchema(WidgetSchema):
     def __init__(self):
         super().__init__()
 
-    def convert_answer(self, form_answers: Dict) -> Dict:
+    def convert_answer(self, form_answers: typing.Dict) -> typing.Dict:
         '''Convert the answer from the form to the expected format
 
         Args:
@@ -606,7 +606,7 @@ class ListItemSchema(WidgetSchema):
         Returns:
             The converted answer
         '''
-        answer: Dict = form_answers
+        answer: typing.Dict = form_answers
         inputs = list(
             filter(lambda widget: isinstance(widget, Input), self.widgets))
 

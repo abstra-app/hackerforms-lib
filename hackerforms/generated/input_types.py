@@ -4,7 +4,7 @@
 ##        Do not change this file. Any changes will be overwritten.          ##
 ###############################################################################
 from abc import abstractmethod, ABC
-from typing import List, Union, Dict, Optional, Any
+import typing
 import time
 import datetime
 import json
@@ -136,7 +136,7 @@ class TagInput(Input):
             'fullWidth': self.full_width
         }
 
-    def convert_answer(self, answer: List[Union[str, float]]) -> List[Union[str, float]]:
+    def convert_answer(self, answer: typing.List[typing.Union[str, float]]) -> typing.List[typing.Union[str, float]]:
         '''
         Returns:
             List[Union[str,float]]: The value entered by the user
@@ -169,7 +169,7 @@ class DateInput(Input):
         self.full_width = kwargs.get('full_width', False)
 
     @staticmethod
-    def convert_value(value: Union[datetime.date, time.struct_time, str]) -> str:
+    def convert_value(value: typing.Union[datetime.date, time.struct_time, str]) -> str:
         if isinstance(value, datetime.date):
             return value.isoformat()
         elif isinstance(value, time.struct_time):
@@ -188,7 +188,7 @@ class DateInput(Input):
             'fullWidth': self.full_width
         }
 
-    def convert_answer(self, answer: str) -> Optional[datetime.date]:
+    def convert_answer(self, answer: str) -> typing.Optional[datetime.date]:
         '''
         Returns:
             datetime.date: The value entered by the user
@@ -240,7 +240,7 @@ class FileInput(Input):
             'fullWidth': self.full_width
         }
 
-    def convert_answer(self, answer) -> Optional[FileResponse]:
+    def convert_answer(self, answer) -> typing.Optional[FileResponse]:
         '''
         Returns:
             FileResponse: The file uploaded by the user the user
@@ -290,7 +290,7 @@ class ImageInput(Input):
             'fullWidth': self.full_width,
         }
 
-    def convert_answer(self, answer) -> Optional[FileResponse]:
+    def convert_answer(self, answer) -> typing.Optional[FileResponse]:
         '''
         Returns:
             FileResponse: The image file uploaded by the user the user
@@ -340,7 +340,7 @@ class VideoInput(Input):
             'fullWidth': self.full_width,
         }
 
-    def convert_answer(self, answer) -> Optional[FileResponse]:
+    def convert_answer(self, answer) -> typing.Optional[FileResponse]:
         '''
         Returns:
             FileResponse: The video file uploaded by the user the user
@@ -357,7 +357,7 @@ class VideoInput(Input):
 class MultipleChoiceInput(Input):
     type = 'multiple-choice-input'
 
-    def __init__(self, key: str, message: str, options: Union[List[str], List[Dict]], **kwargs):
+    def __init__(self, key: str, message: str, options: typing.Union[typing.List[str], typing.List[typing.Dict]], **kwargs):
         '''Read a multiple choice value from the user
 
         Positional Arg(s):
@@ -394,7 +394,7 @@ class MultipleChoiceInput(Input):
             'fullWidth': self.full_width,
         }
 
-    def convert_answer(self, answer: Union[List, Any]) -> Union[List, Any]:
+    def convert_answer(self, answer: typing.Union[typing.List, typing.Any]) -> typing.Union[typing.List, typing.Any]:
         '''
         Returns:
             list, any: The values/value selected by the user
@@ -405,7 +405,7 @@ class MultipleChoiceInput(Input):
 class CardsInput(Input):
     type = 'cards-input'
 
-    def __init__(self, key: str, label: str, options: Any, **kwargs):
+    def __init__(self, key: str, label: str, options: typing.Any, **kwargs):
         '''Read cards from the user
 
         Positional Arg(s):
@@ -446,7 +446,7 @@ class CardsInput(Input):
             'fullWidth': self.full_width,
         }
 
-    def convert_answer(self, answer: Union[List, Any]) -> Union[List, Any]:
+    def convert_answer(self, answer: typing.Union[typing.List, typing.Any]) -> typing.Union[typing.List, typing.Any]:
         '''
         Returns:
             list, any: The options/option selected by the user
@@ -457,7 +457,7 @@ class CardsInput(Input):
 class DropdownInput(Input):
     type = 'dropdown-input'
 
-    def __init__(self, key: str, message: str, options: Union[List[str], List[Dict]], **kwargs):
+    def __init__(self, key: str, message: str, options: typing.Union[typing.List[str], typing.List[typing.Dict]], **kwargs):
         '''Read a dropdown value from the user
 
         Positional Arg(s):
@@ -679,7 +679,7 @@ class PhoneInput(Input):
             'fullWidth': self.full_width,
         }
 
-    def convert_answer(self, answer) -> Optional[PhoneResponse]:
+    def convert_answer(self, answer) -> typing.Optional[PhoneResponse]:
         '''
         Returns:
             PhoneResponse: The value entered by the user
@@ -690,7 +690,7 @@ class PhoneInput(Input):
 class ListInput(Input):
     type = 'list-input'
 
-    def __init__(self, key: str, item_schema: Any, **kwargs):
+    def __init__(self, key: str, item_schema: typing.Any, **kwargs):
         '''Read a list value from the user
 
         Positional Arg(s):
@@ -723,7 +723,7 @@ class ListInput(Input):
             'fullWidth': self.full_width,
         }
 
-    def convert_answer(self, answers) -> List:
+    def convert_answer(self, answers) -> typing.List:
         '''
         Returns:
             list: The values entered by the user
@@ -735,7 +735,7 @@ class PandasRowSelectionInput(Input):
 
     type = 'pandas-row-selection-input'
 
-    def __init__(self, key: str, df: Any, **kwargs):
+    def __init__(self, key: str, df: typing.Any, **kwargs):
         """Display a pandas dataframe as a table and allow the user to select rows
 
             Positional Arg(s):
@@ -764,7 +764,7 @@ class PandasRowSelectionInput(Input):
             'fullWidth': self.full_width,
         }
 
-    def convert_answer(self, answer) -> List:
+    def convert_answer(self, answer) -> typing.List:
         '''
         Returns:
             The list of selected rows
@@ -775,7 +775,7 @@ class PandasRowSelectionInput(Input):
 class HTMLListInput(Input):
     type = 'html-list-input'
 
-    def __init__(self, key: str, label: str, options: Any, **kwargs):
+    def __init__(self, key: str, label: str, options: typing.Any, **kwargs):
         '''Read list of html values from the user
 
         Positional Arg(s):
@@ -817,7 +817,7 @@ class HTMLListInput(Input):
             'fullWidth': self.full_width,
         }
 
-    def convert_answer(self, answer: Union[List, Any]) -> Union[List, Any]:
+    def convert_answer(self, answer: typing.Union[typing.List, typing.Any]) -> typing.Union[typing.List, typing.Any]:
         '''
         Returns:
             list, any: The options/option selected by the user
