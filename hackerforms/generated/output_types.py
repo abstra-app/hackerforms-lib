@@ -4,13 +4,14 @@
 ##        Do not change this file. Any changes will be overwritten.          ##
 ###############################################################################
 from abc import abstractmethod, ABC
-from validators import url
 from urllib.parse import quote
-from typing import Any
+from typing import Any, Union
+import io
 import json
 
+from validators import url
 
-from .apis import upload_file
+from .file_utils import convert_file
 
 
 class Output(ABC):
@@ -74,17 +75,17 @@ class MarkdownOutput(Output):
 class ImageOutput(Output):
     type = 'image-output'
 
-    def __init__(self, image_str: str, **kwargs):
+    def __init__(self, image: Union[str, io.IOBase], **kwargs):
         '''Display an image to the user
 
         Positional Arg(s):
-            image_str (str): The url or base64 encoding of the image to display to the user
+            image (file-like or str (path, url, base64)): The image to display to the user
 
         Keyword Arg(s):
             subtitle (str): The subtitle of the image
             button_text (str): The text to display on the button that will continue the form
         '''
-        self.image_str = image_str
+        self.image = image
         self.subtitle = kwargs.get('subtitle', '')
         self.columns = kwargs.get('columns', 1)
         self.full_width = kwargs.get('full_width', False)
@@ -92,7 +93,7 @@ class ImageOutput(Output):
     def json(self):
         return {
             'type': self.type,
-            'image_str': self.image_str,
+            'image_str': convert_file(self.image),
             'subtitle': self.subtitle,
             'columns': self.columns,
             'fullWidth': self.full_width,
@@ -137,7 +138,7 @@ class FileOutput(Output):
         '''Display a button for the user to download a file
 
         Positional Arg(s):
-            file (File): The file to download
+            file (file-like or str (path, url, base64)): The file to download
 
         Keyword Arg(s):
             download_text (str): The text to display on the button that will download the file
@@ -151,7 +152,7 @@ class FileOutput(Output):
     def json(self):
         return {
             'type': self.type,
-            'message': self.file if isinstance(self.file, str) else upload_file(self.file),
+            'message': convert_file(self.file),
             'downloadText': self.download_text,
             'columns': self.columns,
             'fullWidth': self.full_width,

@@ -392,7 +392,7 @@ class WidgetSchema:
       
 
       Positional Arg(s):
-        file (File): The file to download
+        file (file-like or str (path, url, base64)): The file to download
         
       
       Keyword Arg(s):
@@ -444,12 +444,12 @@ class WidgetSchema:
     self.widgets.append(IFrameOutput(url_or_html, **kwargs))
     return self
   
-  def display_image(self, image_str: str, **kwargs):
+  def display_image(self, image: typing.Union[str, io.IOBase], **kwargs):
     '''Display an image to the user
       
 
       Positional Arg(s):
-        image_str (str): The url or base64 encoding of the image to display to the user
+        image (file-like or str (path, url, base64)): The image to display to the user
         
       
       Keyword Arg(s):
@@ -460,7 +460,7 @@ class WidgetSchema:
       Returns:
         The form object
     '''
-    self.widgets.append(ImageOutput(image_str, **kwargs))
+    self.widgets.append(ImageOutput(image, **kwargs))
     return self
   
   def display_link(self, link_url: str, **kwargs):

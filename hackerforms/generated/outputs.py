@@ -12,7 +12,7 @@ def display_file(file: typing.Any, **kwargs):
   '''Display a button for the user to download a file
 
       Positional Arg(s):
-        file (File): The file to download
+        file (file-like or str (path, url, base64)): The file to download
       
       Keyword Arg(s):
         download_text (str): The text to display on the button that will download the file
@@ -50,11 +50,11 @@ def display_iframe(url_or_html: str, **kwargs):
   button_text = kwargs.get('button_text', 'Next')
   return Page().display_iframe(url_or_html, **kwargs).run(button_text)
 
-def display_image(image_str: str, **kwargs):
+def display_image(image: typing.Union[str, io.IOBase], **kwargs):
   '''Display an image to the user
 
       Positional Arg(s):
-        image_str (str): The url or base64 encoding of the image to display to the user
+        image (file-like or str (path, url, base64)): The image to display to the user
       
       Keyword Arg(s):
         subtitle (str): The subtitle of the image
@@ -62,7 +62,7 @@ def display_image(image_str: str, **kwargs):
         
   '''
   button_text = kwargs.get('button_text', 'Next')
-  return Page().display_image(image_str, **kwargs).run(button_text)
+  return Page().display_image(image, **kwargs).run(button_text)
 
 def display_link(link_url: str, **kwargs):
   '''Display a link to the user
