@@ -31,7 +31,12 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
+          pip install black
           pip install pandas plotly pytest
+
+      - name: Lint
+        run: |
+          black ./hackerforms
 
       - name: Run Unit Tests
         run: pytest
