@@ -48,9 +48,6 @@ def receive(path: str = ''):
         return
     data = deserialize(ws.recv())
 
-    if data['type'] == 'keep-alive':
-        return receive(path)
-
     if not path:
         return data
     return data.get(path, None)
