@@ -5,8 +5,7 @@
 ###############################################################################
 from abc import abstractmethod, ABC
 from urllib.parse import quote
-from typing import Any, Union
-import io
+from typing import Any
 import json
 
 from validators import url
@@ -75,7 +74,7 @@ class MarkdownOutput(Output):
 class ImageOutput(Output):
     type = 'image-output'
 
-    def __init__(self, image: Union[str, io.IOBase], **kwargs):
+    def __init__(self, image, **kwargs):
         '''Display an image to the user
 
         Positional Arg(s):

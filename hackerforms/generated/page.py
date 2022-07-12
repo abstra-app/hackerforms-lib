@@ -444,7 +444,7 @@ class WidgetSchema:
     self.widgets.append(IFrameOutput(url_or_html, **kwargs))
     return self
   
-  def display_image(self, image: typing.Union[str, io.IOBase], **kwargs):
+  def display_image(self, **kwargs):
     '''Display an image to the user
       
 
@@ -460,7 +460,7 @@ class WidgetSchema:
       Returns:
         The form object
     '''
-    self.widgets.append(ImageOutput(image, **kwargs))
+    self.widgets.append(ImageOutput(**kwargs))
     return self
   
   def display_link(self, link_url: str, **kwargs):
