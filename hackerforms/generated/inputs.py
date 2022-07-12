@@ -5,7 +5,7 @@
 ###############################################################################
 
 import typing
-from typing import Dict
+import io
 from .page import Page
 
 def execute_js(code: str, **kwargs):

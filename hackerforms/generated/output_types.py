@@ -5,7 +5,8 @@
 ###############################################################################
 from abc import abstractmethod, ABC
 from urllib.parse import quote
-from typing import Any
+import io
+import typing
 import json
 
 from validators import url
@@ -74,7 +75,7 @@ class MarkdownOutput(Output):
 class ImageOutput(Output):
     type = 'image-output'
 
-    def __init__(self, image, **kwargs):
+    def __init__(self, image: typing.Union[str, io.IOBase], **kwargs):
         '''Display an image to the user
 
         Positional Arg(s):
@@ -133,7 +134,7 @@ class LinkOutput(Output):
 class FileOutput(Output):
     type = 'file-output'
 
-    def __init__(self, file: Any, **kwargs):
+    def __init__(self, file: typing.Union[str, io.IOBase], **kwargs):
         '''Display a button for the user to download a file
 
         Positional Arg(s):
@@ -186,7 +187,7 @@ class HTMLOutput(Output):
 class PandasOutput(Output):
     type = 'pandas-output'
 
-    def __init__(self, df: Any, **kwargs):
+    def __init__(self, df: typing.Any, **kwargs):
         '''Display a pandas dataframe to the user
 
         Positional Arg(s):
@@ -211,7 +212,7 @@ class PandasOutput(Output):
 class PlotlyOutput(Output):
     type = 'plotly-output'
 
-    def __init__(self, fig: Any, **kwargs):
+    def __init__(self, fig: typing.Any, **kwargs):
         '''Display a plotly figure to the user
 
         Positional Arg(s):

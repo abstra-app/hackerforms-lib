@@ -5,10 +5,10 @@
 ###############################################################################
 
 import typing
-from typing import Dict
+import io
 from .page import Page
 
-def display_file(file: typing.Any, **kwargs):
+def display_file(file: typing.Union[str, io.IOBase], **kwargs):
   '''Display a button for the user to download a file
 
       Positional Arg(s):
@@ -50,7 +50,7 @@ def display_iframe(url_or_html: str, **kwargs):
   button_text = kwargs.get('button_text', 'Next')
   return Page().display_iframe(url_or_html, **kwargs).run(button_text)
 
-def display_image(**kwargs):
+def display_image(image: typing.Union[str, io.IOBase], **kwargs):
   '''Display an image to the user
 
       Positional Arg(s):
@@ -62,7 +62,7 @@ def display_image(**kwargs):
         
   '''
   button_text = kwargs.get('button_text', 'Next')
-  return Page().display_image(**kwargs).run(button_text)
+  return Page().display_image(image, **kwargs).run(button_text)
 
 def display_link(link_url: str, **kwargs):
   '''Display a link to the user
