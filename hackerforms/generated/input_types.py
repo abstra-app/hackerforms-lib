@@ -614,7 +614,6 @@ class NumberInput(Input):
             "min": self.min,
             "max": self.max,
             "step": self.step,
-
         }
 
     def convert_answer(self, answer: int) -> int:
