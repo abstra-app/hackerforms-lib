@@ -369,6 +369,18 @@
           "description": "The initial value of the input",
           "default": 0
         },
+        "min": {
+          "type": "number",
+          "description": "The minimum value of the input"
+        },
+        "max": {
+          "type": "number",
+          "description": "The maximun value of the input"
+        },
+        "step": {
+          "type": "number",
+          "description": "The step for the input"
+        },
         "placeholder": {
           "type": "string",
           "description": "The placeholder text to display in the input",

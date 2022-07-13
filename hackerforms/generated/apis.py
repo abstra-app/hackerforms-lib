@@ -10,20 +10,18 @@ import urllib.response
 
 
 def upload_file(file):
-    response = requests.post("https://upload.abstra.cloud/hackerforms/upload",
-                             data=json.dumps({'filepath': file.name}),
-                             headers={'content-type': 'application/json'})
+    response = requests.post(
+        "https://upload.abstra.cloud/hackerforms/upload",
+        data=json.dumps({"filepath": file.name}),
+        headers={"content-type": "application/json"},
+    )
     response_json = json.loads(response.text)
 
     content = file.read()
-    content = str.encode(content) \
-        if not isinstance(content, bytes) \
-        else content
+    content = str.encode(content) if not isinstance(content, bytes) else content
 
     req = urllib.request.Request(
-        url=response_json["putURL"],
-        method='PUT',
-        data=content
+        url=response_json["putURL"], method="PUT", data=content
     )
     urllib.request.urlopen(req)
 

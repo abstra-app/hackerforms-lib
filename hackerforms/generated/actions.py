@@ -5,11 +5,14 @@
 ###############################################################################
 from ..socket import send
 
+
 def redirect(url):
-  send({ 
-    'type': 'action',
-    'action': {
-      'type': 'redirect',
-      'url': url,
-    }
-  })
+    send(
+        {
+            "type": "action",
+            "action": {
+                "type": "redirect",
+                "url": url,
+            },
+        }
+    )
