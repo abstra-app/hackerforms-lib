@@ -575,6 +575,9 @@ class NumberInput(Input):
         self.placeholder = kwargs.get('placeholder', 'Your answer here')
         self.columns = kwargs.get('columns', 1)
         self.full_width = kwargs.get('full_width', False)
+        self.min = kwargs.get('min')
+        self.max = kwargs.get('max')
+        self.step = kwargs.get('step')
 
     def json(self):
         return {
@@ -587,6 +590,9 @@ class NumberInput(Input):
             'hint': self.hint,
             'columns': self.columns,
             'fullWidth': self.full_width,
+            'min': self.min,
+            'max': self.max,
+            'step': self.step,
         }
 
     def convert_answer(self, answer: int) -> int:
