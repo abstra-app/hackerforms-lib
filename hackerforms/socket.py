@@ -46,6 +46,9 @@ def receive(path: str = ""):
         return
     data = deserialize(ws.recv())
 
+    if data['type'] == 'heartbeat':
+        return receive(path)
+
     if not path:
         return data
     return data.get(path, None)
