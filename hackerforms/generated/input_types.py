@@ -857,3 +857,49 @@ class HTMLListInput(Input):
             list, any: The options/option selected by the user
         """
         return answer
+
+
+class TimeInput(Input):
+    type = "time-input"
+
+    def __init__(self, key: str, message: str, **kwargs):
+        """Read a time value from the user
+
+        Positional Arg(s):
+            message (str): The message to display to the user
+
+        Keyword Arg(s):
+            button_text (str): The text to display on the button that will submit the value
+            initial_value (str): The initial value to display to the user
+            required (bool or str): Whether the input is required or not eg. "this field is required"
+            format (str): Whether the input is in the format 24hs or AM/PM. Default is 24hs.
+        """
+
+        super().__init__(key)
+        self.message = message
+        self.initial_value = kwargs.get("initial_value", "")
+        self.required = kwargs.get("required", True)
+        self.hint = kwargs.get("hint", None)
+        self.columns = kwargs.get("columns", 1)
+        self.full_width = kwargs.get("full_width", False)
+        self.format = kwargs.get("format", "24hs")
+
+    def json(self):
+        return {
+            "type": self.type,
+            "key": self.key,
+            "message": self.message,
+            "format": self.format,
+            "hint": self.hint,
+            "initialValue": self.initial_value,
+            "required": self.required,
+            "columns": self.columns,
+            "fullWidth": self.full_width,
+        }
+
+    def convert_answer(self, answer: str) -> str:
+        """
+        Returns:
+            str: The value selected by the user
+        """
+        return answer

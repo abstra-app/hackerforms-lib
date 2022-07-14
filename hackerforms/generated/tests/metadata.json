@@ -1031,6 +1031,58 @@
         }
       }
     },
+    "time-input": {
+      "name": "TimeInput",
+      "libFunc": "read_time",
+      "type": "time-input",
+      "description": "Read a time value from the user",
+      "params": {
+        "key": {
+          "type": "string",
+          "description": "The key of the input on the returning object"
+        },
+        "message": {
+          "type": "string",
+          "description": "The message to display above the input"
+        }
+      },
+      "optionals": {
+        "columns": {
+          "type": "number",
+          "description": "number of columns this input will take"
+        },
+        "fullWidth": {
+          "type": "boolean",
+          "description": "Whether the widget should take up the full width of the page"
+        },
+        "hint": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "message describing the input",
+          "default": null
+        },
+        "required": {
+          "type": [
+            "boolean",
+            "string"
+          ],
+          "description": "Whether the input is required or not",
+          "default": true
+        },
+        "initialValue": {
+          "type": "string",
+          "description": "The initial value of the input",
+          "default": null
+        },
+        "format": {
+          "type": "string",
+          "description": "The format of time options. 24hs (0-23) or ampm (0-12)",
+          "default": "24hs"
+        }
+      }
+    },
     "text-output": {
       "name": "TextOutput",
       "libFunc": "display_text",

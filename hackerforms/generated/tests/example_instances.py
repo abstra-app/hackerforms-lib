@@ -62,4 +62,5 @@ example_instances = [
         ],
         css="p {color: blue}",
     ),
+    TimeInput("time", "What's the meeting time?"),
 ]
