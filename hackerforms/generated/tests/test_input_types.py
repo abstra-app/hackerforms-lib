@@ -41,7 +41,7 @@ def assert_widgets_props_are_right(widget_example, metadata_widget):
         assert types_compatible(widget_example[prop], metadata_widget["params"][prop])
     for prop in metadata_widget["optionals"]:
         assert prop in widget_example
-        assert types_compatible(
+        assert widget_example[prop] is None or types_compatible(
             widget_example[prop], metadata_widget["optionals"][prop]
         )
     for prop in widget_example:
