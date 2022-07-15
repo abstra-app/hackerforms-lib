@@ -8,7 +8,6 @@ from urllib.parse import quote
 import io
 import typing
 import json
-
 from validators import url
 
 from .file_utils import convert_file

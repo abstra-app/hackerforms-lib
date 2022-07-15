@@ -35,9 +35,21 @@ example_instances = [
         "card",
         "What is your favorite color?",
         options=[
-            {"title": "red", "image": "redImage", "description": "red"},
-            {"title": "blue", "image": "blueImage", "description": "blue"},
-            {"title": "green", "image": "greenImage", "description": "green"},
+            {
+                "title": "red",
+                "image": "https://via.placeholder.com/150/FF0000/808080",
+                "description": "red",
+            },
+            {
+                "title": "blue",
+                "image": "https://via.placeholder.com/150/0000FF/808080",
+                "description": "blue",
+            },
+            {
+                "title": "green",
+                "image": "https://via.placeholder.com/150/00FF00/808080",
+                "description": "green",
+            },
         ],
     ),
     TextOutput("Hello, world!"),

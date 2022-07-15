@@ -9,6 +9,7 @@ import time
 import datetime
 import json
 
+from .file_utils import convert_file
 from .response_types import FileResponse, PhoneResponse
 
 
@@ -451,7 +452,9 @@ class CardsInput(Input):
             "key": self.key,
             "label": self.label,
             "hint": self.hint,
-            "options": self.options,
+            "options": [
+                {**opt, "image": convert_file(opt.get("image"))} for opt in self.options
+            ],
             "multiple": self.multiple,
             "searchable": self.searchable,
             "initialValue": self.initial_value,
