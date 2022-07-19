@@ -215,6 +215,31 @@ def read_pandas_row_selection(df: typing.Any, **kwargs):
   button_text = kwargs.get('button_text', 'Next')
   return get_single_value(Page().read_pandas_row_selection(df, **kwargs).run(button_text))
 
+def read_password(message: str, **kwargs):
+  '''Read a password value from the user
+
+      Positional Arg(s):
+        message (str): The message to display to the user
+      
+      Keyword Arg(s):
+        button_text (str): The text to display on the button that will submit the value
+        placeholder (str): The placeholder text to display to the user
+        required (bool or str): Whether the input is required or not eg. "this field is required"
+        lowercase_required (bool or str): Whether the input must have at least one lowercase character
+        uppercase_required (bool or str): Whether the input must have at least one uppercase character
+        special_required (bool or str): Whether the input must have at least one special character
+        digit_required (bool or str): Whether the input must have at least one digit
+        min_length (int): Minimum length of the password
+        max_length (int): Maximum length of the password
+        size (int): Size of the password
+        pattern (str): A regex pattern for the accepted password
+        
+        Returns:
+            str: The value entered by the user
+        '''
+  button_text = kwargs.get('button_text', 'Next')
+  return get_single_value(Page().read_password(message, **kwargs).run(button_text))
+
 def read_phone(message: str, **kwargs):
   '''Read a phone number value from the user
 

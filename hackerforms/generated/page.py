@@ -281,6 +281,34 @@ class WidgetSchema:
     self.widgets.append(PandasRowSelectionInput(key, df, **kwargs))
     return self
   
+  def read_password(self, message: str, **kwargs):
+    '''Read a password value from the user
+
+      Positional Arg(s):
+        message (str): The message to display to the user
+      
+      Keyword Arg(s):
+        placeholder (str): The placeholder text to display to the user
+        required (bool or str): Whether the input is required or not eg. "this field is required"
+        lowercase_required (bool or str): Whether the input must have at least one lowercase character
+        uppercase_required (bool or str): Whether the input must have at least one uppercase character
+        special_required (bool or str): Whether the input must have at least one special character
+        digit_required (bool or str): Whether the input must have at least one digit
+        min_length (int): Minimum length of the password
+        max_length (int): Maximum length of the password
+        size (int): Size of the password
+        pattern (str): A regex pattern for the accepted password
+        columns: The number of columns of the input
+        key: The key of the input's value on the form result. Defaults to the message arg
+        
+
+      Returns:
+        The form object
+    '''
+    key = kwargs.pop('key', message)
+    self.widgets.append(PasswordInput(key, message, **kwargs))
+    return self
+  
   def read_phone(self, message: str, **kwargs):
     '''Read a phone number value from the user
 

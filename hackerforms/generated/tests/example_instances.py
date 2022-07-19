@@ -75,4 +75,5 @@ example_instances = [
         css="p {color: blue}",
     ),
     TimeInput("time", "What's the meeting time?"),
+    PasswordInput("password", "Insert your password"),
 ]

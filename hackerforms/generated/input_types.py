@@ -906,3 +906,71 @@ class TimeInput(Input):
             str: The value selected by the user
         """
         return answer
+
+
+class PasswordInput(Input):
+    type = "password-input"
+
+    def __init__(self, key: str, message: str, **kwargs):
+        """Read a password value from the user
+
+        Positional Arg(s):
+            message (str): The message to display to the user
+
+        Keyword Arg(s):
+            button_text (str): The text to display on the button that will submit the value
+            placeholder (str): The placeholder text to display to the user
+            required (bool or str): Whether the input is required or not eg. "this field is required"
+            lowercase_required (bool or str): Whether the input must have at least one lowercase character
+            uppercase_required (bool or str): Whether the input must have at least one uppercase character
+            special_required (bool or str): Whether the input must have at least one special character
+            digit_required (bool or str): Whether the input must have at least one digit
+            min_length (int): Minimum length of the password
+            max_length (int): Maximum length of the password
+            size (int): Size of the password
+            pattern (str): A regex pattern for the accepted password
+        """
+        super().__init__(key)
+        self.message = message
+        self.hint = kwargs.get("hint", None)
+        self.required = kwargs.get("required", True)
+        self.columns = kwargs.get("columns", 1)
+        self.full_width = kwargs.get("full_width", False)
+        self.lowercase_required = kwargs.get("lowercase_required", True)
+        self.uppercase_required = kwargs.get("uppercase_required", True)
+        self.special_required = kwargs.get("special_required", True)
+        self.digit_required = kwargs.get("digit_required", True)
+        self.min_length = kwargs.get("min_length", 8)
+        self.max_length = kwargs.get("max_length", None)
+        self.size = kwargs.get("size", None)
+        self.pattern = kwargs.get("pattern", None)
+        self.autocomplete = kwargs.get("autocomplete", "current-password")
+        self.placeholder = kwargs.get("placeholder", "")
+
+    def json(self):
+        return {
+            "type": self.type,
+            "key": self.key,
+            "message": self.message,
+            "hint": self.hint,
+            "required": self.required,
+            "columns": self.columns,
+            "fullWidth": self.full_width,
+            "lowercaseRequired": self.lowercase_required,
+            "uppercaseRequired": self.uppercase_required,
+            "specialRequired": self.special_required,
+            "digitRequired": self.digit_required,
+            "minLength": self.min_length,
+            "maxLength": self.max_length,
+            "size": self.size,
+            "pattern": self.pattern,
+            "autocomplete": self.autocomplete,
+            "placeholder": self.placeholder,
+        }
+
+    def convert_answer(self, answer: str) -> str:
+        """
+        Returns:
+            str: The value entered by the user
+        """
+        return answer
