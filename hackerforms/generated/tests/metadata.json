@@ -1083,6 +1083,119 @@
         }
       }
     },
+    "password-input": {
+      "name": "PasswordInput",
+      "libFunc": "read_password",
+      "type": "password-input",
+      "description": "Read a password value from the user",
+      "params": {
+        "key": {
+          "type": "string",
+          "description": "The key of the input on the returning object"
+        },
+        "message": {
+          "type": "string",
+          "description": "The message to display above the input"
+        }
+      },
+      "optionals": {
+        "columns": {
+          "type": "number",
+          "description": "number of columns this input will take"
+        },
+        "fullWidth": {
+          "type": "boolean",
+          "description": "Whether the widget should take up the full width of the page"
+        },
+        "hint": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "message describing the input",
+          "default": null
+        },
+        "placeholder": {
+          "type": "string",
+          "description": "The placeholder text to display in the input",
+          "default": "Your password here"
+        },
+        "required": {
+          "type": [
+            "boolean",
+            "string"
+          ],
+          "description": "Whether the input is required or not",
+          "default": true
+        },
+        "lowercaseRequired": {
+          "type": [
+            "boolean",
+            "string"
+          ],
+          "description": "Whether the input must have at least one lowercase character",
+          "default": true
+        },
+        "uppercaseRequired": {
+          "type": [
+            "boolean",
+            "string"
+          ],
+          "description": "Whether the input must have at least one uppercase character",
+          "default": true
+        },
+        "specialRequired": {
+          "type": [
+            "boolean",
+            "string"
+          ],
+          "description": "Whether the input must have at least one special character",
+          "default": true
+        },
+        "digitRequired": {
+          "type": [
+            "boolean",
+            "string"
+          ],
+          "description": "Whether the input must have at least one digit",
+          "default": true
+        },
+        "minLength": {
+          "type": "number",
+          "description": "Minimum length of the password",
+          "default": 8
+        },
+        "maxLength": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "description": "Maximum length of the password",
+          "default": null
+        },
+        "size": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "description": "Size of the password",
+          "default": null
+        },
+        "pattern": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "A regex pattern for the accepted password",
+          "default": null
+        },
+        "autocomplete": {
+          "type": "string",
+          "description": "Allow the user's password manager to automatically enter the password",
+          "default": "current-password"
+        }
+      }
+    },
     "text-output": {
       "name": "TextOutput",
       "libFunc": "display_text",
@@ -1245,6 +1358,10 @@
               }
             }
           }
+        },
+        "displayIndex": {
+          "type": "boolean",
+          "default": false
         }
       },
       "optionals": {
