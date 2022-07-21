@@ -197,6 +197,7 @@ class PandasOutput(Output):
         self.df = df
         self.columns = kwargs.get("columns", 1)
         self.full_width = kwargs.get("full_width", False)
+        self.display_index = kwargs.get("display_index", False)
 
     def json(self):
         return {
@@ -204,6 +205,7 @@ class PandasOutput(Output):
             "table": json.loads(self.df.to_json(orient="table")),
             "columns": self.columns,
             "fullWidth": self.full_width,
+            "displayIndex": self.display_index,
         }
 
 
