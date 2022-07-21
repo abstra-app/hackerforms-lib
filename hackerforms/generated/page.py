@@ -609,6 +609,8 @@ class WidgetSchema:
         self.widgets.append(TextOutput(message, **kwargs))
         return self
 
+    input = read
+
 
 class Page(WidgetSchema):
     """A form page that can be displayed to the user
