@@ -55,10 +55,10 @@ class WidgetSchema:
     def read_cards(self, label: str, options: typing.Any, **kwargs):
         """Read cards from the user
 
-        Positional Arg(s):
+        Positional Args:
           label (str): The text related to this fieldoptions (list): The options to display to the user, eg. [{'title': 'Option 1', 'image': 'https://image_1.png', 'description': 'option 1 description'},{'title': 'Option 2', 'image': 'https://image_2.png', 'description': 'option 2 description'}]
 
-        Keyword Arg(s):
+        Keyword Args:
           multiple (bool): Whether the user can select multiple options
           initial_value (list): The initial value to display to the user
           required (bool or str): Whether the input is required or not eg. "this field is required"
@@ -76,10 +76,10 @@ class WidgetSchema:
     def read_date(self, message: str, **kwargs):
         """Read a date value from the user
 
-        Positional Arg(s):
+        Positional Args:
           message (str): The message to display to the user
 
-        Keyword Arg(s):
+        Keyword Args:
           initial_value (datetime.date or time.struct_time or str (YYYY-MM-DD)): The initial value to display to the user
           required (bool or str): Whether the input is required or not eg. "this field is required"
           columns: The number of columns of the input
@@ -101,10 +101,10 @@ class WidgetSchema:
     ):
         """Read a dropdown value from the user
 
-        Positional Arg(s):
+        Positional Args:
           message (str): The message to display to the useroptions (list): The options to display to the user, eg. ['Option 1', 'Option 2'] or [{'label': 'Option 1', 'value': '1'}, {'label': 'Option 2', 'value': '2'}]
 
-        Keyword Arg(s):
+        Keyword Args:
           multiple (bool): Whether the user can select multiple options
           initial_value: The initial value to display to the user
           placeholder (str): The placeholder text to display to the user
@@ -123,10 +123,10 @@ class WidgetSchema:
     def read_email(self, message: str, **kwargs):
         """Read an email value from the user
 
-        Positional Arg(s):
+        Positional Args:
           message (str): The message to display to the user
 
-        Keyword Arg(s):
+        Keyword Args:
           initial_value (str): The initial value to display to the user
           placeholder (str): The placeholder text to display to the user
           required (bool or str): Whether the input is required or not eg. "this field is required"
@@ -144,10 +144,10 @@ class WidgetSchema:
     def read_file(self, message: str, **kwargs):
         """Read a file value from the user
 
-        Positional Arg(s):
+        Positional Args:
           message (str): The message to display to the user
 
-        Keyword Arg(s):
+        Keyword Args:
           initial_value (str): The initial value to display to the user
           required (bool or str): Whether the input is required or not eg. "this field is required"
           columns: The number of columns of the input
@@ -164,10 +164,10 @@ class WidgetSchema:
     def read_html_list(self, label: str, options: typing.Any, **kwargs):
         """Read list of html values from the user
 
-        Positional Arg(s):
+        Positional Args:
           label (str): The text related to this fieldoptions (list): The options to display to the user, eg. [{'html': '<div class="container"><p>Info 1A</><p>Info 1B</p></div>', 'value': 'info1'},{'html': '<div class="container"><p>Info 2A</><p>Info 2B</p></div>', 'value': 'info2'}]
 
-        Keyword Arg(s):
+        Keyword Args:
           css (str): The css related to the html item in options
           multiple (bool): Whether the user can select multiple options
           initial_value (list): The initial value to display to the user
@@ -186,10 +186,10 @@ class WidgetSchema:
     def read_image(self, message: str, **kwargs):
         """Read a image file value from the user
 
-        Positional Arg(s):
+        Positional Args:
           message (str): The message to display to the user
 
-        Keyword Arg(s):
+        Keyword Args:
           initial_value (str): The initial value to display to the user
           required (bool or str): Whether the input is required or not eg. "this field is required"
           columns: The number of columns of the input
@@ -206,10 +206,10 @@ class WidgetSchema:
     def read_list(self, item_schema: typing.Any, **kwargs):
         """Read a list value from the user
 
-        Positional Arg(s):
+        Positional Args:
           item_schema (ListItemSchema): The schema for the items of the list
 
-        Keyword Arg(s):
+        Keyword Args:
           columns: The number of columns of the input
           key: The key of the input's value on the form result. Defaults to the "result" arg
 
@@ -229,10 +229,10 @@ class WidgetSchema:
     ):
         """Read a multiple choice value from the user
 
-        Positional Arg(s):
+        Positional Args:
           message (str): The message to display to the useroptions (list): The options to display to the user, eg. ['Option 1', 'Option 2'] or [{'label': 'Option 1', 'value': '1'}, {'label': 'Option 2', 'value': '2'}]
 
-        Keyword Arg(s):
+        Keyword Args:
           multiple (bool): Whether the user can select multiple options
           initial_value: The initial value to display to the user
           required (bool or str): Whether the input is required or not eg. "this field is required"
@@ -250,10 +250,10 @@ class WidgetSchema:
     def read_number(self, message: str, **kwargs):
         """Read a number value from the user
 
-        Positional Arg(s):
+        Positional Args:
           message (str): The message to display to the user
 
-        Keyword Arg(s):
+        Keyword Args:
           message (str): The message to display to the user
           initial_value (str): The initial value to display to the user
           placeholder (str): The placeholder text to display to the user
@@ -272,10 +272,10 @@ class WidgetSchema:
     def read_pandas_row_selection(self, df: typing.Any, **kwargs):
         """Display a pandas dataframe as a table and allow the user to select rows
 
-        Positional Arg(s):
+        Positional Args:
           df (pandas.DataFrame): The pandas dataframe to be displayed
 
-        Keyword Arg(s):
+        Keyword Args:
           required: Whether the input is required or not
           columns: The number of columns of the input
           key: The key of the input's value on the form result. Defaults to the "result" arg
@@ -291,10 +291,10 @@ class WidgetSchema:
     def read_password(self, message: str, **kwargs):
         """Read a password value from the user
 
-        Positional Arg(s):
+        Positional Args:
           message (str): The message to display to the user
 
-        Keyword Arg(s):
+        Keyword Args:
           placeholder (str): The placeholder text to display to the user
           required (bool or str): Whether the input is required or not eg. "this field is required"
           lowercase_required (bool or str): Whether the input must have at least one lowercase character
@@ -319,10 +319,10 @@ class WidgetSchema:
     def read_phone(self, message: str, **kwargs):
         """Read a phone number value from the user
 
-        Positional Arg(s):
+        Positional Args:
           message (str): The message to display to the user
 
-        Keyword Arg(s):
+        Keyword Args:
           initial_value (str): The initial value to display to the user
           placeholder (str): The placeholder text to display to the user
           required (bool or str): Whether the input is required or not eg. "this field is required"
@@ -340,10 +340,10 @@ class WidgetSchema:
     def read_tag(self, message: str, **kwargs):
         """Read a tag value from the user
 
-        Positional Arg(s):
+        Positional Args:
           message (str): The message to display to the user
 
-        Keyword Arg(s):
+        Keyword Args:
           initial_value (str or float): The initial value to display to the user
           required (bool or str): Whether the input is required or not eg. "this field is required"
           columns: The number of columns of the input
@@ -360,10 +360,10 @@ class WidgetSchema:
     def read(self, message: str, **kwargs):
         """Read a text value from the user simple text input
 
-        Positional Arg(s):
+        Positional Args:
           message (str): The message to display to the user
 
-        Keyword Arg(s):
+        Keyword Args:
           initial_value (str): The initial value to display to the user
           placeholder (str): The placeholder text to display to the user
           required (bool or str): Whether the input is required or not eg. "this field is required"
@@ -382,10 +382,10 @@ class WidgetSchema:
     def read_textarea(self, message: str, **kwargs):
         """Read a text value from the user with a text area input
 
-        Positional Arg(s):
+        Positional Args:
           message (str): The message to display to the user
 
-        Keyword Arg(s):
+        Keyword Args:
           initial_value (str): The initial value to display to the user
           placeholder (str): The placeholder text to display to the user
           required (bool or str): Whether the input is required or not eg. "this field is required"
@@ -403,10 +403,10 @@ class WidgetSchema:
     def read_time(self, message: str, **kwargs):
         """Read a time value from the user
 
-        Positional Arg(s):
+        Positional Args:
           message (str): The message to display to the user
 
-        Keyword Arg(s):
+        Keyword Args:
           initial_value (str): The initial value to display to the user
           required (bool or str): Whether the input is required or not eg. "this field is required"
           format (str): Whether the input is in the format 24hs or AM/PM. Default is 24hs.
@@ -424,10 +424,10 @@ class WidgetSchema:
     def read_video(self, message: str, **kwargs):
         """Read a video file value from the user
 
-        Positional Arg(s):
+        Positional Args:
           message (str): The message to display to the user
 
-        Keyword Arg(s):
+        Keyword Args:
           initial_value (str): The initial value to display to the user
           required (bool or str): Whether the input is required or not eg. "this field is required"
           columns: The number of columns of the input
@@ -445,11 +445,11 @@ class WidgetSchema:
         """Display a button for the user to download a file
 
 
-        Positional Arg(s):
+        Positional Args:
           file (file-like or str (path, url, base64)): The file to download
 
 
-        Keyword Arg(s):
+        Keyword Args:
           download_text (str): The text to display on the button that will download the file
           columns: The number of columns of the input
 
@@ -464,11 +464,11 @@ class WidgetSchema:
         """Display a html snippet to the user
 
 
-        Positional Arg(s):
+        Positional Args:
           html (str): The html snippet to display to the user
 
 
-        Keyword Arg(s):
+        Keyword Args:
           columns: The number of columns of the input
 
 
@@ -482,11 +482,11 @@ class WidgetSchema:
         """Display an inline iframe to the user
 
 
-        Positional Arg(s):
+        Positional Args:
           url_or_html (str): The link to the document or the own document to display to the user
 
 
-        Keyword Arg(s):
+        Keyword Args:
           width (int): The width of the iframe
           height (int): The height of the iframe
           columns: The number of columns of the input
@@ -502,11 +502,11 @@ class WidgetSchema:
         """Display an image to the user
 
 
-        Positional Arg(s):
+        Positional Args:
           image (file-like or str (path, url, base64)): The image to display to the user
 
 
-        Keyword Arg(s):
+        Keyword Args:
           subtitle (str): The subtitle of the image
           columns: The number of columns of the input
 
@@ -521,11 +521,11 @@ class WidgetSchema:
         """Display a link to the user
 
 
-        Positional Arg(s):
+        Positional Args:
           link_url (str): The url of the link to display to the user
 
 
-        Keyword Arg(s):
+        Keyword Args:
           link_text (str): The text to display on the link
           same_tab (bool): Whether to open the link in the same tab or not
           columns: The number of columns of the input
@@ -541,11 +541,11 @@ class WidgetSchema:
         """Display a formatted text to the user
 
 
-        Positional Arg(s):
+        Positional Args:
           text (str): The formatted text to display to the user
 
 
-        Keyword Arg(s):
+        Keyword Args:
           columns: The number of columns of the input
 
 
@@ -559,11 +559,11 @@ class WidgetSchema:
         """Display a pandas dataframe to the user
 
 
-        Positional Arg(s):
+        Positional Args:
           df (pandas.DataFrame): The dataframe to display to the user
 
 
-        Keyword Arg(s):
+        Keyword Args:
           columns: The number of columns of the input
 
 
@@ -577,11 +577,11 @@ class WidgetSchema:
         """Display a plotly figure to the user
 
 
-        Positional Arg(s):
+        Positional Args:
           fig (plotly.Figure): The figure to display to the user
 
 
-        Keyword Arg(s):
+        Keyword Args:
           columns: The number of columns of the input
 
 
@@ -595,11 +595,11 @@ class WidgetSchema:
         """Display a message to the user
 
 
-        Positional Arg(s):
+        Positional Args:
           message (str): The message to display to the user
 
 
-        Keyword Arg(s):
+        Keyword Args:
           columns: The number of columns of the input
 
 

@@ -34,10 +34,10 @@ class TextInput(Input):
     def __init__(self, key: str, message: str, **kwargs):
         """Read a text value from the user simple text input
 
-        Positional Arg(s):
+        Positional Args:
             message (str): The message to display to the user
 
-        Keyword Arg(s):
+        Keyword Args:
             button_text (str): The text to display on the button that will submit the value
             initial_value (str): The initial value to display to the user
             placeholder (str): The placeholder text to display to the user
@@ -106,10 +106,10 @@ class TagInput(Input):
     def __init__(self, key: str, message: str, **kwargs):
         """Read a tag value from the user
 
-        Positional Arg(s):
+        Positional Args:
             message (str): The message to display to the user
 
-        Keyword Arg(s):
+        Keyword Args:
             button_text (str): The text to display on the button that will submit the value
             initial_value (str or float): The initial value to display to the user
             required (bool or str): Whether the input is required or not eg. "this field is required"
@@ -153,10 +153,10 @@ class DateInput(Input):
     def __init__(self, key: str, message: str, **kwargs):
         """Read a date value from the user
 
-        Positional Arg(s):
+        Positional Args:
             message (str): The message to display to the user
 
-        Keyword Arg(s):
+        Keyword Args:
             button_text (str): The text to display on the button that will submit the value
             initial_value (datetime.date or time.struct_time or str (YYYY-MM-DD)): The initial value to display to the user
             required (bool or str): Whether the input is required or not eg. "this field is required"
@@ -215,10 +215,10 @@ class FileInput(Input):
     def __init__(self, key: str, message: str, **kwargs):
         """Read a file value from the user
 
-        Positional Arg(s):
+        Positional Args:
             message (str): The message to display to the user
 
-        Keyword Arg(s):
+        Keyword Args:
             button_text (str): The text to display on the button that will submit the value
             initial_value (str): The initial value to display to the user
             required (bool or str): Whether the input is required or not eg. "this field is required"
@@ -266,10 +266,10 @@ class ImageInput(Input):
     def __init__(self, key: str, message: str, **kwargs):
         """Read a image file value from the user
 
-        Positional Arg(s):
+        Positional Args:
             message (str): The message to display to the user
 
-        Keyword Arg(s):
+        Keyword Args:
             button_text (str): The text to display on the button that will submit the value
             initial_value (str): The initial value to display to the user
             required (bool or str): Whether the input is required or not eg. "this field is required"
@@ -316,10 +316,10 @@ class VideoInput(Input):
     def __init__(self, key: str, message: str, **kwargs):
         """Read a video file value from the user
 
-        Positional Arg(s):
+        Positional Args:
             message (str): The message to display to the user
 
-        Keyword Arg(s):
+        Keyword Args:
             button_text (str): The text to display on the button that will submit the value
             initial_value (str): The initial value to display to the user
             required (bool or str): Whether the input is required or not eg. "this field is required"
@@ -372,11 +372,11 @@ class MultipleChoiceInput(Input):
     ):
         """Read a multiple choice value from the user
 
-        Positional Arg(s):
+        Positional Args:
             message (str): The message to display to the user
             options (list): The options to display to the user, eg. ['Option 1', 'Option 2'] or [{'label': 'Option 1', 'value': '1'}, {'label': 'Option 2', 'value': '2'}]
 
-        Keyword Arg(s):
+        Keyword Args:
             multiple (bool): Whether the user can select multiple options
             button_text (str): The text to display on the button that will submit the value
             initial_value: The initial value to display to the user
@@ -422,13 +422,13 @@ class CardsInput(Input):
     def __init__(self, key: str, label: str, options: typing.Any, **kwargs):
         """Read cards from the user
 
-        Positional Arg(s):
+        Positional Args:
             label (str): The text related to this field
             options (list): The options to display to the user, eg. [
                                 {'title': 'Option 1', 'image': 'https://image_1.png', 'description': 'option 1 description'},
                                 {'title': 'Option 2', 'image': 'https://image_2.png', 'description': 'option 2 description'}]
 
-        Keyword Arg(s):
+        Keyword Args:
             multiple (bool): Whether the user can select multiple options
             button_text (str): The text to display on the button that will submit the value
             initial_value (list): The initial value to display to the user
@@ -484,11 +484,11 @@ class DropdownInput(Input):
     ):
         """Read a dropdown value from the user
 
-        Positional Arg(s):
+        Positional Args:
             message (str): The message to display to the user
             options (list): The options to display to the user, eg. ['Option 1', 'Option 2'] or [{'label': 'Option 1', 'value': '1'}, {'label': 'Option 2', 'value': '2'}]
 
-        Keyword Arg(s):
+        Keyword Args:
             multiple (bool): Whether the user can select multiple options
             button_text (str): The text to display on the button that will submit the value
             initial_value: The initial value to display to the user
@@ -535,10 +535,10 @@ class TextareaInput(Input):
     def __init__(self, key: str, message: str, **kwargs):
         """Read a text value from the user with a text area input
 
-        Positional Arg(s):
+        Positional Args:
             message (str): The message to display to the user
 
-        Keyword Arg(s):
+        Keyword Args:
             button_text (str): The text to display on the button that will submit the value
             initial_value (str): The initial value to display to the user
             placeholder (str): The placeholder text to display to the user
@@ -581,10 +581,10 @@ class NumberInput(Input):
     def __init__(self, key: str, message: str, **kwargs):
         """Read a number value from the user
 
-        Positional Arg(s):
+        Positional Args:
             message (str): The message to display to the user
 
-        Keyword Arg(s):
+        Keyword Args:
             message (str): The message to display to the user
             button_text (str): The text to display on the button that will submit the value
             initial_value (str): The initial value to display to the user
@@ -633,10 +633,10 @@ class EmailInput(Input):
     def __init__(self, key: str, message: str, **kwargs):
         """Read an email value from the user
 
-        Positional Arg(s):
+        Positional Args:
             message (str): The message to display to the user
 
-        Keyword Arg(s):
+        Keyword Args:
             button_text (str): The text to display on the button that will submit the value
             initial_value (str): The initial value to display to the user
             placeholder (str): The placeholder text to display to the user
@@ -678,10 +678,10 @@ class PhoneInput(Input):
     def __init__(self, key: str, message: str, **kwargs):
         """Read a phone number value from the user
 
-        Positional Arg(s):
+        Positional Args:
             message (str): The message to display to the user
 
-        Keyword Arg(s):
+        Keyword Args:
             button_text (str): The text to display on the button that will submit the value
             initial_value (str): The initial value to display to the user
             placeholder (str): The placeholder text to display to the user
@@ -727,10 +727,10 @@ class ListInput(Input):
     def __init__(self, key: str, item_schema: typing.Any, **kwargs):
         """Read a list value from the user
 
-        Positional Arg(s):
+        Positional Args:
             item_schema (ListItemSchema): The schema for the items of the list
 
-        Keyword Arg(s):
+        Keyword Args:
             button_text (str): The text to display on the button that will submit the value
         """
         super().__init__(key)
@@ -772,10 +772,10 @@ class PandasRowSelectionInput(Input):
     def __init__(self, key: str, df: typing.Any, **kwargs):
         """Display a pandas dataframe as a table and allow the user to select rows
 
-        Positional Arg(s):
+        Positional Args:
             df (pandas.DataFrame): The pandas dataframe to be displayed
 
-        Keyword Arg(s):
+        Keyword Args:
             required: Whether the input is required or not
             button_text (string): The text to display on the next step button
 
@@ -812,13 +812,13 @@ class HTMLListInput(Input):
     def __init__(self, key: str, label: str, options: typing.Any, **kwargs):
         """Read list of html values from the user
 
-        Positional Arg(s):
+        Positional Args:
             label (str): The text related to this field
             options (list): The options to display to the user, eg. [
                                 {'html': '<div class="container"><p>Info 1A</><p>Info 1B</p></div>', 'value': 'info1'},
                                 {'html': '<div class="container"><p>Info 2A</><p>Info 2B</p></div>', 'value': 'info2'}]
 
-        Keyword Arg(s):
+        Keyword Args:
             css (str): The css related to the html item in options
             multiple (bool): Whether the user can select multiple options
             button_text (str): The text to display on the button that will submit the value
@@ -867,10 +867,10 @@ class TimeInput(Input):
     def __init__(self, key: str, message: str, **kwargs):
         """Read a time value from the user
 
-        Positional Arg(s):
+        Positional Args:
             message (str): The message to display to the user
 
-        Keyword Arg(s):
+        Keyword Args:
             button_text (str): The text to display on the button that will submit the value
             initial_value (str): The initial value to display to the user
             required (bool or str): Whether the input is required or not eg. "this field is required"
@@ -913,10 +913,10 @@ class PasswordInput(Input):
     def __init__(self, key: str, message: str, **kwargs):
         """Read a password value from the user
 
-        Positional Arg(s):
+        Positional Args:
             message (str): The message to display to the user
 
-        Keyword Arg(s):
+        Keyword Args:
             button_text (str): The text to display on the button that will submit the value
             placeholder (str): The placeholder text to display to the user
             required (bool or str): Whether the input is required or not eg. "this field is required"

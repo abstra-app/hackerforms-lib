@@ -11,10 +11,10 @@ from .page import Page
 def display_file(file: typing.Union[str, io.IOBase], **kwargs):
     """Display a button for the user to download a file
 
-    Positional Arg(s):
+    Positional Args:
       file (file-like or str (path, url, base64)): The file to download
 
-    Keyword Arg(s):
+    Keyword Args:
       download_text (str): The text to display on the button that will download the file
       button_text (str): The text to display on the button that will continue the form
 
@@ -26,10 +26,10 @@ def display_file(file: typing.Union[str, io.IOBase], **kwargs):
 def display_html(html: str, **kwargs):
     """Display a html snippet to the user
 
-    Positional Arg(s):
+    Positional Args:
       html (str): The html snippet to display to the user
 
-    Keyword Arg(s):
+    Keyword Args:
       button_text (str): The text to display on the button that will continue the form
 
     """
@@ -40,10 +40,10 @@ def display_html(html: str, **kwargs):
 def display_iframe(url_or_html: str, **kwargs):
     """Display an inline iframe to the user
 
-    Positional Arg(s):
+    Positional Args:
       url_or_html (str): The link to the document or the own document to display to the user
 
-    Keyword Arg(s):
+    Keyword Args:
       width (int): The width of the iframe
       height (int): The height of the iframe
       button_text (str): The text to display on the button that will continue the form
@@ -56,10 +56,10 @@ def display_iframe(url_or_html: str, **kwargs):
 def display_image(image: typing.Union[str, io.IOBase], **kwargs):
     """Display an image to the user
 
-    Positional Arg(s):
+    Positional Args:
       image (file-like or str (path, url, base64)): The image to display to the user
 
-    Keyword Arg(s):
+    Keyword Args:
       subtitle (str): The subtitle of the image
       button_text (str): The text to display on the button that will continue the form
 
@@ -71,10 +71,10 @@ def display_image(image: typing.Union[str, io.IOBase], **kwargs):
 def display_link(link_url: str, **kwargs):
     """Display a link to the user
 
-    Positional Arg(s):
+    Positional Args:
       link_url (str): The url of the link to display to the user
 
-    Keyword Arg(s):
+    Keyword Args:
       link_text (str): The text to display on the link
       button_text (str): The text to display on the button that will continue the form
       same_tab (bool): Whether to open the link in the same tab or not
@@ -87,10 +87,10 @@ def display_link(link_url: str, **kwargs):
 def display_markdown(text: str, **kwargs):
     """Display a formatted text to the user
 
-    Positional Arg(s):
+    Positional Args:
       text (str): The formatted text to display to the user
 
-    Keyword Arg(s):
+    Keyword Args:
       button_text (str): The text to display on the button that will continue the form
 
     """
@@ -101,10 +101,10 @@ def display_markdown(text: str, **kwargs):
 def display_pandas(df: typing.Any, **kwargs):
     """Display a pandas dataframe to the user
 
-    Positional Arg(s):
+    Positional Args:
       df (pandas.DataFrame): The dataframe to display to the user
 
-    Keyword Arg(s):
+    Keyword Args:
       button_text (str): The text to display on the button that will continue the form
 
     """
@@ -115,10 +115,10 @@ def display_pandas(df: typing.Any, **kwargs):
 def display_plotly(fig: typing.Any, **kwargs):
     """Display a plotly figure to the user
 
-    Positional Arg(s):
+    Positional Args:
       fig (plotly.Figure): The figure to display to the user
 
-    Keyword Arg(s):
+    Keyword Args:
       button_text (str): The text to display on the button that will continue the form
 
     """
@@ -129,10 +129,10 @@ def display_plotly(fig: typing.Any, **kwargs):
 def display(message: str, **kwargs):
     """Display a message to the user
 
-    Positional Arg(s):
+    Positional Args:
       message (str): The message to display to the user
 
-    Keyword Arg(s):
+    Keyword Args:
       button_text (str): The text to display on the button that will continue the form
 
     """
