@@ -1358,6 +1358,10 @@
               }
             }
           }
+        },
+        "displayIndex": {
+          "type": "boolean",
+          "default": false
         }
       },
       "optionals": {
