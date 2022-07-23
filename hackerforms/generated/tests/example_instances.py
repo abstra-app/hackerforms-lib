@@ -75,4 +75,5 @@ example_instances = [
     ),
     TimeInput("time", "What's the meeting time?"),
     PasswordInput("password", "Insert your password"),
+    CodeInput("code", "Hello", language="python"),
 ]

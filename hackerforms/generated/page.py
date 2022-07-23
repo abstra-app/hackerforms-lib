@@ -73,6 +73,27 @@ class WidgetSchema:
         self.widgets.append(CardsInput(key, label, options, **kwargs))
         return self
 
+    def read_code(self, label: str, **kwargs):
+        """Read a code snippet from the user with a text highlight
+
+        Positional Args:
+          label (str): The label to display to the user
+
+        Keyword Args:
+          initial_value (str): The initial value to display to the user
+          required (bool or str): Whether the input is required or not eg. "this field is required"
+          language (str): The programming language
+          columns: The number of columns of the input
+          key: The key of the input's value on the form result. Defaults to the label arg
+
+
+        Returns:
+          The form object
+        """
+        key = kwargs.pop("key", label)
+        self.widgets.append(CodeInput(key, label, **kwargs))
+        return self
+
     def read_date(self, message: str, **kwargs):
         """Read a date value from the user
 

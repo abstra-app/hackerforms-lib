@@ -575,6 +575,52 @@ class TextareaInput(Input):
         return answer
 
 
+class CodeInput(Input):
+    type = "code-input"
+
+    def __init__(self, key: str, label: str, **kwargs):
+        """Read a code snippet from the user with a text highlight
+
+        Positional Args:
+            label (str): The label to display to the user
+
+        Keyword Args:
+            button_text (str): The text to display on the button that will submit the value
+            initial_value (str): The initial value to display to the user
+            required (bool or str): Whether the input is required or not eg. "this field is required"
+            language (str): The programming language
+
+        """
+        super().__init__(key)
+        self.label = label
+        self.initial_value = kwargs.get("initial_value", "")
+        self.required = kwargs.get("required", True)
+        self.language = kwargs.get("language", None)
+        self.columns = kwargs.get("columns", 1)
+        self.hint = kwargs.get("hint", None)
+        self.full_width = kwargs.get("full_width", False)
+
+    def json(self):
+        return {
+            "type": self.type,
+            "key": self.key,
+            "label": self.label,
+            "initialValue": self.initial_value,
+            "language": self.language,
+            "required": self.required,
+            "columns": self.columns,
+            "hint": self.hint,
+            "fullWidth": self.full_width,
+        }
+
+    def convert_answer(self, answer: str) -> str:
+        """
+        Returns:
+            str: The value entered by the user
+        """
+        return answer
+
+
 class NumberInput(Input):
     type = "number-input"
 

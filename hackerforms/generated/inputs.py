@@ -44,6 +44,25 @@ def read_cards(label: str, options: typing.Any, **kwargs):
     )
 
 
+def read_code(label: str, **kwargs):
+    """Read a code snippet from the user with a text highlight
+
+    Positional Args:
+      label (str): The label to display to the user
+
+    Keyword Args:
+      button_text (str): The text to display on the button that will submit the value
+      initial_value (str): The initial value to display to the user
+      required (bool or str): Whether the input is required or not eg. "this field is required"
+      language (str): The programming language
+
+      Returns:
+          str: The value entered by the user
+    """
+    button_text = kwargs.get("button_text", "Next")
+    return get_single_value(Page().read_code(label, **kwargs).run(button_text))
+
+
 def read_date(message: str, **kwargs):
     """Read a date value from the user
 
