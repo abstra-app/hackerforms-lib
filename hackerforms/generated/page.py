@@ -268,6 +268,30 @@ class WidgetSchema:
         self.widgets.append(MultipleChoiceInput(key, message, options, **kwargs))
         return self
 
+    def read_nps(self, label: str, **kwargs):
+        """Gets NPS feedback from user
+
+        Positional Args:
+          label (str): The label to display to the user
+
+        Keyword Args:
+          min (int): The text to display on the button that will submit the value
+          max (int): The initial value to display to the user
+          min_hint (str): Whether the input is required or not eg. "this field is required"
+          max_hint (str): The programming language
+          initial_value (str): The initial value to display to the user
+          required (bool or str): Whether the input is required or not eg. "this field is required"
+          columns: The number of columns of the input
+          key: The key of the input's value on the form result. Defaults to the label arg
+
+
+        Returns:
+          The form object
+        """
+        key = kwargs.pop("key", label)
+        self.widgets.append(NpsInput(key, label, **kwargs))
+        return self
+
     def read_number(self, message: str, **kwargs):
         """Read a number value from the user
 

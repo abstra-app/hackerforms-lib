@@ -621,6 +621,60 @@ class CodeInput(Input):
         return answer
 
 
+class NpsInput(Input):
+    type = "nps-input"
+
+    def __init__(self, key: str, label: str, **kwargs):
+        """Gets NPS feedback from user
+
+        Positional Args:
+            label (str): The label to display to the user
+
+        Keyword Args:
+            min (int): The text to display on the button that will submit the value
+            max (int): The initial value to display to the user
+            min_hint (str): Whether the input is required or not eg. "this field is required"
+            max_hint (str): The programming language
+            initial_value (str): The initial value to display to the user
+            required (bool or str): Whether the input is required or not eg. "this field is required"
+
+        """
+        super().__init__(key)
+        self.label = label
+        self.initial_value = kwargs.get("initial_value", None)
+        self.required = kwargs.get("required", True)
+        self.min = kwargs.get("min", 0)
+        self.max = kwargs.get("min", 10)
+        self.min_hint = kwargs.get("min_hint", "Not at all likely")
+        self.max_hint = kwargs.get("max_hint", "Extremely likely")
+        self.columns = kwargs.get("columns", 1)
+        self.hint = kwargs.get("hint", None)
+        self.full_width = kwargs.get("full_width", False)
+
+    def json(self):
+        return {
+            "type": self.type,
+            "key": self.key,
+            "label": self.label,
+            "min": self.min,
+            "max": self.max,
+            "minHint": self.min_hint,
+            "maxHint": self.max_hint,
+            "initialValue": self.initial_value,
+            "required": self.required,
+            "columns": self.columns,
+            "hint": self.hint,
+            "fullWidth": self.full_width,
+        }
+
+    def convert_answer(self, answer: int) -> str:
+        """
+        Returns:
+            str: The value entered by the user
+        """
+        return answer
+
+
 class NumberInput(Input):
     type = "number-input"
 

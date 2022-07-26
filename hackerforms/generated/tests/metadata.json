@@ -1247,6 +1247,72 @@
         }
       }
     },
+    "nps-input": {
+      "name": "NpsInput",
+      "libFunc": "read_nps",
+      "type": "nps-input",
+      "description": "Gets NPS feedback from user",
+      "params": {
+        "key": {
+          "type": "string",
+          "description": "The key of the input on the returning object"
+        },
+        "label": {
+          "type": "string",
+          "description": "The label of the input"
+        }
+      },
+      "optionals": {
+        "columns": {
+          "type": "number",
+          "description": "number of columns this input will take"
+        },
+        "fullWidth": {
+          "type": "boolean",
+          "description": "Whether the widget should take up the full width of the page"
+        },
+        "hint": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "message describing the input",
+          "default": null
+        },
+        "min": {
+          "type": "number",
+          "description": "Minimum value of NPS",
+          "default": 0
+        },
+        "max": {
+          "type": "number",
+          "description": "Maximum value of NPS",
+          "default": 10
+        },
+        "minHint": {
+          "type": "string",
+          "description": "Hint of minimum option",
+          "default": "Not at all likely"
+        },
+        "maxHint": {
+          "type": "string",
+          "description": "Hint of maximum option",
+          "default": "Extremely likely"
+        },
+        "initialValue": {
+          "type": "number",
+          "description": "The initial value of the input"
+        },
+        "required": {
+          "type": [
+            "boolean",
+            "string"
+          ],
+          "description": "Whether the input is required or not",
+          "default": true
+        }
+      }
+    },
     "text-output": {
       "name": "TextOutput",
       "libFunc": "display_text",

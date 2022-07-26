@@ -225,6 +225,27 @@ def read_multiple_choice(
     )
 
 
+def read_nps(label: str, **kwargs):
+    """Gets NPS feedback from user
+
+    Positional Args:
+      label (str): The label to display to the user
+
+    Keyword Args:
+      min (int): The text to display on the button that will submit the value
+      max (int): The initial value to display to the user
+      min_hint (str): Whether the input is required or not eg. "this field is required"
+      max_hint (str): The programming language
+      initial_value (str): The initial value to display to the user
+      required (bool or str): Whether the input is required or not eg. "this field is required"
+
+      Returns:
+          str: The value entered by the user
+    """
+    button_text = kwargs.get("button_text", "Next")
+    return get_single_value(Page().read_nps(label, **kwargs).run(button_text))
+
+
 def read_number(message: str, **kwargs):
     """Read a number value from the user
 

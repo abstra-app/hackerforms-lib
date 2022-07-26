@@ -75,5 +75,8 @@ example_instances = [
     ),
     TimeInput("time", "What's the meeting time?"),
     PasswordInput("password", "Insert your password"),
-    CodeInput("code", "Hello", language="python"),
+    CodeInput("code", "Type your code", language="python"),
+    NpsInput(
+        "nps", "How likely?", min=1, max=100, min_hint="No way!", max_hint="Hell yeah!"
+    ),
 ]
