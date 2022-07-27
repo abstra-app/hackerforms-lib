@@ -669,7 +669,7 @@ class Page(WidgetSchema):
     def __init__(self):
         super().__init__()
 
-    def run(self, button_text: str = "Next", columns: float = 1) -> typing.Dict:
+    def run(self, actions="Next", columns: float = 1) -> typing.Dict:
         """Run the form
 
         Args:
@@ -679,17 +679,28 @@ class Page(WidgetSchema):
         Returns:
             The form result as a dict with the keys being the key of the input and the value being the value of the input
         """
+
+        if isinstance(actions, list):
+            actions = actions
+        elif actions is None:
+            actions = []
+        else:
+            actions = [actions]
+
         send(
             {
                 "type": "form",
                 "widgets": self.json(),
-                "buttonText": button_text,
                 "columns": columns,
+                "actions": actions,
             }
         )
-        form_answers: typing.Dict = receive("payload")
+        form_response: typing.Dict = receive()
 
-        return self.convert_answer(form_answers)
+        return {
+            **self.convert_answer(form_response["payload"]),
+            "_action": form_response.get("action"),
+        }
 
 
 class ListItemSchema(WidgetSchema):
