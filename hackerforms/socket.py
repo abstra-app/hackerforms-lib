@@ -11,6 +11,7 @@ import os
 initialized = False
 
 
+# TODO: create_connection should have retry logic
 def initialize():
     global ws, initialized
     initialized = True
@@ -53,7 +54,7 @@ def receive(path: str = ""):
 
 @atexit.register
 def close():
-    if not initialized:
+    if not initialized or ws is None or not ws.connected:
         return
     send(
         {
