@@ -644,7 +644,7 @@ class NpsInput(Input):
         self.initial_value = kwargs.get("initial_value", None)
         self.required = kwargs.get("required", True)
         self.min = kwargs.get("min", 0)
-        self.max = kwargs.get("min", 10)
+        self.max = kwargs.get("max", 10)
         self.min_hint = kwargs.get("min_hint", "Not at all likely")
         self.max_hint = kwargs.get("max_hint", "Extremely likely")
         self.columns = kwargs.get("columns", 1)
