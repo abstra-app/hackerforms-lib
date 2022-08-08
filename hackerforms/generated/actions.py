@@ -26,3 +26,7 @@ def execute_action(type, payload):
 
 def redirect(url):
     return execute_action("redirect", {"url": url})
+
+
+def execute_js(code, context={}):
+    return execute_action("execute-js", {"code": code, "context": context})

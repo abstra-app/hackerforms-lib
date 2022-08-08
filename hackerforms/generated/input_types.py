@@ -74,31 +74,6 @@ class TextInput(Input):
         return answer
 
 
-class ExecuteJs(Input):
-    type = "execute-js"
-
-    def __init__(self, key: str, code: str, **kwargs):
-        super().__init__(key)
-        self.key = key
-        self.code = code
-        self.context = kwargs.get("context", {})
-
-    def json(self):
-        return {
-            "type": self.type,
-            "code": self.code,
-            "context": self.context,
-            "key": self.key,
-        }
-
-    def convert_answer(self, answer: str) -> str:
-        """
-        Returns:
-            string: Serialized return value of the executed JavaScript
-        """
-        return answer
-
-
 class TagInput(Input):
 
     type = "tag-input"

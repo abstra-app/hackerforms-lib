@@ -35,23 +35,6 @@ class WidgetSchema:
         """
         return [widget.json() for widget in self.widgets]
 
-    def execute_js(self, code: str, **kwargs):
-        """Execute JavaScript on the page
-
-        Args:
-            code: The JS code to be executed
-        Keyword Arg:
-            context (dict): variables to be passed to the JS code
-            key (string): The key of the return value on the form result. Defaults to empty string
-
-        Returns:
-            string: Serialized return value of the executed JavaScript
-        """
-
-        key = kwargs.pop("key", "js_result")
-        self.widgets.append(ExecuteJs(key, code, **kwargs))
-        return self
-
     def read_cards(self, label: str, options: typing.Any, **kwargs):
         """Read cards from the user
 

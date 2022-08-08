@@ -60,7 +60,6 @@ example_instances = [
     PandasOutput(pd.DataFrame({"a": [1, 2, 3], "b": [4, 5, 6]})),
     PlotlyOutput(go.Figure(data=[go.Scatter(x=[1, 2, 3], y=[2, 1, 2])])),
     IFrameOutput("<h1>Hello, world!</h1>", width="100%", height="100%", column=1),
-    ExecuteJs("A key", "console.log('Hello World')", context={}),
     PandasRowSelectionInput(
         "dataframe", pd.DataFrame(data={"col1": [1, 2], "col2": [3, 4]})
     ),

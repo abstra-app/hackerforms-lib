@@ -863,27 +863,6 @@
         }
       }
     },
-    "execute-js": {
-      "name": "ExecuteJs",
-      "libFunc": "display_execute",
-      "type": "execute-js",
-      "description": "",
-      "params": {
-        "key": {
-          "type": "string",
-          "description": "The key of the input on the returning object"
-        },
-        "code": {
-          "type": "string",
-          "description": "The JS code to be executed."
-        },
-        "context": {
-          "type": "object",
-          "description": "A dictionary of variables to be passed to the code."
-        }
-      },
-      "optionals": {}
-    },
     "pandas-row-selection-input": {
       "name": "PandasRowSelectionInput",
       "libFunc": "read_pandas_row_selection",
@@ -1549,6 +1528,21 @@
         "url": {
           "type": "string",
           "description": "The URL to redirect to"
+        }
+      },
+      "optionals": {}
+    },
+    "execute-js": {
+      "type": "execute-js",
+      "description": "Execute JavaScript code on the browser",
+      "fields": {
+        "code": {
+          "type": "string",
+          "description": "The code to be executed"
+        },
+        "context": {
+          "type": "object",
+          "description": "A dictionary of variables to be passed to the code."
         }
       },
       "optionals": {}
