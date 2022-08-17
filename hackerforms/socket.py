@@ -13,9 +13,6 @@ initialized = False
 
 # TODO: create_connection should have retry logic
 def initialize():
-    if initialized:
-        return
-
     global ws, initialized
     initialized = True
     session_id = os.environ.get("SESSION_ID")
