@@ -77,6 +77,33 @@ class WidgetSchema:
         self.widgets.append(CodeInput(key, label, **kwargs))
         return self
 
+    def read_currency(self, message: str, **kwargs):
+        """Read a number value from the user with a currency mask
+
+        Positional Args:
+          message (str): The message to display to the user
+
+        Keyword Args:
+          initial_value (str): The initial value to display to the user
+          required (bool or str): Whether the input is required or not, eg. "this field is required"
+          placeholder (str): The placeholder text to display to the user
+          full_width (bool): Whether the input should use full screen width
+          min (number): The minimum value allowed, eg. "0"
+          max (number): The maximum value allowed, eg. "100"
+          step (number): The minimum fraction allowed, eg. "0.01"
+          currency (str): The currency to display to the user, eg. "USD", "BRL, "EUR", "GBP" (default is USD)
+          locale (str): The locale to use for formating the number, eg. "en-US", "pt-BR", "es-ES" (default is en-US)
+          columns: The number of columns of the input
+          key: The key of the input's value on the form result. Defaults to the message arg
+
+
+        Returns:
+          The form object
+        """
+        key = kwargs.pop("key", message)
+        self.widgets.append(CurrencyInput(key, message, **kwargs))
+        return self
+
     def read_date(self, message: str, **kwargs):
         """Read a date value from the user
 

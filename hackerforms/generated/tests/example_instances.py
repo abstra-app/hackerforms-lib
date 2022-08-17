@@ -78,4 +78,5 @@ example_instances = [
     NpsInput(
         "nps", "How likely?", min=1, max=100, min_hint="No way!", max_hint="Hell yeah!"
     ),
+    CurrencyInput("currency", "How much?", locale="en-US", currency="BRL"),
 ]

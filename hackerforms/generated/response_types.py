@@ -38,3 +38,16 @@ class PhoneResponse:
 
     masked: str
     raw: str
+
+
+@dataclass
+class CurrencyResponse:
+    """A currency response from the user
+
+    Attributes:
+        masked (str): A string with the masked amount, eg: $1000.00
+        raw (float): Float number representing the amount of the currency, eg: 1000.00
+    """
+
+    masked: str
+    raw: float

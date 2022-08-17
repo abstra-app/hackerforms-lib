@@ -63,6 +63,31 @@ def read_code(label: str, **kwargs):
     return get_single_value(Page().read_code(label, **kwargs).run(button_text))
 
 
+def read_currency(message: str, **kwargs):
+    """Read a number value from the user with a currency mask
+
+    Positional Args:
+      message (str): The message to display to the user
+
+    Keyword Args:
+      button_text (str): The text to display on the button that will submit the value
+      initial_value (str): The initial value to display to the user
+      required (bool or str): Whether the input is required or not, eg. "this field is required"
+      placeholder (str): The placeholder text to display to the user
+      full_width (bool): Whether the input should use full screen width
+      min (number): The minimum value allowed, eg. "0"
+      max (number): The maximum value allowed, eg. "100"
+      step (number): The minimum fraction allowed, eg. "0.01"
+      currency (str): The currency to display to the user, eg. "USD", "BRL, "EUR", "GBP" (default is USD)
+      locale (str): The locale to use for formating the number, eg. "en-US", "pt-BR", "es-ES" (default is en-US)
+
+      Returns:
+          CurrencyResponse: The value entered by the user
+    """
+    button_text = kwargs.get("button_text", "Next")
+    return get_single_value(Page().read_currency(message, **kwargs).run(button_text))
+
+
 def read_date(message: str, **kwargs):
     """Read a date value from the user
 

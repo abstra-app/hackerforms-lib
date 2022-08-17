@@ -1292,6 +1292,78 @@
         }
       }
     },
+    "currency-input": {
+      "name": "CurrencyInput",
+      "libFunc": "read_currency",
+      "type": "currency-input",
+      "description": "Read currency value from the user",
+      "params": {
+        "key": {
+          "type": "string",
+          "description": "The key of the input on the returning object"
+        },
+        "message": {
+          "type": "string",
+          "description": "The message to display above the input"
+        },
+        "currency": {
+          "type": "string",
+          "description": "The currency to use"
+        },
+        "locale": {
+          "type": "string",
+          "description": "The locale used to format the number"
+        }
+      },
+      "optionals": {
+        "columns": {
+          "type": "number",
+          "description": "number of columns this input will take"
+        },
+        "fullWidth": {
+          "type": "boolean",
+          "description": "Whether the widget should take up the full width of the page"
+        },
+        "hint": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "message describing the input",
+          "default": null
+        },
+        "initialValue": {
+          "type": "number",
+          "description": "The initial value of the input",
+          "default": ""
+        },
+        "min": {
+          "type": "number",
+          "description": "The minimum value of the input"
+        },
+        "max": {
+          "type": "number",
+          "description": "The maximun value of the input"
+        },
+        "step": {
+          "type": "number",
+          "description": "The step for the input"
+        },
+        "placeholder": {
+          "type": "string",
+          "description": "The placeholder text to display in the input",
+          "default": ""
+        },
+        "required": {
+          "type": [
+            "boolean",
+            "string"
+          ],
+          "description": "Whether the input is required or not",
+          "default": true
+        }
+      }
+    },
     "text-output": {
       "name": "TextOutput",
       "libFunc": "display_text",
