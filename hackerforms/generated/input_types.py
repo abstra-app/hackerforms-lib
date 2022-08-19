@@ -9,7 +9,7 @@ import datetime
 import json
 
 from .file_utils import convert_file
-from .response_types import FileResponse, PhoneResponse, CurrencyResponse
+from .response_types import FileResponse, PhoneResponse
 
 
 class Input(ABC):
@@ -1001,7 +1001,6 @@ class CurrencyInput(Input):
             max (number): The maximum value allowed, eg. "100"
             step (number): The minimum fraction allowed, eg. "0.01"
             currency (str): The currency to display to the user, eg. "USD", "BRL, "EUR", "GBP" (default is USD)
-            locale (str): The locale to use for formating the number, eg. "en-US", "pt-BR", "es-ES" (default is en-US)
         """
         super().__init__(key)
         self.message = message
@@ -1015,7 +1014,6 @@ class CurrencyInput(Input):
         self.max = kwargs.get("max")
         self.step = kwargs.get("step")
         self.currency = kwargs.get("currency", "USD")
-        self.locale = kwargs.get("locale", "en-US")
 
     def json(self):
         return {
@@ -1032,19 +1030,14 @@ class CurrencyInput(Input):
             "max": self.max,
             "step": self.step,
             "currency": self.currency,
-            "locale": self.locale,
         }
 
-    def convert_answer(self, answer) -> typing.Optional[CurrencyResponse]:
+    def convert_answer(self, answer) -> float:
         """
         Returns:
-            CurrencyResponse: The value entered by the user
+            float: The value entered by the user
         """
-        return (
-            CurrencyResponse(raw=answer["raw"], masked=answer["masked"])
-            if answer
-            else None
-        )
+        return answer
 
 
 class PasswordInput(Input):

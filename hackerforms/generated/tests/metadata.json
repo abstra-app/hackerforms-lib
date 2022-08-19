@@ -1309,10 +1309,6 @@
         "currency": {
           "type": "string",
           "description": "The currency to use"
-        },
-        "locale": {
-          "type": "string",
-          "description": "The locale used to format the number"
         }
       },
       "optionals": {

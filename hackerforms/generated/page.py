@@ -92,7 +92,6 @@ class WidgetSchema:
           max (number): The maximum value allowed, eg. "100"
           step (number): The minimum fraction allowed, eg. "0.01"
           currency (str): The currency to display to the user, eg. "USD", "BRL, "EUR", "GBP" (default is USD)
-          locale (str): The locale to use for formating the number, eg. "en-US", "pt-BR", "es-ES" (default is en-US)
           columns: The number of columns of the input
           key: The key of the input's value on the form result. Defaults to the message arg
 

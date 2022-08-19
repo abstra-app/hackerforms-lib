@@ -79,10 +79,9 @@ def read_currency(message: str, **kwargs):
       max (number): The maximum value allowed, eg. "100"
       step (number): The minimum fraction allowed, eg. "0.01"
       currency (str): The currency to display to the user, eg. "USD", "BRL, "EUR", "GBP" (default is USD)
-      locale (str): The locale to use for formating the number, eg. "en-US", "pt-BR", "es-ES" (default is en-US)
 
       Returns:
-          CurrencyResponse: The value entered by the user
+          float: The value entered by the user
     """
     button_text = kwargs.get("button_text", "Next")
     return get_single_value(Page().read_currency(message, **kwargs).run(button_text))
