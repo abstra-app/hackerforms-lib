@@ -557,6 +557,16 @@
           "description": "Whether the input should accept multiple answers",
           "default": false
         },
+        "min": {
+          "type": "number",
+          "description": "The minimal amount of options that should be selected",
+          "default": null
+        },
+        "max": {
+          "type": "number",
+          "description": "The maximum amount of options that should be selected",
+          "default": null
+        },
         "required": {
           "type": [
             "boolean",

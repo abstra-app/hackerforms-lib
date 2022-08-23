@@ -353,6 +353,8 @@ class MultipleChoiceInput(Input):
 
         Keyword Args:
             multiple (bool): Whether the user can select multiple options
+            min (number): The minimal amount of options that should be selected
+            max (number): The maximum amount of options that should be selected
             button_text (str): The text to display on the button that will submit the value
             initial_value: The initial value to display to the user
             required (bool or str): Whether the input is required or not eg. "this field is required"
@@ -366,6 +368,8 @@ class MultipleChoiceInput(Input):
         self.hint = kwargs.get("hint", None)
         self.columns = kwargs.get("columns", 1)
         self.full_width = kwargs.get("full_width", False)
+        self.min = kwargs.get("min", None)
+        self.max = kwargs.get("max", None)
 
     def json(self):
         return {
@@ -379,6 +383,8 @@ class MultipleChoiceInput(Input):
             "required": self.required,
             "columns": self.columns,
             "fullWidth": self.full_width,
+            "min": self.min,
+            "max": self.max,
         }
 
     def convert_answer(
