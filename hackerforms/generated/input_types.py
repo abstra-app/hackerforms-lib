@@ -979,7 +979,7 @@ class TimeInput(Input):
         Returns:
             str: The value selected by the user
         """
-        return answer
+        return datetime.time(answer["hour"], answer["minute"]) if answer else None
 
 
 class CurrencyInput(Input):
