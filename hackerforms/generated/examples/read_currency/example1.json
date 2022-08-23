@@ -1,0 +1,6 @@
+{
+    "message": "How much credits do you want?",
+    "initialValue": 10,
+    "min": 10,
+    "currency": "USD"
+}
