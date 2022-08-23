@@ -42,7 +42,8 @@ class TextInput(Input):
             initial_value (str): The initial value to display to the user
             placeholder (str): The placeholder text to display to the user
             required (bool or str): Whether the input is required or not eg. "this field is required"
-
+            hint (str): A tooltip displayed to the user
+            full_width (bool): Whether the input should use full screen width
         """
         super().__init__(key)
         self.message = message
@@ -86,9 +87,13 @@ class TagInput(Input):
 
         Keyword Args:
             button_text (str): The text to display on the button that will submit the value
-            initial_value (str or float): The initial value to display to the user
+            initial_value (list): The initial value to display to the user
+            placeholder (str): The placeholder text to display to the user
             required (bool or str): Whether the input is required or not eg. "this field is required"
+            hint (str): A tooltip displayed to the user
+            full_width (bool): Whether the input should use full screen width
         """
+
         super().__init__(key)
         self.message = message
         self.initial_value = kwargs.get("initial_value", [])
@@ -116,7 +121,7 @@ class TagInput(Input):
     ) -> typing.List[typing.Union[str, float]]:
         """
         Returns:
-            List[Union[str,float]]: The value entered by the user
+            list(str) or list(float): The value entered by the user
         """
 
         return answer
@@ -135,6 +140,8 @@ class DateInput(Input):
             button_text (str): The text to display on the button that will submit the value
             initial_value (datetime.date or time.struct_time or str (YYYY-MM-DD)): The initial value to display to the user
             required (bool or str): Whether the input is required or not eg. "this field is required"
+            hint (str): A tooltip displayed to the user
+            full_width (bool): Whether the input should use full screen width
 
         """
         super().__init__(key)
@@ -197,6 +204,9 @@ class FileInput(Input):
             button_text (str): The text to display on the button that will submit the value
             initial_value (str): The initial value to display to the user
             required (bool or str): Whether the input is required or not eg. "this field is required"
+            hint (str): A tooltip displayed to the user
+            full_width (bool): Whether the input should use full screen width
+            multiple (bool): Whether the user will be allowed to upload multiple files
 
         """
         super().__init__(key)
@@ -224,7 +234,7 @@ class FileInput(Input):
     def convert_answer(self, answer) -> typing.Optional[FileResponse]:
         """
         Returns:
-            FileResponse: The file uploaded by the user the user
+            FileResponse: A dict containing the file uploaded by the user ({"file": file, "url": str, "content": bytes})
         """
         if not answer:
             return None
@@ -248,6 +258,9 @@ class ImageInput(Input):
             button_text (str): The text to display on the button that will submit the value
             initial_value (str): The initial value to display to the user
             required (bool or str): Whether the input is required or not eg. "this field is required"
+            hint (str): A tooltip displayed to the user
+            full_width (bool): Whether the input should use full screen width
+            multiple (bool): Whether the user will be allowed to upload multiple files
         """
         super().__init__(key)
         self.message = message
@@ -274,7 +287,7 @@ class ImageInput(Input):
     def convert_answer(self, answer) -> typing.Optional[FileResponse]:
         """
         Returns:
-            FileResponse: The image file uploaded by the user the user
+            FileResponse: A dict containing the image file uploaded by the user ({"file": file, "url": str, "content": bytes})
         """
         if not answer:
             return None
@@ -298,6 +311,9 @@ class VideoInput(Input):
             button_text (str): The text to display on the button that will submit the value
             initial_value (str): The initial value to display to the user
             required (bool or str): Whether the input is required or not eg. "this field is required"
+            hint (str): A tooltip displayed to the user
+            full_width (bool): Whether the input should use full screen width
+            multiple (bool): Whether the user will be allowed to upload multiple files
         """
         super().__init__(key)
         self.message = message
@@ -324,7 +340,7 @@ class VideoInput(Input):
     def convert_answer(self, answer) -> typing.Optional[FileResponse]:
         """
         Returns:
-            FileResponse: The video file uploaded by the user the user
+            FileResponse: A dict containing the video uploaded by the user ({"file": file, "url": str, "content": bytes})
         """
         if not answer:
             return None
@@ -358,6 +374,8 @@ class MultipleChoiceInput(Input):
             button_text (str): The text to display on the button that will submit the value
             initial_value: The initial value to display to the user
             required (bool or str): Whether the input is required or not eg. "this field is required"
+            hint (str): A tooltip displayed to the user
+            full_width (bool): Whether the input should use full screen width
         """
         super().__init__(key)
         self.message = message
@@ -392,7 +410,7 @@ class MultipleChoiceInput(Input):
     ) -> typing.Union[typing.List, typing.Any]:
         """
         Returns:
-            list, any: The values/value selected by the user
+            list or any: The values/value selected by the user
         """
         return answer
 
@@ -414,6 +432,9 @@ class CardsInput(Input):
             button_text (str): The text to display on the button that will submit the value
             initial_value (list): The initial value to display to the user
             required (bool or str): Whether the input is required or not eg. "this field is required"
+            hint (str): A tooltip displayed to the user
+            searchable (bool): Whether to show a search bar
+            full_width (bool): Whether the input should use full screen width
         """
         super().__init__(key)
         self.label = label
@@ -475,6 +496,8 @@ class DropdownInput(Input):
             initial_value: The initial value to display to the user
             placeholder (str): The placeholder text to display to the user
             required (bool or str): Whether the input is required or not eg. "this field is required"
+            hint (str): A tooltip displayed to the user
+            full_width (bool): Whether the input should use full screen width
         """
         super().__init__(key)
         self.message = message
@@ -524,6 +547,8 @@ class TextareaInput(Input):
             initial_value (str): The initial value to display to the user
             placeholder (str): The placeholder text to display to the user
             required (bool or str): Whether the input is required or not eg. "this field is required"
+            hint (str): A tooltip displayed to the user
+            full_width (bool): Whether the input should use full screen width
 
         """
         super().__init__(key)
@@ -570,6 +595,8 @@ class CodeInput(Input):
             initial_value (str): The initial value to display to the user
             required (bool or str): Whether the input is required or not eg. "this field is required"
             language (str): The programming language
+            hint (str): A tooltip displayed to the user
+            full_width (bool): Whether the input should use full screen width
 
         """
         super().__init__(key)
@@ -612,12 +639,14 @@ class NpsInput(Input):
             label (str): The label to display to the user
 
         Keyword Args:
-            min (int): The text to display on the button that will submit the value
-            max (int): The initial value to display to the user
-            min_hint (str): Whether the input is required or not eg. "this field is required"
-            max_hint (str): The programming language
+            min (int): Min value accepted by the input
+            max (int): Max value accepted by the input
+            min_hint (str): Text to display next to the min value
+            max_hint (str): Text to display next to the max value
             initial_value (str): The initial value to display to the user
             required (bool or str): Whether the input is required or not eg. "this field is required"
+            hint (str): A tooltip displayed to the user
+            full_width (bool): Whether the input should use full screen width
 
         """
         super().__init__(key)
@@ -648,10 +677,10 @@ class NpsInput(Input):
             "fullWidth": self.full_width,
         }
 
-    def convert_answer(self, answer: int) -> str:
+    def convert_answer(self, answer: int) -> int:
         """
         Returns:
-            str: The value entered by the user
+            int: The value entered by the user
         """
         return answer
 
@@ -666,12 +695,17 @@ class NumberInput(Input):
             message (str): The message to display to the user
 
         Keyword Args:
-            message (str): The message to display to the user
             button_text (str): The text to display on the button that will submit the value
             initial_value (str): The initial value to display to the user
             placeholder (str): The placeholder text to display to the user
             required (bool or str): Whether the input is required or not eg. "this field is required"
+            hint (str): A tooltip displayed to the user
+            full_width (bool): Whether the input should use full screen width
+            min (float): Min value accepted by the input
+            max (float): Max value accepted by the input
+            step (float): The value to be incremented or decremented while using the input button
         """
+
         super().__init__(key)
         self.message = message
         self.initial_value = kwargs.get("initial_value", 0)
@@ -700,10 +734,10 @@ class NumberInput(Input):
             "step": self.step,
         }
 
-    def convert_answer(self, answer: int) -> int:
+    def convert_answer(self, answer: float) -> float:
         """
         Returns:
-            int: The value entered by the user
+            float: The value entered by the user
         """
         return answer
 
@@ -722,6 +756,8 @@ class EmailInput(Input):
             initial_value (str): The initial value to display to the user
             placeholder (str): The placeholder text to display to the user
             required (bool or str): Whether the input is required or not eg. "this field is required"
+            hint (str): A tooltip displayed to the user
+            full_width (bool): Whether the input should use full screen width
         """
         super().__init__(key)
         self.message = message
@@ -767,6 +803,8 @@ class PhoneInput(Input):
             initial_value (str): The initial value to display to the user
             placeholder (str): The placeholder text to display to the user
             required (bool or str): Whether the input is required or not eg. "this field is required"
+            hint (str): A tooltip displayed to the user
+            full_width (bool): Whether the input should use full screen width
         """
         super().__init__(key)
         self.message = message
@@ -793,7 +831,7 @@ class PhoneInput(Input):
     def convert_answer(self, answer) -> typing.Optional[PhoneResponse]:
         """
         Returns:
-            PhoneResponse: The value entered by the user
+            PhoneResponse: A dict containing the value entered by the user ({"raw": str, "masked": str})
         """
         return (
             PhoneResponse(raw=answer["raw"], masked=answer["masked"])
@@ -813,6 +851,12 @@ class ListInput(Input):
 
         Keyword Args:
             button_text (str): The text to display on the button that will submit the value
+            initial_value (str): The initial value to display to the user
+            hint (str): A tooltip displayed to the user
+            full_width (bool): Whether the input should use full screen width
+            min (float): Min value accepted by the input
+            max (float): Max value accepted by the input
+            add_button_text (str): Label to be displayed on the add button. The default is "+".
         """
         super().__init__(key)
         self.item_schema = item_schema
@@ -857,8 +901,10 @@ class PandasRowSelectionInput(Input):
             df (pandas.DataFrame): The pandas dataframe to be displayed
 
         Keyword Args:
+            button_text (str): The text to display on the button that will submit the value
             required: Whether the input is required or not
-            button_text (string): The text to display on the next step button
+            hint (str): A tooltip displayed to the user
+            full_width (bool): Whether the input should use full screen width
 
         """
         super().__init__(key)
@@ -882,7 +928,7 @@ class PandasRowSelectionInput(Input):
     def convert_answer(self, answer) -> typing.List:
         """
         Returns:
-            The list of selected rows
+            list: The list of selected rows
         """
         return answer
 
@@ -896,15 +942,18 @@ class HTMLListInput(Input):
         Positional Args:
             label (str): The text related to this field
             options (list): The options to display to the user, eg. [
-                                {'html': '<div class="container"><p>Info 1A</><p>Info 1B</p></div>', 'value': 'info1'},
-                                {'html': '<div class="container"><p>Info 2A</><p>Info 2B</p></div>', 'value': 'info2'}]
+                                {'html': '<div class="container">Info 1A</div>', 'value': 'info1'},
+                                {'html': '<div class="container">Info 2B</div>', 'value': 'info2'}
+                            ]
 
         Keyword Args:
-            css (str): The css related to the html item in options
-            multiple (bool): Whether the user can select multiple options
             button_text (str): The text to display on the button that will submit the value
             initial_value (list): The initial value to display to the user
             required (bool or str): Whether the input is required or not eg. "this field is required"
+            multiple (bool): Whether the user can select multiple options
+            css (str): The css related to the html item in options
+            hint (str): A tooltip displayed to the user
+            full_width (bool): Whether the input should use full screen width
         """
         super().__init__(key)
         self.label = label
@@ -956,6 +1005,8 @@ class TimeInput(Input):
             initial_value (str): The initial value to display to the user
             required (bool or str): Whether the input is required or not eg. "this field is required"
             format (str): Whether the input is in the format 24hs or AM/PM. Default is 24hs.
+            hint (str): A tooltip displayed to the user
+            full_width (bool): Whether the input should use full screen width
         """
 
         super().__init__(key)
@@ -980,10 +1031,10 @@ class TimeInput(Input):
             "fullWidth": self.full_width,
         }
 
-    def convert_answer(self, answer: str) -> str:
+    def convert_answer(self, answer) -> datetime.time:
         """
         Returns:
-            str: The value selected by the user
+            datetime.time: A datetime.time object representing the value entered by the user
         """
         return datetime.time(answer["hour"], answer["minute"]) if answer else None
 
@@ -1002,10 +1053,11 @@ class CurrencyInput(Input):
             initial_value (str): The initial value to display to the user
             required (bool or str): Whether the input is required or not, eg. "this field is required"
             placeholder (str): The placeholder text to display to the user
+            hint (str): A tooltip displayed to the user
             full_width (bool): Whether the input should use full screen width
-            min (number): The minimum value allowed, eg. "0"
-            max (number): The maximum value allowed, eg. "100"
-            step (number): The minimum fraction allowed, eg. "0.01"
+            min (float): The minimum value allowed, eg. "0"
+            max (float): The maximum value allowed, eg. "100"
+            step (float): The value to be incremented or decremented while using the input button
             currency (str): The currency to display to the user, eg. "USD", "BRL, "EUR", "GBP" (default is USD)
         """
         super().__init__(key)
@@ -1059,6 +1111,8 @@ class PasswordInput(Input):
             button_text (str): The text to display on the button that will submit the value
             placeholder (str): The placeholder text to display to the user
             required (bool or str): Whether the input is required or not eg. "this field is required"
+            hint (str): A tooltip displayed to the user
+            full_width (bool): Whether the input should use full screen width
             lowercase_required (bool or str): Whether the input must have at least one lowercase character
             uppercase_required (bool or str): Whether the input must have at least one uppercase character
             special_required (bool or str): Whether the input must have at least one special character
@@ -1067,7 +1121,9 @@ class PasswordInput(Input):
             max_length (int): Maximum length of the password
             size (int): Size of the password
             pattern (str): A regex pattern for the accepted password
+            autocomplete (str): The autocomplete HTML attribute
         """
+
         super().__init__(key)
         self.message = message
         self.hint = kwargs.get("hint", None)

@@ -1,0 +1,1 @@
+{"initialValue":[{}],"min":1,"max":3,"itemSchema":[{"hint":null,"initialValue":"","key":"Name","message":"Name","placeholder":"Your answer here","required":true,"type":"text-input"},{"hint":null,"initialValue":"","key":"Email","message":"Email","placeholder":"Your answer here","required":true,"type":"email-input"}]}

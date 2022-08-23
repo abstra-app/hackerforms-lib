@@ -17,6 +17,7 @@ def display_file(file: typing.Union[str, io.IOBase], **kwargs):
     Keyword Args:
       download_text (str): The text to display on the button that will download the file
       button_text (str): The text to display on the button that will continue the form
+      full_width (bool): Whether the input should use full screen width
 
     """
     button_text = kwargs.get("button_text", "Next")
@@ -27,7 +28,7 @@ def display_html(html: str, **kwargs):
     """Display a html snippet to the user
 
     Positional Args:
-      html (str): The html snippet to display to the user
+      html (str): The html snippet to display to the userfull_width (bool): Whether the input should use full screen width
 
     Keyword Args:
       button_text (str): The text to display on the button that will continue the form
@@ -44,9 +45,10 @@ def display_iframe(url_or_html: str, **kwargs):
       url_or_html (str): The link to the document or the own document to display to the user
 
     Keyword Args:
+      button_text (str): The text to display on the button that will continue the form
       width (int): The width of the iframe
       height (int): The height of the iframe
-      button_text (str): The text to display on the button that will continue the form
+      full_width (bool): Whether the input should use full screen width
 
     """
     button_text = kwargs.get("button_text", "Next")
@@ -60,8 +62,9 @@ def display_image(image: typing.Union[str, io.IOBase], **kwargs):
       image (file-like or str (path, url, base64)): The image to display to the user
 
     Keyword Args:
-      subtitle (str): The subtitle of the image
       button_text (str): The text to display on the button that will continue the form
+      full_width (bool): Whether the input should use full screen width
+      subtitle (str): The subtitle of the image
 
     """
     button_text = kwargs.get("button_text", "Next")
@@ -75,8 +78,9 @@ def display_link(link_url: str, **kwargs):
       link_url (str): The url of the link to display to the user
 
     Keyword Args:
-      link_text (str): The text to display on the link
       button_text (str): The text to display on the button that will continue the form
+      full_width (bool): Whether the input should use full screen width
+      link_text (str): The text to display on the link
       same_tab (bool): Whether to open the link in the same tab or not
 
     """
@@ -92,6 +96,7 @@ def display_markdown(text: str, **kwargs):
 
     Keyword Args:
       button_text (str): The text to display on the button that will continue the form
+      full_width (bool): Whether the input should use full screen width
 
     """
     button_text = kwargs.get("button_text", "Next")
@@ -106,6 +111,8 @@ def display_pandas(df: typing.Any, **kwargs):
 
     Keyword Args:
       button_text (str): The text to display on the button that will continue the form
+      full_width (bool): Whether the input should use full screen width
+      display_index (bool): Whether to show a index column
 
     """
     button_text = kwargs.get("button_text", "Next")
@@ -120,6 +127,7 @@ def display_plotly(fig: typing.Any, **kwargs):
 
     Keyword Args:
       button_text (str): The text to display on the button that will continue the form
+      full_width (bool): Whether the input should use full screen width
 
     """
     button_text = kwargs.get("button_text", "Next")
@@ -134,6 +142,7 @@ def display(message: str, **kwargs):
 
     Keyword Args:
       button_text (str): The text to display on the button that will continue the form
+      full_width (bool): Whether the input should use full screen width
 
     """
     button_text = kwargs.get("button_text", "Next")

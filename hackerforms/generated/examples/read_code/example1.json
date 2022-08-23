@@ -1,0 +1,1 @@
+{"label":"Show me the code!","language":"c","initialValue":"#include<stdio.h>\nint main(int argc, char** argv) {\nchar name[256];\nscanf(\"%s\", name);\nprintf(\"%s, here is\", name);\n}"}

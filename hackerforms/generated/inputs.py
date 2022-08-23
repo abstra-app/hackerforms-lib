@@ -34,6 +34,9 @@ def read_cards(label: str, options: typing.Any, **kwargs):
       button_text (str): The text to display on the button that will submit the value
       initial_value (list): The initial value to display to the user
       required (bool or str): Whether the input is required or not eg. "this field is required"
+      hint (str): A tooltip displayed to the user
+      searchable (bool): Whether to show a search bar
+      full_width (bool): Whether the input should use full screen width
 
       Returns:
           list, any: The options/option selected by the user
@@ -55,6 +58,8 @@ def read_code(label: str, **kwargs):
       initial_value (str): The initial value to display to the user
       required (bool or str): Whether the input is required or not eg. "this field is required"
       language (str): The programming language
+      hint (str): A tooltip displayed to the user
+      full_width (bool): Whether the input should use full screen width
 
       Returns:
           str: The value entered by the user
@@ -74,10 +79,11 @@ def read_currency(message: str, **kwargs):
       initial_value (str): The initial value to display to the user
       required (bool or str): Whether the input is required or not, eg. "this field is required"
       placeholder (str): The placeholder text to display to the user
+      hint (str): A tooltip displayed to the user
       full_width (bool): Whether the input should use full screen width
-      min (number): The minimum value allowed, eg. "0"
-      max (number): The maximum value allowed, eg. "100"
-      step (number): The minimum fraction allowed, eg. "0.01"
+      min (float): The minimum value allowed, eg. "0"
+      max (float): The maximum value allowed, eg. "100"
+      step (float): The value to be incremented or decremented while using the input button
       currency (str): The currency to display to the user, eg. "USD", "BRL, "EUR", "GBP" (default is USD)
 
       Returns:
@@ -97,6 +103,8 @@ def read_date(message: str, **kwargs):
       button_text (str): The text to display on the button that will submit the value
       initial_value (datetime.date or time.struct_time or str (YYYY-MM-DD)): The initial value to display to the user
       required (bool or str): Whether the input is required or not eg. "this field is required"
+      hint (str): A tooltip displayed to the user
+      full_width (bool): Whether the input should use full screen width
 
       Returns:
           datetime.date: The value entered by the user
@@ -121,6 +129,8 @@ def read_dropdown(
       initial_value: The initial value to display to the user
       placeholder (str): The placeholder text to display to the user
       required (bool or str): Whether the input is required or not eg. "this field is required"
+      hint (str): A tooltip displayed to the user
+      full_width (bool): Whether the input should use full screen width
 
       Returns:
           str: The value selected by the user
@@ -142,6 +152,8 @@ def read_email(message: str, **kwargs):
       initial_value (str): The initial value to display to the user
       placeholder (str): The placeholder text to display to the user
       required (bool or str): Whether the input is required or not eg. "this field is required"
+      hint (str): A tooltip displayed to the user
+      full_width (bool): Whether the input should use full screen width
 
       Returns:
           str: The value entered by the user
@@ -160,9 +172,12 @@ def read_file(message: str, **kwargs):
       button_text (str): The text to display on the button that will submit the value
       initial_value (str): The initial value to display to the user
       required (bool or str): Whether the input is required or not eg. "this field is required"
+      hint (str): A tooltip displayed to the user
+      full_width (bool): Whether the input should use full screen width
+      multiple (bool): Whether the user will be allowed to upload multiple files
 
       Returns:
-          FileResponse: The file uploaded by the user the user
+          FileResponse: A dict containing the file uploaded by the user ({"file": file, "url": str, "content": bytes})
     """
     button_text = kwargs.get("button_text", "Next")
     return get_single_value(Page().read_file(message, **kwargs).run(button_text))
@@ -172,14 +187,16 @@ def read_html_list(label: str, options: typing.Any, **kwargs):
     """Read list of html values from the user
 
     Positional Args:
-      label (str): The text related to this fieldoptions (list): The options to display to the user, eg. [{'html': '<div class="container"><p>Info 1A</><p>Info 1B</p></div>', 'value': 'info1'},{'html': '<div class="container"><p>Info 2A</><p>Info 2B</p></div>', 'value': 'info2'}]
+      label (str): The text related to this fieldoptions (list): The options to display to the user, eg. [{'html': '<div class="container">Info 1A</div>', 'value': 'info1'},{'html': '<div class="container">Info 2B</div>', 'value': 'info2'}]
 
     Keyword Args:
-      css (str): The css related to the html item in options
-      multiple (bool): Whether the user can select multiple options
       button_text (str): The text to display on the button that will submit the value
       initial_value (list): The initial value to display to the user
       required (bool or str): Whether the input is required or not eg. "this field is required"
+      multiple (bool): Whether the user can select multiple options
+      css (str): The css related to the html item in options
+      hint (str): A tooltip displayed to the user
+      full_width (bool): Whether the input should use full screen width
 
       Returns:
           list, any: The options/option selected by the user
@@ -200,9 +217,12 @@ def read_image(message: str, **kwargs):
       button_text (str): The text to display on the button that will submit the value
       initial_value (str): The initial value to display to the user
       required (bool or str): Whether the input is required or not eg. "this field is required"
+      hint (str): A tooltip displayed to the user
+      full_width (bool): Whether the input should use full screen width
+      multiple (bool): Whether the user will be allowed to upload multiple files
 
       Returns:
-          FileResponse: The image file uploaded by the user the user
+          FileResponse: A dict containing the image file uploaded by the user ({"file": file, "url": str, "content": bytes})
     """
     button_text = kwargs.get("button_text", "Next")
     return get_single_value(Page().read_image(message, **kwargs).run(button_text))
@@ -216,6 +236,12 @@ def read_list(item_schema: typing.Any, **kwargs):
 
     Keyword Args:
       button_text (str): The text to display on the button that will submit the value
+      initial_value (str): The initial value to display to the user
+      hint (str): A tooltip displayed to the user
+      full_width (bool): Whether the input should use full screen width
+      min (float): Min value accepted by the input
+      max (float): Max value accepted by the input
+      add_button_text (str): Label to be displayed on the add button. The default is "+".
 
       Returns:
           list: The values entered by the user
@@ -241,9 +267,11 @@ def read_multiple_choice(
       button_text (str): The text to display on the button that will submit the value
       initial_value: The initial value to display to the user
       required (bool or str): Whether the input is required or not eg. "this field is required"
+      hint (str): A tooltip displayed to the user
+      full_width (bool): Whether the input should use full screen width
 
       Returns:
-          list, any: The values/value selected by the user
+          list or any: The values/value selected by the user
     """
     button_text = kwargs.get("button_text", "Next")
     return get_single_value(
@@ -258,15 +286,17 @@ def read_nps(label: str, **kwargs):
       label (str): The label to display to the user
 
     Keyword Args:
-      min (int): The text to display on the button that will submit the value
-      max (int): The initial value to display to the user
-      min_hint (str): Whether the input is required or not eg. "this field is required"
-      max_hint (str): The programming language
+      min (int): Min value accepted by the input
+      max (int): Max value accepted by the input
+      min_hint (str): Text to display next to the min value
+      max_hint (str): Text to display next to the max value
       initial_value (str): The initial value to display to the user
       required (bool or str): Whether the input is required or not eg. "this field is required"
+      hint (str): A tooltip displayed to the user
+      full_width (bool): Whether the input should use full screen width
 
       Returns:
-          str: The value entered by the user
+          int: The value entered by the user
     """
     button_text = kwargs.get("button_text", "Next")
     return get_single_value(Page().read_nps(label, **kwargs).run(button_text))
@@ -279,14 +309,18 @@ def read_number(message: str, **kwargs):
       message (str): The message to display to the user
 
     Keyword Args:
-      message (str): The message to display to the user
       button_text (str): The text to display on the button that will submit the value
       initial_value (str): The initial value to display to the user
       placeholder (str): The placeholder text to display to the user
       required (bool or str): Whether the input is required or not eg. "this field is required"
+      hint (str): A tooltip displayed to the user
+      full_width (bool): Whether the input should use full screen width
+      min (float): Min value accepted by the input
+      max (float): Max value accepted by the input
+      step (float): The value to be incremented or decremented while using the input button
 
       Returns:
-          int: The value entered by the user
+          float: The value entered by the user
     """
     button_text = kwargs.get("button_text", "Next")
     return get_single_value(Page().read_number(message, **kwargs).run(button_text))
@@ -299,11 +333,13 @@ def read_pandas_row_selection(df: typing.Any, **kwargs):
       df (pandas.DataFrame): The pandas dataframe to be displayed
 
     Keyword Args:
+      button_text (str): The text to display on the button that will submit the value
       required: Whether the input is required or not
-      button_text (string): The text to display on the next step button
+      hint (str): A tooltip displayed to the user
+      full_width (bool): Whether the input should use full screen width
 
       Returns:
-          The list of selected rows
+          list: The list of selected rows
     """
     button_text = kwargs.get("button_text", "Next")
     return get_single_value(
@@ -321,6 +357,8 @@ def read_password(message: str, **kwargs):
       button_text (str): The text to display on the button that will submit the value
       placeholder (str): The placeholder text to display to the user
       required (bool or str): Whether the input is required or not eg. "this field is required"
+      hint (str): A tooltip displayed to the user
+      full_width (bool): Whether the input should use full screen width
       lowercase_required (bool or str): Whether the input must have at least one lowercase character
       uppercase_required (bool or str): Whether the input must have at least one uppercase character
       special_required (bool or str): Whether the input must have at least one special character
@@ -329,6 +367,7 @@ def read_password(message: str, **kwargs):
       max_length (int): Maximum length of the password
       size (int): Size of the password
       pattern (str): A regex pattern for the accepted password
+      autocomplete (str): The autocomplete HTML attribute
 
       Returns:
           str: The value entered by the user
@@ -348,9 +387,11 @@ def read_phone(message: str, **kwargs):
       initial_value (str): The initial value to display to the user
       placeholder (str): The placeholder text to display to the user
       required (bool or str): Whether the input is required or not eg. "this field is required"
+      hint (str): A tooltip displayed to the user
+      full_width (bool): Whether the input should use full screen width
 
       Returns:
-          PhoneResponse: The value entered by the user
+          PhoneResponse: A dict containing the value entered by the user ({"raw": str, "masked": str})
     """
     button_text = kwargs.get("button_text", "Next")
     return get_single_value(Page().read_phone(message, **kwargs).run(button_text))
@@ -364,11 +405,14 @@ def read_tag(message: str, **kwargs):
 
     Keyword Args:
       button_text (str): The text to display on the button that will submit the value
-      initial_value (str or float): The initial value to display to the user
+      initial_value (list): The initial value to display to the user
+      placeholder (str): The placeholder text to display to the user
       required (bool or str): Whether the input is required or not eg. "this field is required"
+      hint (str): A tooltip displayed to the user
+      full_width (bool): Whether the input should use full screen width
 
       Returns:
-          List[Union[str,float]]: The value entered by the user
+          list(str) or list(float): The value entered by the user
     """
     button_text = kwargs.get("button_text", "Next")
     return get_single_value(Page().read_tag(message, **kwargs).run(button_text))
@@ -385,6 +429,8 @@ def read(message: str, **kwargs):
       initial_value (str): The initial value to display to the user
       placeholder (str): The placeholder text to display to the user
       required (bool or str): Whether the input is required or not eg. "this field is required"
+      hint (str): A tooltip displayed to the user
+      full_width (bool): Whether the input should use full screen width
 
       Returns:
           str: The value entered by the user
@@ -404,6 +450,8 @@ def read_textarea(message: str, **kwargs):
       initial_value (str): The initial value to display to the user
       placeholder (str): The placeholder text to display to the user
       required (bool or str): Whether the input is required or not eg. "this field is required"
+      hint (str): A tooltip displayed to the user
+      full_width (bool): Whether the input should use full screen width
 
       Returns:
           str: The value entered by the user
@@ -423,9 +471,11 @@ def read_time(message: str, **kwargs):
       initial_value (str): The initial value to display to the user
       required (bool or str): Whether the input is required or not eg. "this field is required"
       format (str): Whether the input is in the format 24hs or AM/PM. Default is 24hs.
+      hint (str): A tooltip displayed to the user
+      full_width (bool): Whether the input should use full screen width
 
       Returns:
-          str: The value selected by the user
+          datetime.time: A datetime.time object representing the value entered by the user
     """
     button_text = kwargs.get("button_text", "Next")
     return get_single_value(Page().read_time(message, **kwargs).run(button_text))
@@ -441,9 +491,12 @@ def read_video(message: str, **kwargs):
       button_text (str): The text to display on the button that will submit the value
       initial_value (str): The initial value to display to the user
       required (bool or str): Whether the input is required or not eg. "this field is required"
+      hint (str): A tooltip displayed to the user
+      full_width (bool): Whether the input should use full screen width
+      multiple (bool): Whether the user will be allowed to upload multiple files
 
       Returns:
-          FileResponse: The video file uploaded by the user the user
+          FileResponse: A dict containing the video uploaded by the user ({"file": file, "url": str, "content": bytes})
     """
     button_text = kwargs.get("button_text", "Next")
     return get_single_value(Page().read_video(message, **kwargs).run(button_text))
