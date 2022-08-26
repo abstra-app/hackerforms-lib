@@ -6,7 +6,7 @@ from .stdio import initialize as _initialize_stdio
 from .auth import *
 from .parameters import url_params
 from .socket import initialize as _initialize_socket
-from .input import overload_input as _overload_input
+from .overloads import overload_input as _overload_input
 import os
 
 
