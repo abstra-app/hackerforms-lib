@@ -1,6 +1,8 @@
 import sys
 from .socket import send
-import os
+
+stdout_write = sys.stdout.write
+stderr_write = sys.stderr.write
 
 
 def writeWraper(type, write, text):
@@ -10,8 +12,5 @@ def writeWraper(type, write, text):
 
 
 def initialize():
-    stdout_write = sys.stdout.write
-    stderr_write = sys.stderr.write
-
     sys.stdout.write = lambda text: writeWraper("stdout", stdout_write, text)
     sys.stderr.write = lambda text: writeWraper("stderr", stderr_write, text)
