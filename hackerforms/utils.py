@@ -7,4 +7,4 @@ def deserialize(string: str) -> Dict:
 
 
 def serialize(obj: Dict) -> bytes:
-    return bytes(json.dumps(obj), "UTF-8")
+    return bytes(json.dumps(obj, allow_nan=False), "UTF-8")
