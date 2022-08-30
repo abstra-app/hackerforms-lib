@@ -1,5 +1,5 @@
 import builtins
-from .generated.inputs import read
+from .generated.inputs import read, display
 
 
 def overload_input():
