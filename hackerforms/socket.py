@@ -45,7 +45,11 @@ def send(data):
 def receive(path: str = ""):
     if not initialized:
         return
-    data = deserialize(ws.recv())
+
+    recvd = ws.recv()
+    if not recvd:
+        raise Exception("Websocket not connected")
+    data = deserialize(recvd)
 
     if not path:
         return data
