@@ -17,5 +17,5 @@ if os.environ.get("ENV") != "test":
     _initialize_socket()
     _initialize_stdio()
     _overload_input()
-    if os.environ["ENABLE_PRINT_AS_DISPLAY"] == "true":
+    if os.environ.get("ENABLE_PRINT_AS_DISPLAY") == "true":
         _overload_print()
