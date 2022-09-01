@@ -33,7 +33,7 @@ class TextOutput(Output):
             button_text (str): The text to display on the button that will continue the form
             full_width (bool): Whether the input should use full screen width
         """
-        self.message = message
+        self.message = str(message)
         self.columns = kwargs.get("columns", 1)
         self.full_width = kwargs.get("full_width", False)
 
