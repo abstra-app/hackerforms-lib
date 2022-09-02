@@ -4,9 +4,6 @@
 ###############################################################################
 ans = read_multiple_choice(
     "Which programming language do you prefer?",
-    [
-        {"label": "Python", "value": "py"},
-        {"label": "JavaScript", "value": "js"},
-    ],
+    ["Python", "JavaScript"],
 )
-# ans = "py" or "js"
+# ans = "Python" or "JavaScript"
