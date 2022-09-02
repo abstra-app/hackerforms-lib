@@ -4,8 +4,9 @@ from .generated.outputs import display
 
 
 def overload_input():
-    builtins.input = read
-    builtins.raw_input = read
+    read_overload = lambda msg="": read(msg)
+    builtins.input = read_overload
+    builtins.raw_input = read_overload
 
 
 def overload_print():
