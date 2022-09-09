@@ -1,1 +1,24 @@
-{"label":"Choose your character","options":[{"title":"Charmander","image":"https://img.pokemondb.net/sprites/sword-shield/icon/charmander.png","description":"Fire"},{"title":"Bulbasaur","image":"https://img.pokemondb.net/sprites/sword-shield/icon/bulbasaur.png","description":"Grass"},{"title":"Squirtle","image":"https://img.pokemondb.net/sprites/sword-shield/icon/squirtle.png","description":"Water"}]}
+{
+  "props": {
+    "label": "Choose your character",
+    "options": [
+      {
+        "title": "Charmander",
+        "image": "https://img.pokemondb.net/sprites/sword-shield/icon/charmander.png",
+        "description": "Fire"
+      },
+      {
+        "title": "Bulbasaur",
+        "image": "https://img.pokemondb.net/sprites/sword-shield/icon/bulbasaur.png",
+        "description": "Grass"
+      },
+      {
+        "title": "Squirtle",
+        "image": "https://img.pokemondb.net/sprites/sword-shield/icon/squirtle.png",
+        "description": "Water"
+      }
+    ]
+  },
+  "name": "Basic Example",
+  "description": "The following examples demonstrate some of the available functionality for read_cards"
+}

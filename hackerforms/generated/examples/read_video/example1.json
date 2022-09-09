@@ -1,1 +1,7 @@
-{"message":"Upload your video"}
+{
+  "props": {
+    "message": "Upload your video"
+  },
+  "name": "Basic Example",
+  "description": "The following examples demonstrate some of the available functionality for read_video"
+}

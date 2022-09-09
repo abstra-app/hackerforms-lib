@@ -1,6 +1,10 @@
 {
+  "props": {
     "message": "How much credits do you want?",
     "initialValue": 10,
     "min": 10,
     "currency": "USD"
+  },
+  "name": "Basic Example",
+  "description": "The following examples demonstrate some of the available functionality for read_currency"
 }

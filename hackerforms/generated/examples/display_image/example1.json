@@ -1,1 +1,8 @@
-{ "image_str": "https://placekitten.com/200/200", "subtitle": "Meooow" }
+{
+  "props": {
+    "image_str": "https://placekitten.com/200/200",
+    "subtitle": "Meooow"
+  },
+  "name": "Basic Example",
+  "description": "The following examples demonstrate some of the available functionality for display_image"
+}

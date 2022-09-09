@@ -1,1 +1,29 @@
-{"initialValue":[{}],"min":1,"max":3,"itemSchema":[{"hint":null,"initialValue":"","key":"Name","message":"Name","placeholder":"Your answer here","required":true,"type":"text-input"},{"hint":null,"initialValue":"","key":"Email","message":"Email","placeholder":"Your answer here","required":true,"type":"email-input"}]}
+{
+  "props": {
+    "initialValue": [{}],
+    "min": 1,
+    "max": 3,
+    "itemSchema": [
+      {
+        "hint": null,
+        "initialValue": "",
+        "key": "Name",
+        "message": "Name",
+        "placeholder": "Your answer here",
+        "required": true,
+        "type": "text-input"
+      },
+      {
+        "hint": null,
+        "initialValue": "",
+        "key": "Email",
+        "message": "Email",
+        "placeholder": "Your answer here",
+        "required": true,
+        "type": "email-input"
+      }
+    ]
+  },
+  "name": "Basic Example",
+  "description": "The following examples demonstrate some of the available functionality for read_list"
+}
