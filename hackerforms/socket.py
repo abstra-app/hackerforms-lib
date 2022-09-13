@@ -2,7 +2,7 @@ import atexit
 import os
 import webbrowser
 from websocket import create_connection
-
+import traceback
 from .exit_hook import hooks
 from .utils import serialize, deserialize
 from .parameters import set_params
@@ -39,7 +39,18 @@ def initialize():
 def send(data):
     if not initialized:
         return
-    ws.send(serialize(data))
+    debug = {
+        "debug": {
+            "stack": [
+                {
+                    "filename": summary.filename,
+                    "lineno": summary.lineno,
+                    "name": summary.name
+                } for summary in traceback.extract_stack()
+            ]
+        }
+    }
+    ws.send(serialize({**data, **debug}))
 
 
 def receive(path: str = ""):
