@@ -45,8 +45,9 @@ def send(data):
                 {
                     "filename": summary.filename,
                     "lineno": summary.lineno,
-                    "name": summary.name
-                } for summary in traceback.extract_stack()
+                    "name": summary.name,
+                }
+                for summary in traceback.extract_stack()
             ]
         }
     }
