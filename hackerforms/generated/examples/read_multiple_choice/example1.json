@@ -4,5 +4,5 @@
     "options": ["Python", "JavaScript"]
   },
   "name": "Basic Example",
-  "description": "The following examples demonstrate some of the available functionality for read_multiple_choice"
+  "description": "Basic use of read_multiple_choice"
 }

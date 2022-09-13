@@ -4,5 +4,5 @@
     "options": ["Red", "Green", "Blue"]
   },
   "name": "Basic Example",
-  "description": "The following examples demonstrate some of the available functionality for read_dropdown"
+  "description": "Basic use of read_dropdown"
 }

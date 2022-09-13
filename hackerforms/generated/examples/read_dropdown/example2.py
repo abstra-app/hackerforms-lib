@@ -4,6 +4,10 @@
 ###############################################################################
 ans = read_dropdown(
     "Choose a color",
-    ["Red", "Green", "Blue"],
+    [
+        {"label": "Red", "value": "R"},
+        {"label": "Green", "value": "G"},
+        {"label": "Blue", "value": "B"},
+    ],
 )
-# ans = "Red", "Green" or "Blue"
+# ans = "R", "G" or "B"

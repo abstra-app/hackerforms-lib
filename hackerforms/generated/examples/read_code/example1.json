@@ -5,5 +5,5 @@
     "initialValue": "#include<stdio.h>\nint main(int argc, char** argv) {\nchar name[256];\nscanf(\"%s\", name);\nprintf(\"%s, here is\", name);\n}"
   },
   "name": "Basic Example",
-  "description": "The following examples demonstrate some of the available functionality for read_code"
+  "description": "The following example demonstrate some of the available functionality for read_code"
 }
