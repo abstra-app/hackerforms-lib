@@ -731,7 +731,7 @@ class WidgetSchema:
     input = read
 
 
-class PageResponse:
+class PageResponse(dict):
     def __init__(self, data, action):
         self.action = action
         self.data = data
@@ -757,6 +757,12 @@ class PageResponse:
     def __str__(self):
         return str(self.data)
 
+    def __repr__(self):
+        return repr(self.data)
+
+    def __cmp__(self, cmp_dict):
+        return self.__cmp__(self.data, cmp_dict)
+
     def keys(self):
         return self.data.keys()
 
@@ -765,6 +771,21 @@ class PageResponse:
 
     def items(self):
         return self.data.items()
+
+    def clear(self):
+        return self.data.clear()
+
+    def copy(self):
+        return PageResponse(self.data.copy(), self.action)
+
+    def has_key(self, key):
+        return key in self.data
+
+    def update(self, *args, **kwargs):
+        return self.data.update(*args, **kwargs)
+
+    def pop(self, *args):
+        return self.data.pop(*args)
 
 
 class Page(WidgetSchema):
