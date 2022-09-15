@@ -35,14 +35,6 @@
           "description": "message describing the input",
           "default": null
         },
-        "initialValue": {
-          "type": [
-            "string",
-            "array"
-          ],
-          "description": "The initial value of the input",
-          "default": ""
-        },
         "required": {
           "type": [
             "boolean",
@@ -50,6 +42,14 @@
           ],
           "description": "Whether the input is required or not",
           "default": true
+        },
+        "initialValue": {
+          "type": [
+            "string",
+            "array"
+          ],
+          "description": "The initial value of the input",
+          "default": ""
         }
       }
     },
@@ -85,6 +85,14 @@
           "description": "message describing the input",
           "default": null
         },
+        "required": {
+          "type": [
+            "boolean",
+            "string"
+          ],
+          "description": "Whether the input is required or not",
+          "default": true
+        },
         "initialValue": {
           "type": [
             "string",
@@ -94,14 +102,6 @@
           "items": {
             "type": "string"
           }
-        },
-        "required": {
-          "type": [
-            "boolean",
-            "string"
-          ],
-          "description": "Whether the input is required or not",
-          "default": true
         },
         "multiple": {
           "type": "boolean",
@@ -141,6 +141,14 @@
           "description": "message describing the input",
           "default": null
         },
+        "required": {
+          "type": [
+            "boolean",
+            "string"
+          ],
+          "description": "Whether the input is required or not",
+          "default": true
+        },
         "initialValue": {
           "type": [
             "string",
@@ -150,14 +158,6 @@
           "items": {
             "type": "string"
           }
-        },
-        "required": {
-          "type": [
-            "boolean",
-            "string"
-          ],
-          "description": "Whether the input is required or not",
-          "default": true
         },
         "multiple": {
           "type": "boolean",
@@ -197,6 +197,14 @@
           "description": "message describing the input",
           "default": null
         },
+        "required": {
+          "type": [
+            "boolean",
+            "string"
+          ],
+          "description": "Whether the input is required or not",
+          "default": true
+        },
         "initialValue": {
           "type": "string",
           "description": "The initial value of the input",
@@ -206,14 +214,6 @@
           "type": "string",
           "description": "The placeholder text to display in the input",
           "default": "Your answer here"
-        },
-        "required": {
-          "type": [
-            "boolean",
-            "string"
-          ],
-          "description": "Whether the input is required or not",
-          "default": true
         }
       }
     },
@@ -249,6 +249,14 @@
           "description": "message describing the input",
           "default": null
         },
+        "required": {
+          "type": [
+            "boolean",
+            "string"
+          ],
+          "description": "Whether the input is required or not",
+          "default": true
+        },
         "initialValue": {
           "type": "string",
           "description": "The initial value of the input",
@@ -258,14 +266,6 @@
           "type": "string",
           "description": "The placeholder text to display in the input",
           "default": "Your answer here"
-        },
-        "required": {
-          "type": [
-            "boolean",
-            "string"
-          ],
-          "description": "Whether the input is required or not",
-          "default": true
         }
       }
     },
@@ -301,6 +301,14 @@
           "description": "message describing the input",
           "default": null
         },
+        "required": {
+          "type": [
+            "boolean",
+            "string"
+          ],
+          "description": "Whether the input is required or not",
+          "default": true
+        },
         "initialValue": {
           "type": [
             "array",
@@ -316,14 +324,6 @@
           "default": [
             ""
           ]
-        },
-        "required": {
-          "type": [
-            "boolean",
-            "string"
-          ],
-          "description": "Whether the input is required or not",
-          "default": true
         },
         "placeholder": {
           "type": "string",
@@ -364,6 +364,14 @@
           "description": "message describing the input",
           "default": null
         },
+        "required": {
+          "type": [
+            "boolean",
+            "string"
+          ],
+          "description": "Whether the input is required or not",
+          "default": true
+        },
         "initialValue": {
           "type": "number",
           "description": "The initial value of the input",
@@ -385,14 +393,6 @@
           "type": "string",
           "description": "The placeholder text to display in the input",
           "default": "Your answer here"
-        },
-        "required": {
-          "type": [
-            "boolean",
-            "string"
-          ],
-          "description": "Whether the input is required or not",
-          "default": true
         }
       }
     },
@@ -428,6 +428,14 @@
           "description": "message describing the input",
           "default": null
         },
+        "required": {
+          "type": [
+            "boolean",
+            "string"
+          ],
+          "description": "Whether the input is required or not",
+          "default": true
+        },
         "initialValue": {
           "type": "string",
           "description": "The initial value of the input",
@@ -437,14 +445,6 @@
           "type": "string",
           "description": "The placeholder text to display in the input",
           "default": "Your email here"
-        },
-        "required": {
-          "type": [
-            "boolean",
-            "string"
-          ],
-          "description": "Whether the input is required or not",
-          "default": true
         }
       }
     },
@@ -480,6 +480,14 @@
           "description": "message describing the input",
           "default": null
         },
+        "required": {
+          "type": [
+            "boolean",
+            "string"
+          ],
+          "description": "Whether the input is required or not",
+          "default": true
+        },
         "initialValue": {
           "type": "string",
           "description": "The initial value of the input",
@@ -489,14 +497,6 @@
           "type": "string",
           "description": "The placeholder text to display in the input",
           "default": ""
-        },
-        "required": {
-          "type": [
-            "boolean",
-            "string"
-          ],
-          "description": "Whether the input is required or not",
-          "default": true
         }
       }
     },
@@ -552,6 +552,14 @@
           "description": "message describing the input",
           "default": null
         },
+        "required": {
+          "type": [
+            "boolean",
+            "string"
+          ],
+          "description": "Whether the input is required or not",
+          "default": true
+        },
         "multiple": {
           "type": "boolean",
           "description": "Whether the input should accept multiple answers",
@@ -566,14 +574,6 @@
           "type": "number",
           "description": "The maximum amount of options that should be selected",
           "default": null
-        },
-        "required": {
-          "type": [
-            "boolean",
-            "string"
-          ],
-          "description": "Whether the input is required or not",
-          "default": true
         },
         "initialValue": {
           "type": "any",
@@ -687,6 +687,14 @@
           "description": "message describing the input",
           "default": null
         },
+        "required": {
+          "type": [
+            "boolean",
+            "string"
+          ],
+          "description": "Whether the input is required or not",
+          "default": true
+        },
         "initialValue": {
           "type": "any",
           "description": "The initial value of the input",
@@ -701,14 +709,6 @@
           "type": "string",
           "description": "The placeholder text to display in the input",
           "default": "Choose your option"
-        },
-        "required": {
-          "type": [
-            "boolean",
-            "string"
-          ],
-          "description": "Whether the input is required or not",
-          "default": true
         },
         "multiple": {
           "type": "boolean",
@@ -747,6 +747,14 @@
           ],
           "description": "message describing the input",
           "default": null
+        },
+        "required": {
+          "type": [
+            "boolean",
+            "string"
+          ],
+          "description": "Whether the input is required or not",
+          "default": true
         },
         "initialValue": {
           "type": "array",
@@ -820,6 +828,14 @@
           "description": "message describing the input",
           "default": null
         },
+        "required": {
+          "type": [
+            "boolean",
+            "string"
+          ],
+          "description": "Whether the input is required or not",
+          "default": true
+        },
         "multiple": {
           "type": "boolean",
           "description": "Whether the input can have multiple values",
@@ -828,14 +844,6 @@
         "searchable": {
           "type": "boolean",
           "description": "Display a search input"
-        },
-        "required": {
-          "type": [
-            "boolean",
-            "string"
-          ],
-          "description": "Whether the input is required or not",
-          "default": true
         },
         "initialValue": {
           "type": [
@@ -974,11 +982,6 @@
           "description": "message describing the input",
           "default": null
         },
-        "multiple": {
-          "type": "boolean",
-          "description": "Whether the input can have multiple values",
-          "default": false
-        },
         "required": {
           "type": [
             "boolean",
@@ -986,6 +989,11 @@
           ],
           "description": "Whether the input is required or not",
           "default": true
+        },
+        "multiple": {
+          "type": "boolean",
+          "description": "Whether the input can have multiple values",
+          "default": false
         },
         "css": {
           "type": "string"
@@ -1104,11 +1112,6 @@
           "description": "message describing the input",
           "default": null
         },
-        "placeholder": {
-          "type": "string",
-          "description": "The placeholder text to display in the input",
-          "default": "Your password here"
-        },
         "required": {
           "type": [
             "boolean",
@@ -1116,6 +1119,11 @@
           ],
           "description": "Whether the input is required or not",
           "default": true
+        },
+        "placeholder": {
+          "type": "string",
+          "description": "The placeholder text to display in the input",
+          "default": "Your password here"
         },
         "lowercaseRequired": {
           "type": [
@@ -1217,6 +1225,14 @@
           "description": "message describing the input",
           "default": null
         },
+        "required": {
+          "type": [
+            "boolean",
+            "string"
+          ],
+          "description": "Whether the input is required or not",
+          "default": true
+        },
         "language": {
           "type": "string",
           "description": "Programming language for syntax highlighting"
@@ -1225,14 +1241,6 @@
           "type": "string",
           "description": "The initial value of the input",
           "default": ""
-        },
-        "required": {
-          "type": [
-            "boolean",
-            "string"
-          ],
-          "description": "Whether the input is required or not",
-          "default": true
         }
       }
     },
@@ -1268,6 +1276,14 @@
           "description": "message describing the input",
           "default": null
         },
+        "required": {
+          "type": [
+            "boolean",
+            "string"
+          ],
+          "description": "Whether the input is required or not",
+          "default": true
+        },
         "min": {
           "type": "number",
           "description": "Minimum value of NPS",
@@ -1291,14 +1307,6 @@
         "initialValue": {
           "type": "number",
           "description": "The initial value of the input"
-        },
-        "required": {
-          "type": [
-            "boolean",
-            "string"
-          ],
-          "description": "Whether the input is required or not",
-          "default": true
         }
       }
     },
@@ -1338,6 +1346,14 @@
           "description": "message describing the input",
           "default": null
         },
+        "required": {
+          "type": [
+            "boolean",
+            "string"
+          ],
+          "description": "Whether the input is required or not",
+          "default": true
+        },
         "initialValue": {
           "type": "number",
           "description": "The initial value of the input",
@@ -1359,14 +1375,6 @@
           "type": "string",
           "description": "The placeholder text to display in the input",
           "default": ""
-        },
-        "required": {
-          "type": [
-            "boolean",
-            "string"
-          ],
-          "description": "Whether the input is required or not",
-          "default": true
         }
       }
     },
