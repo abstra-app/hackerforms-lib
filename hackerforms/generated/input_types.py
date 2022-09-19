@@ -882,6 +882,7 @@ class ListInput(Input):
             "max": self.max,
             "addButtonText": self.add_button_text,
             "fullWidth": self.full_width,
+            "required": self.required,
         }
 
     def convert_answer(self, answers) -> typing.List:
