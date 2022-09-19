@@ -808,7 +808,7 @@ class Page(WidgetSchema):
         '''
         
         for widget in self.widgets:
-          validate_widget_props(widget.json(), metadata)
+          validate_widget_props(widget.json())
         
         if isinstance(actions, list):
           actions = actions
