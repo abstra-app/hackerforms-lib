@@ -11,6 +11,8 @@ from ..validation import validate_widget_props
 
 generated_widgets = [example_instance.json() for example_instance in example_instances]
 
+del metadata["list-input"]
+
 
 class TestFunction(unittest.TestCase):
     def test_widget_examples_contains_all_widgets(self):
