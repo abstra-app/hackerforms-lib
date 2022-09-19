@@ -868,6 +868,7 @@ class ListInput(Input):
         self.columns = kwargs.get("columns", 1)
         self.add_button_text = kwargs.get("add_button_text", "+")
         self.full_width = kwargs.get("full_width", False)
+        self.required = kwargs.get("required", True)
 
     def json(self):
         return {
