@@ -16,3 +16,5 @@ if os.getenv("ENV") != "test":
     _initialize_overloads()
 
 del _check_version
+del _initialize_socket
+del _initialize_overloads
