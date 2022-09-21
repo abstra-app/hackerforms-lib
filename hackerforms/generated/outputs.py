@@ -126,11 +126,11 @@ def display_plotly(fig: typing.Any, **kwargs):
   button_text = kwargs.get('button_text', 'Next')
   return Page().display_plotly(fig, **kwargs).run(button_text)
 
-def display(message: str, **kwargs):
-  '''Display a message to the user
+def display(text: str, **kwargs):
+  '''Display a text to the user
 
       Positional Args:
-        message (str): The message to display to the user
+        text (str): The text to display to the user
       
       Keyword Args:
         button_text (str): The text to display on the button that will continue the form
@@ -138,4 +138,4 @@ def display(message: str, **kwargs):
         
   '''
   button_text = kwargs.get('button_text', 'Next')
-  return Page().display(message, **kwargs).run(button_text)
+  return Page().display(text, **kwargs).run(button_text)

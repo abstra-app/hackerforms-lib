@@ -1,6 +1,6 @@
 {
   "props": {
-    "message": "https://placekitten.com/200/300",
+    "fileUrl": "https://placekitten.com/200/300",
     "downloadText": "Click here to reveal the secret"
   },
   "name": "Basic Example",

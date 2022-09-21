@@ -1,6 +1,6 @@
 {
   "props": {
-    "message": "Choose a color",
+    "label": "Choose a color",
     "options": ["Red", "Green", "Blue"]
   },
   "name": "Label and value dict",

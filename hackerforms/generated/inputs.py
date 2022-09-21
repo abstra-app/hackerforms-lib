@@ -63,11 +63,11 @@ def read_code(label: str, **kwargs):
   button_text = kwargs.get('button_text', 'Next')
   return get_single_value(Page().read_code(label, **kwargs).run(button_text))
 
-def read_currency(message: str, **kwargs):
+def read_currency(label: str, **kwargs):
   '''Read a number value from the user with a currency mask
 
       Positional Args:
-        message (str): The message to display to the user
+        label (str): The label to display to the user
       
       Keyword Args:
         button_text (str): The text to display on the button that will submit the value
@@ -85,13 +85,13 @@ def read_currency(message: str, **kwargs):
             float: The value entered by the user
         '''
   button_text = kwargs.get('button_text', 'Next')
-  return get_single_value(Page().read_currency(message, **kwargs).run(button_text))
+  return get_single_value(Page().read_currency(label, **kwargs).run(button_text))
 
-def read_date(message: str, **kwargs):
+def read_date(label: str, **kwargs):
   '''Read a date value from the user
 
       Positional Args:
-        message (str): The message to display to the user
+        label (str): The label to display to the user
       
       Keyword Args:
         button_text (str): The text to display on the button that will submit the value
@@ -104,13 +104,13 @@ def read_date(message: str, **kwargs):
             datetime.date: The value entered by the user
         '''
   button_text = kwargs.get('button_text', 'Next')
-  return get_single_value(Page().read_date(message, **kwargs).run(button_text))
+  return get_single_value(Page().read_date(label, **kwargs).run(button_text))
 
-def read_dropdown(message: str, options: typing.Union[typing.List[str], typing.List[typing.Dict]], **kwargs):
+def read_dropdown(label: str, options: typing.Union[typing.List[str], typing.List[typing.Dict]], **kwargs):
   '''Read a dropdown value from the user
 
       Positional Args:
-        message (str): The message to display to the useroptions (list): The options to display to the user, eg. ['Option 1', 'Option 2'] or [{'label': 'Option 1', 'value': '1'}, {'label': 'Option 2', 'value': '2'}]
+        label (str): The label to display to the useroptions (list): The options to display to the user, eg. ['Option 1', 'Option 2'] or [{'label': 'Option 1', 'value': '1'}, {'label': 'Option 2', 'value': '2'}]
       
       Keyword Args:
         multiple (bool): Whether the user can select multiple options
@@ -125,13 +125,13 @@ def read_dropdown(message: str, options: typing.Union[typing.List[str], typing.L
             str: The value selected by the user
         '''
   button_text = kwargs.get('button_text', 'Next')
-  return get_single_value(Page().read_dropdown(message, options, **kwargs).run(button_text))
+  return get_single_value(Page().read_dropdown(label, options, **kwargs).run(button_text))
 
-def read_email(message: str, **kwargs):
+def read_email(label: str, **kwargs):
   '''Read an email value from the user
 
       Positional Args:
-        message (str): The message to display to the user
+        label (str): The label to display to the user
       
       Keyword Args:
         button_text (str): The text to display on the button that will submit the value
@@ -145,13 +145,13 @@ def read_email(message: str, **kwargs):
             str: The value entered by the user
         '''
   button_text = kwargs.get('button_text', 'Next')
-  return get_single_value(Page().read_email(message, **kwargs).run(button_text))
+  return get_single_value(Page().read_email(label, **kwargs).run(button_text))
 
-def read_file(message: str, **kwargs):
+def read_file(label: str, **kwargs):
   '''Read a file value from the user
 
       Positional Args:
-        message (str): The message to display to the user
+        label (str): The label to display to the user
       
       Keyword Args:
         button_text (str): The text to display on the button that will submit the value
@@ -165,7 +165,7 @@ def read_file(message: str, **kwargs):
             FileResponse: A dict containing the file uploaded by the user ({"file": file, "url": str, "content": bytes})
         '''
   button_text = kwargs.get('button_text', 'Next')
-  return get_single_value(Page().read_file(message, **kwargs).run(button_text))
+  return get_single_value(Page().read_file(label, **kwargs).run(button_text))
 
 def read_html_list(label: str, options: typing.Any, **kwargs):
   '''Read list of html values from the user
@@ -188,11 +188,11 @@ def read_html_list(label: str, options: typing.Any, **kwargs):
   button_text = kwargs.get('button_text', 'Next')
   return get_single_value(Page().read_html_list(label, options, **kwargs).run(button_text))
 
-def read_image(message: str, **kwargs):
+def read_image(label: str, **kwargs):
   '''Read a image file value from the user
 
       Positional Args:
-        message (str): The message to display to the user
+        label (str): The label to display to the user
       
       Keyword Args:
         button_text (str): The text to display on the button that will submit the value
@@ -206,7 +206,7 @@ def read_image(message: str, **kwargs):
             FileResponse: A dict containing the image file uploaded by the user ({"file": file, "url": str, "content": bytes})
         '''
   button_text = kwargs.get('button_text', 'Next')
-  return get_single_value(Page().read_image(message, **kwargs).run(button_text))
+  return get_single_value(Page().read_image(label, **kwargs).run(button_text))
 
 def read_list(item_schema: typing.Any, **kwargs):
   '''Read a list value from the user
@@ -229,11 +229,11 @@ def read_list(item_schema: typing.Any, **kwargs):
   button_text = kwargs.get('button_text', 'Next')
   return get_single_value(Page().read_list(item_schema, **kwargs).run(button_text))
 
-def read_multiple_choice(message: str, options: typing.Union[typing.List[str], typing.List[typing.Dict]], **kwargs):
+def read_multiple_choice(label: str, options: typing.Union[typing.List[str], typing.List[typing.Dict]], **kwargs):
   '''Read a multiple choice value from the user
 
       Positional Args:
-        message (str): The message to display to the useroptions (list): The options to display to the user, eg. ['Option 1', 'Option 2'] or [{'label': 'Option 1', 'value': '1'}, {'label': 'Option 2', 'value': '2'}]
+        label (str): The label to display to the useroptions (list): The options to display to the user, eg. ['Option 1', 'Option 2'] or [{'label': 'Option 1', 'value': '1'}, {'label': 'Option 2', 'value': '2'}]
       
       Keyword Args:
         multiple (bool): Whether the user can select multiple options
@@ -249,7 +249,7 @@ def read_multiple_choice(message: str, options: typing.Union[typing.List[str], t
             list or any: The values/value selected by the user
         '''
   button_text = kwargs.get('button_text', 'Next')
-  return get_single_value(Page().read_multiple_choice(message, options, **kwargs).run(button_text))
+  return get_single_value(Page().read_multiple_choice(label, options, **kwargs).run(button_text))
 
 def read_nps(label: str, **kwargs):
   '''Gets NPS feedback from user
@@ -273,11 +273,11 @@ def read_nps(label: str, **kwargs):
   button_text = kwargs.get('button_text', 'Next')
   return get_single_value(Page().read_nps(label, **kwargs).run(button_text))
 
-def read_number(message: str, **kwargs):
+def read_number(label: str, **kwargs):
   '''Read a number value from the user
 
       Positional Args:
-        message (str): The message to display to the user
+        label (str): The label to display to the user
       
       Keyword Args:
         button_text (str): The text to display on the button that will submit the value
@@ -294,7 +294,7 @@ def read_number(message: str, **kwargs):
             float: The value entered by the user
         '''
   button_text = kwargs.get('button_text', 'Next')
-  return get_single_value(Page().read_number(message, **kwargs).run(button_text))
+  return get_single_value(Page().read_number(label, **kwargs).run(button_text))
 
 def read_pandas_row_selection(df: typing.Any, **kwargs):
   '''Display a pandas dataframe as a table and allow the user to select rows
@@ -314,11 +314,11 @@ def read_pandas_row_selection(df: typing.Any, **kwargs):
   button_text = kwargs.get('button_text', 'Next')
   return get_single_value(Page().read_pandas_row_selection(df, **kwargs).run(button_text))
 
-def read_password(message: str, **kwargs):
+def read_password(label: str, **kwargs):
   '''Read a password value from the user
 
       Positional Args:
-        message (str): The message to display to the user
+        label (str): The label to display to the user
       
       Keyword Args:
         button_text (str): The text to display on the button that will submit the value
@@ -340,13 +340,13 @@ def read_password(message: str, **kwargs):
             str: The value entered by the user
         '''
   button_text = kwargs.get('button_text', 'Next')
-  return get_single_value(Page().read_password(message, **kwargs).run(button_text))
+  return get_single_value(Page().read_password(label, **kwargs).run(button_text))
 
-def read_phone(message: str, **kwargs):
+def read_phone(label: str, **kwargs):
   '''Read a phone number value from the user
 
       Positional Args:
-        message (str): The message to display to the user
+        label (str): The label to display to the user
       
       Keyword Args:
         button_text (str): The text to display on the button that will submit the value
@@ -360,13 +360,13 @@ def read_phone(message: str, **kwargs):
             PhoneResponse: A dict containing the value entered by the user ({"raw": str, "masked": str})
         '''
   button_text = kwargs.get('button_text', 'Next')
-  return get_single_value(Page().read_phone(message, **kwargs).run(button_text))
+  return get_single_value(Page().read_phone(label, **kwargs).run(button_text))
 
-def read_tag(message: str, **kwargs):
+def read_tag(label: str, **kwargs):
   '''Read a tag value from the user
 
       Positional Args:
-        message (str): The message to display to the user
+        label (str): The label to display to the user
       
       Keyword Args:
         button_text (str): The text to display on the button that will submit the value
@@ -380,13 +380,13 @@ def read_tag(message: str, **kwargs):
             list(str) or list(float): The value entered by the user
         '''
   button_text = kwargs.get('button_text', 'Next')
-  return get_single_value(Page().read_tag(message, **kwargs).run(button_text))
+  return get_single_value(Page().read_tag(label, **kwargs).run(button_text))
 
-def read(message: str, **kwargs):
+def read(label: str, **kwargs):
   '''Read a text value from the user simple text input
 
       Positional Args:
-        message (str): The message to display to the user
+        label (str): The label to display to the user
       
       Keyword Args:
         button_text (str): The text to display on the button that will submit the value
@@ -400,13 +400,13 @@ def read(message: str, **kwargs):
             str: The value entered by the user
         '''
   button_text = kwargs.get('button_text', 'Next')
-  return get_single_value(Page().read(message, **kwargs).run(button_text))
+  return get_single_value(Page().read(label, **kwargs).run(button_text))
 
-def read_textarea(message: str, **kwargs):
+def read_textarea(label: str, **kwargs):
   '''Read a text value from the user with a text area input
 
       Positional Args:
-        message (str): The message to display to the user
+        label (str): The label to display to the user
       
       Keyword Args:
         button_text (str): The text to display on the button that will submit the value
@@ -420,13 +420,13 @@ def read_textarea(message: str, **kwargs):
             str: The value entered by the user
         '''
   button_text = kwargs.get('button_text', 'Next')
-  return get_single_value(Page().read_textarea(message, **kwargs).run(button_text))
+  return get_single_value(Page().read_textarea(label, **kwargs).run(button_text))
 
-def read_time(message: str, **kwargs):
+def read_time(label: str, **kwargs):
   '''Read a time value from the user
 
       Positional Args:
-        message (str): The message to display to the user
+        label (str): The label to display to the user
       
       Keyword Args:
         button_text (str): The text to display on the button that will submit the value
@@ -440,13 +440,13 @@ def read_time(message: str, **kwargs):
             datetime.time: A datetime.time object representing the value entered by the user
         '''
   button_text = kwargs.get('button_text', 'Next')
-  return get_single_value(Page().read_time(message, **kwargs).run(button_text))
+  return get_single_value(Page().read_time(label, **kwargs).run(button_text))
 
-def read_video(message: str, **kwargs):
+def read_video(label: str, **kwargs):
   '''Read a video file value from the user
 
       Positional Args:
-        message (str): The message to display to the user
+        label (str): The label to display to the user
       
       Keyword Args:
         button_text (str): The text to display on the button that will submit the value
@@ -460,7 +460,7 @@ def read_video(message: str, **kwargs):
             FileResponse: A dict containing the video uploaded by the user ({"file": file, "url": str, "content": bytes})
         '''
   button_text = kwargs.get('button_text', 'Next')
-  return get_single_value(Page().read_video(message, **kwargs).run(button_text))
+  return get_single_value(Page().read_video(label, **kwargs).run(button_text))
 
 def get_single_value(answer: typing.Dict):
   return list(answer.values())[0]

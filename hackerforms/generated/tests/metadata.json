@@ -10,9 +10,9 @@
           "type": "string",
           "description": "The key of the input on the returning object"
         },
-        "message": {
+        "label": {
           "type": "string",
-          "description": "The message to display above the input"
+          "description": "The label to display above the input"
         },
         "multiple": {
           "type": "boolean"
@@ -63,9 +63,9 @@
           "type": "string",
           "description": "The key of the input on the returning object"
         },
-        "message": {
+        "label": {
           "type": "string",
-          "description": "The message to display above the input"
+          "description": "The label to display above the input"
         }
       },
       "optionals": {
@@ -119,9 +119,9 @@
           "type": "string",
           "description": "The key of the input on the returning object"
         },
-        "message": {
+        "label": {
           "type": "string",
-          "description": "The message to display above the input"
+          "description": "The label to display above the input"
         }
       },
       "optionals": {
@@ -175,9 +175,9 @@
           "type": "string",
           "description": "The key of the input on the returning object"
         },
-        "message": {
+        "label": {
           "type": "string",
-          "description": "The message to display above the input"
+          "description": "The label to display above the input"
         }
       },
       "optionals": {
@@ -227,9 +227,9 @@
           "type": "string",
           "description": "The key of the input on the returning object"
         },
-        "message": {
+        "label": {
           "type": "string",
-          "description": "The message to display above the input"
+          "description": "The label to display above the input"
         }
       },
       "optionals": {
@@ -279,9 +279,9 @@
           "type": "string",
           "description": "The key of the input on the returning object"
         },
-        "message": {
+        "label": {
           "type": "string",
-          "description": "The message to display above the input"
+          "description": "The label to display above the input"
         }
       },
       "optionals": {
@@ -342,9 +342,9 @@
           "type": "string",
           "description": "The key of the input on the returning object"
         },
-        "message": {
+        "label": {
           "type": "string",
-          "description": "The message to display above the input"
+          "description": "The label to display above the input"
         }
       },
       "optionals": {
@@ -406,9 +406,9 @@
           "type": "string",
           "description": "The key of the input on the returning object"
         },
-        "message": {
+        "label": {
           "type": "string",
-          "description": "The message to display above the input"
+          "description": "The label to display above the input"
         }
       },
       "optionals": {
@@ -458,9 +458,9 @@
           "type": "string",
           "description": "The key of the input on the returning object"
         },
-        "message": {
+        "label": {
           "type": "string",
-          "description": "The message to display above the input"
+          "description": "The label to display above the input"
         }
       },
       "optionals": {
@@ -510,9 +510,9 @@
           "type": "string",
           "description": "The key of the input on the returning object"
         },
-        "message": {
+        "label": {
           "type": "string",
-          "description": "The message to display above the input"
+          "description": "The label to display above the input"
         },
         "options": {
           "type": "array",
@@ -598,9 +598,9 @@
           "type": "string",
           "description": "The key of the input on the returning object"
         },
-        "message": {
+        "label": {
           "type": "string",
-          "description": "The message to display above the input"
+          "description": "The label to display above the input"
         }
       },
       "optionals": {
@@ -645,9 +645,9 @@
           "type": "string",
           "description": "The key of the input on the returning object"
         },
-        "message": {
+        "label": {
           "type": "string",
-          "description": "The name to display above the input"
+          "description": "The label to display above the input"
         },
         "options": {
           "type": "array",
@@ -1038,9 +1038,9 @@
           "type": "string",
           "description": "The key of the input on the returning object"
         },
-        "message": {
+        "label": {
           "type": "string",
-          "description": "The message to display above the input"
+          "description": "The label to display above the input"
         }
       },
       "optionals": {
@@ -1090,9 +1090,9 @@
           "type": "string",
           "description": "The key of the input on the returning object"
         },
-        "message": {
+        "label": {
           "type": "string",
-          "description": "The message to display above the input"
+          "description": "The label to display above the input"
         }
       },
       "optionals": {
@@ -1320,9 +1320,9 @@
           "type": "string",
           "description": "The key of the input on the returning object"
         },
-        "message": {
+        "label": {
           "type": "string",
-          "description": "The message to display above the input"
+          "description": "The label to display above the input"
         },
         "currency": {
           "type": "string",
@@ -1382,9 +1382,9 @@
       "name": "TextOutput",
       "libFunc": "display_text",
       "type": "text-output",
-      "description": "Display a message to the user",
+      "description": "Display a text to the user",
       "params": {
-        "message": {
+        "text": {
           "type": "string"
         }
       },
@@ -1426,7 +1426,7 @@
       "type": "image-output",
       "description": "Display an image to the user",
       "params": {
-        "image_str": {
+        "imageUrl": {
           "type": "string"
         }
       },
@@ -1451,7 +1451,7 @@
       "type": "link-output",
       "description": "Display a link to the user",
       "params": {
-        "message": {
+        "linkText": {
           "type": "string"
         },
         "linkUrl": {
@@ -1479,7 +1479,7 @@
       "type": "file-output",
       "description": "Display a button for the user to download a file",
       "params": {
-        "message": {
+        "fileUrl": {
           "type": "string"
         }
       },

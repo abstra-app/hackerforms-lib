@@ -8,7 +8,7 @@
         "hint": null,
         "initialValue": "",
         "key": "Name",
-        "message": "Name",
+        "label": "Name",
         "placeholder": "Your answer here",
         "required": true,
         "type": "text-input"
@@ -17,7 +17,7 @@
         "hint": null,
         "initialValue": "",
         "key": "Email",
-        "message": "Email",
+        "label": "Email",
         "placeholder": "Your answer here",
         "required": true,
         "type": "email-input"

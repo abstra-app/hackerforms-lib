@@ -24,24 +24,24 @@ class Output(ABC):
 class TextOutput(Output):
     type = "text-output"
 
-    def __init__(self, message: str, **kwargs):
-        """Display a message to the user
+    def __init__(self, text: str, **kwargs):
+        """Display a text to the user
 
         Positional Args:
-            message (str): The message to display to the user
+            text (str): The text to display to the user
 
         Keyword Args:
             button_text (str): The text to display on the button that will continue the form
             full_width (bool): Whether the input should use full screen width
         """
-        self.message = str(message)
+        self.text = str(text)
         self.columns = kwargs.get("columns", 1)
         self.full_width = kwargs.get("full_width", False)
 
     def json(self):
         return {
             "type": self.type,
-            "message": self.message,
+            "text": self.text,
             "columns": self.columns,
             "fullWidth": self.full_width,
         }
@@ -96,7 +96,7 @@ class ImageOutput(Output):
     def json(self):
         return {
             "type": self.type,
-            "image_str": convert_file(self.image),
+            "imageUrl": convert_file(self.image),
             "subtitle": self.subtitle,
             "columns": self.columns,
             "fullWidth": self.full_width,
@@ -128,7 +128,7 @@ class LinkOutput(Output):
     def json(self):
         return {
             "type": self.type,
-            "message": self.link_text,
+            "linkText": self.link_text,
             "linkUrl": self.link_url,
             "columns": self.columns,
             "sameTab": self.same_tab,
@@ -159,7 +159,7 @@ class FileOutput(Output):
     def json(self):
         return {
             "type": self.type,
-            "message": convert_file(self.file),
+            "fileUrl": convert_file(self.file),
             "downloadText": self.download_text,
             "columns": self.columns,
             "fullWidth": self.full_width,

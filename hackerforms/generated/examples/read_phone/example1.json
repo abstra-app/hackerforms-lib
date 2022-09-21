@@ -1,6 +1,6 @@
 {
   "props": {
-    "message": "What is your phone number?"
+    "label": "What is your phone number?"
   },
   "name": "Basic Example",
   "description": "The following example demonstrate some of the available functionality for read_phone"

@@ -1,6 +1,6 @@
 {
   "props": {
-    "message": "Insert your password below"
+    "label": "Insert your password below"
   },
   "name": "Basic Example",
   "description": "The following example demonstrate some of the available functionality for read_password"

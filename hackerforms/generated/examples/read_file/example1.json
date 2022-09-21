@@ -1,6 +1,6 @@
 {
   "props": {
-    "message": "Upload your .xlsx file"
+    "label": "Upload your .xlsx file"
   },
   "name": "Basic Example",
   "description": "The following example demonstrate some of the available functionality for read_file"

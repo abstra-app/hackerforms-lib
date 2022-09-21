@@ -1,6 +1,6 @@
 {
   "props": {
-    "message": "Select a time below"
+    "label": "Select a time below"
   },
   "name": "Basic Example",
   "description": "The following example demonstrate some of the available functionality for read_time"

@@ -1,6 +1,6 @@
 {
   "props": {
-    "message": "Type and press enter to add a tag",
+    "label": "Type and press enter to add a tag",
     "initialValue": ["Red", "Green", "Blue"]
   },
   "name": "Basic Example",

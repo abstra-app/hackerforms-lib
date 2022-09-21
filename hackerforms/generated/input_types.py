@@ -32,11 +32,11 @@ class Input(ABC):
 class TextInput(Input):
     type = "text-input"
 
-    def __init__(self, key: str, message: str, **kwargs):
+    def __init__(self, key: str, label: str, **kwargs):
         """Read a text value from the user simple text input
 
         Positional Args:
-            message (str): The message to display to the user
+            label (str): The label to display to the user
 
         Keyword Args:
             button_text (str): The text to display on the button that will submit the value
@@ -47,7 +47,7 @@ class TextInput(Input):
             full_width (bool): Whether the input should use full screen width
         """
         super().__init__(key)
-        self.message = message
+        self.label = label
         self.initial_value = kwargs.get("initial_value", "")
         self.placeholder = kwargs.get("placeholder", "Your answer here")
         self.required = kwargs.get("required", True)
@@ -59,7 +59,7 @@ class TextInput(Input):
         return {
             "type": self.type,
             "key": self.key,
-            "message": self.message,
+            "label": self.label,
             "initialValue": self.initial_value,
             "placeholder": self.placeholder,
             "required": self.required,
@@ -80,11 +80,11 @@ class TagInput(Input):
 
     type = "tag-input"
 
-    def __init__(self, key: str, message: str, **kwargs):
+    def __init__(self, key: str, label: str, **kwargs):
         """Read a tag value from the user
 
         Positional Args:
-            message (str): The message to display to the user
+            label (str): The label to display to the user
 
         Keyword Args:
             button_text (str): The text to display on the button that will submit the value
@@ -96,7 +96,7 @@ class TagInput(Input):
         """
 
         super().__init__(key)
-        self.message = message
+        self.label = label
         self.initial_value = kwargs.get("initial_value", [])
         self.placeholder = kwargs.get("placeholder", "Your answer here")
         self.required = kwargs.get("required", True)
@@ -108,7 +108,7 @@ class TagInput(Input):
         return {
             "type": self.type,
             "key": self.key,
-            "message": self.message,
+            "label": self.label,
             "initialValue": self.initial_value,
             "placeholder": self.placeholder,
             "required": self.required,
@@ -131,11 +131,11 @@ class TagInput(Input):
 class DateInput(Input):
     type = "date-input"
 
-    def __init__(self, key: str, message: str, **kwargs):
+    def __init__(self, key: str, label: str, **kwargs):
         """Read a date value from the user
 
         Positional Args:
-            message (str): The message to display to the user
+            label (str): The label to display to the user
 
         Keyword Args:
             button_text (str): The text to display on the button that will submit the value
@@ -146,7 +146,7 @@ class DateInput(Input):
 
         """
         super().__init__(key)
-        self.message = message
+        self.label = label
         self.initial_value = kwargs.get("initial_value", None)
         self.required = kwargs.get("required", True)
         self.hint = kwargs.get("hint", None)
@@ -168,7 +168,7 @@ class DateInput(Input):
             "type": self.type,
             "key": self.key,
             "hint": self.hint,
-            "message": self.message,
+            "label": self.label,
             "initialValue": DateInput.convert_value(self.initial_value)
             if self.initial_value
             else "",
@@ -195,11 +195,11 @@ class DateInput(Input):
 class FileInput(Input):
     type = "file-input"
 
-    def __init__(self, key: str, message: str, **kwargs):
+    def __init__(self, key: str, label: str, **kwargs):
         """Read a file value from the user
 
         Positional Args:
-            message (str): The message to display to the user
+            label (str): The label to display to the user
 
         Keyword Args:
             button_text (str): The text to display on the button that will submit the value
@@ -211,7 +211,7 @@ class FileInput(Input):
 
         """
         super().__init__(key)
-        self.message = message
+        self.label = label
         self.initial_value = kwargs.get("initial_value", "")
         self.required = kwargs.get("required", True)
         self.hint = kwargs.get("hint", None)
@@ -224,7 +224,7 @@ class FileInput(Input):
             "type": self.type,
             "key": self.key,
             "hint": self.hint,
-            "message": self.message,
+            "label": self.label,
             "initialValue": self.initial_value,
             "required": self.required,
             "columns": self.columns,
@@ -249,11 +249,11 @@ class FileInput(Input):
 class ImageInput(Input):
     type = "image-input"
 
-    def __init__(self, key: str, message: str, **kwargs):
+    def __init__(self, key: str, label: str, **kwargs):
         """Read a image file value from the user
 
         Positional Args:
-            message (str): The message to display to the user
+            label (str): The label to display to the user
 
         Keyword Args:
             button_text (str): The text to display on the button that will submit the value
@@ -264,7 +264,7 @@ class ImageInput(Input):
             multiple (bool): Whether the user will be allowed to upload multiple files
         """
         super().__init__(key)
-        self.message = message
+        self.label = label
         self.initial_value = kwargs.get("initial_value", "")
         self.required = kwargs.get("required", True)
         self.hint = kwargs.get("hint", None)
@@ -277,7 +277,7 @@ class ImageInput(Input):
             "type": self.type,
             "key": self.key,
             "hint": self.hint,
-            "message": self.message,
+            "label": self.label,
             "initialValue": self.initial_value,
             "columns": self.columns,
             "required": self.required,
@@ -302,11 +302,11 @@ class ImageInput(Input):
 class VideoInput(Input):
     type = "video-input"
 
-    def __init__(self, key: str, message: str, **kwargs):
+    def __init__(self, key: str, label: str, **kwargs):
         """Read a video file value from the user
 
         Positional Args:
-            message (str): The message to display to the user
+            label (str): The label to display to the user
 
         Keyword Args:
             button_text (str): The text to display on the button that will submit the value
@@ -317,7 +317,7 @@ class VideoInput(Input):
             multiple (bool): Whether the user will be allowed to upload multiple files
         """
         super().__init__(key)
-        self.message = message
+        self.label = label
         self.initial_value = kwargs.get("initial_value", "")
         self.required = kwargs.get("required", True)
         self.hint = kwargs.get("hint", None)
@@ -330,7 +330,7 @@ class VideoInput(Input):
             "type": self.type,
             "key": self.key,
             "hint": self.hint,
-            "message": self.message,
+            "label": self.label,
             "initialValue": self.initial_value,
             "columns": self.columns,
             "required": self.required,
@@ -358,14 +358,14 @@ class MultipleChoiceInput(Input):
     def __init__(
         self,
         key: str,
-        message: str,
+        label: str,
         options: typing.Union[typing.List[str], typing.List[typing.Dict]],
         **kwargs
     ):
         """Read a multiple choice value from the user
 
         Positional Args:
-            message (str): The message to display to the user
+            label (str): The label to display to the user
             options (list): The options to display to the user, eg. ['Option 1', 'Option 2'] or [{'label': 'Option 1', 'value': '1'}, {'label': 'Option 2', 'value': '2'}]
 
         Keyword Args:
@@ -379,7 +379,7 @@ class MultipleChoiceInput(Input):
             full_width (bool): Whether the input should use full screen width
         """
         super().__init__(key)
-        self.message = message
+        self.label = label
         self.options = options
         self.multiple = kwargs.get("multiple", False)
         self.initial_value = kwargs.get("initial_value", None)
@@ -394,7 +394,7 @@ class MultipleChoiceInput(Input):
         return {
             "type": self.type,
             "key": self.key,
-            "message": self.message,
+            "label": self.label,
             "options": self.options,
             "hint": self.hint,
             "multiple": self.multiple,
@@ -481,14 +481,14 @@ class DropdownInput(Input):
     def __init__(
         self,
         key: str,
-        message: str,
+        label: str,
         options: typing.Union[typing.List[str], typing.List[typing.Dict]],
         **kwargs
     ):
         """Read a dropdown value from the user
 
         Positional Args:
-            message (str): The message to display to the user
+            label (str): The label to display to the user
             options (list): The options to display to the user, eg. ['Option 1', 'Option 2'] or [{'label': 'Option 1', 'value': '1'}, {'label': 'Option 2', 'value': '2'}]
 
         Keyword Args:
@@ -501,7 +501,7 @@ class DropdownInput(Input):
             full_width (bool): Whether the input should use full screen width
         """
         super().__init__(key)
-        self.message = message
+        self.label = label
         self.options = options
         self.initial_value = kwargs.get("initial_value", None)
         self.required = kwargs.get("required", True)
@@ -515,7 +515,7 @@ class DropdownInput(Input):
         return {
             "type": self.type,
             "key": self.key,
-            "message": self.message,
+            "label": self.label,
             "options": self.options,
             "hint": self.hint,
             "multiple": self.multiple,
@@ -537,11 +537,11 @@ class DropdownInput(Input):
 class TextareaInput(Input):
     type = "textarea-input"
 
-    def __init__(self, key: str, message: str, **kwargs):
+    def __init__(self, key: str, label: str, **kwargs):
         """Read a text value from the user with a text area input
 
         Positional Args:
-            message (str): The message to display to the user
+            label (str): The label to display to the user
 
         Keyword Args:
             button_text (str): The text to display on the button that will submit the value
@@ -553,7 +553,7 @@ class TextareaInput(Input):
 
         """
         super().__init__(key)
-        self.message = message
+        self.label = label
         self.initial_value = kwargs.get("initial_value", "")
         self.required = kwargs.get("required", True)
         self.placeholder = kwargs.get("placeholder", "Your answer here")
@@ -565,7 +565,7 @@ class TextareaInput(Input):
         return {
             "type": self.type,
             "key": self.key,
-            "message": self.message,
+            "label": self.label,
             "initialValue": self.initial_value,
             "placeholder": self.placeholder,
             "required": self.required,
@@ -689,11 +689,11 @@ class NpsInput(Input):
 class NumberInput(Input):
     type = "number-input"
 
-    def __init__(self, key: str, message: str, **kwargs):
+    def __init__(self, key: str, label: str, **kwargs):
         """Read a number value from the user
 
         Positional Args:
-            message (str): The message to display to the user
+            label (str): The label to display to the user
 
         Keyword Args:
             button_text (str): The text to display on the button that will submit the value
@@ -708,7 +708,7 @@ class NumberInput(Input):
         """
 
         super().__init__(key)
-        self.message = message
+        self.label = label
         self.initial_value = kwargs.get("initial_value", 0)
         self.required = kwargs.get("required", True)
         self.hint = kwargs.get("hint", None)
@@ -723,7 +723,7 @@ class NumberInput(Input):
         return {
             "type": self.type,
             "key": self.key,
-            "message": self.message,
+            "label": self.label,
             "initialValue": self.initial_value,
             "placeholder": self.placeholder,
             "required": self.required,
@@ -746,11 +746,11 @@ class NumberInput(Input):
 class EmailInput(Input):
     type = "email-input"
 
-    def __init__(self, key: str, message: str, **kwargs):
+    def __init__(self, key: str, label: str, **kwargs):
         """Read an email value from the user
 
         Positional Args:
-            message (str): The message to display to the user
+            label (str): The label to display to the user
 
         Keyword Args:
             button_text (str): The text to display on the button that will submit the value
@@ -761,7 +761,7 @@ class EmailInput(Input):
             full_width (bool): Whether the input should use full screen width
         """
         super().__init__(key)
-        self.message = message
+        self.label = label
         self.initial_value = kwargs.get("initial_value", "")
         self.required = kwargs.get("required", True)
         self.hint = kwargs.get("hint", None)
@@ -773,7 +773,7 @@ class EmailInput(Input):
         return {
             "type": self.type,
             "key": self.key,
-            "message": self.message,
+            "label": self.label,
             "initialValue": self.initial_value,
             "placeholder": self.placeholder,
             "required": self.required,
@@ -793,11 +793,11 @@ class EmailInput(Input):
 class PhoneInput(Input):
     type = "phone-input"
 
-    def __init__(self, key: str, message: str, **kwargs):
+    def __init__(self, key: str, label: str, **kwargs):
         """Read a phone number value from the user
 
         Positional Args:
-            message (str): The message to display to the user
+            label (str): The label to display to the user
 
         Keyword Args:
             button_text (str): The text to display on the button that will submit the value
@@ -808,7 +808,7 @@ class PhoneInput(Input):
             full_width (bool): Whether the input should use full screen width
         """
         super().__init__(key)
-        self.message = message
+        self.label = label
         self.initial_value = kwargs.get("initial_value", "")
         self.required = kwargs.get("required", True)
         self.hint = kwargs.get("hint", None)
@@ -820,7 +820,7 @@ class PhoneInput(Input):
         return {
             "type": self.type,
             "key": self.key,
-            "message": self.message,
+            "label": self.label,
             "initialValue": self.initial_value,
             "placeholder": self.placeholder,
             "required": self.required,
@@ -997,11 +997,11 @@ class HTMLListInput(Input):
 class TimeInput(Input):
     type = "time-input"
 
-    def __init__(self, key: str, message: str, **kwargs):
+    def __init__(self, key: str, label: str, **kwargs):
         """Read a time value from the user
 
         Positional Args:
-            message (str): The message to display to the user
+            label (str): The label to display to the user
 
         Keyword Args:
             button_text (str): The text to display on the button that will submit the value
@@ -1013,7 +1013,7 @@ class TimeInput(Input):
         """
 
         super().__init__(key)
-        self.message = message
+        self.label = label
         self.initial_value = kwargs.get("initial_value", "")
         self.required = kwargs.get("required", True)
         self.hint = kwargs.get("hint", None)
@@ -1025,7 +1025,7 @@ class TimeInput(Input):
         return {
             "type": self.type,
             "key": self.key,
-            "message": self.message,
+            "label": self.label,
             "format": self.format,
             "hint": self.hint,
             "initialValue": self.initial_value,
@@ -1045,11 +1045,11 @@ class TimeInput(Input):
 class CurrencyInput(Input):
     type = "currency-input"
 
-    def __init__(self, key: str, message: str, **kwargs):
+    def __init__(self, key: str, label: str, **kwargs):
         """Read a number value from the user with a currency mask
 
         Positional Args:
-            message (str): The message to display to the user
+            label (str): The label to display to the user
 
         Keyword Args:
             button_text (str): The text to display on the button that will submit the value
@@ -1064,7 +1064,7 @@ class CurrencyInput(Input):
             currency (str): The currency to display to the user, eg. "USD", "BRL, "EUR", "GBP" (default is USD)
         """
         super().__init__(key)
-        self.message = message
+        self.label = label
         self.initial_value = kwargs.get("initial_value", 0)
         self.required = kwargs.get("required", True)
         self.hint = kwargs.get("hint", None)
@@ -1080,7 +1080,7 @@ class CurrencyInput(Input):
         return {
             "type": self.type,
             "key": self.key,
-            "message": self.message,
+            "label": self.label,
             "initialValue": self.initial_value,
             "placeholder": self.placeholder,
             "required": self.required,
@@ -1104,11 +1104,11 @@ class CurrencyInput(Input):
 class PasswordInput(Input):
     type = "password-input"
 
-    def __init__(self, key: str, message: str, **kwargs):
+    def __init__(self, key: str, label: str, **kwargs):
         """Read a password value from the user
 
         Positional Args:
-            message (str): The message to display to the user
+            label (str): The label to display to the user
 
         Keyword Args:
             button_text (str): The text to display on the button that will submit the value
@@ -1128,7 +1128,7 @@ class PasswordInput(Input):
         """
 
         super().__init__(key)
-        self.message = message
+        self.label = label
         self.hint = kwargs.get("hint", None)
         self.required = kwargs.get("required", True)
         self.columns = kwargs.get("columns", 1)
@@ -1148,7 +1148,7 @@ class PasswordInput(Input):
         return {
             "type": self.type,
             "key": self.key,
-            "message": self.message,
+            "label": self.label,
             "hint": self.hint,
             "required": self.required,
             "columns": self.columns,

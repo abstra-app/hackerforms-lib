@@ -1,6 +1,6 @@
 {
   "props": {
-    "message": "Which programming language do you prefer?",
+    "label": "Which programming language do you prefer?",
     "options": ["Python", "JavaScript"]
   },
   "name": "Label and value dict",
