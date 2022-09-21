@@ -36,6 +36,3 @@ jobs:
       - name: Lint
         run: |
           black --check ./hackerforms
-
-      - name: Run Unit Tests
-        run: pytest
