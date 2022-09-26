@@ -34,6 +34,7 @@ def _overload_print():
         for value in values:
             page.display(value)
         return page.run()
+
     builtins.print = print_overload
 
 
