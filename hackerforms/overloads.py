@@ -4,7 +4,7 @@ import builtins
 
 from .socket import send
 from .generated.inputs import read
-from .generated.outputs import display, display_plotly
+from .generated.outputs import display_plotly
 from .generated.page import Page
 
 
