@@ -820,8 +820,12 @@ class PhoneInput(Input):
             return {"countryCode": "+1", "nationalNumber": initial_value}
 
         return {
-            "countryCode": initial_value["country_code"],
-            "nationalNumber": initial_value["national_number"],
+            "countryCode": initial_value["country_code"]
+            if "country_code" in initial_value
+            else "",
+            "nationalNumber": initial_value["national_number"]
+            if "national_number" in initial_value
+            else "",
         }
 
     def json(self):
