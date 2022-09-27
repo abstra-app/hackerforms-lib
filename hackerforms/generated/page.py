@@ -420,7 +420,7 @@ class WidgetSchema:
           label (str): The label to display to the user
 
         Keyword Args:
-          initial_value (str): The initial value to display to the user
+          initial_value (str or dict): The initial value to display to the user. If dictionary, it contains two keys: 'country_code' (string with optional + sign or number) and 'national_number' (str or number). Ex: {'country_code': '+55', 'national_number': '21999990000'}
           placeholder (str): The placeholder text to display to the user
           required (bool or str): Whether the input is required or not eg. "this field is required"
           hint (str): A tooltip displayed to the user
