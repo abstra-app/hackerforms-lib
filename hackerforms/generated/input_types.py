@@ -815,12 +815,21 @@ class PhoneInput(Input):
         self.columns = kwargs.get("columns", 1)
         self.full_width = kwargs.get("full_width", False)
 
+    def _initial_value_to_json(self, initial_value):
+        if isinstance(initial_value, str):
+            return {"countryCode": "+1", "nationalNumber": initial_value}
+
+        return {
+            "countryCode": initial_value["country_code"],
+            "nationalNumber": initial_value["national_number"],
+        }
+
     def json(self):
         return {
             "type": self.type,
             "key": self.key,
             "label": self.label,
-            "initialValue": self.initial_value,
+            "initialValue": self._initial_value_to_json(self.initial_value),
             "placeholder": self.placeholder,
             "required": self.required,
             "hint": self.hint,
@@ -834,7 +843,12 @@ class PhoneInput(Input):
             PhoneResponse: A dict containing the value entered by the user ({"raw": str, "masked": str})
         """
         return (
-            PhoneResponse(raw=answer["raw"], masked=answer["masked"])
+            PhoneResponse(
+                masked=answer["masked"],
+                raw=answer["raw"],
+                country_code=answer["country_code"],
+                national_number=answer["national_number"],
+            )
             if answer
             else None
         )

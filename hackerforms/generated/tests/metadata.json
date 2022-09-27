@@ -489,9 +489,18 @@
           "default": true
         },
         "initialValue": {
-          "type": "string",
+          "type": "object",
           "description": "The initial value of the input",
-          "default": ""
+          "properties": {
+            "countryCode": {
+              "type": "string",
+              "description": "The phone number's country code"
+            },
+            "nationalNumber": {
+              "type": "string",
+              "description": "The phone number's national number"
+            }
+          }
         },
         "placeholder": {
           "type": "string",

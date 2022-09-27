@@ -34,7 +34,11 @@ class PhoneResponse:
     Attributes:
         masked (str): The masked phone number, eg: +55 (21) 99999-9999
         raw (str): The raw phone number, eg: 5521999999999
+        country_code (str): The phone number country code, eg: 55
+        national_number (str): The phone number national number, eg: 21999999999
     """
 
     masked: str
     raw: str
+    country_code: str
+    national_number: str
