@@ -35,6 +35,7 @@ def initialize():
 
     set_params(start["params"])
 
+
 def primitive_values(locals):
     result = {}
     for key, value in locals.items():
@@ -42,10 +43,11 @@ def primitive_values(locals):
             result[key] = value
     return result
 
+
 def send(data):
     if not initialized:
         return
-    
+
     debug = {
         "debug": {
             "stack": [
@@ -53,7 +55,7 @@ def send(data):
                     "filename": info.filename,
                     "lineno": info.lineno,
                     "name": info.function,
-                    "locals": primitive_values(info.frame.f_locals)
+                    "locals": primitive_values(info.frame.f_locals),
                 }
                 for info in inspect.getouterframes(inspect.currentframe())
             ]
