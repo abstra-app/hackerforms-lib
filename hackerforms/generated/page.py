@@ -813,8 +813,9 @@ class Page(WidgetSchema):
             The form result as a dict with the keys being the key of the input and the value being the value of the input
         """
 
-        for widget in self.widgets:
-            validate_widget_props(widget.json())
+        widgets_json = self.json()
+        for widget in widgets_json:
+            validate_widget_props(widget)
 
         if isinstance(actions, list):
             actions = actions
@@ -826,7 +827,7 @@ class Page(WidgetSchema):
         send(
             {
                 "type": "form",
-                "widgets": self.json(),
+                "widgets": widgets_json,
                 "columns": columns,
                 "actions": actions,
             }
