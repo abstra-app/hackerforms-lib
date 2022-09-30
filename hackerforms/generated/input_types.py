@@ -850,8 +850,8 @@ class PhoneInput(Input):
             PhoneResponse(
                 masked=answer["masked"],
                 raw=answer["raw"],
-                country_code=answer["country_code"],
-                national_number=answer["national_number"],
+                country_code=answer["countryCode"],
+                national_number=answer["nationalNumber"],
             )
             if answer
             else None
