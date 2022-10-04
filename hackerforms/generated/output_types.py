@@ -270,8 +270,8 @@ class IFrameOutput(Output):
         else:
             self.url = f"data:text/html,{quote(url_or_html)}"
 
-        self.width = kwargs.get("width", 800)
-        self.height = kwargs.get("height", 600)
+        self.width = kwargs.get("width", "800")
+        self.height = kwargs.get("height", "600")
         self.columns = kwargs.get("columns", 1)
         self.full_width = kwargs.get("full_width", False)
 
