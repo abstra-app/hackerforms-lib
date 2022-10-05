@@ -262,7 +262,7 @@ class WidgetSchema:
           item_schema (ListItemSchema): The schema for the items of the list
 
         Keyword Args:
-          initial_value (str): The initial value to display to the user
+          initial_value (any): The initial value to display to the user
           hint (str): A tooltip displayed to the user
           full_width (bool): Whether the input should use full screen width
           min (float): Min value accepted by the input
