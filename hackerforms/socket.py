@@ -2,11 +2,11 @@ import atexit
 import os
 import webbrowser
 from websocket import create_connection
-import traceback
 from .exit_hook import hooks
 from .utils import serialize, deserialize, persist_session_id
 from .parameters import set_params
 import os
+import inspect
 
 initialized = False
 
@@ -38,22 +38,35 @@ def initialize():
     return session_id
 
 
+def primitive_values(locals):
+    result = {}
+    for key, value in locals.items():
+        if type(value) in [str, int, bool, float]:
+            result[key] = value
+    return result
+
+
 def send(data):
     if not initialized:
         return
+
     debug = {
         "debug": {
             "stack": [
                 {
-                    "filename": summary.filename,
-                    "lineno": summary.lineno,
-                    "name": summary.name,
+                    "filename": info.filename,
+                    "lineno": info.lineno,
+                    "name": info.function,
+                    "locals": primitive_values(info.frame.f_locals),
                 }
-                for summary in traceback.extract_stack()
+                for info in inspect.getouterframes(inspect.currentframe())
             ]
         }
     }
-    ws.send(serialize({**data, **debug}))
+    if os.environ.get("ABSTRA_DEBUG"):
+        ws.send(serialize({**data, **debug}))
+    else:
+        ws.send(serialize(data))
 
 
 def receive(path: str = ""):

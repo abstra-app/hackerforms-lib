@@ -4,7 +4,8 @@ import builtins
 
 from .socket import send
 from .generated.inputs import read
-from .generated.outputs import display, display_plotly
+from .generated.outputs import display_plotly
+from .generated.page import Page
 
 
 def writeWraper(type, write, text):
@@ -28,7 +29,13 @@ def _overload_input():
 
 
 def _overload_print():
-    builtins.print = display
+    def print_overload(*values):
+        page = Page()
+        for value in values:
+            page.display(value)
+        return page.run()
+
+    builtins.print = print_overload
 
 
 def _overload_plotly_show():
