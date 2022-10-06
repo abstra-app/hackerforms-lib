@@ -1,9 +1,8 @@
 import atexit
 import os
-import webbrowser
 from websocket import create_connection
 from .exit_hook import hooks
-from .utils import serialize, deserialize, persist_session_id
+from .utils import serialize, deserialize, persist_session_id, open_browser
 from .parameters import set_params
 import os
 import inspect
@@ -22,13 +21,13 @@ def initialize():
     # frontend_host = os.environ.get('FRONTEND_HOST', 'http://localhost:8001')
     frontend_host = os.environ.get("FRONTEND_HOST", "https://console.abstracloud.com")
 
-    if session_id == None:
+    if session_id:
+        ws = create_connection(f"{ws_host}/lib?sessionId={session_id}")
+    else:
         ws = create_connection(f"{ws_host}/lib")
         session_id = receive("sessionId")
-        webbrowser.open(f"{frontend_host}/local/{session_id}")
+        open_browser(frontend_host, session_id)
         persist_session_id(session_id)
-    else:
-        ws = create_connection(f"{ws_host}/lib?sessionId={session_id}")
 
     start = {"type": None}
     while start["type"] != "start":
