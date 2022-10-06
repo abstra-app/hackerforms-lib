@@ -3,7 +3,7 @@ import os
 import webbrowser
 from websocket import create_connection
 from .exit_hook import hooks
-from .utils import serialize, deserialize
+from .utils import serialize, deserialize, persist_session_id
 from .parameters import set_params
 import os
 import inspect
@@ -26,6 +26,7 @@ def initialize():
         ws = create_connection(f"{ws_host}/lib")
         session_id = receive("sessionId")
         webbrowser.open(f"{frontend_host}/local/{session_id}")
+        persist_session_id(session_id)
     else:
         ws = create_connection(f"{ws_host}/lib?sessionId={session_id}")
 
@@ -34,6 +35,7 @@ def initialize():
         start = receive()
 
     set_params(start["params"])
+    return session_id
 
 
 def primitive_values(locals):
