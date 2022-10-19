@@ -234,7 +234,7 @@ class FileInput(Input):
     def convert_answer(self, answer) -> typing.Optional[FileResponse]:
         """
         Returns:
-            FileResponse: A dict containing the file uploaded by the user ({"file": file, "url": str, "content": bytes})
+            FileResponse or FileResponse[]: A dict containing the file uploaded by the user ({"file": file, "url": str, "content": bytes}) or a list of files in case of multiple flag set as True
         """
         if not answer:
             return None
@@ -287,7 +287,7 @@ class ImageInput(Input):
     def convert_answer(self, answer) -> typing.Optional[FileResponse]:
         """
         Returns:
-            FileResponse: A dict containing the image file uploaded by the user ({"file": file, "url": str, "content": bytes})
+            FileResponse or FileResponse[]: A dict containing the image file uploaded by the user ({"file": file, "url": str, "content": bytes}) or a list of images in case of multiple flag set as True
         """
         if not answer:
             return None
@@ -340,7 +340,7 @@ class VideoInput(Input):
     def convert_answer(self, answer) -> typing.Optional[FileResponse]:
         """
         Returns:
-            FileResponse: A dict containing the video uploaded by the user ({"file": file, "url": str, "content": bytes})
+            FileResponse or FileResponse[]: A dict containing the video uploaded by the user ({"file": file, "url": str, "content": bytes}) or a list of videos in case of multiple flag set as True
         """
         if not answer:
             return None
