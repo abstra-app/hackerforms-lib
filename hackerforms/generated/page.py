@@ -846,19 +846,30 @@ class Page(WidgetSchema):
         else:
             actions = [actions]
 
-        send(
-            {
-                "type": "form",
-                "widgets": widgets_json,
-                "columns": columns,
-                "actions": actions,
-            }
-        )
-        form_response: typing.Dict = receive()
+        if len(self.widgets) == 1 and self.widgets[0].type == "progress-output":
+            send(
+                {
+                    "type": "form",
+                    "widgets": widgets_json,
+                    "columns": columns,
+                    "actions": [],
+                }
+            )
+        else:
+            send(
+                {
+                    "type": "form",
+                    "widgets": widgets_json,
+                    "columns": columns,
+                    "actions": actions,
+                }
+            )
+            form_response: typing.Dict = receive()
 
-        return PageResponse(
-            self.convert_answer(form_response["payload"]), form_response.get("action")
-        )
+            return PageResponse(
+                self.convert_answer(form_response["payload"]),
+                form_response.get("action"),
+            )
 
 
 class ListItemSchema(WidgetSchema):
