@@ -134,6 +134,23 @@ def display_plotly(fig: typing.Any, **kwargs):
     return Page().display_plotly(fig, **kwargs).run(button_text)
 
 
+def display_progress(dividend: float, divisor: float, **kwargs):
+    """Display a pandas dataframe to the user
+
+    Positional Args:
+      dividend (float): The progress being made (default: 50)divisor (float): Total progress (default: 100)
+
+    Keyword Args:
+      text (str): The text displayed with this progress step
+      button_text (str): The text to display on the button that will continue the form
+      full_width (bool): Whether the input should use full screen width
+      display_index (bool): Whether to show a index column
+
+    """
+    button_text = kwargs.get("button_text", "Next")
+    return Page().display_progress(dividend, divisor, **kwargs).run(button_text)
+
+
 def display(text: str, **kwargs):
     """Display a text to the user
 

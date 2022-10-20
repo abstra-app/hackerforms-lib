@@ -79,4 +79,5 @@ example_instances = [
         "nps", "How likely?", min=1, max=100, min_hint="No way!", max_hint="Hell yeah!"
     ),
     CurrencyInput("currency", "How much?", currency="BRL"),
+    ProgressOutput(50, 100),
 ]

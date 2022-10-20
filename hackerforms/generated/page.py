@@ -711,6 +711,28 @@ class WidgetSchema:
         self.widgets.append(PlotlyOutput(fig, **kwargs))
         return self
 
+    def display_progress(self, dividend: float, divisor: float, **kwargs):
+        """Display a pandas dataframe to the user
+
+
+        Positional Args:
+          dividend (float): The progress being made (default: 50)
+          divisor (float): Total progress (default: 100)
+
+
+        Keyword Args:
+          text (str): The text displayed with this progress step
+          full_width (bool): Whether the input should use full screen width
+          display_index (bool): Whether to show a index column
+          columns: The number of columns of the input
+
+
+        Returns:
+          The form object
+        """
+        self.widgets.append(ProgressOutput(dividend, divisor, **kwargs))
+        return self
+
     def display(self, text: str, **kwargs):
         """Display a text to the user
 

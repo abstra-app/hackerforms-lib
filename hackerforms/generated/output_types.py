@@ -191,6 +191,41 @@ class HTMLOutput(Output):
         }
 
 
+class ProgressOutput(Output):
+    type = "progress-output"
+
+    def __init__(self, dividend: float, divisor: float, **kwargs):
+        """Display a pandas dataframe to the user
+
+        Positional Args:
+            dividend (float): The progress being made (default: 50)
+            divisor (float): Total progress (default: 100)
+
+        Keyword Args:
+            text (str): The text displayed with this progress step
+            button_text (str): The text to display on the button that will continue the form
+            full_width (bool): Whether the input should use full screen width
+            display_index (bool): Whether to show a index column
+
+        """
+        self.dividend = dividend
+        self.divisor = divisor
+        self.text = kwargs.get("text", "")
+        self.columns = kwargs.get("columns", 1)
+        self.full_width = kwargs.get("full_width", False)
+        self.display_index = kwargs.get("display_index", False)
+
+    def json(self):
+        return {
+            "type": self.type,
+            "dividend": self.dividend,
+            "divisor": self.divisor,
+            "text": self.text,
+            "columns": self.columns,
+            "fullWidth": self.full_width,
+        }
+
+
 class PandasOutput(Output):
     type = "pandas-output"
 

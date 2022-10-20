@@ -1,0 +1,10 @@
+{
+    "props": {
+      "dividend": 50,
+      "divisor": 100,
+      "text": "Almost there!"
+    },
+    "name": "Default behavior",
+    "description": "This is what happens when there is no parameter passed"
+  }
+  

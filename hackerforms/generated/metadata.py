@@ -1280,4 +1280,25 @@ metadata = {
             "height": {"type": "string"},
         },
     },
+    "progress-output": {
+        "name": "ProgressOutput",
+        "libFunc": "display_progress",
+        "type": "progress-output",
+        "description": "Display a progress bar",
+        "params": {
+            "dividend": {"type": "number", "default": 50},
+            "divisor": {"type": "number", "default": 100},
+        },
+        "optionals": {
+            "columns": {
+                "type": "number",
+                "description": "number of columns this input will take",
+            },
+            "fullWidth": {
+                "type": "boolean",
+                "description": "Whether the widget should take up the full width of the page",
+            },
+            "text": {"type": "string", "default": ""},
+        },
+    },
 }
