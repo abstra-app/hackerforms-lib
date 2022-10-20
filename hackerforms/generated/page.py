@@ -712,7 +712,7 @@ class WidgetSchema:
         return self
 
     def display_progress(self, dividend: float, divisor: float, **kwargs):
-        """Display a pandas dataframe to the user
+        """Display a progress bar
 
 
         Positional Args:

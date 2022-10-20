@@ -195,7 +195,7 @@ class ProgressOutput(Output):
     type = "progress-output"
 
     def __init__(self, dividend: float, divisor: float, **kwargs):
-        """Display a pandas dataframe to the user
+        """Display a progress bar
 
         Positional Args:
             dividend (float): The progress being made (default: 50)

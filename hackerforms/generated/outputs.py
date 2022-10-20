@@ -135,7 +135,7 @@ def display_plotly(fig: typing.Any, **kwargs):
 
 
 def display_progress(dividend: float, divisor: float, **kwargs):
-    """Display a pandas dataframe to the user
+    """Display a progress bar
 
     Positional Args:
       dividend (float): The progress being made (default: 50)divisor (float): Total progress (default: 100)
