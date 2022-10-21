@@ -194,7 +194,7 @@ class HTMLOutput(Output):
 class ProgressOutput(Output):
     type = "progress-output"
 
-    def __init__(self, dividend: float, divisor: float, **kwargs):
+    def __init__(self, dividend: float = 50, divisor: float = 100, **kwargs):
         """Display a progress bar
 
         Positional Args:
