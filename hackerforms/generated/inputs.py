@@ -4,7 +4,6 @@
 ###############################################################################
 
 import typing
-from typing import Any, Dict, List, Union
 import io
 from .page import Page
 
@@ -24,7 +23,7 @@ def execute_js(code: str, **kwargs):
     return get_single_value(Page().execute_js(code, **kwargs).run(button_text))
 
 
-def read_cards(label: str, options: Any, **kwargs):
+def read_cards(label: str, options: typing.Any, **kwargs):
     """Read cards from the user
 
     Positional Args:
@@ -114,7 +113,11 @@ def read_date(label: str, **kwargs):
     return get_single_value(Page().read_date(label, **kwargs).run(button_text))
 
 
-def read_dropdown(label: str, options: Union[List[str], List[Dict]], **kwargs):
+def read_dropdown(
+    label: str,
+    options: typing.Union[typing.List[str], typing.List[typing.Dict]],
+    **kwargs
+):
     """Read a dropdown value from the user
 
     Positional Args:
@@ -180,7 +183,7 @@ def read_file(label: str, **kwargs):
     return get_single_value(Page().read_file(label, **kwargs).run(button_text))
 
 
-def read_html_list(label: str, options: Any, **kwargs):
+def read_html_list(label: str, options: typing.Any, **kwargs):
     """Read list of html values from the user
 
     Positional Args:
@@ -225,7 +228,7 @@ def read_image(label: str, **kwargs):
     return get_single_value(Page().read_image(label, **kwargs).run(button_text))
 
 
-def read_list(item_schema: Any, **kwargs):
+def read_list(item_schema: typing.Any, **kwargs):
     """Read a list value from the user
 
     Positional Args:
@@ -247,7 +250,11 @@ def read_list(item_schema: Any, **kwargs):
     return get_single_value(Page().read_list(item_schema, **kwargs).run(button_text))
 
 
-def read_multiple_choice(label: str, options: Union[List[str], List[Dict]], **kwargs):
+def read_multiple_choice(
+    label: str,
+    options: typing.Union[typing.List[str], typing.List[typing.Dict]],
+    **kwargs
+):
     """Read a multiple choice value from the user
 
     Positional Args:
@@ -319,7 +326,7 @@ def read_number(label: str, **kwargs):
     return get_single_value(Page().read_number(label, **kwargs).run(button_text))
 
 
-def read_pandas_row_selection(df: Any, **kwargs):
+def read_pandas_row_selection(df: typing.Any, **kwargs):
     """Display a pandas dataframe as a table and allow the user to select rows
 
     Positional Args:

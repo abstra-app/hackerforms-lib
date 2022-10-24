@@ -4,12 +4,11 @@
 ###############################################################################
 
 import typing
-from typing import Any, Dict, List, Union
 import io
 from .page import Page
 
 
-def display_file(file: Union[str, io.IOBase], **kwargs):
+def display_file(file: typing.Union[str, io.IOBase], **kwargs):
     """Display a button for the user to download a file
 
     Positional Args:
@@ -56,7 +55,7 @@ def display_iframe(url_or_html: str, **kwargs):
     return Page().display_iframe(url_or_html, **kwargs).run(button_text)
 
 
-def display_image(image: Union[str, io.IOBase], **kwargs):
+def display_image(image: typing.Union[str, io.IOBase], **kwargs):
     """Display an image to the user
 
     Positional Args:
@@ -104,7 +103,7 @@ def display_markdown(text: str, **kwargs):
     return Page().display_markdown(text, **kwargs).run(button_text)
 
 
-def display_pandas(df: Any, **kwargs):
+def display_pandas(df: typing.Any, **kwargs):
     """Display a pandas dataframe to the user
 
     Positional Args:
@@ -120,7 +119,7 @@ def display_pandas(df: Any, **kwargs):
     return Page().display_pandas(df, **kwargs).run(button_text)
 
 
-def display_plotly(fig: Any, **kwargs):
+def display_plotly(fig: typing.Any, **kwargs):
     """Display a plotly figure to the user
 
     Positional Args:
@@ -135,7 +134,7 @@ def display_plotly(fig: Any, **kwargs):
     return Page().display_plotly(fig, **kwargs).run(button_text)
 
 
-def display_progress(dividend: float = 50, divisor: float = 100, **kwargs):
+def display_progress(dividend: float, divisor: float, **kwargs):
     """Display a progress bar
 
     Positional Args:

@@ -4,7 +4,6 @@
 ###############################################################################
 
 import typing
-from typing import Any, Union, List, Dict
 import io
 from ..socket import send, receive
 from .input_types import *
@@ -38,7 +37,7 @@ class WidgetSchema:
         """
         return [widget.json() for widget in self.widgets]
 
-    def read_cards(self, label: str, options: Any, **kwargs):
+    def read_cards(self, label: str, options: typing.Any, **kwargs):
         """Read cards from the user
 
         Positional Args:
@@ -52,13 +51,13 @@ class WidgetSchema:
           searchable (bool): Whether to show a search bar
           full_width (bool): Whether the input should use full screen width
           columns: The number of columns of the input
-          key: The key of the input's value on the form result. Defaults to the "result" arg
+          key: The key of the input's value on the form result. Defaults to the label arg
 
 
         Returns:
           The form object
         """
-        key = kwargs.pop("key", "result")
+        key = kwargs.pop("key", label)
         self.widgets.append(CardsInput(key, label, options, **kwargs))
         return self
 
@@ -75,13 +74,13 @@ class WidgetSchema:
           hint (str): A tooltip displayed to the user
           full_width (bool): Whether the input should use full screen width
           columns: The number of columns of the input
-          key: The key of the input's value on the form result. Defaults to the "result" arg
+          key: The key of the input's value on the form result. Defaults to the label arg
 
 
         Returns:
           The form object
         """
-        key = kwargs.pop("key", "result")
+        key = kwargs.pop("key", label)
         self.widgets.append(CodeInput(key, label, **kwargs))
         return self
 
@@ -102,13 +101,13 @@ class WidgetSchema:
           step (float): The value to be incremented or decremented while using the input button
           currency (str): The currency to display to the user, eg. "USD", "BRL, "EUR", "GBP" (default is USD)
           columns: The number of columns of the input
-          key: The key of the input's value on the form result. Defaults to the "result" arg
+          key: The key of the input's value on the form result. Defaults to the label arg
 
 
         Returns:
           The form object
         """
-        key = kwargs.pop("key", "result")
+        key = kwargs.pop("key", label)
         self.widgets.append(CurrencyInput(key, label, **kwargs))
         return self
 
@@ -124,18 +123,21 @@ class WidgetSchema:
           hint (str): A tooltip displayed to the user
           full_width (bool): Whether the input should use full screen width
           columns: The number of columns of the input
-          key: The key of the input's value on the form result. Defaults to the "result" arg
+          key: The key of the input's value on the form result. Defaults to the label arg
 
 
         Returns:
           The form object
         """
-        key = kwargs.pop("key", "result")
+        key = kwargs.pop("key", label)
         self.widgets.append(DateInput(key, label, **kwargs))
         return self
 
     def read_dropdown(
-        self, label: str, options: Union[List[str], List[Dict]], **kwargs
+        self,
+        label: str,
+        options: typing.Union[typing.List[str], typing.List[typing.Dict]],
+        **kwargs
     ):
         """Read a dropdown value from the user
 
@@ -150,13 +152,13 @@ class WidgetSchema:
           hint (str): A tooltip displayed to the user
           full_width (bool): Whether the input should use full screen width
           columns: The number of columns of the input
-          key: The key of the input's value on the form result. Defaults to the "result" arg
+          key: The key of the input's value on the form result. Defaults to the label arg
 
 
         Returns:
           The form object
         """
-        key = kwargs.pop("key", "result")
+        key = kwargs.pop("key", label)
         self.widgets.append(DropdownInput(key, label, options, **kwargs))
         return self
 
@@ -173,13 +175,13 @@ class WidgetSchema:
           hint (str): A tooltip displayed to the user
           full_width (bool): Whether the input should use full screen width
           columns: The number of columns of the input
-          key: The key of the input's value on the form result. Defaults to the "result" arg
+          key: The key of the input's value on the form result. Defaults to the label arg
 
 
         Returns:
           The form object
         """
-        key = kwargs.pop("key", "result")
+        key = kwargs.pop("key", label)
         self.widgets.append(EmailInput(key, label, **kwargs))
         return self
 
@@ -196,17 +198,17 @@ class WidgetSchema:
           full_width (bool): Whether the input should use full screen width
           multiple (bool): Whether the user will be allowed to upload multiple files
           columns: The number of columns of the input
-          key: The key of the input's value on the form result. Defaults to the "result" arg
+          key: The key of the input's value on the form result. Defaults to the label arg
 
 
         Returns:
           The form object
         """
-        key = kwargs.pop("key", "result")
+        key = kwargs.pop("key", label)
         self.widgets.append(FileInput(key, label, **kwargs))
         return self
 
-    def read_html_list(self, label: str, options: Any, **kwargs):
+    def read_html_list(self, label: str, options: typing.Any, **kwargs):
         """Read list of html values from the user
 
         Positional Args:
@@ -220,13 +222,13 @@ class WidgetSchema:
           hint (str): A tooltip displayed to the user
           full_width (bool): Whether the input should use full screen width
           columns: The number of columns of the input
-          key: The key of the input's value on the form result. Defaults to the "result" arg
+          key: The key of the input's value on the form result. Defaults to the label arg
 
 
         Returns:
           The form object
         """
-        key = kwargs.pop("key", "result")
+        key = kwargs.pop("key", label)
         self.widgets.append(HTMLListInput(key, label, options, **kwargs))
         return self
 
@@ -243,17 +245,17 @@ class WidgetSchema:
           full_width (bool): Whether the input should use full screen width
           multiple (bool): Whether the user will be allowed to upload multiple files
           columns: The number of columns of the input
-          key: The key of the input's value on the form result. Defaults to the "result" arg
+          key: The key of the input's value on the form result. Defaults to the label arg
 
 
         Returns:
           The form object
         """
-        key = kwargs.pop("key", "result")
+        key = kwargs.pop("key", label)
         self.widgets.append(ImageInput(key, label, **kwargs))
         return self
 
-    def read_list(self, item_schema: Any, **kwargs):
+    def read_list(self, item_schema: typing.Any, **kwargs):
         """Read a list value from the user
 
         Positional Args:
@@ -278,7 +280,10 @@ class WidgetSchema:
         return self
 
     def read_multiple_choice(
-        self, label: str, options: Union[List[str], List[Dict]], **kwargs
+        self,
+        label: str,
+        options: typing.Union[typing.List[str], typing.List[typing.Dict]],
+        **kwargs
     ):
         """Read a multiple choice value from the user
 
@@ -294,13 +299,13 @@ class WidgetSchema:
           hint (str): A tooltip displayed to the user
           full_width (bool): Whether the input should use full screen width
           columns: The number of columns of the input
-          key: The key of the input's value on the form result. Defaults to the "result" arg
+          key: The key of the input's value on the form result. Defaults to the label arg
 
 
         Returns:
           The form object
         """
-        key = kwargs.pop("key", "result")
+        key = kwargs.pop("key", label)
         self.widgets.append(MultipleChoiceInput(key, label, options, **kwargs))
         return self
 
@@ -320,13 +325,13 @@ class WidgetSchema:
           hint (str): A tooltip displayed to the user
           full_width (bool): Whether the input should use full screen width
           columns: The number of columns of the input
-          key: The key of the input's value on the form result. Defaults to the "result" arg
+          key: The key of the input's value on the form result. Defaults to the label arg
 
 
         Returns:
           The form object
         """
-        key = kwargs.pop("key", "result")
+        key = kwargs.pop("key", label)
         self.widgets.append(NpsInput(key, label, **kwargs))
         return self
 
@@ -346,17 +351,17 @@ class WidgetSchema:
           max (float): Max value accepted by the input
           step (float): The value to be incremented or decremented while using the input button
           columns: The number of columns of the input
-          key: The key of the input's value on the form result. Defaults to the "result" arg
+          key: The key of the input's value on the form result. Defaults to the label arg
 
 
         Returns:
           The form object
         """
-        key = kwargs.pop("key", "result")
+        key = kwargs.pop("key", label)
         self.widgets.append(NumberInput(key, label, **kwargs))
         return self
 
-    def read_pandas_row_selection(self, df: Any, **kwargs):
+    def read_pandas_row_selection(self, df: typing.Any, **kwargs):
         """Display a pandas dataframe as a table and allow the user to select rows
 
         Positional Args:
@@ -398,13 +403,13 @@ class WidgetSchema:
           pattern (str): A regex pattern for the accepted password
           autocomplete (str): The autocomplete HTML attribute
           columns: The number of columns of the input
-          key: The key of the input's value on the form result. Defaults to the "result" arg
+          key: The key of the input's value on the form result. Defaults to the label arg
 
 
         Returns:
           The form object
         """
-        key = kwargs.pop("key", "result")
+        key = kwargs.pop("key", label)
         self.widgets.append(PasswordInput(key, label, **kwargs))
         return self
 
@@ -421,13 +426,13 @@ class WidgetSchema:
           hint (str): A tooltip displayed to the user
           full_width (bool): Whether the input should use full screen width
           columns: The number of columns of the input
-          key: The key of the input's value on the form result. Defaults to the "result" arg
+          key: The key of the input's value on the form result. Defaults to the label arg
 
 
         Returns:
           The form object
         """
-        key = kwargs.pop("key", "result")
+        key = kwargs.pop("key", label)
         self.widgets.append(PhoneInput(key, label, **kwargs))
         return self
 
@@ -444,13 +449,13 @@ class WidgetSchema:
           hint (str): A tooltip displayed to the user
           full_width (bool): Whether the input should use full screen width
           columns: The number of columns of the input
-          key: The key of the input's value on the form result. Defaults to the "result" arg
+          key: The key of the input's value on the form result. Defaults to the label arg
 
 
         Returns:
           The form object
         """
-        key = kwargs.pop("key", "result")
+        key = kwargs.pop("key", label)
         self.widgets.append(TagInput(key, label, **kwargs))
         return self
 
@@ -467,14 +472,14 @@ class WidgetSchema:
           hint (str): A tooltip displayed to the user
           full_width (bool): Whether the input should use full screen width
           columns: The number of columns of the input
-          key: The key of the input's value on the form result. Defaults to the "result" arg
+          key: The key of the input's value on the form result. Defaults to the label arg
 
 
         Returns:
           The form object
         """
 
-        key = kwargs.pop("key", "result")
+        key = kwargs.pop("key", label)
         self.widgets.append(TextInput(key, label, **kwargs))
         return self
 
@@ -491,13 +496,13 @@ class WidgetSchema:
           hint (str): A tooltip displayed to the user
           full_width (bool): Whether the input should use full screen width
           columns: The number of columns of the input
-          key: The key of the input's value on the form result. Defaults to the "result" arg
+          key: The key of the input's value on the form result. Defaults to the label arg
 
 
         Returns:
           The form object
         """
-        key = kwargs.pop("key", "result")
+        key = kwargs.pop("key", label)
         self.widgets.append(TextareaInput(key, label, **kwargs))
         return self
 
@@ -514,13 +519,13 @@ class WidgetSchema:
           hint (str): A tooltip displayed to the user
           full_width (bool): Whether the input should use full screen width
           columns: The number of columns of the input
-          key: The key of the input's value on the form result. Defaults to the "result" arg
+          key: The key of the input's value on the form result. Defaults to the label arg
 
 
         Returns:
           The form object
         """
-        key = kwargs.pop("key", "result")
+        key = kwargs.pop("key", label)
         self.widgets.append(TimeInput(key, label, **kwargs))
         return self
 
@@ -537,17 +542,17 @@ class WidgetSchema:
           full_width (bool): Whether the input should use full screen width
           multiple (bool): Whether the user will be allowed to upload multiple files
           columns: The number of columns of the input
-          key: The key of the input's value on the form result. Defaults to the "result" arg
+          key: The key of the input's value on the form result. Defaults to the label arg
 
 
         Returns:
           The form object
         """
-        key = kwargs.pop("key", "result")
+        key = kwargs.pop("key", label)
         self.widgets.append(VideoInput(key, label, **kwargs))
         return self
 
-    def display_file(self, file: Union[str, io.IOBase], **kwargs):
+    def display_file(self, file: typing.Union[str, io.IOBase], **kwargs):
         """Display a button for the user to download a file
 
 
@@ -607,7 +612,7 @@ class WidgetSchema:
         self.widgets.append(IFrameOutput(url_or_html, **kwargs))
         return self
 
-    def display_image(self, image: Union[str, io.IOBase], **kwargs):
+    def display_image(self, image: typing.Union[str, io.IOBase], **kwargs):
         """Display an image to the user
 
 
@@ -667,7 +672,7 @@ class WidgetSchema:
         self.widgets.append(MarkdownOutput(text, **kwargs))
         return self
 
-    def display_pandas(self, df: Any, **kwargs):
+    def display_pandas(self, df: typing.Any, **kwargs):
         """Display a pandas dataframe to the user
 
 
@@ -687,7 +692,7 @@ class WidgetSchema:
         self.widgets.append(PandasOutput(df, **kwargs))
         return self
 
-    def display_plotly(self, fig: Any, **kwargs):
+    def display_plotly(self, fig: typing.Any, **kwargs):
         """Display a plotly figure to the user
 
 
@@ -706,7 +711,7 @@ class WidgetSchema:
         self.widgets.append(PlotlyOutput(fig, **kwargs))
         return self
 
-    def display_progress(self, dividend: float = 50, divisor: float = 100, **kwargs):
+    def display_progress(self, dividend: float, divisor: float, **kwargs):
         """Display a progress bar
 
 
