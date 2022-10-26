@@ -234,7 +234,7 @@ class FileInput(Input):
     def convert_answer(self, answer) -> typing.Optional[FileResponse]:
         """
         Returns:
-            FileResponse or FileResponse[]: A dict containing the file uploaded by the user ({"file": file, "url": str, "content": bytes}) or a list of files in case of multiple flag set as True
+            FileResponse or FileResponse[]: An object or an array (in case of multiple flag set as True) containing the files uploaded by the user ({file: File, url: str, content: bytes})
         """
         if not answer:
             return None
@@ -287,7 +287,7 @@ class ImageInput(Input):
     def convert_answer(self, answer) -> typing.Optional[FileResponse]:
         """
         Returns:
-            FileResponse or FileResponse[]: A dict containing the image file uploaded by the user ({"file": file, "url": str, "content": bytes}) or a list of images in case of multiple flag set as True
+            FileResponse or FileResponse[]: An object or an array (in case of multiple flag set as True) containing the files uploaded by the user ({file: File, url: str, content: bytes})
         """
         if not answer:
             return None
@@ -340,7 +340,7 @@ class VideoInput(Input):
     def convert_answer(self, answer) -> typing.Optional[FileResponse]:
         """
         Returns:
-            FileResponse or FileResponse[]: A dict containing the video uploaded by the user ({"file": file, "url": str, "content": bytes}) or a list of videos in case of multiple flag set as True
+            FileResponse or FileResponse[]: An object or an array (in case of multiple flag set as True) containing the files uploaded by the user ({file: File, url: str, content: bytes})
         """
         if not answer:
             return None
@@ -844,7 +844,7 @@ class PhoneInput(Input):
     def convert_answer(self, answer) -> typing.Optional[PhoneResponse]:
         """
         Returns:
-            PhoneResponse: A dict containing the value entered by the user ({"raw": str, "masked": str})
+            PhoneResponse: An object containing the value entered by the user ({raw: str, masked: str, country_code: str, national_number: str})
         """
         return (
             PhoneResponse(
