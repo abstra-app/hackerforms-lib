@@ -44,6 +44,7 @@ class TextInput(Input):
             required (bool or str): Whether the input is required or not eg. "this field is required"
             hint (str): A tooltip displayed to the user
             full_width (bool): Whether the input should use full screen width
+            mask (str): A mask to apply to the input
         """
         super().__init__(key)
         self.label = label
@@ -53,6 +54,7 @@ class TextInput(Input):
         self.hint = kwargs.get("hint", None)
         self.columns = kwargs.get("columns", 1)
         self.full_width = kwargs.get("full_width", False)
+        self.mask = kwargs.get("mask", None)
 
     def json(self):
         return {
@@ -65,6 +67,7 @@ class TextInput(Input):
             "hint": self.hint,
             "columns": self.columns,
             "fullWidth": self.full_width,
+            "mask": self.mask,
         }
 
     def convert_answer(self, answer: str) -> str:

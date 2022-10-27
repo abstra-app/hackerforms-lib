@@ -179,6 +179,11 @@ metadata = {
                 "description": "The placeholder text to display in the input",
                 "default": "Your answer here",
             },
+            "mask": {
+                "type": "string",
+                "description": "A mask to apply to the input",
+                "default": None,
+            },
         },
     },
     "textarea-input": {

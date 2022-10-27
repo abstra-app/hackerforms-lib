@@ -431,6 +431,7 @@ def read(label: str, **kwargs):
       required (bool or str): Whether the input is required or not eg. "this field is required"
       hint (str): A tooltip displayed to the user
       full_width (bool): Whether the input should use full screen width
+      mask (str): A mask to apply to the input
 
       Returns:
           str: The value entered by the user

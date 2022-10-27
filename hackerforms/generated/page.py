@@ -471,6 +471,7 @@ class WidgetSchema:
           required (bool or str): Whether the input is required or not eg. "this field is required"
           hint (str): A tooltip displayed to the user
           full_width (bool): Whether the input should use full screen width
+          mask (str): A mask to apply to the input
           columns: The number of columns of the input
           key: The key of the input's value on the form result. Defaults to the label arg
 
