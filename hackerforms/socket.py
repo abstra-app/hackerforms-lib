@@ -37,32 +37,35 @@ def initialize():
     return session_id
 
 
-def primitive_values(locals):
+def representations(locals):
     result = {}
     for key, value in locals.items():
-        if type(value) in [str, int, bool, float]:
-            result[key] = value
+        rep = repr(value)
+        if len(rep) > 100:
+            result[key] = rep[:40] + ' ... ' + rep[-40:]
+        else:
+            result[key] = repr(value)
     return result
 
 
 def send(data):
     if not initialized:
         return
-
-    debug = {
-        "debug": {
-            "stack": [
-                {
-                    "filename": info.filename,
-                    "lineno": info.lineno,
-                    "name": info.function,
-                    "locals": primitive_values(info.frame.f_locals),
-                }
-                for info in inspect.getouterframes(inspect.currentframe())
-            ]
-        }
-    }
+    
     if os.environ.get("ABSTRA_DEBUG"):
+        debug = {
+            "debug": {
+                "stack": [
+                    {
+                        "filename": info.filename,
+                        "lineno": info.lineno,
+                        "name": info.function,
+                        "locals": representations(info.frame.f_locals),
+                    }
+                    for info in inspect.getouterframes(inspect.currentframe())
+                ]
+            }
+        }
         ws.send(serialize({**data, **debug}))
     else:
         ws.send(serialize(data))
