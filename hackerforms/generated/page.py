@@ -886,25 +886,28 @@ class Page(WidgetSchema):
                     "actions": actions,
                 }
             )
-            response: typing.Dict = receive()
-
-            while response['type'] == 'user-event':
-              payload = response['payload']
-              widgets_json = self.json(payload)
-
-              send({
-                "type": "user-event",
-                "widgets": widgets_json,
-              })
-
-              response = receive()
-              print(response)
+            response: typing.Dict = self.__user_event_messages()
 
             return PageResponse(
                 self.convert_answer(response["payload"]),
                 response.get("action"),
             )
 
+    def __user_event_messages(self):
+      response: typing.Dict = receive()
+
+      while response['type'] == 'user-event':
+        payload = response['payload']
+        widgets_json = self.json(payload)
+
+        send({
+          "type": "user-event",
+          "widgets": widgets_json,
+        })
+
+        response = receive()
+
+      return response
 
 class ListItemSchema(WidgetSchema):
     """A schema for a list item
