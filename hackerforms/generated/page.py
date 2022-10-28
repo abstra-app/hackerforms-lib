@@ -929,7 +929,7 @@ class ListItemSchema(WidgetSchema):
             The converted answer
         """
         answer: typing.Dict = form_answers
-        inputs = list(filter(lambda widget: isinstance(widget, Input), self.widgets))
+        inputs = self.__get_input_widgets()
 
         for input in inputs:
             answer[input.key] = input.convert_answer(form_answers[input.key])
