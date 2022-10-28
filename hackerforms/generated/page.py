@@ -16,6 +16,10 @@ class WidgetSchema:
     def __init__(self):
         self.widgets: typing.List[typing.Union[Input, Output]] = []
 
+    def realtime(self, callback):
+        self.widgets.append(Realtime(callback))
+        return self
+
     def convert_answer(self, form_answers: typing.Dict) -> typing.Dict:
         """Convert the answer from the form to the expected format
         Args:
@@ -839,10 +843,6 @@ class Page(WidgetSchema):
 
     def __init__(self):
         super().__init__()
-
-    def realtime(self, callback):
-        self.widgets.append(Realtime(callback))
-        return self
 
     def run(self, actions="Next", columns: float = 1) -> typing.Dict:
         """Run the form
