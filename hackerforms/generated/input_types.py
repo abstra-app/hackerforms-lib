@@ -910,7 +910,7 @@ class ListInput(Input):
         Returns:
             list: The values entered by the user
         """
-        return [self.item_schema.convert_answer(answer) for answer in answers]
+        return [self.item_schema.convert_answer(answer) for answer in answers or []]
 
 
 class PandasRowSelectionInput(Input):
