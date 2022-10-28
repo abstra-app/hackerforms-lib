@@ -10,7 +10,7 @@ from .input_types import *
 from .output_types import *
 from .metadata import metadata
 from .validation import validate_widget_props
-
+from .realtime import Realtime
 
 class WidgetSchema:
     def __init__(self):
@@ -24,18 +24,35 @@ class WidgetSchema:
             The converted answer
         """
         answer: typing.Dict = {}
-        inputs = list(filter(lambda widget: isinstance(widget, Input), self.widgets))
-
+        inputs = self.__get_input_widgets()
         for input in inputs:
             answer[input.key] = input.convert_answer(form_answers[input.key])
         return answer
 
-    def json(self):
+    def __get_input_widgets(self):
+      concrete_widgets = []
+      for widget in self.widgets:
+        if isinstance(widget, Realtime):
+          concrete_widgets.extend(widget.get_widgets())
+        else:
+          concrete_widgets.append(widget)
+            
+      inputs = list(filter(lambda widget: isinstance(widget, Input), concrete_widgets))
+      return inputs
+
+    def json(self, payload):
         """Get the json representation of the form
         Returns:
             The json representation of the form
         """
-        return [widget.json() for widget in self.widgets]
+        output = []
+        for widget in self.widgets:
+          if isinstance(widget.json(payload=payload), list):
+            output.extend(widget.json(payload=payload))
+          else:
+            output.append(widget.json())
+        
+        return output
 
     def read_cards(self, label: str, options: typing.Any, **kwargs):
         """Read cards from the user
@@ -824,6 +841,11 @@ class Page(WidgetSchema):
     def __init__(self):
         super().__init__()
 
+
+    def realtime(self, callback):
+      self.widgets.append(Realtime(callback))
+      return self
+
     def run(self, actions="Next", columns: float = 1) -> typing.Dict:
         """Run the form
 
@@ -835,7 +857,7 @@ class Page(WidgetSchema):
             The form result as a dict with the keys being the key of the input and the value being the value of the input
         """
 
-        widgets_json = self.json()
+        widgets_json = self.json({})
         for widget in widgets_json:
             validate_widget_props(widget)
 
@@ -864,11 +886,23 @@ class Page(WidgetSchema):
                     "actions": actions,
                 }
             )
-            form_response: typing.Dict = receive()
+            response: typing.Dict = receive()
+
+            while response['type'] == 'user-event':
+              payload = response['payload']
+              widgets_json = self.json(payload)
+
+              send({
+                "type": "user-event",
+                "widgets": widgets_json,
+              })
+
+              response = receive()
+              print(response)
 
             return PageResponse(
-                self.convert_answer(form_response["payload"]),
-                form_response.get("action"),
+                self.convert_answer(response["payload"]),
+                response.get("action"),
             )
 
 

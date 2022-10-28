@@ -20,7 +20,7 @@ class Input(ABC):
         self.key = key
 
     @abstractmethod
-    def json(self):
+    def json(self, **kwargs):
         pass
 
     @abstractmethod
@@ -54,7 +54,7 @@ class TextInput(Input):
         self.columns = kwargs.get("columns", 1)
         self.full_width = kwargs.get("full_width", False)
 
-    def json(self):
+    def json(self, **kwargs):
         return {
             "type": self.type,
             "key": self.key,
@@ -103,7 +103,7 @@ class TagInput(Input):
         self.columns = kwargs.get("columns", 1)
         self.full_width = kwargs.get("full_width", False)
 
-    def json(self):
+    def json(self, **kwargs):
         return {
             "type": self.type,
             "key": self.key,
@@ -162,7 +162,7 @@ class DateInput(Input):
             )
         return value
 
-    def json(self):
+    def json(self, **kwargs):
         return {
             "type": self.type,
             "key": self.key,
@@ -218,7 +218,7 @@ class FileInput(Input):
         self.multiple = kwargs.get("multiple", False)
         self.full_width = kwargs.get("full_width", False)
 
-    def json(self):
+    def json(self, **kwargs):
         return {
             "type": self.type,
             "key": self.key,
@@ -271,7 +271,7 @@ class ImageInput(Input):
         self.multiple = kwargs.get("multiple", False)
         self.full_width = kwargs.get("full_width", False)
 
-    def json(self):
+    def json(self, **kwargs):
         return {
             "type": self.type,
             "key": self.key,
@@ -324,7 +324,7 @@ class VideoInput(Input):
         self.multiple = kwargs.get("multiple", False)
         self.full_width = kwargs.get("full_width", False)
 
-    def json(self):
+    def json(self, **kwargs):
         return {
             "type": self.type,
             "key": self.key,
@@ -389,7 +389,7 @@ class MultipleChoiceInput(Input):
         self.min = kwargs.get("min", None)
         self.max = kwargs.get("max", None)
 
-    def json(self):
+    def json(self, **kwargs):
         return {
             "type": self.type,
             "key": self.key,
@@ -447,7 +447,7 @@ class CardsInput(Input):
         self.columns = kwargs.get("columns", 1)
         self.full_width = kwargs.get("full_width", False)
 
-    def json(self):
+    def json(self, **kwargs):
         return {
             "type": self.type,
             "key": self.key,
@@ -510,7 +510,7 @@ class DropdownInput(Input):
         self.columns = kwargs.get("columns", 1)
         self.full_width = kwargs.get("full_width", False)
 
-    def json(self):
+    def json(self, **kwargs):
         return {
             "type": self.type,
             "key": self.key,
@@ -560,7 +560,7 @@ class TextareaInput(Input):
         self.hint = kwargs.get("hint", None)
         self.full_width = kwargs.get("full_width", False)
 
-    def json(self):
+    def json(self, **kwargs):
         return {
             "type": self.type,
             "key": self.key,
@@ -608,7 +608,7 @@ class CodeInput(Input):
         self.hint = kwargs.get("hint", None)
         self.full_width = kwargs.get("full_width", False)
 
-    def json(self):
+    def json(self, **kwargs):
         return {
             "type": self.type,
             "key": self.key,
@@ -661,7 +661,7 @@ class NpsInput(Input):
         self.hint = kwargs.get("hint", None)
         self.full_width = kwargs.get("full_width", False)
 
-    def json(self):
+    def json(self, **kwargs):
         return {
             "type": self.type,
             "key": self.key,
@@ -718,7 +718,7 @@ class NumberInput(Input):
         self.max = kwargs.get("max")
         self.step = kwargs.get("step")
 
-    def json(self):
+    def json(self, **kwargs):
         return {
             "type": self.type,
             "key": self.key,
@@ -768,7 +768,7 @@ class EmailInput(Input):
         self.columns = kwargs.get("columns", 1)
         self.full_width = kwargs.get("full_width", False)
 
-    def json(self):
+    def json(self, **kwargs):
         return {
             "type": self.type,
             "key": self.key,
@@ -828,7 +828,7 @@ class PhoneInput(Input):
             else "",
         }
 
-    def json(self):
+    def json(self, **kwargs):
         return {
             "type": self.type,
             "key": self.key,
@@ -887,7 +887,7 @@ class ListInput(Input):
         self.full_width = kwargs.get("full_width", False)
         self.required = kwargs.get("required", True)
 
-    def json(self):
+    def json(self, **kwargs):
         return {
             "type": self.type,
             "key": self.key,
@@ -934,7 +934,7 @@ class PandasRowSelectionInput(Input):
         self.columns = kwargs.get("columns", 1)
         self.full_width = kwargs.get("full_width", False)
 
-    def json(self):
+    def json(self, **kwargs):
         return {
             "type": self.type,
             "key": self.key,
@@ -986,7 +986,7 @@ class HTMLListInput(Input):
         self.columns = kwargs.get("columns", 1)
         self.full_width = kwargs.get("full_width", False)
 
-    def json(self):
+    def json(self, **kwargs):
         return {
             "type": self.type,
             "key": self.key,
@@ -1038,7 +1038,7 @@ class TimeInput(Input):
         self.full_width = kwargs.get("full_width", False)
         self.format = kwargs.get("format", "24hs")
 
-    def json(self):
+    def json(self, **kwargs):
         return {
             "type": self.type,
             "key": self.key,
@@ -1093,7 +1093,7 @@ class CurrencyInput(Input):
         self.step = kwargs.get("step")
         self.currency = kwargs.get("currency", "USD")
 
-    def json(self):
+    def json(self, **kwargs):
         return {
             "type": self.type,
             "key": self.key,
@@ -1161,7 +1161,7 @@ class PasswordInput(Input):
         self.autocomplete = kwargs.get("autocomplete", "current-password")
         self.placeholder = kwargs.get("placeholder", "")
 
-    def json(self):
+    def json(self, **kwargs):
         return {
             "type": self.type,
             "key": self.key,
