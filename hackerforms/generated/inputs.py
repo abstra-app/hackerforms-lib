@@ -177,7 +177,7 @@ def read_file(label: str, **kwargs):
       multiple (bool): Whether the user will be allowed to upload multiple files
 
       Returns:
-          FileResponse or FileResponse[]: An object or an array (in case of multiple flag set as True) containing the files uploaded by the user ({file: File, url: str, content: bytes})
+          FileResponse or FileResponse[]: A dict containing the file uploaded by the user ({"file": file, "url": str, "content": bytes}) or a list of files in case of multiple flag set as True
     """
     button_text = kwargs.get("button_text", "Next")
     return get_single_value(Page().read_file(label, **kwargs).run(button_text))
@@ -222,7 +222,7 @@ def read_image(label: str, **kwargs):
       multiple (bool): Whether the user will be allowed to upload multiple files
 
       Returns:
-          FileResponse or FileResponse[]: An object or an array (in case of multiple flag set as True) containing the files uploaded by the user ({file: File, url: str, content: bytes})
+          FileResponse or FileResponse[]: A dict containing the image file uploaded by the user ({"file": file, "url": str, "content": bytes}) or a list of images in case of multiple flag set as True
     """
     button_text = kwargs.get("button_text", "Next")
     return get_single_value(Page().read_image(label, **kwargs).run(button_text))
@@ -391,7 +391,7 @@ def read_phone(label: str, **kwargs):
       full_width (bool): Whether the input should use full screen width
 
       Returns:
-          PhoneResponse: An object containing the value entered by the user ({raw: str, masked: str, country_code: str, national_number: str})
+          PhoneResponse: A dict containing the value entered by the user ({"raw": str, "masked": str})
     """
     button_text = kwargs.get("button_text", "Next")
     return get_single_value(Page().read_phone(label, **kwargs).run(button_text))
@@ -497,7 +497,7 @@ def read_video(label: str, **kwargs):
       multiple (bool): Whether the user will be allowed to upload multiple files
 
       Returns:
-          FileResponse or FileResponse[]: An object or an array (in case of multiple flag set as True) containing the files uploaded by the user ({file: File, url: str, content: bytes})
+          FileResponse or FileResponse[]: A dict containing the video uploaded by the user ({"file": file, "url": str, "content": bytes}) or a list of videos in case of multiple flag set as True
     """
     button_text = kwargs.get("button_text", "Next")
     return get_single_value(Page().read_video(label, **kwargs).run(button_text))

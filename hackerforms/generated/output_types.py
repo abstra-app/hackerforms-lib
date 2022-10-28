@@ -16,7 +16,7 @@ class Output(ABC):
     type: str
 
     @abstractmethod
-    def json(self):
+    def json(self, **kwargs):
         pass
 
 
@@ -37,7 +37,7 @@ class TextOutput(Output):
         self.columns = kwargs.get("columns", 1)
         self.full_width = kwargs.get("full_width", False)
 
-    def json(self):
+    def json(self, **kwargs):
         return {
             "type": self.type,
             "text": self.text,
@@ -63,7 +63,7 @@ class MarkdownOutput(Output):
         self.columns = kwargs.get("columns", 1)
         self.full_width = kwargs.get("full_width", False)
 
-    def json(self):
+    def json(self, **kwargs):
         return {
             "type": self.type,
             "text": self.text,
@@ -92,7 +92,7 @@ class ImageOutput(Output):
         self.columns = kwargs.get("columns", 1)
         self.full_width = kwargs.get("full_width", False)
 
-    def json(self):
+    def json(self, **kwargs):
         return {
             "type": self.type,
             "imageUrl": convert_file(self.image),
@@ -124,7 +124,7 @@ class LinkOutput(Output):
         self.columns = kwargs.get("columns", 1)
         self.full_width = kwargs.get("full_width", False)
 
-    def json(self):
+    def json(self, **kwargs):
         return {
             "type": self.type,
             "linkText": self.link_text,
@@ -155,7 +155,7 @@ class FileOutput(Output):
         self.columns = kwargs.get("columns", 1)
         self.full_width = kwargs.get("full_width", False)
 
-    def json(self):
+    def json(self, **kwargs):
         return {
             "type": self.type,
             "fileUrl": convert_file(self.file),
@@ -182,7 +182,7 @@ class HTMLOutput(Output):
         self.columns = kwargs.get("columns", 1)
         self.full_width = kwargs.get("full_width", False)
 
-    def json(self):
+    def json(self, **kwargs):
         return {
             "type": self.type,
             "html": self.html,
@@ -215,7 +215,7 @@ class ProgressOutput(Output):
         self.full_width = kwargs.get("full_width", False)
         self.display_index = kwargs.get("display_index", False)
 
-    def json(self):
+    def json(self, **kwargs):
         return {
             "type": self.type,
             "dividend": self.dividend,
@@ -246,7 +246,7 @@ class PandasOutput(Output):
         self.full_width = kwargs.get("full_width", False)
         self.display_index = kwargs.get("display_index", False)
 
-    def json(self):
+    def json(self, **kwargs):
         return {
             "type": self.type,
             "table": json.loads(self.df.to_json(orient="table")),
@@ -274,7 +274,7 @@ class PlotlyOutput(Output):
         self.columns = kwargs.get("columns", 1)
         self.full_width = kwargs.get("full_width", False)
 
-    def json(self):
+    def json(self, **kwargs):
         return {
             "type": self.type,
             "figure": json.loads(self.fig.to_json()),
@@ -310,7 +310,7 @@ class IFrameOutput(Output):
         self.columns = kwargs.get("columns", 1)
         self.full_width = kwargs.get("full_width", False)
 
-    def json(self):
+    def json(self, **kwargs):
         return {
             "type": self.type,
             "url": self.url,
