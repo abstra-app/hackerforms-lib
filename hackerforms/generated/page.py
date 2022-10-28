@@ -48,7 +48,7 @@ class WidgetSchema:
             if isinstance(widget.json(payload=payload), list):
                 output.extend(widget.json(payload=payload))
             else:
-                output.append(widget.json())
+                output.append(widget.json(payload=payload))
 
         return output
 
