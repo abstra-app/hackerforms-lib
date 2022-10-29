@@ -891,11 +891,21 @@ class ListInput(Input):
         self.required = kwargs.get("required", True)
 
     def json(self, **kwargs):
+        if kwargs.get("payload"):
+            overloaded = {
+                "overloadedItemSchemas": [
+                    self.item_schema.json(payload=payload)
+                    for payload in kwargs.get("payload").get(self.key)
+                ],
+            }
+        else:
+            overloaded = {}
         return {
             "type": self.type,
             "key": self.key,
             "hint": self.hint,
             "itemSchema": self.item_schema.json(payload=kwargs.get("payload")),
+            **overloaded,
             "initialValue": self.initial_value,
             "columns": self.columns,
             "min": self.min,
