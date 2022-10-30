@@ -49,10 +49,11 @@ class WidgetSchema:
     def json(self, payload):
         output = []
         for widget in self.widgets:
-            if isinstance(widget.json(payload=payload), list):
-                output.extend(widget.json(payload=payload))
+            widget_json = widget.json(payload=payload)
+            if isinstance(widget_json, list):
+                output.extend(widget_json)
             else:
-                output.append(widget.json(payload=payload))
+                output.append(widget_json)
 
         return output
 
