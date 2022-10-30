@@ -42,7 +42,7 @@ def representations(locals):
     for key, value in locals.items():
         rep = repr(value)
         if len(rep) > 100:
-            result[key] = rep[:40] + ' ... ' + rep[-40:]
+            result[key] = rep[:40] + " ... " + rep[-40:]
         else:
             result[key] = repr(value)
     return result
@@ -51,7 +51,7 @@ def representations(locals):
 def send(data):
     if not initialized:
         return
-    
+
     if os.environ.get("ABSTRA_DEBUG"):
         debug = {
             "debug": {
