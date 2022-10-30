@@ -5,6 +5,7 @@ from .exit_hook import hooks
 from .utils import serialize, deserialize, persist_session_id, open_browser
 from .parameters import set_params
 import os
+import sys
 import inspect
 
 initialized = False
@@ -18,8 +19,8 @@ def initialize():
     # ws_host = os.environ.get('WS_HOST', 'ws://localhost:8080')
     ws_host = os.environ.get("WS_HOST", "wss://hackerforms-broker.abstra.cloud")
 
-    # frontend_host = os.environ.get('FRONTEND_HOST', 'http://localhost:8001')
-    frontend_host = os.environ.get("FRONTEND_HOST", "https://console.abstracloud.com")
+    frontend_host = os.environ.get('FRONTEND_HOST', 'http://localhost:8001')
+    # frontend_host = os.environ.get("FRONTEND_HOST", "https://console.abstracloud.com")
 
     if session_id:
         ws = create_connection(f"{ws_host}/lib?sessionId={session_id}")
@@ -69,6 +70,18 @@ def send(data):
         ws.send(serialize({**data, **debug}))
     else:
         ws.send(serialize(data))
+
+def exception(type, value, traceback):
+    send({
+        'type': 'exception',
+        'exception': {
+            'value': repr(value)
+        }
+    })
+    sys.__excepthook__(type, value, traceback)
+
+if os.environ.get("ABSTRA_DEBUG"):
+    sys.excepthook =  exception
 
 
 def receive(path: str = ""):
