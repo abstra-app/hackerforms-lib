@@ -901,6 +901,8 @@ class Page(WidgetSchema):
             payload = response["payload"]
             widgets_json = self.json(self.convert_answer(payload))
             validation = kwargs.get("validate")
+            validation_status = True
+            validation_message = ""
             if validation:
                 validation_response = validation(payload)
                 if type(validation_response) == bool:
