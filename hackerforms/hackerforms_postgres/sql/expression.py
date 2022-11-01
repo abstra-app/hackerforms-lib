@@ -23,12 +23,16 @@ def get_columns_contraints(table: str) -> str:
     """
 
 
-# get_column_values = lambda table, column : f"select {column} from {table}"
-
-
 def get_column_values(table, *args):
     columns = ""
     for arg in args:
         columns += f"{arg},"
     columns = columns[:-1]
     return f"select {columns} from {table}"
+
+
+def insert_new_row(table, page):
+    statement = f"insert into {table}{tuple(page.keys())} " 
+    statement = statement.replace("'", "")
+    statement += f"values {tuple(page.values())}" 
+    return statement

@@ -24,6 +24,7 @@ from hackerforms.hackerforms_postgres.types import (
 )
 from hackerforms.hackerforms_postgres.sql.expression import (
     get_columns_contraints,
+    insert_new_row,
     table_exists,
     get_columns_and_types,
     get_column_values,
@@ -58,14 +59,16 @@ class Client:
             self.cursor = self.client.cursor()
             self.__check_table_existence(table)
             py_columns, postgres_columns = self.__get_columns_names(table)
+            
             if context:
                 self.__validate_context(table, context, py_columns)
+            
             primary_key_column = self.__get_primary_key_column(table)
             page = services.new_page({'table_name': table, 'primary_key': primary_key_column, 'columns': postgres_columns} , context)
-            page[primary_key_column] = random.randint(100, 1000000)
+            page[primary_key_column] = random.randint(20, 100)
             page = {**page, **context}
-            ## insert new product
-            print(page)	
+            self.cursor.execute(insert_new_row(table, page))
+            self.client.commit()
             return page
         except pg.Error as ex:
             print(ex)
