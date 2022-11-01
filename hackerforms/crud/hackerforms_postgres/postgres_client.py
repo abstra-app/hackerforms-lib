@@ -33,7 +33,6 @@ from hackerforms.crud.hackerforms_postgres.utils import (
 
 
 class PostgresClient(Client):
-
     def __init__(self, dsn=None, **kwargs):
         super().__init__(PostgresConnector(dsn, **kwargs))
 
