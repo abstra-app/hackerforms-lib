@@ -49,10 +49,11 @@ class WidgetSchema:
     def json(self, payload):
         output = []
         for widget in self.widgets:
-            if isinstance(widget.json(payload=payload), list):
-                output.extend(widget.json(payload=payload))
+            widget_json = widget.json(payload=payload)
+            if isinstance(widget_json, list):
+                output.extend(widget_json)
             else:
-                output.append(widget.json(payload=payload))
+                output.append(widget_json)
 
         return output
 
@@ -844,7 +845,9 @@ class Page(WidgetSchema):
     def __init__(self):
         super().__init__()
 
-    def run(self, actions="Next", columns: float = 1) -> typing.Dict:
+    def run(
+        self, actions="Next", columns: float = 1, validate: typing.Callable = None
+    ) -> typing.Dict:
         """Run the form
 
         Args:
@@ -884,24 +887,39 @@ class Page(WidgetSchema):
                     "actions": actions,
                 }
             )
-            response: typing.Dict = self.__user_event_messages()
+            response: typing.Dict = self.__user_event_messages(**{"validate": validate})
 
             return PageResponse(
                 self.convert_answer(response["payload"]),
                 response.get("action"),
             )
 
-    def __user_event_messages(self):
+    def __user_event_messages(self, **kwargs):
         response: typing.Dict = receive()
 
         while response["type"] == "user-event":
             payload = response["payload"]
             widgets_json = self.json(self.convert_answer(payload))
+            validation = kwargs.get("validate")
+            validation_status = True
+            validation_message = ""
+            if validation:
+                validation_response = validation(payload)
+                if type(validation_response) == bool:
+                    validation_status = validation_response
+                    validation_message = ""
+                elif type(validation_response) == str:
+                    validation_status = False
+                    validation_message = validation_response
 
             send(
                 {
                     "type": "user-event",
                     "widgets": widgets_json,
+                    "validation": {
+                        "status": validation_status,
+                        "message": validation_message,
+                    },
                 }
             )
 

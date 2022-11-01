@@ -16,6 +16,7 @@ def upload_file(file):
     )
     response_json = json.loads(response.text)
 
+    file.seek(0)
     content = file.read()
     content = str.encode(content) if not isinstance(content, bytes) else content
 
