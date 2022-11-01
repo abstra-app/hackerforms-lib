@@ -8,16 +8,14 @@ from hackerforms.crud.types import ContextParams, PythonColumns
 from hackerforms.crud.utils import tuple_to_str
 
 
-class Client():
+class Client:
     def __init__(self, connector: Connector):
         self.connector = connector
 
     def insert_page(self, table: str, context: ContextParams = None):
         try:
             self.check_table_existence(table)
-            print("teste")
             py_columns, postgres_columns = self.get_columns_names(table)
-            print("teste2")
             if context:
                 self.validate_context(table, context, py_columns)
 
@@ -31,7 +29,6 @@ class Client():
                 context,
             )
             page[primary_key_column] = random.randint(20, 100)
-            print("teste", page, context)
             page = {**page, **context}
             self.connector.insert(self.get_new_row_query(table, page))
             return page
@@ -45,14 +42,12 @@ class Client():
             self.check_table_existence(table)
             if search_by_column:
                 unique_column = self.validate_unique_column(table, search_by_column)
-                print(unique_column)
                 if unique_column:
                     data = self.connector.select(
                         self.get_column_values(table, search_by_column)
                     )
                 else:
                     pk_column = self.get_primary_key_column(table)
-                    print("teste6", pk_column)
                     data = self.connector.select(
                         self.get_column_values(table, *(pk_column, search_by_column))
                     )

@@ -104,7 +104,6 @@ class PostgresClient(Client):
         return len(column) > 0
 
     def get_primary_key_column(self, table) -> PostgresContraintColumn:
-        print("table table", table)
         data = self.connector.select(get_columns_contraints(table))
         constrained_columns: List[PostgresContraintColumn] = list(
             map(lambda row: PostgresContraintColumn(*row), data)
