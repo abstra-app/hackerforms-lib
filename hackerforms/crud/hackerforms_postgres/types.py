@@ -1,11 +1,8 @@
-from typing import Dict, Tuple, Union
+from typing import Tuple
 from collections import namedtuple
 
-ContextParam = Union[str, bool, int, float]
-ContextParams = Dict[str, ContextParam]
 
 PostgresColumnType = Tuple[str, str]
-PythonColumns = dict[str, str]
 PostgresColumns = dict[str, str]
 
 PostgresContraintColumn = namedtuple(

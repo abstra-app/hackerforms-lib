@@ -4,12 +4,9 @@ from typing import List, Tuple
 import decimal
 import uuid
 
-from hackerforms.hackerforms_postgres.exceptions import ColumnTypeNotFound
-from hackerforms.hackerforms_postgres.types import (
-    PostgresColumnType,
-    PostgresColumns,
-    PythonColumns,
-)
+from hackerforms.crud.exceptions import ColumnTypeNotFound
+from hackerforms.crud.hackerforms_postgres.types import PostgresColumnType, PostgresColumns
+from hackerforms.crud.types import PythonColumns
 
 postgres_to_py_columns = {
     "NULL": None,

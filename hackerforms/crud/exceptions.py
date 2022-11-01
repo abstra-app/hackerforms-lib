@@ -1,5 +1,5 @@
 class TableNotFound(Exception):
-    """Raised when the postgres table is not found.
+    """Raised when the table is not found.
 
     Attributes:
       table -- input table which caused the error
@@ -14,7 +14,7 @@ class TableNotFound(Exception):
 
 
 class ColumnTypeNotFound(Exception):
-    """Raised when the postgres column type is not found in mapper.
+    """Raised when the column type is not found in mapper.
 
     Attributes:
       column type -- column type which caused the error
@@ -29,7 +29,7 @@ class ColumnTypeNotFound(Exception):
 
 
 class TableColumnsUndefined(Exception):
-    """Raised when the postgres table does not have defined columns.
+    """Raised when the table does not have defined columns.
 
     Attributes:
       table -- input table which caused the error
@@ -89,7 +89,7 @@ class WrongContextColumnType(Exception):
 
 
 class ColumnIsNotUniqueContrained(Exception):
-    """Raised when the postgres column table is not unique contrained.
+    """Raised when the column table is not unique contrained.
 
     Attributes:
       table -- input table which caused the error
@@ -107,7 +107,7 @@ class ColumnIsNotUniqueContrained(Exception):
 
 
 class PrimaryKeyNotDefined(Exception):
-    """Raised when the postgres table does not have a primary key defined.
+    """Raised when the table does not have a primary key defined.
 
     Attributes:
       table -- input table which caused the error

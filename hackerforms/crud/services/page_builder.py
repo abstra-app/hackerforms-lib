@@ -1,4 +1,3 @@
-from re import search
 from typing import List
 from hackerforms import Page
 from abc import ABC

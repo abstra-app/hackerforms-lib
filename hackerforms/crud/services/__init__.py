@@ -1,13 +1,13 @@
 from typing import List, Union
 from hackerforms.generated.page import Page
-from hackerforms.hackerforms_postgres.services.page_builder import (
+from hackerforms.crud.services.page_builder import (
     NewPageBuilder,
     SearchPageBuilder,
 )
-from hackerforms.hackerforms_postgres.types import (
+from hackerforms.crud.types import (
     ContextParams,
 )
-from hackerforms.hackerforms_postgres.utils import widget_from_column_type
+from hackerforms.crud.hackerforms_postgres.utils import widget_from_column_type
 
 
 def new_page(table_metadata: any, context: Union[ContextParams, None]
