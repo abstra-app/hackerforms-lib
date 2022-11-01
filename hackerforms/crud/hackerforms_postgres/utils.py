@@ -5,7 +5,10 @@ import decimal
 import uuid
 
 from hackerforms.crud.exceptions import ColumnTypeNotFound
-from hackerforms.crud.hackerforms_postgres.types import PostgresColumnType, PostgresColumns
+from hackerforms.crud.hackerforms_postgres.types import (
+    PostgresColumnType,
+    PostgresColumns,
+)
 from hackerforms.crud.types import PythonColumns
 
 postgres_to_py_columns = {
@@ -69,8 +72,3 @@ def list_of_tuples_to_dict(
     return {tup[0]: convert_postgres_column_type_to_python(tup[1]) for tup in tuples}, {
         tup[0]: tup[1] for tup in tuples
     }
-
-
-def tuple_to_str(tuple: Tuple, sep="-") -> str:
-    cast_values = list(map(lambda val: str(val), tuple))
-    return f"{sep}".join(cast_values)

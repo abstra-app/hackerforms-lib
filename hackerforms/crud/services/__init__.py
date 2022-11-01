@@ -10,16 +10,15 @@ from hackerforms.crud.types import (
 from hackerforms.crud.hackerforms_postgres.utils import widget_from_column_type
 
 
-def new_page(table_metadata: any, context: Union[ContextParams, None]
-) -> Page:
-    table_name = table_metadata['table_name']
-    columns = table_metadata['columns']
-    primary_key = table_metadata['primary_key']
+def new_page(table_metadata: any, context: Union[ContextParams, None]) -> Page:
+    table_name = table_metadata["table_name"]
+    columns = table_metadata["columns"]
+    primary_key = table_metadata["primary_key"]
 
     page_builder = NewPageBuilder.createPage(table_name)
     for name, _type in columns.items():
-      if name not in context and name != primary_key:
-          page_builder.add_widget(widget_from_column_type[_type], name)
+        if name not in context and name != primary_key:
+            page_builder.add_widget(widget_from_column_type[_type], name)
     page_builder.close()
     page: Page = page_builder.eval_page()
     return page

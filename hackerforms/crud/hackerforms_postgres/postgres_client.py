@@ -5,9 +5,7 @@ hackerforms_postgres.client
 This module provides a Client object to connect to Postgres Database
 """
 
-import random
 from typing import List, Union
-import psycopg2 as pg
 from hackerforms.crud.client import Client
 from hackerforms.crud.hackerforms_postgres.postgres_connector import PostgresConnector
 from hackerforms.crud import services
@@ -29,7 +27,13 @@ from hackerforms.crud.hackerforms_postgres.sql.expressions import (
     get_columns_and_types,
     get_column_values,
 )
-from hackerforms.crud.hackerforms_postgres.utils import list_of_tuples_to_dict, tuple_to_str
+from hackerforms.crud.hackerforms_postgres.utils import (
+    list_of_tuples_to_dict,
+)
+
+from hackerforms.crud.utils import (
+    tuple_to_str,
+)
 
 
 class PostgresClient(Client):
@@ -52,63 +56,28 @@ class PostgresClient(Client):
     """
 
     def __init__(self, dsn=None, **kwargs):
-        self.connector = PostgresConnector(dsn, **kwargs)
+        super().__init__(PostgresConnector(dsn, **kwargs))
 
-    def insert_page(self, table: str, context: ContextParams = None):
-        try:
-            self.__check_table_existence(table)
-            py_columns, postgres_columns = self.__get_columns_names(table)
-            
-            if context:
-                self.__validate_context(table, context, py_columns)
-            
-            primary_key_column = self.__get_primary_key_column(table)
-            page = services.new_page({'table_name': table, 'primary_key': primary_key_column, 'columns': postgres_columns} , context)
-            page[primary_key_column] = random.randint(20, 100)
-            page = {**page, **context}
-            self.connector.insert(insert_new_row(table, page))
-            return page
-        except pg.Error as ex:
-            print(ex)
+    def get_column_values(self, table, *args):
+        print(table)
+        return get_column_values(table, *args)
 
-        except Exception as ex:
-            print(ex)
+    def get_new_row_query(table: str, page) -> str:
+        return insert_new_row(table, page)
 
-    def search_page(self, table: str, **kwargs) -> Union[str, int]:
-        search_by_column = kwargs.get("search_by", None)
-        try:
-            self.__check_table_existence(table)
-            if search_by_column:
-                unique_column = self.__validate_unique_column(table, search_by_column)
-                if unique_column:
-                    data = self.connector.select(get_column_values(table, search_by_column))
-                else:
-                    pk_column = self.__get_primary_key_column(table)
-                    data = self.connector.select(
-                        get_column_values(table, *(pk_column, search_by_column))
-                    )
-            else:
-                search_by_column = self.__get_primary_key_column(table)
-                data = self.connector.select(get_column_values(table, search_by_column))
-            values = list(map(lambda row: tuple_to_str(row), data))
-            return services.search_page(table, search_by_column, values, **kwargs)
-        except Exception as ex:
-            print(ex)
-
-
-    def __get_columns_names(self, table: str) -> PythonColumns:
+    def get_columns_names(self, table: str) -> PythonColumns:
         columns = self.connector.select(get_columns_and_types(table))
         if len(columns):
             return list_of_tuples_to_dict(columns)
         else:
             raise TableColumnsUndefined(table)
 
-    def __check_table_existence(self, table):
+    def check_table_existence(self, table):
         exists = self.connector.select(table_exists(table))[0]
         if not exists:
             raise TableNotFound(table)
 
-    def __validate_context(
+    def validate_context(
         self, table: str, context: ContextParams, columns: PythonColumns
     ):
         for column, value in context.items():
@@ -119,11 +88,12 @@ class PostgresClient(Client):
 
                 raise WrongContextColumnType(table, column, value, columns[column])
 
-    def __validate_unique_column(self, table: str, search_by_column: str) -> bool:
+    def validate_unique_column(self, table: str, search_by_column: str) -> bool:
         data = self.connector.select(get_columns_contraints(table))
         constrained_columns: List[PostgresContraintColumn] = list(
-            map(lambda row: PostgresContraintColumn(*row), data))
-        
+            map(lambda row: PostgresContraintColumn(*row), data)
+        )
+
         column = list(
             filter(
                 lambda c: c.column_name == search_by_column
@@ -133,7 +103,8 @@ class PostgresClient(Client):
         )
         return len(column) > 0
 
-    def __get_primary_key_column(self, table) -> PostgresContraintColumn:
+    def get_primary_key_column(self, table) -> PostgresContraintColumn:
+        print("table table", table)
         data = self.connector.select(get_columns_contraints(table))
         constrained_columns: List[PostgresContraintColumn] = list(
             map(lambda row: PostgresContraintColumn(*row), data)

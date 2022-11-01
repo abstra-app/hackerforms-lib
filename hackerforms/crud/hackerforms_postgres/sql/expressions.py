@@ -6,6 +6,7 @@ get_columns_and_types = (
     lambda table: f"select column_name, data_type from information_schema.columns where table_name = '{table}';"
 )
 
+
 def get_columns_contraints(table: str) -> str:
     """SQL statement that search all the columns that are unique, primary and foreign keys."""
 
@@ -31,7 +32,7 @@ def get_column_values(table, *args):
 
 
 def insert_new_row(table, page):
-    statement = f"insert into {table}{tuple(page.keys())} " 
+    statement = f"insert into {table}{tuple(page.keys())} "
     statement = statement.replace("'", "")
-    statement += f"values {tuple(page.values())}" 
+    statement += f"values {tuple(page.values())}"
     return statement
