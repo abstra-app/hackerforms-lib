@@ -31,29 +31,8 @@ from hackerforms.crud.hackerforms_postgres.utils import (
     list_of_tuples_to_dict,
 )
 
-from hackerforms.crud.utils import (
-    tuple_to_str,
-)
-
 
 class PostgresClient(Client):
-    """A Hackerforms postgres Client.
-
-    Provides a new database connection.
-
-    The connection parameters can be specified as a string:
-      client = Client("dbname=test user=postgres password=secret")
-    or using a set of keyword arguments:
-      client = Client(database="test", user="postgres", password="secret")
-
-    The basic connection parameters are:
-      - *dbname*: the database name
-      - *database*: the database name (only as keyword argument)
-      - *user*: user name used to authenticate
-      - *password*: password used to authenticate
-      - *host*: database host address (defaults to UNIX socket if not provided)
-      - *port*: connection port number (defaults to 5432 if not provided)
-    """
 
     def __init__(self, dsn=None, **kwargs):
         super().__init__(PostgresConnector(dsn, **kwargs))
