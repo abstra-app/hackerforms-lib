@@ -5,7 +5,11 @@ import decimal
 import uuid
 
 from hackerforms.hackerforms_postgres.exceptions import ColumnTypeNotFound
-from hackerforms.hackerforms_postgres.types import PostgresColumnType, PostgresColumns, PythonColumns
+from hackerforms.hackerforms_postgres.types import (
+    PostgresColumnType,
+    PostgresColumns,
+    PythonColumns,
+)
 
 postgres_to_py_columns = {
     "NULL": None,
@@ -33,26 +37,26 @@ postgres_to_py_columns = {
 
 
 widget_from_column_type = {
-    "bool": '',
-    "real": 'read_number',
-    "double": 'read_number',
-    "smallint": 'read_number',
-    "integer": 'read_number',
-    "bigint": 'read_number',
-    "numeric": 'read_number',
-    "varchar": 'read',
-    "character varying": 'read',
-    "text": 'read_textarea',
-    "bytea": 'read_file',
-    "date": 'read_date',
-    "time": 'read_time',
-    "timestamp": 'read_time',
-    "timestampz": 'read_time',
-    "interval": '',
-    "ARRAY": '',
-    "hstore": '',
-    "json": '',
-    "uuid": 'read',
+    "bool": "",
+    "real": "read_number",
+    "double": "read_number",
+    "smallint": "read_number",
+    "integer": "read_number",
+    "bigint": "read_number",
+    "numeric": "read_number",
+    "varchar": "read",
+    "character varying": "read",
+    "text": "read_textarea",
+    "bytea": "read_file",
+    "date": "read_date",
+    "time": "read_time",
+    "timestamp": "read_time",
+    "timestampz": "read_time",
+    "interval": "",
+    "ARRAY": "",
+    "hstore": "",
+    "json": "",
+    "uuid": "read",
 }
 
 
@@ -62,7 +66,14 @@ def convert_postgres_column_type_to_python(column_type: str):
     return postgres_to_py_columns[column_type]
 
 
-def list_of_tuples_to_dict(tuples: List[PostgresColumnType]) -> Tuple[PythonColumns, PostgresColumns]:
-    return \
-        {tup[0]: convert_postgres_column_type_to_python(tup[1]) for tup in tuples}, \
-        {tup[0]: tup[1] for tup in tuples}
+def list_of_tuples_to_dict(
+    tuples: List[PostgresColumnType],
+) -> Tuple[PythonColumns, PostgresColumns]:
+    return {tup[0]: convert_postgres_column_type_to_python(tup[1]) for tup in tuples}, {
+        tup[0]: tup[1] for tup in tuples
+    }
+
+
+def tuple_to_str(tuple: Tuple, sep="-") -> str:
+    cast_values = list(map(lambda val: str(val), tuple))
+    return f"{sep}".join(cast_values)
