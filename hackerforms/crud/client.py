@@ -6,7 +6,7 @@ from hackerforms.crud import services
 from hackerforms.crud.connector import Connector
 from hackerforms.crud.types import ContextParams, PythonColumns
 from hackerforms.crud.utils import tuple_to_str
-
+from hackerforms.crud.exceptions import MissingParameter
 
 class Client:
     def __init__(self, connector: Connector):
@@ -17,8 +17,11 @@ class Client:
         table = kwargs.get("table", None)
         column = kwargs.get("column", None)
 
-        if not (table and column):
-            raise Exception
+        if not table:
+            raise MissingParameter(table)
+
+        if not column:
+            raise MissingParameter(column)
 
         self.check_table_existence(table)
         self.validate_columns([column])
