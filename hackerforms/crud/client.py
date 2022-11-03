@@ -1,6 +1,6 @@
 from abc import ABC
 import random
-from typing import Union
+from typing import Union, List
 from hackerforms.crud import services
 
 from hackerforms.crud.connector import Connector
@@ -11,6 +11,29 @@ from hackerforms.crud.utils import tuple_to_str
 class Client:
     def __init__(self, connector: Connector):
         self.connector = connector
+
+
+    def dropdown(self, **kwargs):
+        table = kwargs.get("table", None)
+        column = kwargs.get("column", None)
+
+        if not (table and column):
+            raise Exception
+
+        self.check_table_existence(table)
+        self.validate_columns([column])
+
+        pk_column = self.get_primary_key_column(table)
+        
+        if pk_column != column:
+            data = self.connector.select(self.get_column_values(table, *(pk_column, column)))
+            options = [{'label': col, 'value': pk} for (pk, col) in data]
+        else:
+            data = self.connector.select(self.get_column_values(table, column))
+            options = [item[0] for item in data]
+        
+        return options
+
 
     def insert_page(self, table: str, context: ContextParams = None):
         try:
@@ -60,6 +83,10 @@ class Client:
             return services.search_page(table, search_by_column, values, **kwargs)
         except Exception as ex:
             print(ex)
+
+
+    def validate_columns(self, columns: List[str]):
+        pass
 
     def get_column_values(self, table, *args):
         pass

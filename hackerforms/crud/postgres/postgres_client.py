@@ -1,33 +1,32 @@
 """
-hackerforms_postgres.client
+postgres.client
 ~~~~~~~~~~~~~~~~~
 
 This module provides a Client object to connect to Postgres Database
 """
 
-from typing import List, Union
+from typing import List
 from hackerforms.crud.client import Client
-from hackerforms.crud.hackerforms_postgres.postgres_connector import PostgresConnector
-from hackerforms.crud import services
+from hackerforms.crud.postgres.postgres_connector import PostgresConnector
 from hackerforms.crud.exceptions import (
-    ContextColumnNotFound,
+    ColumnNotFound,
     PrimaryKeyNotDefined,
     TableColumnsUndefined,
     TableNotFound,
     WrongContextColumnType,
 )
 
-from hackerforms.crud.hackerforms_postgres.types import PostgresContraintColumn
+from hackerforms.crud.postgres.types import PostgresContraintColumn
 from hackerforms.crud.types import ContextParams, PythonColumns
 
-from hackerforms.crud.hackerforms_postgres.sql.expressions import (
+from hackerforms.crud.postgres.sql.expressions import (
     get_columns_contraints,
     insert_new_row,
     table_exists,
     get_columns_and_types,
     get_column_values,
 )
-from hackerforms.crud.hackerforms_postgres.utils import (
+from hackerforms.crud.postgres.utils import (
     list_of_tuples_to_dict,
 )
 
@@ -60,7 +59,7 @@ class PostgresClient(Client):
     ):
         for column, value in context.items():
             if column not in columns.keys():
-                raise ContextColumnNotFound(table, column)
+                raise ColumnNotFound(table, column)
 
             if not isinstance(value, columns[column]):
 

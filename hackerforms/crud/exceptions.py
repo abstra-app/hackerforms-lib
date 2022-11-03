@@ -45,8 +45,8 @@ class TableColumnsUndefined(Exception):
         super().__init__(self.message)
 
 
-class ContextColumnNotFound(Exception):
-    """Raised when the user sets a context column name not found in the related table.
+class ColumnNotFound(Exception):
+    """Raised when the user sets a column name not found in the related table.
 
     Attributes:
       table -- table in which the column was looked for.
@@ -58,7 +58,7 @@ class ContextColumnNotFound(Exception):
         self.message = (
             message
             if message
-            else f"ContextColumnNotFound: column `{column}` not found in table {table}."
+            else f"ColumnNotFound: column `{column}` not found in table {table}."
         )
         super().__init__(self.message)
 

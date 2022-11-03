@@ -5,7 +5,7 @@ import decimal
 import uuid
 
 from hackerforms.crud.exceptions import ColumnTypeNotFound
-from hackerforms.crud.hackerforms_postgres.types import (
+from hackerforms.crud.postgres.types import (
     PostgresColumnType,
     PostgresColumns,
 )
