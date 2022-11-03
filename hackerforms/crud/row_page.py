@@ -2,11 +2,11 @@ from hackerforms.generated.page import Page
 
 
 class RowPage:
-    def __init__(self, table, insert_method=None):
+    def __init__(self, table, connector):
         self.table = table
         self.page = Page()
         self.column_from_key = {}
-        self.connector_insert = insert_method
+        self.connector = connector
 
     def __validate_args(self, *args, **kwargs):
         column = kwargs.get("column", None)
@@ -146,5 +146,5 @@ class RowPage:
 
         if context:
             data = {**data, **context}
-        self.connector_insert(self.table, data)
+        self.connector.insert(self.table, data)
         return page

@@ -18,8 +18,6 @@ class Client:
         if not column:
             raise MissingParameter("column")
 
-        self.check_table_existence(table)
-
         pk_column = self.get_primary_key_column(table)
 
         if pk_column != column:
@@ -38,9 +36,7 @@ class Client:
         if not table:
             raise MissingParameter("table")
 
-        self.check_table_existence(table)
-
-        return self.row_page(table, self.connector.insert)
+        return self.row_page(table, self.connector)
 
     def get_column_values(self, table, *args):
         pass
