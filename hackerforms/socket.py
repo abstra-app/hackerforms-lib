@@ -1,7 +1,7 @@
 import atexit
 import os
 from websocket import create_connection
-from .exit_hook import hooks
+from .exit_hook import hooks, make_debug_data
 from .utils import serialize, deserialize, persist_session_id, open_browser
 from .parameters import set_params
 import os
@@ -37,35 +37,12 @@ def initialize():
     return session_id
 
 
-def representations(locals):
-    result = {}
-    for key, value in locals.items():
-        rep = repr(value)
-        if len(rep) > 100:
-            result[key] = rep[:40] + " ... " + rep[-40:]
-        else:
-            result[key] = repr(value)
-    return result
-
-
-def send(data):
+def send(data, debug_data=None):
     if not initialized:
         return
 
     if os.environ.get("ABSTRA_DEBUG"):
-        debug = {
-            "debug": {
-                "stack": [
-                    {
-                        "filename": info.filename,
-                        "lineno": info.lineno,
-                        "name": info.function,
-                        "locals": representations(info.frame.f_locals),
-                    }
-                    for info in inspect.getouterframes(inspect.currentframe())
-                ]
-            }
-        }
+        debug = debug_data or make_debug_data(inspect.stack())
         ws.send(serialize({**data, **debug}))
     else:
         ws.send(serialize(data))
@@ -94,6 +71,7 @@ def close():
             "type": "program:end",
             "exitCode": hooks.exit_code,
             "exception": hooks.exception,
-        }
+        },
+        debug_data=hooks.debug_data,
     )
     ws.close()
