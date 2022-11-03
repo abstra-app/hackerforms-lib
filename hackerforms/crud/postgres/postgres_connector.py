@@ -16,8 +16,7 @@ class PostgresConnector(Connector):
         cursor.close()
         return output
 
-    def insert(self, table: str, data: Dict):
-        query = insert_new_row_query(table, data)
+    def insert(self, query: str):
         cursor = self.connection.cursor()
         cursor.execute(query)
         self.connection.commit()

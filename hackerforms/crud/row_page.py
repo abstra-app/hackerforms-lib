@@ -1,3 +1,5 @@
+from typing import Dict
+
 from hackerforms.generated.page import Page
 
 
@@ -146,5 +148,9 @@ class RowPage:
 
         if context:
             data = {**data, **context}
-        self.connector.insert(self.table, data)
+
+        self.insert_data(self.table, data)
         return page
+
+    def insert_data(self, table: str, data: Dict[str, any]):
+        pass
