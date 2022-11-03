@@ -30,8 +30,7 @@ class TextOutput(Output):
             text (str): The text to display to the user
 
         Keyword Args:
-            button_text (str): The text to display on the button that will continue the form
-            full_width (bool): Whether the input should use full screen width
+            full_width (bool): Whether the input should use full screen width. Defaults to False.
         """
         self.text = str(text)
         self.columns = kwargs.get("columns", 1)
@@ -56,8 +55,7 @@ class MarkdownOutput(Output):
             text (str): The formatted text to display to the user
 
         Keyword Args:
-            button_text (str): The text to display on the button that will continue the form
-            full_width (bool): Whether the input should use full screen width
+            full_width (bool): Whether the input should use full screen width. Defaults to False.
         """
         self.text = text
         self.columns = kwargs.get("columns", 1)
@@ -82,9 +80,8 @@ class ImageOutput(Output):
             image (file-like or str (path, url, base64)): The image to display to the user
 
         Keyword Args:
-            button_text (str): The text to display on the button that will continue the form
-            full_width (bool): Whether the input should use full screen width
-            subtitle (str): The subtitle of the image
+            full_width (bool): Whether the input should use full screen width. Defaults to False.
+            subtitle (str): The subtitle of the image. Defaults to "".
 
         """
         self.image = image
@@ -112,10 +109,9 @@ class LinkOutput(Output):
             link_url (str): The url of the link to display to the user
 
         Keyword Args:
-            button_text (str): The text to display on the button that will continue the form
-            full_width (bool): Whether the input should use full screen width
-            link_text (str): The text to display on the link
-            same_tab (bool): Whether to open the link in the same tab or not
+            full_width (bool): Whether the input should use full screen width. Defaults to False.
+            link_text (str): The text to display on the link. Defaults to "Click here".
+            same_tab (bool): Whether to open the link in the same tab or not. Defaults to False.
 
         """
         self.link_url = link_url
@@ -145,9 +141,8 @@ class FileOutput(Output):
             file (file-like or str (path, url, base64)): The file to download
 
         Keyword Args:
-            download_text (str): The text to display on the button that will download the file
-            button_text (str): The text to display on the button that will continue the form
-            full_width (bool): Whether the input should use full screen width
+            download_text (str): The text to display on the button that will download the file. Defaults to "Download here".
+            full_width (bool): Whether the input should use full screen width. Defaults to False.
 
         """
         self.file = file
@@ -173,10 +168,9 @@ class HTMLOutput(Output):
 
         Positional Args:
             html (str): The html snippet to display to the user
-            full_width (bool): Whether the input should use full screen width
 
         Keyword Args:
-            button_text (str): The text to display on the button that will continue the form
+            full_width (bool): Whether the input should use full screen width. Defaults to False.
         """
         self.html = html
         self.columns = kwargs.get("columns", 1)
@@ -198,14 +192,12 @@ class ProgressOutput(Output):
         """Display a progress bar
 
         Positional Args:
-            dividend (float): The progress being made (default: 50)
-            divisor (float): Total progress (default: 100)
+            dividend (float): The progress being made. Defaults to 50.
+            divisor (float): Total progress. Defaults to 100.
 
         Keyword Args:
-            text (str): The text displayed with this progress step
-            button_text (str): The text to display on the button that will continue the form
-            full_width (bool): Whether the input should use full screen width
-            display_index (bool): Whether to show a index column
+            text (str): The text displayed with this progress step. Defaults to "".
+            full_width (bool): Whether the input should use full screen width. Defaults to False.
 
         """
         self.dividend = dividend
@@ -213,7 +205,6 @@ class ProgressOutput(Output):
         self.text = kwargs.get("text", "")
         self.columns = kwargs.get("columns", 1)
         self.full_width = kwargs.get("full_width", False)
-        self.display_index = kwargs.get("display_index", False)
 
     def json(self, **kwargs):
         return {
@@ -236,9 +227,8 @@ class PandasOutput(Output):
             df (pandas.DataFrame): The dataframe to display to the user
 
         Keyword Args:
-            button_text (str): The text to display on the button that will continue the form
-            full_width (bool): Whether the input should use full screen width
-            display_index (bool): Whether to show a index column
+            full_width (bool): Whether the input should use full screen width. Defaults to False.
+            display_index (bool): Whether to show a index column. Defaults to False.
 
         """
         self.df = df
@@ -266,8 +256,7 @@ class PlotlyOutput(Output):
             fig (plotly.Figure): The figure to display to the user
 
         Keyword Args:
-            button_text (str): The text to display on the button that will continue the form
-            full_width (bool): Whether the input should use full screen width
+            full_width (bool): Whether the input should use full screen width. Defaults to False.
 
         """
         self.fig = fig
@@ -293,11 +282,9 @@ class IFrameOutput(Output):
             url_or_html (str): The link to the document or the own document to display to the user
 
         Keyword Args:
-            button_text (str): The text to display on the button that will continue the form
-            width (int): The width of the iframe
-            height (int): The height of the iframe
-            full_width (bool): Whether the input should use full screen width
-
+            width (int): The width of the iframe. Defaults to "800".
+            height (int): The height of the iframe. Defaults to "600".
+            full_width (bool): Whether the input should use full screen width. Defaults to False.
         """
 
         if url(url_or_html):

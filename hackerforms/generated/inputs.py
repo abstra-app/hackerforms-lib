@@ -30,13 +30,12 @@ def read_cards(label: str, options: typing.Any, **kwargs):
       label (str): The text related to this fieldoptions (list): The options to display to the user, eg. [{'title': 'Option 1', 'image': 'https://image_1.png', 'description': 'option 1 description'},{'title': 'Option 2', 'image': 'https://image_2.png', 'description': 'option 2 description'}]
 
     Keyword Args:
-      multiple (bool): Whether the user can select multiple options
-      button_text (str): The text to display on the button that will submit the value
-      initial_value (list): The initial value to display to the user
-      required (bool or str): Whether the input is required or not eg. "this field is required"
-      hint (str): A tooltip displayed to the user
-      searchable (bool): Whether to show a search bar
-      full_width (bool): Whether the input should use full screen width
+      multiple (bool): Whether the user can select multiple options. Defaults to False.
+      initial_value (list): The initial value to display to the user. Defaults to None.
+      required (bool or str): Whether the input is required or not eg. "this field is required". Defaults to True.
+      hint (str): A tooltip displayed to the user. Defaults to None.
+      searchable (bool): Whether to show a search bar. Defaults to False.
+      full_width (bool): Whether the input should use full screen width. Defaults to False.
 
       Returns:
           list, any: The options/option selected by the user
@@ -54,12 +53,11 @@ def read_code(label: str, **kwargs):
       label (str): The label to display to the user
 
     Keyword Args:
-      button_text (str): The text to display on the button that will submit the value
-      initial_value (str): The initial value to display to the user
-      required (bool or str): Whether the input is required or not eg. "this field is required"
-      language (str): The programming language
-      hint (str): A tooltip displayed to the user
-      full_width (bool): Whether the input should use full screen width
+      initial_value (str): The initial value to display to the user. Defaults to "".
+      required (bool or str): Whether the input is required or not eg. "this field is required". Defaults to True.
+      language (str): The programming language. Defaults to None.
+      hint (str): A tooltip displayed to the user. Defaults to None.
+      full_width (bool): Whether the input should use full screen width. Defaults to False.
 
       Returns:
           str: The value entered by the user
@@ -75,16 +73,15 @@ def read_currency(label: str, **kwargs):
       label (str): The label to display to the user
 
     Keyword Args:
-      button_text (str): The text to display on the button that will submit the value
-      initial_value (str): The initial value to display to the user
-      required (bool or str): Whether the input is required or not, eg. "this field is required"
-      placeholder (str): The placeholder text to display to the user
-      hint (str): A tooltip displayed to the user
-      full_width (bool): Whether the input should use full screen width
-      min (float): The minimum value allowed, eg. "0"
-      max (float): The maximum value allowed, eg. "100"
-      step (float): The value to be incremented or decremented while using the input button
-      currency (str): The currency to display to the user, eg. "USD", "BRL, "EUR", "GBP" (default is USD)
+      initial_value (str): The initial value to display to the user. Defaults to 0.
+      required (bool or str): Whether the input is required or not, eg. "this field is required". Defaults to True.
+      placeholder (str): The placeholder text to display to the user. Defaults to "Your answer here".
+      hint (str): A tooltip displayed to the user. Defaults to None.
+      full_width (bool): Whether the input should use full screen width. Defaults to False.
+      min (float): The minimum value allowed, eg. "0". Defaults to None.
+      max (float): The maximum value allowed, eg. "100". Defaults to None.
+      step (float): The value to be incremented or decremented while using the input button. Defaults to None.
+      currency (str): The currency to display to the user, eg. "USD", "BRL, "EUR", "GBP". Defaults to "USD".
 
       Returns:
           float: The value entered by the user
@@ -100,11 +97,10 @@ def read_date(label: str, **kwargs):
       label (str): The label to display to the user
 
     Keyword Args:
-      button_text (str): The text to display on the button that will submit the value
-      initial_value (datetime.date or time.struct_time or str (YYYY-MM-DD)): The initial value to display to the user
-      required (bool or str): Whether the input is required or not eg. "this field is required"
-      hint (str): A tooltip displayed to the user
-      full_width (bool): Whether the input should use full screen width
+      initial_value (datetime.date or time.struct_time or str (YYYY-MM-DD)): The initial value to display to the user. Defaults to None.
+      required (bool or str): Whether the input is required or not eg. "this field is required". Defaults to True.
+      hint (str): A tooltip displayed to the user. Defaults to None.
+      full_width (bool): Whether the input should use full screen width. Defaults to False.
 
       Returns:
           datetime.date: The value entered by the user
@@ -124,13 +120,12 @@ def read_dropdown(
       label (str): The label to display to the useroptions (list): The options to display to the user, eg. ['Option 1', 'Option 2'] or [{'label': 'Option 1', 'value': '1'}, {'label': 'Option 2', 'value': '2'}]
 
     Keyword Args:
-      multiple (bool): Whether the user can select multiple options
-      button_text (str): The text to display on the button that will submit the value
-      initial_value: The initial value to display to the user
-      placeholder (str): The placeholder text to display to the user
-      required (bool or str): Whether the input is required or not eg. "this field is required"
-      hint (str): A tooltip displayed to the user
-      full_width (bool): Whether the input should use full screen width
+      multiple (bool): Whether the user can select multiple options. Defaults to False.
+      initial_value: The initial value to display to the user. Defaults to None.
+      placeholder (str): The placeholder text to display to the user. Defaults to "Choose an option".
+      required (bool or str): Whether the input is required or not eg. "this field is required". Defaults to True.
+      hint (str): A tooltip displayed to the user. Defaults to None.
+      full_width (bool): Whether the input should use full screen width. Defaults to False.
 
       Returns:
           str: The value selected by the user
@@ -148,12 +143,11 @@ def read_email(label: str, **kwargs):
       label (str): The label to display to the user
 
     Keyword Args:
-      button_text (str): The text to display on the button that will submit the value
-      initial_value (str): The initial value to display to the user
-      placeholder (str): The placeholder text to display to the user
-      required (bool or str): Whether the input is required or not eg. "this field is required"
-      hint (str): A tooltip displayed to the user
-      full_width (bool): Whether the input should use full screen width
+      initial_value (str): The initial value to display to the user. Defaults to "".
+      placeholder (str): The placeholder text to display to the user. Defaults to "Your email here".
+      required (bool or str): Whether the input is required or not eg. "this field is required". Defaults to True.
+      hint (str): A tooltip displayed to the user. Defaults to None.
+      full_width (bool): Whether the input should use full screen width. Defaults to False.
 
       Returns:
           str: The value entered by the user
@@ -169,12 +163,11 @@ def read_file(label: str, **kwargs):
       label (str): The label to display to the user
 
     Keyword Args:
-      button_text (str): The text to display on the button that will submit the value
-      initial_value (str): The initial value to display to the user
-      required (bool or str): Whether the input is required or not eg. "this field is required"
-      hint (str): A tooltip displayed to the user
-      full_width (bool): Whether the input should use full screen width
-      multiple (bool): Whether the user will be allowed to upload multiple files
+      initial_value (str): The initial value to display to the user. Defaults to "".
+      required (bool or str): Whether the input is required or not eg. "this field is required". Defaults to True.
+      hint (str): A tooltip displayed to the user. Defaults to None.
+      full_width (bool): Whether the input should use full screen width. Defaults to False.
+      multiple (bool): Whether the user will be allowed to upload multiple files. Defaults to False.
 
       Returns:
           FileResponse or FileResponse[]: A dict containing the file uploaded by the user ({"file": file, "url": str, "content": bytes}) or a list of files in case of multiple flag set as True
@@ -190,13 +183,12 @@ def read_html_list(label: str, options: typing.Any, **kwargs):
       label (str): The text related to this fieldoptions (list): The options to display to the user, eg. [{'html': '<div class="container">Info 1A</div>', 'value': 'info1'},{'html': '<div class="container">Info 2B</div>', 'value': 'info2'}]
 
     Keyword Args:
-      button_text (str): The text to display on the button that will submit the value
-      initial_value (list): The initial value to display to the user
-      required (bool or str): Whether the input is required or not eg. "this field is required"
-      multiple (bool): Whether the user can select multiple options
-      css (str): The css related to the html item in options
-      hint (str): A tooltip displayed to the user
-      full_width (bool): Whether the input should use full screen width
+      initial_value (list): The initial value to display to the user. Defaults to None.
+      required (bool or str): Whether the input is required or not eg. "this field is required". Defaults to True.
+      multiple (bool): Whether the user can select multiple options. Defaults to False.
+      css (str): The css related to the html item in options. Defaults to None.
+      hint (str): A tooltip displayed to the user. Defaults to None.
+      full_width (bool): Whether the input should use full screen width. Defaults to False.
 
       Returns:
           list, any: The options/option selected by the user
@@ -214,12 +206,11 @@ def read_image(label: str, **kwargs):
       label (str): The label to display to the user
 
     Keyword Args:
-      button_text (str): The text to display on the button that will submit the value
-      initial_value (str): The initial value to display to the user
-      required (bool or str): Whether the input is required or not eg. "this field is required"
-      hint (str): A tooltip displayed to the user
-      full_width (bool): Whether the input should use full screen width
-      multiple (bool): Whether the user will be allowed to upload multiple files
+      initial_value (str): The initial value to display to the user. Defaults to "".
+      required (bool or str): Whether the input is required or not eg. "this field is required". Defaults to True.
+      hint (str): A tooltip displayed to the user. Defaults to None.
+      full_width (bool): Whether the input should use full screen width. Defaults to False.
+      multiple (bool): Whether the user will be allowed to upload multiple files. Defaults to False.
 
       Returns:
           FileResponse or FileResponse[]: A dict containing the image file uploaded by the user ({"file": file, "url": str, "content": bytes}) or a list of images in case of multiple flag set as True
@@ -235,13 +226,12 @@ def read_list(item_schema: typing.Any, **kwargs):
       item_schema (ListItemSchema): The schema for the items of the list
 
     Keyword Args:
-      button_text (str): The text to display on the button that will submit the value
-      initial_value (any): The initial value to display to the user
-      hint (str): A tooltip displayed to the user
-      full_width (bool): Whether the input should use full screen width
-      min (float): Min value accepted by the input
-      max (float): Max value accepted by the input
-      add_button_text (str): Label to be displayed on the add button. The default is "+".
+      initial_value (any): The initial value to display to the user. Defaults to [{}].
+      hint (str): A tooltip displayed to the user. Defaults to None.
+      full_width (bool): Whether the input should use full screen width. Defaults to False.
+      min (float): Min value accepted by the input. Defaults to None.
+      max (float): Max value accepted by the input. Defaults to None.
+      add_button_text (str): Label to be displayed on the add button. Defaults to "+".
 
       Returns:
           list: The values entered by the user
@@ -261,14 +251,13 @@ def read_multiple_choice(
       label (str): The label to display to the useroptions (list): The options to display to the user, eg. ['Option 1', 'Option 2'] or [{'label': 'Option 1', 'value': '1'}, {'label': 'Option 2', 'value': '2'}]
 
     Keyword Args:
-      multiple (bool): Whether the user can select multiple options
-      min (number): The minimal amount of options that should be selected
-      max (number): The maximum amount of options that should be selected
-      button_text (str): The text to display on the button that will submit the value
-      initial_value: The initial value to display to the user
-      required (bool or str): Whether the input is required or not eg. "this field is required"
-      hint (str): A tooltip displayed to the user
-      full_width (bool): Whether the input should use full screen width
+      multiple (bool): Whether the user can select multiple options. Defaults to False.
+      min (number): The minimal amount of options that should be selected. Defaults to None.
+      max (number): The maximum amount of options that should be selected. Defaults to None.
+      initial_value: The initial value to display to the user. Defaults to None.
+      required (bool or str): Whether the input is required or not eg. "this field is required". Defaults to True.
+      hint (str): A tooltip displayed to the user. Defaults to None.
+      full_width (bool): Whether the input should use full screen width. Defaults to False.
 
       Returns:
           list or any: The values/value selected by the user
@@ -286,14 +275,14 @@ def read_nps(label: str, **kwargs):
       label (str): The label to display to the user
 
     Keyword Args:
-      min (int): Min value accepted by the input
-      max (int): Max value accepted by the input
-      min_hint (str): Text to display next to the min value
-      max_hint (str): Text to display next to the max value
-      initial_value (str): The initial value to display to the user
-      required (bool or str): Whether the input is required or not eg. "this field is required"
-      hint (str): A tooltip displayed to the user
-      full_width (bool): Whether the input should use full screen width
+      min (int): Min value accepted by the input. Defaults to 0.
+      max (int): Max value accepted by the input. Defaults to 10.
+      min_hint (str): Text to display next to the min value. Defaults to "Not at all likely".
+      max_hint (str): Text to display next to the max value. Defaults to "Extremely likely".
+      initial_value (str): The initial value to display to the user. Defaults to None.
+      required (bool or str): Whether the input is required or not eg. "this field is required". Defaults to True.
+      hint (str): A tooltip displayed to the user. Defaults to None.
+      full_width (bool): Whether the input should use full screen width. Defaults to False.
 
       Returns:
           int: The value entered by the user
@@ -309,15 +298,14 @@ def read_number(label: str, **kwargs):
       label (str): The label to display to the user
 
     Keyword Args:
-      button_text (str): The text to display on the button that will submit the value
-      initial_value (str): The initial value to display to the user
-      placeholder (str): The placeholder text to display to the user
-      required (bool or str): Whether the input is required or not eg. "this field is required"
-      hint (str): A tooltip displayed to the user
-      full_width (bool): Whether the input should use full screen width
-      min (float): Min value accepted by the input
-      max (float): Max value accepted by the input
-      step (float): The value to be incremented or decremented while using the input button
+      initial_value (str): The initial value to display to the user. Defaults to 0.
+      placeholder (str): The placeholder text to display to the user. Defaults to "Your answer here".
+      required (bool or str): Whether the input is required or not eg. "this field is required". Defaults to True.
+      hint (str): A tooltip displayed to the user. Defaults to None.
+      full_width (bool): Whether the input should use full screen width. Defaults to False.
+      min (float): Min value accepted by the input. Defaults to None.
+      max (float): Max value accepted by the input. Defaults to None.
+      step (float): The value to be incremented or decremented while using the input button. Defaults to None.
 
       Returns:
           float: The value entered by the user
@@ -333,10 +321,9 @@ def read_pandas_row_selection(df: typing.Any, **kwargs):
       df (pandas.DataFrame): The pandas dataframe to be displayed
 
     Keyword Args:
-      button_text (str): The text to display on the button that will submit the value
-      required: Whether the input is required or not
-      hint (str): A tooltip displayed to the user
-      full_width (bool): Whether the input should use full screen width
+      required: Whether the input is required or not. Defaults to True.
+      hint (str): A tooltip displayed to the user. Defaults to None.
+      full_width (bool): Whether the input should use full screen width. Defaults to False.
 
       Returns:
           list: The list of selected rows
@@ -354,20 +341,19 @@ def read_password(label: str, **kwargs):
       label (str): The label to display to the user
 
     Keyword Args:
-      button_text (str): The text to display on the button that will submit the value
-      placeholder (str): The placeholder text to display to the user
-      required (bool or str): Whether the input is required or not eg. "this field is required"
-      hint (str): A tooltip displayed to the user
-      full_width (bool): Whether the input should use full screen width
-      lowercase_required (bool or str): Whether the input must have at least one lowercase character
-      uppercase_required (bool or str): Whether the input must have at least one uppercase character
-      special_required (bool or str): Whether the input must have at least one special character
-      digit_required (bool or str): Whether the input must have at least one digit
-      min_length (int): Minimum length of the password
-      max_length (int): Maximum length of the password
-      size (int): Size of the password
-      pattern (str): A regex pattern for the accepted password
-      autocomplete (str): The autocomplete HTML attribute
+      placeholder (str): The placeholder text to display to the user. Defaults to "".
+      required (bool or str): Whether the input is required or not eg. "this field is required". Defaults to True.
+      hint (str): A tooltip displayed to the user. Defaults to None.
+      full_width (bool): Whether the input should use full screen width. Defaults to False.
+      lowercase_required (bool or str): Whether the input must have at least one lowercase character. Defaults to True.
+      uppercase_required (bool or str): Whether the input must have at least one uppercase character. Defaults to True.
+      special_required (bool or str): Whether the input must have at least one special character. Defaults to True.
+      digit_required (bool or str): Whether the input must have at least one digit. Defaults to True.
+      min_length (int): Minimum length of the password. Defaults to 8.
+      max_length (int): Maximum length of the password. Defaults to None.
+      size (int): Size of the password. Defaults to None.
+      pattern (str): A regex pattern for the accepted password. Defaults to None.
+      autocomplete (str): The autocomplete HTML attribute. Defaults to "current-password".
 
       Returns:
           str: The value entered by the user
@@ -383,12 +369,11 @@ def read_phone(label: str, **kwargs):
       label (str): The label to display to the user
 
     Keyword Args:
-      button_text (str): The text to display on the button that will submit the value
-      initial_value (str or dict): The initial value to display to the user. If dictionary, it contains two keys: 'country_code' (string with optional + sign or number) and 'national_number' (str or number). Ex: {'country_code': '+55', 'national_number': '21999990000'}
-      placeholder (str): The placeholder text to display to the user
-      required (bool or str): Whether the input is required or not eg. "this field is required"
-      hint (str): A tooltip displayed to the user
-      full_width (bool): Whether the input should use full screen width
+      initial_value (str or dict): The initial value to display to the user. If dictionary, it contains two keys: 'country_code' (string with optional + sign or number) and 'national_number' (str or number). Ex: {'country_code': '+55', 'national_number': '21999990000'}. Defaults to "".
+      placeholder (str): The placeholder text to display to the user. Defaults to "".
+      required (bool or str): Whether the input is required or not eg. "this field is required". Defaults to True.
+      hint (str): A tooltip displayed to the user. Defaults to None.
+      full_width (bool): Whether the input should use full screen width. Defaults to False.
 
       Returns:
           PhoneResponse: A dict containing the value entered by the user ({"raw": str, "masked": str})
@@ -404,12 +389,11 @@ def read_tag(label: str, **kwargs):
       label (str): The label to display to the user
 
     Keyword Args:
-      button_text (str): The text to display on the button that will submit the value
-      initial_value (list): The initial value to display to the user
-      placeholder (str): The placeholder text to display to the user
-      required (bool or str): Whether the input is required or not eg. "this field is required"
-      hint (str): A tooltip displayed to the user
-      full_width (bool): Whether the input should use full screen width
+      initial_value (list): The initial value to display to the user. Defaults to [].
+      placeholder (str): The placeholder text to display to the user. Defaults to "Your answer here".
+      required (bool or str): Whether the input is required or not eg. "this field is required". Defaults to True.
+      hint (str): A tooltip displayed to the user. Defaults to None.
+      full_width (bool): Whether the input should use full screen width. Defaults to False.
 
       Returns:
           list(str) or list(float): The value entered by the user
@@ -425,13 +409,12 @@ def read(label: str, **kwargs):
       label (str): The label to display to the user
 
     Keyword Args:
-      button_text (str): The text to display on the button that will submit the value
-      initial_value (str): The initial value to display to the user
-      placeholder (str): The placeholder text to display to the user
-      required (bool or str): Whether the input is required or not eg. "this field is required"
-      hint (str): A tooltip displayed to the user
-      full_width (bool): Whether the input should use full screen width
-      mask (str): A mask to apply to the input
+      initial_value (str): The initial value to display to the user. Defaults to "".
+      placeholder (str): The placeholder text to display to the user. Defaults to "Your answer here".
+      required (bool or str): Whether the input is required or not eg. "this field is required". Defaults to True.
+      hint (str): A tooltip displayed to the user. Defaults to None.
+      full_width (bool): Whether the input should use full screen width. Defaults to False.
+      mask (str): A mask to apply to the input. Defaults to None.
 
       Returns:
           str: The value entered by the user
@@ -447,12 +430,11 @@ def read_textarea(label: str, **kwargs):
       label (str): The label to display to the user
 
     Keyword Args:
-      button_text (str): The text to display on the button that will submit the value
-      initial_value (str): The initial value to display to the user
-      placeholder (str): The placeholder text to display to the user
-      required (bool or str): Whether the input is required or not eg. "this field is required"
-      hint (str): A tooltip displayed to the user
-      full_width (bool): Whether the input should use full screen width
+      initial_value (str): The initial value to display to the user. Defaults to "".
+      placeholder (str): The placeholder text to display to the user. Defaults to "Your answer here".
+      required (bool or str): Whether the input is required or not eg. "this field is required". Defaults to True.
+      hint (str): A tooltip displayed to the user. Defaults to None.
+      full_width (bool): Whether the input should use full screen width. Defaults to False.
 
       Returns:
           str: The value entered by the user
@@ -468,12 +450,11 @@ def read_time(label: str, **kwargs):
       label (str): The label to display to the user
 
     Keyword Args:
-      button_text (str): The text to display on the button that will submit the value
-      initial_value (str): The initial value to display to the user
-      required (bool or str): Whether the input is required or not eg. "this field is required"
-      format (str): Whether the input is in the format 24hs or AM/PM. Default is 24hs.
-      hint (str): A tooltip displayed to the user
-      full_width (bool): Whether the input should use full screen width
+      initial_value (str): The initial value to display to the user. Defaults to "".
+      required (bool or str): Whether the input is required or not eg. "this field is required". Defaults to True.
+      format (str): Whether the input is in the format 24hs or AM/PM. Defaults to "24hs".
+      hint (str): A tooltip displayed to the user. Defaults to None.
+      full_width (bool): Whether the input should use full screen width. Defaults to False.
 
       Returns:
           datetime.time: A datetime.time object representing the value entered by the user
@@ -489,12 +470,11 @@ def read_video(label: str, **kwargs):
       label (str): The label to display to the user
 
     Keyword Args:
-      button_text (str): The text to display on the button that will submit the value
-      initial_value (str): The initial value to display to the user
-      required (bool or str): Whether the input is required or not eg. "this field is required"
-      hint (str): A tooltip displayed to the user
-      full_width (bool): Whether the input should use full screen width
-      multiple (bool): Whether the user will be allowed to upload multiple files
+      initial_value (str): The initial value to display to the user. Defaults to "".
+      required (bool or str): Whether the input is required or not eg. "this field is required". Defaults to True.
+      hint (str): A tooltip displayed to the user. Defaults to None.
+      full_width (bool): Whether the input should use full screen width. Defaults to False.
+      multiple (bool): Whether the user will be allowed to upload multiple files. Defaults to False.
 
       Returns:
           FileResponse or FileResponse[]: A dict containing the video uploaded by the user ({"file": file, "url": str, "content": bytes}) or a list of videos in case of multiple flag set as True
