@@ -15,7 +15,7 @@ class RowPage:
 
     def __add_to_column_map(self, *args, **kwargs):
         key = kwargs.get("key", None) or args[0]
-        column = kwargs.get('column')
+        column = kwargs.get("column")
         self.column_from_key[key] = column
 
     def read(self, *args, **kwargs):

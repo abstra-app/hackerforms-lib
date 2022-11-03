@@ -4,7 +4,6 @@ from typing import List, Tuple
 import decimal
 import uuid
 
-from hackerforms.crud.exceptions import ColumnTypeNotFound
 from hackerforms.crud.postgres.types import (
     PostgresColumnType,
     PostgresColumns,
@@ -58,12 +57,6 @@ widget_from_column_type = {
     "json": "",
     "uuid": "read",
 }
-
-
-def convert_postgres_column_type_to_python(column_type: str):
-    if column_type not in postgres_to_py_columns:
-        raise ColumnTypeNotFound(column_type)
-    return postgres_to_py_columns[column_type]
 
 
 def list_of_tuples_to_dict(
