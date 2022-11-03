@@ -122,6 +122,7 @@ class PrimaryKeyNotDefined(Exception):
         )
         super().__init__(self.message)
 
+
 class MissingParameter(Exception):
     """Raised when the user does not pass a required parameter.
 

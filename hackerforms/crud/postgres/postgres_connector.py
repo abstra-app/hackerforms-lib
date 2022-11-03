@@ -1,6 +1,10 @@
 import psycopg2
-
+from typing import Dict
 from hackerforms.crud.client import Connector
+from hackerforms.crud.postgres.sql.queries import (
+    insert_new_row_query,
+    get_column_values_query,
+)
 
 
 class PostgresConnector(Connector):
@@ -14,7 +18,8 @@ class PostgresConnector(Connector):
         cursor.close()
         return output
 
-    def insert(self, query: str):
+    def insert(self, table: str, data: Dict):
+        query = insert_new_row_query(table, data)
         cursor = self.connection.cursor()
         cursor.execute(query)
         self.connection.commit()

@@ -2,12 +2,8 @@ table_exists = (
     lambda table: f"select exists(select relname from pg_class where relname='{table}')"
 )
 
-get_columns_and_types = (
-    lambda table: f"select column_name, data_type from information_schema.columns where table_name = '{table}';"
-)
 
-
-def get_columns_contraints(table: str) -> str:
+def get_columns_contraints_query(table: str) -> str:
     """SQL statement that search all the columns that are unique, primary and foreign keys."""
 
     return f"""
@@ -23,7 +19,7 @@ def get_columns_contraints(table: str) -> str:
     """
 
 
-def get_column_values(table, *args):
+def get_column_values_query(table, *args):
     columns = ""
     for arg in args:
         columns += f"{arg},"
@@ -31,8 +27,8 @@ def get_column_values(table, *args):
     return f"select {columns} from {table}"
 
 
-def insert_new_row(table, page):
-    statement = f"insert into {table}{tuple(page.keys())} "
-    statement = statement.replace("'", "")
-    statement += f"values {tuple(page.values())}"
-    return statement
+def insert_new_row_query(table, page):
+    query = f"insert into {table}{tuple(page.keys())} "
+    query = query.replace("'", "")
+    query += f"values {tuple(page.values())}"
+    return query

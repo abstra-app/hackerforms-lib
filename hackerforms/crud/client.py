@@ -1,114 +1,51 @@
-from abc import ABC
-import random
-from typing import Union, List
-from hackerforms.crud import services
+from typing import List
 
 from hackerforms.crud.connector import Connector
-from hackerforms.crud.types import ContextParams, PythonColumns
-from hackerforms.crud.utils import tuple_to_str
 from hackerforms.crud.exceptions import MissingParameter
+from hackerforms.generated.page import Page
+
 
 class Client:
-    def __init__(self, connector: Connector):
+    def __init__(self, connector: Connector, row_page):
         self.connector = connector
-
+        self.row_page = row_page
 
     def dropdown(self, **kwargs):
         table = kwargs.get("table", None)
         column = kwargs.get("column", None)
-
         if not table:
-            raise MissingParameter(table)
-
+            raise MissingParameter("table")
         if not column:
-            raise MissingParameter(column)
+            raise MissingParameter("column")
 
         self.check_table_existence(table)
-        self.validate_columns([column])
 
         pk_column = self.get_primary_key_column(table)
-        
+
         if pk_column != column:
-            data = self.connector.select(self.get_column_values(table, *(pk_column, column)))
-            options = [{'label': col, 'value': pk} for (pk, col) in data]
+            data = self.connector.select(
+                self.get_column_values(table, *(pk_column, column))
+            )
+            options = [{"label": col, "value": pk} for (pk, col) in data]
         else:
             data = self.connector.select(self.get_column_values(table, column))
             options = [item[0] for item in data]
-        
+
         return options
 
+    def RowPage(self, **kwargs) -> Page:
+        table = kwargs.get("table", None)
+        if not table:
+            raise MissingParameter("table")
 
-    def insert_page(self, table: str, context: ContextParams = None):
-        try:
-            self.check_table_existence(table)
-            py_columns, postgres_columns = self.get_columns_names(table)
-            if context:
-                self.validate_context(table, context, py_columns)
+        self.check_table_existence(table)
 
-            primary_key_column = self.get_primary_key_column(table)
-            page = services.new_page(
-                {
-                    "table_name": table,
-                    "primary_key": primary_key_column,
-                    "columns": postgres_columns,
-                },
-                context,
-            )
-            page[primary_key_column] = random.randint(20, 100)
-            page = {**page, **context}
-            self.connector.insert(self.get_new_row_query(table, page))
-            return page
-
-        except Exception as ex:
-            print(ex)
-
-    def search_page(self, table: str, **kwargs) -> Union[str, int]:
-        search_by_column = kwargs.get("search_by", None)
-        try:
-            self.check_table_existence(table)
-            if search_by_column:
-                unique_column = self.validate_unique_column(table, search_by_column)
-                if unique_column:
-                    data = self.connector.select(
-                        self.get_column_values(table, search_by_column)
-                    )
-                else:
-                    pk_column = self.get_primary_key_column(table)
-                    data = self.connector.select(
-                        self.get_column_values(table, *(pk_column, search_by_column))
-                    )
-            else:
-                search_by_column = self.get_primary_key_column(table)
-                data = self.connector.select(
-                    self.get_column_values(table, search_by_column)
-                )
-            values = list(map(lambda row: tuple_to_str(row), data))
-            return services.search_page(table, search_by_column, values, **kwargs)
-        except Exception as ex:
-            print(ex)
-
-
-    def validate_columns(self, columns: List[str]):
-        pass
+        return self.row_page(table, self.connector.insert)
 
     def get_column_values(self, table, *args):
         pass
 
-    def get_new_row_query(self, table: str, page) -> str:
-        pass
-
-    def get_columns_names(self, table: str) -> PythonColumns:
-        pass
-
     def check_table_existence(self, table):
-        pass
-
-    def validate_context(
-        self, table: str, context: ContextParams, columns: PythonColumns
-    ):
-        pass
-
-    def validate_unique_column(self, table: str, search_by_column: str) -> bool:
         pass
 
     def get_primary_key_column(self, table):

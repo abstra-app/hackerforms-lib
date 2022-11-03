@@ -1,4 +1,5 @@
 from abc import ABC
+from typing import Dict
 
 
 class Connector(ABC):
@@ -8,5 +9,5 @@ class Connector(ABC):
     def select(self, query: str):
         pass
 
-    def insert(self, query: str):
+    def insert(self, table: str, data: Dict):
         pass
