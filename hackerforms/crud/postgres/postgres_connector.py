@@ -9,8 +9,9 @@ from hackerforms.crud.postgres.sql.queries import (
 
 class PostgresConnector(Connector):
     def __init__(self, dsn=None, **kwargs):
-        self.connection: psycopg2.connect = psycopg2.connect(dsn, **kwargs)
-
+        connection: psycopg2.connect = psycopg2.connect(dsn, **kwargs)
+        super().__init__(connection)
+        
     def select(self, query: str):
         cursor = self.connection.cursor()
         cursor.execute(query)

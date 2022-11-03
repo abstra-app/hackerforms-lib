@@ -142,8 +142,6 @@ class RowPage:
         context = kwargs.get("context", None)
 
         page = self.page.run()
-        print(page)
-        print(self.column_from_key)
         data = {self.column_from_key[key]: value for (key, value) in page.items()}
 
         if context:

@@ -3,8 +3,8 @@ from typing import Dict
 
 
 class Connector(ABC):
-    def __init__(self):
-        pass
+    def __init__(self, connection):
+        self.connection = connection
 
     def select(self, query: str):
         pass
