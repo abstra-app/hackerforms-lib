@@ -48,9 +48,8 @@ class WidgetSchema:
 
     def json(self, payload):
         output = []
-        parsed_payload = self.convert_answer(payload)
         for widget in self.widgets:
-            widget_json = widget.json(payload=parsed_payload)
+            widget_json = widget.json(payload=payload)
             if isinstance(widget_json, list):
                 output.extend(widget_json)
             else:
@@ -899,7 +898,7 @@ class Page(WidgetSchema):
 
         while response["type"] == "user-event":
             payload = response["payload"]
-            widgets_json = self.json(payload)
+            widgets_json = self.json(self.convert_answer(payload))
             validation = kwargs.get("validate")
             validation_status = True
             validation_message = ""
