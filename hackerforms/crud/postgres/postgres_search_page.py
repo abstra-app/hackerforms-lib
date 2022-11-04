@@ -1,7 +1,20 @@
+
+"""
+hackerforms.crud.postgres.postgres_search_page
+~~~~~~~~~~~~~~~~~~~~~~~
+
+This module provides a concrete implementation for Postgres Search Page.
+
+"""
+
 from hackerforms.crud.search_page import SearchPage
 
 
 class PostgresSearchPage(SearchPage):
+    """SearchPage implementation for Postgres Data Sources
+    It receives the table and connector instances from the client.
+
+    """
     def __init__(self, table, connector):
         super().__init__(table, connector)
 

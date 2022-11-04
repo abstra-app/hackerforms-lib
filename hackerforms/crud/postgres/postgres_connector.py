@@ -1,10 +1,20 @@
+"""
+hackerforms.crud.postgres.postgres_connector
+~~~~~~~~~~~~~~~~~~~~~~~
+
+This module provides a concrete implementation for Postgres Connector.
+
+"""
+
 import psycopg2
-from typing import Dict
 from hackerforms.crud.client import Connector
-from hackerforms.crud.postgres.sql.queries import insert_new_row_query
 
 
 class PostgresConnector(Connector):
+    """Connector implementation for Postgres Data Sources
+    It receives the connection parameters from the Client Instance.
+
+    """
     def __init__(self, dsn=None, **kwargs):
         connection: psycopg2.connect = psycopg2.connect(dsn, **kwargs)
         super().__init__(connection)
