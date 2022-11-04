@@ -13,6 +13,13 @@ class PostgresSearchPage(SearchPage):
     """SearchPage implementation for Postgres Data Sources
     It receives the table and connector instances from the client.
 
+    NOTE:
+        - Currently, it only accepts string type filters.
+
+    TODO:
+        - Improve search query to look for values in columns that are not string types.
+        - Normalize text filter (lowercase, uppercase)
+
     """
 
     def __init__(self, table, connector):
