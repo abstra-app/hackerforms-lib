@@ -17,6 +17,9 @@ class SearchPage(CRUDPage):
 
     Its constructor receives the target table (or entity in api)
     and the the connector to search for rows in data source
+
+    TODO:
+        - to provide a way of searching based on relationship tables
     """
 
     def __init__(self, table, connector):
