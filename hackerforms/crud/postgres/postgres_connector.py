@@ -15,6 +15,7 @@ class PostgresConnector(Connector):
     It receives the connection parameters from the Client Instance.
 
     """
+
     def __init__(self, dsn=None, **kwargs):
         connection: psycopg2.connect = psycopg2.connect(dsn, **kwargs)
         super().__init__(connection)

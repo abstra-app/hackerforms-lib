@@ -14,7 +14,7 @@ from hackerforms.crud.postgres.sql.queries import get_column_values_query
 
 class PostgresClient(Client):
     """Client Implementation for Postgres Data Sources
-    
+
     To instantiate, it's required the database connection parameters, whose can be specified as a string:
         >>> db = PostgresClient("dbname=test user=postgres password=secret")
     or using a set of keyword arguments:
@@ -29,6 +29,7 @@ class PostgresClient(Client):
     - *port*: connection port number (defaults to 5432 if not provided)
 
     """
+
     def __init__(self, dsn=None, **kwargs):
         row_page, search_page = page_factory("postgres")
         connector = PostgresConnector(dsn, **kwargs)

@@ -1,4 +1,3 @@
-
 """
 hackerforms.crud.postgres.postgres_search_page
 ~~~~~~~~~~~~~~~~~~~~~~~
@@ -15,6 +14,7 @@ class PostgresSearchPage(SearchPage):
     It receives the table and connector instances from the client.
 
     """
+
     def __init__(self, table, connector):
         super().__init__(table, connector)
 

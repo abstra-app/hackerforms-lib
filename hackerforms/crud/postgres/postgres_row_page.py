@@ -1,4 +1,3 @@
-
 """
 hackerforms.crud.postgres.postgres_row_page
 ~~~~~~~~~~~~~~~~~~~~~~~
@@ -18,6 +17,7 @@ class PostgresRowPage(RowPage):
     It receives the table and connector instances from the client.
 
     """
+
     def __init__(self, table, connector):
         super().__init__(table, connector)
 
