@@ -658,6 +658,7 @@ metadata = {
                 "type": "string",
                 "description": "The text to display on the add button",
             },
+            "overloadedItemSchemas": {"type": "any"},
         },
     },
     "cards-input": {
