@@ -47,10 +47,9 @@ class WidgetSchema:
         return inputs
 
     def json(self, payload):
-        parsed_payload = self.convert_answer(payload)
         output = []
         for widget in self.widgets:
-            widget_json = widget.json(payload=parsed_payload)
+            widget_json = widget.json(payload=payload)
             if isinstance(widget_json, list):
                 output.extend(widget_json)
             else:
@@ -899,7 +898,7 @@ class Page(WidgetSchema):
 
         while response["type"] == "user-event":
             payload = response["payload"]
-            widgets_json = self.json(payload)
+            widgets_json = self.json(self.convert_answer(payload))
             validation = kwargs.get("validate")
             validation_status = True
             validation_message = ""
@@ -946,6 +945,7 @@ class ListItemSchema(WidgetSchema):
         Returns:
             The converted answer
         """
+        # this code is useless: same as parent class
         answer: typing.Dict = form_answers
         inputs = self.get_input_widgets()
 
