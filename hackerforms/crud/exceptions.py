@@ -1,3 +1,12 @@
+"""
+hackerforms.crud.exceptions
+~~~~~~~~~~~~~~~~~~~~~~~
+
+This module provides possible exceptions raised in the crud subpackage
+
+"""
+
+
 class MissingParameter(Exception):
     """Raised when the user does not pass a required parameter.
 
