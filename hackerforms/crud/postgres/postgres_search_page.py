@@ -1,6 +1,4 @@
 from hackerforms.crud.search_page import SearchPage
-from hackerforms.generated.page import Page
-import pandas as pd
 
 class PostgresSearchPage(SearchPage):
     def __init__(self, table, connector):

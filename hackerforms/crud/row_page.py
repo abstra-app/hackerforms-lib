@@ -22,6 +22,7 @@ class RowPage(CRUDPage):
     
     """
     def __init__(self, table, connector):
+        super().__init__()
         self.connector = connector
         self.table = table
 

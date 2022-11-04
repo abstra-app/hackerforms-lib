@@ -19,6 +19,7 @@ class SearchPage(CRUDPage):
     and the the connector to search for rows in data source 
   """
   def __init__(self, table, connector):
+    super().__init__()
     self.connector = connector
     self.table = table
 
