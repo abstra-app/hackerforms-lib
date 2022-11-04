@@ -14,6 +14,8 @@ class PostgresConnector(Connector):
     """Connector implementation for Postgres Data Sources
     It receives the connection parameters from the Client Instance.
 
+    TODO:
+        - deal with other schemas besides public
     """
 
     def __init__(self, dsn=None, **kwargs):
