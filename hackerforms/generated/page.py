@@ -64,12 +64,12 @@ class WidgetSchema:
           label (str): The text related to this fieldoptions (list): The options to display to the user, eg. [{'title': 'Option 1', 'image': 'https://image_1.png', 'description': 'option 1 description'},{'title': 'Option 2', 'image': 'https://image_2.png', 'description': 'option 2 description'}]
 
         Keyword Args:
-          multiple (bool): Whether the user can select multiple options
-          initial_value (list): The initial value to display to the user
-          required (bool or str): Whether the input is required or not eg. "this field is required"
-          hint (str): A tooltip displayed to the user
-          searchable (bool): Whether to show a search bar
-          full_width (bool): Whether the input should use full screen width
+          multiple (bool): Whether the user can select multiple options. Defaults to False.
+          initial_value (list): The initial value to display to the user. Defaults to None.
+          required (bool or str): Whether the input is required or not eg. "this field is required". Defaults to True.
+          hint (str): A tooltip displayed to the user. Defaults to None.
+          searchable (bool): Whether to show a search bar. Defaults to False.
+          full_width (bool): Whether the input should use full screen width. Defaults to False.
           columns: The number of columns of the input
           key: The key of the input's value on the form result. Defaults to the label arg
 
@@ -88,11 +88,11 @@ class WidgetSchema:
           label (str): The label to display to the user
 
         Keyword Args:
-          initial_value (str): The initial value to display to the user
-          required (bool or str): Whether the input is required or not eg. "this field is required"
-          language (str): The programming language
-          hint (str): A tooltip displayed to the user
-          full_width (bool): Whether the input should use full screen width
+          initial_value (str): The initial value to display to the user. Defaults to "".
+          required (bool or str): Whether the input is required or not eg. "this field is required". Defaults to True.
+          language (str): The programming language. Defaults to None.
+          hint (str): A tooltip displayed to the user. Defaults to None.
+          full_width (bool): Whether the input should use full screen width. Defaults to False.
           columns: The number of columns of the input
           key: The key of the input's value on the form result. Defaults to the label arg
 
@@ -111,15 +111,15 @@ class WidgetSchema:
           label (str): The label to display to the user
 
         Keyword Args:
-          initial_value (str): The initial value to display to the user
-          required (bool or str): Whether the input is required or not, eg. "this field is required"
-          placeholder (str): The placeholder text to display to the user
-          hint (str): A tooltip displayed to the user
-          full_width (bool): Whether the input should use full screen width
-          min (float): The minimum value allowed, eg. "0"
-          max (float): The maximum value allowed, eg. "100"
-          step (float): The value to be incremented or decremented while using the input button
-          currency (str): The currency to display to the user, eg. "USD", "BRL, "EUR", "GBP" (default is USD)
+          initial_value (str): The initial value to display to the user. Defaults to 0.
+          required (bool or str): Whether the input is required or not, eg. "this field is required". Defaults to True.
+          placeholder (str): The placeholder text to display to the user. Defaults to "Your answer here".
+          hint (str): A tooltip displayed to the user. Defaults to None.
+          full_width (bool): Whether the input should use full screen width. Defaults to False.
+          min (float): The minimum value allowed, eg. "0". Defaults to None.
+          max (float): The maximum value allowed, eg. "100". Defaults to None.
+          step (float): The value to be incremented or decremented while using the input button. Defaults to None.
+          currency (str): The currency to display to the user, eg. "USD", "BRL, "EUR", "GBP". Defaults to "USD".
           columns: The number of columns of the input
           key: The key of the input's value on the form result. Defaults to the label arg
 
@@ -138,10 +138,10 @@ class WidgetSchema:
           label (str): The label to display to the user
 
         Keyword Args:
-          initial_value (datetime.date or time.struct_time or str (YYYY-MM-DD)): The initial value to display to the user
-          required (bool or str): Whether the input is required or not eg. "this field is required"
-          hint (str): A tooltip displayed to the user
-          full_width (bool): Whether the input should use full screen width
+          initial_value (datetime.date or time.struct_time or str (YYYY-MM-DD)): The initial value to display to the user. Defaults to None.
+          required (bool or str): Whether the input is required or not eg. "this field is required". Defaults to True.
+          hint (str): A tooltip displayed to the user. Defaults to None.
+          full_width (bool): Whether the input should use full screen width. Defaults to False.
           columns: The number of columns of the input
           key: The key of the input's value on the form result. Defaults to the label arg
 
@@ -165,12 +165,12 @@ class WidgetSchema:
           label (str): The label to display to the useroptions (list): The options to display to the user, eg. ['Option 1', 'Option 2'] or [{'label': 'Option 1', 'value': '1'}, {'label': 'Option 2', 'value': '2'}]
 
         Keyword Args:
-          multiple (bool): Whether the user can select multiple options
-          initial_value: The initial value to display to the user
-          placeholder (str): The placeholder text to display to the user
-          required (bool or str): Whether the input is required or not eg. "this field is required"
-          hint (str): A tooltip displayed to the user
-          full_width (bool): Whether the input should use full screen width
+          multiple (bool): Whether the user can select multiple options. Defaults to False.
+          initial_value: The initial value to display to the user. Defaults to None.
+          placeholder (str): The placeholder text to display to the user. Defaults to "Choose an option".
+          required (bool or str): Whether the input is required or not eg. "this field is required". Defaults to True.
+          hint (str): A tooltip displayed to the user. Defaults to None.
+          full_width (bool): Whether the input should use full screen width. Defaults to False.
           columns: The number of columns of the input
           key: The key of the input's value on the form result. Defaults to the label arg
 
@@ -189,11 +189,11 @@ class WidgetSchema:
           label (str): The label to display to the user
 
         Keyword Args:
-          initial_value (str): The initial value to display to the user
-          placeholder (str): The placeholder text to display to the user
-          required (bool or str): Whether the input is required or not eg. "this field is required"
-          hint (str): A tooltip displayed to the user
-          full_width (bool): Whether the input should use full screen width
+          initial_value (str): The initial value to display to the user. Defaults to "".
+          placeholder (str): The placeholder text to display to the user. Defaults to "Your email here".
+          required (bool or str): Whether the input is required or not eg. "this field is required". Defaults to True.
+          hint (str): A tooltip displayed to the user. Defaults to None.
+          full_width (bool): Whether the input should use full screen width. Defaults to False.
           columns: The number of columns of the input
           key: The key of the input's value on the form result. Defaults to the label arg
 
@@ -212,11 +212,11 @@ class WidgetSchema:
           label (str): The label to display to the user
 
         Keyword Args:
-          initial_value (str): The initial value to display to the user
-          required (bool or str): Whether the input is required or not eg. "this field is required"
-          hint (str): A tooltip displayed to the user
-          full_width (bool): Whether the input should use full screen width
-          multiple (bool): Whether the user will be allowed to upload multiple files
+          initial_value (str): The initial value to display to the user. Defaults to "".
+          required (bool or str): Whether the input is required or not eg. "this field is required". Defaults to True.
+          hint (str): A tooltip displayed to the user. Defaults to None.
+          full_width (bool): Whether the input should use full screen width. Defaults to False.
+          multiple (bool): Whether the user will be allowed to upload multiple files. Defaults to False.
           columns: The number of columns of the input
           key: The key of the input's value on the form result. Defaults to the label arg
 
@@ -235,12 +235,12 @@ class WidgetSchema:
           label (str): The text related to this fieldoptions (list): The options to display to the user, eg. [{'html': '<div class="container">Info 1A</div>', 'value': 'info1'},{'html': '<div class="container">Info 2B</div>', 'value': 'info2'}]
 
         Keyword Args:
-          initial_value (list): The initial value to display to the user
-          required (bool or str): Whether the input is required or not eg. "this field is required"
-          multiple (bool): Whether the user can select multiple options
-          css (str): The css related to the html item in options
-          hint (str): A tooltip displayed to the user
-          full_width (bool): Whether the input should use full screen width
+          initial_value (list): The initial value to display to the user. Defaults to None.
+          required (bool or str): Whether the input is required or not eg. "this field is required". Defaults to True.
+          multiple (bool): Whether the user can select multiple options. Defaults to False.
+          css (str): The css related to the html item in options. Defaults to None.
+          hint (str): A tooltip displayed to the user. Defaults to None.
+          full_width (bool): Whether the input should use full screen width. Defaults to False.
           columns: The number of columns of the input
           key: The key of the input's value on the form result. Defaults to the label arg
 
@@ -259,11 +259,11 @@ class WidgetSchema:
           label (str): The label to display to the user
 
         Keyword Args:
-          initial_value (str): The initial value to display to the user
-          required (bool or str): Whether the input is required or not eg. "this field is required"
-          hint (str): A tooltip displayed to the user
-          full_width (bool): Whether the input should use full screen width
-          multiple (bool): Whether the user will be allowed to upload multiple files
+          initial_value (str): The initial value to display to the user. Defaults to "".
+          required (bool or str): Whether the input is required or not eg. "this field is required". Defaults to True.
+          hint (str): A tooltip displayed to the user. Defaults to None.
+          full_width (bool): Whether the input should use full screen width. Defaults to False.
+          multiple (bool): Whether the user will be allowed to upload multiple files. Defaults to False.
           columns: The number of columns of the input
           key: The key of the input's value on the form result. Defaults to the label arg
 
@@ -282,12 +282,12 @@ class WidgetSchema:
           item_schema (ListItemSchema): The schema for the items of the list
 
         Keyword Args:
-          initial_value (any): The initial value to display to the user
-          hint (str): A tooltip displayed to the user
-          full_width (bool): Whether the input should use full screen width
-          min (float): Min value accepted by the input
-          max (float): Max value accepted by the input
-          add_button_text (str): Label to be displayed on the add button. The default is "+".
+          initial_value (any): The initial value to display to the user. Defaults to [{}].
+          hint (str): A tooltip displayed to the user. Defaults to None.
+          full_width (bool): Whether the input should use full screen width. Defaults to False.
+          min (float): Min value accepted by the input. Defaults to None.
+          max (float): Max value accepted by the input. Defaults to None.
+          add_button_text (str): Label to be displayed on the add button. Defaults to "+".
           columns: The number of columns of the input
           key: The key of the input's value on the form result. Defaults to the "result" arg
 
@@ -311,13 +311,13 @@ class WidgetSchema:
           label (str): The label to display to the useroptions (list): The options to display to the user, eg. ['Option 1', 'Option 2'] or [{'label': 'Option 1', 'value': '1'}, {'label': 'Option 2', 'value': '2'}]
 
         Keyword Args:
-          multiple (bool): Whether the user can select multiple options
-          min (number): The minimal amount of options that should be selected
-          max (number): The maximum amount of options that should be selected
-          initial_value: The initial value to display to the user
-          required (bool or str): Whether the input is required or not eg. "this field is required"
-          hint (str): A tooltip displayed to the user
-          full_width (bool): Whether the input should use full screen width
+          multiple (bool): Whether the user can select multiple options. Defaults to False.
+          min (number): The minimal amount of options that should be selected. Defaults to None.
+          max (number): The maximum amount of options that should be selected. Defaults to None.
+          initial_value: The initial value to display to the user. Defaults to None.
+          required (bool or str): Whether the input is required or not eg. "this field is required". Defaults to True.
+          hint (str): A tooltip displayed to the user. Defaults to None.
+          full_width (bool): Whether the input should use full screen width. Defaults to False.
           columns: The number of columns of the input
           key: The key of the input's value on the form result. Defaults to the label arg
 
@@ -336,14 +336,14 @@ class WidgetSchema:
           label (str): The label to display to the user
 
         Keyword Args:
-          min (int): Min value accepted by the input
-          max (int): Max value accepted by the input
-          min_hint (str): Text to display next to the min value
-          max_hint (str): Text to display next to the max value
-          initial_value (str): The initial value to display to the user
-          required (bool or str): Whether the input is required or not eg. "this field is required"
-          hint (str): A tooltip displayed to the user
-          full_width (bool): Whether the input should use full screen width
+          min (int): Min value accepted by the input. Defaults to 0.
+          max (int): Max value accepted by the input. Defaults to 10.
+          min_hint (str): Text to display next to the min value. Defaults to "Not at all likely".
+          max_hint (str): Text to display next to the max value. Defaults to "Extremely likely".
+          initial_value (str): The initial value to display to the user. Defaults to None.
+          required (bool or str): Whether the input is required or not eg. "this field is required". Defaults to True.
+          hint (str): A tooltip displayed to the user. Defaults to None.
+          full_width (bool): Whether the input should use full screen width. Defaults to False.
           columns: The number of columns of the input
           key: The key of the input's value on the form result. Defaults to the label arg
 
@@ -362,14 +362,14 @@ class WidgetSchema:
           label (str): The label to display to the user
 
         Keyword Args:
-          initial_value (str): The initial value to display to the user
-          placeholder (str): The placeholder text to display to the user
-          required (bool or str): Whether the input is required or not eg. "this field is required"
-          hint (str): A tooltip displayed to the user
-          full_width (bool): Whether the input should use full screen width
-          min (float): Min value accepted by the input
-          max (float): Max value accepted by the input
-          step (float): The value to be incremented or decremented while using the input button
+          initial_value (str): The initial value to display to the user. Defaults to 0.
+          placeholder (str): The placeholder text to display to the user. Defaults to "Your answer here".
+          required (bool or str): Whether the input is required or not eg. "this field is required". Defaults to True.
+          hint (str): A tooltip displayed to the user. Defaults to None.
+          full_width (bool): Whether the input should use full screen width. Defaults to False.
+          min (float): Min value accepted by the input. Defaults to None.
+          max (float): Max value accepted by the input. Defaults to None.
+          step (float): The value to be incremented or decremented while using the input button. Defaults to None.
           columns: The number of columns of the input
           key: The key of the input's value on the form result. Defaults to the label arg
 
@@ -388,9 +388,9 @@ class WidgetSchema:
           df (pandas.DataFrame): The pandas dataframe to be displayed
 
         Keyword Args:
-          required: Whether the input is required or not
-          hint (str): A tooltip displayed to the user
-          full_width (bool): Whether the input should use full screen width
+          required: Whether the input is required or not. Defaults to True.
+          hint (str): A tooltip displayed to the user. Defaults to None.
+          full_width (bool): Whether the input should use full screen width. Defaults to False.
           columns: The number of columns of the input
           key: The key of the input's value on the form result. Defaults to the "result" arg
 
@@ -409,19 +409,19 @@ class WidgetSchema:
           label (str): The label to display to the user
 
         Keyword Args:
-          placeholder (str): The placeholder text to display to the user
-          required (bool or str): Whether the input is required or not eg. "this field is required"
-          hint (str): A tooltip displayed to the user
-          full_width (bool): Whether the input should use full screen width
-          lowercase_required (bool or str): Whether the input must have at least one lowercase character
-          uppercase_required (bool or str): Whether the input must have at least one uppercase character
-          special_required (bool or str): Whether the input must have at least one special character
-          digit_required (bool or str): Whether the input must have at least one digit
-          min_length (int): Minimum length of the password
-          max_length (int): Maximum length of the password
-          size (int): Size of the password
-          pattern (str): A regex pattern for the accepted password
-          autocomplete (str): The autocomplete HTML attribute
+          placeholder (str): The placeholder text to display to the user. Defaults to "".
+          required (bool or str): Whether the input is required or not eg. "this field is required". Defaults to True.
+          hint (str): A tooltip displayed to the user. Defaults to None.
+          full_width (bool): Whether the input should use full screen width. Defaults to False.
+          lowercase_required (bool or str): Whether the input must have at least one lowercase character. Defaults to True.
+          uppercase_required (bool or str): Whether the input must have at least one uppercase character. Defaults to True.
+          special_required (bool or str): Whether the input must have at least one special character. Defaults to True.
+          digit_required (bool or str): Whether the input must have at least one digit. Defaults to True.
+          min_length (int): Minimum length of the password. Defaults to 8.
+          max_length (int): Maximum length of the password. Defaults to None.
+          size (int): Size of the password. Defaults to None.
+          pattern (str): A regex pattern for the accepted password. Defaults to None.
+          autocomplete (str): The autocomplete HTML attribute. Defaults to "current-password".
           columns: The number of columns of the input
           key: The key of the input's value on the form result. Defaults to the label arg
 
@@ -440,11 +440,11 @@ class WidgetSchema:
           label (str): The label to display to the user
 
         Keyword Args:
-          initial_value (str or dict): The initial value to display to the user. If dictionary, it contains two keys: 'country_code' (string with optional + sign or number) and 'national_number' (str or number). Ex: {'country_code': '+55', 'national_number': '21999990000'}
-          placeholder (str): The placeholder text to display to the user
-          required (bool or str): Whether the input is required or not eg. "this field is required"
-          hint (str): A tooltip displayed to the user
-          full_width (bool): Whether the input should use full screen width
+          initial_value (str or dict): The initial value to display to the user. If dictionary, it contains two keys: 'country_code' (string with optional + sign or number) and 'national_number' (str or number). Ex: {'country_code': '+55', 'national_number': '21999990000'}. Defaults to "".
+          placeholder (str): The placeholder text to display to the user. Defaults to "".
+          required (bool or str): Whether the input is required or not eg. "this field is required". Defaults to True.
+          hint (str): A tooltip displayed to the user. Defaults to None.
+          full_width (bool): Whether the input should use full screen width. Defaults to False.
           columns: The number of columns of the input
           key: The key of the input's value on the form result. Defaults to the label arg
 
@@ -463,11 +463,11 @@ class WidgetSchema:
           label (str): The label to display to the user
 
         Keyword Args:
-          initial_value (list): The initial value to display to the user
-          placeholder (str): The placeholder text to display to the user
-          required (bool or str): Whether the input is required or not eg. "this field is required"
-          hint (str): A tooltip displayed to the user
-          full_width (bool): Whether the input should use full screen width
+          initial_value (list): The initial value to display to the user. Defaults to [].
+          placeholder (str): The placeholder text to display to the user. Defaults to "Your answer here".
+          required (bool or str): Whether the input is required or not eg. "this field is required". Defaults to True.
+          hint (str): A tooltip displayed to the user. Defaults to None.
+          full_width (bool): Whether the input should use full screen width. Defaults to False.
           columns: The number of columns of the input
           key: The key of the input's value on the form result. Defaults to the label arg
 
@@ -486,12 +486,12 @@ class WidgetSchema:
           label (str): The label to display to the user
 
         Keyword Args:
-          initial_value (str): The initial value to display to the user
-          placeholder (str): The placeholder text to display to the user
-          required (bool or str): Whether the input is required or not eg. "this field is required"
-          hint (str): A tooltip displayed to the user
-          full_width (bool): Whether the input should use full screen width
-          mask (str): A mask to apply to the input
+          initial_value (str): The initial value to display to the user. Defaults to "".
+          placeholder (str): The placeholder text to display to the user. Defaults to "Your answer here".
+          required (bool or str): Whether the input is required or not eg. "this field is required". Defaults to True.
+          hint (str): A tooltip displayed to the user. Defaults to None.
+          full_width (bool): Whether the input should use full screen width. Defaults to False.
+          mask (str): A mask to apply to the input. Defaults to None.
           columns: The number of columns of the input
           key: The key of the input's value on the form result. Defaults to the label arg
 
@@ -511,11 +511,11 @@ class WidgetSchema:
           label (str): The label to display to the user
 
         Keyword Args:
-          initial_value (str): The initial value to display to the user
-          placeholder (str): The placeholder text to display to the user
-          required (bool or str): Whether the input is required or not eg. "this field is required"
-          hint (str): A tooltip displayed to the user
-          full_width (bool): Whether the input should use full screen width
+          initial_value (str): The initial value to display to the user. Defaults to "".
+          placeholder (str): The placeholder text to display to the user. Defaults to "Your answer here".
+          required (bool or str): Whether the input is required or not eg. "this field is required". Defaults to True.
+          hint (str): A tooltip displayed to the user. Defaults to None.
+          full_width (bool): Whether the input should use full screen width. Defaults to False.
           columns: The number of columns of the input
           key: The key of the input's value on the form result. Defaults to the label arg
 
@@ -534,11 +534,11 @@ class WidgetSchema:
           label (str): The label to display to the user
 
         Keyword Args:
-          initial_value (str): The initial value to display to the user
-          required (bool or str): Whether the input is required or not eg. "this field is required"
-          format (str): Whether the input is in the format 24hs or AM/PM. Default is 24hs.
-          hint (str): A tooltip displayed to the user
-          full_width (bool): Whether the input should use full screen width
+          initial_value (str): The initial value to display to the user. Defaults to "".
+          required (bool or str): Whether the input is required or not eg. "this field is required". Defaults to True.
+          format (str): Whether the input is in the format 24hs or AM/PM. Defaults to "24hs".
+          hint (str): A tooltip displayed to the user. Defaults to None.
+          full_width (bool): Whether the input should use full screen width. Defaults to False.
           columns: The number of columns of the input
           key: The key of the input's value on the form result. Defaults to the label arg
 
@@ -557,11 +557,11 @@ class WidgetSchema:
           label (str): The label to display to the user
 
         Keyword Args:
-          initial_value (str): The initial value to display to the user
-          required (bool or str): Whether the input is required or not eg. "this field is required"
-          hint (str): A tooltip displayed to the user
-          full_width (bool): Whether the input should use full screen width
-          multiple (bool): Whether the user will be allowed to upload multiple files
+          initial_value (str): The initial value to display to the user. Defaults to "".
+          required (bool or str): Whether the input is required or not eg. "this field is required". Defaults to True.
+          hint (str): A tooltip displayed to the user. Defaults to None.
+          full_width (bool): Whether the input should use full screen width. Defaults to False.
+          multiple (bool): Whether the user will be allowed to upload multiple files. Defaults to False.
           columns: The number of columns of the input
           key: The key of the input's value on the form result. Defaults to the label arg
 
@@ -582,8 +582,8 @@ class WidgetSchema:
 
 
         Keyword Args:
-          download_text (str): The text to display on the button that will download the file
-          full_width (bool): Whether the input should use full screen width
+          download_text (str): The text to display on the button that will download the file. Defaults to "Download here".
+          full_width (bool): Whether the input should use full screen width. Defaults to False.
           columns: The number of columns of the input
 
 
@@ -599,10 +599,10 @@ class WidgetSchema:
 
         Positional Args:
           html (str): The html snippet to display to the user
-          full_width (bool): Whether the input should use full screen width
 
 
         Keyword Args:
+          full_width (bool): Whether the input should use full screen width. Defaults to False.
           columns: The number of columns of the input
 
 
@@ -621,9 +621,9 @@ class WidgetSchema:
 
 
         Keyword Args:
-          width (int): The width of the iframe
-          height (int): The height of the iframe
-          full_width (bool): Whether the input should use full screen width
+          width (int): The width of the iframe. Defaults to "800".
+          height (int): The height of the iframe. Defaults to "600".
+          full_width (bool): Whether the input should use full screen width. Defaults to False.
           columns: The number of columns of the input
 
 
@@ -642,8 +642,8 @@ class WidgetSchema:
 
 
         Keyword Args:
-          full_width (bool): Whether the input should use full screen width
-          subtitle (str): The subtitle of the image
+          full_width (bool): Whether the input should use full screen width. Defaults to False.
+          subtitle (str): The subtitle of the image. Defaults to "".
           columns: The number of columns of the input
 
 
@@ -662,9 +662,9 @@ class WidgetSchema:
 
 
         Keyword Args:
-          full_width (bool): Whether the input should use full screen width
-          link_text (str): The text to display on the link
-          same_tab (bool): Whether to open the link in the same tab or not
+          full_width (bool): Whether the input should use full screen width. Defaults to False.
+          link_text (str): The text to display on the link. Defaults to "Click here".
+          same_tab (bool): Whether to open the link in the same tab or not. Defaults to False.
           columns: The number of columns of the input
 
 
@@ -683,7 +683,7 @@ class WidgetSchema:
 
 
         Keyword Args:
-          full_width (bool): Whether the input should use full screen width
+          full_width (bool): Whether the input should use full screen width. Defaults to False.
           columns: The number of columns of the input
 
 
@@ -702,8 +702,8 @@ class WidgetSchema:
 
 
         Keyword Args:
-          full_width (bool): Whether the input should use full screen width
-          display_index (bool): Whether to show a index column
+          full_width (bool): Whether the input should use full screen width. Defaults to False.
+          display_index (bool): Whether to show a index column. Defaults to False.
           columns: The number of columns of the input
 
 
@@ -722,7 +722,7 @@ class WidgetSchema:
 
 
         Keyword Args:
-          full_width (bool): Whether the input should use full screen width
+          full_width (bool): Whether the input should use full screen width. Defaults to False.
           columns: The number of columns of the input
 
 
@@ -737,14 +737,13 @@ class WidgetSchema:
 
 
         Positional Args:
-          dividend (float): The progress being made (default: 50)
-          divisor (float): Total progress (default: 100)
+          dividend (float): The progress being made. Defaults to 50.
+          divisor (float): Total progress. Defaults to 100.
 
 
         Keyword Args:
-          text (str): The text displayed with this progress step
-          full_width (bool): Whether the input should use full screen width
-          display_index (bool): Whether to show a index column
+          text (str): The text displayed with this progress step. Defaults to "".
+          full_width (bool): Whether the input should use full screen width. Defaults to False.
           columns: The number of columns of the input
 
 
@@ -763,7 +762,7 @@ class WidgetSchema:
 
 
         Keyword Args:
-          full_width (bool): Whether the input should use full screen width
+          full_width (bool): Whether the input should use full screen width. Defaults to False.
           columns: The number of columns of the input
 
 
@@ -946,6 +945,7 @@ class ListItemSchema(WidgetSchema):
         Returns:
             The converted answer
         """
+        # this code is useless: same as parent class
         answer: typing.Dict = form_answers
         inputs = self.get_input_widgets()
 

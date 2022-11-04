@@ -3,6 +3,7 @@ import sys
 from types import TracebackType
 import inspect
 import os
+import typing
 
 
 def representations(locals):
@@ -12,11 +13,11 @@ def representations(locals):
     return result
 
 
-def traceback_to_infos(traceback: TracebackType) -> list[FrameInfo]:
+def traceback_to_infos(traceback: TracebackType) -> typing.List[FrameInfo]:
     return inspect.getouterframes(traceback.tb_frame)
 
 
-def make_debug_data(frames: list[FrameInfo]):
+def make_debug_data(frames: typing.List[FrameInfo]):
     return {
         "debug": {
             "stack": [
