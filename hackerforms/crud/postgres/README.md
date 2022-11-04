@@ -53,13 +53,13 @@ In our database example, we would like to allow the users to search for products
 See below how to achieve it:
 
 ```
-# product = (
-#     db.SearchPage(table="products")
-#     .read("Product Name", column="product_name")
-#     .search(
-#         display_columns=["product_id", "product_name", "unit_price"]
-#     )
-# )
+product = (
+    db.SearchPage(table="products")
+    .read("Product Name", column="product_name")
+    .search(
+        display_columns=["product_id", "product_name", "unit_price"]
+    )
+)
 ```
 
 A page will be displayed with a `read` widget as input filter and a table will be updated while the user types, in realtime.
