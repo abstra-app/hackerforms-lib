@@ -51,7 +51,8 @@ class Client(ABC):
             raise MissingParameter("primary_key")
 
         columns = (primary_key, column) if primary_key != column else (primary_key,)
-        data = self.connector.select(self.get_column_values(table, *columns))
+        query = self.get_column_values(table, *columns)
+        data = self.connector.select(query)
         options = [{"label": col, "value": pk} for (pk, col) in data]
 
         return options
