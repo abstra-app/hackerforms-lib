@@ -11,16 +11,18 @@ from typing import Dict
 
 from hackerforms.crud.crud_page import CRUDPage
 
+
 class RowPage(CRUDPage):
     """Base class for the concrete row page implementations
 
     Its constructor receives the target table (or entity in api)
-    and the the connector to manipulate data source 
+    and the the connector to manipulate data source
 
     TODO::
         - update of a table's row value
-    
+
     """
+
     def __init__(self, table, connector):
         super().__init__()
         self.connector = connector
@@ -29,9 +31,9 @@ class RowPage(CRUDPage):
     def insert(self, **kwargs):
         """It returns the page instance with the form for user submitting
         a new row value for inserting in the table
-        
+
         :param `context` kwargs: a dict with values that must be inserted within the row. Its keys are column names and the values are the respective data to be inserted. Be aware that all columns set here override columns if the same are set mapping to the widgets form.
-        
+
          Example::
 
                 >>> categories = db.dropdown(table="categories", column="category_name", primary_key='category_id') # [{'label': 'category_name', 'value': 'category_id'}]

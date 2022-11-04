@@ -1,5 +1,6 @@
 from hackerforms.crud.search_page import SearchPage
 
+
 class PostgresSearchPage(SearchPage):
     def __init__(self, table, connector):
         super().__init__(table, connector)
@@ -11,7 +12,11 @@ class PostgresSearchPage(SearchPage):
         query = query[:-2]
         query += f" from {self.table} where "
 
-        filter_keys_with_nonempty_values = [key for key in filters if filters.get(key) != '' and key in self.column_from_key.keys()]
+        filter_keys_with_nonempty_values = [
+            key
+            for key in filters
+            if filters.get(key) != "" and key in self.column_from_key.keys()
+        ]
         if len(filter_keys_with_nonempty_values) == 0:
             return None
         for i, key in enumerate(filter_keys_with_nonempty_values):
@@ -20,6 +25,5 @@ class PostgresSearchPage(SearchPage):
                 query += f"{self.column_from_key[key]} like '%{value}%' and "
             else:
                 query += f"{self.column_from_key[key]} like '%{value}%';"
-
 
         return query

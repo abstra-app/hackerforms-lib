@@ -9,8 +9,9 @@ This module provides an abstract class for all crud page types.
 from abc import ABC
 from hackerforms.generated.page import Page
 
+
 class CRUDPage(ABC):
-    """Abstract class that serves as proxy to the Page Class widget methods. 
+    """Abstract class that serves as proxy to the Page Class widget methods.
     Each proxy widget method sets the mapping between the database column name and the widget key.
     """
 
