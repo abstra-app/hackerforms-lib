@@ -857,7 +857,7 @@ class Page(WidgetSchema):
             The form result as a dict with the keys being the key of the input and the value being the value of the input
         """
 
-        widgets_json = self.json({})
+        widgets_json = self.json(self.convert_answer({}))
         for widget in widgets_json:
             validate_widget_props(widget)
 
