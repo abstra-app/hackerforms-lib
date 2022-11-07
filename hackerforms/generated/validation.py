@@ -53,10 +53,8 @@ def validate_widget_props(widget_example):
             raise Exception(f"{prop} not in {widget_example.keys()}")
         assert types_compatible(widget_example[prop], metadata_widget["params"][prop])
     for prop in metadata_widget["optionals"]:
-        if not prop in widget_example:
-            raise Exception(f"{prop} not in {widget_example.keys()}")
         if not (
-            widget_example[prop] is None
+            widget_example.get(prop) is None
             or types_compatible(
                 widget_example[prop], metadata_widget["optionals"][prop]
             )

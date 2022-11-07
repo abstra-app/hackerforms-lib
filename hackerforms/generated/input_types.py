@@ -889,7 +889,7 @@ class ListInput(Input):
             "type": self.type,
             "key": self.key,
             "hint": self.hint,
-            "itemSchema": self.item_schema.json(payload=kwargs.get("payload")),
+            "itemSchema": self.item_schema.json(payload={}),
             **overloaded,
             "initialValue": self.initial_value,
             "columns": self.columns,

@@ -937,22 +937,3 @@ class ListItemSchema(WidgetSchema):
 
     def __init__(self):
         super().__init__()
-
-    def convert_answer(self, form_answers: typing.Dict) -> typing.Dict:
-        """Convert the answer from the form to the expected format
-
-        Args:
-            answer: The answer from the form
-
-        Returns:
-            The converted answer
-        """
-        # this code is useless: same as parent class
-        answer: typing.Dict = form_answers
-        inputs = self.get_input_widgets()
-
-        print(form_answers)
-
-        for input in inputs:
-            answer[input.key] = input.convert_answer(form_answers[input.key])
-        return answer
