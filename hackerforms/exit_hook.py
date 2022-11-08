@@ -8,8 +8,11 @@ import typing
 
 def representations(locals):
     result = {}
-    for key, value in locals.items():
-        result[key] = repr(value)
+    for key, value in list(locals.items()):
+        try:
+            result[key] = repr(value)
+        except:
+            pass
     return result
 
 
