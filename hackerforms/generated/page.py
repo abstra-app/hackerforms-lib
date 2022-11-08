@@ -857,74 +857,90 @@ class Page(WidgetSchema):
             The form result as a dict with the keys being the key of the input and the value being the value of the input
         """
 
-        widgets_json = self.json(self.convert_answer({}))
-        for widget in widgets_json:
-            validate_widget_props(widget)
+        widgets_json = self.__get_validated_page_widgets_json({})
 
-        if isinstance(actions, list):
-            actions = actions
-        elif actions is None:
-            actions = []
-        else:
-            actions = [actions]
+        if self.__is_progress_screen():
+            self.__send_form_message(widgets=widgets_json, columns=columns, actions=[])
+            return
 
-        if len(self.widgets) == 1 and self.widgets[0].type == "progress-output":
-            send(
-                {
-                    "type": "form",
-                    "widgets": widgets_json,
-                    "columns": columns,
-                    "actions": [],
-                }
-            )
-        else:
-            send(
-                {
-                    "type": "form",
-                    "widgets": widgets_json,
-                    "columns": columns,
-                    "actions": actions,
-                }
-            )
-            response: typing.Dict = self.__user_event_messages(**{"validate": validate})
+        self.__send_form_message(
+            widgets=widgets_json,
+            columns=columns,
+            actions=self.__actions_property(actions),
+        )
+        response: typing.Dict = self.__user_event_messages(validate=validate)
 
-            return PageResponse(
-                self.convert_answer(response["payload"]),
-                response.get("action"),
-            )
+        return PageResponse(
+            self.convert_answer(response["payload"]),
+            response.get("action"),
+        )
 
     def __user_event_messages(self, **kwargs):
         response: typing.Dict = receive()
 
         while response["type"] == "user-event":
             payload = response["payload"]
-            widgets_json = self.json(self.convert_answer(payload))
-            validation = kwargs.get("validate")
-            validation_status = True
-            validation_message = ""
-            if validation:
-                validation_response = validation(payload)
-                if type(validation_response) == bool:
-                    validation_status = validation_response
-                    validation_message = ""
-                elif type(validation_response) == str:
-                    validation_status = False
-                    validation_message = validation_response
-
-            send(
-                {
-                    "type": "user-event",
-                    "widgets": widgets_json,
-                    "validation": {
-                        "status": validation_status,
-                        "message": validation_message,
-                    },
-                }
+            widgets_json = self.__get_validated_page_widgets_json(payload)
+            self.__send_user_event_message(
+                widgets=widgets_json,
+                validation=self.__build_validation_object(
+                    validation=kwargs.get("validate"), payload=payload
+                ),
             )
 
             response = receive()
 
         return response
+
+    def __get_validated_page_widgets_json(self, raw_payload):
+        widgets_json = self.json(self.convert_answer(raw_payload))
+        for widget in widgets_json:
+            validate_widget_props(widget)
+        return widgets_json
+
+    def __actions_property(self, actions):
+        if isinstance(actions, list):
+            return actions
+        elif actions is None:
+            return []
+        return [actions]
+
+    def __is_progress_screen(self):
+        return len(self.widgets) == 1 and self.widgets[0].type == "progress-output"
+
+    def __build_validation_object(self, validation, payload):
+        validation_status = True
+        validation_message = ""
+
+        if validation:
+            validation_response = validation(payload)
+            if type(validation_response) == bool:
+                validation_status = validation_response
+                validation_message = ""
+            elif type(validation_response) == str:
+                validation_status = False
+                validation_message = validation_response
+
+        return {"status": validation_status, "message": validation_message}
+
+    def __send_form_message(self, widgets, actions, columns):
+        send(
+            {
+                "type": "form",
+                "widgets": widgets,
+                "columns": columns,
+                "actions": actions,
+            }
+        )
+
+    def __send_user_event_message(self, widgets, validation):
+        send(
+            {
+                "type": "user-event",
+                "widgets": widgets,
+                "validation": validation,
+            }
+        )
 
 
 class ListItemSchema(WidgetSchema):
