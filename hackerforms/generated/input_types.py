@@ -876,21 +876,19 @@ class ListInput(Input):
         self.required = kwargs.get("required", True)
 
     def json(self, **kwargs):
-        if kwargs.get("payload"):
-            overloaded = {
-                "overloadedItemSchemas": [
-                    self.item_schema.json(payload=payload)
-                    for payload in kwargs.get("payload").get(self.key)
-                ],
-            }
-        else:
-            overloaded = {}
+        overloaded_schemas = self.__get_overloaded_schemas(
+            kwargs.get("payload").get(self.key) if kwargs.get("payload") else None
+        )
+        overloaded_schemas = (
+            {"overloadedItemSchemas": overloaded_schemas} if overloaded_schemas else {}
+        )
+
         return {
             "type": self.type,
             "key": self.key,
             "hint": self.hint,
             "itemSchema": self.item_schema.json(payload={}),
-            **overloaded,
+            **overloaded_schemas,
             "initialValue": self.initial_value,
             "columns": self.columns,
             "min": self.min,
@@ -906,6 +904,14 @@ class ListInput(Input):
             list: The values entered by the user
         """
         return [self.item_schema.convert_answer(answer) for answer in answers or []]
+
+    def __get_overloaded_schemas(self, payload):
+        if payload:
+            return [
+                self.item_schema.json(payload=payload_item) for payload_item in payload
+            ]
+        else:
+            return None
 
 
 class PandasRowSelectionInput(Input):

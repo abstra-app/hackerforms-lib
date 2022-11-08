@@ -28,16 +28,16 @@ class WidgetSchema:
             The converted answer
         """
         answer: typing.Dict = {}
-        inputs = self.get_input_widgets()
+        inputs = self.get_input_widgets(form_answers)
         for input in inputs:
             answer[input.key] = input.convert_answer(form_answers.get(input.key))
         return answer
 
-    def get_input_widgets(self):
+    def get_input_widgets(self, payload):
         concrete_widgets = []
         for widget in self.widgets:
             if isinstance(widget, Realtime):
-                concrete_widgets.extend(widget.get_widgets())
+                concrete_widgets.extend(widget.get_widgets(payload))
             else:
                 concrete_widgets.append(widget)
 
