@@ -733,7 +733,7 @@ class WidgetSchema:
         return self
 
     def display_progress(self, current: float, total: float, **kwargs):
-        """Display a progress bar
+        """Display a progress bar. This widget is shown on screen until the script shows a new widget
 
 
         Positional Args:

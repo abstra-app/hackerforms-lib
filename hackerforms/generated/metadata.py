@@ -1290,7 +1290,7 @@ metadata = {
         "name": "ProgressOutput",
         "libFunc": "display_progress",
         "type": "progress-output",
-        "description": "Display a progress bar",
+        "description": "Display a progress bar. This widget is shown on screen until the script shows a new widget",
         "params": {
             "current": {"type": "number", "default": 50},
             "total": {"type": "number", "default": 100},

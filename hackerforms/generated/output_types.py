@@ -189,7 +189,7 @@ class ProgressOutput(Output):
     type = "progress-output"
 
     def __init__(self, current: float, total: float, **kwargs):
-        """Display a progress bar
+        """Display a progress bar. This widget is shown on screen until the script shows a new widget
 
         Positional Args:
             current (float): The progress being made. Defaults to 50.

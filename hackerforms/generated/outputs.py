@@ -128,7 +128,7 @@ def display_plotly(fig: typing.Any, **kwargs):
 
 
 def display_progress(current: float, total: float, **kwargs):
-    """Display a progress bar
+    """Display a progress bar. This widget is shown on screen until the script shows a new widget
 
     Positional Args:
       current (float): The progress being made. Defaults to 50.total (float): Total progress. Defaults to 100.
