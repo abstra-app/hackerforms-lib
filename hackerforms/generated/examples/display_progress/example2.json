@@ -1,7 +1,7 @@
 {
     "props": {
-      "dividend": 8,
-      "divisor": 10,
+      "current": 8,
+      "total": 10,
       "text": "Almost there!"
     },
     "name": "Custom fields",

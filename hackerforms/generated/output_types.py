@@ -188,20 +188,20 @@ class HTMLOutput(Output):
 class ProgressOutput(Output):
     type = "progress-output"
 
-    def __init__(self, dividend: float, divisor: float, **kwargs):
+    def __init__(self, current: float, total: float, **kwargs):
         """Display a progress bar
 
         Positional Args:
-            dividend (float): The progress being made. Defaults to 50.
-            divisor (float): Total progress. Defaults to 100.
+            current (float): The progress being made. Defaults to 50.
+            total (float): Total progress. Defaults to 100.
 
         Keyword Args:
             text (str): The text displayed with this progress step. Defaults to "".
             full_width (bool): Whether the input should use full screen width. Defaults to False.
 
         """
-        self.dividend = dividend
-        self.divisor = divisor
+        self.current = current
+        self.total = total
         self.text = kwargs.get("text", "")
         self.columns = kwargs.get("columns", 1)
         self.full_width = kwargs.get("full_width", False)
@@ -209,8 +209,8 @@ class ProgressOutput(Output):
     def json(self, **kwargs):
         return {
             "type": self.type,
-            "dividend": self.dividend,
-            "divisor": self.divisor,
+            "current": self.current,
+            "total": self.total,
             "text": self.text,
             "columns": self.columns,
             "fullWidth": self.full_width,

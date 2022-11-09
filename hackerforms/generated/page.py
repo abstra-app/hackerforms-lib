@@ -732,13 +732,13 @@ class WidgetSchema:
         self.widgets.append(PlotlyOutput(fig, **kwargs))
         return self
 
-    def display_progress(self, dividend: float, divisor: float, **kwargs):
+    def display_progress(self, current: float, total: float, **kwargs):
         """Display a progress bar
 
 
         Positional Args:
-          dividend (float): The progress being made. Defaults to 50.
-          divisor (float): Total progress. Defaults to 100.
+          current (float): The progress being made. Defaults to 50.
+          total (float): Total progress. Defaults to 100.
 
 
         Keyword Args:
@@ -750,7 +750,7 @@ class WidgetSchema:
         Returns:
           The form object
         """
-        self.widgets.append(ProgressOutput(dividend, divisor, **kwargs))
+        self.widgets.append(ProgressOutput(current, total, **kwargs))
         return self
 
     def display(self, text: str, **kwargs):

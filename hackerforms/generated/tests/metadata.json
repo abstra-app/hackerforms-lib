@@ -1628,11 +1628,11 @@
       "type": "progress-output",
       "description": "Display a progress bar",
       "params": {
-        "dividend": {
+        "current": {
           "type": "number",
           "default": 50
         },
-        "divisor": {
+        "total": {
           "type": "number",
           "default": 100
         }

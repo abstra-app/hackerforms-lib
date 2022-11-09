@@ -127,11 +127,11 @@ def display_plotly(fig: typing.Any, **kwargs):
     return Page().display_plotly(fig, **kwargs).run(button_text)
 
 
-def display_progress(dividend: float, divisor: float, **kwargs):
+def display_progress(current: float, total: float, **kwargs):
     """Display a progress bar
 
     Positional Args:
-      dividend (float): The progress being made. Defaults to 50.divisor (float): Total progress. Defaults to 100.
+      current (float): The progress being made. Defaults to 50.total (float): Total progress. Defaults to 100.
 
     Keyword Args:
       text (str): The text displayed with this progress step. Defaults to "".
@@ -139,7 +139,7 @@ def display_progress(dividend: float, divisor: float, **kwargs):
 
     """
     button_text = kwargs.get("button_text", "Next")
-    return Page().display_progress(dividend, divisor, **kwargs).run(button_text)
+    return Page().display_progress(current, total, **kwargs).run(button_text)
 
 
 def display(text: str, **kwargs):

@@ -1292,8 +1292,8 @@ metadata = {
         "type": "progress-output",
         "description": "Display a progress bar",
         "params": {
-            "dividend": {"type": "number", "default": 50},
-            "divisor": {"type": "number", "default": 100},
+            "current": {"type": "number", "default": 50},
+            "total": {"type": "number", "default": 100},
         },
         "optionals": {
             "columns": {
