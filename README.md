@@ -11,7 +11,6 @@ Launch interactive Python scripts as beautiful form-like apps
 No HTML, CSS, JS, BS... With single line commands, get data from users and display info to them
 
 ## Examples
-- Certificate generator - [code](https://github.com/abstra-app/hackerforms-examples/blob/master/python/certificate-maker.py) - [live example](https://examples.abstra.run/82f4a14b-1494-4818-8455-cb6c76af08eb)
 - Customer checkout - [code](https://github.com/abstra-app/hackerforms-examples/blob/master/python/customer_checkout.py) - [live example](https://examples.abstra.run/b97fd987-d9b2-4af3-802d-2400f2a546d4)
 - Customer registration - [code](https://github.com/abstra-app/hackerforms-examples/blob/master/python/customer_registration.py) - [live example](https://examples.abstra.run/81e15ebb-40bf-444e-8c83-35aafbc033b9)
 - Dev marketplace - [code](https://github.com/abstra-app/hackerforms-examples/blob/master/python/marketplace.py) - [live example](https://examples.abstra.run/33ddb3d0-af07-4f35-84fb-65e30125fd06)
