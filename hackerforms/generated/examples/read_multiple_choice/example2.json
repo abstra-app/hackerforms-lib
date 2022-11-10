@@ -1,0 +1,8 @@
+{
+  "props": {
+    "label": "Which programming language do you prefer?",
+    "options": ["Python", "JavaScript"]
+  },
+  "name": "Label and value dict",
+  "description": "Use a dictionary to specify the label and value of each option. The label will be displayed to the user, and the value will be returned by the widget."
+}
