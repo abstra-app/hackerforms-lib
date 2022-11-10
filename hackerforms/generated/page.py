@@ -70,6 +70,7 @@ class WidgetSchema:
           hint (str): A tooltip displayed to the user. Defaults to None.
           searchable (bool): Whether to show a search bar. Defaults to False.
           full_width (bool): Whether the input should use full screen width. Defaults to False.
+          direction (str): Whether the cards direction should be 'horizontal' or 'vertical'. Defaults to 'vertical'.
           columns: The number of columns of the input
           key: The key of the input's value on the form result. Defaults to the label arg
 
