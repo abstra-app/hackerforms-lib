@@ -728,6 +728,12 @@ metadata = {
                     "description": {"type": "string"},
                 },
             },
+            "direction": {
+                "type": "string",
+                "oneOf": ["horizontal", "vertical"],
+                "description": "Whether the cards direction should be 'horizontal' or 'vertical'",
+                "default": "vertical",
+            },
         },
     },
     "pandas-row-selection-input": {

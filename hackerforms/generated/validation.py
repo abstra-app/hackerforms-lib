@@ -30,6 +30,15 @@ def types_compatible(prop, schema):
     raise Exception(f"Unknown type: {schema['type']}")
 
 
+def valid_prop(prop, schema):
+    valid = True
+
+    if schema.get("oneOf"):
+        valid = valid and prop in schema.get("oneOf")
+
+    return valid
+
+
 def to_generic_type(type):
     if type == str:
         return "string"
@@ -46,23 +55,25 @@ def to_generic_type(type):
     raise Exception(f"Unknown type: {type}")
 
 
-def validate_widget_props(widget_example):
-    metadata_widget = metadata[widget_example["type"]]
+def validate_widget_props(widget):
+    metadata_widget = metadata[widget["type"]]
     for prop in metadata_widget["params"]:
-        if not prop in widget_example:
-            raise Exception(f"{prop} not in {widget_example.keys()}")
-        assert types_compatible(widget_example[prop], metadata_widget["params"][prop])
+        if not prop in widget:
+            raise Exception(f"{prop} not in {widget.keys()}")
+        assert types_compatible(widget[prop], metadata_widget["params"][prop])
+        assert valid_prop(widget[prop], metadata_widget["params"][prop])
     for prop in metadata_widget["optionals"]:
         if not (
-            widget_example.get(prop) is None
-            or types_compatible(
-                widget_example[prop], metadata_widget["optionals"][prop]
+            widget.get(prop) is None
+            or (
+                types_compatible(widget[prop], metadata_widget["optionals"][prop])
+                and valid_prop(widget[prop], metadata_widget["optionals"][prop])
             )
         ):
             raise Exception(
-                f"{widget_example[prop]}: {type(widget_example[prop])} is not compatible with {metadata_widget['optionals'][prop]}"
+                f"{widget[prop]}: {type(widget[prop])} is not compatible with {metadata_widget['optionals'][prop]}"
             )
-    for prop in widget_example:
+    for prop in widget:
         if prop == "type":
             continue
         if not (

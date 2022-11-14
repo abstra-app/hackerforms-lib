@@ -36,6 +36,7 @@ def read_cards(label: str, options: typing.Any, **kwargs):
       hint (str): A tooltip displayed to the user. Defaults to None.
       searchable (bool): Whether to show a search bar. Defaults to False.
       full_width (bool): Whether the input should use full screen width. Defaults to False.
+      direction (str): Whether the cards direction should be 'horizontal' or 'vertical'. Defaults to 'vertical'.
 
       Returns:
           list, any: The options/option selected by the user
