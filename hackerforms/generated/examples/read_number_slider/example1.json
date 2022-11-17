@@ -1,0 +1,8 @@
+{
+    "props": {
+      "label": "Set volume"
+    },
+    "name": "Basic Example",
+    "description": "The following example demonstrate some of the available functionality for read_number"
+  }
+  
