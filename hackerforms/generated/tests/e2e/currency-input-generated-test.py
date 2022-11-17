@@ -4,7 +4,7 @@
 ###############################################################################
 from hackerforms import *
 
-
+# tests
 output = read_currency("text to be displayed", currency="BRL", full_width=True)
 assert output == 23.3
 
