@@ -3,7 +3,6 @@
 ##        Do not change this file. Any changes will be overwritten.          ##
 ###############################################################################
 from tempfile import NamedTemporaryFile
-import requests
 from dataclasses import dataclass
 
 
@@ -17,6 +16,8 @@ class FileResponse:
     """
 
     def __init__(self, url):
+        import requests
+
         res = requests.get(url)
         self.content = res.content
         self.url = url

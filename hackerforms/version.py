@@ -1,10 +1,16 @@
-import pkg_resources
-import requests
+import os
 
-__version__ = pkg_resources.get_distribution("hackerforms").version
 
 
 def check_version():
+    if os.environ.get("SESSION_ID"):
+        return
+
+    import pkg_resources
+    import requests
+
+    __version__ = pkg_resources.get_distribution("hackerforms").version
+
     try:
         libs = requests.get(
             "https://hackerforms-api.abstra.cloud/public/abstra-pypi-packages"

@@ -1,17 +1,18 @@
-import atexit
 import os
-from websocket import create_connection
+import atexit
+import inspect
+
 from .exit_hook import hooks, make_debug_data
 from .utils import serialize, deserialize, persist_session_id, open_browser
 from .parameters import set_params
-import os
-import inspect
 
 initialized = False
 
 
 # TODO: create_connection should have retry logic
 def initialize():
+    from websocket import create_connection
+    
     global ws, initialized
     initialized = True
     session_id = os.environ.get("SESSION_ID")

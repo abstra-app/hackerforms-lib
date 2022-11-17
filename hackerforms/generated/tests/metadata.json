@@ -1404,68 +1404,6 @@
         }
       }
     },
-    "number-slider-input": {
-      "name": "NumberSliderInput",
-      "libFunc": "read_number_slider",
-      "type": "number-slider-input",
-      "description": "Read a number value from the user",
-      "params": {
-        "key": {
-          "type": "string",
-          "description": "The key of the input on the returning object"
-        },
-        "label": {
-          "type": "string",
-          "description": "The label to display above the input"
-        }
-      },
-      "optionals": {
-        "columns": {
-          "type": "number",
-          "description": "number of columns this input will take"
-        },
-        "fullWidth": {
-          "type": "boolean",
-          "description": "Whether the widget should take up the full width of the page"
-        },
-        "hint": {
-          "type": [
-            "string",
-            "null"
-          ],
-          "description": "message describing the input",
-          "default": null
-        },
-        "required": {
-          "type": [
-            "boolean",
-            "string"
-          ],
-          "description": "Whether the input is required or not",
-          "default": true
-        },
-        "initialValue": {
-          "type": "number",
-          "description": "The initial value of the input",
-          "default": 0
-        },
-        "min": {
-          "type": "number",
-          "description": "The minimum value of the input",
-          "default": 0
-        },
-        "max": {
-          "type": "number",
-          "description": "The maximun value of the input",
-          "default": 100
-        },
-        "step": {
-          "type": "number",
-          "description": "The step for the input",
-          "default": 1
-        }
-      }
-    },
     "text-output": {
       "name": "TextOutput",
       "libFunc": "display_text",
