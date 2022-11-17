@@ -1,12 +1,15 @@
-import pkg_resources
-import requests
+import os
 
-__version__ = pkg_resources.get_distribution("hackerforms").version
 
 
 def check_version():
-    if __version__ == "0.0.0":
+    if os.environ.get("SESSION_ID"):
         return
+
+    import pkg_resources
+    import requests
+
+    __version__ = pkg_resources.get_distribution("hackerforms").version
 
     try:
         libs = requests.get(
@@ -14,7 +17,7 @@ def check_version():
         ).json()
         hackerforms = list(filter(lambda lib: lib["name"] == "hackerforms", libs))[0]
 
-        if hackerforms["version"] != __version__:
+        if hackerforms["version"] != __version__ and __version__ != "0.0.0":
             print("You are using an outdated version of hackerforms.")
             print(
                 "Please update your library using the following command: pip install hackerforms=="
