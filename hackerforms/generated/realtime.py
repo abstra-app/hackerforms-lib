@@ -10,14 +10,11 @@ class Realtime:
 
     def __init__(self, callback: typing.Callable):
         self.callback = callback
+        self.page = None
 
     def json(self, payload):
-        page = self.__get_page(payload)
-        return page.json(payload) if page else []
+        self.page = self.callback(payload)
+        return self.page.json(payload) if self.page else []
 
-    def get_widgets(self, payload):
-        page = self.__get_page(payload)
-        return page.widgets if page else []
-
-    def __get_page(self, payload):
-        return self.callback(payload)
+    def get_widgets(self):
+        return self.page.widgets if self.page else []

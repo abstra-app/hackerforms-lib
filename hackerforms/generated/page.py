@@ -28,16 +28,16 @@ class WidgetSchema:
             The converted answer
         """
         answer: typing.Dict = {}
-        inputs = self.get_input_widgets(form_answers)
+        inputs = self.get_input_widgets()
         for input in inputs:
             answer[input.key] = input.convert_answer(form_answers.get(input.key))
         return answer
 
-    def get_input_widgets(self, payload):
+    def get_input_widgets(self):
         concrete_widgets = []
         for widget in self.widgets:
             if isinstance(widget, Realtime):
-                concrete_widgets.extend(widget.get_widgets(payload))
+                concrete_widgets.extend(widget.get_widgets())
             else:
                 concrete_widgets.append(widget)
 
@@ -977,3 +977,8 @@ class ListItemSchema(WidgetSchema):
 
     def __init__(self):
         super().__init__()
+
+    def copy(self):
+        import copy
+
+        return copy.deepcopy(self)

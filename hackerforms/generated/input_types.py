@@ -906,6 +906,8 @@ class PhoneInput(Input):
 class ListInput(Input):
     type = "list-input"
 
+    instances = []
+
     def __init__(self, key: str, item_schema: typing.Any, **kwargs):
         """Read a list value from the user
 
@@ -932,19 +934,13 @@ class ListInput(Input):
         self.required = kwargs.get("required", True)
 
     def json(self, **kwargs):
-        overloaded_schemas = self.__get_overloaded_schemas(
-            kwargs.get("payload").get(self.key) if kwargs.get("payload") else None
-        )
-        overloaded_schemas = (
-            {"overloadedItemSchemas": overloaded_schemas} if overloaded_schemas else {}
-        )
-
-        return {
+        json = {
             "type": self.type,
             "key": self.key,
             "hint": self.hint,
-            "itemSchema": self.item_schema.json(payload={}),
-            **overloaded_schemas,
+            "itemSchema": self.item_schema.json(
+                payload=self.item_schema.convert_answer({})
+            ),
             "initialValue": self.initial_value,
             "columns": self.columns,
             "min": self.min,
@@ -954,17 +950,33 @@ class ListInput(Input):
             "required": self.required,
         }
 
+        overloaded_schemas = self.__get_overloaded_schemas(
+            kwargs.get("payload").get(self.key) if kwargs.get("payload") else None
+        )
+
+        if overloaded_schemas:
+            json["overloadedItemSchemas"] = overloaded_schemas
+
+        return json
+
     def convert_answer(self, answers) -> typing.List:
         """
         Returns:
             list: The values entered by the user
         """
-        return [self.item_schema.convert_answer(answer) for answer in answers or []]
+        return [
+            self.instances[index].convert_answer(answer)
+            if index < len(self.instances)
+            else self.item_schema.convert_answer(answer)
+            for index, answer in enumerate(answers or [])
+        ]
 
     def __get_overloaded_schemas(self, payload):
         if payload:
+            self.instances = [self.item_schema.copy() for _ in payload]
             return [
-                self.item_schema.json(payload=payload_item) for payload_item in payload
+                self.instances[index].json(payload=payload_item)
+                for index, payload_item in enumerate(payload)
             ]
         else:
             return None
