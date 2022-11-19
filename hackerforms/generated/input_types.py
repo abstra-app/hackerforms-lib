@@ -735,6 +735,109 @@ class NumberInput(Input):
         """
         return answer
 
+class NumberSliderInput(Input):
+    type = "number-slider-input"
+
+    def __init__(self, key: str, label: str, **kwargs):
+        """Read a number value from the user using a slider
+
+        Positional Args:
+            label (str): The label to display to the user
+
+        Keyword Args:
+            initial_value (str): The initial value to display to the user. Defaults to 0.
+            required (bool or str): Whether the input is required or not eg. "this field is required". Defaults to True.
+            hint (str): A tooltip displayed to the user. Defaults to None.
+            full_width (bool): Whether the input should use full screen width. Defaults to False.
+            min (float): Min value accepted by the input. Defaults to None.
+            max (float): Max value accepted by the input. Defaults to None.
+            step (float): The value to be incremented or decremented while using the input button. Defaults to None.
+        """
+
+        super().__init__(key)
+        self.label = label
+        self.initial_value = kwargs.get("initial_value", 0)
+        self.required = kwargs.get("required", True)
+        self.hint = kwargs.get("hint", None)
+        self.columns = kwargs.get("columns", 1)
+        self.full_width = kwargs.get("full_width", False)
+        self.min = kwargs.get("min")
+        self.max = kwargs.get("max")
+        self.step = kwargs.get("step")
+
+    def json(self, **kwargs):
+        return {
+            "type": self.type,
+            "key": self.key,
+            "label": self.label,
+            "initialValue": self.initial_value,
+            "required": self.required,
+            "hint": self.hint,
+            "columns": self.columns,
+            "fullWidth": self.full_width,
+            "min": self.min,
+            "max": self.max,
+            "step": self.step,
+        }
+
+    def convert_answer(self, answer: float) -> float:
+        """
+        Returns:
+            float: The value entered by the user
+        """
+        return answer
+
+class RatingInput(Input):
+    type = "rating-input"
+
+    def __init__(self, key: str, label: str, **kwargs):
+        """Read a number value from the user using a slider
+
+        Positional Args:
+            label (str): The label to display to the user
+
+        Keyword Args:
+            initial_value (str): The initial value to display to the user. Defaults to 0.
+            required (bool or str): Whether the input is required or not eg. "this field is required". Defaults to True.
+            hint (str): A tooltip displayed to the user. Defaults to None.
+            full_width (bool): Whether the input should use full screen width. Defaults to False.
+            max (float): Max value accepted by the input. Defaults to None.
+            char (str): Which char should be displayed as icon?
+        """
+
+        super().__init__(key)
+        self.label = label
+        self.initial_value = kwargs.get("initial_value", 0)
+        self.required = kwargs.get("required", True)
+        self.hint = kwargs.get("hint", None)
+        self.columns = kwargs.get("columns", 1)
+        self.full_width = kwargs.get("full_width", False)
+        self.min = kwargs.get("min")
+        self.max = kwargs.get("max")
+        self.step = kwargs.get("step")
+
+    def json(self, **kwargs):
+        return {
+            "type": self.type,
+            "key": self.key,
+            "label": self.label,
+            "initialValue": self.initial_value,
+            "required": self.required,
+            "hint": self.hint,
+            "columns": self.columns,
+            "fullWidth": self.full_width,
+            "min": self.min,
+            "max": self.max,
+            "step": self.step,
+        }
+
+    def convert_answer(self, answer: float) -> float:
+        """
+        Returns:
+            float: The value entered by the user
+        """
+        return answer
+
 
 class EmailInput(Input):
     type = "email-input"
@@ -852,6 +955,8 @@ class PhoneInput(Input):
 
 class ListInput(Input):
     type = "list-input"
+    
+    instances = []
 
     def __init__(self, key: str, item_schema: typing.Any, **kwargs):
         """Read a list value from the user
@@ -879,19 +984,11 @@ class ListInput(Input):
         self.required = kwargs.get("required", True)
 
     def json(self, **kwargs):
-        overloaded_schemas = self.__get_overloaded_schemas(
-            kwargs.get("payload").get(self.key) if kwargs.get("payload") else None
-        )
-        overloaded_schemas = (
-            {"overloadedItemSchemas": overloaded_schemas} if overloaded_schemas else {}
-        )
-
-        return {
+        json = {
             "type": self.type,
             "key": self.key,
             "hint": self.hint,
-            "itemSchema": self.item_schema.json(payload={}),
-            **overloaded_schemas,
+            "itemSchema": self.item_schema.json(payload=self.item_schema.convert_answer({})),
             "initialValue": self.initial_value,
             "columns": self.columns,
             "min": self.min,
@@ -900,18 +997,30 @@ class ListInput(Input):
             "fullWidth": self.full_width,
             "required": self.required,
         }
+        
+        overloaded_schemas = self.__get_overloaded_schemas(
+            kwargs.get("payload").get(self.key) if kwargs.get("payload") else None
+        )
+        
+        if overloaded_schemas: json["overloadedItemSchemas"] = overloaded_schemas
+
+        return json
 
     def convert_answer(self, answers) -> typing.List:
         """
         Returns:
             list: The values entered by the user
         """
-        return [self.item_schema.convert_answer(answer) for answer in answers or []]
+        return [
+            self.instances[index].convert_answer(answer) if index < len(self.instances) else self.item_schema.convert_answer(answer)
+            for index, answer in enumerate(answers or [])
+        ]
 
     def __get_overloaded_schemas(self, payload):
         if payload:
+            self.instances = [self.item_schema.copy() for _ in payload]
             return [
-                self.item_schema.json(payload=payload_item) for payload_item in payload
+                self.instances[index].json(payload=payload_item) for index, payload_item in enumerate(payload)
             ]
         else:
             return None
