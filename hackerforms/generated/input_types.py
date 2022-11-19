@@ -812,9 +812,8 @@ class RatingInput(Input):
         self.hint = kwargs.get("hint", None)
         self.columns = kwargs.get("columns", 1)
         self.full_width = kwargs.get("full_width", False)
-        self.min = kwargs.get("min")
         self.max = kwargs.get("max")
-        self.step = kwargs.get("step")
+        self.char = kwargs.get("char")
 
     def json(self, **kwargs):
         return {
@@ -826,9 +825,8 @@ class RatingInput(Input):
             "hint": self.hint,
             "columns": self.columns,
             "fullWidth": self.full_width,
-            "min": self.min,
             "max": self.max,
-            "step": self.step,
+            "char": self.char,
         }
 
     def convert_answer(self, answer: float) -> float:
