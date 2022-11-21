@@ -11,15 +11,15 @@ from hackerforms.socket import send, receive
 from hackerforms.input_types import *
 from hackerforms.output_types import *
 from hackerforms.validation import validate_widget_props
-from hackerforms.realtime import Realtime
+from hackerforms.reactive import Reactive
 
 
 class WidgetSchema:
     def __init__(self):
         self.widgets: typing.List[typing.Union[Input, Output]] = []
 
-    def realtime(self, callback):
-        self.widgets.append(Realtime(callback))
+    def reactive(self, callback):
+        self.widgets.append(Reactive(callback))
         return self
 
     def convert_answer(self, form_answers: typing.Dict) -> typing.Dict:
@@ -38,7 +38,7 @@ class WidgetSchema:
     def get_input_widgets(self):
         concrete_widgets = []
         for widget in self.widgets:
-            if isinstance(widget, Realtime):
+            if isinstance(widget, Reactive):
                 concrete_widgets.extend(widget.get_widgets())
             else:
                 concrete_widgets.append(widget)

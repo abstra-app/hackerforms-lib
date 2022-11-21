@@ -1,8 +1,8 @@
 import typing
 
 
-class Realtime:
-    type = "realtime"
+class Reactive:
+    type = "reactive"
 
     def __init__(self, callback: typing.Callable):
         self.callback = callback
