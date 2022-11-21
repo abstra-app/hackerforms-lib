@@ -4,8 +4,6 @@ import os
 
 from hackerforms import input_types
 from hackerforms import output_types
-from hackerforms.input_types import *
-from hackerforms.output_types import *
 from .templates.read_functions_template import read_functions_template
 from .templates.display_functions_template import display_functions_template
 from .templates.page_template import page_template
@@ -134,7 +132,7 @@ def generate_metadata_dict():
 
 
 def save(name, file):
-    path = "./abstra-lib/hackerforms/generated"
+    path = "./hackerforms/generated"
     if not os.path.exists(path):
         os.makedirs(path)
     f = open(f"{path}/{name}.py", "w")

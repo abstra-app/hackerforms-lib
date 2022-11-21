@@ -10,8 +10,8 @@ from parser.helpers import get_function_name
 import parser.docs_parser as DocsParser
 from hackerforms import input_types, output_types
 
-EXAMPLES_PATH = "./abstra-lib/hackerforms/automation/examples"
-DOCS_WIDGETS_PATH = "./docs/src/metadata/widgets.json"
+EXAMPLES_PATH = "./hackerforms/automation/examples"
+DOCS_WIDGETS_PATH = "../docs/src/metadata/widgets.json"
 
 
 def build_widget_metadata(widget_type):
