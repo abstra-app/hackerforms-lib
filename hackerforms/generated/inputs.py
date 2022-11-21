@@ -339,28 +339,6 @@ def read_number_slider(label: str, **kwargs):
     return get_single_value(Page().read_number_slider(label, **kwargs).run(button_text))
 
 
-def read_number_slider(label: str, **kwargs):
-    """Read a number value from the user using a slider
-
-    Positional Args:
-      label (str): The label to display to the user
-
-    Keyword Args:
-      initial_value (str): The initial value to display to the user. Defaults to 0.
-      required (bool or str): Whether the input is required or not eg. "this field is required". Defaults to True.
-      hint (str): A tooltip displayed to the user. Defaults to None.
-      full_width (bool): Whether the input should use full screen width. Defaults to False.
-      min (float): Min value accepted by the input. Defaults to None.
-      max (float): Max value accepted by the input. Defaults to None.
-      step (float): The value to be incremented or decremented while using the input button. Defaults to None.
-
-      Returns:
-          float: The value entered by the user
-    """
-    button_text = kwargs.get("button_text", "Next")
-    return get_single_value(Page().read_number_slider(label, **kwargs).run(button_text))
-
-
 def read_pandas_row_selection(df: typing.Any, **kwargs):
     """Display a pandas dataframe as a table and allow the user to select rows
 

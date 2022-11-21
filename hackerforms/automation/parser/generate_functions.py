@@ -134,7 +134,7 @@ def generate_metadata_dict():
 
 
 def save(name, file):
-    path = "../generated"
+    path = "./abstra-lib/hackerforms/generated"
     if not os.path.exists(path):
         os.makedirs(path)
     f = open(f"{path}/{name}.py", "w")
