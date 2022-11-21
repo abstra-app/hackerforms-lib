@@ -1,4 +1,4 @@
 setuptools
 requests
-websocket-client
+websocket - client
 validators
