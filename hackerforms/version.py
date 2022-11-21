@@ -1,7 +1,6 @@
 import os
 
 
-
 def check_version():
     if os.environ.get("SESSION_ID"):
         return

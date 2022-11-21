@@ -12,7 +12,7 @@ initialized = False
 # TODO: create_connection should have retry logic
 def initialize():
     from websocket import create_connection
-    
+
     global ws, initialized
     initialized = True
     session_id = os.environ.get("SESSION_ID")
