@@ -731,6 +731,7 @@ class NumberInput(Input):
         """
         return answer
 
+
 class NumberSliderInput(Input):
     type = "number-slider-input"
 
@@ -782,6 +783,7 @@ class NumberSliderInput(Input):
             float: The value entered by the user
         """
         return answer
+
 
 class RatingInput(Input):
     type = "rating-input"
@@ -1002,7 +1004,7 @@ class PhoneInput(Input):
 
 class ListInput(Input):
     type = "list-input"
-    
+
     instances = []
 
     instances = []
@@ -1064,7 +1066,9 @@ class ListInput(Input):
             list: The values entered by the user
         """
         return [
-            self.instances[index].convert_answer(answer) if index < len(self.instances) else self.item_schema.convert_answer(answer)
+            self.instances[index].convert_answer(answer)
+            if index < len(self.instances)
+            else self.item_schema.convert_answer(answer)
             for index, answer in enumerate(answers or [])
         ]
 
@@ -1072,7 +1076,8 @@ class ListInput(Input):
         if payload:
             self.instances = [self.item_schema.copy() for _ in payload]
             return [
-                self.instances[index].json(payload=payload_item) for index, payload_item in enumerate(payload)
+                self.instances[index].json(payload=payload_item)
+                for index, payload_item in enumerate(payload)
             ]
         else:
             return None
