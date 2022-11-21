@@ -7,7 +7,6 @@ from hackerforms.input_types import *
 from hackerforms.output_types import *
 from hackerforms.validation import validate_widget_props
 from hackerforms.realtime import Realtime
-import copy
 
 
 class WidgetSchema:
