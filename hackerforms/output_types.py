@@ -184,7 +184,7 @@ class HTMLOutput(Output):
 class ProgressOutput(Output):
     type = "progress-output"
 
-    def __init__(self, current: float, total: float, **kwargs):
+    def __init__(self, current: float = 50, total: float = 100, **kwargs):
         """Display a progress bar. This widget is shown on screen until the script shows a new widget
 
         Positional Args:

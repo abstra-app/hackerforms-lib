@@ -801,73 +801,71 @@ class WidgetSchema:
         return self
 
     input = read
-
-
 class PageResponse(dict):
-    def __init__(self, data, action):
-        self.action = action
-        self.data = data
+  def __init__(self, data, action):
+    self.action = action
+    self.data = data
 
-    def __getitem__(self, key):
-        return self.data[key]
+  def __getitem__(self, key):
+    return self.data[key]
 
-    def __setitem__(self, key, value):
-        self.data[key] = value
+  def __setitem__(self, key, value):
+    self.data[key] = value
 
-    def __delitem__(self, key):
-        del self.data[key]
+  def __delitem__(self, key):
+    del self.data[key]
 
-    def __iter__(self):
-        return iter(self.data)
+  def __iter__(self):
+    return iter(self.data)
 
-    def __len__(self):
-        return len(self.data)
+  def __len__(self):
+    return len(self.data)
 
-    def __contains__(self, key):
-        return key in self.data
+  def __contains__(self, key):
+    return key in self.data
 
-    def __str__(self):
-        return str(self.data)
+  def __str__(self):
+    return str(self.data)
+  
+  def __repr__(self):
+    return repr(self.data)
 
-    def __repr__(self):
-        return repr(self.data)
+  def __cmp__(self, cmp_dict):
+    return self.__cmp__(self.data, cmp_dict)
 
-    def __cmp__(self, cmp_dict):
-        return self.__cmp__(self.data, cmp_dict)
+  def keys(self):
+    return self.data.keys()
 
-    def keys(self):
-        return self.data.keys()
+  def values(self):
+    return self.data.values()
 
-    def values(self):
-        return self.data.values()
+  def items(self):
+    return self.data.items()
 
-    def items(self):
-        return self.data.items()
+  def clear(self):
+    return self.data.clear()
 
-    def clear(self):
-        return self.data.clear()
+  def copy(self):
+    return PageResponse(self.data.copy(), self.action)
 
-    def copy(self):
-        return PageResponse(self.data.copy(), self.action)
+  def has_key(self, key):
+    return key in self.data
 
-    def has_key(self, key):
-        return key in self.data
-
-    def update(self, *args, **kwargs):
-        return self.data.update(*args, **kwargs)
-
-    def pop(self, *args):
-        return self.data.pop(*args)
+  def update(self, *args, **kwargs):
+    return self.data.update(*args, **kwargs)
+  
+  def pop(self, *args):
+    return self.data.pop(*args)
 
 
 class Page(WidgetSchema):
-    """A form page that can be displayed to the user
+    '''A form page that can be displayed to the user
 
     This is a page that can be displayed to the user. It can be used to
     show data as well as collect informations. After configuring the
     inputs and outputs, use the run method to display the form to the
     user and collect the answers.
-    """
+    '''
 
     def __init__(self):
         super().__init__()
@@ -875,7 +873,7 @@ class Page(WidgetSchema):
     def run(
         self, actions="Next", columns: float = 1, validate: typing.Callable = None
     ) -> typing.Dict:
-        """Run the form
+        '''Run the form
 
         Args:
             button_text: The text of the button that is used to submit the form
@@ -883,7 +881,7 @@ class Page(WidgetSchema):
 
         Returns:
             The form result as a dict with the keys being the key of the input and the value being the value of the input
-        """
+        '''
 
         widgets_json = self.__get_validated_page_widgets_json({})
 
@@ -891,11 +889,7 @@ class Page(WidgetSchema):
             self.__send_form_message(widgets=widgets_json, columns=columns, actions=[])
             return
 
-        self.__send_form_message(
-            widgets=widgets_json,
-            columns=columns,
-            actions=self.__actions_property(actions),
-        )
+        self.__send_form_message(widgets=widgets_json, columns=columns, actions=self.__actions_property(actions))
         response: typing.Dict = self.__user_event_messages(validate=validate)
 
         return PageResponse(
@@ -909,29 +903,24 @@ class Page(WidgetSchema):
         while response["type"] == "user-event":
             payload = response["payload"]
             widgets_json = self.__get_validated_page_widgets_json(payload)
-            self.__send_user_event_message(
-                widgets=widgets_json,
-                validation=self.__build_validation_object(
-                    validation=kwargs.get("validate"), payload=payload
-                ),
-            )
+            self.__send_user_event_message(widgets=widgets_json, validation=self.__build_validation_object(validation=kwargs.get("validate"),payload=payload))
 
             response = receive()
 
         return response
-
+      
     def __get_validated_page_widgets_json(self, raw_payload):
         widgets_json = self.json(self.convert_answer(raw_payload))
         for widget in widgets_json:
             validate_widget_props(widget)
         return widgets_json
-
+    
     def __actions_property(self, actions):
-        if isinstance(actions, list):
-            return actions
-        elif actions is None:
-            return []
-        return [actions]
+      if isinstance(actions, list):
+          return actions
+      elif actions is None:
+          return []
+      return [actions]
 
     def __is_progress_screen(self):
         return len(self.widgets) == 1 and self.widgets[0].type == "progress-output"
@@ -949,7 +938,7 @@ class Page(WidgetSchema):
                 validation_status = False
                 validation_message = validation_response
 
-        return {"status": validation_status, "message": validation_message}
+        return { "status": validation_status, "message": validation_message }
 
     def __send_form_message(self, widgets, actions, columns):
         send(
@@ -960,22 +949,21 @@ class Page(WidgetSchema):
                 "actions": actions,
             }
         )
-
+    
     def __send_user_event_message(self, widgets, validation):
         send(
-            {
-                "type": "user-event",
-                "widgets": widgets,
-                "validation": validation,
-            }
-        )
-
+                {
+                    "type": "user-event",
+                    "widgets": widgets,
+                    "validation": validation,
+                }
+            )
 
 class ListItemSchema(WidgetSchema):
-    """A schema for a list item
+    '''A schema for a list item
 
     This schema is used to define the schema of a list item.
-    """
+    '''
 
     def __init__(self):
         super().__init__()
