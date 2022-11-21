@@ -1,0 +1,8 @@
+{
+  "props": {
+    "linkUrl": "https://console.abstracloud.com",
+    "linkText": "Abstra Cloud Homepage"
+  },
+  "name": "Basic Example",
+  "description": "The following example demonstrate some of the available functionality for display_link"
+}

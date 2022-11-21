@@ -1,0 +1,9 @@
+{
+  "props": {
+    "label": "How likely are you to recommend Abstra Cloud?",
+    "minHint": "No way!",
+    "maxHint": "Hell yeah!"
+  },
+  "name": "Basic Example",
+  "description": "The following example demonstrate some of the available functionality for read_nps"
+}

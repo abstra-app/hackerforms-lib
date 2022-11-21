@@ -3,13 +3,15 @@
 ##        Do not change this file. Any changes will be overwritten.          ##
 ###############################################################################
 
+
 import typing
+from typing import Any, Union, List, Dict
 import io
-from ..socket import send, receive
-from .input_types import *
-from .output_types import *
-from .validation import validate_widget_props
-from .realtime import Realtime
+from hackerforms.socket import send, receive
+from hackerforms.input_types import *
+from hackerforms.output_types import *
+from hackerforms.validation import validate_widget_props
+from hackerforms.realtime import Realtime
 
 
 class WidgetSchema:

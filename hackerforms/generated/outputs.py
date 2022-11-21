@@ -3,9 +3,11 @@
 ##        Do not change this file. Any changes will be overwritten.          ##
 ###############################################################################
 
+
 import typing
+from typing import Any, Dict, List, Union
 import io
-from .page import Page
+from hackerforms.generated.page import Page
 
 
 def display_file(file: typing.Union[str, io.IOBase], **kwargs):

@@ -1,0 +1,8 @@
+{
+  "props": {
+    "fileUrl": "https://placekitten.com/200/300",
+    "downloadText": "Click here to reveal the secret"
+  },
+  "name": "Basic Example",
+  "description": "The following example demonstrate some of the available functionality for display_file"
+}

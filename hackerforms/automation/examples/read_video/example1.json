@@ -1,0 +1,7 @@
+{
+  "props": {
+    "label": "Upload your video"
+  },
+  "name": "Basic Example",
+  "description": "The following example demonstrate some of the available functionality for read_video"
+}

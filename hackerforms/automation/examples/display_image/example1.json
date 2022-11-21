@@ -1,0 +1,8 @@
+{
+  "props": {
+    "imageUrl": "https://placekitten.com/200/200",
+    "subtitle": "Meooow"
+  },
+  "name": "Basic Example",
+  "description": "The following example demonstrate some of the available functionality for display_image"
+}
