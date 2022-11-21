@@ -1,0 +1,10 @@
+{
+    "props": {
+      "label": "How do you evaluate your Python skills?",
+      "char": "🐍",
+      "max": 3
+    },
+    "name": "Custom chars and number of points",
+    "description": "The following example demonstrate some of the available functionality for read_rating"
+  }
+  

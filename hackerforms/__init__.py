@@ -1,4 +1,5 @@
 import os
+
 from .auth import *
 from .generated.page import *
 from .generated.inputs import *
@@ -13,6 +14,7 @@ if os.getenv("ENV") != "test":
     _check_version()
     _initialize_socket()
     _initialize_overloads()
+
 del _check_version
 del _initialize_socket
 del _initialize_overloads

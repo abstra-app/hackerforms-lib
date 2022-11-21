@@ -7,42 +7,41 @@ from hackerforms.input_types import *
 from hackerforms.output_types import *
 from hackerforms.validation import validate_widget_props
 from hackerforms.realtime import Realtime
-import copy
 
 
 class WidgetSchema:
-    def __init__(self):
-        self.widgets: typing.List[typing.Union[Input, Output]] = []
+  def __init__(self):
+    self.widgets: typing.List[typing.Union[Input, Output]] = []
 
-    def realtime(self, callback):
-        self.widgets.append(Realtime(callback))
-        return self
+  def realtime(self, callback):
+    self.widgets.append(Realtime(callback))
+    return self
 
-    def convert_answer(self, form_answers: typing.Dict) -> typing.Dict:
-        '''Convert the answer from the form to the expected format
-        Args:
-            answer: The answer from the form
-        Returns:
-            The converted answer
-        '''
-        answer: typing.Dict = {}
-        inputs = self.get_input_widgets()
-        for input in inputs:
-            answer[input.key] = input.convert_answer(form_answers.get(input.key))
-        return answer
+  def convert_answer(self, form_answers: typing.Dict) -> typing.Dict:
+    '''Convert the answer from the form to the expected format
+    Args:
+        answer: The answer from the form
+    Returns:
+        The converted answer
+    '''
+    answer: typing.Dict = {}
+    inputs = self.get_input_widgets()
+    for input in inputs:
+        answer[input.key] = input.convert_answer(form_answers.get(input.key))
+    return answer
 
-    def get_input_widgets(self):
-        concrete_widgets = []
-        for widget in self.widgets:
-            if isinstance(widget, Realtime):
-                concrete_widgets.extend(widget.get_widgets())
-            else:
-                concrete_widgets.append(widget)
+  def get_input_widgets(self):
+    concrete_widgets = []
+    for widget in self.widgets:
+      if isinstance(widget, Realtime):
+        concrete_widgets.extend(widget.get_widgets())
+      else:
+        concrete_widgets.append(widget)
 
-        inputs = list(
-            filter(lambda widget: isinstance(widget, Input), concrete_widgets)
-        )
-        return inputs
+    inputs = list(
+      filter(lambda widget: isinstance(widget, Input), concrete_widgets)
+    )
+    return inputs
 
 
   def json(self, payload):
@@ -319,4 +318,10 @@ class ListItemSchema(WidgetSchema):
 
     def __init__(self):
         super().__init__()
+
+    def copy(self):
+        import copy
+
+        return copy.deepcopy(self)
+
 """
