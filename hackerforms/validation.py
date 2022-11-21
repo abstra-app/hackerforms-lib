@@ -1,4 +1,4 @@
-from .metadata import metadata
+from .generated.metadata import metadata
 
 
 def types_compatible(prop, schema):
