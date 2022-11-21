@@ -15,7 +15,6 @@ def check_version():
             "https://hackerforms-api.abstra.cloud/public/abstra-pypi-packages"
         ).json()
         hackerforms = list(filter(lambda lib: lib["name"] == "hackerforms", libs))[0]
-
         if hackerforms["version"] != __version__ and __version__ != "0.0.0":
             print("You are using an outdated version of hackerforms.")
             print(
