@@ -9,6 +9,8 @@ from .overloads import initialize as _initialize_overloads
 from .list_item_schema import ListItemSchema
 from .page import Page
 from . import environments as envs
+from .parameters import url_params
+
 
 environment = os.getenv("ENV")
 
