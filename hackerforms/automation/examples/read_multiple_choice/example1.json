@@ -1,8 +1,0 @@
-{
-  "props": {
-    "label": "Which programming language do you prefer?",
-    "options": ["Python", "JavaScript"]
-  },
-  "name": "Basic Example",
-  "description": "Basic use of read_multiple_choice"
-}
