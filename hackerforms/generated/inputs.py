@@ -8,21 +8,6 @@ import typing
 from hackerforms.page import Page
 
 
-def execute_js(code: str, **kwargs):
-    """Execute JavaScript on the page
-    Args:
-        code: The JS code to be executed
-    Keyword Arg:
-        context (dict): variables to be passed to the JS code
-        button_text (string): The text to display on the next step button
-    Returns:
-      string: Serialized return value of the executed JavaScript
-    """
-
-    button_text = kwargs.get("button_text", "Next")
-    return get_single_value(Page().execute_js(code, **kwargs).run(button_text))
-
-
 def read_cards(label: str, options: typing.Any, **kwargs):
     """Read cards from the user
 
