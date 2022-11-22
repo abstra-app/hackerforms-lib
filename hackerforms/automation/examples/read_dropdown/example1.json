@@ -1,8 +1,0 @@
-{
-  "props": {
-    "label": "Choose a color",
-    "options": ["Red", "Green", "Blue"]
-  },
-  "name": "Basic Example",
-  "description": "Basic use of read_dropdown"
-}
