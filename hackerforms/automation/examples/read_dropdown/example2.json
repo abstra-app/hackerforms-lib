@@ -1,8 +1,0 @@
-{
-  "props": {
-    "label": "Choose a color",
-    "options": ["Red", "Green", "Blue"]
-  },
-  "name": "Label and value dict",
-  "description": "Use a dictionary to specify the label and value of each option. The label will be displayed to the user, and the value will be returned by the widget."
-}
