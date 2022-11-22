@@ -3,3 +3,4 @@ hackerforms.egg-info
 build
 dist
 venv
+hackerforms/automation/**
