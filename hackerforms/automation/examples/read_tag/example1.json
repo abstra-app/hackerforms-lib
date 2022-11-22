@@ -1,8 +1,0 @@
-{
-  "props": {
-    "label": "Type and press enter to add a tag",
-    "initialValue": ["Red", "Green", "Blue"]
-  },
-  "name": "Basic Example",
-  "description": "The following example demonstrate some of the available functionality for read_tag"
-}
