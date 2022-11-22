@@ -1,8 +1,6 @@
 read_functions_template = """
 import typing
-from typing import Any, Dict, List, Union
-import io
-from hackerforms.generated.page import Page
+from hackerforms.page import Page
 
 def execute_js(code: str, **kwargs):
     '''Execute JavaScript on the page

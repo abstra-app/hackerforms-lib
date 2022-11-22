@@ -1,8 +1,7 @@
 display_functions_template = """
 import typing
-from typing import Any, Dict, List, Union
 import io
-from hackerforms.generated.page import Page
+from hackerforms.page import Page
 
 {%- for widget in widgets %}
 {% if widgets[widget]['func_name'] == 'display_text' %}
