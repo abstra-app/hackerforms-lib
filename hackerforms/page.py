@@ -31,7 +31,7 @@ class Page(WidgetSchema):
             The form result as a dict with the keys being the key of the input and the value being the value of the input
         """
 
-        widgets_json = self.__get_validated_page_widgets_json({})
+        widgets_json = self.__get_validated_page_widgets_json(self.convert_answer({}))
 
         if self.__is_progress_screen():
             self.__send_form_message(widgets=widgets_json, columns=columns, actions=[])
@@ -53,12 +53,12 @@ class Page(WidgetSchema):
         response: Dict = receive()
 
         while response["type"] == "user-event":
-            payload = response["payload"]
-            widgets_json = self.__get_validated_page_widgets_json(payload)
+            converted_payload = self.convert_answer(response["payload"])
+            widgets_json = self.__get_validated_page_widgets_json(converted_payload)
             self.__send_user_event_message(
                 widgets=widgets_json,
                 validation=self.__build_validation_object(
-                    validation=kwargs.get("validate"), payload=payload
+                    validation=kwargs.get("validate"), payload=converted_payload
                 ),
             )
 
@@ -66,8 +66,8 @@ class Page(WidgetSchema):
 
         return response
 
-    def __get_validated_page_widgets_json(self, raw_payload):
-        widgets_json = self.json(self.convert_answer(raw_payload))
+    def __get_validated_page_widgets_json(self, converted_payload):
+        widgets_json = self.json(converted_payload)
         for widget in widgets_json:
             validate_widget_props(widget)
         return widgets_json
