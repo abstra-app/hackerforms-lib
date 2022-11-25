@@ -1,8 +1,0 @@
-{
-  "props": {
-    "label": "What is your credit card number?",
-    "mask": "0000 0000 0000 0000"
-  },
-  "name": "Mask Example",
-  "description": "The following example shows the usage of the mask property for read widget. In the mask property, the '0' digit represents a numeric value, the 'a' digit represents an alphabetic value and other digits are recognized as part of the value"
-}
