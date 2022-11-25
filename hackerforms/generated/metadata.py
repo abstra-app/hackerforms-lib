@@ -395,10 +395,6 @@ metadata = {
                 "type": "string",
                 "description": "The label to display above the input",
             },
-            "invalidEmailMessage": {
-                "type": "string",
-                "description": "Invalid e-mail message",
-            },
         },
         "optionals": {
             "columns": {
