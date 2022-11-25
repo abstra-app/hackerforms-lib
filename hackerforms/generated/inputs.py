@@ -134,6 +134,7 @@ def read_email(label: str, **kwargs):
       required (bool or str): Whether the input is required or not eg. "this field is required". Defaults to True.
       hint (str): A tooltip displayed to the user. Defaults to None.
       full_width (bool): Whether the input should use full screen width. Defaults to False.
+      invalid_email_message (str): Invalid e-mail message. Defaults to "Hmm… doesn't look like an email".
 
       Returns:
           str: The value entered by the user

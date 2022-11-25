@@ -194,6 +194,7 @@ class WidgetSchema:
           required (bool or str): Whether the input is required or not eg. "this field is required". Defaults to True.
           hint (str): A tooltip displayed to the user. Defaults to None.
           full_width (bool): Whether the input should use full screen width. Defaults to False.
+          invalid_email_message (str): Invalid e-mail message. Defaults to "Hmm… doesn't look like an email".
           columns: The number of columns of the input
           key: The key of the input's value on the form result. Defaults to the label arg
 
