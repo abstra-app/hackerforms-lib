@@ -859,6 +859,9 @@ class EmailInput(Input):
         self.placeholder = kwargs.get("placeholder", "Your email here")
         self.columns = kwargs.get("columns", 1)
         self.full_width = kwargs.get("full_width", False)
+        self.invalid_email_message = kwargs.get(
+            "invalid_email_message", "Hmm… doesn't look like an email"
+        )
 
     def json(self, **kwargs):
         return {
@@ -871,6 +874,7 @@ class EmailInput(Input):
             "hint": self.hint,
             "columns": self.columns,
             "fullWidth": self.full_width,
+            "invalidEmailMessage": self.invalid_email_message,
         }
 
     def convert_answer(self, answer: str) -> str:
