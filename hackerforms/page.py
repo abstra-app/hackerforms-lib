@@ -19,18 +19,13 @@ class Page(WidgetSchema):
         super().__init__()
 
     def run(
-        self,
-        actions="Next",
-        columns: float = 1,
-        validate: Callable = None,
-        end_program: bool = False,
+        self, actions="Next", columns: float = 1, validate: Callable = None
     ) -> Dict:
         """Run the form
 
         Args:
             button_text: The text of the button that is used to submit the form
             columns: The number of columns of the form
-            end_program: End program whilst showing this page, making this an end page
 
         Returns:
             The form result as a dict with the keys being the key of the input and the value being the value of the input
@@ -39,24 +34,15 @@ class Page(WidgetSchema):
         widgets_json = self.__get_validated_page_widgets_json(self.convert_answer({}))
 
         if self.__is_progress_screen():
-            self.__send_form_message(
-                widgets=widgets_json,
-                columns=columns,
-                actions=[],
-                end_program=end_program,
-            )
+            self.__send_form_message(widgets=widgets_json, columns=columns, actions=[])
             return
 
         self.__send_form_message(
             widgets=widgets_json,
             columns=columns,
-            actions=self.__actions_property(actions, end_program),
-            end_program=end_program,
+            actions=self.__actions_property(actions),
         )
         response: Dict = self.__user_event_messages(validate=validate)
-
-        if end_program:
-            exit()
 
         return PageResponse(
             self.convert_answer(response["payload"]),
@@ -86,10 +72,8 @@ class Page(WidgetSchema):
             validate_widget_props(widget)
         return widgets_json
 
-    def __actions_property(self, actions, end_page):
-        if end_page:
-            return []
-        elif isinstance(actions, list):
+    def __actions_property(self, actions):
+        if isinstance(actions, list):
             return actions
         elif actions is None:
             return []
@@ -113,14 +97,13 @@ class Page(WidgetSchema):
 
         return {"status": validation_status, "message": validation_message}
 
-    def __send_form_message(self, widgets, actions, columns, end_program):
+    def __send_form_message(self, widgets, actions, columns):
         send(
             {
                 "type": "form",
                 "widgets": widgets,
                 "columns": columns,
                 "actions": actions,
-                "endProgram": end_program,
             }
         )
 

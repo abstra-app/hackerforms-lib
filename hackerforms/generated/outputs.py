@@ -21,8 +21,7 @@ def display_file(file: typing.Union[str, io.IOBase], **kwargs):
 
     """
     button_text = kwargs.get("button_text", "Next")
-    end_program = kwargs.get("end_program", "Next")
-    return Page().display_file(file, **kwargs).run(button_text, end_program=end_program)
+    return Page().display_file(file, **kwargs).run(button_text)
 
 
 def display_html(html: str, **kwargs):
@@ -36,8 +35,7 @@ def display_html(html: str, **kwargs):
 
     """
     button_text = kwargs.get("button_text", "Next")
-    end_program = kwargs.get("end_program", "Next")
-    return Page().display_html(html, **kwargs).run(button_text, end_program=end_program)
+    return Page().display_html(html, **kwargs).run(button_text)
 
 
 def display_iframe(url_or_html: str, **kwargs):
@@ -53,12 +51,7 @@ def display_iframe(url_or_html: str, **kwargs):
 
     """
     button_text = kwargs.get("button_text", "Next")
-    end_program = kwargs.get("end_program", "Next")
-    return (
-        Page()
-        .display_iframe(url_or_html, **kwargs)
-        .run(button_text, end_program=end_program)
-    )
+    return Page().display_iframe(url_or_html, **kwargs).run(button_text)
 
 
 def display_image(image: typing.Union[str, io.IOBase], **kwargs):
@@ -73,10 +66,7 @@ def display_image(image: typing.Union[str, io.IOBase], **kwargs):
 
     """
     button_text = kwargs.get("button_text", "Next")
-    end_program = kwargs.get("end_program", "Next")
-    return (
-        Page().display_image(image, **kwargs).run(button_text, end_program=end_program)
-    )
+    return Page().display_image(image, **kwargs).run(button_text)
 
 
 def display_link(link_url: str, **kwargs):
@@ -92,12 +82,7 @@ def display_link(link_url: str, **kwargs):
 
     """
     button_text = kwargs.get("button_text", "Next")
-    end_program = kwargs.get("end_program", "Next")
-    return (
-        Page()
-        .display_link(link_url, **kwargs)
-        .run(button_text, end_program=end_program)
-    )
+    return Page().display_link(link_url, **kwargs).run(button_text)
 
 
 def display_markdown(text: str, **kwargs):
@@ -111,12 +96,7 @@ def display_markdown(text: str, **kwargs):
 
     """
     button_text = kwargs.get("button_text", "Next")
-    end_program = kwargs.get("end_program", "Next")
-    return (
-        Page()
-        .display_markdown(text, **kwargs)
-        .run(button_text, end_program=end_program)
-    )
+    return Page().display_markdown(text, **kwargs).run(button_text)
 
 
 def display_pandas(df: typing.Any, **kwargs):
@@ -131,8 +111,7 @@ def display_pandas(df: typing.Any, **kwargs):
 
     """
     button_text = kwargs.get("button_text", "Next")
-    end_program = kwargs.get("end_program", "Next")
-    return Page().display_pandas(df, **kwargs).run(button_text, end_program=end_program)
+    return Page().display_pandas(df, **kwargs).run(button_text)
 
 
 def display_plotly(fig: typing.Any, **kwargs):
@@ -146,10 +125,7 @@ def display_plotly(fig: typing.Any, **kwargs):
 
     """
     button_text = kwargs.get("button_text", "Next")
-    end_program = kwargs.get("end_program", "Next")
-    return (
-        Page().display_plotly(fig, **kwargs).run(button_text, end_program=end_program)
-    )
+    return Page().display_plotly(fig, **kwargs).run(button_text)
 
 
 def display_progress(current: float, total: float, **kwargs):
@@ -164,12 +140,7 @@ def display_progress(current: float, total: float, **kwargs):
 
     """
     button_text = kwargs.get("button_text", "Next")
-    end_program = kwargs.get("end_program", "Next")
-    return (
-        Page()
-        .display_progress(current, total, **kwargs)
-        .run(button_text, end_program=end_program)
-    )
+    return Page().display_progress(current, total, **kwargs).run(button_text)
 
 
 def display(text: str, **kwargs):
@@ -183,5 +154,4 @@ def display(text: str, **kwargs):
 
     """
     button_text = kwargs.get("button_text", "Next")
-    end_program = kwargs.get("end_program", "Next")
-    return Page().display(text, **kwargs).run(button_text, end_program=end_program)
+    return Page().display(text, **kwargs).run(button_text)
