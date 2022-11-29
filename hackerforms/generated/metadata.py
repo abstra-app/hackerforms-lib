@@ -6,3420 +6,1424 @@
 
 metadata = {
     "file-input": {
+        "name": "FileInput",
+        "libFunc": "read_file",
         "type": "file-input",
         "description": "Read a file value from the user",
-        "pythonAPI": {
-            "name": "read_file",
-            "params": [
-                {
-                    "argName": "label",
-                    "description": "The label to display to the user",
-                    "typeName": "str",
-                    "isKwarg": False,
-                    "default": None,
-                },
-                {
-                    "argName": "initial_value",
-                    "description": 'The initial value to display to the user. Defaults to "".',
-                    "typeName": "str",
-                    "isKwarg": True,
-                    "default": '""',
-                },
-                {
-                    "argName": "required",
-                    "description": 'Whether the input is required or not eg. "this field is required". Defaults to True.',
-                    "typeName": "bool or str",
-                    "isKwarg": True,
-                    "default": "True",
-                },
-                {
-                    "argName": "hint",
-                    "description": "A tooltip displayed to the user. Defaults to None.",
-                    "typeName": "str",
-                    "isKwarg": True,
-                    "default": "None",
-                },
-                {
-                    "argName": "full_width",
-                    "description": "Whether the input should use full screen width. Defaults to False.",
-                    "typeName": "bool",
-                    "isKwarg": True,
-                    "default": "False",
-                },
-                {
-                    "argName": "multiple",
-                    "description": "Whether the user will be allowed to upload multiple files. Defaults to False.",
-                    "typeName": "bool",
-                    "isKwarg": True,
-                    "default": "False",
-                },
-            ],
-            "returns": [
-                {
-                    "typeName": "FileResponse or FileResponse[]",
-                    "typeDescription": 'A dict containing the file uploaded by the user ({"file": file, "url": str, "content": bytes}) or a list of files in case of multiple flag set as True',
-                }
-            ],
+        "params": {
+            "key": {
+                "type": "string",
+                "description": "The key of the input on the returning object",
+            },
+            "label": {
+                "type": "string",
+                "description": "The label to display above the input",
+            },
+            "multiple": {"type": "boolean"},
         },
-        "brokerAPI": {
-            "params": [
-                {
-                    "argName": "label",
-                    "typeName": "string",
-                    "description": "The label to display above the input",
-                },
-                {
-                    "argName": "initialValue",
-                    "typeName": ["string", "array"],
-                    "description": "The initial value of the input",
-                    "default": "",
-                },
-                {
-                    "argName": "key",
-                    "typeName": "string",
-                    "description": "The key of the input on the returning object",
-                },
-                {
-                    "argName": "hint",
-                    "typeName": ["string", "null"],
-                    "description": "message describing the input",
-                    "default": None,
-                    "isOptional": True,
-                },
-                {
-                    "argName": "required",
-                    "typeName": "string",
-                    "description": "Whether the input is required or not",
-                    "default": True,
-                    "isOptional": True,
-                },
-                {
-                    "argName": "columns",
-                    "typeName": "number",
-                    "description": "number of columns this input will take",
-                    "isOptional": True,
-                },
-                {
-                    "argName": "fullWidth",
-                    "typeName": "boolean",
-                    "description": "Whether the widget should take up the full width of the page",
-                    "isOptional": True,
-                },
-            ]
+        "optionals": {
+            "columns": {
+                "type": "number",
+                "description": "number of columns this input will take",
+            },
+            "fullWidth": {
+                "type": "boolean",
+                "description": "Whether the widget should take up the full width of the page",
+            },
+            "hint": {
+                "type": ["string", "null"],
+                "description": "message describing the input",
+                "default": None,
+            },
+            "required": {
+                "type": ["boolean", "string"],
+                "description": "Whether the input is required or not",
+                "default": True,
+            },
+            "initialValue": {
+                "type": ["string", "array"],
+                "description": "The initial value of the input",
+                "default": "",
+            },
         },
     },
     "image-input": {
+        "name": "ImageInput",
+        "libFunc": "read_image",
         "type": "image-input",
         "description": "",
-        "pythonAPI": {
-            "name": "read_image",
-            "params": [
-                {
-                    "argName": "label",
-                    "description": "The label to display to the user",
-                    "typeName": "str",
-                    "isKwarg": False,
-                    "default": None,
-                },
-                {
-                    "argName": "initial_value",
-                    "description": 'The initial value to display to the user. Defaults to "".',
-                    "typeName": "str",
-                    "isKwarg": True,
-                    "default": '""',
-                },
-                {
-                    "argName": "required",
-                    "description": 'Whether the input is required or not eg. "this field is required". Defaults to True.',
-                    "typeName": "bool or str",
-                    "isKwarg": True,
-                    "default": "True",
-                },
-                {
-                    "argName": "hint",
-                    "description": "A tooltip displayed to the user. Defaults to None.",
-                    "typeName": "str",
-                    "isKwarg": True,
-                    "default": "None",
-                },
-                {
-                    "argName": "full_width",
-                    "description": "Whether the input should use full screen width. Defaults to False.",
-                    "typeName": "bool",
-                    "isKwarg": True,
-                    "default": "False",
-                },
-                {
-                    "argName": "multiple",
-                    "description": "Whether the user will be allowed to upload multiple files. Defaults to False.",
-                    "typeName": "bool",
-                    "isKwarg": True,
-                    "default": "False",
-                },
-            ],
-            "returns": [
-                {
-                    "typeName": "FileResponse or FileResponse[]",
-                    "typeDescription": 'A dict containing the image file uploaded by the user ({"file": file, "url": str, "content": bytes}) or a list of images in case of multiple flag set as True',
-                }
-            ],
+        "params": {
+            "key": {
+                "type": "string",
+                "description": "The key of the input on the returning object",
+            },
+            "label": {
+                "type": "string",
+                "description": "The label to display above the input",
+            },
         },
-        "brokerAPI": {
-            "params": [
-                {
-                    "argName": "label",
-                    "typeName": "string",
-                    "description": "The label to display above the input",
-                },
-                {
-                    "argName": "initialValue",
-                    "typeName": ["string", "array"],
-                    "description": "The initial value of the input",
-                    "default": "",
-                    "isOptional": True,
-                    "items": {"typeName": "string"},
-                },
-                {
-                    "argName": "key",
-                    "typeName": "string",
-                    "description": "The key of the input on the returning object",
-                },
-                {
-                    "argName": "hint",
-                    "typeName": ["string", "null"],
-                    "description": "message describing the input",
-                    "default": None,
-                    "isOptional": True,
-                },
-                {
-                    "argName": "required",
-                    "typeName": "string",
-                    "description": "Whether the input is required or not",
-                    "default": True,
-                    "isOptional": True,
-                },
-                {
-                    "argName": "columns",
-                    "typeName": "number",
-                    "description": "number of columns this input will take",
-                    "isOptional": True,
-                },
-                {
-                    "argName": "fullWidth",
-                    "typeName": "boolean",
-                    "description": "Whether the widget should take up the full width of the page",
-                    "isOptional": True,
-                },
-                {
-                    "argName": "multiple",
-                    "typeName": "boolean",
-                    "description": "Whether the input accepts multiple values or not",
-                    "isOptional": True,
-                },
-            ]
+        "optionals": {
+            "columns": {
+                "type": "number",
+                "description": "number of columns this input will take",
+            },
+            "fullWidth": {
+                "type": "boolean",
+                "description": "Whether the widget should take up the full width of the page",
+            },
+            "hint": {
+                "type": ["string", "null"],
+                "description": "message describing the input",
+                "default": None,
+            },
+            "required": {
+                "type": ["boolean", "string"],
+                "description": "Whether the input is required or not",
+                "default": True,
+            },
+            "initialValue": {
+                "type": ["string", "array"],
+                "description": "The initial value of the input",
+                "items": {"type": "string"},
+            },
+            "multiple": {
+                "type": "boolean",
+                "description": "Whether the input accepts multiple values or not",
+            },
         },
     },
     "video-input": {
+        "name": "VideoInput",
+        "libFunc": "read_video",
         "type": "video-input",
         "description": "",
-        "pythonAPI": {
-            "name": "read_video",
-            "params": [
-                {
-                    "argName": "label",
-                    "description": "The label to display to the user",
-                    "typeName": "str",
-                    "isKwarg": False,
-                    "default": None,
-                },
-                {
-                    "argName": "initial_value",
-                    "description": 'The initial value to display to the user. Defaults to "".',
-                    "typeName": "str",
-                    "isKwarg": True,
-                    "default": '""',
-                },
-                {
-                    "argName": "required",
-                    "description": 'Whether the input is required or not eg. "this field is required". Defaults to True.',
-                    "typeName": "bool or str",
-                    "isKwarg": True,
-                    "default": "True",
-                },
-                {
-                    "argName": "hint",
-                    "description": "A tooltip displayed to the user. Defaults to None.",
-                    "typeName": "str",
-                    "isKwarg": True,
-                    "default": "None",
-                },
-                {
-                    "argName": "full_width",
-                    "description": "Whether the input should use full screen width. Defaults to False.",
-                    "typeName": "bool",
-                    "isKwarg": True,
-                    "default": "False",
-                },
-                {
-                    "argName": "multiple",
-                    "description": "Whether the user will be allowed to upload multiple files. Defaults to False.",
-                    "typeName": "bool",
-                    "isKwarg": True,
-                    "default": "False",
-                },
-            ],
-            "returns": [
-                {
-                    "typeName": "FileResponse or FileResponse[]",
-                    "typeDescription": 'A dict containing the video uploaded by the user ({"file": file, "url": str, "content": bytes}) or a list of videos in case of multiple flag set as True',
-                }
-            ],
+        "params": {
+            "key": {
+                "type": "string",
+                "description": "The key of the input on the returning object",
+            },
+            "label": {
+                "type": "string",
+                "description": "The label to display above the input",
+            },
         },
-        "brokerAPI": {
-            "params": [
-                {
-                    "argName": "label",
-                    "typeName": "string",
-                    "description": "The label of the input",
-                },
-                {
-                    "argName": "initialValue",
-                    "typeName": ["string", "array"],
-                    "description": "The initial value of the input",
-                    "items": {"typeName": "string"},
-                    "default": None,
-                    "isOptional": True,
-                },
-                {
-                    "argName": "key",
-                    "typeName": "string",
-                    "description": "The key of the input on the returning object",
-                },
-                {
-                    "argName": "hint",
-                    "typeName": ["string", "null"],
-                    "description": "message describing the input",
-                    "default": None,
-                    "isOptional": True,
-                },
-                {
-                    "argName": "required",
-                    "typeName": "string",
-                    "description": "Whether the input is required or not",
-                    "default": True,
-                    "isOptional": True,
-                },
-                {
-                    "argName": "columns",
-                    "typeName": "number",
-                    "description": "number of columns this input will take",
-                    "isOptional": True,
-                },
-                {
-                    "argName": "fullWidth",
-                    "typeName": "boolean",
-                    "description": "Whether the widget should take up the full width of the page",
-                    "isOptional": True,
-                },
-                {
-                    "argName": "multiple",
-                    "typeName": "boolean",
-                    "description": "Whether the input accepts multiple values or not",
-                    "isOptional": True,
-                },
-            ]
+        "optionals": {
+            "columns": {
+                "type": "number",
+                "description": "number of columns this input will take",
+            },
+            "fullWidth": {
+                "type": "boolean",
+                "description": "Whether the widget should take up the full width of the page",
+            },
+            "hint": {
+                "type": ["string", "null"],
+                "description": "message describing the input",
+                "default": None,
+            },
+            "required": {
+                "type": ["boolean", "string"],
+                "description": "Whether the input is required or not",
+                "default": True,
+            },
+            "initialValue": {
+                "type": ["string", "array"],
+                "description": "The initial value of the input",
+                "items": {"type": "string"},
+            },
+            "multiple": {
+                "type": "boolean",
+                "description": "Whether the input accepts multiple values or not",
+            },
         },
     },
     "text-input": {
+        "name": "TextInput",
+        "libFunc": "read_text",
         "type": "text-input",
         "description": "Read a text value from the user",
-        "pythonAPI": {
-            "name": "read",
-            "params": [
-                {
-                    "argName": "label",
-                    "description": "The label to display to the user",
-                    "typeName": "str",
-                    "isKwarg": False,
-                    "default": None,
-                },
-                {
-                    "argName": "initial_value",
-                    "description": 'The initial value to display to the user. Defaults to "".',
-                    "typeName": "str",
-                    "isKwarg": True,
-                    "default": '""',
-                },
-                {
-                    "argName": "placeholder",
-                    "description": 'The placeholder text to display to the user. Defaults to "Your answer here".',
-                    "typeName": "str",
-                    "isKwarg": True,
-                    "default": '"Your answer here"',
-                },
-                {
-                    "argName": "required",
-                    "description": 'Whether the input is required or not eg. "this field is required". Defaults to True.',
-                    "typeName": "bool or str",
-                    "isKwarg": True,
-                    "default": "True",
-                },
-                {
-                    "argName": "hint",
-                    "description": "A tooltip displayed to the user. Defaults to None.",
-                    "typeName": "str",
-                    "isKwarg": True,
-                    "default": "None",
-                },
-                {
-                    "argName": "full_width",
-                    "description": "Whether the input should use full screen width. Defaults to False.",
-                    "typeName": "bool",
-                    "isKwarg": True,
-                    "default": "False",
-                },
-                {
-                    "argName": "mask",
-                    "description": "A mask to apply to the input. Defaults to None.",
-                    "typeName": "str",
-                    "isKwarg": True,
-                    "default": "None",
-                },
-            ],
-            "returns": [
-                {"typeName": "str", "typeDescription": "The value entered by the user"}
-            ],
+        "params": {
+            "key": {
+                "type": "string",
+                "description": "The key of the input on the returning object",
+            },
+            "label": {
+                "type": "string",
+                "description": "The label to display above the input",
+            },
         },
-        "brokerAPI": {
-            "params": [
-                {
-                    "argName": "label",
-                    "typeName": "string",
-                    "description": "The label of the input",
-                },
-                {
-                    "argName": "initialValue",
-                    "typeName": "string",
-                    "description": "The initial value of the input",
-                    "default": "",
-                    "isOptional": True,
-                },
-                {
-                    "argName": "mask",
-                    "typeName": "string",
-                    "description": "A mask to apply to the input",
-                    "default": None,
-                    "isOptional": True,
-                },
-                {
-                    "argName": "key",
-                    "typeName": "string",
-                    "description": "The key of the input on the returning object",
-                },
-                {
-                    "argName": "hint",
-                    "typeName": ["string", "null"],
-                    "description": "message describing the input",
-                    "default": None,
-                    "isOptional": True,
-                },
-                {
-                    "argName": "required",
-                    "typeName": "string",
-                    "description": "Whether the input is required or not",
-                    "default": True,
-                    "isOptional": True,
-                },
-                {
-                    "argName": "columns",
-                    "typeName": "number",
-                    "description": "number of columns this input will take",
-                    "isOptional": True,
-                },
-                {
-                    "argName": "fullWidth",
-                    "typeName": "boolean",
-                    "description": "Whether the widget should take up the full width of the page",
-                    "isOptional": True,
-                },
-                {
-                    "argName": "placeholder",
-                    "typeName": "string",
-                    "description": "The placeholder text to display in the input",
-                    "default": "Your answer here",
-                },
-            ]
+        "optionals": {
+            "columns": {
+                "type": "number",
+                "description": "number of columns this input will take",
+            },
+            "fullWidth": {
+                "type": "boolean",
+                "description": "Whether the widget should take up the full width of the page",
+            },
+            "hint": {
+                "type": ["string", "null"],
+                "description": "message describing the input",
+                "default": None,
+            },
+            "required": {
+                "type": ["boolean", "string"],
+                "description": "Whether the input is required or not",
+                "default": True,
+            },
+            "initialValue": {
+                "type": "string",
+                "description": "The initial value of the input",
+                "default": "",
+            },
+            "placeholder": {
+                "type": "string",
+                "description": "The placeholder text to display in the input",
+                "default": "Your answer here",
+            },
+            "mask": {
+                "type": "string",
+                "description": "A mask to apply to the input",
+                "default": None,
+            },
         },
     },
     "rating-input": {
+        "name": "RatingInput",
+        "libFunc": "read_rating",
         "type": "rating-input",
         "description": "Read a rating value from the user",
-        "pythonAPI": {
-            "name": "read_rating",
-            "params": [
-                {
-                    "argName": "label",
-                    "description": "The label to display to the user",
-                    "typeName": "str",
-                    "isKwarg": False,
-                    "default": None,
-                },
-                {
-                    "argName": "initial_value",
-                    "description": "The initial value to display to the user. Defaults to 0.",
-                    "typeName": "str",
-                    "isKwarg": True,
-                    "default": "0",
-                },
-                {
-                    "argName": "required",
-                    "description": 'Whether the input is required or not eg. "this field is required". Defaults to True.',
-                    "typeName": "bool or str",
-                    "isKwarg": True,
-                    "default": "True",
-                },
-                {
-                    "argName": "hint",
-                    "description": "A tooltip displayed to the user. Defaults to None.",
-                    "typeName": "str",
-                    "isKwarg": True,
-                    "default": "None",
-                },
-                {
-                    "argName": "full_width",
-                    "description": "Whether the input should use full screen width. Defaults to False.",
-                    "typeName": "bool",
-                    "isKwarg": True,
-                    "default": "False",
-                },
-                {
-                    "argName": "max",
-                    "description": "Max value accepted by the input. Defaults to None.",
-                    "typeName": "float",
-                    "isKwarg": True,
-                    "default": "None",
-                },
-                {
-                    "argName": "char",
-                    "description": "Which char should be displayed as icon?",
-                    "typeName": "str",
-                    "isKwarg": True,
-                    "default": None,
-                },
-            ],
-            "returns": [
-                {
-                    "typeName": "float",
-                    "typeDescription": "The value entered by the user",
-                }
-            ],
+        "params": {
+            "key": {
+                "type": "string",
+                "description": "The key of the input on the returning object",
+            },
+            "label": {
+                "type": "string",
+                "description": "The label to display above the input",
+            },
         },
-        "brokerAPI": {
-            "params": [
-                {
-                    "argName": "label",
-                    "typeName": "string",
-                    "description": "The label of the input",
-                },
-                {
-                    "argName": "initialValue",
-                    "typeName": "number",
-                    "description": "The initial value of the input",
-                    "default": 0,
-                    "isOptional": True,
-                },
-                {
-                    "argName": "max",
-                    "typeName": "number",
-                    "description": "The maximum value of the input",
-                    "default": 5,
-                    "isOptional": True,
-                },
-                {
-                    "argName": "char",
-                    "typeName": "string",
-                    "description": "Which char should be displayed as icon?",
-                    "default": "⭐",
-                    "isOptional": True,
-                },
-                {
-                    "argName": "key",
-                    "typeName": "string",
-                    "description": "The key of the input on the returning object",
-                },
-                {
-                    "argName": "hint",
-                    "typeName": ["string", "null"],
-                    "description": "message describing the input",
-                    "default": None,
-                    "isOptional": True,
-                },
-                {
-                    "argName": "required",
-                    "typeName": "string",
-                    "description": "Whether the input is required or not",
-                    "default": True,
-                    "isOptional": True,
-                },
-                {
-                    "argName": "columns",
-                    "typeName": "number",
-                    "description": "number of columns this input will take",
-                    "isOptional": True,
-                },
-                {
-                    "argName": "fullWidth",
-                    "typeName": "boolean",
-                    "description": "Whether the widget should take up the full width of the page",
-                    "isOptional": True,
-                },
-            ]
+        "optionals": {
+            "columns": {
+                "type": "number",
+                "description": "number of columns this input will take",
+            },
+            "fullWidth": {
+                "type": "boolean",
+                "description": "Whether the widget should take up the full width of the page",
+            },
+            "hint": {
+                "type": ["string", "null"],
+                "description": "message describing the input",
+                "default": None,
+            },
+            "required": {
+                "type": ["boolean", "string"],
+                "description": "Whether the input is required or not",
+                "default": True,
+            },
+            "initialValue": {
+                "type": "number",
+                "description": "The initial value of the input",
+                "default": 0,
+            },
+            "max": {
+                "type": "number",
+                "description": "The maximun value of the input",
+                "default": 5,
+            },
+            "char": {
+                "type": "string",
+                "description": "Which char should be displayed as icon?",
+                "default": "⭐",
+            },
         },
     },
     "textarea-input": {
+        "name": "TextareaInput",
+        "libFunc": "read_textarea",
         "type": "textarea-input",
         "description": "Read a textarea value from the user",
-        "pythonAPI": {
-            "name": "read_textarea",
-            "params": [
-                {
-                    "argName": "label",
-                    "description": "The label to display to the user",
-                    "typeName": "str",
-                    "isKwarg": False,
-                    "default": None,
-                },
-                {
-                    "argName": "initial_value",
-                    "description": 'The initial value to display to the user. Defaults to "".',
-                    "typeName": "str",
-                    "isKwarg": True,
-                    "default": '""',
-                },
-                {
-                    "argName": "placeholder",
-                    "description": 'The placeholder text to display to the user. Defaults to "Your answer here".',
-                    "typeName": "str",
-                    "isKwarg": True,
-                    "default": '"Your answer here"',
-                },
-                {
-                    "argName": "required",
-                    "description": 'Whether the input is required or not eg. "this field is required". Defaults to True.',
-                    "typeName": "bool or str",
-                    "isKwarg": True,
-                    "default": "True",
-                },
-                {
-                    "argName": "hint",
-                    "description": "A tooltip displayed to the user. Defaults to None.",
-                    "typeName": "str",
-                    "isKwarg": True,
-                    "default": "None",
-                },
-                {
-                    "argName": "full_width",
-                    "description": "Whether the input should use full screen width. Defaults to False.",
-                    "typeName": "bool",
-                    "isKwarg": True,
-                    "default": "False",
-                },
-            ],
-            "returns": [
-                {"typeName": "str", "typeDescription": "The value entered by the user"}
-            ],
+        "params": {
+            "key": {
+                "type": "string",
+                "description": "The key of the input on the returning object",
+            },
+            "label": {
+                "type": "string",
+                "description": "The label to display above the input",
+            },
         },
-        "brokerAPI": {
-            "params": [
-                {
-                    "argName": "label",
-                    "typeName": "string",
-                    "description": "The label of the input",
-                },
-                {
-                    "argName": "initialValue",
-                    "typeName": "string",
-                    "description": "The initial value of the input",
-                    "default": "",
-                    "isOptional": True,
-                },
-                {
-                    "argName": "key",
-                    "typeName": "string",
-                    "description": "The key of the input on the returning object",
-                },
-                {
-                    "argName": "hint",
-                    "typeName": ["string", "null"],
-                    "description": "message describing the input",
-                    "default": None,
-                    "isOptional": True,
-                },
-                {
-                    "argName": "required",
-                    "typeName": "string",
-                    "description": "Whether the input is required or not",
-                    "default": True,
-                    "isOptional": True,
-                },
-                {
-                    "argName": "columns",
-                    "typeName": "number",
-                    "description": "number of columns this input will take",
-                    "isOptional": True,
-                },
-                {
-                    "argName": "fullWidth",
-                    "typeName": "boolean",
-                    "description": "Whether the widget should take up the full width of the page",
-                    "isOptional": True,
-                },
-                {
-                    "argName": "placeholder",
-                    "typeName": "string",
-                    "description": "The placeholder text to display in the input",
-                    "default": "Your answer here",
-                },
-            ]
+        "optionals": {
+            "columns": {
+                "type": "number",
+                "description": "number of columns this input will take",
+            },
+            "fullWidth": {
+                "type": "boolean",
+                "description": "Whether the widget should take up the full width of the page",
+            },
+            "hint": {
+                "type": ["string", "null"],
+                "description": "message describing the input",
+                "default": None,
+            },
+            "required": {
+                "type": ["boolean", "string"],
+                "description": "Whether the input is required or not",
+                "default": True,
+            },
+            "initialValue": {
+                "type": "string",
+                "description": "The initial value of the input",
+                "default": "",
+            },
+            "placeholder": {
+                "type": "string",
+                "description": "The placeholder text to display in the input",
+                "default": "Your answer here",
+            },
         },
     },
     "tag-input": {
+        "name": "TagInput",
+        "libFunc": "read_tag",
         "type": "tag-input",
         "description": "Read a tag value from the user",
-        "pythonAPI": {
-            "name": "read_tag",
-            "params": [
-                {
-                    "argName": "label",
-                    "description": "The label to display to the user",
-                    "typeName": "str",
-                    "isKwarg": False,
-                    "default": None,
-                },
-                {
-                    "argName": "initial_value",
-                    "description": "The initial value to display to the user. Defaults to [].",
-                    "typeName": "list",
-                    "isKwarg": True,
-                    "default": "[]",
-                },
-                {
-                    "argName": "placeholder",
-                    "description": 'The placeholder text to display to the user. Defaults to "Your answer here".',
-                    "typeName": "str",
-                    "isKwarg": True,
-                    "default": '"Your answer here"',
-                },
-                {
-                    "argName": "required",
-                    "description": 'Whether the input is required or not eg. "this field is required". Defaults to True.',
-                    "typeName": "bool or str",
-                    "isKwarg": True,
-                    "default": "True",
-                },
-                {
-                    "argName": "hint",
-                    "description": "A tooltip displayed to the user. Defaults to None.",
-                    "typeName": "str",
-                    "isKwarg": True,
-                    "default": "None",
-                },
-                {
-                    "argName": "full_width",
-                    "description": "Whether the input should use full screen width. Defaults to False.",
-                    "typeName": "bool",
-                    "isKwarg": True,
-                    "default": "False",
-                },
-            ],
-            "returns": [
-                {
-                    "typeName": None,
-                    "typeDescription": "list(str) or list(float): The value entered by the user",
-                }
-            ],
+        "params": {
+            "key": {
+                "type": "string",
+                "description": "The key of the input on the returning object",
+            },
+            "label": {
+                "type": "string",
+                "description": "The label to display above the input",
+            },
         },
-        "brokerAPI": {
-            "params": [
-                {
-                    "argName": "label",
-                    "typeName": "string",
-                    "description": "The label of the input",
-                },
-                {
-                    "argName": "initialValue",
-                    "typeName": ["array", "null"],
-                    "description": "The initial value of the input",
-                    "default": [""],
-                    "items": {"typeName": ["string", "number"]},
-                    "isOptional": True,
-                },
-                {
-                    "argName": "placeholder",
-                    "typeName": "string",
-                    "description": "The placeholder text to display in the input",
-                    "default": "Your answer here",
-                },
-                {
-                    "argName": "key",
-                    "typeName": "string",
-                    "description": "The key of the input on the returning object",
-                },
-                {
-                    "argName": "hint",
-                    "typeName": ["string", "null"],
-                    "description": "message describing the input",
-                    "default": None,
-                    "isOptional": True,
-                },
-                {
-                    "argName": "required",
-                    "typeName": "string",
-                    "description": "Whether the input is required or not",
-                    "default": True,
-                    "isOptional": True,
-                },
-                {
-                    "argName": "columns",
-                    "typeName": "number",
-                    "description": "number of columns this input will take",
-                    "isOptional": True,
-                },
-                {
-                    "argName": "fullWidth",
-                    "typeName": "boolean",
-                    "description": "Whether the widget should take up the full width of the page",
-                    "isOptional": True,
-                },
-            ]
+        "optionals": {
+            "columns": {
+                "type": "number",
+                "description": "number of columns this input will take",
+            },
+            "fullWidth": {
+                "type": "boolean",
+                "description": "Whether the widget should take up the full width of the page",
+            },
+            "hint": {
+                "type": ["string", "null"],
+                "description": "message describing the input",
+                "default": None,
+            },
+            "required": {
+                "type": ["boolean", "string"],
+                "description": "Whether the input is required or not",
+                "default": True,
+            },
+            "initialValue": {
+                "type": ["array", "null"],
+                "description": "The initial value of the input",
+                "items": {"type": ["string", "number"]},
+                "default": [""],
+            },
+            "placeholder": {
+                "type": "string",
+                "description": "The placeholder text to display in the input",
+                "default": "Your answer here",
+            },
         },
     },
     "number-input": {
+        "name": "NumberInput",
+        "libFunc": "read_number",
         "type": "number-input",
         "description": "Read a number value from the user",
-        "pythonAPI": {
-            "name": "read_number",
-            "params": [
-                {
-                    "argName": "label",
-                    "description": "The label to display to the user",
-                    "typeName": "str",
-                    "isKwarg": False,
-                    "default": None,
-                },
-                {
-                    "argName": "initial_value",
-                    "description": "The initial value to display to the user. Defaults to 0.",
-                    "typeName": "str",
-                    "isKwarg": True,
-                    "default": "0",
-                },
-                {
-                    "argName": "placeholder",
-                    "description": 'The placeholder text to display to the user. Defaults to "Your answer here".',
-                    "typeName": "str",
-                    "isKwarg": True,
-                    "default": '"Your answer here"',
-                },
-                {
-                    "argName": "required",
-                    "description": 'Whether the input is required or not eg. "this field is required". Defaults to True.',
-                    "typeName": "bool or str",
-                    "isKwarg": True,
-                    "default": "True",
-                },
-                {
-                    "argName": "hint",
-                    "description": "A tooltip displayed to the user. Defaults to None.",
-                    "typeName": "str",
-                    "isKwarg": True,
-                    "default": "None",
-                },
-                {
-                    "argName": "full_width",
-                    "description": "Whether the input should use full screen width. Defaults to False.",
-                    "typeName": "bool",
-                    "isKwarg": True,
-                    "default": "False",
-                },
-                {
-                    "argName": "min",
-                    "description": "Min value accepted by the input. Defaults to None.",
-                    "typeName": "float",
-                    "isKwarg": True,
-                    "default": "None",
-                },
-                {
-                    "argName": "max",
-                    "description": "Max value accepted by the input. Defaults to None.",
-                    "typeName": "float",
-                    "isKwarg": True,
-                    "default": "None",
-                },
-                {
-                    "argName": "step",
-                    "description": "The value to be incremented or decremented while using the input button. Defaults to None.",
-                    "typeName": "float",
-                    "isKwarg": True,
-                    "default": "None",
-                },
-            ],
-            "returns": [
-                {
-                    "typeName": "float",
-                    "typeDescription": "The value entered by the user",
-                }
-            ],
+        "params": {
+            "key": {
+                "type": "string",
+                "description": "The key of the input on the returning object",
+            },
+            "label": {
+                "type": "string",
+                "description": "The label to display above the input",
+            },
         },
-        "brokerAPI": {
-            "params": [
-                {
-                    "argName": "label",
-                    "typeName": "string",
-                    "description": "The label to display above the input",
-                },
-                {
-                    "argName": "initialValue",
-                    "typeName": "number",
-                    "description": "The initial value of the input",
-                    "isOptional": True,
-                },
-                {
-                    "argName": "min",
-                    "typeName": "number",
-                    "description": "The minimum value of the input",
-                    "isOptional": True,
-                },
-                {
-                    "argName": "max",
-                    "typeName": "number",
-                    "description": "The maximun value of the input",
-                    "isOptional": True,
-                },
-                {
-                    "argName": "step",
-                    "typeName": "number",
-                    "description": "The step for the input",
-                    "isOptional": True,
-                },
-                {
-                    "argName": "key",
-                    "typeName": "string",
-                    "description": "The key of the input on the returning object",
-                },
-                {
-                    "argName": "hint",
-                    "typeName": ["string", "null"],
-                    "description": "message describing the input",
-                    "default": None,
-                    "isOptional": True,
-                },
-                {
-                    "argName": "required",
-                    "typeName": "string",
-                    "description": "Whether the input is required or not",
-                    "default": True,
-                    "isOptional": True,
-                },
-                {
-                    "argName": "columns",
-                    "typeName": "number",
-                    "description": "number of columns this input will take",
-                    "isOptional": True,
-                },
-                {
-                    "argName": "fullWidth",
-                    "typeName": "boolean",
-                    "description": "Whether the widget should take up the full width of the page",
-                    "isOptional": True,
-                },
-                {
-                    "argName": "placeholder",
-                    "typeName": "string",
-                    "description": "The placeholder text to display in the input",
-                    "default": "Your answer here",
-                },
-            ]
+        "optionals": {
+            "columns": {
+                "type": "number",
+                "description": "number of columns this input will take",
+            },
+            "fullWidth": {
+                "type": "boolean",
+                "description": "Whether the widget should take up the full width of the page",
+            },
+            "hint": {
+                "type": ["string", "null"],
+                "description": "message describing the input",
+                "default": None,
+            },
+            "required": {
+                "type": ["boolean", "string"],
+                "description": "Whether the input is required or not",
+                "default": True,
+            },
+            "initialValue": {
+                "type": "number",
+                "description": "The initial value of the input",
+                "default": 0,
+            },
+            "min": {"type": "number", "description": "The minimum value of the input"},
+            "max": {"type": "number", "description": "The maximun value of the input"},
+            "step": {"type": "number", "description": "The step for the input"},
+            "placeholder": {
+                "type": "string",
+                "description": "The placeholder text to display in the input",
+                "default": "Your answer here",
+            },
         },
     },
     "email-input": {
+        "name": "EmailInput",
+        "libFunc": "read_email",
         "type": "email-input",
         "description": "Read an email value from the user",
-        "pythonAPI": {
-            "name": "read_email",
-            "params": [
-                {
-                    "argName": "label",
-                    "description": "The label to display to the user",
-                    "typeName": "str",
-                    "isKwarg": False,
-                    "default": None,
-                },
-                {
-                    "argName": "initial_value",
-                    "description": 'The initial value to display to the user. Defaults to "".',
-                    "typeName": "str",
-                    "isKwarg": True,
-                    "default": '""',
-                },
-                {
-                    "argName": "placeholder",
-                    "description": 'The placeholder text to display to the user. Defaults to "Your email here".',
-                    "typeName": "str",
-                    "isKwarg": True,
-                    "default": '"Your email here"',
-                },
-                {
-                    "argName": "required",
-                    "description": 'Whether the input is required or not eg. "this field is required". Defaults to True.',
-                    "typeName": "bool or str",
-                    "isKwarg": True,
-                    "default": "True",
-                },
-                {
-                    "argName": "hint",
-                    "description": "A tooltip displayed to the user. Defaults to None.",
-                    "typeName": "str",
-                    "isKwarg": True,
-                    "default": "None",
-                },
-                {
-                    "argName": "full_width",
-                    "description": "Whether the input should use full screen width. Defaults to False.",
-                    "typeName": "bool",
-                    "isKwarg": True,
-                    "default": "False",
-                },
-                {
-                    "argName": "invalid_email_message",
-                    "typeName": "str",
-                    "description": "Invalid e-mail message",
-                    "isKwarg": True,
-                    "default": "Hmm… doesn't look like an email",
-                },
-            ],
-            "returns": [
-                {"typeName": "str", "typeDescription": "The value entered by the user"}
-            ],
+        "params": {
+            "key": {
+                "type": "string",
+                "description": "The key of the input on the returning object",
+            },
+            "label": {
+                "type": "string",
+                "description": "The label to display above the input",
+            },
+            "invalidEmailMessage": {
+                "type": "string",
+                "description": "Invalid e-mail message",
+            },
         },
-        "brokerAPI": {
-            "params": [
-                {
-                    "argName": "label",
-                    "typeName": "string",
-                    "description": "The label to display above the input",
-                },
-                {
-                    "argName": "invalidEmailMessage",
-                    "typeName": "string",
-                    "description": "Invalid e-mail message",
-                    "default": "Hmm… doesn't look like an email",
-                },
-                {
-                    "argName": "initialValue",
-                    "typeName": "string",
-                    "description": "The initial value of the input",
-                    "default": "",
-                    "isOptional": True,
-                },
-                {
-                    "argName": "key",
-                    "typeName": "string",
-                    "description": "The key of the input on the returning object",
-                },
-                {
-                    "argName": "hint",
-                    "typeName": ["string", "null"],
-                    "description": "message describing the input",
-                    "default": None,
-                    "isOptional": True,
-                },
-                {
-                    "argName": "required",
-                    "typeName": "string",
-                    "description": "Whether the input is required or not",
-                    "default": True,
-                    "isOptional": True,
-                },
-                {
-                    "argName": "columns",
-                    "typeName": "number",
-                    "description": "number of columns this input will take",
-                    "isOptional": True,
-                },
-                {
-                    "argName": "fullWidth",
-                    "typeName": "boolean",
-                    "description": "Whether the widget should take up the full width of the page",
-                    "isOptional": True,
-                },
-                {
-                    "argName": "placeholder",
-                    "typeName": "string",
-                    "description": "The placeholder text to display in the input",
-                },
-            ]
+        "optionals": {
+            "columns": {
+                "type": "number",
+                "description": "number of columns this input will take",
+            },
+            "fullWidth": {
+                "type": "boolean",
+                "description": "Whether the widget should take up the full width of the page",
+            },
+            "hint": {
+                "type": ["string", "null"],
+                "description": "message describing the input",
+                "default": None,
+            },
+            "required": {
+                "type": ["boolean", "string"],
+                "description": "Whether the input is required or not",
+                "default": True,
+            },
+            "initialValue": {
+                "type": "string",
+                "description": "The initial value of the input",
+                "default": "",
+            },
+            "placeholder": {
+                "type": "string",
+                "description": "The placeholder text to display in the input",
+                "default": "Your email here",
+            },
         },
     },
     "phone-input": {
+        "name": "PhoneInput",
+        "libFunc": "read_phone",
         "type": "phone-input",
         "description": "Read a phone value from the user",
-        "pythonAPI": {
-            "name": "read_phone",
-            "params": [
-                {
-                    "argName": "label",
-                    "description": "The label to display to the user",
-                    "typeName": "str",
-                    "isKwarg": False,
-                    "default": None,
-                },
-                {
-                    "argName": "initial_value",
-                    "description": "The initial value to display to the user. If dictionary, it contains two keys: 'country_code' (string with optional + sign or number) and 'national_number' (str or number). Ex: {'country_code': '+55', 'national_number': '21999990000'}. Defaults to \"\".",
-                    "typeName": "str or dict",
-                    "isKwarg": True,
-                    "default": '""',
-                },
-                {
-                    "argName": "placeholder",
-                    "description": 'The placeholder text to display to the user. Defaults to "".',
-                    "typeName": "str",
-                    "isKwarg": True,
-                    "default": '""',
-                },
-                {
-                    "argName": "required",
-                    "description": 'Whether the input is required or not eg. "this field is required". Defaults to True.',
-                    "typeName": "bool or str",
-                    "isKwarg": True,
-                    "default": "True",
-                },
-                {
-                    "argName": "hint",
-                    "description": "A tooltip displayed to the user. Defaults to None.",
-                    "typeName": "str",
-                    "isKwarg": True,
-                    "default": "None",
-                },
-                {
-                    "argName": "full_width",
-                    "description": "Whether the input should use full screen width. Defaults to False.",
-                    "typeName": "bool",
-                    "isKwarg": True,
-                    "default": "False",
-                },
-            ],
-            "returns": [
-                {
-                    "typeName": "PhoneResponse",
-                    "typeDescription": 'A dict containing the value entered by the user ({"raw": str, "masked": str})',
-                }
-            ],
+        "params": {
+            "key": {
+                "type": "string",
+                "description": "The key of the input on the returning object",
+            },
+            "label": {
+                "type": "string",
+                "description": "The label to display above the input",
+            },
         },
-        "brokerAPI": {
-            "params": [
-                {
-                    "argName": "label",
-                    "typeName": "string",
-                    "description": "The label of the input",
+        "optionals": {
+            "columns": {
+                "type": "number",
+                "description": "number of columns this input will take",
+            },
+            "fullWidth": {
+                "type": "boolean",
+                "description": "Whether the widget should take up the full width of the page",
+            },
+            "hint": {
+                "type": ["string", "null"],
+                "description": "message describing the input",
+                "default": None,
+            },
+            "required": {
+                "type": ["boolean", "string"],
+                "description": "Whether the input is required or not",
+                "default": True,
+            },
+            "initialValue": {
+                "type": "object",
+                "description": "The initial value of the input",
+                "properties": {
+                    "countryCode": {
+                        "type": "string",
+                        "description": "The phone number's country code",
+                    },
+                    "nationalNumber": {
+                        "type": "string",
+                        "description": "The phone number's national number",
+                    },
                 },
-                {
-                    "argName": "initialValue",
-                    "typeName": "object",
-                    "description": "The initial value of the input",
-                    "isOptional": True,
-                    "properties": [
-                        {
-                            "argName": "countryCode",
-                            "typeName": "string",
-                            "description": "The phone number's country code",
-                        },
-                        {
-                            "argName": "nationalNumber",
-                            "typeName": "string",
-                            "description": "The phone number's national number",
-                        },
-                    ],
-                },
-                {
-                    "argName": "key",
-                    "typeName": "string",
-                    "description": "The key of the input on the returning object",
-                },
-                {
-                    "argName": "hint",
-                    "typeName": ["string", "null"],
-                    "description": "message describing the input",
-                    "default": None,
-                    "isOptional": True,
-                },
-                {
-                    "argName": "required",
-                    "typeName": "string",
-                    "description": "Whether the input is required or not",
-                    "default": True,
-                    "isOptional": True,
-                },
-                {
-                    "argName": "columns",
-                    "typeName": "number",
-                    "description": "number of columns this input will take",
-                    "isOptional": True,
-                },
-                {
-                    "argName": "fullWidth",
-                    "typeName": "boolean",
-                    "description": "Whether the widget should take up the full width of the page",
-                    "isOptional": True,
-                },
-                {
-                    "argName": "placeholder",
-                    "typeName": "string",
-                    "description": "The placeholder text to display in the input",
-                    "default": "",
-                },
-            ]
+            },
+            "placeholder": {
+                "type": "string",
+                "description": "The placeholder text to display in the input",
+                "default": "",
+            },
         },
     },
     "multiple-choice-input": {
+        "name": "MultipleChoiceInput",
+        "libFunc": "read_multiple_choice",
         "type": "multiple-choice-input",
         "description": "Read a multiple choice value from the user",
-        "pythonAPI": {
-            "name": "read_multiple_choice",
-            "params": [
-                {
-                    "argName": "label",
-                    "description": "The label to display to the user",
-                    "typeName": "str",
-                    "isKwarg": False,
-                    "default": None,
-                },
-                {
-                    "argName": "options",
-                    "description": "TN options to display to the user, eg. ['Option 1', 'Option 2'] or [{'label': 'Option 1', 'value': '1'}, {'label': 'Option 2', 'value': '2'}]",
-                    "typeName": "list",
-                    "isKwarg": False,
-                    "default": None,
-                },
-                {
-                    "argName": "multiple",
-                    "description": "Whether the user can select multiple options. Defaults to False.",
-                    "typeName": "bool",
-                    "isKwarg": True,
-                    "default": "False",
-                },
-                {
-                    "argName": "min",
-                    "description": "The minimal amount of options that should be selected. Defaults to None.",
-                    "typeName": "number",
-                    "isKwarg": True,
-                    "default": "None",
-                },
-                {
-                    "argName": "max",
-                    "description": "The maximum amount of options that should be selected. Defaults to None.",
-                    "typeName": "number",
-                    "isKwarg": True,
-                    "default": "None",
-                },
-                {
-                    "argName": "initial_value",
-                    "description": "The initial value to display to the user. Defaults to None.",
-                    "typeName": None,
-                    "isKwarg": True,
-                    "default": "None",
-                },
-                {
-                    "argName": "required",
-                    "description": 'WNther the input is required or not eg. "this field is required". Defaults to True.',
-                    "typeName": "bool or str",
-                    "isKwarg": True,
-                    "default": "True",
-                },
-                {
-                    "argName": "hint",
-                    "description": "A tooltip displayed to the user. Defaults to None.",
-                    "typeName": "str",
-                    "isKwarg": True,
-                    "default": "None",
-                },
-                {
-                    "argName": "full_width",
-                    "description": "Whether the input should use full screen width. Defaults to False.",
-                    "typeName": "bool",
-                    "isKwarg": True,
-                    "default": "False",
-                },
-            ],
-            "returns": [
-                {
-                    "typeName": None,
-                    "typeDescription": "list or any: The values/value selected by the user",
-                }
-            ],
-        },
-        "brokerAPI": {
-            "params": [
-                {
-                    "argName": "label",
-                    "typeName": "string",
-                    "description": "The label to display above the input",
-                },
-                {
-                    "argName": "multiple",
-                    "typeName": "boolean",
-                    "description": "Whether the input should accept multiple answers",
-                    "default": False,
-                    "isOptional": True,
-                },
-                {
-                    "argName": "initialValue",
-                    "typeName": "any",
-                    "description": "The initial value of the input",
-                    "items": {"typeName": ["string", "number"]},
-                    "default": None,
-                    "isOptional": True,
-                },
-                {
-                    "argName": "min",
-                    "typeName": "number",
-                    "description": "The minimum number of items to allow",
-                    "default": "",
-                    "isOptional": True,
-                },
-                {
-                    "argName": "max",
-                    "typeName": "number",
-                    "description": "The maximum number of items to allow",
-                    "default": "",
-                    "isOptional": True,
-                },
-                {
-                    "argName": "key",
-                    "typeName": "string",
-                    "description": "The key of the input on the returning object",
-                },
-                {
-                    "argName": "hint",
-                    "typeName": ["string", "null"],
-                    "description": "message describing the input",
-                    "default": None,
-                    "isOptional": True,
-                },
-                {
-                    "argName": "required",
-                    "typeName": "string",
-                    "description": "Whether the input is required or not",
-                    "default": True,
-                    "isOptional": True,
-                },
-                {
-                    "argName": "columns",
-                    "typeName": "number",
-                    "description": "number of columns this input will take",
-                    "isOptional": True,
-                },
-                {
-                    "argName": "fullWidth",
-                    "typeName": "boolean",
-                    "description": "Whether the widget should take up the full width of the page",
-                    "isOptional": True,
-                },
-                {
-                    "argName": "options",
-                    "typeName": "array",
-                    "description": "The options that the user can select from",
-                    "items": {
-                        "typeName": ["string", "object"],
-                        "properties": [
-                            {
-                                "argName": "key",
-                                "typeName": "string",
-                                "description": "The key of the option on the returning object",
-                            },
-                            {
-                                "argName": "value",
-                                "typeName": "any",
-                                "description": "The value of the option on the returning object",
-                            },
-                        ],
+        "params": {
+            "key": {
+                "type": "string",
+                "description": "The key of the input on the returning object",
+            },
+            "label": {
+                "type": "string",
+                "description": "The label to display above the input",
+            },
+            "options": {
+                "type": "array",
+                "description": "The options that the user can select from",
+                "items": {
+                    "type": ["string", "object"],
+                    "properties": {
+                        "key": {
+                            "type": "string",
+                            "description": "The key of the option on the returning object",
+                        },
+                        "value": {
+                            "type": "any",
+                            "description": "The value of the option on the returning object",
+                        },
                     },
                 },
-            ]
+            },
+        },
+        "optionals": {
+            "columns": {
+                "type": "number",
+                "description": "number of columns this input will take",
+            },
+            "fullWidth": {
+                "type": "boolean",
+                "description": "Whether the widget should take up the full width of the page",
+            },
+            "hint": {
+                "type": ["string", "null"],
+                "description": "message describing the input",
+                "default": None,
+            },
+            "required": {
+                "type": ["boolean", "string"],
+                "description": "Whether the input is required or not",
+                "default": True,
+            },
+            "multiple": {
+                "type": "boolean",
+                "description": "Whether the input should accept multiple answers",
+                "default": False,
+            },
+            "min": {
+                "type": "number",
+                "description": "The minimal amount of options that should be selected",
+                "default": None,
+            },
+            "max": {
+                "type": "number",
+                "description": "The maximum amount of options that should be selected",
+                "default": None,
+            },
+            "initialValue": {
+                "type": "any",
+                "description": "The initial value of the input",
+                "items": {"type": ["string", "number"]},
+                "default": None,
+            },
         },
     },
     "date-input": {
+        "name": "DateInput",
+        "libFunc": "read_date",
         "type": "date-input",
         "description": "Read a date value from the user",
-        "pythonAPI": {
-            "name": "read_date",
-            "params": [
-                {
-                    "argName": "label",
-                    "description": "The label to display to the user",
-                    "typeName": "str",
-                    "isKwarg": False,
-                    "default": None,
-                },
-                {
-                    "argName": "initial_value",
-                    "description": "The initial value to display to the user. Defaults to None.",
-                    "typeName": "datetime.date or time.struct_time or str (YYYY-MM-DD)",
-                    "isKwarg": True,
-                    "default": "None",
-                },
-                {
-                    "argName": "required",
-                    "description": 'Whether the input is required or not eg. "this field is required". Defaults to True.',
-                    "typeName": "bool or str",
-                    "isKwarg": True,
-                    "default": "True",
-                },
-                {
-                    "argName": "hint",
-                    "description": "A tooltip displayed to the user. Defaults to None.",
-                    "typeName": "str",
-                    "isKwarg": True,
-                    "default": "None",
-                },
-                {
-                    "argName": "full_width",
-                    "description": "Whether the input should use full screen width. Defaults to False.",
-                    "typeName": "bool",
-                    "isKwarg": True,
-                    "default": "False",
-                },
-            ],
-            "returns": [
-                {
-                    "typeName": "datetime.date",
-                    "typeDescription": "The value entered by the user",
-                }
-            ],
+        "params": {
+            "key": {
+                "type": "string",
+                "description": "The key of the input on the returning object",
+            },
+            "label": {
+                "type": "string",
+                "description": "The label to display above the input",
+            },
         },
-        "brokerAPI": {
-            "params": [
-                {
-                    "argName": "label",
-                    "typeName": "string",
-                    "description": "The label to display above the input",
-                },
-                {
-                    "argName": "initialValue",
-                    "typeName": "string",
-                    "description": "The initial value of the input",
-                    "default": None,
-                },
-                {
-                    "argName": "key",
-                    "typeName": "string",
-                    "description": "The key of the input on the returning object",
-                },
-                {
-                    "argName": "hint",
-                    "typeName": ["string", "null"],
-                    "description": "message describing the input",
-                    "default": None,
-                    "isOptional": True,
-                },
-                {
-                    "argName": "required",
-                    "typeName": "string",
-                    "description": "Whether the input is required or not",
-                    "default": True,
-                    "isOptional": True,
-                },
-                {
-                    "argName": "columns",
-                    "typeName": "number",
-                    "description": "number of columns this input will take",
-                    "isOptional": True,
-                },
-                {
-                    "argName": "fullWidth",
-                    "typeName": "boolean",
-                    "description": "Whether the widget should take up the full width of the page",
-                    "isOptional": True,
-                },
-            ]
+        "optionals": {
+            "columns": {
+                "type": "number",
+                "description": "number of columns this input will take",
+            },
+            "fullWidth": {
+                "type": "boolean",
+                "description": "Whether the widget should take up the full width of the page",
+            },
+            "hint": {
+                "type": ["string", "null"],
+                "description": "message describing the input",
+                "default": None,
+            },
+            "required": {
+                "type": ["boolean", "string"],
+                "description": "Whether the input is required or not",
+                "default": True,
+            },
+            "initialValue": {
+                "type": "string",
+                "description": "The initial value of the input",
+                "default": None,
+            },
         },
     },
     "dropdown-input": {
+        "name": "DropdownInput",
+        "libFunc": "read_dropdown",
         "type": "dropdown-input",
         "description": "Read a dropdown value from the user",
-        "pythonAPI": {
-            "name": "DropdownInput",
-            "params": [
-                {
-                    "argName": "label",
-                    "description": "The label to display to the user",
-                    "typeName": "str",
-                    "isKwarg": False,
-                    "default": None,
-                },
-                {
-                    "argName": "options",
-                    "description": "The options to display to the user, eg. ['Option 1', 'Option 2'] or [{'label': 'Option 1', 'value': '1'}, {'label': 'Option 2', 'value': '2'}]",
-                    "typeName": "list",
-                    "isKwarg": False,
-                    "default": None,
-                },
-                {
-                    "argName": "multiple",
-                    "description": "Whether the user can select multiple options. Defaults to False.",
-                    "typeName": "bool",
-                    "isKwarg": True,
-                    "default": "False",
-                },
-                {
-                    "argName": "initial_value",
-                    "description": "The initial value to display to the user. Defaults to None.",
-                    "typeName": None,
-                    "isKwarg": True,
-                    "default": "None",
-                },
-                {
-                    "argName": "placeholder",
-                    "description": 'The placeholder text to display to the user. Defaults to "Choose an option".',
-                    "typeName": "str",
-                    "isKwarg": True,
-                    "default": '"Choose an option"',
-                },
-                {
-                    "argName": "required",
-                    "description": 'Whether the input is required or not eg. "this field is required". Defaults to True.',
-                    "typeName": "bool or str",
-                    "isKwarg": True,
-                    "default": "True",
-                },
-                {
-                    "argName": "hint",
-                    "description": "A tooltip displayed to the user. Defaults to None.",
-                    "typeName": "str",
-                    "isKwarg": True,
-                    "default": "None",
-                },
-                {
-                    "argName": "full_width",
-                    "description": "Whether the input should use full screen width. Defaults to False.",
-                    "typeName": "bool",
-                    "isKwarg": True,
-                    "default": "False",
-                },
-            ],
-            "returns": [
-                {"typeName": "str", "typeDescription": "The value selected by the user"}
-            ],
-        },
-        "brokerAPI": {
-            "params": [
-                {
-                    "argName": "label",
-                    "typeName": "string",
-                    "description": "The label to display above the input",
-                },
-                {
-                    "argName": "initialValue",
-                    "typeName": "any",
-                    "description": "The initial value of the input",
-                    "items": {"typeName": ["string", "number"]},
-                    "isOptional": True,
-                },
-                {
-                    "argName": "key",
-                    "typeName": "string",
-                    "description": "The key of the input on the returning object",
-                },
-                {
-                    "argName": "hint",
-                    "typeName": ["string", "null"],
-                    "description": "message describing the input",
-                    "default": None,
-                    "isOptional": True,
-                },
-                {
-                    "argName": "required",
-                    "typeName": "string",
-                    "description": "Whether the input is required or not",
-                    "default": True,
-                    "isOptional": True,
-                },
-                {
-                    "argName": "columns",
-                    "typeName": "number",
-                    "description": "number of columns this input will take",
-                    "isOptional": True,
-                },
-                {
-                    "argName": "fullWidth",
-                    "typeName": "boolean",
-                    "description": "Whether the widget should take up the full width of the page",
-                    "isOptional": True,
-                },
-                {
-                    "argName": "options",
-                    "typeName": "array",
-                    "description": "The options that the user can select from",
-                    "items": {
-                        "typeName": ["string", "object"],
-                        "properties": [
-                            {
-                                "argName": "key",
-                                "typeName": "string",
-                                "description": "The key of the option on the returning object",
-                            },
-                            {
-                                "argName": "value",
-                                "typeName": "any",
-                                "description": "The value of the option on the returning object",
-                            },
-                        ],
+        "params": {
+            "key": {
+                "type": "string",
+                "description": "The key of the input on the returning object",
+            },
+            "label": {
+                "type": "string",
+                "description": "The label to display above the input",
+            },
+            "options": {
+                "type": "array",
+                "description": "The options that the user can select from",
+                "items": {
+                    "type": ["string", "object"],
+                    "properties": {
+                        "key": {
+                            "type": "string",
+                            "description": "The key of the option on the returning object",
+                        },
+                        "value": {
+                            "type": "any",
+                            "description": "The value of the option on the returning object",
+                        },
                     },
                 },
-                {
-                    "argName": "placeholder",
-                    "typeName": "string",
-                    "description": "The placeholder text to display in the input",
-                },
-            ]
+            },
+        },
+        "optionals": {
+            "columns": {
+                "type": "number",
+                "description": "number of columns this input will take",
+            },
+            "fullWidth": {
+                "type": "boolean",
+                "description": "Whether the widget should take up the full width of the page",
+            },
+            "hint": {
+                "type": ["string", "null"],
+                "description": "message describing the input",
+                "default": None,
+            },
+            "required": {
+                "type": ["boolean", "string"],
+                "description": "Whether the input is required or not",
+                "default": True,
+            },
+            "initialValue": {
+                "type": "any",
+                "description": "The initial value of the input",
+                "items": {"type": ["string", "number"]},
+            },
+            "placeholder": {
+                "type": "string",
+                "description": "The placeholder text to display in the input",
+                "default": "Choose your option",
+            },
+            "multiple": {
+                "type": "boolean",
+                "description": "Whether the input should accept multiple answers",
+                "default": False,
+            },
         },
     },
     "list-input": {
+        "name": "ListInput",
+        "libFunc": "read_list",
         "type": "list-input",
         "description": "Read a list value from the user",
-        "pythonAPI": {
-            "name": "read_list",
-            "params": [
-                {
-                    "argName": "item_schema",
-                    "description": "The schema for the items of the list",
-                    "typeName": "ListItemSchema",
-                    "isKwarg": False,
-                    "default": None,
-                },
-                {
-                    "argName": "initial_value",
-                    "description": "The initial value to display to the user. Defaults to [{}].",
-                    "typeName": "any",
-                    "isKwarg": True,
-                    "default": "[{}]",
-                },
-                {
-                    "argName": "hint",
-                    "description": "A tooltip displayed to the user. Defaults to None.",
-                    "typeName": "str",
-                    "isKwarg": True,
-                    "default": "None",
-                },
-                {
-                    "argName": "full_width",
-                    "description": "Whether the input should use full screen width. Defaults to False.",
-                    "typeName": "bool",
-                    "isKwarg": True,
-                    "default": "False",
-                },
-                {
-                    "argName": "min",
-                    "description": "Min value accepted by the input. Defaults to None.",
-                    "typeName": "float",
-                    "isKwarg": True,
-                    "default": "None",
-                },
-                {
-                    "argName": "max",
-                    "description": "Max value accepted by the input. Defaults to None.",
-                    "typeName": "float",
-                    "isKwarg": True,
-                    "default": "None",
-                },
-                {
-                    "argName": "add_button_text",
-                    "description": 'Label to be displayed on the add button. Defaults to "+".',
-                    "typeName": "str",
-                    "isKwarg": True,
-                    "default": '"+"',
-                },
-            ],
-            "returns": [
-                {
-                    "typeName": "list",
-                    "typeDescription": "The values entered by the user",
-                }
-            ],
+        "params": {
+            "key": {
+                "type": "string",
+                "description": "The key of the input on the returning object",
+            },
+            "itemSchema": {"type": "any"},
         },
-        "brokerAPI": {
-            "params": [
-                {"argName": "itemSchema", "typeName": "any", "description": ""},
-                {
-                    "argName": "initialValue",
-                    "typeName": "array",
-                    "description": "",
-                    "default": [{}],
-                    "isOptional": True,
-                },
-                {
-                    "argName": "min",
-                    "typeName": "number",
-                    "description": "The minimum number of items to allow",
-                    "default": "",
-                    "isOptional": True,
-                },
-                {
-                    "argName": "max",
-                    "typeName": "number",
-                    "description": "The maximum number of items to allow",
-                    "default": "",
-                    "isOptional": True,
-                },
-                {
-                    "argName": "addButtonText",
-                    "typeName": "string",
-                    "description": "The text to display on the add button",
-                    "isOptional": True,
-                },
-                {
-                    "argName": "overloadedItemSchemas",
-                    "typeName": "any",
-                    "description": "",
-                    "isOptional": True,
-                },
-                {
-                    "argName": "key",
-                    "typeName": "string",
-                    "description": "The key of the input on the returning object",
-                },
-                {
-                    "argName": "hint",
-                    "typeName": ["string", "null"],
-                    "description": "message describing the input",
-                    "default": None,
-                    "isOptional": True,
-                },
-                {
-                    "argName": "required",
-                    "typeName": "string",
-                    "description": "Whether the input is required or not",
-                    "default": True,
-                    "isOptional": True,
-                },
-                {
-                    "argName": "columns",
-                    "typeName": "number",
-                    "description": "number of columns this input will take",
-                    "isOptional": True,
-                },
-                {
-                    "argName": "fullWidth",
-                    "typeName": "boolean",
-                    "description": "Whether the widget should take up the full width of the page",
-                    "isOptional": True,
-                },
-            ]
+        "optionals": {
+            "columns": {
+                "type": "number",
+                "description": "number of columns this input will take",
+            },
+            "fullWidth": {
+                "type": "boolean",
+                "description": "Whether the widget should take up the full width of the page",
+            },
+            "hint": {
+                "type": ["string", "null"],
+                "description": "message describing the input",
+                "default": None,
+            },
+            "required": {
+                "type": ["boolean", "string"],
+                "description": "Whether the input is required or not",
+                "default": True,
+            },
+            "initialValue": {"type": "array", "default": [{}]},
+            "min": {
+                "type": "number",
+                "description": "The minimum number of items to allow",
+                "default": "",
+            },
+            "max": {
+                "type": "number",
+                "description": "The maximum number of items to allow",
+                "default": "",
+            },
+            "addButtonText": {
+                "type": "string",
+                "description": "The text to display on the add button",
+            },
+            "overloadedItemSchemas": {"type": "any"},
         },
     },
     "cards-input": {
+        "name": "CardsInput",
+        "libFunc": "read_cards",
         "type": "cards-input",
         "description": "Read a text value from the user simple text input",
-        "pythonAPI": {
-            "name": "read_cards",
-            "params": [
-                {
-                    "argName": "label",
-                    "description": "The text related to this field",
-                    "typeName": "str",
-                    "isKwarg": False,
-                    "default": None,
+        "params": {
+            "key": {
+                "type": "string",
+                "description": "The key of the input on the returning object",
+            },
+            "label": {"type": "string", "description": "The label of the input"},
+            "options": {
+                "type": "array",
+                "description": "The options that the user can select from",
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "title": {"type": "string"},
+                        "image": {"type": "string"},
+                        "description": {"type": "string"},
+                    },
                 },
-                {
-                    "argName": "options",
-                    "description": "The options to display to the user, eg. [\n{'title': 'Option 1', 'image': 'https://image_1.png', 'description': 'option 1 description'},\n{'title': 'Option 2', 'image': 'https://image_2.png', 'description': 'option 2 description'}]",
-                    "typeName": "list",
-                    "isKwarg": False,
-                    "default": None,
-                },
-                {
-                    "argName": "multiple",
-                    "description": "Whether the user can select multiple options. Defaults to False.",
-                    "typeName": "bool",
-                    "isKwarg": True,
-                    "default": "False",
-                },
-                {
-                    "argName": "initial_value",
-                    "description": "The initial value to display to the user. Defaults to None.",
-                    "typeName": "list",
-                    "isKwarg": True,
-                    "default": "None",
-                },
-                {
-                    "argName": "required",
-                    "description": 'Whether the input is required or not eg. "this field is required". Defaults to True.',
-                    "typeName": "bool or str",
-                    "isKwarg": True,
-                    "default": "True",
-                },
-                {
-                    "argName": "hint",
-                    "description": "A tooltip displayed to the user. Defaults to None.",
-                    "typeName": "str",
-                    "isKwarg": True,
-                    "default": "None",
-                },
-                {
-                    "argName": "searchable",
-                    "description": "Whether to show a search bar. Defaults to False.",
-                    "typeName": "bool",
-                    "isKwarg": True,
-                    "default": "False",
-                },
-                {
-                    "argName": "full_width",
-                    "description": "Whether the input should use full screen width. Defaults to False.",
-                    "typeName": "bool",
-                    "isKwarg": True,
-                    "default": "False",
-                },
-                {
-                    "argName": "direction",
-                    "description": "Whether the cards direction should be 'horizontal' or 'vertical'. Defaults to 'vertical'.",
-                    "typeName": "str",
-                    "isKwarg": True,
-                    "default": "'vertical'",
-                },
-            ],
-            "returns": [
-                {
-                    "typeName": None,
-                    "typeDescription": "list, any: The options/option selected by the user",
-                }
-            ],
+            },
         },
-        "brokerAPI": {
-            "params": [
-                {
-                    "argName": "label",
-                    "typeName": "string",
-                    "description": "The label of the input",
-                },
-                {
-                    "argName": "options",
-                    "typeName": "array",
-                    "description": "The options that the user can select from",
-                    "items": {
-                        "typeName": "object",
-                        "properties": [
-                            {
-                                "argName": "title",
-                                "typeName": "string",
-                                "description": "",
-                            },
-                            {
-                                "argName": "image",
-                                "typeName": "string",
-                                "description": "",
-                            },
-                            {
-                                "argName": "description",
-                                "typeName": "string",
-                                "description": "",
-                            },
-                        ],
+        "optionals": {
+            "columns": {
+                "type": "number",
+                "description": "number of columns this input will take",
+            },
+            "fullWidth": {
+                "type": "boolean",
+                "description": "Whether the widget should take up the full width of the page",
+            },
+            "hint": {
+                "type": ["string", "null"],
+                "description": "message describing the input",
+                "default": None,
+            },
+            "required": {
+                "type": ["boolean", "string"],
+                "description": "Whether the input is required or not",
+                "default": True,
+            },
+            "multiple": {
+                "type": "boolean",
+                "description": "Whether the input can have multiple values",
+                "default": False,
+            },
+            "searchable": {"type": "boolean", "description": "Display a search input"},
+            "initialValue": {
+                "type": ["object", "array", "null"],
+                "description": "The initial value of the input",
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "title": {"type": "string"},
+                        "image": {"type": "string"},
+                        "description": {"type": "string"},
                     },
-                },
-                {
-                    "argName": "multiple",
-                    "typeName": "boolean",
-                    "description": "Whether the input can have multiple values",
-                    "default": False,
-                    "isOptional": True,
-                },
-                {
-                    "argName": "searchable",
-                    "typeName": "boolean",
-                    "description": "Display a search input",
-                    "isOptional": True,
-                },
-                {
-                    "argName": "initialValue",
-                    "typeName": ["object", "array", "null"],
-                    "description": "The initial value of the input",
-                    "isOptional": True,
-                    "items": {
-                        "typeName": "object",
-                        "properties": [
-                            {
-                                "argName": "title",
-                                "typeName": "string",
-                                "description": "",
-                            },
-                            {
-                                "argName": "image",
-                                "typeName": "string",
-                                "description": "",
-                            },
-                            {
-                                "argName": "description",
-                                "typeName": "string",
-                                "description": "",
-                            },
-                        ],
-                        "default": None,
-                    },
-                },
-                {
-                    "argName": "direction",
-                    "typeName": "string",
-                    "description": "Whether the cards direction should be 'horizontal' or 'vertical'",
-                    "oneOf": ["horizontal", "vertical"],
-                    "default": "vertical",
-                    "isOptional": True,
-                },
-                {
-                    "argName": "key",
-                    "typeName": "string",
-                    "description": "The key of the input on the returning object",
-                },
-                {
-                    "argName": "hint",
-                    "typeName": ["string", "null"],
-                    "description": "message describing the input",
                     "default": None,
-                    "isOptional": True,
                 },
-                {
-                    "argName": "required",
-                    "typeName": "string",
-                    "description": "Whether the input is required or not",
-                    "default": True,
-                    "isOptional": True,
+                "properties": {
+                    "title": {"type": "string"},
+                    "image": {"type": "string"},
+                    "description": {"type": "string"},
                 },
-                {
-                    "argName": "columns",
-                    "typeName": "number",
-                    "description": "number of columns this input will take",
-                    "isOptional": True,
-                },
-                {
-                    "argName": "fullWidth",
-                    "typeName": "boolean",
-                    "description": "Whether the widget should take up the full width of the page",
-                    "isOptional": True,
-                },
-            ]
+            },
+            "direction": {
+                "type": "string",
+                "oneOf": ["horizontal", "vertical"],
+                "description": "Whether the cards direction should be 'horizontal' or 'vertical'",
+                "default": "vertical",
+            },
         },
     },
     "pandas-row-selection-input": {
+        "name": "PandasRowSelectionInput",
+        "libFunc": "read_pandas_row_selection",
         "type": "pandas-row-selection-input",
-        "description": "Display a pandas dataframe as a table and allow the user to select rows",
-        "pythonAPI": {
-            "name": "read_pandas_row_selection",
-            "params": [
-                {
-                    "argName": "df",
-                    "description": "The pandas dataframe to be displayed",
-                    "typeName": "pandas.DataFrame",
-                    "isKwarg": False,
-                    "default": None,
+        "description": "",
+        "params": {
+            "key": {
+                "type": "string",
+                "description": "The key of the input on the returning object",
+            },
+            "table": {
+                "type": "object",
+                "properties": {
+                    "data": {"type": "array"},
+                    "schema": {
+                        "type": "object",
+                        "properties": {"fields": {"type": "array"}},
+                    },
                 },
-                {
-                    "argName": "required",
-                    "description": "Whether the input is required or not. Defaults to True.",
-                    "typeName": None,
-                    "isKwarg": True,
-                    "default": "True",
-                },
-                {
-                    "argName": "hint",
-                    "description": "A tooltip displayed to the user. Defaults to None.",
-                    "typeName": "str",
-                    "isKwarg": True,
-                    "default": "None",
-                },
-                {
-                    "argName": "full_width",
-                    "description": "Whether the input should use full screen width. Defaults to False.",
-                    "typeName": "bool",
-                    "isKwarg": True,
-                    "default": "False",
-                },
-            ],
-            "returns": [
-                {"typeName": "list", "typeDescription": "The list of selected rows"}
-            ],
+            },
         },
-        "brokerAPI": {
-            "params": [
-                {
-                    "argName": "table",
-                    "typeName": "object",
-                    "description": "",
-                    "properties": [
-                        {"argName": "data", "typeName": "array", "description": ""},
-                        {
-                            "argName": "schema",
-                            "typeName": "object",
-                            "description": "",
-                            "properties": [
-                                {
-                                    "argName": "fields",
-                                    "typeName": "array",
-                                    "description": "",
-                                }
-                            ],
-                        },
-                    ],
+        "optionals": {
+            "columns": {
+                "type": "number",
+                "description": "number of columns this input will take",
+            },
+            "fullWidth": {
+                "type": "boolean",
+                "description": "Whether the widget should take up the full width of the page",
+            },
+            "hint": {
+                "type": ["string", "null"],
+                "description": "message describing the input",
+                "default": None,
+            },
+            "required": {
+                "type": ["boolean", "string"],
+                "description": "Whether the input is required or not",
+                "default": True,
+            },
+        },
+    },
+    "html-list-input": {
+        "name": "HtmlListInput",
+        "libFunc": "read_html_list",
+        "type": "html-list-input",
+        "description": "Read a list of html values from the user ",
+        "params": {
+            "key": {
+                "type": "string",
+                "description": "The key of the input on the returning object",
+            },
+            "label": {"type": "string", "description": "The label of the input"},
+            "options": {
+                "type": "array",
+                "description": "The options that the user can select from",
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "html": {"type": "string"},
+                        "value": {"type": "string"},
+                    },
                 },
-                {
-                    "argName": "key",
-                    "typeName": "string",
-                    "description": "The key of the input on the returning object",
-                },
-                {
-                    "argName": "hint",
-                    "typeName": ["string", "null"],
-                    "description": "message describing the input",
+            },
+        },
+        "optionals": {
+            "columns": {
+                "type": "number",
+                "description": "number of columns this input will take",
+            },
+            "fullWidth": {
+                "type": "boolean",
+                "description": "Whether the widget should take up the full width of the page",
+            },
+            "hint": {
+                "type": ["string", "null"],
+                "description": "message describing the input",
+                "default": None,
+            },
+            "required": {
+                "type": ["boolean", "string"],
+                "description": "Whether the input is required or not",
+                "default": True,
+            },
+            "multiple": {
+                "type": "boolean",
+                "description": "Whether the input can have multiple values",
+                "default": False,
+            },
+            "css": {"type": "string"},
+            "initialValue": {
+                "type": ["object", "array", "null"],
+                "description": "The initial value of the input",
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "html": {"type": "string"},
+                        "value": {"type": "string"},
+                    },
                     "default": None,
-                    "isOptional": True,
                 },
-                {
-                    "argName": "required",
-                    "typeName": "string",
-                    "description": "Whether the input is required or not",
-                    "default": True,
-                    "isOptional": True,
-                },
-                {
-                    "argName": "columns",
-                    "typeName": "number",
-                    "description": "number of columns this input will take",
-                    "isOptional": True,
-                },
-                {
-                    "argName": "fullWidth",
-                    "typeName": "boolean",
-                    "description": "Whether the widget should take up the full width of the page",
-                    "isOptional": True,
-                },
-            ]
+                "properties": {"html": {"type": "string"}, "value": {"type": "string"}},
+            },
         },
     },
     "time-input": {
+        "name": "TimeInput",
+        "libFunc": "read_time",
         "type": "time-input",
         "description": "Read a time value from the user",
-        "pythonAPI": {
-            "name": "read_time",
-            "params": [
-                {
-                    "argName": "label",
-                    "description": "The label to display to the user",
-                    "typeName": "str",
-                    "isKwarg": False,
-                    "default": None,
-                },
-                {
-                    "argName": "initial_value",
-                    "description": 'The initial value to display to the user. Defaults to "".',
-                    "typeName": "str",
-                    "isKwarg": True,
-                    "default": '""',
-                },
-                {
-                    "argName": "required",
-                    "description": 'Whether the input is required or not eg. "this field is required". Defaults to True.',
-                    "typeName": "bool or str",
-                    "isKwarg": True,
-                    "default": "True",
-                },
-                {
-                    "argName": "format",
-                    "description": 'Whether the input is in the format 24hs or AM/PM. Defaults to "24hs".',
-                    "typeName": "str",
-                    "isKwarg": True,
-                    "default": '"24hs"',
-                },
-                {
-                    "argName": "hint",
-                    "description": "A tooltip displayed to the user. Defaults to None.",
-                    "typeName": "str",
-                    "isKwarg": True,
-                    "default": "None",
-                },
-                {
-                    "argName": "full_width",
-                    "description": "Whether the input should use full screen width. Defaults to False.",
-                    "typeName": "bool",
-                    "isKwarg": True,
-                    "default": "False",
-                },
-            ],
-            "returns": [
-                {
-                    "typeName": "datetime.time",
-                    "typeDescription": "A datetime.time object representing the value entered by the user",
-                }
-            ],
+        "params": {
+            "key": {
+                "type": "string",
+                "description": "The key of the input on the returning object",
+            },
+            "label": {
+                "type": "string",
+                "description": "The label to display above the input",
+            },
         },
-        "brokerAPI": {
-            "params": [
-                {
-                    "argName": "label",
-                    "typeName": "string",
-                    "description": "The label of the input",
-                },
-                {
-                    "argName": "initialValue",
-                    "typeName": "string",
-                    "description": "The initial value of the input",
-                    "default": None,
-                    "isOptional": True,
-                },
-                {
-                    "argName": "format",
-                    "typeName": "string",
-                    "description": "The format of time options. 24hs (0-23) or ampm (0-12)",
-                    "default": "24hs",
-                    "isOptional": True,
-                },
-                {
-                    "argName": "key",
-                    "typeName": "string",
-                    "description": "The key of the input on the returning object",
-                },
-                {
-                    "argName": "hint",
-                    "typeName": ["string", "null"],
-                    "description": "message describing the input",
-                    "default": None,
-                    "isOptional": True,
-                },
-                {
-                    "argName": "required",
-                    "typeName": "string",
-                    "description": "Whether the input is required or not",
-                    "default": True,
-                    "isOptional": True,
-                },
-                {
-                    "argName": "columns",
-                    "typeName": "number",
-                    "description": "number of columns this input will take",
-                    "isOptional": True,
-                },
-                {
-                    "argName": "fullWidth",
-                    "typeName": "boolean",
-                    "description": "Whether the widget should take up the full width of the page",
-                    "isOptional": True,
-                },
-            ]
+        "optionals": {
+            "columns": {
+                "type": "number",
+                "description": "number of columns this input will take",
+            },
+            "fullWidth": {
+                "type": "boolean",
+                "description": "Whether the widget should take up the full width of the page",
+            },
+            "hint": {
+                "type": ["string", "null"],
+                "description": "message describing the input",
+                "default": None,
+            },
+            "required": {
+                "type": ["boolean", "string"],
+                "description": "Whether the input is required or not",
+                "default": True,
+            },
+            "initialValue": {
+                "type": "string",
+                "description": "The initial value of the input",
+                "default": None,
+            },
+            "format": {
+                "type": "string",
+                "description": "The format of time options. 24hs (0-23) or ampm (0-12)",
+                "default": "24hs",
+            },
         },
     },
     "password-input": {
+        "name": "PasswordInput",
+        "libFunc": "read_password",
         "type": "password-input",
         "description": "Read a password value from the user",
-        "pythonAPI": {
-            "name": "read_password",
-            "params": [
-                {
-                    "argName": "label",
-                    "description": "The label to display to the user",
-                    "typeName": "str",
-                    "isKwarg": False,
-                    "default": None,
-                },
-                {
-                    "argName": "placeholder",
-                    "description": 'The placeholder text to display to the user. Defaults to "".',
-                    "typeName": "str",
-                    "isKwarg": True,
-                    "default": '""',
-                },
-                {
-                    "argName": "required",
-                    "description": 'Whether the input is required or not eg. "this field is required". Defaults to True.',
-                    "typeName": "bool or str",
-                    "isKwarg": True,
-                    "default": "True",
-                },
-                {
-                    "argName": "hint",
-                    "description": "A tooltip displayed to the user. Defaults to None.",
-                    "typeName": "str",
-                    "isKwarg": True,
-                    "default": "None",
-                },
-                {
-                    "argName": "full_width",
-                    "description": "Whether the input should use full screen width. Defaults to False.",
-                    "typeName": "bool",
-                    "isKwarg": True,
-                    "default": "False",
-                },
-                {
-                    "argName": "lowercase_required",
-                    "description": "Whether the input must have at least one lowercase character. Defaults to True.",
-                    "typeName": "bool or str",
-                    "isKwarg": True,
-                    "default": "True",
-                },
-                {
-                    "argName": "uppercase_required",
-                    "description": "Whether the input must have at least one uppercase character. Defaults to True.",
-                    "typeName": "bool or str",
-                    "isKwarg": True,
-                    "default": "True",
-                },
-                {
-                    "argName": "special_required",
-                    "description": "Whether the input must have at least one special character. Defaults to True.",
-                    "typeName": "bool or str",
-                    "isKwarg": True,
-                    "default": "True",
-                },
-                {
-                    "argName": "digit_required",
-                    "description": "Whether the input must have at least one digit. Defaults to True.",
-                    "typeName": "bool or str",
-                    "isKwarg": True,
-                    "default": "True",
-                },
-                {
-                    "argName": "min_length",
-                    "description": "Minimum length of the password. Defaults to 8.",
-                    "typeName": "int",
-                    "isKwarg": True,
-                    "default": "8",
-                },
-                {
-                    "argName": "max_length",
-                    "description": "Maximum length of the password. Defaults to None.",
-                    "typeName": "int",
-                    "isKwarg": True,
-                    "default": "None",
-                },
-                {
-                    "argName": "size",
-                    "description": "Size of the password. Defaults to None.",
-                    "typeName": "int",
-                    "isKwarg": True,
-                    "default": "None",
-                },
-                {
-                    "argName": "pattern",
-                    "description": "A regex pattern for the accepted password. Defaults to None.",
-                    "typeName": "str",
-                    "isKwarg": True,
-                    "default": "None",
-                },
-                {
-                    "argName": "autocomplete",
-                    "description": 'The autocomplete HTML attribute. Defaults to "current-password".',
-                    "typeName": "str",
-                    "isKwarg": True,
-                    "default": '"current-password"',
-                },
-            ],
-            "returns": [
-                {"typeName": "str", "typeDescription": "The value entered by the user"}
-            ],
+        "params": {
+            "key": {
+                "type": "string",
+                "description": "The key of the input on the returning object",
+            },
+            "label": {
+                "type": "string",
+                "description": "The label to display above the input",
+            },
         },
-        "brokerAPI": {
-            "params": [
-                {
-                    "argName": "label",
-                    "typeName": "string",
-                    "description": "The label of the input",
-                },
-                {
-                    "argName": "lowercaseRequired",
-                    "typeName": ["boolean", "string"],
-                    "description": "Whether the input must have at least one lowercase character",
-                    "default": True,
-                    "isOptional": True,
-                },
-                {
-                    "argName": "uppercaseRequired",
-                    "typeName": ["boolean", "string"],
-                    "description": "Whether the input must have at least one uppercase character",
-                    "default": True,
-                    "isOptional": True,
-                },
-                {
-                    "argName": "specialRequired",
-                    "typeName": ["boolean", "string"],
-                    "description": "Whether the input must have at least one special character",
-                    "default": True,
-                    "isOptional": True,
-                },
-                {
-                    "argName": "digitRequired",
-                    "typeName": ["boolean", "string"],
-                    "description": "Whether the input must have at least one digit",
-                    "default": True,
-                    "isOptional": True,
-                },
-                {
-                    "argName": "minLength",
-                    "typeName": "number",
-                    "description": "Minimum length of the password",
-                    "default": 8,
-                    "isOptional": True,
-                },
-                {
-                    "argName": "maxLength",
-                    "typeName": ["number", "null"],
-                    "description": "Maximum length of the password",
-                    "default": None,
-                    "isOptional": True,
-                },
-                {
-                    "argName": "size",
-                    "typeName": ["number", "null"],
-                    "description": "Size of the password",
-                    "default": None,
-                    "isOptional": True,
-                },
-                {
-                    "argName": "pattern",
-                    "typeName": ["string", "null"],
-                    "description": "A regex pattern for the accepted password",
-                    "default": None,
-                    "isOptional": True,
-                },
-                {
-                    "argName": "autocomplete",
-                    "typeName": "string",
-                    "description": "Allow the user's password manager to automatically enter the password",
-                    "default": "current-password",
-                    "isOptional": True,
-                },
-                {
-                    "argName": "key",
-                    "typeName": "string",
-                    "description": "The key of the input on the returning object",
-                },
-                {
-                    "argName": "hint",
-                    "typeName": ["string", "null"],
-                    "description": "message describing the input",
-                    "default": None,
-                    "isOptional": True,
-                },
-                {
-                    "argName": "required",
-                    "typeName": "string",
-                    "description": "Whether the input is required or not",
-                    "default": True,
-                    "isOptional": True,
-                },
-                {
-                    "argName": "columns",
-                    "typeName": "number",
-                    "description": "number of columns this input will take",
-                    "isOptional": True,
-                },
-                {
-                    "argName": "fullWidth",
-                    "typeName": "boolean",
-                    "description": "Whether the widget should take up the full width of the page",
-                    "isOptional": True,
-                },
-                {
-                    "argName": "placeholder",
-                    "typeName": "string",
-                    "description": "The placeholder text to display in the input",
-                },
-            ]
+        "optionals": {
+            "columns": {
+                "type": "number",
+                "description": "number of columns this input will take",
+            },
+            "fullWidth": {
+                "type": "boolean",
+                "description": "Whether the widget should take up the full width of the page",
+            },
+            "hint": {
+                "type": ["string", "null"],
+                "description": "message describing the input",
+                "default": None,
+            },
+            "required": {
+                "type": ["boolean", "string"],
+                "description": "Whether the input is required or not",
+                "default": True,
+            },
+            "placeholder": {
+                "type": "string",
+                "description": "The placeholder text to display in the input",
+                "default": "Your password here",
+            },
+            "lowercaseRequired": {
+                "type": ["boolean", "string"],
+                "description": "Whether the input must have at least one lowercase character",
+                "default": True,
+            },
+            "uppercaseRequired": {
+                "type": ["boolean", "string"],
+                "description": "Whether the input must have at least one uppercase character",
+                "default": True,
+            },
+            "specialRequired": {
+                "type": ["boolean", "string"],
+                "description": "Whether the input must have at least one special character",
+                "default": True,
+            },
+            "digitRequired": {
+                "type": ["boolean", "string"],
+                "description": "Whether the input must have at least one digit",
+                "default": True,
+            },
+            "minLength": {
+                "type": "number",
+                "description": "Minimum length of the password",
+                "default": 8,
+            },
+            "maxLength": {
+                "type": ["number", "null"],
+                "description": "Maximum length of the password",
+                "default": None,
+            },
+            "size": {
+                "type": ["number", "null"],
+                "description": "Size of the password",
+                "default": None,
+            },
+            "pattern": {
+                "type": ["string", "null"],
+                "description": "A regex pattern for the accepted password",
+                "default": None,
+            },
+            "autocomplete": {
+                "type": "string",
+                "description": "Allow the user's password manager to automatically enter the password",
+                "default": "current-password",
+            },
         },
     },
     "code-input": {
+        "name": "CodeInput",
+        "libFunc": "read_code",
         "type": "code-input",
         "description": "Read a piece of code from the user",
-        "pythonAPI": {
-            "name": "read_code",
-            "params": [
-                {
-                    "argName": "label",
-                    "description": "The label to display to the user",
-                    "typeName": "str",
-                    "isKwarg": False,
-                    "default": None,
-                },
-                {
-                    "argName": "initial_value",
-                    "description": 'The initial value to display to the user. Defaults to "".',
-                    "typeName": "str",
-                    "isKwarg": True,
-                    "default": '""',
-                },
-                {
-                    "argName": "required",
-                    "description": 'Whether the input is required or not eg. "this field is required". Defaults to True.',
-                    "typeName": "bool or str",
-                    "isKwarg": True,
-                    "default": "True",
-                },
-                {
-                    "argName": "language",
-                    "description": "The programming language. Defaults to None.",
-                    "typeName": "str",
-                    "isKwarg": True,
-                    "default": "None",
-                },
-                {
-                    "argName": "hint",
-                    "description": "A tooltip displayed to the user. Defaults to None.",
-                    "typeName": "str",
-                    "isKwarg": True,
-                    "default": "None",
-                },
-                {
-                    "argName": "full_width",
-                    "description": "Whether the input should use full screen width. Defaults to False.",
-                    "typeName": "bool",
-                    "isKwarg": True,
-                    "default": "False",
-                },
-            ],
-            "returns": [
-                {"typeName": "str", "typeDescription": "The value entered by the user"}
-            ],
+        "params": {
+            "key": {
+                "type": "string",
+                "description": "The key of the input on the returning object",
+            },
+            "label": {"type": "string", "description": "The label of the input"},
         },
-        "brokerAPI": {
-            "params": [
-                {
-                    "argName": "label",
-                    "typeName": "string",
-                    "description": "The label of the input",
-                },
-                {
-                    "argName": "language",
-                    "typeName": "string",
-                    "description": "Programming language for syntax highlighting",
-                    "isOptional": True,
-                },
-                {
-                    "argName": "initialValue",
-                    "typeName": "string",
-                    "description": "The initial value of the input",
-                    "default": "",
-                    "isOptional": True,
-                },
-                {
-                    "argName": "key",
-                    "typeName": "string",
-                    "description": "The key of the input on the returning object",
-                },
-                {
-                    "argName": "hint",
-                    "typeName": ["string", "null"],
-                    "description": "message describing the input",
-                    "default": None,
-                    "isOptional": True,
-                },
-                {
-                    "argName": "required",
-                    "typeName": "string",
-                    "description": "Whether the input is required or not",
-                    "default": True,
-                    "isOptional": True,
-                },
-                {
-                    "argName": "columns",
-                    "typeName": "number",
-                    "description": "number of columns this input will take",
-                    "isOptional": True,
-                },
-                {
-                    "argName": "fullWidth",
-                    "typeName": "boolean",
-                    "description": "Whether the widget should take up the full width of the page",
-                    "isOptional": True,
-                },
-            ]
+        "optionals": {
+            "columns": {
+                "type": "number",
+                "description": "number of columns this input will take",
+            },
+            "fullWidth": {
+                "type": "boolean",
+                "description": "Whether the widget should take up the full width of the page",
+            },
+            "hint": {
+                "type": ["string", "null"],
+                "description": "message describing the input",
+                "default": None,
+            },
+            "required": {
+                "type": ["boolean", "string"],
+                "description": "Whether the input is required or not",
+                "default": True,
+            },
+            "language": {
+                "type": "string",
+                "description": "Programming language for syntax highlighting",
+            },
+            "initialValue": {
+                "type": "string",
+                "description": "The initial value of the input",
+                "default": "",
+            },
         },
     },
     "nps-input": {
+        "name": "NpsInput",
+        "libFunc": "read_nps",
         "type": "nps-input",
         "description": "Gets NPS feedback from user",
-        "pythonAPI": {
-            "name": "read_nps",
-            "params": [
-                {
-                    "argName": "label",
-                    "description": "The label to display to the user",
-                    "typeName": "str",
-                    "isKwarg": False,
-                    "default": None,
-                },
-                {
-                    "argName": "min",
-                    "description": "Min value accepted by the input. Defaults to 0.",
-                    "typeName": "int",
-                    "isKwarg": True,
-                    "default": "0",
-                },
-                {
-                    "argName": "max",
-                    "description": "Max value accepted by the input. Defaults to 10.",
-                    "typeName": "int",
-                    "isKwarg": True,
-                    "default": "10",
-                },
-                {
-                    "argName": "min_hint",
-                    "description": 'Text to display next to the min value. Defaults to "Not at all likely".',
-                    "typeName": "str",
-                    "isKwarg": True,
-                    "default": '"Not at all likely"',
-                },
-                {
-                    "argName": "max_hint",
-                    "description": 'Text to display next to the max value. Defaults to "Extremely likely".',
-                    "typeName": "str",
-                    "isKwarg": True,
-                    "default": '"Extremely likely"',
-                },
-                {
-                    "argName": "initial_value",
-                    "description": "The initial value to display to the user. Defaults to None.",
-                    "typeName": "str",
-                    "isKwarg": True,
-                    "default": "None",
-                },
-                {
-                    "argName": "required",
-                    "description": 'Whether the input is required or not eg. "this field is required". Defaults to True.',
-                    "typeName": "bool or str",
-                    "isKwarg": True,
-                    "default": "True",
-                },
-                {
-                    "argName": "hint",
-                    "description": "A tooltip displayed to the user. Defaults to None.",
-                    "typeName": "str",
-                    "isKwarg": True,
-                    "default": "None",
-                },
-                {
-                    "argName": "full_width",
-                    "description": "Whether the input should use full screen width. Defaults to False.",
-                    "typeName": "bool",
-                    "isKwarg": True,
-                    "default": "False",
-                },
-            ],
-            "returns": [
-                {"typeName": "int", "typeDescription": "The value entered by the user"}
-            ],
+        "params": {
+            "key": {
+                "type": "string",
+                "description": "The key of the input on the returning object",
+            },
+            "label": {"type": "string", "description": "The label of the input"},
         },
-        "brokerAPI": {
-            "params": [
-                {
-                    "argName": "min",
-                    "typeName": "number",
-                    "description": "Minimum value of NPS",
-                    "default": 0,
-                    "isOptional": True,
-                },
-                {
-                    "argName": "max",
-                    "typeName": "number",
-                    "description": "Maximum value of NPS",
-                    "default": 10,
-                    "isOptional": True,
-                },
-                {
-                    "argName": "minHint",
-                    "typeName": "string",
-                    "description": "Hint of minimum option",
-                    "default": "Not at all likely",
-                    "isOptional": True,
-                },
-                {
-                    "argName": "maxHint",
-                    "typeName": "string",
-                    "description": "Hint of maximum option",
-                    "default": "Extremely likely",
-                    "isOptional": True,
-                },
-                {
-                    "argName": "initialValue",
-                    "typeName": "number",
-                    "description": "The initial value of the input",
-                    "isOptional": True,
-                },
-                {
-                    "argName": "key",
-                    "typeName": "string",
-                    "description": "The key of the input on the returning object",
-                },
-                {
-                    "argName": "hint",
-                    "typeName": ["string", "null"],
-                    "description": "message describing the input",
-                    "default": None,
-                    "isOptional": True,
-                },
-                {
-                    "argName": "required",
-                    "typeName": "string",
-                    "description": "Whether the input is required or not",
-                    "default": True,
-                    "isOptional": True,
-                },
-                {
-                    "argName": "columns",
-                    "typeName": "number",
-                    "description": "number of columns this input will take",
-                    "isOptional": True,
-                },
-                {
-                    "argName": "fullWidth",
-                    "typeName": "boolean",
-                    "description": "Whether the widget should take up the full width of the page",
-                    "isOptional": True,
-                },
-            ]
+        "optionals": {
+            "columns": {
+                "type": "number",
+                "description": "number of columns this input will take",
+            },
+            "fullWidth": {
+                "type": "boolean",
+                "description": "Whether the widget should take up the full width of the page",
+            },
+            "hint": {
+                "type": ["string", "null"],
+                "description": "message describing the input",
+                "default": None,
+            },
+            "required": {
+                "type": ["boolean", "string"],
+                "description": "Whether the input is required or not",
+                "default": True,
+            },
+            "min": {
+                "type": "number",
+                "description": "Minimum value of NPS",
+                "default": 0,
+            },
+            "max": {
+                "type": "number",
+                "description": "Maximum value of NPS",
+                "default": 10,
+            },
+            "minHint": {
+                "type": "string",
+                "description": "Hint of minimum option",
+                "default": "Not at all likely",
+            },
+            "maxHint": {
+                "type": "string",
+                "description": "Hint of maximum option",
+                "default": "Extremely likely",
+            },
+            "initialValue": {
+                "type": "number",
+                "description": "The initial value of the input",
+            },
         },
     },
     "currency-input": {
+        "name": "CurrencyInput",
+        "libFunc": "read_currency",
         "type": "currency-input",
         "description": "Read currency value from the user",
-        "pythonAPI": {
-            "name": "read_currency",
-            "params": [
-                {
-                    "argName": "label",
-                    "description": "The label to display to the user",
-                    "typeName": "str",
-                    "isKwarg": False,
-                    "default": None,
-                },
-                {
-                    "argName": "initial_value",
-                    "description": "The initial value to display to the user. Defaults to 0.",
-                    "typeName": "str",
-                    "isKwarg": True,
-                    "default": "0",
-                },
-                {
-                    "argName": "required",
-                    "description": 'Whether the input is required or not, eg. "this field is required". Defaults to True.',
-                    "typeName": "bool or str",
-                    "isKwarg": True,
-                    "default": "True",
-                },
-                {
-                    "argName": "placeholder",
-                    "description": 'The placeholder text to display to the user. Defaults to "Your answer here".',
-                    "typeName": "str",
-                    "isKwarg": True,
-                    "default": '"Your answer here"',
-                },
-                {
-                    "argName": "hint",
-                    "description": "A tooltip displayed to the user. Defaults to None.",
-                    "typeName": "str",
-                    "isKwarg": True,
-                    "default": "None",
-                },
-                {
-                    "argName": "full_width",
-                    "description": "Whether the input should use full screen width. Defaults to False.",
-                    "typeName": "bool",
-                    "isKwarg": True,
-                    "default": "False",
-                },
-                {
-                    "argName": "min",
-                    "description": 'The minimum value allowed, eg. "0". Defaults to None.',
-                    "typeName": "float",
-                    "isKwarg": True,
-                    "default": "None",
-                },
-                {
-                    "argName": "max",
-                    "description": 'The maximum value allowed, eg. "100". Defaults to None.',
-                    "typeName": "float",
-                    "isKwarg": True,
-                    "default": "None",
-                },
-                {
-                    "argName": "step",
-                    "description": "The value to be incremented or decremented while using the input button. Defaults to None.",
-                    "typeName": "float",
-                    "isKwarg": True,
-                    "default": "None",
-                },
-                {
-                    "argName": "currency",
-                    "description": 'The currency to display to the user, eg. "USD", "BRL, "EUR", "GBP". Defaults to "USD".',
-                    "typeName": "str",
-                    "isKwarg": True,
-                    "default": '"USD"',
-                },
-            ],
-            "returns": [
-                {
-                    "typeName": "float",
-                    "typeDescription": "The value entered by the user",
-                }
-            ],
+        "params": {
+            "key": {
+                "type": "string",
+                "description": "The key of the input on the returning object",
+            },
+            "label": {
+                "type": "string",
+                "description": "The label to display above the input",
+            },
+            "currency": {"type": "string", "description": "The currency to use"},
         },
-        "brokerAPI": {
-            "params": [
-                {
-                    "argName": "label",
-                    "typeName": "string",
-                    "description": "The label to display above the input",
-                },
-                {
-                    "argName": "currency",
-                    "typeName": "string",
-                    "description": "The currency to use",
-                },
-                {
-                    "argName": "initialValue",
-                    "typeName": "number",
-                    "description": "The initial value of the input",
-                    "default": "",
-                    "isOptional": True,
-                },
-                {
-                    "argName": "min",
-                    "typeName": "number",
-                    "description": "The minimum value of the input",
-                    "isOptional": True,
-                },
-                {
-                    "argName": "max",
-                    "typeName": "number",
-                    "description": "The maximun value of the input",
-                    "isOptional": True,
-                },
-                {
-                    "argName": "step",
-                    "typeName": "number",
-                    "description": "The step for the input",
-                    "isOptional": True,
-                },
-                {
-                    "argName": "key",
-                    "typeName": "string",
-                    "description": "The key of the input on the returning object",
-                },
-                {
-                    "argName": "hint",
-                    "typeName": ["string", "null"],
-                    "description": "message describing the input",
-                    "default": None,
-                    "isOptional": True,
-                },
-                {
-                    "argName": "required",
-                    "typeName": "string",
-                    "description": "Whether the input is required or not",
-                    "default": True,
-                    "isOptional": True,
-                },
-                {
-                    "argName": "columns",
-                    "typeName": "number",
-                    "description": "number of columns this input will take",
-                    "isOptional": True,
-                },
-                {
-                    "argName": "fullWidth",
-                    "typeName": "boolean",
-                    "description": "Whether the widget should take up the full width of the page",
-                    "isOptional": True,
-                },
-                {
-                    "argName": "placeholder",
-                    "typeName": "string",
-                    "description": "The placeholder text to display in the input",
-                },
-            ]
+        "optionals": {
+            "columns": {
+                "type": "number",
+                "description": "number of columns this input will take",
+            },
+            "fullWidth": {
+                "type": "boolean",
+                "description": "Whether the widget should take up the full width of the page",
+            },
+            "hint": {
+                "type": ["string", "null"],
+                "description": "message describing the input",
+                "default": None,
+            },
+            "required": {
+                "type": ["boolean", "string"],
+                "description": "Whether the input is required or not",
+                "default": True,
+            },
+            "initialValue": {
+                "type": "number",
+                "description": "The initial value of the input",
+                "default": "",
+            },
+            "min": {"type": "number", "description": "The minimum value of the input"},
+            "max": {"type": "number", "description": "The maximun value of the input"},
+            "step": {"type": "number", "description": "The step for the input"},
+            "placeholder": {
+                "type": "string",
+                "description": "The placeholder text to display in the input",
+                "default": "",
+            },
         },
     },
     "number-slider-input": {
+        "name": "NumberSliderInput",
+        "libFunc": "read_number_slider",
         "type": "number-slider-input",
         "description": "Read a number value from the user",
-        "pythonAPI": {
-            "name": "read_number_slider",
-            "params": [
-                {
-                    "argName": "label",
-                    "description": "The label to display to the user",
-                    "typeName": "str",
-                    "isKwarg": False,
-                    "default": None,
-                },
-                {
-                    "argName": "initial_value",
-                    "description": "The initial value to display to the user. Defaults to 0.",
-                    "typeName": "str",
-                    "isKwarg": True,
-                    "default": "0",
-                },
-                {
-                    "argName": "required",
-                    "description": 'Whether the input is required or not eg. "this field is required". Defaults to True.',
-                    "typeName": "bool or str",
-                    "isKwarg": True,
-                    "default": "True",
-                },
-                {
-                    "argName": "hint",
-                    "description": "A tooltip displayed to the user. Defaults to None.",
-                    "typeName": "str",
-                    "isKwarg": True,
-                    "default": "None",
-                },
-                {
-                    "argName": "full_width",
-                    "description": "Whether the input should use full screen width. Defaults to False.",
-                    "typeName": "bool",
-                    "isKwarg": True,
-                    "default": "False",
-                },
-                {
-                    "argName": "min",
-                    "description": "Min value accepted by the input. Defaults to None.",
-                    "typeName": "float",
-                    "isKwarg": True,
-                    "default": "None",
-                },
-                {
-                    "argName": "max",
-                    "description": "Max value accepted by the input. Defaults to None.",
-                    "typeName": "float",
-                    "isKwarg": True,
-                    "default": "None",
-                },
-                {
-                    "argName": "step",
-                    "description": "The value to be incremented or decremented while using the input button. Defaults to None.",
-                    "typeName": "float",
-                    "isKwarg": True,
-                    "default": "None",
-                },
-            ],
-            "returns": [
-                {
-                    "typeName": "float",
-                    "typeDescription": "The value entered by the user",
-                }
-            ],
+        "params": {
+            "key": {
+                "type": "string",
+                "description": "The key of the input on the returning object",
+            },
+            "label": {
+                "type": "string",
+                "description": "The label to display above the input",
+            },
         },
-        "brokerAPI": {
-            "params": [
-                {
-                    "argName": "min",
-                    "typeName": "number",
-                    "description": "The minimum value of the input",
-                    "isOptional": True,
-                },
-                {
-                    "argName": "max",
-                    "typeName": "number",
-                    "description": "The maximun value of the input",
-                    "isOptional": True,
-                },
-                {
-                    "argName": "step",
-                    "typeName": "number",
-                    "description": "The step for the input",
-                    "isOptional": True,
-                },
-                {
-                    "argName": "key",
-                    "typeName": "string",
-                    "description": "The key of the input on the returning object",
-                },
-                {
-                    "argName": "hint",
-                    "typeName": ["string", "null"],
-                    "description": "message describing the input",
-                    "default": None,
-                    "isOptional": True,
-                },
-                {
-                    "argName": "required",
-                    "typeName": "string",
-                    "description": "Whether the input is required or not",
-                    "default": True,
-                    "isOptional": True,
-                },
-                {
-                    "argName": "columns",
-                    "typeName": "number",
-                    "description": "number of columns this input will take",
-                    "isOptional": True,
-                },
-                {
-                    "argName": "fullWidth",
-                    "typeName": "boolean",
-                    "description": "Whether the widget should take up the full width of the page",
-                    "isOptional": True,
-                },
-                {
-                    "argName": "placeholder",
-                    "typeName": "string",
-                    "description": "The placeholder text to display in the input",
-                },
-            ]
+        "optionals": {
+            "columns": {
+                "type": "number",
+                "description": "number of columns this input will take",
+            },
+            "fullWidth": {
+                "type": "boolean",
+                "description": "Whether the widget should take up the full width of the page",
+            },
+            "hint": {
+                "type": ["string", "null"],
+                "description": "message describing the input",
+                "default": None,
+            },
+            "required": {
+                "type": ["boolean", "string"],
+                "description": "Whether the input is required or not",
+                "default": True,
+            },
+            "initialValue": {
+                "type": "number",
+                "description": "The initial value of the input",
+                "default": 0,
+            },
+            "min": {
+                "type": "number",
+                "description": "The minimum value of the input",
+                "default": 0,
+            },
+            "max": {
+                "type": "number",
+                "description": "The maximun value of the input",
+                "default": 100,
+            },
+            "step": {
+                "type": "number",
+                "description": "The step for the input",
+                "default": 1,
+            },
         },
     },
     "text-output": {
+        "name": "TextOutput",
+        "libFunc": "display_text",
         "type": "text-output",
         "description": "Display a text to the user",
-        "pythonAPI": {
-            "name": "display",
-            "params": [
-                {
-                    "argName": "text",
-                    "description": "The text to display to the user",
-                    "typeName": "str",
-                    "isKwarg": False,
-                    "default": None,
-                },
-                {
-                    "argName": "full_width",
-                    "description": "Whether the input should use full screen width. Defaults to False.",
-                    "typeName": "bool",
-                    "isKwarg": True,
-                    "default": "False",
-                },
-            ],
-            "returns": [],
-        },
-        "brokerAPI": {
-            "params": [
-                {"argName": "text", "description": "", "typeName": "string"},
-                {
-                    "argName": "columns",
-                    "typeName": "number",
-                    "description": "number of columns this input will take",
-                    "isOptional": True,
-                },
-                {
-                    "argName": "fullWidth",
-                    "typeName": "boolean",
-                    "description": "Whether the widget should take up the full width of the page",
-                    "isOptional": True,
-                },
-            ]
+        "params": {"text": {"type": "string"}},
+        "optionals": {
+            "columns": {
+                "type": "number",
+                "description": "number of columns this input will take",
+            },
+            "fullWidth": {
+                "type": "boolean",
+                "description": "Whether the widget should take up the full width of the page",
+            },
         },
     },
     "markdown-output": {
+        "name": "MarkdownOutput",
+        "libFunc": "display_markdown",
         "type": "markdown-output",
         "description": "Display a formatted text to the user",
-        "pythonAPI": {
-            "name": "display_markdown",
-            "params": [
-                {
-                    "argName": "text",
-                    "description": "The formatted text to display to the user",
-                    "typeName": "str",
-                    "isKwarg": False,
-                    "default": None,
-                },
-                {
-                    "argName": "full_width",
-                    "description": "Whether the input should use full screen width. Defaults to False.",
-                    "typeName": "bool",
-                    "isKwarg": True,
-                    "default": "False",
-                },
-            ],
-            "returns": [],
-        },
-        "brokerAPI": {
-            "params": [
-                {"argName": "text", "typeName": "string", "description": ""},
-                {
-                    "argName": "columns",
-                    "typeName": "number",
-                    "description": "number of columns this input will take",
-                    "isOptional": True,
-                },
-                {
-                    "argName": "fullWidth",
-                    "typeName": "boolean",
-                    "description": "Whether the widget should take up the full width of the page",
-                    "isOptional": True,
-                },
-            ]
+        "params": {"text": {"type": "string"}},
+        "optionals": {
+            "columns": {
+                "type": "number",
+                "description": "number of columns this input will take",
+            },
+            "fullWidth": {
+                "type": "boolean",
+                "description": "Whether the widget should take up the full width of the page",
+            },
         },
     },
     "image-output": {
+        "name": "ImageOutput",
+        "libFunc": "display_image",
         "type": "image-output",
         "description": "Display an image to the user",
-        "pythonAPI": {
-            "name": "display_image",
-            "params": [
-                {
-                    "argName": "image",
-                    "description": "The image to display to the user",
-                    "typeName": "file-like or str (path, url, base64)",
-                    "isKwarg": False,
-                    "default": None,
-                },
-                {
-                    "argName": "full_width",
-                    "description": "Whether the input should use full screen width. Defaults to False.",
-                    "typeName": "bool",
-                    "isKwarg": True,
-                    "default": "False",
-                },
-                {
-                    "argName": "subtitle",
-                    "description": 'The subtitle of the image. Defaults to "".',
-                    "typeName": "str",
-                    "isKwarg": True,
-                    "default": '""',
-                },
-            ],
-            "returns": [],
-        },
-        "brokerAPI": {
-            "params": [
-                {"argName": "imageUrl", "typeName": "string", "description": ""},
-                {
-                    "argName": "subtitle",
-                    "typeName": "string",
-                    "default": "",
-                    "description": "",
-                    "isOptional": True,
-                },
-                {
-                    "argName": "columns",
-                    "typeName": "number",
-                    "description": "number of columns this input will take",
-                    "isOptional": True,
-                },
-                {
-                    "argName": "fullWidth",
-                    "typeName": "boolean",
-                    "description": "Whether the widget should take up the full width of the page",
-                    "isOptional": True,
-                },
-            ]
+        "params": {"imageUrl": {"type": "string"}},
+        "optionals": {
+            "columns": {
+                "type": "number",
+                "description": "number of columns this input will take",
+            },
+            "fullWidth": {
+                "type": "boolean",
+                "description": "Whether the widget should take up the full width of the page",
+            },
+            "subtitle": {"type": "string", "default": ""},
         },
     },
     "link-output": {
+        "name": "LinkOutput",
+        "libFunc": "display_link",
         "type": "link-output",
         "description": "Display a link to the user",
-        "pythonAPI": {
-            "name": "display_link",
-            "params": [
-                {
-                    "argName": "link_url",
-                    "description": "The url of the link to display to the user",
-                    "typeName": "str",
-                    "isKwarg": False,
-                    "default": None,
-                },
-                {
-                    "argName": "full_width",
-                    "description": "Whether the input should use full screen width. Defaults to False.",
-                    "typeName": "bool",
-                    "isKwarg": True,
-                    "default": "False",
-                },
-                {
-                    "argName": "link_text",
-                    "description": 'The text to display on the link. Defaults to "Click here".',
-                    "typeName": "str",
-                    "isKwarg": True,
-                    "default": '"Click here"',
-                },
-                {
-                    "argName": "same_tab",
-                    "description": "Whether to open the link in the same tab or not. Defaults to False.",
-                    "typeName": "bool",
-                    "isKwarg": True,
-                    "default": "False",
-                },
-            ],
-            "returns": [],
-        },
-        "brokerAPI": {
-            "params": [
-                {"argName": "linkText", "typeName": "string", "description": ""},
-                {"argName": "linkUrl", "typeName": "string", "description": ""},
-                {
-                    "argName": "sameTab",
-                    "typeName": "boolean",
-                    "description": "",
-                    "default": False,
-                    "isOptional": True,
-                },
-                {
-                    "argName": "columns",
-                    "typeName": "number",
-                    "description": "number of columns this input will take",
-                    "isOptional": True,
-                },
-                {
-                    "argName": "fullWidth",
-                    "typeName": "boolean",
-                    "description": "Whether the widget should take up the full width of the page",
-                    "isOptional": True,
-                },
-            ]
+        "params": {"linkText": {"type": "string"}, "linkUrl": {"type": "string"}},
+        "optionals": {
+            "columns": {
+                "type": "number",
+                "description": "number of columns this input will take",
+            },
+            "fullWidth": {
+                "type": "boolean",
+                "description": "Whether the widget should take up the full width of the page",
+            },
+            "sameTab": {"type": "boolean", "default": False},
         },
     },
     "file-output": {
+        "name": "FileOutput",
+        "libFunc": "display_file",
         "type": "file-output",
         "description": "Display a button for the user to download a file",
-        "pythonAPI": {
-            "name": "display_file",
-            "params": [
-                {
-                    "argName": "file",
-                    "description": "The file to download",
-                    "typeName": "file-like or str (path, url, base64)",
-                    "isKwarg": False,
-                    "default": None,
-                },
-                {
-                    "argName": "download_text",
-                    "description": 'The text to display on the button that will download the file. Defaults to "Download here".',
-                    "typeName": "str",
-                    "isKwarg": True,
-                    "default": '"Download here"',
-                },
-                {
-                    "argName": "full_width",
-                    "description": "Whether the input should use full screen width. Defaults to False.",
-                    "typeName": "bool",
-                    "isKwarg": True,
-                    "default": "False",
-                },
-            ],
-            "returns": [],
-        },
-        "brokerAPI": {
-            "params": [
-                {"argName": "fileUrl", "typeName": "string", "description": ""},
-                {
-                    "argName": "downloadText",
-                    "typeName": "string",
-                    "default": "Download here",
-                    "description": "",
-                },
-                {
-                    "argName": "columns",
-                    "typeName": "number",
-                    "description": "number of columns this input will take",
-                    "isOptional": True,
-                },
-                {
-                    "argName": "fullWidth",
-                    "typeName": "boolean",
-                    "description": "Whether the widget should take up the full width of the page",
-                    "isOptional": True,
-                },
-            ]
+        "params": {"fileUrl": {"type": "string"}},
+        "optionals": {
+            "columns": {
+                "type": "number",
+                "description": "number of columns this input will take",
+            },
+            "fullWidth": {
+                "type": "boolean",
+                "description": "Whether the widget should take up the full width of the page",
+            },
+            "downloadText": {"type": "string", "default": "Download here"},
         },
     },
     "html-output": {
+        "name": "HtmlOutput",
+        "libFunc": "display_html",
         "type": "html-output",
         "description": "Display a html snippet to the user",
-        "pythonAPI": {
-            "name": "display_html",
-            "params": [
-                {
-                    "argName": "html",
-                    "description": "The html snippet to display to the user",
-                    "typeName": "str",
-                    "isKwarg": False,
-                    "default": None,
-                },
-                {
-                    "argName": "full_width",
-                    "description": "Whether the input should use full screen width. Defaults to False.",
-                    "typeName": "bool",
-                    "isKwarg": True,
-                    "default": "False",
-                },
-            ],
-            "returns": [],
-        },
-        "brokerAPI": {
-            "params": [
-                {"argName": "html", "typeName": "string", "description": ""},
-                {
-                    "argName": "columns",
-                    "typeName": "number",
-                    "description": "number of columns this input will take",
-                    "isOptional": True,
-                },
-                {
-                    "argName": "fullWidth",
-                    "typeName": "boolean",
-                    "description": "Whether the widget should take up the full width of the page",
-                    "isOptional": True,
-                },
-            ]
+        "params": {"html": {"type": "string"}},
+        "optionals": {
+            "columns": {
+                "type": "number",
+                "description": "number of columns this input will take",
+            },
+            "fullWidth": {
+                "type": "boolean",
+                "description": "Whether the widget should take up the full width of the page",
+            },
         },
     },
     "pandas-output": {
+        "name": "PandasOutput",
+        "libFunc": "display_pandas",
         "type": "pandas-output",
         "description": "Display a pandas dataframe to the user",
-        "pythonAPI": {
-            "name": "read_pandas",
-            "params": [
-                {
-                    "argName": "df",
-                    "description": "The dataframe to display to the user",
-                    "typeName": "pandas.DataFrame",
-                    "isKwarg": False,
-                    "default": None,
+        "params": {
+            "table": {
+                "type": "object",
+                "properties": {
+                    "data": {"type": "array"},
+                    "schema": {
+                        "type": "object",
+                        "properties": {"fields": {"type": "array"}},
+                    },
                 },
-                {
-                    "argName": "full_width",
-                    "description": "Whether the input should use full screen width. Defaults to False.",
-                    "typeName": "bool",
-                    "isKwarg": True,
-                    "default": "False",
-                },
-                {
-                    "argName": "display_index",
-                    "description": "Whether to show a index column. Defaults to False.",
-                    "typeName": "bool",
-                    "isKwarg": True,
-                    "default": "False",
-                },
-            ],
-            "returns": [],
+            },
+            "displayIndex": {"type": "boolean", "default": False},
         },
-        "brokerAPI": {
-            "params": [
-                {
-                    "argName": "table",
-                    "typeName": "object",
-                    "description": "",
-                    "properties": [
-                        {"argName": "data", "typeName": "array", "description": ""},
-                        {
-                            "argName": "schema",
-                            "typeName": "object",
-                            "description": "",
-                            "properties": [
-                                {
-                                    "argName": "fields",
-                                    "typeName": "array",
-                                    "description": "",
-                                }
-                            ],
-                        },
-                    ],
-                },
-                {
-                    "argName": "displayIndex",
-                    "typeName": "boolean",
-                    "description": "",
-                    "default": False,
-                },
-                {
-                    "argName": "columns",
-                    "typeName": "number",
-                    "description": "number of columns this input will take",
-                    "isOptional": True,
-                },
-                {
-                    "argName": "fullWidth",
-                    "typeName": "boolean",
-                    "description": "Whether the widget should take up the full width of the page",
-                    "isOptional": True,
-                },
-            ]
+        "optionals": {
+            "columns": {
+                "type": "number",
+                "description": "number of columns this input will take",
+            },
+            "fullWidth": {
+                "type": "boolean",
+                "description": "Whether the widget should take up the full width of the page",
+            },
         },
     },
     "plotly-output": {
+        "name": "PlotlyOutput",
+        "libFunc": "display_plotly",
         "type": "plotly-output",
         "description": "Display a plotly figure to the user",
-        "pythonAPI": {
-            "name": "display_plotly",
-            "params": [
-                {
-                    "argName": "fig",
-                    "description": "The figure to display to the user",
-                    "typeName": "plotly.Figure",
-                    "isKwarg": False,
-                    "default": None,
-                },
-                {
-                    "argName": "full_width",
-                    "description": "Whether the input should use full screen width. Defaults to False.",
-                    "typeName": "bool",
-                    "isKwarg": True,
-                    "default": "False",
-                },
-            ],
-            "returns": [],
-        },
-        "brokerAPI": {
-            "params": [
-                {"argName": "figure", "typeName": "any", "description": ""},
-                {
-                    "argName": "columns",
-                    "typeName": "number",
-                    "description": "number of columns this input will take",
-                    "isOptional": True,
-                },
-                {
-                    "argName": "fullWidth",
-                    "typeName": "boolean",
-                    "description": "Whether the widget should take up the full width of the page",
-                    "isOptional": True,
-                },
-            ]
+        "params": {"figure": {"type": "any"}},
+        "optionals": {
+            "columns": {
+                "type": "number",
+                "description": "number of columns this input will take",
+            },
+            "fullWidth": {
+                "type": "boolean",
+                "description": "Whether the widget should take up the full width of the page",
+            },
         },
     },
     "iframe-output": {
+        "name": "IframeOutput",
+        "libFunc": "display_iframe",
         "type": "iframe-output",
         "description": "Display an inline iframe to the user",
-        "pythonAPI": {
-            "name": "display_iframe",
-            "params": [
-                {
-                    "argName": "url_or_html",
-                    "description": "The link to the document or the own document to display to the user",
-                    "typeName": "str",
-                    "isKwarg": False,
-                    "default": None,
-                },
-                {
-                    "argName": "width",
-                    "description": 'The width of the iframe. Defaults to "800".',
-                    "typeName": "int",
-                    "isKwarg": True,
-                    "default": '"800"',
-                },
-                {
-                    "argName": "height",
-                    "description": 'The height of the iframe. Defaults to "600".',
-                    "typeName": "int",
-                    "isKwarg": True,
-                    "default": '"600"',
-                },
-                {
-                    "argName": "full_width",
-                    "description": "Whether the input should use full screen width. Defaults to False.",
-                    "typeName": "bool",
-                    "isKwarg": True,
-                    "default": "False",
-                },
-            ],
-            "returns": [],
-        },
-        "brokerAPI": {
-            "params": [
-                {"argName": "url", "typeName": "string", "description": ""},
-                {
-                    "argName": "width",
-                    "typeName": "string",
-                    "description": "",
-                    "isOptional": True,
-                },
-                {
-                    "argName": "height",
-                    "typeName": "string",
-                    "description": "",
-                    "isOptional": True,
-                },
-                {
-                    "argName": "columns",
-                    "typeName": "number",
-                    "description": "number of columns this input will take",
-                    "isOptional": True,
-                },
-                {
-                    "argName": "fullWidth",
-                    "typeName": "boolean",
-                    "description": "Whether the widget should take up the full width of the page",
-                    "isOptional": True,
-                },
-            ]
+        "params": {"url": {"type": "string"}},
+        "optionals": {
+            "columns": {
+                "type": "number",
+                "description": "number of columns this input will take",
+            },
+            "fullWidth": {
+                "type": "boolean",
+                "description": "Whether the widget should take up the full width of the page",
+            },
+            "width": {"type": "string"},
+            "height": {"type": "string"},
         },
     },
     "progress-output": {
+        "name": "ProgressOutput",
+        "libFunc": "display_progress",
         "type": "progress-output",
         "description": "Display a progress bar. This widget is shown on screen until the script shows a new widget",
-        "pythonAPI": {
-            "name": "display_progress",
-            "params": [
-                {
-                    "argName": "current",
-                    "description": "The progress being made. Defaults to 50.",
-                    "typeName": "float",
-                    "isKwarg": False,
-                    "default": "50",
-                },
-                {
-                    "argName": "total",
-                    "description": "Total progress. Defaults to 100.",
-                    "typeName": "float",
-                    "isKwarg": False,
-                    "default": "100",
-                },
-                {
-                    "argName": "text",
-                    "description": 'The text displayed with this progress step. Defaults to "".',
-                    "typeName": "str",
-                    "isKwarg": True,
-                    "default": '""',
-                },
-                {
-                    "argName": "full_width",
-                    "description": "Whether the input should use full screen width. Defaults to False.",
-                    "typeName": "bool",
-                    "isKwarg": True,
-                    "default": "False",
-                },
-            ],
-            "returns": [],
+        "params": {
+            "current": {"type": "number", "default": 50},
+            "total": {"type": "number", "default": 100},
         },
-        "brokerAPI": {
-            "params": [
-                {
-                    "argName": "current",
-                    "typeName": "number",
-                    "description": "",
-                    "default": 50,
-                },
-                {
-                    "argName": "total",
-                    "typeName": "number",
-                    "description": "",
-                    "default": 100,
-                },
-                {
-                    "argName": "text",
-                    "typeName": "string",
-                    "description": "",
-                    "default": "",
-                    "isOptional": True,
-                },
-                {
-                    "argName": "columns",
-                    "typeName": "number",
-                    "description": "number of columns this input will take",
-                    "isOptional": True,
-                },
-                {
-                    "argName": "fullWidth",
-                    "typeName": "boolean",
-                    "description": "Whether the widget should take up the full width of the page",
-                    "isOptional": True,
-                },
-            ]
+        "optionals": {
+            "columns": {
+                "type": "number",
+                "description": "number of columns this input will take",
+            },
+            "fullWidth": {
+                "type": "boolean",
+                "description": "Whether the widget should take up the full width of the page",
+            },
+            "text": {"type": "string", "default": ""},
         },
     },
 }
