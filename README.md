@@ -1,16 +1,17 @@
 [![pypi](https://img.shields.io/pypi/v/hackerforms.svg)](https://pypi.python.org/pypi/hackerforms)
-[![PyPI Downloads](https://img.shields.io/pypi/dm/hackerforms.svg)](
-https://pypi.org/project/hackerforms/)
+[![PyPI Downloads](https://img.shields.io/pypi/dm/hackerforms.svg)](https://pypi.org/project/hackerforms/)
 [![Code check](https://github.com/abstra-app/hackerforms-lib/actions/workflows/code_check.yml/badge.svg)](https://github.com/abstra-app/hackerforms-lib/actions/workflows/code_check.yml)
 
 # Hackerforms
+
 Launch interactive Python scripts as beautiful form-like apps
 
 ![docs_editor](https://user-images.githubusercontent.com/8538337/200737655-7d212aef-e07a-4425-8cab-40000be3539d.gif)
 
-No HTML, CSS, JS, BS... With single line commands, get data from users and display info to them
+No HTML, CSS, JS... With single line commands, get data from users and display info to them
 
 ## Examples
+
 - Customer checkout - [code](https://github.com/abstra-app/hackerforms-examples/blob/master/python/customer_checkout.py) - [live example](https://examples.abstra.run/b97fd987-d9b2-4af3-802d-2400f2a546d4)
 - Customer registration - [code](https://github.com/abstra-app/hackerforms-examples/blob/master/python/customer_registration.py) - [live example](https://examples.abstra.run/81e15ebb-40bf-444e-8c83-35aafbc033b9)
 - Generate documents from spreadsheet - [code](https://github.com/abstra-app/hackerforms-examples/blob/master/python/generate_documents_from_spreadsheet.py) - [live example](https://examples.abstra.run/60b43bcc-766f-4ec7-b589-527e625c6f09)
@@ -24,7 +25,6 @@ No HTML, CSS, JS, BS... With single line commands, get data from users and displ
 - Travel registration - [code](https://github.com/abstra-app/hackerforms-examples/blob/master/python/travel_registration.py) - [live example](https://examples.abstra.run/d6d7a11f-c26d-46ec-bf77-5449fefaaf79)
 - Vacation approval - [code](https://github.com/abstra-app/hackerforms-examples/blob/master/python/vacation_approval.py) - [live example](https://examples.abstra.run/842f9872-59fd-4735-8b9a-4e6f5065a96e)
 
-
 [See all widgets here](https://docs.abstracloud.com/library/widgets)
 
 ## Installation
@@ -32,10 +32,8 @@ No HTML, CSS, JS, BS... With single line commands, get data from users and displ
 ```bash
 pip install hackerforms
 ```
+
 ## Links
 
 - [Examples](https://github.com/abstra-app/hackerforms-examples/tree/master/python)
 - [Docs](https://docs.abstracloud.com/)
-
-
-
