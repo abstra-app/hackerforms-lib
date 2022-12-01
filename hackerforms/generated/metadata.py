@@ -126,7 +126,7 @@ metadata = {
                 {
                     "argName": "item_schema",
                     "description": "The schema for the items of the list",
-                    "typeName": "ListItemSchema",
+                    "typeName": "Any",
                     "isKwarg": False,
                     "default": None,
                 },

@@ -1,12 +1,10 @@
 from hackerforms.widgets.input_types import *
 from hackerforms.widgets.output_types import *
 from hackerforms.reactive import Reactive
-from typing import List, Union, Dict, Any, NewType
+from typing import List, Union, Dict, Any
 from hackerforms.common import Input
 import pandas
 import io
-
-ListItemSchema = NewType("ListItemSchema", Any)
 
 
 class WidgetSchema:
@@ -77,12 +75,12 @@ class WidgetSchema:
         self.widgets.append(TextareaInput(key, label, **kwargs))
         return self
 
-    def read_list(self, item_schema: ListItemSchema, **kwargs):
+    def read_list(self, item_schema: Any, **kwargs):
 
         """Read a list value from the user
 
         Position Args:
-                item_schema (ListItemSchema): The schema for the items of the list
+                item_schema (Any): The schema for the items of the list
 
         Keyword Args:
                 initial_value (any): The initial value to display to the user. Defaults to [{}].

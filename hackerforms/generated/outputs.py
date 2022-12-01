@@ -1,9 +1,7 @@
-from typing import Union, Any, NewType
+from typing import Union, Any
 from hackerforms.page import Page
 import io
 import pandas
-
-ListItemSchema = NewType("ListItemSchema", Any)
 
 
 def display_pandas(df: pandas.DataFrame, **kwargs):

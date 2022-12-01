@@ -1,9 +1,7 @@
-from typing import Any, NewType
+from typing import Any
 from hackerforms.page import Page
 from hackerforms.utils import get_single_value
 import pandas
-
-ListItemSchema = NewType("ListItemSchema", Any)
 
 
 def read_textarea(label: str, **kwargs):
@@ -28,12 +26,12 @@ def read_textarea(label: str, **kwargs):
     return get_single_value(Page().read_textarea(label, **kwargs).run(button_text))
 
 
-def read_list(item_schema: ListItemSchema, **kwargs):
+def read_list(item_schema: Any, **kwargs):
 
     """Read a list value from the user
 
     Position Args:
-            item_schema (ListItemSchema): The schema for the items of the list
+            item_schema (Any): The schema for the items of the list
 
     Keyword Args:
             initial_value (any): The initial value to display to the user. Defaults to [{}].
