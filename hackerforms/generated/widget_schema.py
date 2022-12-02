@@ -589,6 +589,29 @@ class WidgetSchema:
         self.widgets.append(PandasRowSelectionInput(key, df, **kwargs))
         return self
 
+    def read_cpf(self, label: str, **kwargs):
+
+        """Read a cpf value from the user
+
+        Position Args:
+                label (str): The label to display to the user
+
+        Keyword Args:
+                initial_value (str): The initial value to display to the user. Defaults to "".
+                placeholder (str): The placeholder text to display to the user. Defaults to "000.000.000-00".
+                required (bool or str): Whether the input is required or not eg. "this field is required". Defaults to True.
+                hint (str): A tooltip displayed to the user. Defaults to None.
+                full_width (bool): Whether the input should use full screen width. Defaults to False.
+
+        Returns:
+          The value entered by the user
+        """
+
+        key = kwargs.pop("key", label)
+
+        self.widgets.append(CpfInput(key, label, **kwargs))
+        return self
+
     def display_pandas(self, df: pandas.DataFrame, **kwargs):
 
         """Display a pandas dataframe to the user

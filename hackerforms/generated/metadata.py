@@ -3199,6 +3199,122 @@ metadata = {
             }
         ],
     },
+    "cpf-input": {
+        "type": "cpf-input",
+        "description": "Read a cpf value from the user",
+        "pythonAPI": {
+            "name": "read_cpf",
+            "params": [
+                {
+                    "argName": "label",
+                    "description": "The label to display to the user",
+                    "typeName": "str",
+                    "isKwarg": False,
+                    "default": None,
+                },
+                {
+                    "argName": "initial_value",
+                    "description": 'The initial value to display to the user. Defaults to "".',
+                    "typeName": "str",
+                    "isKwarg": True,
+                    "default": '""',
+                },
+                {
+                    "argName": "placeholder",
+                    "description": 'The placeholder text to display to the user. Defaults to "000.000.000-00".',
+                    "typeName": "str",
+                    "isKwarg": True,
+                    "default": '"000.000.000-00"',
+                },
+                {
+                    "argName": "required",
+                    "description": 'Whether the input is required or not eg. "this field is required". Defaults to True.',
+                    "typeName": "bool or str",
+                    "isKwarg": True,
+                    "default": "True",
+                },
+                {
+                    "argName": "hint",
+                    "description": "A tooltip displayed to the user. Defaults to None.",
+                    "typeName": "str",
+                    "isKwarg": True,
+                    "default": "None",
+                },
+                {
+                    "argName": "full_width",
+                    "description": "Whether the input should use full screen width. Defaults to False.",
+                    "typeName": "bool",
+                    "isKwarg": True,
+                    "default": "False",
+                },
+            ],
+            "returns": [
+                {"typeName": "str", "typeDescription": "The value entered by the user"}
+            ],
+        },
+        "brokerAPI": {
+            "params": [
+                {
+                    "argName": "label",
+                    "typeName": "string",
+                    "description": "The label of the input",
+                },
+                {
+                    "argName": "initialValue",
+                    "typeName": "string",
+                    "description": "The initial value of the input",
+                    "default": "",
+                    "isOptional": True,
+                },
+                {
+                    "argName": "key",
+                    "typeName": "string",
+                    "description": "The key of the input on the returning object",
+                },
+                {
+                    "argName": "hint",
+                    "typeName": ["string", "null"],
+                    "description": "message describing the input",
+                    "default": None,
+                    "isOptional": True,
+                },
+                {
+                    "argName": "required",
+                    "typeName": ["boolean", "string"],
+                    "description": "Whether the input is required or not",
+                    "default": True,
+                    "isOptional": True,
+                },
+                {
+                    "argName": "columns",
+                    "typeName": "number",
+                    "description": "number of columns this input will take",
+                    "isOptional": True,
+                },
+                {
+                    "argName": "fullWidth",
+                    "typeName": "boolean",
+                    "description": "Whether the widget should take up the full width of the page",
+                    "isOptional": True,
+                },
+                {
+                    "argName": "placeholder",
+                    "typeName": "string",
+                    "description": "The placeholder text to display in the input",
+                    "default": "000.000.000-00",
+                },
+            ]
+        },
+        "examples": [
+            {
+                "props": {"label": "Insert your CPF below"},
+                "name": "Basic Example",
+                "description": "The following example demonstrate some of the available functionality for read_cpf",
+                "key": "example1",
+                "code": 'name = read_cpf("Insert your cpf below")\n',
+            }
+        ],
+    },
     "pandas-output": {
         "type": "pandas-output",
         "description": "Display a pandas dataframe to the user",

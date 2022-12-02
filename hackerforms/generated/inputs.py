@@ -525,3 +525,25 @@ def read_pandas_row_selection(df: pandas.DataFrame, **kwargs):
     return get_single_value(
         Page().read_pandas_row_selection(df, **kwargs).run(button_text)
     )
+
+
+def read_cpf(label: str, **kwargs):
+
+    """Read a cpf value from the user
+
+    Position Args:
+            label (str): The label to display to the user
+
+    Keyword Args:
+            initial_value (str): The initial value to display to the user. Defaults to "".
+            placeholder (str): The placeholder text to display to the user. Defaults to "000.000.000-00".
+            required (bool or str): Whether the input is required or not eg. "this field is required". Defaults to True.
+            hint (str): A tooltip displayed to the user. Defaults to None.
+            full_width (bool): Whether the input should use full screen width. Defaults to False.
+
+    Returns:
+      The value entered by the user
+    """
+
+    button_text = kwargs.get("button_text", "Next")
+    return get_single_value(Page().read_cpf(label, **kwargs).run(button_text))
