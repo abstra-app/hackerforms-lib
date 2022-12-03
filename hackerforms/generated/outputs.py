@@ -4,35 +4,53 @@ import io
 import pandas
 
 
-def display_pandas(df: pandas.DataFrame, **kwargs):
+def display_file(file: Union[str, io.IOBase], **kwargs):
 
-    """Display a pandas dataframe to the user
+    """Display a button for the user to download a file
 
     Position Args:
-            df (pandas.DataFrame): The dataframe to display to the user
+            file (Union[str, io.IOBase]): The file to download
 
     Keyword Args:
+            download_text (str): The text to display on the button that will download the file. Defaults to "Download here".
             full_width (bool): Whether the input should use full screen width. Defaults to False.
-            display_index (bool): Whether to show a index column. Defaults to False.
 
 
     """
 
     button_text = kwargs.get("button_text", "Next")
     end_program = kwargs.get("end_program", False)
-    return Page().display_pandas(df, **kwargs).run(button_text, end_program=end_program)
+    return Page().display_file(file, **kwargs).run(button_text, end_program=end_program)
 
 
-def display_progress(current: float, total: float, **kwargs):
+def display_html(html: str, **kwargs):
 
-    """Display a progress bar. This widget is shown on screen until the script shows a new widget
+    """Display a html snippet to the user
 
     Position Args:
-            current (float): The progress being made. Defaults to 50.
-            total (float): Total progress. Defaults to 100.
+            html (str): The html snippet to display to the user
 
     Keyword Args:
-            text (str): The text displayed with this progress step. Defaults to "".
+            full_width (bool): Whether the input should use full screen width. Defaults to False.
+
+
+    """
+
+    button_text = kwargs.get("button_text", "Next")
+    end_program = kwargs.get("end_program", False)
+    return Page().display_html(html, **kwargs).run(button_text, end_program=end_program)
+
+
+def display_iframe(url_or_html: str, **kwargs):
+
+    """Display an inline iframe to the user
+
+    Position Args:
+            url_or_html (str): The link to the document or the own document to display to the user
+
+    Keyword Args:
+            width (int): The width of the iframe. Defaults to "800".
+            height (int): The height of the iframe. Defaults to "600".
             full_width (bool): Whether the input should use full screen width. Defaults to False.
 
 
@@ -42,8 +60,29 @@ def display_progress(current: float, total: float, **kwargs):
     end_program = kwargs.get("end_program", False)
     return (
         Page()
-        .display_progress(current, total, **kwargs)
+        .display_iframe(url_or_html, **kwargs)
         .run(button_text, end_program=end_program)
+    )
+
+
+def display_image(image: Union[str, io.IOBase], **kwargs):
+
+    """Display an image to the user
+
+    Position Args:
+            image (Union[str, io.IOBase]): The image to display to the user
+
+    Keyword Args:
+            full_width (bool): Whether the input should use full screen width. Defaults to False.
+            subtitle (str): The subtitle of the image. Defaults to "".
+
+
+    """
+
+    button_text = kwargs.get("button_text", "Next")
+    end_program = kwargs.get("end_program", False)
+    return (
+        Page().display_image(image, **kwargs).run(button_text, end_program=end_program)
     )
 
 
@@ -71,64 +110,6 @@ def display_link(link_url: str, **kwargs):
     )
 
 
-def display_image(image: Union[str, io.IOBase], **kwargs):
-
-    """Display an image to the user
-
-    Position Args:
-            image (Union[str, io.IOBase]): The image to display to the user
-
-    Keyword Args:
-            full_width (bool): Whether the input should use full screen width. Defaults to False.
-            subtitle (str): The subtitle of the image. Defaults to "".
-
-
-    """
-
-    button_text = kwargs.get("button_text", "Next")
-    end_program = kwargs.get("end_program", False)
-    return (
-        Page().display_image(image, **kwargs).run(button_text, end_program=end_program)
-    )
-
-
-def display_html(html: str, **kwargs):
-
-    """Display a html snippet to the user
-
-    Position Args:
-            html (str): The html snippet to display to the user
-
-    Keyword Args:
-            full_width (bool): Whether the input should use full screen width. Defaults to False.
-
-
-    """
-
-    button_text = kwargs.get("button_text", "Next")
-    end_program = kwargs.get("end_program", False)
-    return Page().display_html(html, **kwargs).run(button_text, end_program=end_program)
-
-
-def display_file(file: Union[str, io.IOBase], **kwargs):
-
-    """Display a button for the user to download a file
-
-    Position Args:
-            file (Union[str, io.IOBase]): The file to download
-
-    Keyword Args:
-            download_text (str): The text to display on the button that will download the file. Defaults to "Download here".
-            full_width (bool): Whether the input should use full screen width. Defaults to False.
-
-
-    """
-
-    button_text = kwargs.get("button_text", "Next")
-    end_program = kwargs.get("end_program", False)
-    return Page().display_file(file, **kwargs).run(button_text, end_program=end_program)
-
-
 def display_markdown(text: str, **kwargs):
 
     """Display a formatted text to the user
@@ -151,6 +132,25 @@ def display_markdown(text: str, **kwargs):
     )
 
 
+def display_pandas(df: pandas.DataFrame, **kwargs):
+
+    """Display a pandas dataframe to the user
+
+    Position Args:
+            df (pandas.DataFrame): The dataframe to display to the user
+
+    Keyword Args:
+            full_width (bool): Whether the input should use full screen width. Defaults to False.
+            display_index (bool): Whether to show a index column. Defaults to False.
+
+
+    """
+
+    button_text = kwargs.get("button_text", "Next")
+    end_program = kwargs.get("end_program", False)
+    return Page().display_pandas(df, **kwargs).run(button_text, end_program=end_program)
+
+
 def display_plotly(fig: Any, **kwargs):
 
     """Display a plotly figure to the user
@@ -171,16 +171,16 @@ def display_plotly(fig: Any, **kwargs):
     )
 
 
-def display_iframe(url_or_html: str, **kwargs):
+def display_progress(current: float, total: float, **kwargs):
 
-    """Display an inline iframe to the user
+    """Display a progress bar. This widget is shown on screen until the script shows a new widget
 
     Position Args:
-            url_or_html (str): The link to the document or the own document to display to the user
+            current (float): The progress being made. Defaults to 50.
+            total (float): Total progress. Defaults to 100.
 
     Keyword Args:
-            width (int): The width of the iframe. Defaults to "800".
-            height (int): The height of the iframe. Defaults to "600".
+            text (str): The text displayed with this progress step. Defaults to "".
             full_width (bool): Whether the input should use full screen width. Defaults to False.
 
 
@@ -190,7 +190,7 @@ def display_iframe(url_or_html: str, **kwargs):
     end_program = kwargs.get("end_program", False)
     return (
         Page()
-        .display_iframe(url_or_html, **kwargs)
+        .display_progress(current, total, **kwargs)
         .run(button_text, end_program=end_program)
     )
 
