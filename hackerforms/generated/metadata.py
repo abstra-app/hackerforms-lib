@@ -2798,7 +2798,7 @@ metadata = {
                 "name": "Basic Example",
                 "description": "The following example demonstrate some of the available functionality for read_rating",
                 "key": "example1",
-                "code": 'read_rating("How do you rate this movie?")\n',
+                "code": 'rating = read_rating("How do you rate this movie?")\n',
             },
             {
                 "props": {
@@ -2809,7 +2809,7 @@ metadata = {
                 "name": "Custom chars and number of points",
                 "description": "The following example demonstrate some of the available functionality for read_rating",
                 "key": "example2",
-                "code": 'read_rating("How much do you rate this movie?", char="🐍", max=3)\n',
+                "code": 'rating = read_rating(\n    "How do you evaluate your Python skills?", char="🐍", max=3)\n',
             },
         ],
     },
