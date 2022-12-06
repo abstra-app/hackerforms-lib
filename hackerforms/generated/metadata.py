@@ -218,6 +218,125 @@ metadata = {
             }
         ],
     },
+    "cnpj-input": {
+        "type": "cnpj-input",
+        "description": "Read a cnpj value from the user",
+        "pythonAPI": {
+            "name": "read_cnpj",
+            "params": [
+                {
+                    "argName": "label",
+                    "description": "The label to display to the user",
+                    "typeName": "str",
+                    "isKwarg": False,
+                    "default": None,
+                },
+                {
+                    "argName": "initial_value",
+                    "description": "The initial value to display to the user. Defaults to None.",
+                    "typeName": None,
+                    "isKwarg": True,
+                    "default": "None",
+                },
+                {
+                    "argName": "placeholder",
+                    "description": 'The placeholder text to display to the user. Defaults to "00.000.000/0001-00".',
+                    "typeName": "str",
+                    "isKwarg": True,
+                    "default": '"00.000.000/0001-00"',
+                },
+                {
+                    "argName": "required",
+                    "description": 'Wether the input is required or not eg. "this field is required". Defaults to True.',
+                    "typeName": "bool or str",
+                    "isKwarg": True,
+                    "default": "True",
+                },
+                {
+                    "argName": "hint",
+                    "description": "A tooltip displayed to the user. Defaults to None.",
+                    "typeName": "str",
+                    "isKwarg": True,
+                    "default": "None",
+                },
+                {
+                    "argName": "full_width",
+                    "description": "Whether the input should use full screen width. Defaults to False.",
+                    "typeName": "bool",
+                    "isKwarg": True,
+                    "default": "False",
+                },
+            ],
+            "returns": [
+                {
+                    "typeName": None,
+                    "typeDescription": "list(str) or list(float): The value entered by the user",
+                }
+            ],
+        },
+        "brokerAPI": {
+            "params": [
+                {
+                    "argName": "label",
+                    "typeName": "string",
+                    "description": "The label of the input",
+                },
+                {
+                    "argName": "initialValue",
+                    "typeName": "string",
+                    "description": "The initial value of the input",
+                    "default": "",
+                    "isOptional": True,
+                },
+                {
+                    "argName": "key",
+                    "typeName": "string",
+                    "description": "The key of the input on the returning object",
+                },
+                {
+                    "argName": "hint",
+                    "typeName": ["string", "null"],
+                    "description": "message describing the input",
+                    "default": None,
+                    "isOptional": True,
+                },
+                {
+                    "argName": "required",
+                    "typeName": ["boolean", "string"],
+                    "description": "Whether the input is required or not",
+                    "default": True,
+                    "isOptional": True,
+                },
+                {
+                    "argName": "columns",
+                    "typeName": "number",
+                    "description": "number of columns this input will take",
+                    "isOptional": True,
+                },
+                {
+                    "argName": "fullWidth",
+                    "typeName": "boolean",
+                    "description": "Whether the widget should take up the full width of the page",
+                    "isOptional": True,
+                },
+                {
+                    "argName": "placeholder",
+                    "typeName": "string",
+                    "description": "The placeholder text to display in the input",
+                    "default": "00.000.000/0001-00",
+                },
+            ]
+        },
+        "examples": [
+            {
+                "props": {"label": "Insert your CNPJ below"},
+                "name": "Basic Example",
+                "description": "The following example demonstrate some of the available functionality for read_cnpj",
+                "key": "example1",
+                "code": 'name = read_cnpj("Insert your cpf below")\n',
+            }
+        ],
+    },
     "code-input": {
         "type": "code-input",
         "description": "Read a piece of code from the user",

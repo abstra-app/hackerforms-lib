@@ -4,6 +4,7 @@ from hackerforms.widgets.VideoInput import VideoInput
 from hackerforms.widgets.TagInput import TagInput
 from hackerforms.widgets.TimeInput import TimeInput
 from hackerforms.widgets.NumberSliderInput import NumberSliderInput
+from hackerforms.widgets.CnpjInput import CnpjInput
 from hackerforms.widgets.CpfInput import CpfInput
 from hackerforms.widgets.TextInput import TextInput
 from hackerforms.widgets.PhoneInput import PhoneInput

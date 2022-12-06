@@ -80,6 +80,29 @@ class WidgetSchema:
         self.widgets.append(CardsInput(key, label, options, **kwargs))
         return self
 
+    def read_cnpj(self, label: str, **kwargs):
+
+        """Read a cnpj value from the user
+
+        Position Args:
+                label (str): The label to display to the user
+
+        Keyword Args:
+                initial_value (null): The initial value to display to the user. Defaults to None.
+                placeholder (str): The placeholder text to display to the user. Defaults to "00.000.000/0001-00".
+                required (bool or str): Wether the input is required or not eg. "this field is required". Defaults to True.
+                hint (str): A tooltip displayed to the user. Defaults to None.
+                full_width (bool): Whether the input should use full screen width. Defaults to False.
+
+        Returns:
+          list(str) or list(float): The value entered by the user
+        """
+
+        key = kwargs.pop("key", label)
+
+        self.widgets.append(CnpjInput(key, label, **kwargs))
+        return self
+
     def read_code(self, label: str, **kwargs):
 
         """Read a piece of code from the user
