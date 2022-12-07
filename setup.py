@@ -15,6 +15,9 @@ HERE = pathlib.Path(__file__).parent
 # The text of the README file
 README = (HERE / "README.md").read_text()
 
+# The list of requirements
+requirements = (HERE / "requirements.txt").read_text().split('\n')
+
 setup(
     name="hackerforms",
     version=version,
@@ -24,12 +27,5 @@ setup(
     url="https://github.com/abstra-app/hackerforms-lib",
     license="MIT",
     packages=["hackerforms", "hackerforms.generated", "hackerforms.widgets"],
-    install_requires=[
-        "setuptools",
-        "requests",
-        "websocket-client",
-        "validators",
-        "pandas",
-        "plotly",
-    ],
+    install_requires=requirements,
 )

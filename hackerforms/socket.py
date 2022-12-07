@@ -2,31 +2,36 @@ import os
 import atexit
 import inspect
 
+from .parameters import set_params
 from .exit_hook import hooks, make_debug_data
 from .utils import serialize, deserialize, persist_session_id, open_browser
-from .parameters import set_params
 
+
+WS_HOST = os.environ.get("WS_HOST", "wss://hackerforms-broker.abstra.cloud")
+FRONTEND_HOST = os.environ.get("FRONTEND_HOST", "https://console.abstracloud.com")
+
+
+ws = None
 initialized = False
 
 
-# TODO: create_connection should have retry logic
 def initialize():
     from websocket import create_connection
 
     global ws, initialized
     initialized = True
     session_id = os.environ.get("SESSION_ID")
-    # ws_host = os.environ.get('WS_HOST', 'ws://localhost:8080')
-    ws_host = os.environ.get("WS_HOST", "wss://hackerforms-broker.abstra.cloud")
-    # frontend_host = os.environ.get('FRONTEND_HOST', 'http://localhost:8001')
-    frontend_host = os.environ.get("FRONTEND_HOST", "https://console.abstracloud.com")
+
     if session_id:
-        ws = create_connection(f"{ws_host}/lib?sessionId={session_id}")
+        ws = create_connection(f"{WS_HOST}/lib?sessionId={session_id}")
     else:
-        ws = create_connection(f"{ws_host}/lib")
+        ws = create_connection(f"{WS_HOST}/lib")
         session_id = receive("sessionId")
-        open_browser(frontend_host, session_id)
+        open_browser(FRONTEND_HOST, session_id)
         persist_session_id(session_id)
+
+    atexit.register(close)
+
     start = {"type": None}
     while start["type"] != "start":
         start = receive()
@@ -56,7 +61,6 @@ def receive(path: str = ""):
     return data.get(path, None)
 
 
-@atexit.register
 def close():
     if not initialized or ws is None or not ws.connected:
         return
