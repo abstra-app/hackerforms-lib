@@ -1,4 +1,124 @@
 metadata = {
+    "answer-sheet-input": {
+        "type": "answer-sheet-input",
+        "description": "Retrieve the answers from a test on a usual answersheet",
+        "pythonAPI": {
+            "name": "read_answer_sheet",
+            "params": [
+                {
+                    "argName": "label",
+                    "description": "The label to display to the user",
+                    "typeName": "str",
+                    "isKwarg": False,
+                    "default": None,
+                },
+                {
+                    "argName": "options",
+                    "description": "The options which can be chosen as an answer",
+                    "typeName": "list",
+                    "isKwarg": False,
+                    "default": '["A", "B", "C", "D", "E"]',
+                },
+                {
+                    "argName": "number_of_questions",
+                    "description": "Number of questions the answersheet will cover",
+                    "typeName": "int",
+                    "isKwarg": False,
+                    "default": "1",
+                },
+                {
+                    "argName": "required",
+                    "description": 'Wether the input is required or not eg. "this field is required". Defaults to True.',
+                    "typeName": "bool or str",
+                    "isKwarg": True,
+                    "default": "True",
+                },
+                {
+                    "argName": "hint",
+                    "description": "A tooltip displayed to the user. Defaults to None.",
+                    "typeName": "str",
+                    "isKwarg": True,
+                    "default": "None",
+                },
+                {
+                    "argName": "full_width",
+                    "description": "Whether the input should use full screen width. Defaults to False.",
+                    "typeName": "bool",
+                    "isKwarg": True,
+                    "default": "False",
+                },
+            ],
+            "returns": [
+                {
+                    "typeName": None,
+                    "typeDescription": "list: The values/value selected by the user",
+                }
+            ],
+        },
+        "brokerAPI": {
+            "params": [
+                {
+                    "argName": "label",
+                    "typeName": "string",
+                    "description": "The label of the input",
+                },
+                {
+                    "argName": "options",
+                    "typeName": "array",
+                    "description": "The options which can be chosen as an answer",
+                },
+                {
+                    "argName": "numberOfQuestions",
+                    "typeName": "number",
+                    "description": "Number of questions the answersheet will cover",
+                },
+                {
+                    "argName": "key",
+                    "typeName": "string",
+                    "description": "The key of the input on the returning object",
+                },
+                {
+                    "argName": "hint",
+                    "typeName": ["string", "null"],
+                    "description": "message describing the input",
+                    "default": None,
+                    "isOptional": True,
+                },
+                {
+                    "argName": "required",
+                    "typeName": ["boolean", "string"],
+                    "description": "Whether the input is required or not",
+                    "default": True,
+                    "isOptional": True,
+                },
+                {
+                    "argName": "columns",
+                    "typeName": "number",
+                    "description": "number of columns this input will take",
+                    "isOptional": True,
+                },
+                {
+                    "argName": "fullWidth",
+                    "typeName": "boolean",
+                    "description": "Whether the widget should take up the full width of the page",
+                    "isOptional": True,
+                },
+            ]
+        },
+        "examples": [
+            {
+                "props": {
+                    "label": "SIT - 2023",
+                    "options": ["A", "B", "C", "D", "E"],
+                    "number_of_questions": 5,
+                },
+                "name": "Basic Example",
+                "description": "The following example demonstrate some of the available functionality for read_answer_sheet",
+                "key": "example1",
+                "code": 'answer_sheet = read_answer_sheet("SIT - 2023", ["A", "B", "C", "D", "E"], 5)\n# answer_sheet = { \'1\': \'A\', \'2\': None, \'3\': \'C\' }\n',
+            }
+        ],
+    },
     "cards-input": {
         "type": "cards-input",
         "description": "Read a text value from the user simple text input",
@@ -2809,7 +2929,7 @@ metadata = {
                 "name": "Custom chars and number of points",
                 "description": "The following example demonstrate some of the available functionality for read_rating",
                 "key": "example2",
-                "code": 'rating = read_rating(\n    "How do you evaluate your Python skills?", char="🐍", max=3)\n',
+                "code": 'rating = read_rating("How do you evaluate your Python skills?", char="🐍", max=3)\n',
             },
         ],
     },

@@ -4,6 +4,32 @@ from hackerforms.utils import get_single_value
 import pandas
 
 
+def read_answer_sheet(label: str, options: list, number_of_questions: int, **kwargs):
+
+    """Retrieve the answers from a test on a usual answersheet
+
+    Position Args:
+            label (str): The label to display to the user
+            options (list): The options which can be chosen as an answer
+            number_of_questions (int): Number of questions the answersheet will cover
+
+    Keyword Args:
+            required (bool or str): Wether the input is required or not eg. "this field is required". Defaults to True.
+            hint (str): A tooltip displayed to the user. Defaults to None.
+            full_width (bool): Whether the input should use full screen width. Defaults to False.
+
+    Returns:
+      list: The values/value selected by the user
+    """
+
+    button_text = kwargs.get("button_text", "Next")
+    return get_single_value(
+        Page()
+        .read_answer_sheet(label, options, number_of_questions, **kwargs)
+        .run(button_text)
+    )
+
+
 def read_cards(label: str, options: list, **kwargs):
 
     """Read a text value from the user simple text input

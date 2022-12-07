@@ -52,6 +52,33 @@ class WidgetSchema:
 
         return output
 
+    def read_answer_sheet(
+        self, label: str, options: list, number_of_questions: int, **kwargs
+    ):
+
+        """Retrieve the answers from a test on a usual answersheet
+
+        Position Args:
+                label (str): The label to display to the user
+                options (list): The options which can be chosen as an answer
+                number_of_questions (int): Number of questions the answersheet will cover
+
+        Keyword Args:
+                required (bool or str): Wether the input is required or not eg. "this field is required". Defaults to True.
+                hint (str): A tooltip displayed to the user. Defaults to None.
+                full_width (bool): Whether the input should use full screen width. Defaults to False.
+
+        Returns:
+          list: The values/value selected by the user
+        """
+
+        key = kwargs.pop("key", label)
+
+        self.widgets.append(
+            AnswerSheetInput(key, label, options, number_of_questions, **kwargs)
+        )
+        return self
+
     def read_cards(self, label: str, options: list, **kwargs):
 
         """Read a text value from the user simple text input

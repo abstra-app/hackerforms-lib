@@ -16,6 +16,7 @@ from hackerforms.widgets.DateInput import DateInput
 from hackerforms.widgets.PasswordInput import PasswordInput
 from hackerforms.widgets.NumberInput import NumberInput
 from hackerforms.widgets.CardsInput import CardsInput
+from hackerforms.widgets.AnswerSheetInput import AnswerSheetInput
 from hackerforms.widgets.NpsInput import NpsInput
 from hackerforms.widgets.CurrencyInput import CurrencyInput
 from hackerforms.widgets.FileInput import FileInput
