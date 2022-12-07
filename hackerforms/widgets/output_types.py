@@ -7,4 +7,5 @@ from hackerforms.widgets.FileOutput import FileOutput
 from hackerforms.widgets.MarkdownOutput import MarkdownOutput
 from hackerforms.widgets.PlotlyOutput import PlotlyOutput
 from hackerforms.widgets.IframeOutput import IframeOutput
+from hackerforms.widgets.LatexOutput import LatexOutput
 from hackerforms.widgets.TextOutput import TextOutput

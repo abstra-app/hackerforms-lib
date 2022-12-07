@@ -86,6 +86,26 @@ def display_image(image: Union[str, io.IOBase], **kwargs):
     )
 
 
+def display_latex(text: str, **kwargs):
+
+    """Display a latex formula to the user
+
+    Position Args:
+            text (str): The latex formula to display to the user
+
+    Keyword Args:
+            full_width (bool): Whether the input should use full screen width. Defaults to False.
+
+
+    """
+
+    button_text = kwargs.get("button_text", "Next")
+    end_program = kwargs.get("end_program", False)
+    return (
+        Page().display_latex(text, **kwargs).run(button_text, end_program=end_program)
+    )
+
+
 def display_link(link_url: str, **kwargs):
 
     """Display a link to the user

@@ -703,6 +703,22 @@ class WidgetSchema:
         self.widgets.append(ImageOutput(image, **kwargs))
         return self
 
+    def display_latex(self, text: str, **kwargs):
+
+        """Display a latex formula to the user
+
+        Position Args:
+                text (str): The latex formula to display to the user
+
+        Keyword Args:
+                full_width (bool): Whether the input should use full screen width. Defaults to False.
+
+
+        """
+
+        self.widgets.append(LatexOutput(text, **kwargs))
+        return self
+
     def display_link(self, link_url: str, **kwargs):
 
         """Display a link to the user

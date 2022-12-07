@@ -3699,6 +3699,69 @@ metadata = {
             }
         ],
     },
+    "latex-output": {
+        "type": "latex-output",
+        "description": "Display a latex formula to the user",
+        "pythonAPI": {
+            "name": "display_latex",
+            "params": [
+                {
+                    "argName": "text",
+                    "description": "The latex formula to display to the user",
+                    "typeName": "str",
+                    "isKwarg": False,
+                    "default": None,
+                },
+                {
+                    "argName": "full_width",
+                    "description": "Whether the input should use full screen width. Defaults to False.",
+                    "typeName": "bool",
+                    "isKwarg": True,
+                    "default": "False",
+                },
+            ],
+            "returns": [],
+        },
+        "brokerAPI": {
+            "params": [
+                {
+                    "argName": "text",
+                    "typeName": "string",
+                    "description": "The latex formula",
+                },
+                {
+                    "argName": "columns",
+                    "typeName": "number",
+                    "description": "number of columns this input will take",
+                    "isOptional": True,
+                },
+                {
+                    "argName": "fullWidth",
+                    "typeName": "boolean",
+                    "description": "Whether the widget should take up the full width of the page",
+                    "isOptional": True,
+                },
+            ]
+        },
+        "examples": [
+            {
+                "props": {"text": "\\(ax^2 + bx + c = 0\\)"},
+                "name": "Basic Example",
+                "description": "The following example demonstrate some of the available functionality for display_latex",
+                "key": "example1",
+                "code": 'display_latex("\\(ax^2 + bx + c = 0\\)")\n',
+            },
+            {
+                "props": {
+                    "text": "When \\(a \\ne 0\\), there are two solutions to \\(ax^2 + bx + c = 0\\) and they are $$x = {-b \\pm \\sqrt{b^2-4ac} \\over 2a}.$$"
+                },
+                "name": "Basic Example",
+                "description": "The following example demonstrate some of the available functionality for display_latex",
+                "key": "example2",
+                "code": 'display_latex(\n    """When \\(a \\\\ne 0\\), there are two solutions to \\(ax^2 + bx + c = 0\\) and they are\n$$x = {-b \\pm \\sqrt{b^2-4ac} \\over 2a}.$$"""\n)\n',
+            },
+        ],
+    },
     "link-output": {
         "type": "link-output",
         "description": "Display a link to the user",
