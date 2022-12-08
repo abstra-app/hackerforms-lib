@@ -24,6 +24,7 @@ class Page(WidgetSchema):
         columns: float = 1,
         validate: Callable = None,
         end_program: bool = False,
+        reactive_polling_interval=0,
     ) -> Dict:
         """Run the form
 
@@ -31,6 +32,7 @@ class Page(WidgetSchema):
             button_text: The text of the button that is used to submit the form
             columns: The number of columns of the form
             end_program: End program whilst showing this page, making this an end page
+            reactive_polling_interval: Interval to poll and rerender reactive slots, in seconds (0 to disable)
 
         Returns:
             The form result as a dict with the keys being the key of the input and the value being the value of the input
@@ -44,6 +46,7 @@ class Page(WidgetSchema):
                 columns=columns,
                 actions=[],
                 end_program=end_program,
+                reactive_polling_interval=reactive_polling_interval,
             )
             return
 
@@ -52,6 +55,7 @@ class Page(WidgetSchema):
             columns=columns,
             actions=self.__actions_property(actions, end_program),
             end_program=end_program,
+            reactive_polling_interval=reactive_polling_interval,
         )
         response: Dict = self.__user_event_messages(validate=validate)
 
@@ -113,7 +117,9 @@ class Page(WidgetSchema):
 
         return {"status": validation_status, "message": validation_message}
 
-    def __send_form_message(self, widgets, actions, columns, end_program):
+    def __send_form_message(
+        self, widgets, actions, columns, end_program, reactive_polling_interval
+    ):
         send(
             {
                 "type": "form",
@@ -121,6 +127,7 @@ class Page(WidgetSchema):
                 "columns": columns,
                 "actions": actions,
                 "endProgram": end_program,
+                "reactivePollingInterval": reactive_polling_interval,
             }
         )
 
