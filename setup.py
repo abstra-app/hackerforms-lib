@@ -26,6 +26,11 @@ setup(
     long_description_content_type="text/markdown",
     url="https://github.com/abstra-app/hackerforms-lib",
     license="MIT",
-    packages=["hackerforms", "hackerforms.generated", "hackerforms.widgets"],
+    packages=[
+        "hackerforms",
+        "hackerforms.generated",
+        "hackerforms.widgets",
+        "hackerforms.connection",
+    ],
     install_requires=requirements,
 )

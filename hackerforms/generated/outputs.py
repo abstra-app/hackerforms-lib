@@ -152,12 +152,12 @@ def display_markdown(text: str, **kwargs):
     )
 
 
-def display_pandas(df: pandas.DataFrame, **kwargs):
+def display_pandas(df: Any, **kwargs):
 
     """Display a pandas dataframe to the user
 
     Position Args:
-            df (pandas.DataFrame): The dataframe to display to the user
+            df (Any): The dataframe to display to the user
 
     Keyword Args:
             full_width (bool): Whether the input should use full screen width. Defaults to False.
