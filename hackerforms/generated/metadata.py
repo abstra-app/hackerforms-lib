@@ -2321,7 +2321,7 @@ metadata = {
                 {
                     "argName": "df",
                     "description": "The pandas dataframe to be displayed",
-                    "typeName": "pandas.DataFrame",
+                    "typeName": "Any",
                     "isKwarg": False,
                     "default": None,
                 },

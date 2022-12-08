@@ -10,7 +10,7 @@ class PandasRowSelectionInput(Input):
         """Display a pandas dataframe as a table and allow the user to select rows
 
         Positional Args:
-            df (pandas.DataFrame): The pandas dataframe to be displayed
+            df (Any): The pandas dataframe to be displayed
 
         Keyword Args:
             required: Whether the input is required or not. Defaults to True.

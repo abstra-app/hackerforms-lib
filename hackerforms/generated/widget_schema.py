@@ -446,12 +446,12 @@ class WidgetSchema:
         self.widgets.append(NumberSliderInput(key, label, **kwargs))
         return self
 
-    def read_pandas_row_selection(self, df: pandas.DataFrame, **kwargs):
+    def read_pandas_row_selection(self, df: Any, **kwargs):
 
         """Display a pandas dataframe as a table and allow the user to select rows
 
         Position Args:
-                df (pandas.DataFrame): The pandas dataframe to be displayed
+                df (Any): The pandas dataframe to be displayed
 
         Keyword Args:
                 required (null): Whether the input is required or not. Defaults to True.
