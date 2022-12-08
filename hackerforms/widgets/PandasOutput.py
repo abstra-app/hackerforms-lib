@@ -1,13 +1,12 @@
 from hackerforms.common import Output
 from typing import Any
-import pandas
 import json
 
 
 class PandasOutput(Output):
     type = "pandas-output"
 
-    def __init__(self, df: pandas.DataFrame, **kwargs):
+    def __init__(self, df: Any, **kwargs):
         """Display a pandas dataframe to the user
 
         Positional Args:

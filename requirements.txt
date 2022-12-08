@@ -2,5 +2,3 @@ setuptools
 requests
 websocket-client
 validators
-pandas
-plotly

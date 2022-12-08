@@ -780,12 +780,12 @@ class WidgetSchema:
         self.widgets.append(MarkdownOutput(text, **kwargs))
         return self
 
-    def display_pandas(self, df: pandas.DataFrame, **kwargs):
+    def display_pandas(self, df: Any, **kwargs):
 
         """Display a pandas dataframe to the user
 
         Position Args:
-                df (pandas.DataFrame): The dataframe to display to the user
+                df (Any): The dataframe to display to the user
 
         Keyword Args:
                 full_width (bool): Whether the input should use full screen width. Defaults to False.

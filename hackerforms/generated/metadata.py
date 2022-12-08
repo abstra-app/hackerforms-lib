@@ -4018,7 +4018,7 @@ metadata = {
                 {
                     "argName": "df",
                     "description": "The dataframe to display to the user",
-                    "typeName": "pandas.DataFrame",
+                    "typeName": "Any",
                     "isKwarg": False,
                     "default": None,
                 },
