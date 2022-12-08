@@ -1,75 +1,82 @@
 import os
-import atexit
-import inspect
-
-from .parameters import set_params
-from .exit_hook import hooks, make_debug_data
-from .utils import serialize, deserialize, persist_session_id, open_browser
+from collections import UserDict
+from .connection import Connection
 
 
 WS_HOST = os.environ.get("WS_HOST", "wss://hackerforms-broker.abstra.cloud")
 FRONTEND_HOST = os.environ.get("FRONTEND_HOST", "https://console.abstracloud.com")
-
-
-ws = None
-initialized = False
+DEBUG_ENABLED = os.environ.get("ABSTRA_DEBUG")
+SESSION_ID = os.environ.get("SESSION_ID")
+ABSTRA_FORM_SERVER = os.environ.get("ABSTRA_FORM_SERVER")
 
 
 def initialize():
-    from websocket import create_connection
-
-    global ws, initialized
+    global __connection, initialized
+    if ABSTRA_FORM_SERVER:
+        return
     initialized = True
-    session_id = os.environ.get("SESSION_ID")
+    __connection = Connection(SESSION_ID, DEBUG_ENABLED)
 
-    if session_id:
-        ws = create_connection(f"{WS_HOST}/lib?sessionId={session_id}")
-    else:
-        ws = create_connection(f"{WS_HOST}/lib")
-        session_id = receive("sessionId")
-        open_browser(FRONTEND_HOST, session_id)
-        persist_session_id(session_id)
 
-    atexit.register(close)
-
-    start = {"type": None}
-    while start["type"] != "start":
-        start = receive()
-    set_params(start["params"])
-    return session_id
+def get_connection():
+    return __connection if initialized and __connection else None
 
 
 def send(data, debug_data=None):
-    if not initialized:
-        return
-    if os.environ.get("ABSTRA_DEBUG"):
-        debug = debug_data or make_debug_data(inspect.stack())
-        ws.send(serialize({**data, **debug}))
-    else:
-        ws.send(serialize(data))
+    conn = get_connection()
+    return conn and conn.send(data, debug_data)
 
 
 def receive(path: str = ""):
-    if not initialized:
-        return
-    recvd = ws.recv()
-    if not recvd:
-        raise Exception("Websocket not connected")
-    data = deserialize(recvd)
-    if not path:
-        return data
-    return data.get(path, None)
+    conn = get_connection()
+    if not conn:
+        raise Exception("no connection found")
+    return conn.receive(path)
 
 
 def close():
-    if not initialized or ws is None or not ws.connected:
-        return
-    send(
-        {
-            "type": "program:end",
-            "exitCode": hooks.exit_code,
-            "exception": hooks.exception,
-        },
-        debug_data=hooks.debug_data,
-    )
-    ws.close()
+    conn = get_connection()
+    return conn and conn.close()
+
+
+# this is a class to wrap all read methods of dicts to call get_url_params instead
+class UrlParams(UserDict):
+    @property
+    def params(self):
+        conn = get_connection()
+        return conn.url_params if conn else {}
+
+    def __getitem__(self, key):
+        return self.params.__getitem__(key)
+
+    def __iter__(self):
+        return self.params.__iter__()
+
+    def __len__(self) -> int:
+        return self.params.__len__()
+
+    def __contains__(self, key):
+        return self.params.__contains__(key)
+
+    def __str__(self) -> str:
+        return self.params.__str__()
+
+    def __repr__(self) -> str:
+        return self.params.__repr__()
+
+    def keys(self):
+        return self.params.keys()
+
+    def values(self):
+        return self.params.values()
+
+    def items(self):
+        return self.params.items()
+
+    def has_key(self, key):
+        return key in self.params
+
+
+url_params = UrlParams()
+initialized = False
+__connection = None
