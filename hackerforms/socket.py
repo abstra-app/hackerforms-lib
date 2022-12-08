@@ -19,24 +19,21 @@ def initialize():
 
 
 def get_connection():
-    return __connection if initialized and __connection else None
+    if not initialized or not __connection:
+        raise Exception('No connection available')
+    return __connection
 
 
 def send(data, debug_data=None):
-    conn = get_connection()
-    return conn and conn.send(data, debug_data)
+    return get_connection().send(data, debug_data)
 
 
 def receive(path: str = ""):
-    conn = get_connection()
-    if not conn:
-        raise Exception("no connection found")
-    return conn.receive(path)
+    return get_connection().receive(path)
 
 
 def close():
-    conn = get_connection()
-    return conn and conn.close()
+    return get_connection().close()
 
 
 # this is a class to wrap all read methods of dicts to call get_url_params instead
