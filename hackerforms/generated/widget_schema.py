@@ -3,7 +3,6 @@ from hackerforms.widgets.output_types import *
 from hackerforms.reactive import Reactive
 from typing import List, Union, Dict, Any
 from hackerforms.common import Input
-import pandas
 import io
 
 

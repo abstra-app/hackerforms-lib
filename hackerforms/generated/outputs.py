@@ -1,7 +1,6 @@
 from typing import Union, Any
 from hackerforms.page import Page
 import io
-import pandas
 
 
 def display_file(file: Union[str, io.IOBase], **kwargs):

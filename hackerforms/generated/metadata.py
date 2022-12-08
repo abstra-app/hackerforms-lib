@@ -334,7 +334,7 @@ metadata = {
                 "name": "Basic Example",
                 "description": "The following example demonstrate some of the available functionality for read_cards",
                 "key": "example1",
-                "code": 'card = read_cards(\n    "Choose your character",\n    [\n        {\n            "title": "Charmander",\n            "image": "https://img.pokemondb.net/sprites/sword-shield/icon/charmander.png",\n            "description": "Fire",\n        },\n        {\n            "title": "Bulbasaur",\n            "image": "https://img.pokemondb.net/sprites/sword-shield/icon/bulbasaur.png",\n            "description": "Grass",\n        },\n        {\n            "title": "Squirtle",\n            "image": "https://img.pokemondb.net/sprites/sword-shield/icon/squirtle.png",\n            "description": "Water",\n        },\n    ],\n)\n# card = { \'title\': ..., \'image\': ..., \'description\': ... }\n',
+                "code": 'from hackerforms import read_cards\n\ncard = read_cards(\n    "Choose your character",\n    [\n        {\n            "title": "Charmander",\n            "image": "https://img.pokemondb.net/sprites/sword-shield/icon/charmander.png",\n            "description": "Fire",\n        },\n        {\n            "title": "Bulbasaur",\n            "image": "https://img.pokemondb.net/sprites/sword-shield/icon/bulbasaur.png",\n            "description": "Grass",\n        },\n        {\n            "title": "Squirtle",\n            "image": "https://img.pokemondb.net/sprites/sword-shield/icon/squirtle.png",\n            "description": "Water",\n        },\n    ],\n)\n# card = { \'title\': ..., \'image\': ..., \'description\': ... }\n',
             }
         ],
     },
@@ -453,7 +453,7 @@ metadata = {
                 "name": "Basic Example",
                 "description": "The following example demonstrate some of the available functionality for read_cnpj",
                 "key": "example1",
-                "code": 'name = read_cnpj("Insert your cpf below")\n',
+                "code": 'from hackerforms import read_cnpj\n\nname = read_cnpj("Insert your cpf below")\n',
             }
         ],
     },
@@ -573,7 +573,7 @@ metadata = {
                 "name": "Basic Example",
                 "description": "The following example demonstrate some of the available functionality for read_code",
                 "key": "example1",
-                "code": 'ans = read_code("Show me the code!", language="c")\n',
+                "code": 'from hackerforms import read_code\n\nans = read_code("Show me the code!", language="c")\n',
             }
         ],
     },
@@ -689,7 +689,7 @@ metadata = {
                 "name": "Basic Example",
                 "description": "The following example demonstrate some of the available functionality for read_cpf",
                 "key": "example1",
-                "code": 'name = read_cpf("Insert your cpf below")\n',
+                "code": 'from hackerforms import read_cpf\n\nname = read_cpf("Insert your cpf below")\n',
             }
         ],
     },
@@ -863,7 +863,7 @@ metadata = {
                 "name": "Basic Example",
                 "description": "The following example demonstrate some of the available functionality for read_currency",
                 "key": "example1",
-                "code": 'read_currency(\n    f"How many credits do you want?", currency="USD", initial_value=10, min=10\n)\n',
+                "code": 'from hackerforms import read_currency\n\nread_currency(\n    f"How many credits do you want?", currency="USD", initial_value=10, min=10\n)\n',
             }
         ],
     },
@@ -968,7 +968,7 @@ metadata = {
                 "name": "Basic Example",
                 "description": "The following example demonstrate some of the available functionality for read_date",
                 "key": "example1",
-                "code": 'birthday = read_date("When were you born?")\nyear = birthday.year\nmonth = birthday.month\nday = birthday.day\n',
+                "code": 'from hackerforms import read_date\n\nbirthday = read_date("When were you born?")\nyear = birthday.year\nmonth = birthday.month\nday = birthday.day\n',
             }
         ],
     },
@@ -1120,7 +1120,7 @@ metadata = {
                 "name": "Basic Example",
                 "description": "Basic use of read_dropdown",
                 "key": "example1",
-                "code": 'ans = read_dropdown(\n    "Choose a color",\n    ["Red", "Green", "Blue"],\n)\n# ans = "Red", "Green" or "Blue"\n',
+                "code": 'from hackerforms import read_dropdown\n\nans = read_dropdown(\n    "Choose a color",\n    ["Red", "Green", "Blue"],\n)\n# ans = "Red", "Green" or "Blue"\n',
             },
             {
                 "props": {
@@ -1130,7 +1130,7 @@ metadata = {
                 "name": "Label and value dict",
                 "description": "Use a dictionary to specify the label and value of each option. The label will be displayed to the user, and the value will be returned by the widget.",
                 "key": "example2",
-                "code": 'ans = read_dropdown(\n    "Choose a color",\n    [\n        {"label": "Red", "value": "R"},\n        {"label": "Green", "value": "G"},\n        {"label": "Blue", "value": "B"},\n    ],\n)\n# ans = "R", "G" or "B"\n',
+                "code": 'from hackerforms import read_dropdown\n\nans = read_dropdown(\n    "Choose a color",\n    [\n        {"label": "Red", "value": "R"},\n        {"label": "Green", "value": "G"},\n        {"label": "Blue", "value": "B"},\n    ],\n)\n# ans = "R", "G" or "B"\n',
             },
         ],
     },
@@ -1258,7 +1258,7 @@ metadata = {
                 "name": "Basic Example",
                 "description": "The following example demonstrate some of the available functionality for read_email",
                 "key": "example1",
-                "code": 'email = read_email("What is your email?")\n',
+                "code": 'from hackerforms import read_email\n\nemail = read_email("What is your email?")\n',
             }
         ],
     },
@@ -1370,7 +1370,7 @@ metadata = {
                 "name": "Basic Example",
                 "description": "The following example demonstrate some of the available functionality for read_file",
                 "key": "example1",
-                "code": 'fileResponse = read_file("Upload your .xlsx file")\nfile = fileResponse.file  # File object\nurl = fileResponse.url  # Url to the file\ncontent = fileResponse.content  # Raw file content\n',
+                "code": 'from hackerforms import read_file\n\nfileResponse = read_file("Upload your .xlsx file")\nfile = fileResponse.file  # File object\nurl = fileResponse.url  # Url to the file\ncontent = fileResponse.content  # Raw file content\n',
             }
         ],
     },
@@ -1490,7 +1490,7 @@ metadata = {
                 "name": "Basic Example",
                 "description": "The following example demonstrate some of the available functionality for read_image",
                 "key": "example1",
-                "code": 'fileResponse = read_image("Upload your .png image")\nfile = fileResponse.file  # File object\nurl = fileResponse.url  # Url to the file\ncontent = fileResponse.content  # Raw file content\n',
+                "code": 'from hackerforms import read_image\n\nfileResponse = read_image("Upload your .png image")\nfile = fileResponse.file  # File object\nurl = fileResponse.url  # Url to the file\ncontent = fileResponse.content  # Raw file content\n',
             }
         ],
     },
@@ -1656,7 +1656,7 @@ metadata = {
                 "name": "Basic Example",
                 "description": "The following example demonstrate some of the available functionality for read_list",
                 "key": "example1",
-                "code": "item = ListItemSchema().read(\"Name\").read_email(\"Email\")\nans = read_list(item, min=1, max=3)\n# ans = [{'Name': '', 'Email': ''}]\n",
+                "code": "from hackerforms import ListItemSchema, read_list\n\nitem = ListItemSchema().read(\"Name\").read_email(\"Email\")\nans = read_list(item, min=1, max=3)\n# ans = [{'Name': '', 'Email': ''}]\n",
             }
         ],
     },
@@ -1835,7 +1835,7 @@ metadata = {
                 "name": "Basic Example",
                 "description": "Basic use of read_multiple_choice",
                 "key": "example1",
-                "code": 'ans = read_multiple_choice(\n    "Which programming language do you prefer?",\n    ["Python", "JavaScript"],\n)\n# ans = "Python" or "JavaScript"\n',
+                "code": 'from hackerforms import read_multiple_choice\n\nans = read_multiple_choice(\n    "Which programming language do you prefer?",\n    ["Python", "JavaScript"],\n)\n# ans = "Python" or "JavaScript"\n',
             },
             {
                 "props": {
@@ -1845,7 +1845,7 @@ metadata = {
                 "name": "Label and value dict",
                 "description": "Use a dictionary to specify the label and value of each option. The label will be displayed to the user, and the value will be returned by the widget.",
                 "key": "example2",
-                "code": 'ans = read_multiple_choice(\n    "Which programming language do you prefer?",\n    [{"label": " Python", "value": "py"}, {"label": "JavaScript", "value": "js"}],\n)\n# ans = "py" or "js"\n',
+                "code": 'from hackerforms import read_multiple_choice\n\nans = read_multiple_choice(\n    "Which programming language do you prefer?",\n    [{"label": " Python", "value": "py"}, {"label": "JavaScript", "value": "js"}],\n)\n# ans = "py" or "js"\n',
             },
             {
                 "props": {
@@ -1856,7 +1856,7 @@ metadata = {
                 "name": "Checkboxes",
                 "description": "Use `multiple=true` when you want allow users to select more than one option. This will make it returns a list.",
                 "key": "example3",
-                "code": 'ans = read_multiple_choice(\n    "What features do you love?", ["forms", "jobs", "hooks"], multiple=True\n)\n# ans = ["forms", "jobs", "hooks"]\n',
+                "code": 'from hackerforms import read_multiple_choice\n\nans = read_multiple_choice(\n    "What features do you love?", ["forms", "jobs", "hooks"], multiple=True\n)\n# ans = ["forms", "jobs", "hooks"]\n',
             },
         ],
     },
@@ -2013,7 +2013,7 @@ metadata = {
                 "name": "Basic Example",
                 "description": "The following example demonstrate some of the available functionality for read_nps",
                 "key": "example1",
-                "code": 'ans = read_nps(\n    "How likely are you to recommend Abstra Cloud?",\n    min_hint="No way!",\n    max_hint="Hell yeah!",\n)\n',
+                "code": 'from hackerforms import read_nps\n\nans = read_nps(\n    "How likely are you to recommend Abstra Cloud?",\n    min_hint="No way!",\n    max_hint="Hell yeah!",\n)\n',
             }
         ],
     },
@@ -2170,7 +2170,7 @@ metadata = {
                 "name": "Basic Example",
                 "description": "The following example demonstrate some of the available functionality for read_number",
                 "key": "example1",
-                "code": 'age = read_number("How old are you?")\n',
+                "code": 'from hackerforms import read_number\n\nage = read_number("How old are you?")\n',
             }
         ],
     },
@@ -2308,7 +2308,7 @@ metadata = {
                 "name": "Basic Example",
                 "description": "The following example demonstrate some of the available functionality for read_number",
                 "key": "example1",
-                "code": 'age = read_number_slider("Set volume")\n',
+                "code": 'from hackeforms import read_number_slider\n\nage = read_number_slider("Set volume")\n',
             }
         ],
     },
@@ -2427,7 +2427,7 @@ metadata = {
                 "name": "Basic Example",
                 "description": "The following example demonstrate some of the available functionality for read_pandas",
                 "key": "example1",
-                "code": 'data = [\n    {"Country": "USA", "Population": "32,700,000"},\n    {"Country": "China", "Population": "1,300,000,000"},\n    {"Country": "Japan", "Population": "126,000,000"},\n]\ndf = pd.DataFrame(data)\nread_pandas_row_selection(df)\n',
+                "code": 'from r import read_pandas_row_selection\nimport pandas as pd\n\ndata = [\n    {"Country": "USA", "Population": "32,700,000"},\n    {"Country": "China", "Population": "1,300,000,000"},\n    {"Country": "Japan", "Population": "126,000,000"},\n]\ndf = pd.DataFrame(data)\nread_pandas_row_selection(df)\n',
             }
         ],
     },
@@ -2654,7 +2654,7 @@ metadata = {
                 "name": "Basic Example",
                 "description": "The following example demonstrate some of the available functionality for read_password",
                 "key": "example1",
-                "code": 'ans = read_password("Insert your password below")\n',
+                "code": 'from hackerforms import read_password\n\nans = read_password("Insert your password below")\n',
             }
         ],
     },
@@ -2784,7 +2784,7 @@ metadata = {
                 "name": "Basic Example",
                 "description": "The following example demonstrate some of the available functionality for read_phone",
                 "key": "example1",
-                "code": 'phone = read_phone("What is your phone number?")\nnumber = phone.raw  # eg: 5521999999999\nmasked = phone.masked  # eg: +55 (21) 99999-9999\n',
+                "code": 'from hackerforms import read_pandas_row_selection\n\nphone = read_phone("What is your phone number?")\nnumber = phone.raw  # eg: 5521999999999\nmasked = phone.masked  # eg: +55 (21) 99999-9999\n',
             }
         ],
     },
@@ -2918,7 +2918,7 @@ metadata = {
                 "name": "Basic Example",
                 "description": "The following example demonstrate some of the available functionality for read_rating",
                 "key": "example1",
-                "code": 'rating = read_rating("How do you rate this movie?")\n',
+                "code": 'from hackerforms import read_rating\n\nrating = read_rating("How do you rate this movie?")\n',
             },
             {
                 "props": {
@@ -2929,7 +2929,7 @@ metadata = {
                 "name": "Custom chars and number of points",
                 "description": "The following example demonstrate some of the available functionality for read_rating",
                 "key": "example2",
-                "code": 'rating = read_rating("How do you evaluate your Python skills?", char="🐍", max=3)\n',
+                "code": 'from hackerforms import read_rating\n\nrating = read_rating("How do you evaluate your Python skills?", char="🐍", max=3)\n',
             },
         ],
     },
@@ -3052,7 +3052,7 @@ metadata = {
                 "name": "Basic Example",
                 "description": "The following example demonstrate some of the available functionality for read_tag",
                 "key": "example1",
-                "code": 'ans = read_tag(\n    "Type and press enter to add a tag", initial_value=["Red", "Green", "Blue"]\n)\n# ans = ["Red", "Green" or "Blue"]`\n',
+                "code": 'from hackerforms import read_tag\n\nans = read_tag(\n    "Type and press enter to add a tag", initial_value=["Red", "Green", "Blue"]\n)\n# ans = ["Red", "Green" or "Blue"]`\n',
             }
         ],
     },
@@ -3182,7 +3182,7 @@ metadata = {
                 "name": "Basic Example",
                 "description": "The following example demonstrate some of the available functionality for read",
                 "key": "example1",
-                "code": 'name = read("What is your name?")\n',
+                "code": 'from hackerforms import read\n\nname = read("What is your name?")\n',
             },
             {
                 "props": {
@@ -3192,7 +3192,7 @@ metadata = {
                 "name": "Mask Example",
                 "description": "The following example shows the usage of the mask property for read widget. In the mask property, the '0' digit represents a numeric value, the 'a' digit represents an alphabetic value and other digits are recognized as part of the value",
                 "key": "example2",
-                "code": 'read("What is your credit card number?", mask="0000 0000 0000 0000")\n',
+                "code": 'from hackerforms import read\n\nread("What is your credit card number?", mask="0000 0000 0000 0000")\n',
             },
         ],
     },
@@ -3310,7 +3310,7 @@ metadata = {
                 "name": "Basic Example",
                 "description": "The following example demonstrate some of the available functionality for read_textarea",
                 "key": "example1",
-                "code": 'ans = read_textarea("What kind of things are you building with Abstra Cloud?")\n',
+                "code": 'from hackerforms import read_textarea\n\nans = read_textarea("What kind of things are you building with Abstra Cloud?")\n',
             }
         ],
     },
@@ -3430,7 +3430,7 @@ metadata = {
                 "name": "Basic Example",
                 "description": "The following example demonstrate some of the available functionality for read_time",
                 "key": "example1",
-                "code": 'ans = read_time("Select a time below")\n# ans = 00:00:00\n',
+                "code": 'from hackerforms import read\n\nans = read_time("Select a time below")\n# ans = 00:00:00\n',
             }
         ],
     },
@@ -3550,7 +3550,7 @@ metadata = {
                 "name": "Basic Example",
                 "description": "The following example demonstrate some of the available functionality for read_video",
                 "key": "example1",
-                "code": 'fileResponse = read_video("Upload your video")\nfile = fileResponse.file  # File object\nurl = fileResponse.url  # Url to the file\ncontent = fileResponse.content  # Raw file content\n',
+                "code": 'from hackerforms import read_video\n\nfileResponse = read_video("Upload your video")\nfile = fileResponse.file  # File object\nurl = fileResponse.url  # Url to the file\ncontent = fileResponse.content  # Raw file content\n',
             }
         ],
     },
@@ -3616,7 +3616,7 @@ metadata = {
                 "name": "Basic Example",
                 "description": "The following example demonstrate some of the available functionality for display_file",
                 "key": "example1",
-                "code": 'display_file(\n    "https://placekitten.com/200/300", download_text="Click here to reveal the secret"\n)\n',
+                "code": 'from hackerforms import display_file\n\ndisplay_file(\n    "https://placekitten.com/200/300", download_text="Click here to reveal the secret"\n)\n',
             }
         ],
     },
@@ -3668,7 +3668,7 @@ metadata = {
                 "name": "Basic Example",
                 "description": "The following example demonstrate some of the available functionality for display_html",
                 "key": "example1",
-                "code": 'display_html(\n    \'<svg width="100" height="100"><circle cx="50" cy="50" r="40" stroke="green" stroke-width="4" fill="yellow" /></svg>\'\n)\n',
+                "code": 'from hackerforms import display_html\n\ndisplay_html(\n    \'<svg width="100" height="100"><circle cx="50" cy="50" r="40" stroke="green" stroke-width="4" fill="yellow" /></svg>\'\n)\n',
             }
         ],
     },
@@ -3748,7 +3748,7 @@ metadata = {
                 "name": "Basic Example",
                 "description": "The following example demonstrate some of the available functionality for display_iframe",
                 "key": "example1",
-                "code": 'display_iframe(\n    "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d2965.0824050173574!2d-93.63905729999999!3d41.998507000000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sWebFilings%2C+University+Boulevard%2C+Ames%2C+IA!5e0!3m2!1sen!2sus!4v1390839289319",\n    width="300",\n    height="250",\n)\n',
+                "code": 'from hackerforms import display_iframe\n\ndisplay_iframe(\n    "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d2965.0824050173574!2d-93.63905729999999!3d41.998507000000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sWebFilings%2C+University+Boulevard%2C+Ames%2C+IA!5e0!3m2!1sen!2sus!4v1390839289319",\n    width="300",\n    height="250",\n)\n',
             }
         ],
     },
@@ -3815,7 +3815,7 @@ metadata = {
                 "name": "Basic Example",
                 "description": "The following example demonstrate some of the available functionality for display_image",
                 "key": "example1",
-                "code": 'display_image("https://placekitten.com/200/200", subtitle="Meooow")\n',
+                "code": 'from hackerforms import display_image\n\ndisplay_image("https://placekitten.com/200/200", subtitle="Meooow")\n',
             }
         ],
     },
@@ -3869,7 +3869,7 @@ metadata = {
                 "name": "Basic Example",
                 "description": "The following example demonstrate some of the available functionality for display_latex",
                 "key": "example1",
-                "code": 'display_latex("\\(ax^2 + bx + c = 0\\)")\n',
+                "code": 'from hackerforms import display_latex\n\ndisplay_latex("\\(ax^2 + bx + c = 0\\)")\n',
             },
             {
                 "props": {
@@ -3878,7 +3878,7 @@ metadata = {
                 "name": "Basic Example",
                 "description": "The following example demonstrate some of the available functionality for display_latex",
                 "key": "example2",
-                "code": 'display_latex(\n    """When \\(a \\\\ne 0\\), there are two solutions to \\(ax^2 + bx + c = 0\\) and they are\n$$x = {-b \\pm \\sqrt{b^2-4ac} \\over 2a}.$$"""\n)\n',
+                "code": 'from hackerforms import display_latex\n\ndisplay_latex(\n    """When \\(a \\\\ne 0\\), there are two solutions to \\(ax^2 + bx + c = 0\\) and they are\n$$x = {-b \\pm \\sqrt{b^2-4ac} \\over 2a}.$$"""\n)\n',
             },
         ],
     },
@@ -3953,7 +3953,7 @@ metadata = {
                 "name": "Basic Example",
                 "description": "The following example demonstrate some of the available functionality for display_link",
                 "key": "example1",
-                "code": 'display_link("https://console.abstracloud.com", link_text="Abstra Cloud Homepage")\n',
+                "code": 'from hackerforms import display_link\n\ndisplay_link("https://console.abstracloud.com", link_text="Abstra Cloud Homepage")\n',
             }
         ],
     },
@@ -4005,7 +4005,7 @@ metadata = {
                 "name": "Basic Example",
                 "description": "The following example demonstrate some of the available functionality for display_markdown",
                 "key": "example1",
-                "code": 'display_markdown(\n    """\n## Let\'s see some examples 8-)\n\n* 1^th^ H~2~0\n\n\n\n- [ ] Task\n\n* ==Mark==\n\n* [Link](https://www.abstracloud.com/)"""\n)\n',
+                "code": 'from hackerforms import display_markdown\n\n\ndisplay_markdown(\n    """\n## Let\'s see some examples 8-)\n\n* 1^th^ H~2~0\n\n\n\n- [ ] Task\n\n* ==Mark==\n\n* [Link](https://www.abstracloud.com/)"""\n)\n',
             }
         ],
     },
@@ -4102,7 +4102,7 @@ metadata = {
                 "name": "Basic Example",
                 "description": "The following example demonstrate some of the available functionality for display_pandas",
                 "key": "example1",
-                "code": "display_pandas(df)\n",
+                "code": "from hackerforms import display_pandas\n\ndisplay_pandas(df)\n",
             }
         ],
     },
@@ -4155,7 +4155,7 @@ metadata = {
                 "name": "Basic Example",
                 "description": "The following example demonstrate some of the available functionality for display_plotly",
                 "key": "example1",
-                "code": "display_plotly(figure)\n",
+                "code": "from hackerforms import display_plotly\n\ndisplay_plotly(figure)\n",
             }
         ],
     },
@@ -4237,7 +4237,7 @@ metadata = {
                 "name": "Default behavior",
                 "description": "This is what happens when there is no parameter passed",
                 "key": "example1",
-                "code": "display_progress()\n",
+                "code": "from hackerforms import display_progress\n\ndisplay_progress()\n",
             },
             {
                 "props": {"current": 8, "total": 10, "text": "Almost there!"},
@@ -4294,7 +4294,7 @@ metadata = {
                 "name": "Basic Example",
                 "description": "The following example demonstrate some of the available functionality for read_display",
                 "key": "example1",
-                "code": 'display("Hello world!")\n',
+                "code": 'from hackerforms import display\n\ndisplay("Hello world!")\n',
             }
         ],
     },

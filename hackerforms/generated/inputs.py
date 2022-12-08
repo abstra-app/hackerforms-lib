@@ -1,7 +1,6 @@
 from typing import Any
 from hackerforms.page import Page
 from hackerforms.utils import get_single_value
-import pandas
 
 
 def read_answer_sheet(label: str, options: list, number_of_questions: int, **kwargs):
