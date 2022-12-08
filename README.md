@@ -8,7 +8,7 @@ Launch interactive Python scripts as beautiful form-like apps
 
 ![docs_editor](https://user-images.githubusercontent.com/8538337/200737655-7d212aef-e07a-4425-8cab-40000be3539d.gif)
 
-No HTML, CSS, JS... With single line commands, get data from users and display info to them
+No HTML, CSS, JS... With single line commands, get data from users and display info to them.
 
 ## Examples
 
