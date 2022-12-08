@@ -20,7 +20,7 @@ def initialize():
 
 def get_connection():
     if not initialized or not __connection:
-        raise Exception('No connection available')
+        raise Exception("No connection available")
     return __connection
 
 
