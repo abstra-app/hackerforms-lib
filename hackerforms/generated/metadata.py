@@ -110,7 +110,7 @@ metadata = {
                 "props": {
                     "label": "SIT - 2023",
                     "options": ["A", "B", "C", "D", "E"],
-                    "number_of_questions": 5,
+                    "numberOfQuestions": 5,
                 },
                 "name": "Basic Example",
                 "description": "The following example demonstrate some of the available functionality for read_answer_sheet",
