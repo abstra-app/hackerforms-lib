@@ -115,7 +115,7 @@ metadata = {
                 "name": "Basic Example",
                 "description": "The following example demonstrate some of the available functionality for read_answer_sheet",
                 "key": "example1",
-                "code": 'answer_sheet = read_answer_sheet("SIT - 2023", ["A", "B", "C", "D", "E"], 5)\n# answer_sheet = { \'1\': \'A\', \'2\': None, \'3\': \'C\' }\n',
+                "code": 'from hackerforms import read_answer_sheet\n\nanswer_sheet = read_answer_sheet("SIT - 2023", ["A", "B", "C", "D", "E"], 5)\n# answer_sheet = { \'1\': \'A\', \'2\': None, \'3\': \'C\' }\n',
             }
         ],
     },
