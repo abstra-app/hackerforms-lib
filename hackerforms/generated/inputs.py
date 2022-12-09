@@ -16,6 +16,7 @@ def read_answer_sheet(label: str, options: list, number_of_questions: int, **kwa
             required (bool or str): Wether the input is required or not eg. "this field is required". Defaults to True.
             hint (str): A tooltip displayed to the user. Defaults to None.
             full_width (bool): Whether the input should use full screen width. Defaults to False.
+            end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
 
     Returns:
       list: The values/value selected by the user
@@ -46,7 +47,8 @@ def read_cards(label: str, options: list, **kwargs):
                     hint (str): A tooltip displayed to the user. Defaults to None.
                     searchable (bool): Whether to show a search bar. Defaults to False.
                     full_width (bool): Whether the input should use full screen width. Defaults to False.
-                    direction (str): Whether the cards direction should be 'horizontal' or 'vertical'. Defaults to 'vertical'.
+                    direction (str): Whether the cards direction should be 'horizontal' or 'vertical'. Defaults to 'vertical'.%%%
+                    end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
 
             Returns:
               list, any: The options/option selected by the user

@@ -47,6 +47,13 @@ metadata = {
                     "isKwarg": True,
                     "default": "False",
                 },
+                {
+                    "argName": "end_program",
+                    "description": "Whether the program should end after the widget is shown. Defaults to False.",
+                    "typeName": "bool",
+                    "isKwarg": True,
+                    "default": "False",
+                },
             ],
             "returns": [
                 {
@@ -82,6 +89,13 @@ metadata = {
                     "typeName": ["string", "null"],
                     "description": "message describing the input",
                     "default": None,
+                    "isOptional": True,
+                },
+                {
+                    "argName": "end_program",
+                    "typeName": ["boolean", "null"],
+                    "description": "End program after this widget is shown",
+                    "default": False,
                     "isOptional": True,
                 },
                 {
@@ -183,10 +197,17 @@ metadata = {
                 },
                 {
                     "argName": "direction",
-                    "description": "Whether the cards direction should be 'horizontal' or 'vertical'. Defaults to 'vertical'.",
+                    "description": "Whether the cards direction should be 'horizontal' or 'vertical'. Defaults to 'vertical'.%%%",
                     "typeName": "str",
                     "isKwarg": True,
                     "default": "'vertical'",
+                },
+                {
+                    "argName": "end_program",
+                    "description": "Whether the program should end after the widget is shown. Defaults to False.",
+                    "typeName": "bool",
+                    "isKwarg": True,
+                    "default": "False",
                 },
             ],
             "returns": [
@@ -286,6 +307,13 @@ metadata = {
                     "typeName": ["string", "null"],
                     "description": "message describing the input",
                     "default": None,
+                    "isOptional": True,
+                },
+                {
+                    "argName": "end_program",
+                    "typeName": ["boolean", "null"],
+                    "description": "End program after this widget is shown",
+                    "default": False,
                     "isOptional": True,
                 },
                 {
@@ -421,6 +449,13 @@ metadata = {
                     "isOptional": True,
                 },
                 {
+                    "argName": "end_program",
+                    "typeName": ["boolean", "null"],
+                    "description": "End program after this widget is shown",
+                    "default": False,
+                    "isOptional": True,
+                },
+                {
                     "argName": "required",
                     "typeName": ["boolean", "string"],
                     "description": "Whether the input is required or not",
@@ -543,6 +578,13 @@ metadata = {
                     "isOptional": True,
                 },
                 {
+                    "argName": "end_program",
+                    "typeName": ["boolean", "null"],
+                    "description": "End program after this widget is shown",
+                    "default": False,
+                    "isOptional": True,
+                },
+                {
                     "argName": "required",
                     "typeName": ["boolean", "string"],
                     "description": "Whether the input is required or not",
@@ -654,6 +696,13 @@ metadata = {
                     "typeName": ["string", "null"],
                     "description": "message describing the input",
                     "default": None,
+                    "isOptional": True,
+                },
+                {
+                    "argName": "end_program",
+                    "typeName": ["boolean", "null"],
+                    "description": "End program after this widget is shown",
+                    "default": False,
                     "isOptional": True,
                 },
                 {
@@ -827,6 +876,13 @@ metadata = {
                     "isOptional": True,
                 },
                 {
+                    "argName": "end_program",
+                    "typeName": ["boolean", "null"],
+                    "description": "End program after this widget is shown",
+                    "default": False,
+                    "isOptional": True,
+                },
+                {
                     "argName": "required",
                     "typeName": ["boolean", "string"],
                     "description": "Whether the input is required or not",
@@ -939,6 +995,13 @@ metadata = {
                     "typeName": ["string", "null"],
                     "description": "message describing the input",
                     "default": None,
+                    "isOptional": True,
+                },
+                {
+                    "argName": "end_program",
+                    "typeName": ["boolean", "null"],
+                    "description": "End program after this widget is shown",
+                    "default": False,
                     "isOptional": True,
                 },
                 {
@@ -1063,6 +1126,13 @@ metadata = {
                     "typeName": ["string", "null"],
                     "description": "message describing the input",
                     "default": None,
+                    "isOptional": True,
+                },
+                {
+                    "argName": "end_program",
+                    "typeName": ["boolean", "null"],
+                    "description": "End program after this widget is shown",
+                    "default": False,
                     "isOptional": True,
                 },
                 {
@@ -1227,6 +1297,13 @@ metadata = {
                     "isOptional": True,
                 },
                 {
+                    "argName": "end_program",
+                    "typeName": ["boolean", "null"],
+                    "description": "End program after this widget is shown",
+                    "default": False,
+                    "isOptional": True,
+                },
+                {
                     "argName": "required",
                     "typeName": ["boolean", "string"],
                     "description": "Whether the input is required or not",
@@ -1344,6 +1421,13 @@ metadata = {
                     "isOptional": True,
                 },
                 {
+                    "argName": "end_program",
+                    "typeName": ["boolean", "null"],
+                    "description": "End program after this widget is shown",
+                    "default": False,
+                    "isOptional": True,
+                },
+                {
                     "argName": "required",
                     "typeName": ["boolean", "string"],
                     "description": "Whether the input is required or not",
@@ -1455,6 +1539,13 @@ metadata = {
                     "typeName": ["string", "null"],
                     "description": "message describing the input",
                     "default": None,
+                    "isOptional": True,
+                },
+                {
+                    "argName": "end_program",
+                    "typeName": ["boolean", "null"],
+                    "description": "End program after this widget is shown",
+                    "default": False,
                     "isOptional": True,
                 },
                 {
@@ -1603,6 +1694,13 @@ metadata = {
                     "typeName": ["string", "null"],
                     "description": "message describing the input",
                     "default": None,
+                    "isOptional": True,
+                },
+                {
+                    "argName": "end_program",
+                    "typeName": ["boolean", "null"],
+                    "description": "End program after this widget is shown",
+                    "default": False,
                     "isOptional": True,
                 },
                 {
@@ -1783,6 +1881,13 @@ metadata = {
                     "typeName": ["string", "null"],
                     "description": "message describing the input",
                     "default": None,
+                    "isOptional": True,
+                },
+                {
+                    "argName": "end_program",
+                    "typeName": ["boolean", "null"],
+                    "description": "End program after this widget is shown",
+                    "default": False,
                     "isOptional": True,
                 },
                 {
@@ -1983,6 +2088,13 @@ metadata = {
                     "isOptional": True,
                 },
                 {
+                    "argName": "end_program",
+                    "typeName": ["boolean", "null"],
+                    "description": "End program after this widget is shown",
+                    "default": False,
+                    "isOptional": True,
+                },
+                {
                     "argName": "required",
                     "typeName": ["boolean", "string"],
                     "description": "Whether the input is required or not",
@@ -2138,6 +2250,13 @@ metadata = {
                     "isOptional": True,
                 },
                 {
+                    "argName": "end_program",
+                    "typeName": ["boolean", "null"],
+                    "description": "End program after this widget is shown",
+                    "default": False,
+                    "isOptional": True,
+                },
+                {
                     "argName": "required",
                     "typeName": ["boolean", "string"],
                     "description": "Whether the input is required or not",
@@ -2277,6 +2396,13 @@ metadata = {
                     "isOptional": True,
                 },
                 {
+                    "argName": "end_program",
+                    "typeName": ["boolean", "null"],
+                    "description": "End program after this widget is shown",
+                    "default": False,
+                    "isOptional": True,
+                },
+                {
                     "argName": "required",
                     "typeName": ["boolean", "string"],
                     "description": "Whether the input is required or not",
@@ -2383,6 +2509,13 @@ metadata = {
                     "typeName": ["string", "null"],
                     "description": "message describing the input",
                     "default": None,
+                    "isOptional": True,
+                },
+                {
+                    "argName": "end_program",
+                    "typeName": ["boolean", "null"],
+                    "description": "End program after this widget is shown",
+                    "default": False,
                     "isOptional": True,
                 },
                 {
@@ -2623,6 +2756,13 @@ metadata = {
                     "isOptional": True,
                 },
                 {
+                    "argName": "end_program",
+                    "typeName": ["boolean", "null"],
+                    "description": "End program after this widget is shown",
+                    "default": False,
+                    "isOptional": True,
+                },
+                {
                     "argName": "required",
                     "typeName": ["boolean", "string"],
                     "description": "Whether the input is required or not",
@@ -2749,6 +2889,13 @@ metadata = {
                     "typeName": ["string", "null"],
                     "description": "message describing the input",
                     "default": None,
+                    "isOptional": True,
+                },
+                {
+                    "argName": "end_program",
+                    "typeName": ["boolean", "null"],
+                    "description": "End program after this widget is shown",
+                    "default": False,
                     "isOptional": True,
                 },
                 {
@@ -2892,6 +3039,13 @@ metadata = {
                     "isOptional": True,
                 },
                 {
+                    "argName": "end_program",
+                    "typeName": ["boolean", "null"],
+                    "description": "End program after this widget is shown",
+                    "default": False,
+                    "isOptional": True,
+                },
+                {
                     "argName": "required",
                     "typeName": ["boolean", "string"],
                     "description": "Whether the input is required or not",
@@ -3023,6 +3177,13 @@ metadata = {
                     "isOptional": True,
                 },
                 {
+                    "argName": "end_program",
+                    "typeName": ["boolean", "null"],
+                    "description": "End program after this widget is shown",
+                    "default": False,
+                    "isOptional": True,
+                },
+                {
                     "argName": "required",
                     "typeName": ["boolean", "string"],
                     "description": "Whether the input is required or not",
@@ -3150,6 +3311,13 @@ metadata = {
                     "isOptional": True,
                 },
                 {
+                    "argName": "end_program",
+                    "typeName": ["boolean", "null"],
+                    "description": "End program after this widget is shown",
+                    "default": False,
+                    "isOptional": True,
+                },
+                {
                     "argName": "required",
                     "typeName": ["boolean", "string"],
                     "description": "Whether the input is required or not",
@@ -3273,6 +3441,13 @@ metadata = {
                     "typeName": ["string", "null"],
                     "description": "message describing the input",
                     "default": None,
+                    "isOptional": True,
+                },
+                {
+                    "argName": "end_program",
+                    "typeName": ["boolean", "null"],
+                    "description": "End program after this widget is shown",
+                    "default": False,
                     "isOptional": True,
                 },
                 {
@@ -3404,6 +3579,13 @@ metadata = {
                     "isOptional": True,
                 },
                 {
+                    "argName": "end_program",
+                    "typeName": ["boolean", "null"],
+                    "description": "End program after this widget is shown",
+                    "default": False,
+                    "isOptional": True,
+                },
+                {
                     "argName": "required",
                     "typeName": ["boolean", "string"],
                     "description": "Whether the input is required or not",
@@ -3515,6 +3697,13 @@ metadata = {
                     "typeName": ["string", "null"],
                     "description": "message describing the input",
                     "default": None,
+                    "isOptional": True,
+                },
+                {
+                    "argName": "end_program",
+                    "typeName": ["boolean", "null"],
+                    "description": "End program after this widget is shown",
+                    "default": False,
                     "isOptional": True,
                 },
                 {
