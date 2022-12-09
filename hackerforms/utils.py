@@ -21,7 +21,9 @@ def persist_session_id(session_id: str):
 
 def open_browser(frontend_host, session_id):
     if os.getenv("ENV") != "e2e":
-        webbrowser.open(f"{frontend_host}/local/{session_id}")
+        url = f"{frontend_host}/local/{session_id}"
+        if not webbrowser.open(url):
+            print(f"Open your browser at: {url}")
 
 
 def get_single_value(answer: Dict):
