@@ -15,7 +15,7 @@ def convert_file(file: Union[str, io.IOBase, Image]) -> str:
 
         # path to file
         file = open(file, "rb")
-    
+
     if isinstance(file, Image):
         file_path = "/tmp/img.png"
         file.save(file_path)
