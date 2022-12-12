@@ -1,4 +1,4 @@
-import os, atexit, inspect, typing
+import os, inspect, typing
 
 from ..exit_hook import hooks, make_debug_data
 from ..utils import serialize, deserialize, persist_session_id, open_browser
@@ -32,25 +32,26 @@ class Connection:
             open_browser(FRONTEND_HOST, self.session_id)
             persist_session_id(self.session_id)
 
-        atexit.register(self.close)
-
         start = {"type": None}
         while start["type"] != "start":
             start = self.receive()
         self.url_params = start["params"]
 
     def close(self):
-        if self.ws is None or not self.ws.connected:
-            return
-        self.send(
-            {
-                "type": "program:end",
-                "exitCode": hooks.exit_code,
-                "exception": hooks.exception,
-            },
-            debug_data=hooks.debug_data,
-        )
-        self.ws.close()
+        try:
+            if self.ws is None or not self.ws.connected:
+                return
+            self.send(
+                {
+                    "type": "program:end",
+                    "exitCode": hooks.exit_code,
+                    "exception": hooks.exception,
+                },
+                debug_data=hooks.debug_data,
+            )
+            self.ws.close()
+        except:
+            pass
 
     def send(self, data, debug_data=None):
         if self.debug_enabled:

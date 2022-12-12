@@ -1,4 +1,4 @@
-import os
+import os, atexit
 from collections import UserDict
 from .connection import Connection
 
@@ -15,6 +15,7 @@ def initialize():
     if ABSTRA_FORM_SERVER:
         return
     initialized = True
+    atexit.register(close)
     __connection = Connection(SESSION_ID, DEBUG_ENABLED)
 
 
