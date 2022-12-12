@@ -366,6 +366,159 @@ metadata = {
             }
         ],
     },
+    "checkbox-input": {
+        "type": "checkbox-input",
+        "description": "Read a checkbox value from the user",
+        "pythonAPI": {
+            "name": "read_checkbox",
+            "params": [
+                {
+                    "argName": "label",
+                    "description": "The label to display to the user",
+                    "typeName": "str",
+                    "isKwarg": False,
+                    "default": None,
+                },
+                {
+                    "argName": "options",
+                    "description": "TN options to display to the user, eg. ['Option 1', 'Option 2'] or [{'label': 'Option 1', 'value': '1'}, {'label': 'Option 2', 'value': '2'}]",
+                    "typeName": "list",
+                    "isKwarg": False,
+                    "default": None,
+                },
+                {
+                    "argName": "initial_value",
+                    "description": "The initial value to display to the user. Defaults to None.",
+                    "typeName": None,
+                    "isKwarg": True,
+                    "default": "None",
+                },
+                {
+                    "argName": "required",
+                    "description": 'Wether the input is required or not eg. "this field is required". Defaults to True.',
+                    "typeName": "bool or str",
+                    "isKwarg": True,
+                    "default": "True",
+                },
+                {
+                    "argName": "hint",
+                    "description": "A tooltip displayed to the user. Defaults to None.",
+                    "typeName": "str",
+                    "isKwarg": True,
+                    "default": "None",
+                },
+                {
+                    "argName": "full_width",
+                    "description": "Whether the input should use full screen width. Defaults to False.",
+                    "typeName": "bool",
+                    "isKwarg": True,
+                    "default": "False",
+                },
+            ],
+            "returns": [
+                {
+                    "typeName": None,
+                    "typeDescription": "list or any: The value entered by the user",
+                }
+            ],
+        },
+        "brokerAPI": {
+            "params": [
+                {
+                    "argName": "label",
+                    "typeName": "string",
+                    "description": "The label of the input",
+                },
+                {
+                    "argName": "initialValue",
+                    "typeName": "any",
+                    "description": "The initial value of the input",
+                    "items": {"typeName": ["string", "number"]},
+                    "default": None,
+                    "isOptional": True,
+                },
+                {
+                    "argName": "options",
+                    "typeName": "array",
+                    "description": "The options that the user can select from",
+                    "items": {
+                        "typeName": ["string", "object"],
+                        "properties": [
+                            {
+                                "argName": "key",
+                                "typeName": "string",
+                                "description": "The key of the option on the returning object",
+                            },
+                            {
+                                "argName": "value",
+                                "typeName": "any",
+                                "description": "The value of the option on the returning object",
+                            },
+                        ],
+                    },
+                },
+                {
+                    "argName": "key",
+                    "typeName": "string",
+                    "description": "The key of the input on the returning object",
+                },
+                {
+                    "argName": "hint",
+                    "typeName": ["string", "null"],
+                    "description": "message describing the input",
+                    "default": None,
+                    "isOptional": True,
+                },
+                {
+                    "argName": "required",
+                    "typeName": ["boolean", "string"],
+                    "description": "Whether the input is required or not",
+                    "default": True,
+                    "isOptional": True,
+                },
+                {
+                    "argName": "columns",
+                    "typeName": "number",
+                    "description": "number of columns this input will take",
+                    "isOptional": True,
+                },
+                {
+                    "argName": "fullWidth",
+                    "typeName": "boolean",
+                    "description": "Whether the widget should take up the full width of the page",
+                    "isOptional": True,
+                },
+            ]
+        },
+        "examples": [
+            {
+                "props": {
+                    "label": "Which programming language have you worked with?",
+                    "options": ["Python", "JavaScript", "Go", "Elixir", "Haskell"],
+                },
+                "name": "Basic Example",
+                "description": "Basic use of read_multiple_choice",
+                "key": "example1",
+                "code": 'from hackerforms import read_checkbox\n\nans = read_checkbox(\n    "Which programming language have you worked with?",\n    ["Python", "JavaScript", "Go", "Elixir", "Haskell"],\n)\n# ans = "Python" or "JavaScript"\n',
+            },
+            {
+                "props": {
+                    "label": "What are the solutions to the equation x^2 + 3x + 2 = 0?",
+                    "options": [
+                        {"label": "-1", "value": "a"},
+                        {"label": "-2", "value": "b"},
+                        {"label": "0 and -1", "value": "c"},
+                        {"label": "0 and 1", "value": "d"},
+                        {"label": "None of the above", "value": "e"},
+                    ],
+                },
+                "name": "Label and value dict",
+                "description": "Use a dictionary to specify the label and value of each option. The label will be displayed to the user, and the value will be returned by the widget.",
+                "key": "example2",
+                "code": 'from hackerforms import read_checkbox\n\nans = read_checkbox(\n    "What are the solutions to the equation x^2 + 3x + 2 = 0?",\n    [{"label": "-1", "value": "a"}, \n      {"label": "-2", "value": "b"}, \n      {"label": "0 and -1", "value": "c"},\n      {"label": "0 and 1", "value": "d"},\n      {"label": "None of the above", "value": "e"}],\n)\n\n# ans = ["a", "b"]',
+            },
+        ],
+    },
     "cnpj-input": {
         "type": "cnpj-input",
         "description": "Read a cnpj value from the user",
