@@ -13,6 +13,7 @@ def display_file(file: Union[str, io.IOBase], **kwargs):
     Keyword Args:
             download_text (str): The text to display on the button that will download the file. Defaults to "Download here".
             full_width (bool): Whether the input should use full screen width. Defaults to False.
+            end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
 
 
     """
@@ -31,6 +32,7 @@ def display_html(html: str, **kwargs):
 
     Keyword Args:
             full_width (bool): Whether the input should use full screen width. Defaults to False.
+            end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
 
 
     """
@@ -51,6 +53,7 @@ def display_iframe(url_or_html: str, **kwargs):
             width (int): The width of the iframe. Defaults to "800".
             height (int): The height of the iframe. Defaults to "600".
             full_width (bool): Whether the input should use full screen width. Defaults to False.
+            end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
 
 
     """
@@ -74,6 +77,7 @@ def display_image(image: Union[str, io.IOBase], **kwargs):
     Keyword Args:
             full_width (bool): Whether the input should use full screen width. Defaults to False.
             subtitle (str): The subtitle of the image. Defaults to "".
+            end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
 
 
     """
@@ -94,6 +98,7 @@ def display_latex(text: str, **kwargs):
 
     Keyword Args:
             full_width (bool): Whether the input should use full screen width. Defaults to False.
+            end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
 
 
     """
@@ -116,6 +121,7 @@ def display_link(link_url: str, **kwargs):
             full_width (bool): Whether the input should use full screen width. Defaults to False.
             link_text (str): The text to display on the link. Defaults to "Click here".
             same_tab (bool): Whether to open the link in the same tab or not. Defaults to False.
+            end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
 
 
     """
@@ -138,6 +144,7 @@ def display_markdown(text: str, **kwargs):
 
     Keyword Args:
             full_width (bool): Whether the input should use full screen width. Defaults to False.
+            end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
 
 
     """
@@ -161,6 +168,7 @@ def display_pandas(df: Any, **kwargs):
     Keyword Args:
             full_width (bool): Whether the input should use full screen width. Defaults to False.
             display_index (bool): Whether to show a index column. Defaults to False.
+            end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
 
 
     """
@@ -179,6 +187,7 @@ def display_plotly(fig: Any, **kwargs):
 
     Keyword Args:
             full_width (bool): Whether the input should use full screen width. Defaults to False.
+            end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
 
 
     """
@@ -201,6 +210,7 @@ def display_progress(current: float, total: float, **kwargs):
     Keyword Args:
             text (str): The text displayed with this progress step. Defaults to "".
             full_width (bool): Whether the input should use full screen width. Defaults to False.
+            end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
 
 
     """
@@ -223,6 +233,7 @@ def display(text: str, **kwargs):
 
     Keyword Args:
             full_width (bool): Whether the input should use full screen width. Defaults to False.
+            end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
 
 
     """

@@ -97,6 +97,7 @@ def read_cnpj(label: str, **kwargs):
             required (bool or str): Wether the input is required or not eg. "this field is required". Defaults to True.
             hint (str): A tooltip displayed to the user. Defaults to None.
             full_width (bool): Whether the input should use full screen width. Defaults to False.
+            end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
 
     Returns:
       list(str) or list(float): The value entered by the user
@@ -119,6 +120,7 @@ def read_code(label: str, **kwargs):
             language (str): The programming language. Defaults to None.
             hint (str): A tooltip displayed to the user. Defaults to None.
             full_width (bool): Whether the input should use full screen width. Defaults to False.
+            end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
 
     Returns:
       The value entered by the user
@@ -141,6 +143,7 @@ def read_cpf(label: str, **kwargs):
             required (bool or str): Whether the input is required or not eg. "this field is required". Defaults to True.
             hint (str): A tooltip displayed to the user. Defaults to None.
             full_width (bool): Whether the input should use full screen width. Defaults to False.
+            end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
 
     Returns:
       The value entered by the user
@@ -167,6 +170,7 @@ def read_currency(label: str, **kwargs):
             max (float): The maximum value allowed, eg. "100". Defaults to None.
             step (float): The value to be incremented or decremented while using the input button. Defaults to None.
             currency (str): The currency to display to the user, eg. "USD", "BRL, "EUR", "GBP". Defaults to "USD".
+            end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
 
     Returns:
       The value entered by the user
@@ -188,6 +192,7 @@ def read_date(label: str, **kwargs):
             required (bool or str): Whether the input is required or not eg. "this field is required". Defaults to True.
             hint (str): A tooltip displayed to the user. Defaults to None.
             full_width (bool): Whether the input should use full screen width. Defaults to False.
+            end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
 
     Returns:
       The value entered by the user
@@ -212,6 +217,7 @@ def read_dropdown(label: str, options: list, **kwargs):
             required (bool or str): Whether the input is required or not eg. "this field is required". Defaults to True.
             hint (str): A tooltip displayed to the user. Defaults to None.
             full_width (bool): Whether the input should use full screen width. Defaults to False.
+            end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
 
     Returns:
       The value selected by the user
@@ -237,6 +243,7 @@ def read_email(label: str, **kwargs):
             hint (str): A tooltip displayed to the user. Defaults to None.
             full_width (bool): Whether the input should use full screen width. Defaults to False.
             invalid_email_message (str): Invalid e-mail message
+            end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
 
     Returns:
       The value entered by the user
@@ -259,6 +266,7 @@ def read_file(label: str, **kwargs):
             hint (str): A tooltip displayed to the user. Defaults to None.
             full_width (bool): Whether the input should use full screen width. Defaults to False.
             multiple (bool): Whether the user will be allowed to upload multiple files. Defaults to False.
+            end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
 
     Returns:
       A dict containing the file uploaded by the user ({"file": file, "url": str, "content": bytes}) or a list of files in case of multiple flag set as True
@@ -281,6 +289,7 @@ def read_image(label: str, **kwargs):
             hint (str): A tooltip displayed to the user. Defaults to None.
             full_width (bool): Whether the input should use full screen width. Defaults to False.
             multiple (bool): Whether the user will be allowed to upload multiple files. Defaults to False.
+            end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
 
     Returns:
       A dict containing the image file uploaded by the user ({"file": file, "url": str, "content": bytes}) or a list of images in case of multiple flag set as True
@@ -304,6 +313,7 @@ def read_list(item_schema: Any, **kwargs):
             min (float): Min value accepted by the input. Defaults to None.
             max (float): Max value accepted by the input. Defaults to None.
             add_button_text (str): Label to be displayed on the add button. Defaults to "+".
+            end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
 
     Returns:
       The values entered by the user
@@ -405,6 +415,7 @@ def read_number_slider(label: str, **kwargs):
             min (float): Min value accepted by the input. Defaults to None.
             max (float): Max value accepted by the input. Defaults to None.
             step (float): The value to be incremented or decremented while using the input button. Defaults to None.
+            end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
 
     Returns:
       The value entered by the user
@@ -425,6 +436,7 @@ def read_pandas_row_selection(df: Any, **kwargs):
             required (null): Whether the input is required or not. Defaults to True.
             hint (str): A tooltip displayed to the user. Defaults to None.
             full_width (bool): Whether the input should use full screen width. Defaults to False.
+            end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
 
     Returns:
       The list of selected rows
@@ -457,6 +469,7 @@ def read_password(label: str, **kwargs):
             size (int): Size of the password. Defaults to None.
             pattern (str): A regex pattern for the accepted password. Defaults to None.
             autocomplete (str): The autocomplete HTML attribute. Defaults to "current-password".
+            end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
 
     Returns:
       The value entered by the user
@@ -479,6 +492,7 @@ def read_phone(label: str, **kwargs):
             required (bool or str): Whether the input is required or not eg. "this field is required". Defaults to True.
             hint (str): A tooltip displayed to the user. Defaults to None.
             full_width (bool): Whether the input should use full screen width. Defaults to False.
+            end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
 
     Returns:
       A dict containing the value entered by the user ({"raw": str, "masked": str})
@@ -502,6 +516,7 @@ def read_rating(label: str, **kwargs):
             full_width (bool): Whether the input should use full screen width. Defaults to False.
             max (float): Max value accepted by the input. Defaults to None.
             char (str): Which char should be displayed as icon?
+            end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
 
     Returns:
       The value entered by the user
@@ -524,6 +539,7 @@ def read_tag(label: str, **kwargs):
             required (bool or str): Whether the input is required or not eg. "this field is required". Defaults to True.
             hint (str): A tooltip displayed to the user. Defaults to None.
             full_width (bool): Whether the input should use full screen width. Defaults to False.
+            end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
 
     Returns:
       list(str) or list(float): The value entered by the user
@@ -547,6 +563,7 @@ def read(label: str, **kwargs):
             hint (str): A tooltip displayed to the user. Defaults to None.
             full_width (bool): Whether the input should use full screen width. Defaults to False.
             mask (str): A mask to apply to the input. Defaults to None.
+            end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
 
     Returns:
       The value entered by the user
@@ -569,6 +586,7 @@ def read_textarea(label: str, **kwargs):
             required (bool or str): Whether the input is required or not eg. "this field is required". Defaults to True.
             hint (str): A tooltip displayed to the user. Defaults to None.
             full_width (bool): Whether the input should use full screen width. Defaults to False.
+            end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
 
     Returns:
       The value entered by the user
@@ -591,6 +609,7 @@ def read_time(label: str, **kwargs):
             format (str): Whether the input is in the format 24hs or AM/PM. Defaults to "24hs".
             hint (str): A tooltip displayed to the user. Defaults to None.
             full_width (bool): Whether the input should use full screen width. Defaults to False.
+            end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
 
     Returns:
       A datetime.time object representing the value entered by the user
@@ -613,6 +632,7 @@ def read_video(label: str, **kwargs):
             hint (str): A tooltip displayed to the user. Defaults to None.
             full_width (bool): Whether the input should use full screen width. Defaults to False.
             multiple (bool): Whether the user will be allowed to upload multiple files. Defaults to False.
+            end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
 
     Returns:
       A dict containing the video uploaded by the user ({"file": file, "url": str, "content": bytes}) or a list of videos in case of multiple flag set as True
