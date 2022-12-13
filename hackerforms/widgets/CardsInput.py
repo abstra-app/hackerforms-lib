@@ -22,7 +22,7 @@ class CardsInput(Input):
             hint (str): A tooltip displayed to the user. Defaults to None.
             searchable (bool): Whether to show a search bar. Defaults to False.
             full_width (bool): Whether the input should use full screen width. Defaults to False.
-            direction (str): Whether the cards direction should be 'horizontal' or 'vertical'. Defaults to 'vertical'.
+            layout (str): Whether the cards layout should be 'list' or 'grid'. Defaults to 'grid'.
         """
         super().__init__(key)
         self.label = label
@@ -34,7 +34,7 @@ class CardsInput(Input):
         self.hint = kwargs.get("hint", None)
         self.columns = kwargs.get("columns", 1)
         self.full_width = kwargs.get("full_width", False)
-        self.direction = kwargs.get("direction", "vertical")
+        self.layout = kwargs.get("layout", "list")
 
     def json(self, **kwargs):
         return {
@@ -51,7 +51,7 @@ class CardsInput(Input):
             "required": self.required,
             "columns": self.columns,
             "fullWidth": self.full_width,
-            "direction": self.direction,
+            "layout": self.layout,
         }
 
     def convert_answer(self, answer: Union[List, Any]) -> Union[List, Any]:

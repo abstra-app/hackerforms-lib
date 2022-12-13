@@ -196,11 +196,11 @@ metadata = {
                     "default": "False",
                 },
                 {
-                    "argName": "direction",
-                    "description": "Whether the cards direction should be 'horizontal' or 'vertical'. Defaults to 'vertical'.%%%",
+                    "argName": "layout",
+                    "description": "Whether the cards layout should be 'list' or 'grid'. Defaults to 'list'.%%%",
                     "typeName": "str",
                     "isKwarg": True,
-                    "default": "'vertical'",
+                    "default": "'list'",
                 },
                 {
                     "argName": "end_program",
@@ -290,11 +290,11 @@ metadata = {
                     },
                 },
                 {
-                    "argName": "direction",
+                    "argName": "layout",
                     "typeName": "string",
-                    "description": "Whether the cards direction should be 'horizontal' or 'vertical'",
-                    "oneOf": ["horizontal", "vertical"],
-                    "default": "vertical",
+                    "description": "Whether the cards layout should be 'list' or 'grid'",
+                    "oneOf": ["list", "grid"],
+                    "default": "list",
                     "isOptional": True,
                 },
                 {

@@ -47,7 +47,7 @@ def read_cards(label: str, options: list, **kwargs):
                     hint (str): A tooltip displayed to the user. Defaults to None.
                     searchable (bool): Whether to show a search bar. Defaults to False.
                     full_width (bool): Whether the input should use full screen width. Defaults to False.
-                    direction (str): Whether the cards direction should be 'horizontal' or 'vertical'. Defaults to 'vertical'.%%%
+                    layout (str): Whether the cards layout should be 'list' or 'grid'. Defaults to 'list'.%%%
                     end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
 
             Returns:
