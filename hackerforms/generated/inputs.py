@@ -60,6 +60,27 @@ def read_cards(label: str, options: list, **kwargs):
     )
 
 
+def read_checkbox(label: str, **kwargs):
+
+    """Read a checkbox value from the user
+
+    Position Args:
+            label (str): The label to display to the user
+
+    Keyword Args:
+            initial_value (null): The initial value to display to the user. Defaults to None.
+            required (bool or str): Wether the input is required or not eg. "this field is required". Defaults to True.
+            hint (str): A tooltip displayed to the user. Defaults to None.
+            full_width (bool): Whether the input should use full screen width. Defaults to False.
+
+    Returns:
+      list(str) or list(float): The value entered by the user
+    """
+
+    button_text = kwargs.get("button_text", "Next")
+    return get_single_value(Page().read_checkbox(label, **kwargs).run(button_text))
+
+
 def read_checklist(label: str, options: list, **kwargs):
 
     """Read a checklist value from the user

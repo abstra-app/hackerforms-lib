@@ -366,6 +366,138 @@ metadata = {
             }
         ],
     },
+    "checkbox-input": {
+        "type": "checkbox-input",
+        "description": "Read a checkbox value from the user",
+        "pythonAPI": {
+            "name": "read_checkbox",
+            "params": [
+                {
+                    "argName": "label",
+                    "description": "The label to display to the user",
+                    "typeName": "str",
+                    "isKwarg": False,
+                    "default": None,
+                },
+                {
+                    "argName": "initial_value",
+                    "description": "The initial value to display to the user. Defaults to None.",
+                    "typeName": None,
+                    "isKwarg": True,
+                    "default": "None",
+                },
+                {
+                    "argName": "required",
+                    "description": 'Wether the input is required or not eg. "this field is required". Defaults to True.',
+                    "typeName": "bool or str",
+                    "isKwarg": True,
+                    "default": "True",
+                },
+                {
+                    "argName": "hint",
+                    "description": "A tooltip displayed to the user. Defaults to None.",
+                    "typeName": "str",
+                    "isKwarg": True,
+                    "default": "None",
+                },
+                {
+                    "argName": "full_width",
+                    "description": "Whether the input should use full screen width. Defaults to False.",
+                    "typeName": "bool",
+                    "isKwarg": True,
+                    "default": "False",
+                },
+            ],
+            "returns": [
+                {
+                    "typeName": None,
+                    "typeDescription": "list(str) or list(float): The value entered by the user",
+                }
+            ],
+        },
+        "brokerAPI": {
+            "params": [
+                {
+                    "argName": "label",
+                    "typeName": "string",
+                    "description": "The label of the input",
+                },
+                {
+                    "argName": "initialValue",
+                    "typeName": "any",
+                    "description": "The initial value of the input",
+                    "items": {"typeName": ["string", "number"]},
+                    "default": None,
+                    "isOptional": True,
+                },
+                {
+                    "argName": "key",
+                    "typeName": "string",
+                    "description": "The key of the input on the returning object",
+                },
+                {
+                    "argName": "hint",
+                    "typeName": ["string", "null"],
+                    "description": "message describing the input",
+                    "default": None,
+                    "isOptional": True,
+                },
+                {
+                    "argName": "end_program",
+                    "typeName": ["boolean", "null"],
+                    "description": "End program after this widget is shown",
+                    "default": False,
+                    "isOptional": True,
+                },
+                {
+                    "argName": "required",
+                    "typeName": ["boolean", "string"],
+                    "description": "Whether the input is required or not",
+                    "default": True,
+                    "isOptional": True,
+                },
+                {
+                    "argName": "columns",
+                    "typeName": "number",
+                    "description": "number of columns this input will take",
+                    "isOptional": True,
+                },
+                {
+                    "argName": "fullWidth",
+                    "typeName": "boolean",
+                    "description": "Whether the widget should take up the full width of the page",
+                    "isOptional": True,
+                },
+            ]
+        },
+        "examples": [
+            {
+                "props": {"label": "I have read and agree to the terms of services"},
+                "name": "Basic Example",
+                "description": "Basic use of read_checkbox",
+                "key": "example1",
+                "code": 'from hackerforms import read_checkbox\n\nans = read_checkbox("I have read and agree to the terms of services")\n\nprint(ans)',
+            },
+            {
+                "props": {
+                    "label": "Would you like to receive product updates and announcements via email?"
+                },
+                "name": "Optional field",
+                "description": "If check the box is optional, pass the optional parameter required",
+                "key": "example2",
+                "code": 'from hackerforms import read_checkbox\n\nans = read_checkbox("Would you like to receive product updates and announcements via email?", required=False)\n\nprint(ans)',
+            },
+            {
+                "props": {
+                    "label": "I have read and agree to the [terms of services](https://example.com)"
+                },
+                "name": "Use markdown to customize label",
+                "description": "Use markdown syntax to customize the label",
+                "key": "example3",
+                "code": 'from hackerforms import read_checkbox\n\nans = read_checkbox("I have read and agree to the [terms of services](https://example.com)")\n',
+            },
+        ],
+    },
     "checklist-input": {
         "type": "checklist-input",
         "description": "Read a checklist value from the user",
@@ -504,7 +636,7 @@ metadata = {
                     "options": ["Python", "JavaScript", "Go", "Elixir", "Haskell"],
                 },
                 "name": "Basic Example",
-                "description": "Basic use of read_multiple_choice",
+                "description": "Basic use of read_checklist",
                 "key": "example1",
                 "code": 'from hackerforms import read_checklist\n\nans = read_checklist(\n    "Which programming language have you worked with?",\n    ["Python", "JavaScript", "Go", "Elixir", "Haskell"],\n)\n',
             },
