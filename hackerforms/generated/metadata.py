@@ -506,7 +506,7 @@ metadata = {
                 "name": "Basic Example",
                 "description": "Basic use of read_multiple_choice",
                 "key": "example1",
-                "code": 'from hackerforms import read_checkbox\n\nans = read_checkbox(\n    "Which programming language have you worked with?",\n    ["Python", "JavaScript", "Go", "Elixir", "Haskell"],\n)\n# ans = "Python" or "JavaScript"\n',
+                "code": 'from hackerforms import read_checkbox\n\nans = read_checkbox(\n    "Which programming language have you worked with?",\n    ["Python", "JavaScript", "Go", "Elixir", "Haskell"],\n)\n',
             },
             {
                 "props": {
@@ -523,6 +523,21 @@ metadata = {
                 "description": "Use a dictionary to specify the label and value of each option. The label will be displayed to the user, and the value will be returned by the widget.",
                 "key": "example2",
                 "code": 'from hackerforms import read_checkbox\n\nans = read_checkbox(\n    "What are the solutions to the equation x^2 + 3x + 2 = 0?",\n    [\n        {"label": "-1", "value": "a"},\n        {"label": "-2", "value": "b"},\n        {"label": "0 and -1", "value": "c"},\n        {"label": "0 and 1", "value": "d"},\n        {"label": "None of the above", "value": "e"},\n    ],\n)\n\n# ans = ["a", "b"]\n',
+            },
+            {
+                "props": {
+                    "label": "",
+                    "options": [
+                        {
+                            "label": "I have read and agree to the [terms of services](https://example.com)",
+                            "value": "agree",
+                        }
+                    ],
+                },
+                "name": "Use markdown in options",
+                "description": "Use markdown syntax to customize the options.",
+                "key": "example3",
+                "code": 'from hackerforms import read_checkbox\n\nans = read_checkbox(\n    "",\n    [\n        {"label": "I have read and agree to the [terms of services](https://example.com)", "value": "agree"},\n    ],\n)\n\n',
             },
         ],
     },
