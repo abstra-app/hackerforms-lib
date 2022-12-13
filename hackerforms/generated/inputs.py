@@ -60,9 +60,9 @@ def read_cards(label: str, options: list, **kwargs):
     )
 
 
-def read_checkbox(label: str, options: list, **kwargs):
+def read_checklist(label: str, options: list, **kwargs):
 
-    """Read a checkbox value from the user
+    """Read a checklist value from the user
 
     Position Args:
             label (str): The label to display to the user
@@ -80,7 +80,7 @@ def read_checkbox(label: str, options: list, **kwargs):
 
     button_text = kwargs.get("button_text", "Next")
     return get_single_value(
-        Page().read_checkbox(label, options, **kwargs).run(button_text)
+        Page().read_checklist(label, options, **kwargs).run(button_text)
     )
 
 

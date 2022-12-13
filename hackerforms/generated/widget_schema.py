@@ -108,9 +108,9 @@ class WidgetSchema:
         self.widgets.append(CardsInput(key, label, options, **kwargs))
         return self
 
-    def read_checkbox(self, label: str, options: list, **kwargs):
+    def read_checklist(self, label: str, options: list, **kwargs):
 
-        """Read a checkbox value from the user
+        """Read a checklist value from the user
 
         Position Args:
                 label (str): The label to display to the user
@@ -128,7 +128,7 @@ class WidgetSchema:
 
         key = kwargs.pop("key", label)
 
-        self.widgets.append(CheckboxInput(key, label, options, **kwargs))
+        self.widgets.append(ChecklistInput(key, label, options, **kwargs))
         return self
 
     def read_cnpj(self, label: str, **kwargs):

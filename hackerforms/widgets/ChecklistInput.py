@@ -2,8 +2,8 @@ from hackerforms.common import Input
 from typing import Union, List, Dict
 
 
-class CheckboxInput(Input):
-    type = "checkbox-input"
+class ChecklistInput(Input):
+    type = "checklist-input"
 
     def __init__(
         self, key: str, label: str, options: Union[List[str], List[Dict]], **kwargs
