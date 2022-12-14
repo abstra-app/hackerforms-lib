@@ -13,9 +13,11 @@ except ImportError:
 
 
 def writeWraper(type, write, text):
-    write(text)
-    send({"type": type, "log": text})
-    return len(text)
+    try:
+        write(text)
+        send({"type": type, "log": text})
+    finally:
+        return len(text)
 
 
 def _overload_stdio():
