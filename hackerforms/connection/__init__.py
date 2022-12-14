@@ -1,6 +1,6 @@
 import os, inspect, typing
 
-from ..exit_hook import hooks, make_debug_data
+from ..debug_utils import CloseDTO, Frames, make_debug_data
 from ..utils import serialize, deserialize, persist_session_id, open_browser
 
 
@@ -37,25 +37,25 @@ class Connection:
             start = self.receive()
         self.url_params = start["params"]
 
-    def close(self):
+    def close(self, dto: CloseDTO):
         try:
             if self.ws is None or not self.ws.connected:
                 return
             self.send(
                 {
                     "type": "program:end",
-                    "exitCode": hooks.exit_code,
-                    "exception": hooks.exception,
+                    "exitCode": dto.exit_code,
+                    "exception": dto.exception,
                 },
-                debug_data=hooks.debug_data,
+                frames=dto.frames,
             )
             self.ws.close()
         except:
             pass
 
-    def send(self, data, debug_data=None):
+    def send(self, data, frames: Frames = None):
         if self.debug_enabled:
-            debug = debug_data or make_debug_data(inspect.stack())
+            debug = make_debug_data(frames or inspect.stack())
             self.ws.send(serialize({**data, **debug}))
         else:
             self.ws.send(serialize(data))

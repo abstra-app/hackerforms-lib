@@ -1,6 +1,8 @@
 import os, atexit
 from collections import UserDict
+from .debug_utils import CloseDTO, Frames
 from .connection import Connection
+from .exit_hook import ExitHooks
 
 
 WS_HOST = os.environ.get("WS_HOST", "wss://hackerforms-broker.abstra.cloud")
@@ -15,7 +17,8 @@ def initialize():
     if ABSTRA_FORM_SERVER:
         return
     initialized = True
-    atexit.register(close)
+    hook = ExitHooks()
+    atexit.register(lambda: close(hook.close_dto))
     __connection = Connection(SESSION_ID, DEBUG_ENABLED)
 
 
@@ -25,16 +28,16 @@ def get_connection():
     return __connection
 
 
-def send(data, debug_data=None):
-    return get_connection().send(data, debug_data)
+def send(data, frames: Frames = None):
+    return get_connection().send(data, frames)
 
 
 def receive(path: str = ""):
     return get_connection().receive(path)
 
 
-def close():
-    return get_connection().close()
+def close(dto: CloseDTO):
+    return get_connection().close(dto)
 
 
 # this is a class to wrap all read methods of dicts to call get_url_params instead
