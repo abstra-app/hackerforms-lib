@@ -16,8 +16,10 @@ def representations(locals):
     return result
 
 
-def traceback_to_infos(traceback: TracebackType) -> typing.List[inspect.FrameInfo]:
-    return inspect.getouterframes(traceback.tb_frame)
+def traceback_to_infos(
+    traceback: typing.Union[TracebackType, None]
+) -> typing.List[inspect.FrameInfo]:
+    return inspect.getouterframes(traceback.tb_frame) if traceback else []
 
 
 def make_debug_data(frames: Frames):
