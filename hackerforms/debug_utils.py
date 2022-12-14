@@ -42,6 +42,6 @@ def make_debug_data(frames: Frames):
 
 @dataclass
 class CloseDTO:
-    exit_code: typing.Union[int, None]
-    exception: typing.Union[str, None]
-    frames: Frames
+    exit_code: typing.Union[int, None] = None
+    exception: typing.Union[str, None] = None
+    frames: Frames = None
