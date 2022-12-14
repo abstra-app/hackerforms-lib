@@ -148,7 +148,7 @@ metadata = {
                 },
                 {
                     "argName": "options",
-                    "description": "The options to display to the user, eg. [\n{'title': 'Option 1', 'image': 'https://image_1.png', 'description': 'option 1 description'},\n{'title': 'Option 2', 'image': 'https://image_2.png', 'description': 'option 2 description'}]",
+                    "description": "The options to display to the user, eg. [\n{'title': 'Option 1', 'subtitle': 'Subtitle 1', 'image': 'https://image_1.png', 'description': 'option 1 description', 'topLeftExtra': 'Left 1', 'topRightExtra': 'Right 1' },\n{'title': 'Option 2', 'subtitle': 'Subtitle 2', 'image': 'https://image_2.png', 'description': 'option 2 description', 'topLeftExtra': 'Left 2', 'topRightExtra': 'Right 2' }]",
                     "typeName": "list",
                     "isKwarg": False,
                     "default": None,
@@ -237,12 +237,27 @@ metadata = {
                                 "description": "",
                             },
                             {
+                                "argName": "subtitle",
+                                "typeName": "string",
+                                "description": "",
+                            },
+                            {
                                 "argName": "image",
                                 "typeName": "string",
                                 "description": "",
                             },
                             {
                                 "argName": "description",
+                                "typeName": "string",
+                                "description": "",
+                            },
+                            {
+                                "argName": "topLeftExtra",
+                                "typeName": "string",
+                                "description": "",
+                            },
+                            {
+                                "argName": "topRightExtra",
                                 "typeName": "string",
                                 "description": "",
                             },

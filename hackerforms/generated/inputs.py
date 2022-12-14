@@ -37,8 +37,8 @@ def read_cards(label: str, options: list, **kwargs):
             Position Args:
                     label (str): The text related to this field
                     options (list): The options to display to the user, eg. [
-    {'title': 'Option 1', 'image': 'https://image_1.png', 'description': 'option 1 description'},
-    {'title': 'Option 2', 'image': 'https://image_2.png', 'description': 'option 2 description'}]
+    {'title': 'Option 1', 'subtitle': 'Subtitle 1', 'image': 'https://image_1.png', 'description': 'option 1 description', 'topLeftExtra': 'Left 1', 'topRightExtra': 'Right 1' },
+    {'title': 'Option 2', 'subtitle': 'Subtitle 2', 'image': 'https://image_2.png', 'description': 'option 2 description', 'topLeftExtra': 'Left 2', 'topRightExtra': 'Right 2' }]
 
             Keyword Args:
                     multiple (bool): Whether the user can select multiple options. Defaults to False.
