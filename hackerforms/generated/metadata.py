@@ -3187,6 +3187,13 @@ metadata = {
                     "isOptional": True,
                 },
                 {
+                    "argName": "secret",
+                    "typeName": "boolean",
+                    "description": "Read-only field that indicates whether the widget response value is secret.",
+                    "default": True,
+                    "isOptional": True,
+                },
+                {
                     "argName": "key",
                     "typeName": "string",
                     "description": "The key of the input on the returning object",

@@ -41,6 +41,7 @@ class PasswordInput(Input):
         self.pattern = kwargs.get("pattern", None)
         self.autocomplete = kwargs.get("autocomplete", "current-password")
         self.placeholder = kwargs.get("placeholder", "")
+        self.secret = True
 
     def json(self, **kwargs):
         return {
@@ -61,6 +62,7 @@ class PasswordInput(Input):
             "pattern": self.pattern,
             "autocomplete": self.autocomplete,
             "placeholder": self.placeholder,
+            "secret": self.secret,
         }
 
     def convert_answer(self, answer: str) -> str:
