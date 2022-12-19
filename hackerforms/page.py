@@ -2,8 +2,9 @@ from hackerforms.socket import send, receive
 from hackerforms.generated.widget_schema import WidgetSchema
 from hackerforms.page_response import PageResponse
 from hackerforms.validation import validate_widget_props
+from .reactive import Reactive
 
-from typing import Callable, Dict
+from typing import Callable, Dict, Union, List
 
 
 class Page(WidgetSchema):
@@ -15,16 +16,31 @@ class Page(WidgetSchema):
     user and collect the answers.
     """
 
-    def __init__(self):
-        super().__init__()
-
-    def run(
+    def __init__(
         self,
-        actions="Next",
+        actions: Union[str, List[str]] = "Next",
         columns: float = 1,
         validate: Callable = None,
         end_program: bool = False,
         reactive_polling_interval=0,
+        initial_payload: Dict = None,
+    ):
+        super().__init__()
+        self.__actions = actions
+        self.__columns = columns
+        self.__validate = validate
+        self.__end_program = end_program
+        self.__reactive_polling_interval = reactive_polling_interval
+        self.__initial_payload = initial_payload
+
+    def run(
+        self,
+        actions: Union[str, List[str]] = "Next",
+        columns: float = 1,
+        validate: Callable = None,
+        end_program: bool = False,
+        reactive_polling_interval=0,
+        initial_payload: Dict = None,
     ) -> Dict:
         """Run the form
 
@@ -37,6 +53,24 @@ class Page(WidgetSchema):
         Returns:
             The form result as a dict with the keys being the key of the input and the value being the value of the input
         """
+
+        actions = actions if actions != "Next" else self.__actions
+        columns = columns if columns != 1 else self.__columns
+        end_program = end_program if end_program != False else self.__end_program
+        reactive_polling_interval = (
+            reactive_polling_interval
+            if reactive_polling_interval != 0
+            else self.__reactive_polling_interval
+        )
+        initial_payload = (
+            initial_payload if initial_payload != None else self.__initial_payload
+        )
+        validate = validate if validate != None else self.__validate
+
+        if initial_payload:
+            for widget in self.widgets:
+                if not isinstance(widget, Reactive) and widget.key in initial_payload:
+                    widget.initial_value = initial_payload[widget.key]
 
         widgets_json = self.__get_validated_page_widgets_json(self.convert_answer({}))
 

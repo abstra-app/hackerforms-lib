@@ -8,6 +8,7 @@ from .socket import initialize as _initialize_socket, url_params
 from .overloads import initialize as _initialize_overloads
 from .list_item_schema import ListItemSchema
 from .page import Page
+from .step import run_steps
 from . import environments as envs
 from .generated.inputs import *
 from .generated.outputs import *
