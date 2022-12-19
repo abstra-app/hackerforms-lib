@@ -1768,6 +1768,13 @@ metadata = {
                     "default": "False",
                 },
                 {
+                    "argName": "max_file_size",
+                    "description": "Maximum size allowed to be transfered in total in MB.",
+                    "typeName": "float",
+                    "isKwarg": True,
+                    "default": "None",
+                },
+                {
                     "argName": "end_program",
                     "description": "Whether the program should end after the widget is shown. Defaults to False.",
                     "typeName": "bool",
@@ -1794,6 +1801,18 @@ metadata = {
                     "typeName": ["string", "array"],
                     "description": "The initial value of the input",
                     "default": "",
+                },
+                {
+                    "argName": "multiple",
+                    "description": "Whether the user will be allowed to upload multiple files. Defaults to False.",
+                    "typeName": "boolean",
+                    "default": "False",
+                },
+                {
+                    "argName": "maxFileSize",
+                    "description": "Maximum size allowed to be transfered in total in MB.",
+                    "typeName": "number",
+                    "isOptional": True,
                 },
                 {
                     "argName": "key",

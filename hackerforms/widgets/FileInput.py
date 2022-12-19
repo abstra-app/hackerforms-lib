@@ -18,6 +18,7 @@ class FileInput(Input):
             hint (str): A tooltip displayed to the user. Defaults to None.
             full_width (bool): Whether the input should use full screen width. Defaults to False.
             multiple (bool): Whether the user will be allowed to upload multiple files. Defaults to False.
+            max_file_size (float): Maximum size allowed to be transfered in total in MB.
 
         """
         super().__init__(key)
@@ -28,6 +29,7 @@ class FileInput(Input):
         self.columns = kwargs.get("columns", 1)
         self.multiple = kwargs.get("multiple", False)
         self.full_width = kwargs.get("full_width", False)
+        self.max_file_size = kwargs.get("max_file_size", None)
 
     def json(self, **kwargs):
         return {
@@ -40,6 +42,7 @@ class FileInput(Input):
             "columns": self.columns,
             "multiple": self.multiple,
             "fullWidth": self.full_width,
+            "maxFileSize": self.max_file_size,
         }
 
     def convert_answer(self, answer) -> Optional[FileResponse]:
