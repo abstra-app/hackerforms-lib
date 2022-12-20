@@ -1672,6 +1672,12 @@ metadata = {
                     "typeName": "string",
                     "description": "The placeholder text to display in the input",
                 },
+                {
+                    "argName": "multiple",
+                    "typeName": "boolean",
+                    "description": "Whether the input accepts multiple values or not",
+                    "isOptional": True,
+                },
             ]
         },
         "examples": [
