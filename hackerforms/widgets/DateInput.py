@@ -27,6 +27,7 @@ class DateInput(Input):
         self.hint = kwargs.get("hint", None)
         self.columns = kwargs.get("columns", 1)
         self.full_width = kwargs.get("full_width", False)
+        self.disabled = kwargs.get("disabled", False)
 
     @staticmethod
     def convert_value(value: Union[datetime.date, time.struct_time, str]) -> str:
@@ -50,6 +51,7 @@ class DateInput(Input):
             "required": self.required,
             "columns": self.columns,
             "fullWidth": self.full_width,
+            "disabled": self.disabled,
         }
 
     def convert_answer(self, answer: str) -> Optional[datetime.date]:

@@ -26,6 +26,7 @@ class CodeInput(Input):
         self.columns = kwargs.get("columns", 1)
         self.hint = kwargs.get("hint", None)
         self.full_width = kwargs.get("full_width", False)
+        self.disabled = kwargs.get("disabled", False)
 
     def json(self, **kwargs):
         return {
@@ -38,6 +39,7 @@ class CodeInput(Input):
             "columns": self.columns,
             "hint": self.hint,
             "fullWidth": self.full_width,
+            "disabled": self.disabled,
         }
 
     def convert_answer(self, answer: str) -> str:

@@ -48,6 +48,13 @@ metadata = {
                     "default": "False",
                 },
                 {
+                    "argName": "disabled",
+                    "description": "Wether the input is disabled. Defaults to False.",
+                    "typeName": "bool",
+                    "isKwarg": True,
+                    "default": "False",
+                },
+                {
                     "argName": "end_program",
                     "description": "Whether the program should end after the widget is shown. Defaults to False.",
                     "typeName": "bool",
@@ -83,6 +90,11 @@ metadata = {
                     "argName": "key",
                     "typeName": "string",
                     "description": "The key of the input on the returning object",
+                },
+                {
+                    "argName": "disabled",
+                    "typeName": "boolean",
+                    "description": "Whether the input is disabled",
                 },
                 {
                     "argName": "hint",
@@ -203,6 +215,13 @@ metadata = {
                     "default": "'list'",
                 },
                 {
+                    "argName": "disabled",
+                    "description": "Wether the input is disabled. Defaults to False.",
+                    "typeName": "bool",
+                    "isKwarg": True,
+                    "default": "False",
+                },
+                {
                     "argName": "end_program",
                     "description": "Whether the program should end after the widget is shown. Defaults to False.",
                     "typeName": "bool",
@@ -318,6 +337,11 @@ metadata = {
                     "description": "The key of the input on the returning object",
                 },
                 {
+                    "argName": "disabled",
+                    "typeName": "boolean",
+                    "description": "Whether the input is disabled",
+                },
+                {
                     "argName": "hint",
                     "typeName": ["string", "null"],
                     "description": "message describing the input",
@@ -431,6 +455,13 @@ metadata = {
                     "isKwarg": True,
                     "default": "False",
                 },
+                {
+                    "argName": "disabled",
+                    "description": "Wether the input is disabled. Defaults to False.",
+                    "typeName": "bool",
+                    "isKwarg": True,
+                    "default": "False",
+                },
             ],
             "returns": [
                 {
@@ -458,6 +489,11 @@ metadata = {
                     "argName": "key",
                     "typeName": "string",
                     "description": "The key of the input on the returning object",
+                },
+                {
+                    "argName": "disabled",
+                    "typeName": "boolean",
+                    "description": "Whether the input is disabled",
                 },
                 {
                     "argName": "hint",
@@ -570,6 +606,13 @@ metadata = {
                     "isKwarg": True,
                     "default": "False",
                 },
+                {
+                    "argName": "disabled",
+                    "description": "Wether the input is disabled. Defaults to False.",
+                    "typeName": "bool",
+                    "isKwarg": True,
+                    "default": "False",
+                },
             ],
             "returns": [
                 {
@@ -617,6 +660,11 @@ metadata = {
                     "argName": "key",
                     "typeName": "string",
                     "description": "The key of the input on the returning object",
+                },
+                {
+                    "argName": "disabled",
+                    "typeName": "boolean",
+                    "description": "Whether the input is disabled",
                 },
                 {
                     "argName": "hint",
@@ -752,6 +800,13 @@ metadata = {
                     "isKwarg": True,
                     "default": "False",
                 },
+                {
+                    "argName": "disabled",
+                    "description": "Wether the input is disabled. Defaults to False.",
+                    "typeName": "bool",
+                    "isKwarg": True,
+                    "default": "False",
+                },
             ],
             "returns": [
                 {
@@ -778,6 +833,11 @@ metadata = {
                     "argName": "key",
                     "typeName": "string",
                     "description": "The key of the input on the returning object",
+                },
+                {
+                    "argName": "disabled",
+                    "typeName": "boolean",
+                    "description": "Whether the input is disabled",
                 },
                 {
                     "argName": "hint",
@@ -879,6 +939,13 @@ metadata = {
                     "default": "False",
                 },
                 {
+                    "argName": "disabled",
+                    "description": "Wether the input is disabled. Defaults to False.",
+                    "typeName": "bool",
+                    "isKwarg": True,
+                    "default": "False",
+                },
+                {
                     "argName": "end_program",
                     "description": "Whether the program should end after the widget is shown. Defaults to False.",
                     "typeName": "bool",
@@ -914,6 +981,11 @@ metadata = {
                     "argName": "key",
                     "typeName": "string",
                     "description": "The key of the input on the returning object",
+                },
+                {
+                    "argName": "disabled",
+                    "typeName": "boolean",
+                    "description": "Whether the input is disabled",
                 },
                 {
                     "argName": "hint",
@@ -1013,6 +1085,13 @@ metadata = {
                     "default": "False",
                 },
                 {
+                    "argName": "disabled",
+                    "description": "Wether the input is disabled. Defaults to False.",
+                    "typeName": "bool",
+                    "isKwarg": True,
+                    "default": "False",
+                },
+                {
                     "argName": "end_program",
                     "description": "Whether the program should end after the widget is shown. Defaults to False.",
                     "typeName": "bool",
@@ -1042,6 +1121,11 @@ metadata = {
                     "argName": "key",
                     "typeName": "string",
                     "description": "The key of the input on the returning object",
+                },
+                {
+                    "argName": "disabled",
+                    "typeName": "boolean",
+                    "description": "Whether the input is disabled",
                 },
                 {
                     "argName": "hint",
@@ -1171,6 +1255,13 @@ metadata = {
                     "default": '"USD"',
                 },
                 {
+                    "argName": "disabled",
+                    "description": "Wether the input is disabled. Defaults to False.",
+                    "typeName": "bool",
+                    "isKwarg": True,
+                    "default": "False",
+                },
+                {
                     "argName": "end_program",
                     "description": "Whether the program should end after the widget is shown. Defaults to False.",
                     "typeName": "bool",
@@ -1226,6 +1317,11 @@ metadata = {
                     "argName": "key",
                     "typeName": "string",
                     "description": "The key of the input on the returning object",
+                },
+                {
+                    "argName": "disabled",
+                    "typeName": "boolean",
+                    "description": "Whether the input is disabled",
                 },
                 {
                     "argName": "hint",
@@ -1324,6 +1420,13 @@ metadata = {
                     "default": "False",
                 },
                 {
+                    "argName": "disabled",
+                    "description": "Wether the input is disabled. Defaults to False.",
+                    "typeName": "bool",
+                    "isKwarg": True,
+                    "default": "False",
+                },
+                {
                     "argName": "end_program",
                     "description": "Whether the program should end after the widget is shown. Defaults to False.",
                     "typeName": "bool",
@@ -1355,6 +1458,11 @@ metadata = {
                     "argName": "key",
                     "typeName": "string",
                     "description": "The key of the input on the returning object",
+                },
+                {
+                    "argName": "disabled",
+                    "typeName": "boolean",
+                    "description": "Whether the input is disabled",
                 },
                 {
                     "argName": "hint",
@@ -1464,6 +1572,13 @@ metadata = {
                     "default": "False",
                 },
                 {
+                    "argName": "disabled",
+                    "description": "Wether the input is disabled. Defaults to False.",
+                    "typeName": "bool",
+                    "isKwarg": True,
+                    "default": "False",
+                },
+                {
                     "argName": "end_program",
                     "description": "Whether the program should end after the widget is shown. Defaults to False.",
                     "typeName": "bool",
@@ -1493,6 +1608,11 @@ metadata = {
                     "argName": "key",
                     "typeName": "string",
                     "description": "The key of the input on the returning object",
+                },
+                {
+                    "argName": "disabled",
+                    "typeName": "boolean",
+                    "description": "Whether the input is disabled",
                 },
                 {
                     "argName": "hint",
@@ -1633,6 +1753,13 @@ metadata = {
                     "default": "Hmm… doesn't look like an email",
                 },
                 {
+                    "argName": "disabled",
+                    "description": "Wether the input is disabled. Defaults to False.",
+                    "typeName": "bool",
+                    "isKwarg": True,
+                    "default": "False",
+                },
+                {
                     "argName": "end_program",
                     "description": "Whether the program should end after the widget is shown. Defaults to False.",
                     "typeName": "bool",
@@ -1668,6 +1795,11 @@ metadata = {
                     "argName": "key",
                     "typeName": "string",
                     "description": "The key of the input on the returning object",
+                },
+                {
+                    "argName": "disabled",
+                    "typeName": "boolean",
+                    "description": "Whether the input is disabled",
                 },
                 {
                     "argName": "hint",
@@ -1775,6 +1907,13 @@ metadata = {
                     "default": "None",
                 },
                 {
+                    "argName": "disabled",
+                    "description": "Wether the input is disabled. Defaults to False.",
+                    "typeName": "bool",
+                    "isKwarg": True,
+                    "default": "False",
+                },
+                {
                     "argName": "end_program",
                     "description": "Whether the program should end after the widget is shown. Defaults to False.",
                     "typeName": "bool",
@@ -1818,6 +1957,11 @@ metadata = {
                     "argName": "key",
                     "typeName": "string",
                     "description": "The key of the input on the returning object",
+                },
+                {
+                    "argName": "disabled",
+                    "typeName": "boolean",
+                    "description": "Whether the input is disabled",
                 },
                 {
                     "argName": "hint",
@@ -1913,6 +2057,13 @@ metadata = {
                     "default": "False",
                 },
                 {
+                    "argName": "disabled",
+                    "description": "Wether the input is disabled. Defaults to False.",
+                    "typeName": "bool",
+                    "isKwarg": True,
+                    "default": "False",
+                },
+                {
                     "argName": "end_program",
                     "description": "Whether the program should end after the widget is shown. Defaults to False.",
                     "typeName": "bool",
@@ -1946,6 +2097,11 @@ metadata = {
                     "argName": "key",
                     "typeName": "string",
                     "description": "The key of the input on the returning object",
+                },
+                {
+                    "argName": "disabled",
+                    "typeName": "boolean",
+                    "description": "Whether the input is disabled",
                 },
                 {
                     "argName": "hint",
@@ -2054,6 +2210,13 @@ metadata = {
                     "default": '"+"',
                 },
                 {
+                    "argName": "disabled",
+                    "description": "Wether the input is disabled. Defaults to False.",
+                    "typeName": "bool",
+                    "isKwarg": True,
+                    "default": "False",
+                },
+                {
                     "argName": "end_program",
                     "description": "Whether the program should end after the widget is shown. Defaults to False.",
                     "typeName": "bool",
@@ -2108,6 +2271,11 @@ metadata = {
                     "argName": "key",
                     "typeName": "string",
                     "description": "The key of the input on the returning object",
+                },
+                {
+                    "argName": "disabled",
+                    "typeName": "boolean",
+                    "description": "Whether the input is disabled",
                 },
                 {
                     "argName": "hint",
@@ -2302,6 +2470,11 @@ metadata = {
                     "argName": "key",
                     "typeName": "string",
                     "description": "The key of the input on the returning object",
+                },
+                {
+                    "argName": "disabled",
+                    "typeName": "boolean",
+                    "description": "Whether the input is disabled",
                 },
                 {
                     "argName": "hint",
@@ -2515,6 +2688,11 @@ metadata = {
                     "description": "The key of the input on the returning object",
                 },
                 {
+                    "argName": "disabled",
+                    "typeName": "boolean",
+                    "description": "Whether the input is disabled",
+                },
+                {
                     "argName": "hint",
                     "typeName": ["string", "null"],
                     "description": "message describing the input",
@@ -2684,6 +2862,11 @@ metadata = {
                     "description": "The key of the input on the returning object",
                 },
                 {
+                    "argName": "disabled",
+                    "typeName": "boolean",
+                    "description": "Whether the input is disabled",
+                },
+                {
                     "argName": "hint",
                     "typeName": ["string", "null"],
                     "description": "message describing the input",
@@ -2797,6 +2980,13 @@ metadata = {
                     "default": "None",
                 },
                 {
+                    "argName": "disabled",
+                    "description": "Wether the input is disabled. Defaults to False.",
+                    "typeName": "bool",
+                    "isKwarg": True,
+                    "default": "False",
+                },
+                {
                     "argName": "end_program",
                     "description": "Whether the program should end after the widget is shown. Defaults to False.",
                     "typeName": "bool",
@@ -2837,6 +3027,11 @@ metadata = {
                     "description": "The key of the input on the returning object",
                 },
                 {
+                    "argName": "disabled",
+                    "typeName": "boolean",
+                    "description": "Whether the input is disabled",
+                },
+                {
                     "argName": "hint",
                     "typeName": ["string", "null"],
                     "description": "message describing the input",
@@ -2868,11 +3063,6 @@ metadata = {
                     "typeName": "boolean",
                     "description": "Whether the widget should take up the full width of the page",
                     "isOptional": True,
-                },
-                {
-                    "argName": "placeholder",
-                    "typeName": "string",
-                    "description": "The placeholder text to display in the input",
                 },
             ]
         },
@@ -2921,6 +3111,13 @@ metadata = {
                     "default": "False",
                 },
                 {
+                    "argName": "disabled",
+                    "description": "Wether the input is disabled. Defaults to False.",
+                    "typeName": "bool",
+                    "isKwarg": True,
+                    "default": "False",
+                },
+                {
                     "argName": "end_program",
                     "description": "Whether the program should end after the widget is shown. Defaults to False.",
                     "typeName": "bool",
@@ -2958,6 +3155,11 @@ metadata = {
                     "argName": "key",
                     "typeName": "string",
                     "description": "The key of the input on the returning object",
+                },
+                {
+                    "argName": "disabled",
+                    "typeName": "boolean",
+                    "description": "Whether the input is disabled",
                 },
                 {
                     "argName": "hint",
@@ -3124,6 +3326,13 @@ metadata = {
                     "default": '"current-password"',
                 },
                 {
+                    "argName": "disabled",
+                    "description": "Wether the input is disabled. Defaults to False.",
+                    "typeName": "bool",
+                    "isKwarg": True,
+                    "default": "False",
+                },
+                {
                     "argName": "end_program",
                     "description": "Whether the program should end after the widget is shown. Defaults to False.",
                     "typeName": "bool",
@@ -3216,6 +3425,11 @@ metadata = {
                     "argName": "key",
                     "typeName": "string",
                     "description": "The key of the input on the returning object",
+                },
+                {
+                    "argName": "disabled",
+                    "typeName": "boolean",
+                    "description": "Whether the input is disabled",
                 },
                 {
                     "argName": "hint",
@@ -3316,6 +3530,13 @@ metadata = {
                     "default": "False",
                 },
                 {
+                    "argName": "disabled",
+                    "description": "Wether the input is disabled. Defaults to False.",
+                    "typeName": "bool",
+                    "isKwarg": True,
+                    "default": "False",
+                },
+                {
                     "argName": "end_program",
                     "description": "Whether the program should end after the widget is shown. Defaults to False.",
                     "typeName": "bool",
@@ -3359,6 +3580,11 @@ metadata = {
                     "argName": "key",
                     "typeName": "string",
                     "description": "The key of the input on the returning object",
+                },
+                {
+                    "argName": "disabled",
+                    "typeName": "boolean",
+                    "description": "Whether the input is disabled",
                 },
                 {
                     "argName": "hint",
@@ -3467,6 +3693,13 @@ metadata = {
                     "default": None,
                 },
                 {
+                    "argName": "disabled",
+                    "description": "Wether the input is disabled. Defaults to False.",
+                    "typeName": "bool",
+                    "isKwarg": True,
+                    "default": "False",
+                },
+                {
                     "argName": "end_program",
                     "description": "Whether the program should end after the widget is shown. Defaults to False.",
                     "typeName": "bool",
@@ -3513,6 +3746,11 @@ metadata = {
                     "argName": "key",
                     "typeName": "string",
                     "description": "The key of the input on the returning object",
+                },
+                {
+                    "argName": "disabled",
+                    "typeName": "boolean",
+                    "description": "Whether the input is disabled",
                 },
                 {
                     "argName": "hint",
@@ -3619,6 +3857,13 @@ metadata = {
                     "default": "False",
                 },
                 {
+                    "argName": "disabled",
+                    "description": "Wether the input is disabled. Defaults to False.",
+                    "typeName": "bool",
+                    "isKwarg": True,
+                    "default": "False",
+                },
+                {
                     "argName": "end_program",
                     "description": "Whether the program should end after the widget is shown. Defaults to False.",
                     "typeName": "bool",
@@ -3658,6 +3903,11 @@ metadata = {
                     "argName": "key",
                     "typeName": "string",
                     "description": "The key of the input on the returning object",
+                },
+                {
+                    "argName": "disabled",
+                    "typeName": "boolean",
+                    "description": "Whether the input is disabled",
                 },
                 {
                     "argName": "hint",
@@ -3763,6 +4013,13 @@ metadata = {
                     "default": "None",
                 },
                 {
+                    "argName": "disabled",
+                    "description": "Wether the input is disabled. Defaults to False.",
+                    "typeName": "bool",
+                    "isKwarg": True,
+                    "default": "False",
+                },
+                {
                     "argName": "end_program",
                     "description": "Whether the program should end after the widget is shown. Defaults to False.",
                     "typeName": "bool",
@@ -3799,6 +4056,11 @@ metadata = {
                     "argName": "key",
                     "typeName": "string",
                     "description": "The key of the input on the returning object",
+                },
+                {
+                    "argName": "disabled",
+                    "typeName": "boolean",
+                    "description": "Whether the input is disabled",
                 },
                 {
                     "argName": "hint",
@@ -3941,6 +4203,11 @@ metadata = {
                     "description": "The key of the input on the returning object",
                 },
                 {
+                    "argName": "disabled",
+                    "typeName": "boolean",
+                    "description": "Whether the input is disabled",
+                },
+                {
                     "argName": "hint",
                     "typeName": ["string", "null"],
                     "description": "message describing the input",
@@ -4042,6 +4309,13 @@ metadata = {
                     "default": "False",
                 },
                 {
+                    "argName": "disabled",
+                    "description": "Wether the input is disabled. Defaults to False.",
+                    "typeName": "bool",
+                    "isKwarg": True,
+                    "default": "False",
+                },
+                {
                     "argName": "end_program",
                     "description": "Whether the program should end after the widget is shown. Defaults to False.",
                     "typeName": "bool",
@@ -4081,6 +4355,11 @@ metadata = {
                     "argName": "key",
                     "typeName": "string",
                     "description": "The key of the input on the returning object",
+                },
+                {
+                    "argName": "disabled",
+                    "typeName": "boolean",
+                    "description": "Whether the input is disabled",
                 },
                 {
                     "argName": "hint",
@@ -4176,6 +4455,13 @@ metadata = {
                     "default": "False",
                 },
                 {
+                    "argName": "disabled",
+                    "description": "Wether the input is disabled. Defaults to False.",
+                    "typeName": "bool",
+                    "isKwarg": True,
+                    "default": "False",
+                },
+                {
                     "argName": "end_program",
                     "description": "Whether the program should end after the widget is shown. Defaults to False.",
                     "typeName": "bool",
@@ -4209,6 +4495,11 @@ metadata = {
                     "argName": "key",
                     "typeName": "string",
                     "description": "The key of the input on the returning object",
+                },
+                {
+                    "argName": "disabled",
+                    "typeName": "boolean",
+                    "description": "Whether the input is disabled",
                 },
                 {
                     "argName": "hint",

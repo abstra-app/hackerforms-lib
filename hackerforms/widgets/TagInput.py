@@ -26,6 +26,7 @@ class TagInput(Input):
         self.hint = kwargs.get("hint", None)
         self.columns = kwargs.get("columns", 1)
         self.full_width = kwargs.get("full_width", False)
+        self.disabled = kwargs.get("disabled", False)
 
     def json(self, **kwargs):
         return {
@@ -38,6 +39,7 @@ class TagInput(Input):
             "hint": self.hint,
             "columns": self.columns,
             "fullWidth": self.full_width,
+            "disabled": self.disabled,
         }
 
     def convert_answer(

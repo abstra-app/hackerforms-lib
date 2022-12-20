@@ -31,6 +31,7 @@ class ListInput(Input):
         self.add_button_text = kwargs.get("add_button_text", "+")
         self.full_width = kwargs.get("full_width", False)
         self.required = kwargs.get("required", True)
+        self.disabled = kwargs.get("disabled", False)
 
     def json(self, **kwargs):
         json = {
@@ -47,6 +48,7 @@ class ListInput(Input):
             "addButtonText": self.add_button_text,
             "fullWidth": self.full_width,
             "required": self.required,
+            "disabled": self.disabled,
         }
         overloaded_schemas = self.__get_overloaded_schemas(
             kwargs.get("payload").get(self.key) if kwargs.get("payload") else None

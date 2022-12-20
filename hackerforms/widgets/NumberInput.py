@@ -31,6 +31,7 @@ class NumberInput(Input):
         self.min = kwargs.get("min")
         self.max = kwargs.get("max")
         self.step = kwargs.get("step")
+        self.disabled = kwargs.get("disabled", False)
 
     def json(self, **kwargs):
         return {
@@ -46,6 +47,7 @@ class NumberInput(Input):
             "min": self.min,
             "max": self.max,
             "step": self.step,
+            "disabled": self.disabled,
         }
 
     def convert_answer(self, answer: float) -> float:

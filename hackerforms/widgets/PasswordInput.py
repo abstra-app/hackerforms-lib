@@ -41,6 +41,7 @@ class PasswordInput(Input):
         self.pattern = kwargs.get("pattern", None)
         self.autocomplete = kwargs.get("autocomplete", "current-password")
         self.placeholder = kwargs.get("placeholder", "")
+        self.disabled = kwargs.get("disabled", False)
         self.secret = True
 
     def json(self, **kwargs):
@@ -62,6 +63,7 @@ class PasswordInput(Input):
             "pattern": self.pattern,
             "autocomplete": self.autocomplete,
             "placeholder": self.placeholder,
+            "disabled": self.disabled,
             "secret": self.secret,
         }
 

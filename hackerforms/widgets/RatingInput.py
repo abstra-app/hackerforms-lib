@@ -27,6 +27,7 @@ class RatingInput(Input):
         self.full_width = kwargs.get("full_width", False)
         self.max = kwargs.get("max")
         self.char = kwargs.get("char")
+        self.disabled = kwargs.get("disabled", False)
 
     def json(self, **kwargs):
         return {
@@ -40,6 +41,7 @@ class RatingInput(Input):
             "fullWidth": self.full_width,
             "max": self.max,
             "char": self.char,
+            "disabled": self.disabled,
         }
 
     def convert_answer(self, answer: float) -> float:

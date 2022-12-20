@@ -29,6 +29,7 @@ class EmailInput(Input):
         self.invalid_email_message = kwargs.get(
             "invalid_email_message", "Hmm… doesn't look like an email"
         )
+        self.disabled = kwargs.get("disabled", False)
 
     def json(self, **kwargs):
         return {
@@ -42,6 +43,7 @@ class EmailInput(Input):
             "columns": self.columns,
             "fullWidth": self.full_width,
             "invalidEmailMessage": self.invalid_email_message,
+            "disabled": self.disabled,
         }
 
     def convert_answer(self, answer: str) -> str:

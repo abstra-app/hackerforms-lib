@@ -49,6 +49,7 @@ class CardsInput(Input):
         self.columns = kwargs.get("columns", 1)
         self.full_width = kwargs.get("full_width", False)
         self.layout = kwargs.get("layout", "list")
+        self.disabled = kwargs.get("disabled", False)
 
     def json(self, **kwargs):
         return {
@@ -66,6 +67,7 @@ class CardsInput(Input):
             "columns": self.columns,
             "fullWidth": self.full_width,
             "layout": self.layout,
+            "disabled": self.disabled,
         }
 
     def convert_answer(self, answer: Union[List, Any]) -> Union[List, Any]:

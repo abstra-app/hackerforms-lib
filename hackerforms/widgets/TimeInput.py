@@ -26,6 +26,7 @@ class TimeInput(Input):
         self.columns = kwargs.get("columns", 1)
         self.full_width = kwargs.get("full_width", False)
         self.format = kwargs.get("format", "24hs")
+        self.disabled = kwargs.get("disabled", False)
 
     def json(self, **kwargs):
         return {
@@ -38,6 +39,7 @@ class TimeInput(Input):
             "required": self.required,
             "columns": self.columns,
             "fullWidth": self.full_width,
+            "disabled": self.disabled,
         }
 
     def convert_answer(self, answer) -> datetime.time:

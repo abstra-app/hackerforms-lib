@@ -33,6 +33,7 @@ class CurrencyInput(Input):
         self.max = kwargs.get("max")
         self.step = kwargs.get("step")
         self.currency = kwargs.get("currency", "USD")
+        self.disabled = kwargs.get("disabled", False)
 
     def json(self, **kwargs):
         return {
@@ -49,6 +50,7 @@ class CurrencyInput(Input):
             "max": self.max,
             "step": self.step,
             "currency": self.currency,
+            "disabled": self.disabled,
         }
 
     def convert_answer(self, answer) -> float:

@@ -27,6 +27,7 @@ class VideoInput(Input):
         self.columns = kwargs.get("columns", 1)
         self.multiple = kwargs.get("multiple", False)
         self.full_width = kwargs.get("full_width", False)
+        self.disabled = kwargs.get("disabled", False)
 
     def json(self, **kwargs):
         return {
@@ -39,6 +40,7 @@ class VideoInput(Input):
             "required": self.required,
             "multiple": self.multiple,
             "fullWidth": self.full_width,
+            "disabled": self.disabled,
         }
 
     def convert_answer(self, answer) -> Optional[FileResponse]:

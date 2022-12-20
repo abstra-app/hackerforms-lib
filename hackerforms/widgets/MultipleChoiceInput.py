@@ -34,6 +34,7 @@ class MultipleChoiceInput(Input):
         self.full_width = kwargs.get("full_width", False)
         self.min = kwargs.get("min", None)
         self.max = kwargs.get("max", None)
+        self.disabled = kwargs.get("disabled", False)
 
     def json(self, **kwargs):
         return {
@@ -49,6 +50,7 @@ class MultipleChoiceInput(Input):
             "fullWidth": self.full_width,
             "min": self.min,
             "max": self.max,
+            "disabled": self.disabled,
         }
 
     def convert_answer(self, answer: Union[List, Any]) -> Union[List, Any]:

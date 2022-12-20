@@ -61,7 +61,9 @@ def validate_widget_props(widget):
     for prop in required_props:
         prop_name = prop["argName"]
         if not prop_name in widget:
-            raise Exception(f"{prop_name} not in {widget.keys()}")
+            raise Exception(
+                f"Error in {widget['type']}: {prop_name} not in {widget.keys()}"
+            )
         assert types_compatible(widget[prop_name], prop)
         assert valid_prop(widget[prop_name], prop)
 

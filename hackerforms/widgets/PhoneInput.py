@@ -27,6 +27,7 @@ class PhoneInput(Input):
         self.placeholder = kwargs.get("placeholder", "")
         self.columns = kwargs.get("columns", 1)
         self.full_width = kwargs.get("full_width", False)
+        self.disabled = kwargs.get("disabled", False)
 
     def _initial_value_to_json(self, initial_value):
         if isinstance(initial_value, str):
@@ -51,6 +52,7 @@ class PhoneInput(Input):
             "hint": self.hint,
             "columns": self.columns,
             "fullWidth": self.full_width,
+            "disabled": self.disabled,
         }
 
     def convert_answer(self, answer) -> Optional[PhoneResponse]:
