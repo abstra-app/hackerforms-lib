@@ -1,6 +1,6 @@
-from tempfile import NamedTemporaryFile
-import requests
+import requests, typing
 from dataclasses import dataclass
+from tempfile import NamedTemporaryFile
 
 
 class FileResponse:
@@ -12,15 +12,26 @@ class FileResponse:
         content (bytes): The content of the file
     """
 
+    __res = None
+    __file = None
+
     def __init__(self, url):
-        res = requests.get(url)
-        self.content = res.content
         self.url = url
         self.name = url.split("/")[-1]
 
-        self.file = NamedTemporaryFile()
-        self.file.write(self.content)
-        self.file.seek(0)
+    @property
+    def content(self):
+        if not self.__res:
+            self.__res = requests.get(self.url)
+        return self.__res.content
+
+    @property
+    def file(self) -> typing.BinaryIO:
+        if not self.__file:
+            self.__file = NamedTemporaryFile()
+            self.__file.write(self.content)
+            self.__file.seek(0)
+        return self.__file
 
 
 @dataclass
