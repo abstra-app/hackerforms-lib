@@ -2655,6 +2655,11 @@ metadata = {
         "brokerAPI": {
             "params": [
                 {
+                    "argName": "label",
+                    "typeName": "string",
+                    "description": "The label to display above the input",
+                },
+                {
                     "argName": "min",
                     "typeName": "number",
                     "description": "Minimum value of NPS",
@@ -3009,6 +3014,11 @@ metadata = {
         },
         "brokerAPI": {
             "params": [
+                {
+                    "argName": "label",
+                    "typeName": "string",
+                    "description": "The label to display above the input",
+                },
                 {
                     "argName": "min",
                     "typeName": "number",
