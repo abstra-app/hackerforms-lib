@@ -4546,11 +4546,15 @@ metadata = {
                 "code": 'from hackerforms import read_toggle\n\nans = read_toggle("Toggle")\n# ans = True or False\nprint(ans)\n',
             },
             {
-                "props": {"label": "Custom Toggle"},
+                "props": {
+                    "label": "Custom Toggle",
+                    "onText": "Confirm",
+                    "offText": "Cancel",
+                },
                 "name": "Custom Example",
-                "description": "The following example demonstrate some of the available functionality for read_toggle",
+                "description": "The following example demonstrate how to customize the toggle options text",
                 "key": "example2",
-                "code": 'from hackerforms import read_toggle\n\nans = read_toggle(\n    "Custom Toggle", options={"on_label": "I confirm", "off_label": "I reject"}\n)\n# ans = True or False\n',
+                "code": 'from hackerforms import read_toggle\n\nans = read_toggle(\n    "Custom Toggle", on_text="Confirm", off_text="Cancel"\n)\n# ans = True or False\n',
             },
         ],
     },
@@ -5370,7 +5374,7 @@ metadata = {
     },
     "progress-output": {
         "type": "progress-output",
-        "description": "Display a progress bar. This widget is shown on screen until the script shows a new widget",
+        "description": "Display a progress bar. This widget is shown on screen until the script shows a new widget. This widget does not work on Pages, and must be used only with its function.",
         "pythonAPI": {
             "name": "display_progress",
             "params": [

@@ -937,7 +937,7 @@ class WidgetSchema:
 
     def display_progress(self, current: float, total: float, **kwargs):
 
-        """Display a progress bar. This widget is shown on screen until the script shows a new widget
+        """Display a progress bar. This widget is shown on screen until the script shows a new widget. This widget does not work on Pages, and must be used only with its function.
 
         Position Args:
                 current (float): The progress being made. Defaults to 50.
