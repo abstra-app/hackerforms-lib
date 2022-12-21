@@ -727,6 +727,29 @@ class WidgetSchema:
         self.widgets.append(TimeInput(key, label, **kwargs))
         return self
 
+    def read_toggle(self, label: str, **kwargs):
+
+        """Read a toggle value from the user
+
+        Position Args:
+                label (str): The label to display to the user
+
+        Keyword Args:
+                on_text (str): Text of On Toggle option
+                off_text (str): Text of Off Toggle option
+                required (bool or str): Whether the input is required or not eg. "this field is required". Defaults to True.
+                hint (str): A tooltip displayed to the user. Defaults to None.
+                full_width (bool): Whether the input should use full screen width. Defaults to False.
+
+        Returns:
+          bool: if the toggle was checked
+        """
+
+        key = kwargs.pop("key", label)
+
+        self.widgets.append(ToggleInput(key, label, **kwargs))
+        return self
+
     def read_video(self, label: str, **kwargs):
 
         """Read a video file value from the user

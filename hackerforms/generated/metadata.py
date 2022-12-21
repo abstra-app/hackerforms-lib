@@ -4422,6 +4422,138 @@ metadata = {
             }
         ],
     },
+    "toggle-input": {
+        "type": "toggle-input",
+        "description": "Read a toggle value from the user",
+        "pythonAPI": {
+            "name": "read_toggle",
+            "params": [
+                {
+                    "argName": "label",
+                    "description": "The label to display to the user",
+                    "typeName": "str",
+                    "isKwarg": False,
+                    "default": None,
+                },
+                {
+                    "argName": "on_text",
+                    "description": "Text of On Toggle option",
+                    "typeName": "str",
+                    "isKwarg": True,
+                    "default": "Yes",
+                },
+                {
+                    "argName": "off_text",
+                    "description": "Text of Off Toggle option",
+                    "typeName": "str",
+                    "isKwarg": True,
+                    "default": "No",
+                },
+                {
+                    "argName": "required",
+                    "description": 'Whether the input is required or not eg. "this field is required". Defaults to True.',
+                    "typeName": "bool or str",
+                    "isKwarg": True,
+                    "default": "True",
+                },
+                {
+                    "argName": "hint",
+                    "description": "A tooltip displayed to the user. Defaults to None.",
+                    "typeName": "str",
+                    "isKwarg": True,
+                    "default": "None",
+                },
+                {
+                    "argName": "full_width",
+                    "description": "Whether the input should use full screen width. Defaults to False.",
+                    "typeName": "bool",
+                    "isKwarg": True,
+                    "default": "False",
+                },
+            ],
+            "returns": [
+                {"typeName": None, "typeDescription": "bool: if the toggle was checked"}
+            ],
+        },
+        "brokerAPI": {
+            "params": [
+                {
+                    "argName": "label",
+                    "typeName": "string",
+                    "description": "The label of the input",
+                },
+                {
+                    "argName": "onText",
+                    "typeName": "string",
+                    "description": "Text of On toggle option",
+                },
+                {
+                    "argName": "offText",
+                    "typeName": "string",
+                    "description": "Text of Off toggle option",
+                },
+                {
+                    "argName": "key",
+                    "typeName": "string",
+                    "description": "The key of the input on the returning object",
+                },
+                {
+                    "argName": "disabled",
+                    "typeName": "boolean",
+                    "description": "Whether the input is disabled",
+                },
+                {
+                    "argName": "hint",
+                    "typeName": ["string", "null"],
+                    "description": "message describing the input",
+                    "default": None,
+                    "isOptional": True,
+                },
+                {
+                    "argName": "end_program",
+                    "typeName": ["boolean", "null"],
+                    "description": "End program after this widget is shown",
+                    "default": False,
+                    "isOptional": True,
+                },
+                {
+                    "argName": "required",
+                    "typeName": ["boolean", "string"],
+                    "description": "Whether the input is required or not",
+                    "default": True,
+                    "isOptional": True,
+                },
+                {
+                    "argName": "columns",
+                    "typeName": "number",
+                    "description": "number of columns this input will take",
+                    "isOptional": True,
+                },
+                {
+                    "argName": "fullWidth",
+                    "typeName": "boolean",
+                    "description": "Whether the widget should take up the full width of the page",
+                    "isOptional": True,
+                },
+            ]
+        },
+        "examples": [
+            {
+                "props": {"label": "Toggle", "onText": "On", "offText": "Off"},
+                "name": "Basic Example",
+                "description": "The following example demonstrate some of the available functionality for read_toggle",
+                "key": "example1",
+                "code": 'from hackerforms import read_toggle\n\nans = read_toggle("Toggle")\n# ans = True or False\nprint(ans)\n',
+            },
+            {
+                "props": {"label": "Custom Toggle"},
+                "name": "Custom Example",
+                "description": "The following example demonstrate some of the available functionality for read_toggle",
+                "key": "example2",
+                "code": 'from hackerforms import read_toggle\n\nans = read_toggle(\n    "Custom Toggle", options={"on_label": "I confirm", "off_label": "I reject"}\n)\n# ans = True or False\n',
+            },
+        ],
+    },
     "video-input": {
         "type": "video-input",
         "description": "Read a video file value from the user",

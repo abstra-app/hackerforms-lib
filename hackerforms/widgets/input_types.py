@@ -10,6 +10,7 @@ from hackerforms.widgets.CpfInput import CpfInput
 from hackerforms.widgets.TextInput import TextInput
 from hackerforms.widgets.PhoneInput import PhoneInput
 from hackerforms.widgets.ImageInput import ImageInput
+from hackerforms.widgets.ToggleInput import ToggleInput
 from hackerforms.widgets.ChecklistInput import ChecklistInput
 from hackerforms.widgets.EmailInput import EmailInput
 from hackerforms.widgets.MultipleChoiceInput import MultipleChoiceInput
