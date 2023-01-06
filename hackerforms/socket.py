@@ -9,12 +9,12 @@ WS_HOST = os.environ.get("WS_HOST", "wss://hackerforms-broker.abstra.cloud")
 FRONTEND_HOST = os.environ.get("FRONTEND_HOST", "https://console.abstracloud.com")
 DEBUG_ENABLED = os.environ.get("ABSTRA_DEBUG")
 SESSION_ID = os.environ.get("SESSION_ID")
-ABSTRA_FORM_SERVER = os.environ.get("ABSTRA_FORM_SERVER")
+RUNNER = os.environ.get("RUNNER")
 
 
 def initialize():
     global __connection, initialized
-    if ABSTRA_FORM_SERVER:
+    if RUNNER == "formServer":
         return
     initialized = True
     hook = ExitHooks()

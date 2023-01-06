@@ -13,9 +13,10 @@ from . import environments as envs
 from .generated.inputs import *
 from .generated.outputs import *
 
-environment = os.getenv("ENV")
+ENV = os.getenv("ENV")
+RUNNER = os.getenv("RUNNER")
 
-if environment not in [envs.TEST]:
+if not (ENV in [envs.TEST] or RUNNER in ["dash", "hook", "job"]):
     _check_version()
     _initialize_socket()
     _initialize_overloads()
