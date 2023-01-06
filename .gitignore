@@ -1,0 +1,7 @@
+__pycache__
+hackerforms.egg-info
+build
+dist
+venv
+hackerforms/automation/**
+.vscode
