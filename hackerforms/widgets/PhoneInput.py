@@ -55,11 +55,8 @@ class PhoneInput(Input):
             "disabled": self.disabled,
         }
 
-    def convert_answer(self, answer) -> Optional[PhoneResponse]:
-        """
-        Returns:
-            PhoneResponse: A dict containing the value entered by the user ({"raw": str, "masked": str})
-        """
+    @staticmethod
+    def __convert_answer(answer) -> Optional[PhoneResponse]:
         return (
             PhoneResponse(
                 masked=answer["masked"],
@@ -70,3 +67,10 @@ class PhoneInput(Input):
             if answer
             else None
         )
+
+    def convert_answer(self, answer) -> Optional[PhoneResponse]:
+        """
+        Returns:
+            PhoneResponse: A dict containing the value entered by the user ({"raw": str, "masked": str})
+        """
+        return self.__convert_answer(answer)

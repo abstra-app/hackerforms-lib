@@ -47,13 +47,17 @@ class FileInput(Input):
             "maxFileSize": self.max_file_size,
         }
 
+    @staticmethod
+    def __convert_answer(answer) -> Optional[FileResponse]:
+        if not answer:
+            return None
+        if isinstance(answer, list):
+            return [FileResponse(item) for item in answer]
+        return FileResponse(answer)
+
     def convert_answer(self, answer) -> Optional[FileResponse]:
         """
         Returns:
             FileResponse or FileResponse[]: A dict containing the file uploaded by the user ({"file": file, "url": str, "content": bytes}) or a list of files in case of multiple flag set as True
         """
-        if not answer:
-            return None
-        if not self.multiple:
-            return FileResponse(answer)
-        return [FileResponse(item) for item in answer]
+        return self.__convert_answer(answer)

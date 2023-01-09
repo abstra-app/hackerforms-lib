@@ -54,11 +54,8 @@ class DateInput(Input):
             "disabled": self.disabled,
         }
 
-    def convert_answer(self, answer: str) -> Optional[datetime.date]:
-        """
-        Returns:
-            datetime.date: The value entered by the user
-        """
+    @staticmethod
+    def __convert_answer(answer: str) -> Optional[datetime.date]:
         if not answer:
             return None
         split_answer = answer.split("-")
@@ -66,3 +63,10 @@ class DateInput(Input):
         month = int(split_answer[1])
         day = int(split_answer[2])
         return datetime.date(year, month, day)
+
+    def convert_answer(self, answer: str) -> Optional[datetime.date]:
+        """
+        Returns:
+            datetime.date: The value entered by the user
+        """
+        return self.__convert_answer(answer)

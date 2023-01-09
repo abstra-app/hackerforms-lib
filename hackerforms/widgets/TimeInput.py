@@ -42,9 +42,13 @@ class TimeInput(Input):
             "disabled": self.disabled,
         }
 
+    @staticmethod
+    def __convert_answer(answer) -> datetime.time:
+        return datetime.time(answer["hour"], answer["minute"]) if answer else None
+
     def convert_answer(self, answer) -> datetime.time:
         """
         Returns:
             datetime.time: A datetime.time object representing the value entered by the user
         """
-        return datetime.time(answer["hour"], answer["minute"]) if answer else None
+        return self.__convert_answer(answer)

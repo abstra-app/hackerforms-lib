@@ -32,5 +32,9 @@ class ToggleInput(Input):
             "disabled": self.disabled,
         }
 
-    def convert_answer(self, answer: str) -> str:
+    @staticmethod
+    def __convert_answer(answer: str) -> str:
         return True if answer == "1" else False
+
+    def convert_answer(self, answer: str) -> str:
+        return self.__convert_answer(answer)
