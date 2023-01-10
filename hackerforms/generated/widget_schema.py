@@ -65,9 +65,9 @@ class WidgetSchema:
         Keyword Args:
                 required (bool or str): Wether the input is required or not eg. "this field is required". Defaults to True.
                 hint (str): A tooltip displayed to the user. Defaults to None.
-                full_width (bool): Whether the input should use full screen width. Defaults to False.
                 disabled (bool): Wether the input is disabled. Defaults to False.
                 end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
+                full_width (bool): Whether the input should use full screen width. Defaults to False.
 
         Returns:
           list: The values/value selected by the user
@@ -96,10 +96,10 @@ class WidgetSchema:
                         required (bool or str): Whether the input is required or not eg. "this field is required". Defaults to True.
                         hint (str): A tooltip displayed to the user. Defaults to None.
                         searchable (bool): Whether to show a search bar. Defaults to False.
-                        full_width (bool): Whether the input should use full screen width. Defaults to False.
                         layout (str): Whether the cards layout should be 'list' or 'grid'. Defaults to 'list'.%%%
                         disabled (bool): Wether the input is disabled. Defaults to False.
                         end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
+                        full_width (bool): Whether the input should use full screen width. Defaults to False.
 
                 Returns:
                   list, any: The options/option selected by the user
@@ -121,8 +121,9 @@ class WidgetSchema:
                 initial_value (null): The initial value to display to the user. Defaults to None.
                 required (bool or str): Wether the input is required or not eg. "this field is required". Defaults to True.
                 hint (str): A tooltip displayed to the user. Defaults to None.
-                full_width (bool): Whether the input should use full screen width. Defaults to False.
                 disabled (bool): Wether the input is disabled. Defaults to False.
+                end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
+                full_width (bool): Whether the input should use full screen width. Defaults to False.
 
         Returns:
           list(str) or list(float): The value entered by the user
@@ -145,8 +146,9 @@ class WidgetSchema:
                 initial_value (null): The initial value to display to the user. Defaults to None.
                 required (bool or str): Wether the input is required or not eg. "this field is required". Defaults to True.
                 hint (str): A tooltip displayed to the user. Defaults to None.
-                full_width (bool): Whether the input should use full screen width. Defaults to False.
                 disabled (bool): Wether the input is disabled. Defaults to False.
+                end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
+                full_width (bool): Whether the input should use full screen width. Defaults to False.
 
         Returns:
           list or any: The value entered by the user
@@ -169,9 +171,9 @@ class WidgetSchema:
                 placeholder (str): The placeholder text to display to the user. Defaults to "00.000.000/0001-00".
                 required (bool or str): Wether the input is required or not eg. "this field is required". Defaults to True.
                 hint (str): A tooltip displayed to the user. Defaults to None.
-                full_width (bool): Whether the input should use full screen width. Defaults to False.
-                end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
                 disabled (bool): Wether the input is disabled. Defaults to False.
+                end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
+                full_width (bool): Whether the input should use full screen width. Defaults to False.
 
         Returns:
           list(str) or list(float): The value entered by the user
@@ -194,9 +196,9 @@ class WidgetSchema:
                 required (bool or str): Whether the input is required or not eg. "this field is required". Defaults to True.
                 language (str): The programming language. Defaults to None.
                 hint (str): A tooltip displayed to the user. Defaults to None.
-                full_width (bool): Whether the input should use full screen width. Defaults to False.
                 disabled (bool): Wether the input is disabled. Defaults to False.
                 end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
+                full_width (bool): Whether the input should use full screen width. Defaults to False.
 
         Returns:
           The value entered by the user
@@ -219,9 +221,9 @@ class WidgetSchema:
                 placeholder (str): The placeholder text to display to the user. Defaults to "000.000.000-00".
                 required (bool or str): Whether the input is required or not eg. "this field is required". Defaults to True.
                 hint (str): A tooltip displayed to the user. Defaults to None.
-                full_width (bool): Whether the input should use full screen width. Defaults to False.
                 disabled (bool): Wether the input is disabled. Defaults to False.
                 end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
+                full_width (bool): Whether the input should use full screen width. Defaults to False.
 
         Returns:
           The value entered by the user
@@ -244,13 +246,13 @@ class WidgetSchema:
                 required (bool or str): Whether the input is required or not, eg. "this field is required". Defaults to True.
                 placeholder (str): The placeholder text to display to the user. Defaults to "Your answer here".
                 hint (str): A tooltip displayed to the user. Defaults to None.
-                full_width (bool): Whether the input should use full screen width. Defaults to False.
                 min (float): The minimum value allowed, eg. "0". Defaults to None.
                 max (float): The maximum value allowed, eg. "100". Defaults to None.
                 step (float): The value to be incremented or decremented while using the input button. Defaults to None.
                 currency (str): The currency to display to the user, eg. "USD", "BRL, "EUR", "GBP". Defaults to "USD".
                 disabled (bool): Wether the input is disabled. Defaults to False.
                 end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
+                full_width (bool): Whether the input should use full screen width. Defaults to False.
 
         Returns:
           The value entered by the user
@@ -272,9 +274,9 @@ class WidgetSchema:
                 initial_value (datetime.date or time.struct_time or str (YYYY-MM-DD)): The initial value to display to the user. Defaults to None.
                 required (bool or str): Whether the input is required or not eg. "this field is required". Defaults to True.
                 hint (str): A tooltip displayed to the user. Defaults to None.
-                full_width (bool): Whether the input should use full screen width. Defaults to False.
                 disabled (bool): Wether the input is disabled. Defaults to False.
                 end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
+                full_width (bool): Whether the input should use full screen width. Defaults to False.
 
         Returns:
           The value entered by the user
@@ -299,9 +301,9 @@ class WidgetSchema:
                 placeholder (str): The placeholder text to display to the user. Defaults to "Choose an option".
                 required (bool or str): Whether the input is required or not eg. "this field is required". Defaults to True.
                 hint (str): A tooltip displayed to the user. Defaults to None.
-                full_width (bool): Whether the input should use full screen width. Defaults to False.
                 disabled (bool): Wether the input is disabled. Defaults to False.
                 end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
+                full_width (bool): Whether the input should use full screen width. Defaults to False.
 
         Returns:
           The value selected by the user
@@ -324,10 +326,10 @@ class WidgetSchema:
                 placeholder (str): The placeholder text to display to the user. Defaults to "Your email here".
                 required (bool or str): Whether the input is required or not eg. "this field is required". Defaults to True.
                 hint (str): A tooltip displayed to the user. Defaults to None.
-                full_width (bool): Whether the input should use full screen width. Defaults to False.
                 invalid_email_message (str): Invalid e-mail message
                 disabled (bool): Wether the input is disabled. Defaults to False.
                 end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
+                full_width (bool): Whether the input should use full screen width. Defaults to False.
 
         Returns:
           The value entered by the user
@@ -349,11 +351,11 @@ class WidgetSchema:
                 initial_value (str): The initial value to display to the user. Defaults to "".
                 required (bool or str): Whether the input is required or not eg. "this field is required". Defaults to True.
                 hint (str): A tooltip displayed to the user. Defaults to None.
-                full_width (bool): Whether the input should use full screen width. Defaults to False.
                 multiple (bool): Whether the user will be allowed to upload multiple files. Defaults to False.
                 max_file_size (float): Maximum size allowed to be transfered in total in MB.
                 disabled (bool): Wether the input is disabled. Defaults to False.
                 end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
+                full_width (bool): Whether the input should use full screen width. Defaults to False.
 
         Returns:
           A dict containing the file uploaded by the user ({"file": file, "url": str, "content": bytes}) or a list of files in case of multiple flag set as True
@@ -375,10 +377,10 @@ class WidgetSchema:
                 initial_value (str): The initial value to display to the user. Defaults to "".
                 required (bool or str): Whether the input is required or not eg. "this field is required". Defaults to True.
                 hint (str): A tooltip displayed to the user. Defaults to None.
-                full_width (bool): Whether the input should use full screen width. Defaults to False.
                 multiple (bool): Whether the user will be allowed to upload multiple files. Defaults to False.
                 disabled (bool): Wether the input is disabled. Defaults to False.
                 end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
+                full_width (bool): Whether the input should use full screen width. Defaults to False.
 
         Returns:
           A dict containing the image file uploaded by the user ({"file": file, "url": str, "content": bytes}) or a list of images in case of multiple flag set as True
@@ -399,12 +401,12 @@ class WidgetSchema:
         Keyword Args:
                 initial_value (any): The initial value to display to the user. Defaults to [{}].
                 hint (str): A tooltip displayed to the user. Defaults to None.
-                full_width (bool): Whether the input should use full screen width. Defaults to False.
                 min (float): Min value accepted by the input. Defaults to None.
                 max (float): Max value accepted by the input. Defaults to None.
                 add_button_text (str): Label to be displayed on the add button. Defaults to "+".
                 disabled (bool): Wether the input is disabled. Defaults to False.
                 end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
+                full_width (bool): Whether the input should use full screen width. Defaults to False.
 
         Returns:
           The values entered by the user
@@ -430,6 +432,8 @@ class WidgetSchema:
                 initial_value (null): The initial value to display to the user. Defaults to None.
                 required (bool or str): WNther the input is required or not eg. "this field is required". Defaults to True.
                 hint (str): A tooltip displayed to the user. Defaults to None.
+                disabled (bool): Wether the input is disabled. Defaults to False.
+                end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
                 full_width (bool): Whether the input should use full screen width. Defaults to False.
 
         Returns:
@@ -456,6 +460,8 @@ class WidgetSchema:
                 initial_value (str): The initial value to display to the user. Defaults to None.
                 required (bool or str): Whether the input is required or not eg. "this field is required". Defaults to True.
                 hint (str): A tooltip displayed to the user. Defaults to None.
+                disabled (bool): Wether the input is disabled. Defaults to False.
+                end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
                 full_width (bool): Whether the input should use full screen width. Defaults to False.
 
         Returns:
@@ -479,7 +485,6 @@ class WidgetSchema:
                 placeholder (str): The placeholder text to display to the user. Defaults to "Your answer here".
                 required (bool or str): Whether the input is required or not eg. "this field is required". Defaults to True.
                 hint (str): A tooltip displayed to the user. Defaults to None.
-                full_width (bool): Whether the input should use full screen width. Defaults to False.
                 min (float): Min value accepted by the input. Defaults to None.
                 max (float): Max value accepted by the input. Defaults to None.
                 step (float): The value to be incremented or decremented while using the input button. Defaults to None.
@@ -504,12 +509,12 @@ class WidgetSchema:
                 initial_value (str): The initial value to display to the user. Defaults to 0.
                 required (bool or str): Whether the input is required or not eg. "this field is required". Defaults to True.
                 hint (str): A tooltip displayed to the user. Defaults to None.
-                full_width (bool): Whether the input should use full screen width. Defaults to False.
                 min (float): Min value accepted by the input. Defaults to None.
                 max (float): Max value accepted by the input. Defaults to None.
                 step (float): The value to be incremented or decremented while using the input button. Defaults to None.
                 disabled (bool): Wether the input is disabled. Defaults to False.
                 end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
+                full_width (bool): Whether the input should use full screen width. Defaults to False.
 
         Returns:
           The value entered by the user
@@ -530,9 +535,9 @@ class WidgetSchema:
         Keyword Args:
                 required (null): Whether the input is required or not. Defaults to True.
                 hint (str): A tooltip displayed to the user. Defaults to None.
-                full_width (bool): Whether the input should use full screen width. Defaults to False.
                 disabled (bool): Wether the input is disabled. Defaults to False.
                 end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
+                full_width (bool): Whether the input should use full screen width. Defaults to False.
 
         Returns:
           The list of selected rows
@@ -554,7 +559,6 @@ class WidgetSchema:
                 placeholder (str): The placeholder text to display to the user. Defaults to "".
                 required (bool or str): Whether the input is required or not eg. "this field is required". Defaults to True.
                 hint (str): A tooltip displayed to the user. Defaults to None.
-                full_width (bool): Whether the input should use full screen width. Defaults to False.
                 lowercase_required (bool or str): Whether the input must have at least one lowercase character. Defaults to True.
                 uppercase_required (bool or str): Whether the input must have at least one uppercase character. Defaults to True.
                 special_required (bool or str): Whether the input must have at least one special character. Defaults to True.
@@ -566,6 +570,7 @@ class WidgetSchema:
                 autocomplete (str): The autocomplete HTML attribute. Defaults to "current-password".
                 disabled (bool): Wether the input is disabled. Defaults to False.
                 end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
+                full_width (bool): Whether the input should use full screen width. Defaults to False.
 
         Returns:
           The value entered by the user
@@ -588,9 +593,9 @@ class WidgetSchema:
                 placeholder (str): The placeholder text to display to the user. Defaults to "".
                 required (bool or str): Whether the input is required or not eg. "this field is required". Defaults to True.
                 hint (str): A tooltip displayed to the user. Defaults to None.
-                full_width (bool): Whether the input should use full screen width. Defaults to False.
                 disabled (bool): Wether the input is disabled. Defaults to False.
                 end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
+                full_width (bool): Whether the input should use full screen width. Defaults to False.
 
         Returns:
           A dict containing the value entered by the user ({"raw": str, "masked": str})
@@ -612,11 +617,11 @@ class WidgetSchema:
                 initial_value (str): The initial value to display to the user. Defaults to 0.
                 required (bool or str): Whether the input is required or not eg. "this field is required". Defaults to True.
                 hint (str): A tooltip displayed to the user. Defaults to None.
-                full_width (bool): Whether the input should use full screen width. Defaults to False.
                 max (float): Max value accepted by the input. Defaults to None.
                 char (str): Which char should be displayed as icon?
                 disabled (bool): Wether the input is disabled. Defaults to False.
                 end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
+                full_width (bool): Whether the input should use full screen width. Defaults to False.
 
         Returns:
           The value entered by the user
@@ -639,9 +644,9 @@ class WidgetSchema:
                 placeholder (str): The placeholder text to display to the user. Defaults to "Your answer here".
                 required (bool or str): Whether the input is required or not eg. "this field is required". Defaults to True.
                 hint (str): A tooltip displayed to the user. Defaults to None.
-                full_width (bool): Whether the input should use full screen width. Defaults to False.
                 disabled (bool): Wether the input is disabled. Defaults to False.
                 end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
+                full_width (bool): Whether the input should use full screen width. Defaults to False.
 
         Returns:
           list(str) or list(float): The value entered by the user
@@ -664,10 +669,10 @@ class WidgetSchema:
                 placeholder (str): The placeholder text to display to the user. Defaults to "Your answer here".
                 required (bool or str): Whether the input is required or not eg. "this field is required". Defaults to True.
                 hint (str): A tooltip displayed to the user. Defaults to None.
-                full_width (bool): Whether the input should use full screen width. Defaults to False.
                 mask (str): A mask to apply to the input. Defaults to None.
                 disabled (bool): Wether the input is disabled. Defaults to False.
                 end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
+                full_width (bool): Whether the input should use full screen width. Defaults to False.
 
         Returns:
           The value entered by the user
@@ -690,8 +695,8 @@ class WidgetSchema:
                 placeholder (str): The placeholder text to display to the user. Defaults to "Your answer here".
                 required (bool or str): Whether the input is required or not eg. "this field is required". Defaults to True.
                 hint (str): A tooltip displayed to the user. Defaults to None.
-                full_width (bool): Whether the input should use full screen width. Defaults to False.
                 end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
+                full_width (bool): Whether the input should use full screen width. Defaults to False.
 
         Returns:
           The value entered by the user
@@ -714,9 +719,9 @@ class WidgetSchema:
                 required (bool or str): Whether the input is required or not eg. "this field is required". Defaults to True.
                 format (str): Whether the input is in the format 24hs or AM/PM. Defaults to "24hs".
                 hint (str): A tooltip displayed to the user. Defaults to None.
-                full_width (bool): Whether the input should use full screen width. Defaults to False.
                 disabled (bool): Wether the input is disabled. Defaults to False.
                 end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
+                full_width (bool): Whether the input should use full screen width. Defaults to False.
 
         Returns:
           A datetime.time object representing the value entered by the user
@@ -739,6 +744,7 @@ class WidgetSchema:
                 off_text (str): Text of Off Toggle option
                 required (bool or str): Whether the input is required or not eg. "this field is required". Defaults to True.
                 hint (str): A tooltip displayed to the user. Defaults to None.
+                end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
                 full_width (bool): Whether the input should use full screen width. Defaults to False.
 
         Returns:
@@ -761,10 +767,10 @@ class WidgetSchema:
                 initial_value (str): The initial value to display to the user. Defaults to "".
                 required (bool or str): Whether the input is required or not eg. "this field is required". Defaults to True.
                 hint (str): A tooltip displayed to the user. Defaults to None.
-                full_width (bool): Whether the input should use full screen width. Defaults to False.
                 multiple (bool): Whether the user will be allowed to upload multiple files. Defaults to False.
                 disabled (bool): Wether the input is disabled. Defaults to False.
                 end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
+                full_width (bool): Whether the input should use full screen width. Defaults to False.
 
         Returns:
           A dict containing the video uploaded by the user ({"file": file, "url": str, "content": bytes}) or a list of videos in case of multiple flag set as True
@@ -784,8 +790,8 @@ class WidgetSchema:
 
         Keyword Args:
                 download_text (str): The text to display on the button that will download the file. Defaults to "Download here".
-                full_width (bool): Whether the input should use full screen width. Defaults to False.
                 end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
+                full_width (bool): Whether the input should use full screen width. Defaults to False.
 
 
         """
@@ -801,8 +807,8 @@ class WidgetSchema:
                 html (str): The html snippet to display to the user
 
         Keyword Args:
-                full_width (bool): Whether the input should use full screen width. Defaults to False.
                 end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
+                full_width (bool): Whether the input should use full screen width. Defaults to False.
 
 
         """
@@ -820,8 +826,8 @@ class WidgetSchema:
         Keyword Args:
                 width (int): The width of the iframe. Defaults to "800".
                 height (int): The height of the iframe. Defaults to "600".
-                full_width (bool): Whether the input should use full screen width. Defaults to False.
                 end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
+                full_width (bool): Whether the input should use full screen width. Defaults to False.
 
 
         """
@@ -837,9 +843,9 @@ class WidgetSchema:
                 image (Union[str, io.IOBase]): The image to display to the user
 
         Keyword Args:
-                full_width (bool): Whether the input should use full screen width. Defaults to False.
                 subtitle (str): The subtitle of the image. Defaults to "".
                 end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
+                full_width (bool): Whether the input should use full screen width. Defaults to False.
 
 
         """
@@ -855,8 +861,8 @@ class WidgetSchema:
                 text (str): The latex formula to display to the user
 
         Keyword Args:
-                full_width (bool): Whether the input should use full screen width. Defaults to False.
                 end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
+                full_width (bool): Whether the input should use full screen width. Defaults to False.
 
 
         """
@@ -872,10 +878,10 @@ class WidgetSchema:
                 link_url (str): The url of the link to display to the user
 
         Keyword Args:
-                full_width (bool): Whether the input should use full screen width. Defaults to False.
                 link_text (str): The text to display on the link. Defaults to "Click here".
                 same_tab (bool): Whether to open the link in the same tab or not. Defaults to False.
                 end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
+                full_width (bool): Whether the input should use full screen width. Defaults to False.
 
 
         """
@@ -891,8 +897,8 @@ class WidgetSchema:
                 text (str): The formatted text to display to the user
 
         Keyword Args:
-                full_width (bool): Whether the input should use full screen width. Defaults to False.
                 end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
+                full_width (bool): Whether the input should use full screen width. Defaults to False.
 
 
         """
@@ -908,9 +914,9 @@ class WidgetSchema:
                 df (Any): The dataframe to display to the user
 
         Keyword Args:
-                full_width (bool): Whether the input should use full screen width. Defaults to False.
                 display_index (bool): Whether to show a index column. Defaults to False.
                 end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
+                full_width (bool): Whether the input should use full screen width. Defaults to False.
 
 
         """
@@ -926,8 +932,8 @@ class WidgetSchema:
                 fig (Any): The figure to display to the user
 
         Keyword Args:
-                full_width (bool): Whether the input should use full screen width. Defaults to False.
                 end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
+                full_width (bool): Whether the input should use full screen width. Defaults to False.
 
 
         """
@@ -945,8 +951,8 @@ class WidgetSchema:
 
         Keyword Args:
                 text (str): The text displayed with this progress step. Defaults to "".
-                full_width (bool): Whether the input should use full screen width. Defaults to False.
                 end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
+                full_width (bool): Whether the input should use full screen width. Defaults to False.
 
 
         """
@@ -962,8 +968,8 @@ class WidgetSchema:
                 text (str): The text to display to the user
 
         Keyword Args:
-                full_width (bool): Whether the input should use full screen width. Defaults to False.
                 end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
+                full_width (bool): Whether the input should use full screen width. Defaults to False.
 
 
         """
