@@ -1928,7 +1928,7 @@ metadata = {
     },
     "file-input": {
         "type": "file-input",
-        "events": [],
+        "events": [{"key": "change", "payloadSchema": []}],
         "description": "Read a file value from the user",
         "pythonAPI": {
             "name": "read_file",
