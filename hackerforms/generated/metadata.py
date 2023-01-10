@@ -1,6 +1,7 @@
 metadata = {
     "answer-sheet-input": {
         "type": "answer-sheet-input",
+        "events": [{"key": "change", "payloadSchema": []}],
         "description": "Retrieve the answers from a test on a usual answersheet",
         "pythonAPI": {
             "name": "read_answer_sheet",
@@ -144,11 +145,10 @@ metadata = {
                 "code": 'from hackerforms import read_answer_sheet\n\nanswer_sheet = read_answer_sheet("SAT - 2023", ["A", "B", "C", "D", "E"], 5)\n# answer_sheet = { \'1\': \'A\', \'2\': None, \'3\': \'C\' }\n',
             }
         ],
-        "events": [{"key": "change", "payloadSchema": []}],
     },
     "cards-input": {
         "type": "cards-input",
-        "description": "Read a text value from the user simple text input",
+        "events": [{"key": "change", "payloadSchema": []}],
         "pythonAPI": {
             "name": "read_cards",
             "params": [
@@ -237,6 +237,7 @@ metadata = {
                 }
             ],
         },
+        "description": "Read a text value from the user simple text input",
         "brokerAPI": {
             "params": [
                 {
@@ -414,10 +415,10 @@ metadata = {
                 "code": 'from hackerforms import read_cards\n\ncard = read_cards(\n    "Choose your character",\n    [\n        {\n            "title": "Bulbasaur",\n            "subtitle": "Grass / Poison",\n            "image": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/001.png",\n            "description": "There is a plant seed on its back right from the day this Pokémon is born. The seed slowly grows larger.",\n            "topLeftExtra": "Nº",\n            "topRightExtra": "001",\n        },\n        {\n            "title": "Charmander",\n            "subtitle": "Fire",\n            "image": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/004.png",\n            "description": "It has a preference for hot things. When it rains, steam is said to spout from the tip of its tail.",\n            "topLeftExtra": "Nº",\n            "topRightExtra": "004",\n        },\n        {\n            "title": "Squirtle",\n            "subtitle": "Water",\n            "image": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/007.png",\n            "description": "When it retracts its long neck into its shell, it squirts out water with vigorous force.",\n            "topLeftExtra": "Nº",\n            "topRightExtra": "007",\n        },\n    ],\n)\n# card = { \'title\': ..., \'subtitle\': ..., \'image\': ..., \'description\': ..., \'topLeftExtra\': ..., \'topRightExtra\': ... }\n',
             }
         ],
-        "events": [{"key": "change", "payloadSchema": []}],
     },
     "checkbox-input": {
         "type": "checkbox-input",
+        "events": [{"key": "change", "payloadSchema": []}],
         "description": "Read a checkbox value from the user",
         "pythonAPI": {
             "name": "read_checkbox",
@@ -559,10 +560,10 @@ metadata = {
                 "code": 'from hackerforms import read_checkbox\n\nans = read_checkbox(\n    "I have read and agree to the [terms of services](https://example.com)"\n)\n',
             },
         ],
-        "events": [{"key": "change", "payloadSchema": []}],
     },
     "checklist-input": {
         "type": "checklist-input",
+        "events": [{"key": "change", "payloadSchema": []}],
         "description": "Read a checklist value from the user",
         "pythonAPI": {
             "name": "read_checklist",
@@ -747,10 +748,10 @@ metadata = {
                 "code": 'from hackerforms import read_checklist\n\nans = read_checklist(\n    "",\n    [\n        {\n            "label": "I have read and agree to the [terms of services](https://example.com)",\n            "value": "agree",\n        },\n    ],\n)\n',
             },
         ],
-        "events": [{"key": "change", "payloadSchema": []}],
     },
     "cnpj-input": {
         "type": "cnpj-input",
+        "events": [{"key": "change", "payloadSchema": []}],
         "description": "Read a cnpj value from the user",
         "pythonAPI": {
             "name": "read_cnpj",
@@ -893,10 +894,10 @@ metadata = {
                 "code": 'from hackerforms import read_cnpj\n\nname = read_cnpj("Insert your cpf below")\n',
             }
         ],
-        "events": [{"key": "change", "payloadSchema": []}],
     },
     "code-input": {
         "type": "code-input",
+        "events": [{"key": "change", "payloadSchema": []}],
         "description": "Read a piece of code from the user",
         "pythonAPI": {
             "name": "read_code",
@@ -1040,10 +1041,10 @@ metadata = {
                 "code": 'from hackerforms import read_code\n\nans = read_code("Show me the code!", language="c")\n',
             }
         ],
-        "events": [{"key": "change", "payloadSchema": []}],
     },
     "cpf-input": {
         "type": "cpf-input",
+        "events": [{"key": "change", "payloadSchema": []}],
         "description": "Read a cpf value from the user",
         "pythonAPI": {
             "name": "read_cpf",
@@ -1183,10 +1184,10 @@ metadata = {
                 "code": 'from hackerforms import read_cpf\n\nname = read_cpf("Insert your cpf below")\n',
             }
         ],
-        "events": [{"key": "change", "payloadSchema": []}],
     },
     "currency-input": {
         "type": "currency-input",
+        "events": [{"key": "change", "payloadSchema": []}],
         "description": "Read currency value from the user",
         "pythonAPI": {
             "name": "read_currency",
@@ -1384,10 +1385,10 @@ metadata = {
                 "code": 'from hackerforms import read_currency\n\nread_currency(\n    f"How many credits do you want?", currency="USD", initial_value=10, min=10\n)\n',
             }
         ],
-        "events": [{"key": "change", "payloadSchema": []}],
     },
     "date-input": {
         "type": "date-input",
+        "events": [{"key": "change", "payloadSchema": []}],
         "description": "Read a date value from the user",
         "pythonAPI": {
             "name": "read_date",
@@ -1516,10 +1517,10 @@ metadata = {
                 "code": 'from hackerforms import read_date\n\nbirthday = read_date("When were you born?")\nyear = birthday.year\nmonth = birthday.month\nday = birthday.day\n',
             }
         ],
-        "events": [{"key": "change", "payloadSchema": []}],
     },
     "dropdown-input": {
         "type": "dropdown-input",
+        "events": [{"key": "change", "payloadSchema": []}],
         "description": "Read a dropdown value from the user",
         "pythonAPI": {
             "name": "read_dropdown",
@@ -1711,10 +1712,10 @@ metadata = {
                 "code": 'from hackerforms import read_dropdown\n\nans = read_dropdown(\n    "Choose a color",\n    [\n        {"label": "Red", "value": "R"},\n        {"label": "Green", "value": "G"},\n        {"label": "Blue", "value": "B"},\n    ],\n)\n# ans = "R", "G" or "B"\n',
             },
         ],
-        "events": [{"key": "change", "payloadSchema": []}],
     },
     "email-input": {
         "type": "email-input",
+        "events": [{"key": "change", "payloadSchema": []}],
         "description": "Read an email value from the user",
         "pythonAPI": {
             "name": "read_email",
@@ -1866,10 +1867,10 @@ metadata = {
                 "code": 'from hackerforms import read_email\n\nemail = read_email("What is your email?")\n',
             }
         ],
-        "events": [{"key": "change", "payloadSchema": []}],
     },
     "file-input": {
         "type": "file-input",
+        "events": [],
         "description": "Read a file value from the user",
         "pythonAPI": {
             "name": "read_file",
@@ -2024,10 +2025,10 @@ metadata = {
                 "code": 'from hackerforms import read_file\n\nfileResponse = read_file("Upload your .xlsx file")\nfile = fileResponse.file  # File object\nurl = fileResponse.url  # Url to the file\ncontent = fileResponse.content  # Raw file content\n',
             }
         ],
-        "events": [],
     },
     "image-input": {
         "type": "image-input",
+        "events": [{"key": "change", "payloadSchema": []}],
         "description": "Read a image file value from the user ",
         "pythonAPI": {
             "name": "read_image",
@@ -2171,11 +2172,12 @@ metadata = {
                 "code": 'from hackerforms import read_image\n\nfileResponse = read_image("Upload your .png image")\nfile = fileResponse.file  # File object\nurl = fileResponse.url  # Url to the file\ncontent = fileResponse.content  # Raw file content\n',
             }
         ],
-        "events": [{"key": "change", "payloadSchema": []}],
     },
     "list-input": {
         "type": "list-input",
         "description": "Read a list value from the user",
+        "formOnly": True,
+        "events": [{"key": "change", "payloadSchema": []}],
         "pythonAPI": {
             "name": "read_list",
             "params": [
@@ -2364,10 +2366,10 @@ metadata = {
                 "code": "from hackerforms import ListItemSchema, read_list\n\nitem = ListItemSchema().read(\"Name\").read_email(\"Email\")\nans = read_list(item, min=1, max=3)\n# ans = [{'Name': '', 'Email': ''}]\n",
             }
         ],
-        "events": [{"key": "change", "payloadSchema": []}],
     },
     "multiple-choice-input": {
         "type": "multiple-choice-input",
+        "events": [{"key": "change", "payloadSchema": []}],
         "description": "Read a multiple choice value from the user",
         "pythonAPI": {
             "name": "read_multiple_choice",
@@ -2584,10 +2586,10 @@ metadata = {
                 "code": 'from hackerforms import read_multiple_choice\n\nans = read_multiple_choice(\n    "What features do you love?", ["forms", "jobs", "hooks"], multiple=True\n)\n# ans = ["forms", "jobs", "hooks"]\n',
             },
         ],
-        "events": [{"key": "change", "payloadSchema": []}],
     },
     "nps-input": {
         "type": "nps-input",
+        "events": [{"key": "change", "payloadSchema": []}],
         "description": "Gets NPS feedback from user",
         "pythonAPI": {
             "name": "read_nps",
@@ -2766,10 +2768,10 @@ metadata = {
                 "code": 'from hackerforms import read_nps\n\nans = read_nps(\n    "How likely are you to recommend Abstra Cloud?",\n    min_hint="No way!",\n    max_hint="Hell yeah!",\n)\n',
             }
         ],
-        "events": [{"key": "change", "payloadSchema": []}],
     },
     "number-input": {
         "type": "number-input",
+        "events": [{"key": "change", "payloadSchema": []}],
         "description": "Read a number value from the user",
         "pythonAPI": {
             "name": "read_number",
@@ -2943,10 +2945,10 @@ metadata = {
                 "code": 'from hackerforms import read_number\n\nage = read_number("How old are you?")\n',
             }
         ],
-        "events": [{"key": "change", "payloadSchema": []}],
     },
     "number-slider-input": {
         "type": "number-slider-input",
+        "events": [{"key": "change", "payloadSchema": []}],
         "description": "Read a number value from the user",
         "pythonAPI": {
             "name": "read_number_slider",
@@ -3108,10 +3110,10 @@ metadata = {
                 "code": 'from hackeforms import read_number_slider\n\nage = read_number_slider("Set volume")\n',
             }
         ],
-        "events": [{"key": "change", "payloadSchema": []}],
     },
     "pandas-row-selection-input": {
         "type": "pandas-row-selection-input",
+        "events": [{"key": "change", "payloadSchema": []}],
         "description": "Display a pandas dataframe as a table and allow the user to select rows",
         "pythonAPI": {
             "name": "read_pandas_row_selection",
@@ -3254,10 +3256,10 @@ metadata = {
                 "code": 'from r import read_pandas_row_selection\nimport pandas as pd\n\ndata = [\n    {"Country": "USA", "Population": "32,700,000"},\n    {"Country": "China", "Population": "1,300,000,000"},\n    {"Country": "Japan", "Population": "126,000,000"},\n]\ndf = pd.DataFrame(data)\nread_pandas_row_selection(df)\n',
             }
         ],
-        "events": [{"key": "change", "payloadSchema": []}],
     },
     "password-input": {
         "type": "password-input",
+        "events": [{"key": "change", "payloadSchema": []}],
         "description": "Read a password value from the user",
         "pythonAPI": {
             "name": "read_password",
@@ -3515,10 +3517,10 @@ metadata = {
                 "code": 'from hackerforms import read_password\n\nans = read_password("Insert your password below")\n',
             }
         ],
-        "events": [{"key": "change", "payloadSchema": []}],
     },
     "phone-input": {
         "type": "phone-input",
+        "events": [{"key": "change", "payloadSchema": []}],
         "description": "Read a phone value from the user",
         "pythonAPI": {
             "name": "read_phone",
@@ -3672,10 +3674,10 @@ metadata = {
                 "code": 'from hackerforms import read_pandas_row_selection\n\nphone = read_phone("What is your phone number?")\nnumber = phone.raw  # eg: 5521999999999\nmasked = phone.masked  # eg: +55 (21) 99999-9999\n',
             }
         ],
-        "events": [{"key": "change", "payloadSchema": []}],
     },
     "rating-input": {
         "type": "rating-input",
+        "events": [{"key": "change", "payloadSchema": []}],
         "description": "Read a rating value from the user",
         "pythonAPI": {
             "name": "read_rating",
@@ -3844,10 +3846,10 @@ metadata = {
                 "code": 'from hackerforms import read_rating\n\nrating = read_rating("How do you evaluate your Python skills?", char="🐍", max=3)\n',
             },
         ],
-        "events": [{"key": "change", "payloadSchema": []}],
     },
     "tag-input": {
         "type": "tag-input",
+        "events": [{"key": "change", "payloadSchema": []}],
         "description": "Read a tag value from the user",
         "pythonAPI": {
             "name": "read_tag",
@@ -3994,10 +3996,10 @@ metadata = {
                 "code": 'from hackerforms import read_tag\n\nans = read_tag(\n    "Type and press enter to add a tag", initial_value=["Red", "Green", "Blue"]\n)\n# ans = ["Red", "Green" or "Blue"]`\n',
             }
         ],
-        "events": [{"key": "change", "payloadSchema": []}],
     },
     "text-input": {
         "type": "text-input",
+        "events": [{"key": "change", "payloadSchema": []}],
         "description": "Read a text value from the user",
         "pythonAPI": {
             "name": "read",
@@ -4161,10 +4163,10 @@ metadata = {
                 "code": 'from hackerforms import read\n\nread("What is your credit card number?", mask="0000 0000 0000 0000")\n',
             },
         ],
-        "events": [{"key": "change", "payloadSchema": []}],
     },
     "textarea-input": {
         "type": "textarea-input",
+        "events": [{"key": "change", "payloadSchema": []}],
         "description": "Read a textarea value from the user",
         "pythonAPI": {
             "name": "read_textarea",
@@ -4299,10 +4301,10 @@ metadata = {
                 "code": 'from hackerforms import read_textarea\n\nans = read_textarea("What kind of things are you building with Abstra Cloud?")\n',
             }
         ],
-        "events": [{"key": "change", "payloadSchema": []}],
     },
     "time-input": {
         "type": "time-input",
+        "events": [{"key": "change", "payloadSchema": []}],
         "description": "Read a time value from the user",
         "pythonAPI": {
             "name": "read_time",
@@ -4446,10 +4448,10 @@ metadata = {
                 "code": 'from hackerforms import read\n\nans = read_time("Select a time below")\n# ans = 00:00:00\n',
             }
         ],
-        "events": [{"key": "change", "payloadSchema": []}],
     },
     "toggle-input": {
         "type": "toggle-input",
+        "events": [{"key": "change", "payloadSchema": []}],
         "description": "Read a toggle value from the user",
         "pythonAPI": {
             "name": "read_toggle",
@@ -4583,10 +4585,10 @@ metadata = {
                 "code": 'from hackerforms import read_toggle\n\nans = read_toggle("Custom Toggle", on_text="Confirm", off_text="Cancel")\n# ans = True or False\n',
             },
         ],
-        "events": [{"key": "change", "payloadSchema": []}],
     },
     "video-input": {
         "type": "video-input",
+        "events": [{"key": "change", "payloadSchema": []}],
         "description": "Read a video file value from the user",
         "pythonAPI": {
             "name": "read_video",
@@ -4730,10 +4732,10 @@ metadata = {
                 "code": 'from hackerforms import read_video\n\nfileResponse = read_video("Upload your video")\nfile = fileResponse.file  # File object\nurl = fileResponse.url  # Url to the file\ncontent = fileResponse.content  # Raw file content\n',
             }
         ],
-        "events": [{"key": "change", "payloadSchema": []}],
     },
     "file-output": {
         "type": "file-output",
+        "events": [],
         "description": "Display a button for the user to download a file",
         "pythonAPI": {
             "name": "display_file",
@@ -4804,10 +4806,10 @@ metadata = {
                 "code": 'from hackerforms import display_file\n\ndisplay_file(\n    "https://placekitten.com/200/300", download_text="Click here to reveal the secret"\n)\n',
             }
         ],
-        "events": [],
     },
     "html-output": {
         "type": "html-output",
+        "events": [],
         "description": "Display a html snippet to the user",
         "pythonAPI": {
             "name": "display_html",
@@ -4864,10 +4866,10 @@ metadata = {
                 "code": 'from hackerforms import display_html\n\ndisplay_html(\n    \'<svg width="100" height="100"><circle cx="50" cy="50" r="40" stroke="green" stroke-width="4" fill="yellow" /></svg>\'\n)\n',
             }
         ],
-        "events": [],
     },
     "iframe-output": {
         "type": "iframe-output",
+        "events": [],
         "description": "Display an inline iframe to the user",
         "pythonAPI": {
             "name": "display_iframe",
@@ -4952,10 +4954,10 @@ metadata = {
                 "code": 'from hackerforms import display_iframe\n\ndisplay_iframe(\n    "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d2965.0824050173574!2d-93.63905729999999!3d41.998507000000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sWebFilings%2C+University+Boulevard%2C+Ames%2C+IA!5e0!3m2!1sen!2sus!4v1390839289319",\n    width="300",\n    height="250",\n)\n',
             }
         ],
-        "events": [],
     },
     "image-output": {
         "type": "image-output",
+        "events": [],
         "description": "Display an image to the user",
         "pythonAPI": {
             "name": "display_image",
@@ -5027,10 +5029,10 @@ metadata = {
                 "code": 'from hackerforms import display_image\n\ndisplay_image("https://placekitten.com/200/200", subtitle="Meooow")\n',
             }
         ],
-        "events": [],
     },
     "latex-output": {
         "type": "latex-output",
+        "events": [],
         "description": "Display a latex formula to the user",
         "pythonAPI": {
             "name": "display_latex",
@@ -5098,10 +5100,10 @@ metadata = {
                 "code": 'from hackerforms import display_latex\n\ndisplay_latex(\n    """When \\(a \\\\ne 0\\), there are two solutions to \\(ax^2 + bx + c = 0\\) and they are\n$$x = {-b \\pm \\sqrt{b^2-4ac} \\over 2a}.$$"""\n)\n',
             },
         ],
-        "events": [],
     },
     "link-output": {
         "type": "link-output",
+        "events": [],
         "description": "Display a link to the user",
         "pythonAPI": {
             "name": "display_link",
@@ -5181,10 +5183,10 @@ metadata = {
                 "code": 'from hackerforms import display_link\n\ndisplay_link("https://console.abstracloud.com", link_text="Abstra Cloud Homepage")\n',
             }
         ],
-        "events": [],
     },
     "markdown-output": {
         "type": "markdown-output",
+        "events": [],
         "description": "Display a formatted text to the user",
         "pythonAPI": {
             "name": "display_markdown",
@@ -5241,10 +5243,10 @@ metadata = {
                 "code": 'from hackerforms import display_markdown\n\n\ndisplay_markdown(\n    """\n## Let\'s see some examples 8-)\n\n* 1^th^ H~2~0\n\n\n\n- [ ] Task\n\n* ==Mark==\n\n* [Link](https://www.abstracloud.com/)"""\n)\n',
             }
         ],
-        "events": [],
     },
     "pandas-output": {
         "type": "pandas-output",
+        "events": [],
         "description": "Display a pandas dataframe to the user",
         "pythonAPI": {
             "name": "display_pandas",
@@ -5346,10 +5348,10 @@ metadata = {
                 "code": "from hackerforms import display_pandas\n\ndisplay_pandas(df)\n",
             }
         ],
-        "events": [],
     },
     "plotly-output": {
         "type": "plotly-output",
+        "events": [],
         "description": "Display a plotly figure to the user",
         "pythonAPI": {
             "name": "display_plotly",
@@ -5407,10 +5409,10 @@ metadata = {
                 "code": "from hackerforms import display_plotly\n\ndisplay_plotly(figure)\n",
             }
         ],
-        "events": [],
     },
     "progress-output": {
         "type": "progress-output",
+        "events": [],
         "description": "Display a progress bar. This widget is shown on screen until the script shows a new widget. This widget does not work on Pages, and must be used only with its function.",
         "pythonAPI": {
             "name": "display_progress",
@@ -5504,10 +5506,10 @@ metadata = {
                 "code": 'from time import sleep\n\ndisplay_progress(0, 10, "Computing values")\n\n# Do some computation\nsleep(1)\n\ndisplay_progress(8, 10, "Almost there!")\n\n# Do some other computation\nsleep(1)\n\ndisplay("Done")\n',
             },
         ],
-        "events": [],
     },
     "text-output": {
         "type": "text-output",
+        "events": [],
         "description": "Display a text to the user",
         "pythonAPI": {
             "name": "display",
@@ -5562,6 +5564,5 @@ metadata = {
                 "code": 'from hackerforms import display\n\ndisplay("Hello world!")\n',
             }
         ],
-        "events": [],
     },
 }
