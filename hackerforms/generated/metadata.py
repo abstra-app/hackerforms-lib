@@ -779,6 +779,108 @@ metadata = {
             },
         ],
     },
+    "click-input": {
+        "type": "click-input",
+        "description": "A button that triggers click events",
+        "events": [{"key": "click", "payloadSchema": []}],
+        "dashesOnly": True,
+        "pythonAPI": {
+            "name": "read_click",
+            "params": [
+                {
+                    "argName": "label",
+                    "description": "The label to display to the user",
+                    "typeName": "str",
+                    "isKwarg": False,
+                    "default": None,
+                },
+                {
+                    "argName": "hint",
+                    "description": "A tooltip displayed to the user. Defaults to None.",
+                    "typeName": "str",
+                    "isKwarg": True,
+                    "default": "None",
+                },
+                {
+                    "argName": "disabled",
+                    "description": "Wether the input is disabled. Defaults to False.",
+                    "typeName": "bool",
+                    "isKwarg": True,
+                    "default": "False",
+                },
+                {
+                    "argName": "full_width",
+                    "description": "Whether the input should use full screen width. Defaults to False.",
+                    "typeName": "bool",
+                    "isKwarg": True,
+                    "default": "False",
+                    "formOnly": True,
+                },
+            ],
+            "returns": [
+                {
+                    "typeName": None,
+                    "typeDescription": "list(str) or list(float): The value entered by the user",
+                }
+            ],
+        },
+        "brokerAPI": {
+            "params": [
+                {
+                    "argName": "label",
+                    "typeName": "string",
+                    "description": "The label of the input",
+                },
+                {
+                    "argName": "key",
+                    "typeName": "string",
+                    "description": "The key of the input on the returning object",
+                },
+                {
+                    "argName": "disabled",
+                    "typeName": "boolean",
+                    "description": "Whether the input is disabled",
+                },
+                {
+                    "argName": "hint",
+                    "typeName": ["string", "null"],
+                    "description": "message describing the input",
+                    "default": None,
+                    "isOptional": True,
+                },
+                {
+                    "argName": "required",
+                    "typeName": ["boolean", "string"],
+                    "description": "Whether the input is required or not",
+                    "default": True,
+                    "isOptional": True,
+                },
+                {
+                    "argName": "columns",
+                    "typeName": "number",
+                    "description": "number of columns this input will take",
+                    "isOptional": True,
+                    "formOnly": True,
+                },
+                {
+                    "argName": "fullWidth",
+                    "typeName": "boolean",
+                    "description": "Whether the widget should take up the full width of the page",
+                    "isOptional": True,
+                    "formOnly": True,
+                },
+            ]
+        },
+        "examples": [
+            {
+                "props": {"label": "Send"},
+                "name": "Basic Example",
+                "description": "The following example demonstrate some of the available functionality for read_click",
+                "key": "example1",
+                "code": "",
+            }
+        ],
+    },
     "cnpj-input": {
         "type": "cnpj-input",
         "events": [{"key": "change", "payloadSchema": []}],

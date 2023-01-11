@@ -24,5 +24,6 @@ from hackerforms.widgets.NpsInput import NpsInput
 from hackerforms.widgets.CurrencyInput import CurrencyInput
 from hackerforms.widgets.FileInput import FileInput
 from hackerforms.widgets.RatingInput import RatingInput
+from hackerforms.widgets.ClickInput import ClickInput
 from hackerforms.widgets.DropdownInput import DropdownInput
 from hackerforms.widgets.PandasRowSelectionInput import PandasRowSelectionInput
