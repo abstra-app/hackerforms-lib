@@ -91,7 +91,7 @@ def read_checklist(label: str, options: list, **kwargs):
 
     Position Args:
             label (str): The label to display to the user
-            options (list): TN options to display to the user, eg. ['Option 1', 'Option 2'] or [{'label': 'Option 1', 'value': '1'}, {'label': 'Option 2', 'value': '2'}]
+            options (list): The options to display to the user, eg. ['Option 1', 'Option 2'] or [{'label': 'Option 1', 'value': '1'}, {'label': 'Option 2', 'value': '2'}]
 
     Keyword Args:
             initial_value (null): The initial value to display to the user. Defaults to None.
@@ -367,7 +367,7 @@ def read_multiple_choice(label: str, options: list, **kwargs):
 
     Position Args:
             label (str): The label to display to the user
-            options (list): TN options to display to the user, eg. ['Option 1', 'Option 2'] or [{'label': 'Option 1', 'value': '1'}, {'label': 'Option 2', 'value': '2'}]
+            options (list): The options to display to the user, eg. ['Option 1', 'Option 2'] or [{'label': 'Option 1', 'value': '1'}, {'label': 'Option 2', 'value': '2'}]
 
     Keyword Args:
             multiple (bool): Whether the user can select multiple options. Defaults to False.

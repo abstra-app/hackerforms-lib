@@ -12,6 +12,7 @@ metadata = {
                     "typeName": "str",
                     "isKwarg": False,
                     "default": None,
+                    "dashesInitialValue": '"Answer Sheet Title"',
                 },
                 {
                     "argName": "options",
@@ -19,13 +20,15 @@ metadata = {
                     "typeName": "list",
                     "isKwarg": False,
                     "default": '["A", "B", "C", "D", "E"]',
+                    "dashesInitialValue": '["A", "B", "C", "D", "E"]',
                 },
                 {
                     "argName": "number_of_questions",
                     "description": "Number of questions the answersheet will cover",
                     "typeName": "int",
                     "isKwarg": False,
-                    "default": "1",
+                    "default": "5",
+                    "dashesInitialValue": "5",
                 },
                 {
                     "argName": "required",
@@ -162,6 +165,7 @@ metadata = {
                     "typeName": "str",
                     "isKwarg": False,
                     "default": None,
+                    "dashesInitialValue": '"Card Title"',
                 },
                 {
                     "argName": "options",
@@ -169,6 +173,7 @@ metadata = {
                     "typeName": "list",
                     "isKwarg": False,
                     "default": None,
+                    "dashesInitialValue": '[\n          {\n            "title": "Option 1",\n            "subtitle": "Subtitle 1",\n            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Mona_Lisa.jpg/396px-Mona_Lisa.jpg",\n            "description": "option 1 description",\n            "topLeftExtra": "Left 1",\n            "topRightExtra": "Right 1",\n          },\n          {\n            "title": "Option 2",\n            "subtitle": "Subtitle 2",\n            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Mona_Lisa.jpg/396px-Mona_Lisa.jpg",\n            "description": "option 2 description",\n            "topLeftExtra": "Left 2",\n            "topRightExtra": "Right 2",\n          },\n        ]',
                 },
                 {
                     "argName": "multiple",
@@ -437,6 +442,7 @@ metadata = {
                     "typeName": "str",
                     "isKwarg": False,
                     "default": None,
+                    "dashesInitialValue": '"Choose your option"',
                 },
                 {
                     "argName": "initial_value",
@@ -593,13 +599,7 @@ metadata = {
                     "typeName": "str",
                     "isKwarg": False,
                     "default": None,
-                },
-                {
-                    "argName": "options",
-                    "description": "TN options to display to the user, eg. ['Option 1', 'Option 2'] or [{'label': 'Option 1', 'value': '1'}, {'label': 'Option 2', 'value': '2'}]",
-                    "typeName": "list",
-                    "isKwarg": False,
-                    "default": None,
+                    "dashesInitialValue": '"Choose your option"',
                 },
                 {
                     "argName": "initial_value",
@@ -621,6 +621,14 @@ metadata = {
                     "typeName": "str",
                     "isKwarg": True,
                     "default": "None",
+                },
+                {
+                    "argName": "options",
+                    "description": "The options to display to the user, eg. ['Option 1', 'Option 2'] or [{'label': 'Option 1', 'value': '1'}, {'label': 'Option 2', 'value': '2'}]",
+                    "typeName": "list",
+                    "isKwarg": False,
+                    "default": None,
+                    "dashesInitialValue": '[\n    {\n      "label": "Option 1",\n      "value": 1,\n    },\n    {\n      "label": "Option 2",\n      "value": 2,\n    },\n  ]',
                 },
                 {
                     "argName": "disabled",
@@ -894,6 +902,7 @@ metadata = {
                     "typeName": "str",
                     "isKwarg": False,
                     "default": None,
+                    "dashesInitialValue": '"Insert your CNPJ here!"',
                 },
                 {
                     "argName": "initial_value",
@@ -1044,6 +1053,7 @@ metadata = {
                     "typeName": "str",
                     "isKwarg": False,
                     "default": None,
+                    "dashesInitialValue": '"Send your code here!"',
                 },
                 {
                     "argName": "initial_value",
@@ -1195,6 +1205,7 @@ metadata = {
                     "typeName": "str",
                     "isKwarg": False,
                     "default": None,
+                    "dashesInitialValue": '"Insert your CPF here!"',
                 },
                 {
                     "argName": "initial_value",
@@ -1342,6 +1353,7 @@ metadata = {
                     "typeName": "str",
                     "isKwarg": False,
                     "default": None,
+                    "dashesInitialValue": '"Insert the proper amount."',
                 },
                 {
                     "argName": "initial_value",
@@ -1547,6 +1559,7 @@ metadata = {
                     "typeName": "str",
                     "isKwarg": False,
                     "default": None,
+                    "dashesInitialValue": '"Pick a date of your preference."',
                 },
                 {
                     "argName": "initial_value",
@@ -1683,13 +1696,7 @@ metadata = {
                     "typeName": "str",
                     "isKwarg": False,
                     "default": None,
-                },
-                {
-                    "argName": "options",
-                    "description": "The options to display to the user, eg. ['Option 1', 'Option 2'] or [{'label': 'Option 1', 'value': '1'}, {'label': 'Option 2', 'value': '2'}]",
-                    "typeName": "list",
-                    "isKwarg": False,
-                    "default": None,
+                    "dashesInitialValue": '"Choose your option"',
                 },
                 {
                     "argName": "multiple",
@@ -1725,6 +1732,14 @@ metadata = {
                     "typeName": "str",
                     "isKwarg": True,
                     "default": "None",
+                },
+                {
+                    "argName": "options",
+                    "description": "The options to display to the user, eg. ['Option 1', 'Option 2'] or [{'label': 'Option 1', 'value': '1'}, {'label': 'Option 2', 'value': '2'}]",
+                    "typeName": "list",
+                    "isKwarg": False,
+                    "default": None,
+                    "dashesInitialValue": '[\n    {\n      "label": "Option 1",\n      "value": 1,\n    },\n    {\n      "label": "Option 2",\n      "value": 2,\n    },\n  ]',
                 },
                 {
                     "argName": "disabled",
@@ -1882,6 +1897,7 @@ metadata = {
                     "typeName": "str",
                     "isKwarg": False,
                     "default": None,
+                    "dashesInitialValue": '"Insert your email"',
                 },
                 {
                     "argName": "initial_value",
@@ -2041,6 +2057,7 @@ metadata = {
                     "typeName": "str",
                     "isKwarg": False,
                     "default": None,
+                    "dashesInitialValue": '"Upload Your file."',
                 },
                 {
                     "argName": "initial_value",
@@ -2203,6 +2220,7 @@ metadata = {
                     "typeName": "str",
                     "isKwarg": False,
                     "default": None,
+                    "dashesInitialValue": '"Upload your image"',
                 },
                 {
                     "argName": "initial_value",
@@ -2552,13 +2570,7 @@ metadata = {
                     "typeName": "str",
                     "isKwarg": False,
                     "default": None,
-                },
-                {
-                    "argName": "options",
-                    "description": "TN options to display to the user, eg. ['Option 1', 'Option 2'] or [{'label': 'Option 1', 'value': '1'}, {'label': 'Option 2', 'value': '2'}]",
-                    "typeName": "list",
-                    "isKwarg": False,
-                    "default": None,
+                    "dashesInitialValue": '"Select your choices"',
                 },
                 {
                     "argName": "multiple",
@@ -2601,6 +2613,14 @@ metadata = {
                     "typeName": "str",
                     "isKwarg": True,
                     "default": "None",
+                },
+                {
+                    "argName": "options",
+                    "description": "The options to display to the user, eg. ['Option 1', 'Option 2'] or [{'label': 'Option 1', 'value': '1'}, {'label': 'Option 2', 'value': '2'}]",
+                    "typeName": "list",
+                    "isKwarg": False,
+                    "default": None,
+                    "dashesInitialValue": '[\n    {\n      "label": "Option 1",\n      "value": 1,\n    },\n    {\n      "label": "Option 2",\n      "value": 2,\n    },\n  ]',
                 },
                 {
                     "argName": "disabled",
@@ -2783,6 +2803,7 @@ metadata = {
                     "typeName": "str",
                     "isKwarg": False,
                     "default": None,
+                    "dashesInitialValue": '"Rate us!"',
                 },
                 {
                     "argName": "min",
@@ -2976,6 +2997,7 @@ metadata = {
                     "typeName": "str",
                     "isKwarg": False,
                     "default": None,
+                    "dashesInitialValue": '"Insert a number"',
                 },
                 {
                     "argName": "initial_value",
@@ -3157,6 +3179,7 @@ metadata = {
                     "typeName": "str",
                     "isKwarg": False,
                     "default": None,
+                    "dashesInitialValue": '"Select a value!"',
                 },
                 {
                     "argName": "initial_value",
@@ -3326,6 +3349,7 @@ metadata = {
                     "typeName": "Any",
                     "isKwarg": False,
                     "default": None,
+                    "dashesInitialValue": "pandas.Series([1, 3, 5, 4, 6, 8])",
                 },
                 {
                     "argName": "required",
@@ -3476,6 +3500,7 @@ metadata = {
                     "typeName": "str",
                     "isKwarg": False,
                     "default": None,
+                    "dashesInitialValue": '"Insert Your password"',
                 },
                 {
                     "argName": "placeholder",
@@ -3741,6 +3766,7 @@ metadata = {
                     "typeName": "str",
                     "isKwarg": False,
                     "default": None,
+                    "dashesInitialValue": '"Insert a phone number."',
                 },
                 {
                     "argName": "initial_value",
@@ -3902,6 +3928,7 @@ metadata = {
                     "typeName": "str",
                     "isKwarg": False,
                     "default": None,
+                    "dashesInitialValue": '"Rate us!"',
                 },
                 {
                     "argName": "initial_value",
@@ -4078,6 +4105,7 @@ metadata = {
                     "typeName": "str",
                     "isKwarg": False,
                     "default": None,
+                    "dashesInitialValue": '"Insert the desired tags."',
                 },
                 {
                     "argName": "initial_value",
@@ -4232,6 +4260,7 @@ metadata = {
                     "typeName": "str",
                     "isKwarg": False,
                     "default": None,
+                    "dashesInitialValue": '"Insert your text here!"',
                 },
                 {
                     "argName": "initial_value",
@@ -4403,6 +4432,7 @@ metadata = {
                     "typeName": "str",
                     "isKwarg": False,
                     "default": None,
+                    "dashesInitialValue": '"Insert your text here!"',
                 },
                 {
                     "argName": "initial_value",
@@ -4545,6 +4575,7 @@ metadata = {
                     "typeName": "str",
                     "isKwarg": False,
                     "default": None,
+                    "dashesInitialValue": '"Choose the desired time."',
                 },
                 {
                     "argName": "initial_value",
@@ -4696,6 +4727,7 @@ metadata = {
                     "typeName": "str",
                     "isKwarg": False,
                     "default": None,
+                    "dashesInitialValue": '"Click to confirm the following options"',
                 },
                 {
                     "argName": "on_text",
@@ -4844,6 +4876,7 @@ metadata = {
                     "typeName": "str",
                     "isKwarg": False,
                     "default": None,
+                    "dashesInitialValue": '"Upload your video"',
                 },
                 {
                     "argName": "initial_value",
@@ -4995,6 +5028,7 @@ metadata = {
                     "typeName": "Union[str, io.IOBase]",
                     "isKwarg": False,
                     "default": None,
+                    "dashesInitialValue": '"https://gist.github.com/armgilles/194bcff35001e7eb53a2a8b441e8b2c6/archive/92200bc0a673d5ce2110aaad4544ed6c4010f687.zip"',
                 },
                 {
                     "argName": "download_text",
@@ -5073,6 +5107,7 @@ metadata = {
                     "typeName": "str",
                     "isKwarg": False,
                     "default": None,
+                    "dashesInitialValue": '"<div>Hello World</div>"',
                 },
                 {
                     "argName": "end_program",
@@ -5137,6 +5172,7 @@ metadata = {
                     "typeName": "str",
                     "isKwarg": False,
                     "default": None,
+                    "dashesInitialValue": '"<div>Hello World</div>"',
                 },
                 {
                     "argName": "width",
@@ -5229,6 +5265,7 @@ metadata = {
                     "typeName": "Union[str, io.IOBase]",
                     "isKwarg": False,
                     "default": None,
+                    "dashesInitialValue": '"https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Mona_Lisa.jpg/396px-Mona_Lisa.jpg"',
                 },
                 {
                     "argName": "subtitle",
@@ -5308,6 +5345,7 @@ metadata = {
                     "typeName": "str",
                     "isKwarg": False,
                     "default": None,
+                    "dashesInitialValue": '"\\(x^2 + y^2 = z^2\\)"',
                 },
                 {
                     "argName": "end_program",
@@ -5383,6 +5421,7 @@ metadata = {
                     "typeName": "str",
                     "isKwarg": False,
                     "default": None,
+                    "dashesInitialValue": '"https://www.abstracloud.com"',
                 },
                 {
                     "argName": "link_text",
@@ -5470,6 +5509,7 @@ metadata = {
                     "typeName": "str",
                     "isKwarg": False,
                     "default": None,
+                    "dashesInitialValue": '"### Hello World"',
                 },
                 {
                     "argName": "end_program",
@@ -5534,6 +5574,7 @@ metadata = {
                     "typeName": "Any",
                     "isKwarg": False,
                     "default": None,
+                    "dashesInitialValue": "pandas.Series([1, 3, 5, 4, 6, 8])",
                 },
                 {
                     "argName": "display_index",
@@ -5643,6 +5684,7 @@ metadata = {
                     "typeName": "Any",
                     "isKwarg": False,
                     "default": None,
+                    "dashesInitialValue": 'plotly_express.bar(x=["a", "b", "c"], y=[1, 3, 2])',
                 },
                 {
                     "argName": "end_program",
@@ -5708,6 +5750,7 @@ metadata = {
                     "typeName": "float",
                     "isKwarg": False,
                     "default": "50",
+                    "dashesInitialValue": "50",
                 },
                 {
                     "argName": "total",
@@ -5715,6 +5758,7 @@ metadata = {
                     "typeName": "float",
                     "isKwarg": False,
                     "default": "100",
+                    "dashesInitialValue": "100",
                 },
                 {
                     "argName": "text",
@@ -5809,6 +5853,7 @@ metadata = {
                     "typeName": "str",
                     "isKwarg": False,
                     "default": None,
+                    "dashesInitialValue": '"Your text here!"',
                 },
                 {
                     "argName": "end_program",
