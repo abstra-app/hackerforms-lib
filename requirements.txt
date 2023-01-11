@@ -2,4 +2,3 @@ setuptools
 requests
 websocket-client
 validators
-Pillow

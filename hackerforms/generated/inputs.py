@@ -1,4 +1,5 @@
 from typing import Any, Dict
+from hackerforms.types import PandasDataFrame
 from hackerforms.page import Page
 from hackerforms.utils import get_single_value
 
@@ -467,12 +468,12 @@ def read_number_slider(label: str, **kwargs):
     return get_single_value(Page().read_number_slider(label, **kwargs).run(button_text))
 
 
-def read_pandas_row_selection(df: Any, **kwargs):
+def read_pandas_row_selection(df: PandasDataFrame, **kwargs):
 
     """Display a pandas dataframe as a table and allow the user to select rows
 
     Position Args:
-            df (Any): The pandas dataframe to be displayed
+            df (PandasDataFrame): The pandas dataframe to be displayed
 
     Keyword Args:
             required (null): Whether the input is required or not. Defaults to True.

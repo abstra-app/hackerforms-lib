@@ -3346,7 +3346,7 @@ metadata = {
                 {
                     "argName": "df",
                     "description": "The pandas dataframe to be displayed",
-                    "typeName": "Any",
+                    "typeName": "PandasDataFrame",
                     "isKwarg": False,
                     "default": None,
                     "dashesInitialValue": "pandas.Series([1, 3, 5, 4, 6, 8])",
@@ -5571,7 +5571,7 @@ metadata = {
                 {
                     "argName": "df",
                     "description": "The dataframe to display to the user",
-                    "typeName": "Any",
+                    "typeName": "PandasDataFrame",
                     "isKwarg": False,
                     "default": None,
                     "dashesInitialValue": "pandas.Series([1, 3, 5, 4, 6, 8])",
@@ -5681,7 +5681,7 @@ metadata = {
                 {
                     "argName": "fig",
                     "description": "The figure to display to the user",
-                    "typeName": "Any",
+                    "typeName": "PlotlyFigure",
                     "isKwarg": False,
                     "default": None,
                     "dashesInitialValue": 'plotly_express.bar(x=["a", "b", "c"], y=[1, 3, 2])',

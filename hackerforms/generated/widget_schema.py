@@ -1,6 +1,7 @@
 from hackerforms.widgets.input_types import *
 from hackerforms.widgets.output_types import *
 from hackerforms.reactive import Reactive
+from hackerforms.types import PlotlyFigure, PandasDataFrame
 from typing import List, Union, Dict, Any
 from hackerforms.common import Input
 import io
@@ -525,12 +526,12 @@ class WidgetSchema:
         self.widgets.append(NumberSliderInput(key, label, **kwargs))
         return self
 
-    def read_pandas_row_selection(self, df: Any, **kwargs):
+    def read_pandas_row_selection(self, df: PandasDataFrame, **kwargs):
 
         """Display a pandas dataframe as a table and allow the user to select rows
 
         Position Args:
-                df (Any): The pandas dataframe to be displayed
+                df (PandasDataFrame): The pandas dataframe to be displayed
 
         Keyword Args:
                 required (null): Whether the input is required or not. Defaults to True.
@@ -906,12 +907,12 @@ class WidgetSchema:
         self.widgets.append(MarkdownOutput(text, **kwargs))
         return self
 
-    def display_pandas(self, df: Any, **kwargs):
+    def display_pandas(self, df: PandasDataFrame, **kwargs):
 
         """Display a pandas dataframe to the user
 
         Position Args:
-                df (Any): The dataframe to display to the user
+                df (PandasDataFrame): The dataframe to display to the user
 
         Keyword Args:
                 display_index (bool): Whether to show a index column. Defaults to False.
@@ -924,12 +925,12 @@ class WidgetSchema:
         self.widgets.append(PandasOutput(df, **kwargs))
         return self
 
-    def display_plotly(self, fig: Any, **kwargs):
+    def display_plotly(self, fig: PlotlyFigure, **kwargs):
 
         """Display a plotly figure to the user
 
         Position Args:
-                fig (Any): The figure to display to the user
+                fig (PlotlyFigure): The figure to display to the user
 
         Keyword Args:
                 end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
