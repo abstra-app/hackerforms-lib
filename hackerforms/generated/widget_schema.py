@@ -161,7 +161,7 @@ class WidgetSchema:
 
     def read_cnpj(self, label: str, **kwargs):
 
-        """Read a cnpj value from the user
+        """Read a CNPJ value from the user
 
         Position Args:
                 label (str): The label to display to the user
@@ -211,7 +211,7 @@ class WidgetSchema:
 
     def read_cpf(self, label: str, **kwargs):
 
-        """Read a cpf value from the user
+        """Read a CPF value from the user
 
         Position Args:
                 label (str): The label to display to the user

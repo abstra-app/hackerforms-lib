@@ -892,7 +892,7 @@ metadata = {
     "cnpj-input": {
         "type": "cnpj-input",
         "events": [{"key": "change", "payloadSchema": []}],
-        "description": "Read a cnpj value from the user",
+        "description": "Read a CNPJ value from the user",
         "pythonAPI": {
             "name": "read_cnpj",
             "params": [
@@ -1036,7 +1036,7 @@ metadata = {
                 "name": "Basic Example",
                 "description": "The following example demonstrate some of the available functionality for read_cnpj",
                 "key": "example1",
-                "code": 'from hackerforms import read_cnpj\n\nname = read_cnpj("Insert your cpf below")\n',
+                "code": 'from hackerforms import read_cnpj\n\nname = read_cnpj("Insert your CNPJ below")\n',
             }
         ],
     },
@@ -1195,7 +1195,7 @@ metadata = {
     "cpf-input": {
         "type": "cpf-input",
         "events": [{"key": "change", "payloadSchema": []}],
-        "description": "Read a cpf value from the user",
+        "description": "Read a CPF value from the user",
         "pythonAPI": {
             "name": "read_cpf",
             "params": [
@@ -1336,7 +1336,7 @@ metadata = {
                 "name": "Basic Example",
                 "description": "The following example demonstrate some of the available functionality for read_cpf",
                 "key": "example1",
-                "code": 'from hackerforms import read_cpf\n\nname = read_cpf("Insert your cpf below")\n',
+                "code": 'from hackerforms import read_cpf\n\nname = read_cpf("Insert your CPF below")\n',
             }
         ],
     },

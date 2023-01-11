@@ -113,7 +113,7 @@ def read_checklist(label: str, options: list, **kwargs):
 
 def read_cnpj(label: str, **kwargs):
 
-    """Read a cnpj value from the user
+    """Read a CNPJ value from the user
 
     Position Args:
             label (str): The label to display to the user
@@ -161,7 +161,7 @@ def read_code(label: str, **kwargs):
 
 def read_cpf(label: str, **kwargs):
 
-    """Read a cpf value from the user
+    """Read a CPF value from the user
 
     Position Args:
             label (str): The label to display to the user
