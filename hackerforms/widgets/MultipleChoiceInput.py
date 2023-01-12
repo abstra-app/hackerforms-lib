@@ -19,7 +19,7 @@ class MultipleChoiceInput(Input):
             min (number): The minimal amount of options that should be selected. Defaults to None.
             max (number): The maximum amount of options that should be selected. Defaults to None.
             initial_value: The initial value to display to the user. Defaults to None.
-            required (bool or str): Whether the input is required or not eg. "this field is required". Defaults to True.
+            required (Union[bool, str]): Whether the input is required or not eg. "this field is required". Defaults to True.
             hint (str): A tooltip displayed to the user. Defaults to None.
             full_width (bool): Whether the input should use full screen width. Defaults to False.
         """

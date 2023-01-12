@@ -1,4 +1,4 @@
-from typing import Any, Dict
+from typing import Any, Dict, Union
 from hackerforms.types import PandasDataFrame
 from hackerforms.page import Page
 from hackerforms.utils import get_single_value
@@ -14,7 +14,7 @@ def read_answer_sheet(label: str, options: list, number_of_questions: int, **kwa
             number_of_questions (int): Number of questions the answersheet will cover
 
     Keyword Args:
-            required (bool or str): Wether the input is required or not eg. "this field is required". Defaults to True.
+            required (Union[bool, str]): Wether the input is required or not eg. "this field is required". Defaults to True.
             hint (str): A tooltip displayed to the user. Defaults to None.
             disabled (bool): Wether the input is disabled. Defaults to False.
             end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
@@ -45,7 +45,7 @@ def read_cards(label: str, options: list, **kwargs):
             Keyword Args:
                     multiple (bool): Whether the user can select multiple options. Defaults to False.
                     initial_value (list): The initial value to display to the user. Defaults to None.
-                    required (bool or str): Whether the input is required or not eg. "this field is required". Defaults to True.
+                    required (Union[bool, str]): Whether the input is required or not eg. "this field is required". Defaults to True.
                     hint (str): A tooltip displayed to the user. Defaults to None.
                     searchable (bool): Whether to show a search bar. Defaults to False.
                     layout (str): Whether the cards layout should be 'list' or 'grid'. Defaults to 'list'.%%%
@@ -72,7 +72,7 @@ def read_checkbox(label: str, **kwargs):
 
     Keyword Args:
             initial_value (null): The initial value to display to the user. Defaults to None.
-            required (bool or str): Wether the input is required or not eg. "this field is required". Defaults to True.
+            required (Union[bool, str]): Wether the input is required or not eg. "this field is required". Defaults to True.
             hint (str): A tooltip displayed to the user. Defaults to None.
             disabled (bool): Wether the input is disabled. Defaults to False.
             end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
@@ -96,7 +96,7 @@ def read_checklist(label: str, options: list, **kwargs):
 
     Keyword Args:
             initial_value (null): The initial value to display to the user. Defaults to None.
-            required (bool or str): Wether the input is required or not eg. "this field is required". Defaults to True.
+            required (Union[bool, str]): Wether the input is required or not eg. "this field is required". Defaults to True.
             hint (str): A tooltip displayed to the user. Defaults to None.
             disabled (bool): Wether the input is disabled. Defaults to False.
             end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
@@ -122,7 +122,7 @@ def read_cnpj(label: str, **kwargs):
     Keyword Args:
             initial_value (null): The initial value to display to the user. Defaults to None.
             placeholder (str): The placeholder text to display to the user. Defaults to "00.000.000/0001-00".
-            required (bool or str): Wether the input is required or not eg. "this field is required". Defaults to True.
+            required (Union[bool, str]): Wether the input is required or not eg. "this field is required". Defaults to True.
             hint (str): A tooltip displayed to the user. Defaults to None.
             disabled (bool): Wether the input is disabled. Defaults to False.
             end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
@@ -145,7 +145,7 @@ def read_code(label: str, **kwargs):
 
     Keyword Args:
             initial_value (str): The initial value to display to the user. Defaults to "".
-            required (bool or str): Whether the input is required or not eg. "this field is required". Defaults to True.
+            required (Union[bool, str]): Whether the input is required or not eg. "this field is required". Defaults to True.
             language (str): The programming language. Defaults to None.
             hint (str): A tooltip displayed to the user. Defaults to None.
             disabled (bool): Wether the input is disabled. Defaults to False.
@@ -170,7 +170,7 @@ def read_cpf(label: str, **kwargs):
     Keyword Args:
             initial_value (str): The initial value to display to the user. Defaults to "".
             placeholder (str): The placeholder text to display to the user. Defaults to "000.000.000-00".
-            required (bool or str): Whether the input is required or not eg. "this field is required". Defaults to True.
+            required (Union[bool, str]): Whether the input is required or not eg. "this field is required". Defaults to True.
             hint (str): A tooltip displayed to the user. Defaults to None.
             disabled (bool): Wether the input is disabled. Defaults to False.
             end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
@@ -193,7 +193,7 @@ def read_currency(label: str, **kwargs):
 
     Keyword Args:
             initial_value (str): The initial value to display to the user. Defaults to 0.
-            required (bool or str): Whether the input is required or not, eg. "this field is required". Defaults to True.
+            required (Union[bool, str]): Whether the input is required or not, eg. "this field is required". Defaults to True.
             placeholder (str): The placeholder text to display to the user. Defaults to "Your answer here".
             hint (str): A tooltip displayed to the user. Defaults to None.
             min (float): The minimum value allowed, eg. "0". Defaults to None.
@@ -221,7 +221,7 @@ def read_date(label: str, **kwargs):
 
     Keyword Args:
             initial_value (datetime.date or time.struct_time or str (YYYY-MM-DD)): The initial value to display to the user. Defaults to None.
-            required (bool or str): Whether the input is required or not eg. "this field is required". Defaults to True.
+            required (Union[bool, str]): Whether the input is required or not eg. "this field is required". Defaults to True.
             hint (str): A tooltip displayed to the user. Defaults to None.
             disabled (bool): Wether the input is disabled. Defaults to False.
             end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
@@ -247,7 +247,7 @@ def read_dropdown(label: str, options: list, **kwargs):
             multiple (bool): Whether the user can select multiple options. Defaults to False.
             initial_value (null): The initial value to display to the user. Defaults to None.
             placeholder (str): The placeholder text to display to the user. Defaults to "Choose an option".
-            required (bool or str): Whether the input is required or not eg. "this field is required". Defaults to True.
+            required (Union[bool, str]): Whether the input is required or not eg. "this field is required". Defaults to True.
             hint (str): A tooltip displayed to the user. Defaults to None.
             disabled (bool): Wether the input is disabled. Defaults to False.
             end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
@@ -273,7 +273,7 @@ def read_email(label: str, **kwargs):
     Keyword Args:
             initial_value (str): The initial value to display to the user. Defaults to "".
             placeholder (str): The placeholder text to display to the user. Defaults to "Your email here".
-            required (bool or str): Whether the input is required or not eg. "this field is required". Defaults to True.
+            required (Union[bool, str]): Whether the input is required or not eg. "this field is required". Defaults to True.
             hint (str): A tooltip displayed to the user. Defaults to None.
             invalid_email_message (str): Invalid e-mail message
             disabled (bool): Wether the input is disabled. Defaults to False.
@@ -297,7 +297,7 @@ def read_file(label: str, **kwargs):
 
     Keyword Args:
             initial_value (str): The initial value to display to the user. Defaults to "".
-            required (bool or str): Whether the input is required or not eg. "this field is required". Defaults to True.
+            required (Union[bool, str]): Whether the input is required or not eg. "this field is required". Defaults to True.
             hint (str): A tooltip displayed to the user. Defaults to None.
             multiple (bool): Whether the user will be allowed to upload multiple files. Defaults to False.
             max_file_size (float): Maximum size allowed to be transfered in total in MB.
@@ -322,7 +322,7 @@ def read_image(label: str, **kwargs):
 
     Keyword Args:
             initial_value (str): The initial value to display to the user. Defaults to "".
-            required (bool or str): Whether the input is required or not eg. "this field is required". Defaults to True.
+            required (Union[bool, str]): Whether the input is required or not eg. "this field is required". Defaults to True.
             hint (str): A tooltip displayed to the user. Defaults to None.
             multiple (bool): Whether the user will be allowed to upload multiple files. Defaults to False.
             disabled (bool): Wether the input is disabled. Defaults to False.
@@ -375,7 +375,7 @@ def read_multiple_choice(label: str, options: list, **kwargs):
             min (number): The minimal amount of options that should be selected. Defaults to None.
             max (number): The maximum amount of options that should be selected. Defaults to None.
             initial_value (null): The initial value to display to the user. Defaults to None.
-            required (bool or str): WNther the input is required or not eg. "this field is required". Defaults to True.
+            required (Union[bool, str]): WNther the input is required or not eg. "this field is required". Defaults to True.
             hint (str): A tooltip displayed to the user. Defaults to None.
             disabled (bool): Wether the input is disabled. Defaults to False.
             end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
@@ -404,7 +404,7 @@ def read_nps(label: str, **kwargs):
             min_hint (str): Text to display next to the min value. Defaults to "Not at all likely".
             max_hint (str): Text to display next to the max value. Defaults to "Extremely likely".
             initial_value (str): The initial value to display to the user. Defaults to None.
-            required (bool or str): Whether the input is required or not eg. "this field is required". Defaults to True.
+            required (Union[bool, str]): Whether the input is required or not eg. "this field is required". Defaults to True.
             hint (str): A tooltip displayed to the user. Defaults to None.
             disabled (bool): Wether the input is disabled. Defaults to False.
             end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
@@ -428,7 +428,7 @@ def read_number(label: str, **kwargs):
     Keyword Args:
             initial_value (str): The initial value to display to the user. Defaults to 0.
             placeholder (str): The placeholder text to display to the user. Defaults to "Your answer here".
-            required (bool or str): Whether the input is required or not eg. "this field is required". Defaults to True.
+            required (Union[bool, str]): Whether the input is required or not eg. "this field is required". Defaults to True.
             hint (str): A tooltip displayed to the user. Defaults to None.
             min (float): Min value accepted by the input. Defaults to None.
             max (float): Max value accepted by the input. Defaults to None.
@@ -451,7 +451,7 @@ def read_number_slider(label: str, **kwargs):
 
     Keyword Args:
             initial_value (str): The initial value to display to the user. Defaults to 0.
-            required (bool or str): Whether the input is required or not eg. "this field is required". Defaults to True.
+            required (Union[bool, str]): Whether the input is required or not eg. "this field is required". Defaults to True.
             hint (str): A tooltip displayed to the user. Defaults to None.
             min (float): Min value accepted by the input. Defaults to None.
             max (float): Max value accepted by the input. Defaults to None.
@@ -501,12 +501,12 @@ def read_password(label: str, **kwargs):
 
     Keyword Args:
             placeholder (str): The placeholder text to display to the user. Defaults to "".
-            required (bool or str): Whether the input is required or not eg. "this field is required". Defaults to True.
+            required (Union[bool, str]): Whether the input is required or not eg. "this field is required". Defaults to True.
             hint (str): A tooltip displayed to the user. Defaults to None.
-            lowercase_required (bool or str): Whether the input must have at least one lowercase character. Defaults to True.
-            uppercase_required (bool or str): Whether the input must have at least one uppercase character. Defaults to True.
-            special_required (bool or str): Whether the input must have at least one special character. Defaults to True.
-            digit_required (bool or str): Whether the input must have at least one digit. Defaults to True.
+            lowercase_required (Union[bool, str]): Whether the input must have at least one lowercase character. Defaults to True.
+            uppercase_required (Union[bool, str]): Whether the input must have at least one uppercase character. Defaults to True.
+            special_required (Union[bool, str]): Whether the input must have at least one special character. Defaults to True.
+            digit_required (Union[bool, str]): Whether the input must have at least one digit. Defaults to True.
             min_length (int): Minimum length of the password. Defaults to 8.
             max_length (int): Maximum length of the password. Defaults to None.
             size (int): Size of the password. Defaults to None.
@@ -534,7 +534,7 @@ def read_phone(label: str, **kwargs):
     Keyword Args:
             initial_value (str or dict): The initial value to display to the user. If dictionary, it contains two keys: 'country_code' (string with optional + sign or number) and 'national_number' (str or number). Ex: {'country_code': '+55', 'national_number': '21999990000'}. Defaults to "".
             placeholder (str): The placeholder text to display to the user. Defaults to "".
-            required (bool or str): Whether the input is required or not eg. "this field is required". Defaults to True.
+            required (Union[bool, str]): Whether the input is required or not eg. "this field is required". Defaults to True.
             hint (str): A tooltip displayed to the user. Defaults to None.
             disabled (bool): Wether the input is disabled. Defaults to False.
             end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
@@ -557,7 +557,7 @@ def read_rating(label: str, **kwargs):
 
     Keyword Args:
             initial_value (str): The initial value to display to the user. Defaults to 0.
-            required (bool or str): Whether the input is required or not eg. "this field is required". Defaults to True.
+            required (Union[bool, str]): Whether the input is required or not eg. "this field is required". Defaults to True.
             hint (str): A tooltip displayed to the user. Defaults to None.
             max (float): Max value accepted by the input. Defaults to None.
             char (str): Which char should be displayed as icon?
@@ -583,7 +583,7 @@ def read_tag(label: str, **kwargs):
     Keyword Args:
             initial_value (list): The initial value to display to the user. Defaults to [].
             placeholder (str): The placeholder text to display to the user. Defaults to "Your answer here".
-            required (bool or str): Whether the input is required or not eg. "this field is required". Defaults to True.
+            required (Union[bool, str]): Whether the input is required or not eg. "this field is required". Defaults to True.
             hint (str): A tooltip displayed to the user. Defaults to None.
             disabled (bool): Wether the input is disabled. Defaults to False.
             end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
@@ -607,7 +607,7 @@ def read(label: str, **kwargs):
     Keyword Args:
             initial_value (str): The initial value to display to the user. Defaults to "".
             placeholder (str): The placeholder text to display to the user. Defaults to "Your answer here".
-            required (bool or str): Whether the input is required or not eg. "this field is required". Defaults to True.
+            required (Union[bool, str]): Whether the input is required or not eg. "this field is required". Defaults to True.
             hint (str): A tooltip displayed to the user. Defaults to None.
             mask (str): A mask to apply to the input. Defaults to None.
             disabled (bool): Wether the input is disabled. Defaults to False.
@@ -632,7 +632,7 @@ def read_textarea(label: str, **kwargs):
     Keyword Args:
             initial_value (str): The initial value to display to the user. Defaults to "".
             placeholder (str): The placeholder text to display to the user. Defaults to "Your answer here".
-            required (bool or str): Whether the input is required or not eg. "this field is required". Defaults to True.
+            required (Union[bool, str]): Whether the input is required or not eg. "this field is required". Defaults to True.
             hint (str): A tooltip displayed to the user. Defaults to None.
             end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
             full_width (bool): Whether the input should use full screen width. Defaults to False.
@@ -654,7 +654,7 @@ def read_time(label: str, **kwargs):
 
     Keyword Args:
             initial_value (str): The initial value to display to the user. Defaults to "".
-            required (bool or str): Whether the input is required or not eg. "this field is required". Defaults to True.
+            required (Union[bool, str]): Whether the input is required or not eg. "this field is required". Defaults to True.
             format (str): Whether the input is in the format 24hs or AM/PM. Defaults to "24hs".
             hint (str): A tooltip displayed to the user. Defaults to None.
             disabled (bool): Wether the input is disabled. Defaults to False.
@@ -679,7 +679,7 @@ def read_toggle(label: str, **kwargs):
     Keyword Args:
             on_text (str): Text of On Toggle option
             off_text (str): Text of Off Toggle option
-            required (bool or str): Whether the input is required or not eg. "this field is required". Defaults to True.
+            required (Union[bool, str]): Whether the input is required or not eg. "this field is required". Defaults to True.
             hint (str): A tooltip displayed to the user. Defaults to None.
             end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
             full_width (bool): Whether the input should use full screen width. Defaults to False.
@@ -701,7 +701,7 @@ def read_video(label: str, **kwargs):
 
     Keyword Args:
             initial_value (str): The initial value to display to the user. Defaults to "".
-            required (bool or str): Whether the input is required or not eg. "this field is required". Defaults to True.
+            required (Union[bool, str]): Whether the input is required or not eg. "this field is required". Defaults to True.
             hint (str): A tooltip displayed to the user. Defaults to None.
             multiple (bool): Whether the user will be allowed to upload multiple files. Defaults to False.
             disabled (bool): Wether the input is disabled. Defaults to False.

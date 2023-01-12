@@ -12,13 +12,13 @@ class PasswordInput(Input):
 
         Keyword Args:
             placeholder (str): The placeholder text to display to the user. Defaults to "".
-            required (bool or str): Whether the input is required or not eg. "this field is required". Defaults to True.
+            required (Union[bool, str]): Whether the input is required or not eg. "this field is required". Defaults to True.
             hint (str): A tooltip displayed to the user. Defaults to None.
             full_width (bool): Whether the input should use full screen width. Defaults to False.
-            lowercase_required (bool or str): Whether the input must have at least one lowercase character. Defaults to True.
-            uppercase_required (bool or str): Whether the input must have at least one uppercase character. Defaults to True.
-            special_required (bool or str): Whether the input must have at least one special character. Defaults to True.
-            digit_required (bool or str): Whether the input must have at least one digit. Defaults to True.
+            lowercase_required (Union[bool, str]): Whether the input must have at least one lowercase character. Defaults to True.
+            uppercase_required (Union[bool, str]): Whether the input must have at least one uppercase character. Defaults to True.
+            special_required (Union[bool, str]): Whether the input must have at least one special character. Defaults to True.
+            digit_required (Union[bool, str]): Whether the input must have at least one digit. Defaults to True.
             min_length (int): Minimum length of the password. Defaults to 8.
             max_length (int): Maximum length of the password. Defaults to None.
             size (int): Size of the password. Defaults to None.

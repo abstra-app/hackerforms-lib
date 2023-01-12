@@ -33,7 +33,7 @@ metadata = {
                 {
                     "argName": "required",
                     "description": 'Wether the input is required or not eg. "this field is required". Defaults to True.',
-                    "typeName": "bool or str",
+                    "typeName": "Union[bool, str]",
                     "isKwarg": True,
                     "default": "True",
                 },
@@ -192,7 +192,7 @@ metadata = {
                 {
                     "argName": "required",
                     "description": 'Whether the input is required or not eg. "this field is required". Defaults to True.',
-                    "typeName": "bool or str",
+                    "typeName": "Union[bool, str]",
                     "isKwarg": True,
                     "default": "True",
                 },
@@ -454,7 +454,7 @@ metadata = {
                 {
                     "argName": "required",
                     "description": 'Wether the input is required or not eg. "this field is required". Defaults to True.',
-                    "typeName": "bool or str",
+                    "typeName": "Union[bool, str]",
                     "isKwarg": True,
                     "default": "True",
                 },
@@ -611,7 +611,7 @@ metadata = {
                 {
                     "argName": "required",
                     "description": 'Wether the input is required or not eg. "this field is required". Defaults to True.',
-                    "typeName": "bool or str",
+                    "typeName": "Union[bool, str]",
                     "isKwarg": True,
                     "default": "True",
                 },
@@ -921,7 +921,7 @@ metadata = {
                 {
                     "argName": "required",
                     "description": 'Wether the input is required or not eg. "this field is required". Defaults to True.',
-                    "typeName": "bool or str",
+                    "typeName": "Union[bool, str]",
                     "isKwarg": True,
                     "default": "True",
                 },
@@ -1065,7 +1065,7 @@ metadata = {
                 {
                     "argName": "required",
                     "description": 'Whether the input is required or not eg. "this field is required". Defaults to True.',
-                    "typeName": "bool or str",
+                    "typeName": "Union[bool, str]",
                     "isKwarg": True,
                     "default": "True",
                 },
@@ -1224,7 +1224,7 @@ metadata = {
                 {
                     "argName": "required",
                     "description": 'Whether the input is required or not eg. "this field is required". Defaults to True.',
-                    "typeName": "bool or str",
+                    "typeName": "Union[bool, str]",
                     "isKwarg": True,
                     "default": "True",
                 },
@@ -1365,7 +1365,7 @@ metadata = {
                 {
                     "argName": "required",
                     "description": 'Whether the input is required or not, eg. "this field is required". Defaults to True.',
-                    "typeName": "bool or str",
+                    "typeName": "Union[bool, str]",
                     "isKwarg": True,
                     "default": "True",
                 },
@@ -1571,7 +1571,7 @@ metadata = {
                 {
                     "argName": "required",
                     "description": 'Whether the input is required or not eg. "this field is required". Defaults to True.',
-                    "typeName": "bool or str",
+                    "typeName": "Union[bool, str]",
                     "isKwarg": True,
                     "default": "True",
                 },
@@ -1722,7 +1722,7 @@ metadata = {
                 {
                     "argName": "required",
                     "description": 'Whether the input is required or not eg. "this field is required". Defaults to True.',
-                    "typeName": "bool or str",
+                    "typeName": "Union[bool, str]",
                     "isKwarg": True,
                     "default": "True",
                 },
@@ -1916,7 +1916,7 @@ metadata = {
                 {
                     "argName": "required",
                     "description": 'Whether the input is required or not eg. "this field is required". Defaults to True.',
-                    "typeName": "bool or str",
+                    "typeName": "Union[bool, str]",
                     "isKwarg": True,
                     "default": "True",
                 },
@@ -2069,7 +2069,7 @@ metadata = {
                 {
                     "argName": "required",
                     "description": 'Whether the input is required or not eg. "this field is required". Defaults to True.',
-                    "typeName": "bool or str",
+                    "typeName": "Union[bool, str]",
                     "isKwarg": True,
                     "default": "True",
                 },
@@ -2232,7 +2232,7 @@ metadata = {
                 {
                     "argName": "required",
                     "description": 'Whether the input is required or not eg. "this field is required". Defaults to True.',
-                    "typeName": "bool or str",
+                    "typeName": "Union[bool, str]",
                     "isKwarg": True,
                     "default": "True",
                 },
@@ -2603,7 +2603,7 @@ metadata = {
                 {
                     "argName": "required",
                     "description": 'WNther the input is required or not eg. "this field is required". Defaults to True.',
-                    "typeName": "bool or str",
+                    "typeName": "Union[bool, str]",
                     "isKwarg": True,
                     "default": "True",
                 },
@@ -2843,7 +2843,7 @@ metadata = {
                 {
                     "argName": "required",
                     "description": 'Whether the input is required or not eg. "this field is required". Defaults to True.',
-                    "typeName": "bool or str",
+                    "typeName": "Union[bool, str]",
                     "isKwarg": True,
                     "default": "True",
                 },
@@ -3016,7 +3016,7 @@ metadata = {
                 {
                     "argName": "required",
                     "description": 'Whether the input is required or not eg. "this field is required". Defaults to True.',
-                    "typeName": "bool or str",
+                    "typeName": "Union[bool, str]",
                     "isKwarg": True,
                     "default": "True",
                 },
@@ -3191,7 +3191,7 @@ metadata = {
                 {
                     "argName": "required",
                     "description": 'Whether the input is required or not eg. "this field is required". Defaults to True.',
-                    "typeName": "bool or str",
+                    "typeName": "Union[bool, str]",
                     "isKwarg": True,
                     "default": "True",
                 },
@@ -3512,7 +3512,7 @@ metadata = {
                 {
                     "argName": "required",
                     "description": 'Whether the input is required or not eg. "this field is required". Defaults to True.',
-                    "typeName": "bool or str",
+                    "typeName": "Union[bool, str]",
                     "isKwarg": True,
                     "default": "True",
                 },
@@ -3526,28 +3526,28 @@ metadata = {
                 {
                     "argName": "lowercase_required",
                     "description": "Whether the input must have at least one lowercase character. Defaults to True.",
-                    "typeName": "bool or str",
+                    "typeName": "Union[bool, str]",
                     "isKwarg": True,
                     "default": "True",
                 },
                 {
                     "argName": "uppercase_required",
                     "description": "Whether the input must have at least one uppercase character. Defaults to True.",
-                    "typeName": "bool or str",
+                    "typeName": "Union[bool, str]",
                     "isKwarg": True,
                     "default": "True",
                 },
                 {
                     "argName": "special_required",
                     "description": "Whether the input must have at least one special character. Defaults to True.",
-                    "typeName": "bool or str",
+                    "typeName": "Union[bool, str]",
                     "isKwarg": True,
                     "default": "True",
                 },
                 {
                     "argName": "digit_required",
                     "description": "Whether the input must have at least one digit. Defaults to True.",
-                    "typeName": "bool or str",
+                    "typeName": "Union[bool, str]",
                     "isKwarg": True,
                     "default": "True",
                 },
@@ -3785,7 +3785,7 @@ metadata = {
                 {
                     "argName": "required",
                     "description": 'Whether the input is required or not eg. "this field is required". Defaults to True.',
-                    "typeName": "bool or str",
+                    "typeName": "Union[bool, str]",
                     "isKwarg": True,
                     "default": "True",
                 },
@@ -3940,7 +3940,7 @@ metadata = {
                 {
                     "argName": "required",
                     "description": 'Whether the input is required or not eg. "this field is required". Defaults to True.',
-                    "typeName": "bool or str",
+                    "typeName": "Union[bool, str]",
                     "isKwarg": True,
                     "default": "True",
                 },
@@ -4124,7 +4124,7 @@ metadata = {
                 {
                     "argName": "required",
                     "description": 'Whether the input is required or not eg. "this field is required". Defaults to True.',
-                    "typeName": "bool or str",
+                    "typeName": "Union[bool, str]",
                     "isKwarg": True,
                     "default": "True",
                 },
@@ -4279,7 +4279,7 @@ metadata = {
                 {
                     "argName": "required",
                     "description": 'Whether the input is required or not eg. "this field is required". Defaults to True.',
-                    "typeName": "bool or str",
+                    "typeName": "Union[bool, str]",
                     "isKwarg": True,
                     "default": "True",
                 },
@@ -4451,7 +4451,7 @@ metadata = {
                 {
                     "argName": "required",
                     "description": 'Whether the input is required or not eg. "this field is required". Defaults to True.',
-                    "typeName": "bool or str",
+                    "typeName": "Union[bool, str]",
                     "isKwarg": True,
                     "default": "True",
                 },
@@ -4587,7 +4587,7 @@ metadata = {
                 {
                     "argName": "required",
                     "description": 'Whether the input is required or not eg. "this field is required". Defaults to True.',
-                    "typeName": "bool or str",
+                    "typeName": "Union[bool, str]",
                     "isKwarg": True,
                     "default": "True",
                 },
@@ -4746,7 +4746,7 @@ metadata = {
                 {
                     "argName": "required",
                     "description": 'Whether the input is required or not eg. "this field is required". Defaults to True.',
-                    "typeName": "bool or str",
+                    "typeName": "Union[bool, str]",
                     "isKwarg": True,
                     "default": "True",
                 },
@@ -4888,7 +4888,7 @@ metadata = {
                 {
                     "argName": "required",
                     "description": 'Whether the input is required or not eg. "this field is required". Defaults to True.',
-                    "typeName": "bool or str",
+                    "typeName": "Union[bool, str]",
                     "isKwarg": True,
                     "default": "True",
                 },
