@@ -801,6 +801,7 @@ metadata = {
                     "typeName": "str",
                     "isKwarg": False,
                     "default": None,
+                    "dashesInitialValue": '"Click here!"',
                 },
                 {
                     "argName": "hint",
