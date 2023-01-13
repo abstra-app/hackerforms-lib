@@ -1565,7 +1565,7 @@ metadata = {
                 {
                     "argName": "initial_value",
                     "description": "The initial value to display to the user. Defaults to None.",
-                    "typeName": "datetime.date or time.struct_time or str (YYYY-MM-DD)",
+                    "typeName": "Union[datetime.date, time.struct_time, str]",
                     "isKwarg": True,
                     "default": "None",
                 },
@@ -2121,7 +2121,7 @@ metadata = {
             ],
             "returns": [
                 {
-                    "typeName": "FileResponse or FileResponse[]",
+                    "typeName": "Union[FileResponse, List[FileResponse]]",
                     "typeDescription": 'A dict containing the file uploaded by the user ({"file": file, "url": str, "content": bytes}) or a list of files in case of multiple flag set as True',
                 }
             ],
@@ -2277,7 +2277,7 @@ metadata = {
             ],
             "returns": [
                 {
-                    "typeName": "FileResponse or FileResponse[]",
+                    "typeName": "Union[FileResponse, List[FileResponse]]",
                     "typeDescription": 'A dict containing the image file uploaded by the user ({"file": file, "url": str, "content": bytes}) or a list of images in case of multiple flag set as True',
                 }
             ],
@@ -3772,7 +3772,7 @@ metadata = {
                 {
                     "argName": "initial_value",
                     "description": "The initial value to display to the user. If dictionary, it contains two keys: 'country_code' (string with optional + sign or number) and 'national_number' (str or number). Ex: {'country_code': '+55', 'national_number': '21999990000'}. Defaults to \"\".",
-                    "typeName": "str or dict",
+                    "typeName": "Union[str, dict]",
                     "isKwarg": True,
                     "default": '""',
                 },
@@ -4933,7 +4933,7 @@ metadata = {
             ],
             "returns": [
                 {
-                    "typeName": "FileResponse or FileResponse[]",
+                    "typeName": "Union[FileResponse, List[FileResponse]]",
                     "typeDescription": 'A dict containing the video uploaded by the user ({"file": file, "url": str, "content": bytes}) or a list of videos in case of multiple flag set as True',
                 }
             ],
