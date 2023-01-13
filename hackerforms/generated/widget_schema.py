@@ -400,7 +400,7 @@ class WidgetSchema:
                 item_schema (Any): The schema for the items of the list
 
         Keyword Args:
-                initial_value (any): The initial value to display to the user. Defaults to [{}].
+                initial_value (Any): The initial value to display to the user. Defaults to [{}].
                 hint (str): A tooltip displayed to the user. Defaults to None.
                 min (float): Min value accepted by the input. Defaults to None.
                 max (float): Max value accepted by the input. Defaults to None.

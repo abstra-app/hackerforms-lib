@@ -2378,7 +2378,7 @@ metadata = {
                 {
                     "argName": "initial_value",
                     "description": "The initial value to display to the user. Defaults to [{}].",
-                    "typeName": "any",
+                    "typeName": "Any",
                     "isKwarg": True,
                     "default": "[{}]",
                 },
