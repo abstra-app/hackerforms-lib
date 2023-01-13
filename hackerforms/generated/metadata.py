@@ -5685,7 +5685,7 @@ metadata = {
                     "typeName": "PlotlyFigure",
                     "isKwarg": False,
                     "default": None,
-                    "dashesInitialValue": 'plotly.express.bar(x=["a", "b", "c"], y=[1, 3, 2])',
+                    "dashesInitialValue": 'plotly_express.bar(x=["a", "b", "c"], y=[1, 3, 2])',
                 },
                 {
                     "argName": "end_program",
