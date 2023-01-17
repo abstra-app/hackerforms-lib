@@ -1933,7 +1933,7 @@ metadata = {
                     "typeName": "str",
                     "description": "Invalid e-mail message",
                     "isKwarg": True,
-                    "default": "Hmm… doesn't look like an email",
+                    "default": '"Hmm… doesn\'t look like an email"',
                 },
                 {
                     "argName": "disabled",
