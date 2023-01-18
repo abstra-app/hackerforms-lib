@@ -5,22 +5,6 @@ class NpsInput(Input):
     type = "nps-input"
 
     def __init__(self, key: str, label: str, **kwargs):
-        """Gets NPS feedback from user
-
-        Positional Args:
-            label (str): The label to display to the user
-
-        Keyword Args:
-            min (int): Min value accepted by the input. Defaults to 0.
-            max (int): Max value accepted by the input. Defaults to 10.
-            min_hint (str): Text to display next to the min value. Defaults to "Not at all likely".
-            max_hint (str): Text to display next to the max value. Defaults to "Extremely likely".
-            initial_value (str): The initial value to display to the user. Defaults to None.
-            required (Union[bool, str]): Whether the input is required or not eg. "this field is required". Defaults to True.
-            hint (str): A tooltip displayed to the user. Defaults to None.
-            full_width (bool): Whether the input should use full screen width. Defaults to False.
-
-        """
         super().__init__(key)
         self.label = label
         self.initial_value = kwargs.get("initial_value", None)

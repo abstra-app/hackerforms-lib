@@ -8,20 +8,6 @@ class DropdownInput(Input):
     def __init__(
         self, key: str, label: str, options: Union[List[str], List[Dict]], **kwargs
     ):
-        """Read a dropdown value from the user
-
-        Positional Args:
-            label (str): The label to display to the user
-            options (list): The options to display to the user, eg. ['Option 1', 'Option 2'] or [{'label': 'Option 1', 'value': '1'}, {'label': 'Option 2', 'value': '2'}]
-
-        Keyword Args:
-            multiple (bool): Whether the user can select multiple options. Defaults to False.
-            initial_value: The initial value to display to the user. Defaults to None.
-            placeholder (str): The placeholder text to display to the user. Defaults to "Choose an option".
-            required (Union[bool, str]): Whether the input is required or not eg. "this field is required". Defaults to True.
-            hint (str): A tooltip displayed to the user. Defaults to None.
-            full_width (bool): Whether the input should use full screen width. Defaults to False.
-        """
         super().__init__(key)
         self.label = label
         self.options = options

@@ -7,20 +7,6 @@ class FileInput(Input):
     type = "file-input"
 
     def __init__(self, key: str, label: str, **kwargs):
-        """Read a file value from the user
-
-        Positional Args:
-            label (str): The label to display to the user
-
-        Keyword Args:
-            initial_value (str): The initial value to display to the user. Defaults to "".
-            required (Union[bool, str]): Whether the input is required or not eg. "this field is required". Defaults to True.
-            hint (str): A tooltip displayed to the user. Defaults to None.
-            full_width (bool): Whether the input should use full screen width. Defaults to False.
-            multiple (bool): Whether the user will be allowed to upload multiple files. Defaults to False.
-            max_file_size (float): Maximum size allowed to be transfered in total in MB.
-
-        """
         super().__init__(key)
         self.label = label
         self.initial_value = kwargs.get("initial_value", "")

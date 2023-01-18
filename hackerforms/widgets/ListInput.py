@@ -8,19 +8,6 @@ class ListInput(Input):
     instances = []
 
     def __init__(self, key: str, item_schema: Any, **kwargs):
-        """Read a list value from the user
-
-        Positional Args:
-            item_schema (ListItemSchema): The schema for the items of the list
-
-        Keyword Args:
-            initial_value (any): The initial value to display to the user. Defaults to [{}].
-            hint (str): A tooltip displayed to the user. Defaults to None.
-            full_width (bool): Whether the input should use full screen width. Defaults to False.
-            min (float): Min value accepted by the input. Defaults to None.
-            max (float): Max value accepted by the input. Defaults to None.
-            add_button_text (str): Label to be displayed on the add button. Defaults to "+".
-        """
         super().__init__(key)
         self.item_schema = item_schema
         self.initial_value = kwargs.get("initial_value", [{}])

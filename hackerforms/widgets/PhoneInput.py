@@ -7,18 +7,6 @@ class PhoneInput(Input):
     type = "phone-input"
 
     def __init__(self, key: str, label: str, **kwargs):
-        """Read a phone number value from the user
-
-        Positional Args:
-            label (str): The label to display to the user
-
-        Keyword Args:
-            initial_value (Union[str, dict]): The initial value to display to the user. If dictionary, it contains two keys: 'country_code' (string with optional + sign or number) and 'national_number' (str or number). Ex: {'country_code': '+55', 'national_number': '21999990000'}. Defaults to "".
-            placeholder (str): The placeholder text to display to the user. Defaults to "".
-            required (Union[bool, str]): Whether the input is required or not eg. "this field is required". Defaults to True.
-            hint (str): A tooltip displayed to the user. Defaults to None.
-            full_width (bool): Whether the input should use full screen width. Defaults to False.
-        """
         super().__init__(key)
         self.label = label
         self.initial_value = kwargs.get("initial_value", "")

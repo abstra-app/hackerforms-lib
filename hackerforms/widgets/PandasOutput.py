@@ -7,16 +7,6 @@ class PandasOutput(Output):
     type = "pandas-output"
 
     def __init__(self, df: Any, **kwargs):
-        """Display a pandas dataframe to the user
-
-        Positional Args:
-            df (Any): The dataframe to display to the user
-
-        Keyword Args:
-            full_width (bool): Whether the input should use full screen width. Defaults to False.
-            display_index (bool): Whether to show a index column. Defaults to False.
-
-        """
         self.df = df
         self.columns = kwargs.get("columns", 1)
         self.full_width = kwargs.get("full_width", False)

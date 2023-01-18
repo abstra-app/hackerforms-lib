@@ -5,22 +5,6 @@ class CurrencyInput(Input):
     type = "currency-input"
 
     def __init__(self, key: str, label: str, **kwargs):
-        """Read a number value from the user with a currency mask
-
-        Positional Args:
-            label (str): The label to display to the user
-
-        Keyword Args:
-            initial_value (str): The initial value to display to the user. Defaults to 0.
-            required (Union[bool, str]): Whether the input is required or not, eg. "this field is required". Defaults to True.
-            placeholder (str): The placeholder text to display to the user. Defaults to "Your answer here".
-            hint (str): A tooltip displayed to the user. Defaults to None.
-            full_width (bool): Whether the input should use full screen width. Defaults to False.
-            min (float): The minimum value allowed, eg. "0". Defaults to None.
-            max (float): The maximum value allowed, eg. "100". Defaults to None.
-            step (float): The value to be incremented or decremented while using the input button. Defaults to None.
-            currency (str): The currency to display to the user, eg. "USD", "BRL, "EUR", "GBP". Defaults to "USD".
-        """
         super().__init__(key)
         self.label = label
         self.initial_value = kwargs.get("initial_value", 0)

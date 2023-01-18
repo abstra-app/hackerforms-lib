@@ -7,37 +7,6 @@ class CardsInput(Input):
     type = "cards-input"
 
     def __init__(self, key: str, label: str, options: Any, **kwargs):
-        """Read cards from the user
-
-        Positional Args:
-            label (str): The text related to this field
-            options (list): The options to display to the user, eg. [
-                {
-                    'title': 'Option 1',
-                    'subtitle': 'Subtitle 1',
-                    'image': 'https://image_1.png',
-                    'description': 'option 1 description',
-                    'topLeftExtra': 'Left 1',
-                    'topRightExtra': 'Right 1',
-                },
-                {
-                    'title': 'Option 2',
-                    'subtitle': 'Subtitle 2',
-                    'image': 'https://image_2.png',
-                    'description': 'option 2 description',
-                    'topLeftExtra': 'Left 2',
-                    'topRightExtra': 'Right 2',
-                }]
-
-        Keyword Args:
-            multiple (bool): Whether the user can select multiple options. Defaults to False.
-            initial_value (list): The initial value to display to the user. Defaults to None.
-            required (Union[bool, str]): Whether the input is required or not eg. "this field is required". Defaults to True.
-            hint (str): A tooltip displayed to the user. Defaults to None.
-            searchable (bool): Whether to show a search bar. Defaults to False.
-            full_width (bool): Whether the input should use full screen width. Defaults to False.
-            layout (str): Whether the cards layout should be 'list' or 'grid'. Defaults to 'grid'.
-        """
         super().__init__(key)
         self.label = label
         self.options = options

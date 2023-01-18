@@ -5,19 +5,6 @@ class CodeInput(Input):
     type = "code-input"
 
     def __init__(self, key: str, label: str, **kwargs):
-        """Read a code snippet from the user with a text highlight
-
-        Positional Args:
-            label (str): The label to display to the user
-
-        Keyword Args:
-            initial_value (str): The initial value to display to the user. Defaults to "".
-            required (Union[bool, str]): Whether the input is required or not eg. "this field is required". Defaults to True.
-            language (str): The programming language. Defaults to None.
-            hint (str): A tooltip displayed to the user. Defaults to None.
-            full_width (bool): Whether the input should use full screen width. Defaults to False.
-
-        """
         super().__init__(key)
         self.label = label
         self.initial_value = kwargs.get("initial_value", "")

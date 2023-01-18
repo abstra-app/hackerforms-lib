@@ -7,17 +7,6 @@ class PandasRowSelectionInput(Input):
     type = "pandas-row-selection-input"
 
     def __init__(self, key: str, df: Any, **kwargs):
-        """Display a pandas dataframe as a table and allow the user to select rows
-
-        Positional Args:
-            df (Any): The pandas dataframe to be displayed
-
-        Keyword Args:
-            required: Whether the input is required or not. Defaults to True.
-            hint (str): A tooltip displayed to the user. Defaults to None.
-            full_width (bool): Whether the input should use full screen width. Defaults to False.
-
-        """
         super().__init__(key)
         self.df = df
         self.required = kwargs.get("required", True)
