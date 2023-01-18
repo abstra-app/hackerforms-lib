@@ -379,6 +379,7 @@ class WidgetSchema:
                 required (Union[bool, str]): Whether the input is required or not eg. "this field is required". Defaults to True.
                 hint (str): A tooltip displayed to the user. Defaults to None.
                 multiple (bool): Whether the user will be allowed to upload multiple files. Defaults to False.
+                max_file_size (float): Maximum size allowed to be transfered in total in MB.
                 disabled (bool): Wether the input is disabled. Defaults to False.
                 end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
                 full_width (bool): Whether the input should use full screen width. Defaults to False.
@@ -769,6 +770,7 @@ class WidgetSchema:
                 required (Union[bool, str]): Whether the input is required or not eg. "this field is required". Defaults to True.
                 hint (str): A tooltip displayed to the user. Defaults to None.
                 multiple (bool): Whether the user will be allowed to upload multiple files. Defaults to False.
+                max_file_size (float): Maximum size allowed to be transfered in total in MB.
                 disabled (bool): Wether the input is disabled. Defaults to False.
                 end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
                 full_width (bool): Whether the input should use full screen width. Defaults to False.

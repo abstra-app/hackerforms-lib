@@ -2252,6 +2252,13 @@ metadata = {
                     "default": "False",
                 },
                 {
+                    "argName": "max_file_size",
+                    "description": "Maximum size allowed to be transfered in total in MB.",
+                    "typeName": "float",
+                    "isKwarg": True,
+                    "default": "None",
+                },
+                {
                     "argName": "disabled",
                     "description": "Wether the input is disabled. Defaults to False.",
                     "typeName": "bool",
@@ -2296,6 +2303,12 @@ metadata = {
                     "default": "",
                     "isOptional": True,
                     "items": {"typeName": "string"},
+                },
+                {
+                    "argName": "maxFileSize",
+                    "description": "Maximum size allowed to be transfered in total in MB.",
+                    "typeName": "number",
+                    "isOptional": True,
                 },
                 {
                     "argName": "key",
@@ -4908,6 +4921,13 @@ metadata = {
                     "default": "False",
                 },
                 {
+                    "argName": "max_file_size",
+                    "description": "Maximum size allowed to be transfered in total in MB.",
+                    "typeName": "float",
+                    "isKwarg": True,
+                    "default": "None",
+                },
+                {
                     "argName": "disabled",
                     "description": "Wether the input is disabled. Defaults to False.",
                     "typeName": "bool",
@@ -4951,6 +4971,12 @@ metadata = {
                     "description": "The initial value of the input",
                     "items": {"typeName": "string"},
                     "default": None,
+                    "isOptional": True,
+                },
+                {
+                    "argName": "maxFileSize",
+                    "description": "Maximum size allowed to be transfered in total in MB.",
+                    "typeName": "number",
                     "isOptional": True,
                 },
                 {
