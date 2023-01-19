@@ -13,6 +13,7 @@ class PandasRowSelectionInput(Input):
         self.hint = kwargs.get("hint", None)
         self.columns = kwargs.get("columns", 1)
         self.full_width = kwargs.get("full_width", False)
+        self.display_index = kwargs.get("display_index", False)
         self.disabled = kwargs.get("disabled", False)
 
     def json(self, **kwargs):
@@ -24,6 +25,7 @@ class PandasRowSelectionInput(Input):
             "required": self.required,
             "columns": self.columns,
             "fullWidth": self.full_width,
+            "displayIndex": self.display_index,
             "disabled": self.disabled,
         }
 

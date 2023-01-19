@@ -3415,6 +3415,13 @@ metadata = {
                     "dashesInitialValue": "pandas.Series([1, 3, 5, 4, 6, 8])",
                 },
                 {
+                    "argName": "display_index",
+                    "description": "Whether to show a index column. Defaults to False.",
+                    "typeName": "bool",
+                    "isKwarg": True,
+                    "default": "False",
+                },
+                {
                     "argName": "disabled",
                     "description": "whether the input is disabled. Defaults to False.",
                     "typeName": "bool",
@@ -3478,6 +3485,12 @@ metadata = {
                             ],
                         },
                     ],
+                },
+                {
+                    "argName": "displayIndex",
+                    "typeName": "boolean",
+                    "description": "",
+                    "default": False,
                 },
                 {
                     "argName": "key",
