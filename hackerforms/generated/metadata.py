@@ -3,6 +3,12 @@ metadata = {
         "type": "answer-sheet-input",
         "events": [{"key": "change", "payloadSchema": []}],
         "description": "Retrieve the answers from a test on a usual answersheet",
+        "dashProperties": {
+            "minWidth": 200,
+            "minHeight": 350,
+            "initialWidth": 200,
+            "initialHeight": 350,
+        },
         "pythonAPI": {
             "name": "read_answer_sheet",
             "params": [
@@ -158,6 +164,12 @@ metadata = {
     "cards-input": {
         "type": "cards-input",
         "events": [{"key": "change", "payloadSchema": []}],
+        "dashProperties": {
+            "minWidth": 530,
+            "minHeight": 352,
+            "initialWidth": 530,
+            "initialHeight": 712,
+        },
         "pythonAPI": {
             "name": "read_cards",
             "params": [
@@ -440,6 +452,12 @@ metadata = {
         "type": "checkbox-input",
         "events": [{"key": "change", "payloadSchema": []}],
         "description": "Read a checkbox value from the user",
+        "dashProperties": {
+            "minWidth": 60,
+            "minHeight": 32,
+            "initialWidth": 222,
+            "initialHeight": 32,
+        },
         "pythonAPI": {
             "name": "read_checkbox",
             "params": [
@@ -599,6 +617,12 @@ metadata = {
         "type": "checklist-input",
         "events": [{"key": "change", "payloadSchema": []}],
         "description": "Read a checklist value from the user",
+        "dashProperties": {
+            "minWidth": 60,
+            "minHeight": 32,
+            "initialWidth": 222,
+            "initialHeight": 112,
+        },
         "pythonAPI": {
             "name": "read_checklist",
             "params": [
@@ -804,6 +828,12 @@ metadata = {
         "description": "A button that triggers click events",
         "events": [{"key": "click", "payloadSchema": []}],
         "dashOnly": True,
+        "dashProperties": {
+            "minWidth": 60,
+            "minHeight": 32,
+            "initialWidth": 140,
+            "initialHeight": 32,
+        },
         "pythonAPI": {
             "name": "read_click",
             "params": [
@@ -914,6 +944,12 @@ metadata = {
         "type": "cnpj-input",
         "events": [{"key": "change", "payloadSchema": []}],
         "description": "Read a CNPJ value from the user",
+        "dashProperties": {
+            "minWidth": 222,
+            "minHeight": 70,
+            "initialWidth": 222,
+            "initialHeight": 112,
+        },
         "pythonAPI": {
             "name": "read_cnpj",
             "params": [
@@ -1069,6 +1105,12 @@ metadata = {
         "type": "code-input",
         "events": [{"key": "change", "payloadSchema": []}],
         "description": "Read a piece of code from the user",
+        "dashProperties": {
+            "minWidth": 377,
+            "minHeight": 552,
+            "initialWidth": 377,
+            "initialHeight": 552,
+        },
         "pythonAPI": {
             "name": "read_code",
             "params": [
@@ -1223,6 +1265,12 @@ metadata = {
         "type": "cpf-input",
         "events": [{"key": "change", "payloadSchema": []}],
         "description": "Read a CPF value from the user",
+        "dashProperties": {
+            "minWidth": 222,
+            "minHeight": 70,
+            "initialWidth": 222,
+            "initialHeight": 112,
+        },
         "pythonAPI": {
             "name": "read_cpf",
             "params": [
@@ -1375,6 +1423,12 @@ metadata = {
         "type": "currency-input",
         "events": [{"key": "change", "payloadSchema": []}],
         "description": "Read currency value from the user",
+        "dashProperties": {
+            "minWidth": 100,
+            "minHeight": 72,
+            "initialWidth": 300,
+            "initialHeight": 112,
+        },
         "pythonAPI": {
             "name": "read_currency",
             "params": [
@@ -1583,6 +1637,12 @@ metadata = {
         "type": "date-input",
         "events": [{"key": "change", "payloadSchema": []}],
         "description": "Read a date value from the user",
+        "dashProperties": {
+            "minWidth": 200,
+            "minHeight": 60,
+            "initialWidth": 300,
+            "initialHeight": 112,
+        },
         "pythonAPI": {
             "name": "read_date",
             "params": [
@@ -1727,6 +1787,12 @@ metadata = {
         "type": "dropdown-input",
         "events": [{"key": "change", "payloadSchema": []}],
         "description": "Read a dropdown value from the user",
+        "dashProperties": {
+            "minWidth": 60,
+            "minHeight": 60,
+            "initialWidth": 223,
+            "initialHeight": 112,
+        },
         "pythonAPI": {
             "name": "read_dropdown",
             "params": [
@@ -1931,6 +1997,12 @@ metadata = {
         "type": "email-input",
         "events": [{"key": "change", "payloadSchema": []}],
         "description": "Read an email value from the user",
+        "dashProperties": {
+            "minWidth": 220,
+            "minHeight": 60,
+            "initialWidth": 223,
+            "initialHeight": 112,
+        },
         "pythonAPI": {
             "name": "read_email",
             "params": [
@@ -2093,6 +2165,12 @@ metadata = {
         "type": "file-input",
         "events": [{"key": "change", "payloadSchema": []}],
         "description": "Read a file value from the user",
+        "dashProperties": {
+            "minWidth": 150,
+            "minHeight": 60,
+            "initialWidth": 223,
+            "initialHeight": 112,
+        },
         "pythonAPI": {
             "name": "read_file",
             "params": [
@@ -2258,6 +2336,12 @@ metadata = {
         "type": "image-input",
         "events": [{"key": "change", "payloadSchema": []}],
         "description": "Read a image file value from the user ",
+        "dashProperties": {
+            "minWidth": 120,
+            "minHeight": 60,
+            "initialWidth": 223,
+            "initialHeight": 112,
+        },
         "pythonAPI": {
             "name": "read_image",
             "params": [
@@ -2426,6 +2510,12 @@ metadata = {
         "description": "Read a list value from the user",
         "formOnly": True,
         "events": [{"key": "change", "payloadSchema": []}],
+        "dashProperties": {
+            "minWidth": 146,
+            "minHeight": 32,
+            "initialWidth": 146,
+            "initialHeight": 32,
+        },
         "pythonAPI": {
             "name": "read_list",
             "params": [
@@ -2639,6 +2729,12 @@ metadata = {
         "type": "multiple-choice-input",
         "events": [{"key": "change", "payloadSchema": []}],
         "description": "Read a multiple choice value from the user",
+        "dashProperties": {
+            "minWidth": 60,
+            "minHeight": 70,
+            "initialWidth": 223,
+            "initialHeight": 152,
+        },
         "pythonAPI": {
             "name": "read_multiple_choice",
             "params": [
@@ -2875,6 +2971,12 @@ metadata = {
         "type": "nps-input",
         "events": [{"key": "change", "payloadSchema": []}],
         "description": "Gets NPS feedback from user",
+        "dashProperties": {
+            "minWidth": 120,
+            "minHeight": 60,
+            "initialWidth": 608,
+            "initialHeight": 112,
+        },
         "pythonAPI": {
             "name": "read_nps",
             "params": [
@@ -3072,6 +3174,12 @@ metadata = {
         "type": "number-input",
         "events": [{"key": "change", "payloadSchema": []}],
         "description": "Read a number value from the user",
+        "dashProperties": {
+            "minWidth": 120,
+            "minHeight": 60,
+            "initialWidth": 223,
+            "initialHeight": 112,
+        },
         "pythonAPI": {
             "name": "read_number",
             "params": [
@@ -3248,6 +3356,12 @@ metadata = {
         "type": "number-slider-input",
         "events": [{"key": "change", "payloadSchema": []}],
         "description": "Read a number value from the user",
+        "dashProperties": {
+            "minWidth": 120,
+            "minHeight": 30,
+            "initialWidth": 223,
+            "initialHeight": 72,
+        },
         "pythonAPI": {
             "name": "read_number_slider",
             "params": [
@@ -3420,6 +3534,12 @@ metadata = {
         "type": "pandas-row-selection-input",
         "events": [{"key": "change", "payloadSchema": []}],
         "description": "Display a pandas dataframe as a table and allow the user to select rows",
+        "dashProperties": {
+            "minWidth": 223,
+            "minHeight": 72,
+            "initialWidth": 223,
+            "initialHeight": 72,
+        },
         "pythonAPI": {
             "name": "read_pandas_row_selection",
             "params": [
@@ -3585,6 +3705,12 @@ metadata = {
         "type": "password-input",
         "events": [{"key": "change", "payloadSchema": []}],
         "description": "Read a password value from the user",
+        "dashProperties": {
+            "minWidth": 120,
+            "minHeight": 60,
+            "initialWidth": 223,
+            "initialHeight": 112,
+        },
         "pythonAPI": {
             "name": "read_password",
             "params": [
@@ -3856,6 +3982,12 @@ metadata = {
         "type": "phone-input",
         "events": [{"key": "change", "payloadSchema": []}],
         "description": "Read a phone value from the user",
+        "dashProperties": {
+            "minWidth": 377,
+            "minHeight": 60,
+            "initialWidth": 377,
+            "initialHeight": 112,
+        },
         "pythonAPI": {
             "name": "read_phone",
             "params": [
@@ -4021,6 +4153,12 @@ metadata = {
         "type": "rating-input",
         "events": [{"key": "change", "payloadSchema": []}],
         "description": "Read a rating value from the user",
+        "dashProperties": {
+            "minWidth": 120,
+            "minHeight": 60,
+            "initialWidth": 223,
+            "initialHeight": 72,
+        },
         "pythonAPI": {
             "name": "read_rating",
             "params": [
@@ -4201,6 +4339,12 @@ metadata = {
         "type": "tag-input",
         "events": [{"key": "change", "payloadSchema": []}],
         "description": "Read a tag value from the user",
+        "dashProperties": {
+            "minWidth": 120,
+            "minHeight": 60,
+            "initialWidth": 223,
+            "initialHeight": 112,
+        },
         "pythonAPI": {
             "name": "read_tag",
             "params": [
@@ -4359,6 +4503,12 @@ metadata = {
         "type": "text-input",
         "events": [{"key": "change", "payloadSchema": []}],
         "description": "Read a text value from the user",
+        "dashProperties": {
+            "minWidth": 120,
+            "minHeight": 60,
+            "initialWidth": 223,
+            "initialHeight": 112,
+        },
         "pythonAPI": {
             "name": "read",
             "params": [
@@ -4533,6 +4683,12 @@ metadata = {
         "type": "textarea-input",
         "events": [{"key": "change", "payloadSchema": []}],
         "description": "Read a textarea value from the user",
+        "dashProperties": {
+            "minWidth": 200,
+            "minHeight": 200,
+            "initialWidth": 223,
+            "initialHeight": 272,
+        },
         "pythonAPI": {
             "name": "read_textarea",
             "params": [
@@ -4685,6 +4841,12 @@ metadata = {
         "type": "time-input",
         "events": [{"key": "change", "payloadSchema": []}],
         "description": "Read a time value from the user",
+        "dashProperties": {
+            "minWidth": 120,
+            "minHeight": 60,
+            "initialWidth": 223,
+            "initialHeight": 112,
+        },
         "pythonAPI": {
             "name": "read_time",
             "params": [
@@ -4840,6 +5002,12 @@ metadata = {
         "type": "toggle-input",
         "events": [{"key": "change", "payloadSchema": []}],
         "description": "Read a toggle value from the user",
+        "dashProperties": {
+            "minWidth": 120,
+            "minHeight": 100,
+            "initialWidth": 377,
+            "initialHeight": 112,
+        },
         "pythonAPI": {
             "name": "read_toggle",
             "params": [
@@ -4997,6 +5165,12 @@ metadata = {
         "type": "video-input",
         "events": [{"key": "change", "payloadSchema": []}],
         "description": "Read a video file value from the user",
+        "dashProperties": {
+            "minWidth": 120,
+            "minHeight": 60,
+            "initialWidth": 223,
+            "initialHeight": 112,
+        },
         "pythonAPI": {
             "name": "read_video",
             "params": [
@@ -5165,6 +5339,12 @@ metadata = {
         "type": "file-output",
         "events": [],
         "description": "Display a button for the user to download a file",
+        "dashProperties": {
+            "minWidth": 65,
+            "minHeight": 30,
+            "initialWidth": 223,
+            "initialHeight": 72,
+        },
         "pythonAPI": {
             "name": "display_file",
             "params": [
@@ -5245,6 +5425,12 @@ metadata = {
         "type": "html-output",
         "events": [],
         "description": "Display a html snippet to the user",
+        "dashProperties": {
+            "minWidth": 65,
+            "minHeight": 30,
+            "initialWidth": 146,
+            "initialHeight": 32,
+        },
         "pythonAPI": {
             "name": "display_html",
             "params": [
@@ -5311,6 +5497,12 @@ metadata = {
         "type": "iframe-output",
         "events": [],
         "description": "Display an inline iframe to the user",
+        "dashProperties": {
+            "minWidth": 377,
+            "minHeight": 632,
+            "initialWidth": 377,
+            "initialHeight": 632,
+        },
         "pythonAPI": {
             "name": "display_iframe",
             "params": [
@@ -5407,6 +5599,12 @@ metadata = {
         "type": "image-output",
         "events": [],
         "description": "Display an image to the user",
+        "dashProperties": {
+            "minWidth": 60,
+            "minHeight": 60,
+            "initialWidth": 223,
+            "initialHeight": 312,
+        },
         "pythonAPI": {
             "name": "display_image",
             "params": [
@@ -5488,6 +5686,12 @@ metadata = {
         "type": "latex-output",
         "events": [],
         "description": "Display a latex formula to the user",
+        "dashProperties": {
+            "minWidth": 60,
+            "minHeight": 30,
+            "initialWidth": 146,
+            "initialHeight": 32,
+        },
         "pythonAPI": {
             "name": "display_latex",
             "params": [
@@ -5565,6 +5769,12 @@ metadata = {
         "type": "link-output",
         "events": [],
         "description": "Display a link to the user",
+        "dashProperties": {
+            "minWidth": 60,
+            "minHeight": 30,
+            "initialWidth": 146,
+            "initialHeight": 32,
+        },
         "pythonAPI": {
             "name": "display_link",
             "params": [
@@ -5654,6 +5864,12 @@ metadata = {
         "type": "markdown-output",
         "events": [],
         "description": "Display a formatted text to the user",
+        "dashProperties": {
+            "minWidth": 60,
+            "minHeight": 30,
+            "initialWidth": 146,
+            "initialHeight": 72,
+        },
         "pythonAPI": {
             "name": "display_markdown",
             "params": [
@@ -5720,6 +5936,12 @@ metadata = {
         "type": "pandas-output",
         "events": [],
         "description": "Display a pandas dataframe to the user",
+        "dashProperties": {
+            "minWidth": 223,
+            "minHeight": 72,
+            "initialWidth": 223,
+            "initialHeight": 72,
+        },
         "pythonAPI": {
             "name": "display_pandas",
             "params": [
@@ -5830,6 +6052,12 @@ metadata = {
         "type": "plotly-output",
         "events": [],
         "description": "Display a plotly figure to the user",
+        "dashProperties": {
+            "minWidth": 223,
+            "minHeight": 112,
+            "initialWidth": 223,
+            "initialHeight": 112,
+        },
         "pythonAPI": {
             "name": "display_plotly",
             "params": [
@@ -5896,6 +6124,12 @@ metadata = {
         "type": "progress-output",
         "events": [],
         "description": "Display a progress bar. This widget is shown on screen until the script shows a new widget. This widget does not work on Pages, and must be used only with its function.",
+        "dashProperties": {
+            "minWidth": 60,
+            "minHeight": 30,
+            "initialWidth": 300,
+            "initialHeight": 32,
+        },
         "pythonAPI": {
             "name": "display_progress",
             "params": [
@@ -5999,6 +6233,12 @@ metadata = {
         "type": "text-output",
         "events": [],
         "description": "Display a text to the user",
+        "dashProperties": {
+            "minWidth": 60,
+            "minHeight": 30,
+            "initialWidth": 223,
+            "initialHeight": 112,
+        },
         "pythonAPI": {
             "name": "display",
             "params": [
