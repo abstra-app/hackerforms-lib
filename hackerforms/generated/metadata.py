@@ -192,6 +192,7 @@ metadata = {
                     "typeDescription": ["list[AbstraCard]"],
                     "isKwarg": True,
                     "default": "None",
+                    "formOnly": True,
                 },
                 {
                     "argName": "searchable",
@@ -456,6 +457,7 @@ metadata = {
                     "typeName": "str",
                     "isKwarg": True,
                     "default": "None",
+                    "formOnly": True,
                 },
                 {
                     "argName": "disabled",
@@ -614,6 +616,7 @@ metadata = {
                     "typeName": "str",
                     "isKwarg": True,
                     "default": "None",
+                    "formOnly": True,
                 },
                 {
                     "argName": "options",
@@ -800,7 +803,7 @@ metadata = {
         "type": "click-input",
         "description": "A button that triggers click events",
         "events": [{"key": "click", "payloadSchema": []}],
-        "dashesOnly": True,
+        "dashOnly": True,
         "pythonAPI": {
             "name": "read_click",
             "params": [
@@ -929,6 +932,7 @@ metadata = {
                     "typeDescription": ["str (00.000.000/0001-00)"],
                     "isKwarg": True,
                     "default": "None",
+                    "formOnly": True,
                 },
                 {
                     "argName": "placeholder",
@@ -1082,6 +1086,7 @@ metadata = {
                     "typeName": "str",
                     "isKwarg": True,
                     "default": '""',
+                    "formOnly": True,
                 },
                 {
                     "argName": "language",
@@ -1236,6 +1241,7 @@ metadata = {
                     "typeDescription": ["str (000.000.000-00)"],
                     "isKwarg": True,
                     "default": '""',
+                    "formOnly": True,
                 },
                 {
                     "argName": "placeholder",
@@ -1386,6 +1392,7 @@ metadata = {
                     "typeName": "str",
                     "isKwarg": True,
                     "default": "0",
+                    "formOnly": True,
                 },
                 {
                     "argName": "placeholder",
@@ -1598,6 +1605,7 @@ metadata = {
                     ],
                     "isKwarg": True,
                     "default": "None",
+                    "formOnly": True,
                 },
                 {
                     "argName": "disabled",
@@ -1743,6 +1751,7 @@ metadata = {
                     "typeName": "str",
                     "isKwarg": True,
                     "default": "None",
+                    "formOnly": True,
                 },
                 {
                     "argName": "placeholder",
@@ -1939,6 +1948,7 @@ metadata = {
                     "typeName": "str",
                     "isKwarg": True,
                     "default": '""',
+                    "formOnly": True,
                 },
                 {
                     "argName": "placeholder",
@@ -2100,6 +2110,7 @@ metadata = {
                     "typeName": "str",
                     "isKwarg": True,
                     "default": '""',
+                    "formOnly": True,
                 },
                 {
                     "argName": "multiple",
@@ -2264,6 +2275,7 @@ metadata = {
                     "typeName": "str",
                     "isKwarg": True,
                     "default": '""',
+                    "formOnly": True,
                 },
                 {
                     "argName": "multiple",
@@ -2430,6 +2442,7 @@ metadata = {
                     "typeName": "Any",
                     "isKwarg": True,
                     "default": "[{}]",
+                    "formOnly": True,
                 },
                 {
                     "argName": "hint",
@@ -2664,6 +2677,7 @@ metadata = {
                     "typeName": "str",
                     "isKwarg": True,
                     "default": "None",
+                    "formOnly": True,
                 },
                 {
                     "argName": "options",
@@ -2907,6 +2921,7 @@ metadata = {
                     "typeDescription": ["str (nps format)"],
                     "isKwarg": True,
                     "default": "None",
+                    "formOnly": True,
                 },
                 {
                     "argName": "disabled",
@@ -3074,6 +3089,7 @@ metadata = {
                     "typeName": "str",
                     "isKwarg": True,
                     "default": "0",
+                    "formOnly": True,
                 },
                 {
                     "argName": "placeholder",
@@ -3249,6 +3265,7 @@ metadata = {
                     "typeName": "float",
                     "isKwarg": True,
                     "default": "0",
+                    "formOnly": True,
                 },
                 {
                     "argName": "min",
@@ -3857,6 +3874,7 @@ metadata = {
                     "typeDescription": ["str (000000000000)", "AbstraPhone"],
                     "isKwarg": True,
                     "default": '""',
+                    "formOnly": True,
                 },
                 {
                     "argName": "placeholder",
@@ -4020,6 +4038,7 @@ metadata = {
                     "typeName": "int",
                     "isKwarg": True,
                     "default": "0",
+                    "formOnly": True,
                 },
                 {
                     "argName": "max",
@@ -4200,6 +4219,7 @@ metadata = {
                     "typeDescription": ["list[str]"],
                     "isKwarg": True,
                     "default": "[]",
+                    "formOnly": True,
                 },
                 {
                     "argName": "placeholder",
@@ -4356,6 +4376,7 @@ metadata = {
                     "typeName": "str",
                     "isKwarg": True,
                     "default": '""',
+                    "formOnly": True,
                 },
                 {
                     "argName": "placeholder",
@@ -4529,6 +4550,7 @@ metadata = {
                     "typeName": "str",
                     "isKwarg": True,
                     "default": '""',
+                    "formOnly": True,
                 },
                 {
                     "argName": "placeholder",
@@ -4681,6 +4703,7 @@ metadata = {
                     "typeDescription": ["str (HH:MM:SS)"],
                     "isKwarg": True,
                     "default": '""',
+                    "formOnly": True,
                 },
                 {
                     "argName": "format",
@@ -4992,6 +5015,7 @@ metadata = {
                     "typeDescription": ["io.IOBase", "str (filepath)", "str (URL)"],
                     "isKwarg": True,
                     "default": '""',
+                    "formOnly": True,
                 },
                 {
                     "argName": "multiple",
