@@ -43,6 +43,12 @@ class DateInput(Input):
         }
 
     @staticmethod
+    def __revert_value(value: Optional[datetime.date]):
+        if not value:
+            return None
+        return value.isoformat()
+
+    @staticmethod
     def __convert_answer(answer: str) -> Optional[datetime.date]:
         if not answer:
             return None

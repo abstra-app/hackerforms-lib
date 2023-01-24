@@ -44,16 +44,25 @@ class PhoneInput(Input):
         }
 
     @staticmethod
+    def __revert_value(value: Optional[PhoneResponse]):
+        if not value:
+            return None
+        return {
+            "raw": value.raw,
+            "masked": value.masked,
+            "countryCode": value.country_code,
+            "nationalNumber": value.national_number,
+        }
+
+    @staticmethod
     def __convert_answer(answer) -> Optional[PhoneResponse]:
-        return (
-            PhoneResponse(
-                masked=answer["masked"],
-                raw=answer["raw"],
-                country_code=answer["countryCode"],
-                national_number=answer["nationalNumber"],
-            )
-            if answer
-            else None
+        if not answer:
+            return None
+        return PhoneResponse(
+            masked=answer["masked"],
+            raw=answer["raw"],
+            country_code=answer["countryCode"],
+            national_number=answer["nationalNumber"],
         )
 
     def convert_answer(self, answer) -> Optional[PhoneResponse]:

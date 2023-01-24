@@ -33,6 +33,10 @@ class ToggleInput(Input):
         }
 
     @staticmethod
+    def __revert_value(value: bool) -> str:
+        return "1" if value == True else "0"
+
+    @staticmethod
     def __convert_answer(answer: str) -> str:
         return True if answer == "1" else False
 

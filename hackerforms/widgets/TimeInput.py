@@ -1,5 +1,6 @@
 from hackerforms.common import Input
 import datetime
+from typing import Optional
 
 
 class TimeInput(Input):
@@ -31,10 +32,14 @@ class TimeInput(Input):
         }
 
     @staticmethod
-    def __convert_answer(answer) -> datetime.time:
+    def __revert_value(value: Optional[datetime.time]):
+        return {"hour": value.hour, "minute": value.minute} if value else None
+
+    @staticmethod
+    def __convert_answer(answer) -> Optional[datetime.time]:
         return datetime.time(answer["hour"], answer["minute"]) if answer else None
 
-    def convert_answer(self, answer) -> datetime.time:
+    def convert_answer(self, answer) -> Optional[datetime.time]:
         """
         Returns:
             datetime.time: A datetime.time object representing the value entered by the user

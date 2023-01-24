@@ -32,6 +32,14 @@ class ImageInput(Input):
         }
 
     @staticmethod
+    def __revert_value(value) -> Optional[str]:
+        if not value:
+            return None
+        if isinstance(value, list):
+            return [item.url for item in value]
+        return value.url
+
+    @staticmethod
     def __convert_answer(answer) -> Optional[FileResponse]:
         if not answer:
             return None
