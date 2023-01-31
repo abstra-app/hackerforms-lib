@@ -97,8 +97,7 @@ class Page(WidgetSchema):
             exit()
 
         return PageResponse(
-            self.convert_answer(response["payload"]),
-            response.get("action"),
+            self.convert_answer(response["payload"]), response.get("action"),
         )
 
     def __user_event_messages(self, **kwargs):
@@ -167,9 +166,5 @@ class Page(WidgetSchema):
 
     def __send_user_event_message(self, widgets, validation):
         send(
-            {
-                "type": "user-event",
-                "widgets": widgets,
-                "validation": validation,
-            }
+            {"type": "user-event", "widgets": widgets, "validation": validation,}
         )

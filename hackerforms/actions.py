@@ -3,13 +3,7 @@ from .socket import send, receive
 
 def execute_action(type, payload):
     send(
-        {
-            "type": "action",
-            "action": {
-                "type": type,
-                **payload,
-            },
-        }
+        {"type": "action", "action": {"type": type, **payload,},}
     )
 
     response = receive()

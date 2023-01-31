@@ -15,9 +15,7 @@ class Connection:
     url_params: dict = {}
 
     def __init__(
-        self,
-        session_id: typing.Union[str, None] = None,
-        debug_enabled: bool = False,
+        self, session_id: typing.Union[str, None] = None, debug_enabled: bool = False,
     ) -> None:
         from websocket import create_connection
 
