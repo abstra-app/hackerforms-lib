@@ -55,6 +55,7 @@ class WidgetSchema:
     def read_answer_sheet(
         self, label: str, options: list, number_of_questions: int, **kwargs
     ):
+
         """Retrieve the answers from a test on a usual answersheet
 
         Position Args:
@@ -81,6 +82,7 @@ class WidgetSchema:
         return self
 
     def read_cards(self, label: str, options: list, **kwargs):
+
         """Read a text value from the user simple text input
 
                 Position Args:
@@ -110,6 +112,7 @@ class WidgetSchema:
         return self
 
     def read_checkbox(self, label: str, **kwargs):
+
         """Read a checkbox value from the user
 
         Position Args:
@@ -133,6 +136,7 @@ class WidgetSchema:
         return self
 
     def read_checklist(self, label: str, options: list, **kwargs):
+
         """Read a checklist value from the user
 
         Position Args:
@@ -157,6 +161,7 @@ class WidgetSchema:
         return self
 
     def read_cnpj(self, label: str, **kwargs):
+
         """Read a CNPJ value from the user
 
         Position Args:
@@ -181,6 +186,7 @@ class WidgetSchema:
         return self
 
     def read_code(self, label: str, **kwargs):
+
         """Read a piece of code from the user
 
         Position Args:
@@ -205,6 +211,7 @@ class WidgetSchema:
         return self
 
     def read_cpf(self, label: str, **kwargs):
+
         """Read a CPF value from the user
 
         Position Args:
@@ -229,6 +236,7 @@ class WidgetSchema:
         return self
 
     def read_currency(self, label: str, **kwargs):
+
         """Read currency value from the user
 
         Position Args:
@@ -257,6 +265,7 @@ class WidgetSchema:
         return self
 
     def read_date(self, label: str, **kwargs):
+
         """Read a date value from the user
 
         Position Args:
@@ -280,6 +289,7 @@ class WidgetSchema:
         return self
 
     def read_dropdown(self, label: str, options: list, **kwargs):
+
         """Read a dropdown value from the user
 
         Position Args:
@@ -306,6 +316,7 @@ class WidgetSchema:
         return self
 
     def read_email(self, label: str, **kwargs):
+
         """Read an email value from the user
 
         Position Args:
@@ -331,6 +342,7 @@ class WidgetSchema:
         return self
 
     def read_file(self, label: str, **kwargs):
+
         """Read a file value from the user
 
         Position Args:
@@ -356,6 +368,7 @@ class WidgetSchema:
         return self
 
     def read_image(self, label: str, **kwargs):
+
         """Read a image file value from the user
 
         Position Args:
@@ -381,6 +394,7 @@ class WidgetSchema:
         return self
 
     def read_list(self, item_schema: Any, **kwargs):
+
         """Read a list value from the user
 
         Position Args:
@@ -408,6 +422,7 @@ class WidgetSchema:
         return self
 
     def read_multiple_choice(self, label: str, options: list, **kwargs):
+
         """Read a multiple choice value from the user
 
         Position Args:
@@ -435,6 +450,7 @@ class WidgetSchema:
         return self
 
     def read_nps(self, label: str, **kwargs):
+
         """Gets NPS feedback from user
 
         Position Args:
@@ -462,6 +478,7 @@ class WidgetSchema:
         return self
 
     def read_number(self, label: str, **kwargs):
+
         """Read a number value from the user
 
         Position Args:
@@ -489,6 +506,7 @@ class WidgetSchema:
         return self
 
     def read_number_slider(self, label: str, **kwargs):
+
         """Read a number value from the user
 
         Position Args:
@@ -515,6 +533,7 @@ class WidgetSchema:
         return self
 
     def read_pandas_row_selection(self, df: PandasDataFrame, **kwargs):
+
         """Display a pandas dataframe as a table and allow the user to select rows
 
         Position Args:
@@ -522,7 +541,6 @@ class WidgetSchema:
 
         Keyword Args:
                 display_index (bool): Whether to show a index column. Defaults to False.
-                label (str): The label to display to the user
                 disabled (bool): whether the input is disabled. Defaults to False.
                 required (Union[bool, str]): Whether the input is required or not eg. "this field is required". Defaults to True.
                 hint (str): A tooltip displayed to the user. Defaults to None.
@@ -539,6 +557,7 @@ class WidgetSchema:
         return self
 
     def read_password(self, label: str, **kwargs):
+
         """Read a password value from the user
 
         Position Args:
@@ -571,6 +590,7 @@ class WidgetSchema:
         return self
 
     def read_phone(self, label: str, **kwargs):
+
         """Read a phone value from the user
 
         Position Args:
@@ -595,6 +615,7 @@ class WidgetSchema:
         return self
 
     def read_rating(self, label: str, **kwargs):
+
         """Read a rating value from the user
 
         Position Args:
@@ -620,6 +641,7 @@ class WidgetSchema:
         return self
 
     def read_tag(self, label: str, **kwargs):
+
         """Read a tag value from the user
 
         Position Args:
@@ -644,6 +666,7 @@ class WidgetSchema:
         return self
 
     def read(self, label: str, **kwargs):
+
         """Read a text value from the user
 
         Position Args:
@@ -669,6 +692,7 @@ class WidgetSchema:
         return self
 
     def read_textarea(self, label: str, **kwargs):
+
         """Read a textarea value from the user
 
         Position Args:
@@ -693,6 +717,7 @@ class WidgetSchema:
         return self
 
     def read_time(self, label: str, **kwargs):
+
         """Read a time value from the user
 
         Position Args:
@@ -717,6 +742,7 @@ class WidgetSchema:
         return self
 
     def read_toggle(self, label: str, **kwargs):
+
         """Read a toggle value from the user
 
         Position Args:
@@ -741,6 +767,7 @@ class WidgetSchema:
         return self
 
     def read_video(self, label: str, **kwargs):
+
         """Read a video file value from the user
 
         Position Args:
@@ -766,6 +793,7 @@ class WidgetSchema:
         return self
 
     def display_file(self, file: Union[str, io.IOBase], **kwargs):
+
         """Display a button for the user to download a file
 
         Position Args:
@@ -783,6 +811,7 @@ class WidgetSchema:
         return self
 
     def display_html(self, html: str, **kwargs):
+
         """Display a html snippet to the user
 
         Position Args:
@@ -799,6 +828,7 @@ class WidgetSchema:
         return self
 
     def display_iframe(self, url_or_html: str, **kwargs):
+
         """Display an inline iframe to the user
 
         Position Args:
@@ -817,6 +847,7 @@ class WidgetSchema:
         return self
 
     def display_image(self, image: Union[str, io.IOBase], **kwargs):
+
         """Display an image to the user
 
         Position Args:
@@ -824,7 +855,6 @@ class WidgetSchema:
 
         Keyword Args:
                 subtitle (str): The subtitle of the image. Defaults to "".
-                label (str): The label to display to the user
                 end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
                 full_width (bool): Whether the input should use full screen width. Defaults to False.
 
@@ -835,6 +865,7 @@ class WidgetSchema:
         return self
 
     def display_latex(self, text: str, **kwargs):
+
         """Display a latex formula to the user
 
         Position Args:
@@ -851,6 +882,7 @@ class WidgetSchema:
         return self
 
     def display_link(self, link_url: str, **kwargs):
+
         """Display a link to the user
 
         Position Args:
@@ -869,6 +901,7 @@ class WidgetSchema:
         return self
 
     def display_markdown(self, text: str, **kwargs):
+
         """Display a formatted text to the user
 
         Position Args:
@@ -885,6 +918,7 @@ class WidgetSchema:
         return self
 
     def display_pandas(self, df: PandasDataFrame, **kwargs):
+
         """Display a pandas dataframe to the user
 
         Position Args:
@@ -892,7 +926,6 @@ class WidgetSchema:
 
         Keyword Args:
                 display_index (bool): Whether to show a index column. Defaults to False.
-                label (str): The label to display to the user
                 end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
                 full_width (bool): Whether the input should use full screen width. Defaults to False.
 
@@ -903,13 +936,13 @@ class WidgetSchema:
         return self
 
     def display_plotly(self, fig: PlotlyFigure, **kwargs):
+
         """Display a plotly figure to the user
 
         Position Args:
                 fig (PlotlyFigure): The figure to display to the user
 
         Keyword Args:
-                label (str): The label to display to the user
                 end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
                 full_width (bool): Whether the input should use full screen width. Defaults to False.
 
@@ -920,6 +953,7 @@ class WidgetSchema:
         return self
 
     def display_progress(self, current: float, total: float, **kwargs):
+
         """Display a progress bar. This widget is shown on screen until the script shows a new widget. This widget does not work on Pages, and must be used only with its function.
 
         Position Args:
@@ -938,6 +972,7 @@ class WidgetSchema:
         return self
 
     def display(self, text: str, **kwargs):
+
         """Display a text to the user
 
         Position Args:

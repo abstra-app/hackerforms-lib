@@ -5,6 +5,7 @@ from hackerforms.utils import get_single_value
 
 
 def read_answer_sheet(label: str, options: list, number_of_questions: int, **kwargs):
+
     """Retrieve the answers from a test on a usual answersheet
 
     Position Args:
@@ -32,6 +33,7 @@ def read_answer_sheet(label: str, options: list, number_of_questions: int, **kwa
 
 
 def read_cards(label: str, options: list, **kwargs):
+
     """Read a text value from the user simple text input
 
             Position Args:
@@ -62,6 +64,7 @@ def read_cards(label: str, options: list, **kwargs):
 
 
 def read_checkbox(label: str, **kwargs):
+
     """Read a checkbox value from the user
 
     Position Args:
@@ -84,6 +87,7 @@ def read_checkbox(label: str, **kwargs):
 
 
 def read_checklist(label: str, options: list, **kwargs):
+
     """Read a checklist value from the user
 
     Position Args:
@@ -109,6 +113,7 @@ def read_checklist(label: str, options: list, **kwargs):
 
 
 def read_cnpj(label: str, **kwargs):
+
     """Read a CNPJ value from the user
 
     Position Args:
@@ -132,6 +137,7 @@ def read_cnpj(label: str, **kwargs):
 
 
 def read_code(label: str, **kwargs):
+
     """Read a piece of code from the user
 
     Position Args:
@@ -155,6 +161,7 @@ def read_code(label: str, **kwargs):
 
 
 def read_cpf(label: str, **kwargs):
+
     """Read a CPF value from the user
 
     Position Args:
@@ -178,6 +185,7 @@ def read_cpf(label: str, **kwargs):
 
 
 def read_currency(label: str, **kwargs):
+
     """Read currency value from the user
 
     Position Args:
@@ -205,6 +213,7 @@ def read_currency(label: str, **kwargs):
 
 
 def read_date(label: str, **kwargs):
+
     """Read a date value from the user
 
     Position Args:
@@ -227,6 +236,7 @@ def read_date(label: str, **kwargs):
 
 
 def read_dropdown(label: str, options: list, **kwargs):
+
     """Read a dropdown value from the user
 
     Position Args:
@@ -254,6 +264,7 @@ def read_dropdown(label: str, options: list, **kwargs):
 
 
 def read_email(label: str, **kwargs):
+
     """Read an email value from the user
 
     Position Args:
@@ -278,6 +289,7 @@ def read_email(label: str, **kwargs):
 
 
 def read_file(label: str, **kwargs):
+
     """Read a file value from the user
 
     Position Args:
@@ -302,6 +314,7 @@ def read_file(label: str, **kwargs):
 
 
 def read_image(label: str, **kwargs):
+
     """Read a image file value from the user
 
     Position Args:
@@ -326,6 +339,7 @@ def read_image(label: str, **kwargs):
 
 
 def read_list(item_schema: Any, **kwargs):
+
     """Read a list value from the user
 
     Position Args:
@@ -352,6 +366,7 @@ def read_list(item_schema: Any, **kwargs):
 
 
 def read_multiple_choice(label: str, options: list, **kwargs):
+
     """Read a multiple choice value from the user
 
     Position Args:
@@ -380,6 +395,7 @@ def read_multiple_choice(label: str, options: list, **kwargs):
 
 
 def read_nps(label: str, **kwargs):
+
     """Gets NPS feedback from user
 
     Position Args:
@@ -406,6 +422,7 @@ def read_nps(label: str, **kwargs):
 
 
 def read_number(label: str, **kwargs):
+
     """Read a number value from the user
 
     Position Args:
@@ -432,6 +449,7 @@ def read_number(label: str, **kwargs):
 
 
 def read_number_slider(label: str, **kwargs):
+
     """Read a number value from the user
 
     Position Args:
@@ -457,6 +475,7 @@ def read_number_slider(label: str, **kwargs):
 
 
 def read_pandas_row_selection(df: PandasDataFrame, **kwargs):
+
     """Display a pandas dataframe as a table and allow the user to select rows
 
     Position Args:
@@ -464,7 +483,6 @@ def read_pandas_row_selection(df: PandasDataFrame, **kwargs):
 
     Keyword Args:
             display_index (bool): Whether to show a index column. Defaults to False.
-            label (str): The label to display to the user
             disabled (bool): whether the input is disabled. Defaults to False.
             required (Union[bool, str]): Whether the input is required or not eg. "this field is required". Defaults to True.
             hint (str): A tooltip displayed to the user. Defaults to None.
@@ -482,6 +500,7 @@ def read_pandas_row_selection(df: PandasDataFrame, **kwargs):
 
 
 def read_password(label: str, **kwargs):
+
     """Read a password value from the user
 
     Position Args:
@@ -513,6 +532,7 @@ def read_password(label: str, **kwargs):
 
 
 def read_phone(label: str, **kwargs):
+
     """Read a phone value from the user
 
     Position Args:
@@ -536,6 +556,7 @@ def read_phone(label: str, **kwargs):
 
 
 def read_rating(label: str, **kwargs):
+
     """Read a rating value from the user
 
     Position Args:
@@ -560,6 +581,7 @@ def read_rating(label: str, **kwargs):
 
 
 def read_tag(label: str, **kwargs):
+
     """Read a tag value from the user
 
     Position Args:
@@ -583,6 +605,7 @@ def read_tag(label: str, **kwargs):
 
 
 def read(label: str, **kwargs):
+
     """Read a text value from the user
 
     Position Args:
@@ -607,6 +630,7 @@ def read(label: str, **kwargs):
 
 
 def read_textarea(label: str, **kwargs):
+
     """Read a textarea value from the user
 
     Position Args:
@@ -630,6 +654,7 @@ def read_textarea(label: str, **kwargs):
 
 
 def read_time(label: str, **kwargs):
+
     """Read a time value from the user
 
     Position Args:
@@ -653,6 +678,7 @@ def read_time(label: str, **kwargs):
 
 
 def read_toggle(label: str, **kwargs):
+
     """Read a toggle value from the user
 
     Position Args:
@@ -676,6 +702,7 @@ def read_toggle(label: str, **kwargs):
 
 
 def read_video(label: str, **kwargs):
+
     """Read a video file value from the user
 
     Position Args:

@@ -11,7 +11,6 @@ class PandasOutput(Output):
         self.columns = kwargs.get("columns", 1)
         self.full_width = kwargs.get("full_width", False)
         self.display_index = kwargs.get("display_index", False)
-        self.label = kwargs.get("label", None)
 
     def json(self, **kwargs):
         return {
@@ -20,5 +19,4 @@ class PandasOutput(Output):
             "columns": self.columns,
             "fullWidth": self.full_width,
             "displayIndex": self.display_index,
-            "label": self.label,
         }

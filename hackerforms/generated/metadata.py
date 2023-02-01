@@ -3574,13 +3574,6 @@ metadata = {
                     "default": "False",
                 },
                 {
-                    "argName": "label",
-                    "description": "The label to display to the user",
-                    "typeName": "str",
-                    "isKwarg": True,
-                    "default": None,
-                },
-                {
                     "argName": "disabled",
                     "description": "whether the input is disabled. Defaults to False.",
                     "typeName": "bool",
@@ -3650,12 +3643,6 @@ metadata = {
                     "typeName": "boolean",
                     "description": "",
                     "default": False,
-                },
-                {
-                    "argName": "label",
-                    "typeName": "string",
-                    "description": "The label to display above the input",
-                    "isOptional": True,
                 },
                 {
                     "argName": "key",
@@ -5653,13 +5640,6 @@ metadata = {
                     "default": '""',
                 },
                 {
-                    "argName": "label",
-                    "description": "The label to display to the user",
-                    "typeName": "str",
-                    "isKwarg": True,
-                    "default": None,
-                },
-                {
                     "argName": "end_program",
                     "description": "Whether the program should end after the widget is shown. Defaults to False.",
                     "typeName": "bool",
@@ -5686,12 +5666,6 @@ metadata = {
                     "typeName": "string",
                     "default": "",
                     "description": "",
-                    "isOptional": True,
-                },
-                {
-                    "argName": "label",
-                    "typeName": "string",
-                    "description": "The label to display above the image",
                     "isOptional": True,
                 },
                 {
@@ -5978,9 +5952,9 @@ metadata = {
         "events": [],
         "description": "Display a pandas dataframe to the user",
         "dashProperties": {
-            "minWidth": 195,
+            "minWidth": 223,
             "minHeight": 72,
-            "initialWidth": 245,
+            "initialWidth": 223,
             "initialHeight": 72,
         },
         "pythonAPI": {
@@ -6000,13 +5974,6 @@ metadata = {
                     "typeName": "bool",
                     "isKwarg": True,
                     "default": "False",
-                },
-                {
-                    "argName": "label",
-                    "description": "The label to display to the user",
-                    "typeName": "str",
-                    "isKwarg": True,
-                    "default": None,
                 },
                 {
                     "argName": "end_program",
@@ -6056,12 +6023,6 @@ metadata = {
                     "default": False,
                 },
                 {
-                    "argName": "label",
-                    "typeName": "string",
-                    "description": "The label to display above the dataframe",
-                    "isOptional": True,
-                },
-                {
                     "argName": "columns",
                     "typeName": "number",
                     "description": "number of columns this input will take",
@@ -6107,9 +6068,9 @@ metadata = {
         "events": [],
         "description": "Display a plotly figure to the user",
         "dashProperties": {
-            "minWidth": 245,
+            "minWidth": 223,
             "minHeight": 112,
-            "initialWidth": 245,
+            "initialWidth": 223,
             "initialHeight": 112,
         },
         "pythonAPI": {
@@ -6122,13 +6083,6 @@ metadata = {
                     "isKwarg": False,
                     "default": None,
                     "dashesInitialValue": 'plotly_express.bar(x=["a", "b", "c"], y=[1, 3, 2])',
-                },
-                {
-                    "argName": "label",
-                    "description": "The label to display to the user",
-                    "typeName": "str",
-                    "isKwarg": True,
-                    "default": None,
                 },
                 {
                     "argName": "end_program",
@@ -6152,12 +6106,6 @@ metadata = {
         "brokerAPI": {
             "params": [
                 {"argName": "figure", "typeName": "any", "description": ""},
-                {
-                    "argName": "label",
-                    "typeName": "string",
-                    "description": "The label to display above the figure",
-                    "isOptional": True,
-                },
                 {
                     "argName": "columns",
                     "typeName": "number",

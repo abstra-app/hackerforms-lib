@@ -1,6 +1,5 @@
 from abc import abstractmethod, ABC
 
-
 # Represents an Image from PIL package
 # from PIL.Image import Image
 class PILImage(ABC):

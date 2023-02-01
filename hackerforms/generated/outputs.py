@@ -5,6 +5,7 @@ import io
 
 
 def display_file(file: Union[str, io.IOBase], **kwargs):
+
     """Display a button for the user to download a file
 
     Position Args:
@@ -24,6 +25,7 @@ def display_file(file: Union[str, io.IOBase], **kwargs):
 
 
 def display_html(html: str, **kwargs):
+
     """Display a html snippet to the user
 
     Position Args:
@@ -42,6 +44,7 @@ def display_html(html: str, **kwargs):
 
 
 def display_iframe(url_or_html: str, **kwargs):
+
     """Display an inline iframe to the user
 
     Position Args:
@@ -66,6 +69,7 @@ def display_iframe(url_or_html: str, **kwargs):
 
 
 def display_image(image: Union[str, io.IOBase], **kwargs):
+
     """Display an image to the user
 
     Position Args:
@@ -73,7 +77,6 @@ def display_image(image: Union[str, io.IOBase], **kwargs):
 
     Keyword Args:
             subtitle (str): The subtitle of the image. Defaults to "".
-            label (str): The label to display to the user
             end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
             full_width (bool): Whether the input should use full screen width. Defaults to False.
 
@@ -88,6 +91,7 @@ def display_image(image: Union[str, io.IOBase], **kwargs):
 
 
 def display_latex(text: str, **kwargs):
+
     """Display a latex formula to the user
 
     Position Args:
@@ -108,6 +112,7 @@ def display_latex(text: str, **kwargs):
 
 
 def display_link(link_url: str, **kwargs):
+
     """Display a link to the user
 
     Position Args:
@@ -132,6 +137,7 @@ def display_link(link_url: str, **kwargs):
 
 
 def display_markdown(text: str, **kwargs):
+
     """Display a formatted text to the user
 
     Position Args:
@@ -154,6 +160,7 @@ def display_markdown(text: str, **kwargs):
 
 
 def display_pandas(df: PandasDataFrame, **kwargs):
+
     """Display a pandas dataframe to the user
 
     Position Args:
@@ -161,7 +168,6 @@ def display_pandas(df: PandasDataFrame, **kwargs):
 
     Keyword Args:
             display_index (bool): Whether to show a index column. Defaults to False.
-            label (str): The label to display to the user
             end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
             full_width (bool): Whether the input should use full screen width. Defaults to False.
 
@@ -174,13 +180,13 @@ def display_pandas(df: PandasDataFrame, **kwargs):
 
 
 def display_plotly(fig: PlotlyFigure, **kwargs):
+
     """Display a plotly figure to the user
 
     Position Args:
             fig (PlotlyFigure): The figure to display to the user
 
     Keyword Args:
-            label (str): The label to display to the user
             end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
             full_width (bool): Whether the input should use full screen width. Defaults to False.
 
@@ -195,6 +201,7 @@ def display_plotly(fig: PlotlyFigure, **kwargs):
 
 
 def display_progress(current: float, total: float, **kwargs):
+
     """Display a progress bar. This widget is shown on screen until the script shows a new widget. This widget does not work on Pages, and must be used only with its function.
 
     Position Args:
@@ -219,6 +226,7 @@ def display_progress(current: float, total: float, **kwargs):
 
 
 def display(text: str, **kwargs):
+
     """Display a text to the user
 
     Position Args:
