@@ -16,6 +16,7 @@ class VideoInput(Input):
         self.multiple = kwargs.get("multiple", False)
         self.full_width = kwargs.get("full_width", False)
         self.disabled = kwargs.get("disabled", False)
+        self.max_file_size = kwargs.get("max_file_size", None)
 
     def json(self, **kwargs):
         return {
@@ -29,6 +30,7 @@ class VideoInput(Input):
             "multiple": self.multiple,
             "fullWidth": self.full_width,
             "disabled": self.disabled,
+            "maxFileSize": self.max_file_size,
         }
 
     @staticmethod
