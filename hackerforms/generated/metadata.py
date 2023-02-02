@@ -3550,9 +3550,9 @@ metadata = {
         "events": [{"key": "change", "payloadSchema": []}],
         "description": "Display a pandas dataframe as a table and allow the user to select rows",
         "dashProperties": {
-            "minWidth": 223,
+            "minWidth": 195,
             "minHeight": 72,
-            "initialWidth": 223,
+            "initialWidth": 245,
             "initialHeight": 72,
         },
         "pythonAPI": {
