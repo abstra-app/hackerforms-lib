@@ -3471,6 +3471,12 @@ metadata = {
                     "description": "The label to display above the input",
                 },
                 {
+                    "argName": "initialValue",
+                    "typeName": "number",
+                    "description": "The initial value of the input",
+                    "isOptional": True,
+                },
+                {
                     "argName": "min",
                     "typeName": "number",
                     "description": "The minimum value of the input",
@@ -6177,13 +6183,15 @@ metadata = {
         "examples": [
             {
                 "props": {
-                    "figure": "iris",
-                    "layout": {"width": "400", "height": "230"},
+                    "figure": {
+                        "data": [{"type": "bar", "x": [1, 2, 3], "y": [1, 3, 2]}],
+                        "layout": {"title": {"text": "Bar chart example"}},
+                    }
                 },
                 "name": "Basic Example",
                 "description": "The following example demonstrate some of the available functionality for display_plotly",
                 "key": "example1",
-                "code": "from hackerforms import display_plotly\n\ndisplay_plotly(figure)\n",
+                "code": 'from hackerforms import display_plotly\nimport plotly.graph_objects as go\n\nfigure = go.Figure(\n    data=[go.Bar(x=[1, 2, 3], y=[1, 3, 2])],\n    layout=go.Layout(title=go.layout.Title(text="Bar chart example")),\n)\n\ndisplay_plotly(figure)\n',
             }
         ],
     },
