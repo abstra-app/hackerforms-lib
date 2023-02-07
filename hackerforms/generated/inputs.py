@@ -185,7 +185,7 @@ def read_currency(label: str, **kwargs):
 
     Keyword Args:
             initial_value (str): The initial value to display to the user. Defaults to 0.
-            placeholder (str): The placeholder text to display to the user. Defaults to "Your answer here".
+            placeholder (str): The placeholder text to display to the user. Defaults to "Insert the amount here".
             min (float): The minimum value allowed, eg. "0". Defaults to None.
             max (float): The maximum value allowed, eg. "100". Defaults to None.
             step (float): The value to be incremented or decremented while using the input button. Defaults to None.
@@ -590,7 +590,7 @@ def read(label: str, **kwargs):
 
     Keyword Args:
             initial_value (str): The initial value to display to the user. Defaults to "".
-            placeholder (str): The placeholder text to display to the user. Defaults to "Your answer here".
+            placeholder (str): The placeholder text to display to the user. Defaults to "Placeholder".
             mask (str): A mask to apply to the input. Defaults to None.
             disabled (bool): whether the input is disabled. Defaults to False.
             required (Union[bool, str]): Whether the input is required or not eg. "this field is required". Defaults to True.

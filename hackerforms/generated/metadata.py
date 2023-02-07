@@ -1450,10 +1450,10 @@ metadata = {
                 },
                 {
                     "argName": "placeholder",
-                    "description": 'The placeholder text to display to the user. Defaults to "Your answer here".',
+                    "description": 'The placeholder text to display to the user. Defaults to "Insert the amount here".',
                     "typeName": "str",
                     "isKwarg": True,
-                    "default": '"Your answer here"',
+                    "default": '"Insert the amount here"',
                 },
                 {
                     "argName": "min",
@@ -4564,10 +4564,10 @@ metadata = {
                 },
                 {
                     "argName": "placeholder",
-                    "description": 'The placeholder text to display to the user. Defaults to "Your answer here".',
+                    "description": 'The placeholder text to display to the user. Defaults to "Placeholder".',
                     "typeName": "str",
                     "isKwarg": True,
-                    "default": '"Your answer here"',
+                    "default": '"Placeholder"',
                 },
                 {
                     "argName": "mask",
@@ -4689,7 +4689,7 @@ metadata = {
                     "argName": "placeholder",
                     "typeName": "string",
                     "description": "The placeholder text to display in the input",
-                    "default": "Your answer here",
+                    "default": "Placeholder",
                 },
             ]
         },
