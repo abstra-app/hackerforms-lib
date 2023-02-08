@@ -830,9 +830,9 @@ metadata = {
         "dashOnly": True,
         "dashProperties": {
             "minWidth": 60,
-            "minHeight": 32,
+            "minHeight": 62,
             "initialWidth": 140,
-            "initialHeight": 32,
+            "initialHeight": 62,
         },
         "pythonAPI": {
             "name": "read_click",
