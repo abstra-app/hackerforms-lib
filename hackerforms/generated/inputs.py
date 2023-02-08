@@ -413,7 +413,7 @@ def read_number(label: str, **kwargs):
 
     Keyword Args:
             initial_value (str): The initial value to display to the user. Defaults to 0.
-            placeholder (str): The placeholder text to display to the user. Defaults to "Your answer here".
+            placeholder (str): The placeholder text to display to the user. Defaults to "Insert a number".
             min (float): Min value accepted by the input. Defaults to None.
             max (float): Max value accepted by the input. Defaults to None.
             step (float): The value to be incremented or decremented while using the input button. Defaults to None.

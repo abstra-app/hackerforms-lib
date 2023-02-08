@@ -10,7 +10,7 @@ class NumberInput(Input):
         self.initial_value = kwargs.get("initial_value", 0)
         self.required = kwargs.get("required", True)
         self.hint = kwargs.get("hint", None)
-        self.placeholder = kwargs.get("placeholder", "Your answer here")
+        self.placeholder = kwargs.get("placeholder", "Insert a number")
         self.columns = kwargs.get("columns", 1)
         self.full_width = kwargs.get("full_width", False)
         self.min = kwargs.get("min")

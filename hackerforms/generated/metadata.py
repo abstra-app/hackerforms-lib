@@ -1639,7 +1639,7 @@ metadata = {
         "description": "Read a date value from the user",
         "dashProperties": {
             "minWidth": 200,
-            "minHeight": 60,
+            "minHeight": 72,
             "initialWidth": 300,
             "initialHeight": 112,
         },
@@ -3189,7 +3189,7 @@ metadata = {
                     "typeName": "str",
                     "isKwarg": False,
                     "default": None,
-                    "dashesInitialValue": '"Insert a number"',
+                    "dashesInitialValue": '"Number"',
                 },
                 {
                     "argName": "initial_value",
@@ -3201,10 +3201,10 @@ metadata = {
                 },
                 {
                     "argName": "placeholder",
-                    "description": 'The placeholder text to display to the user. Defaults to "Your answer here".',
+                    "description": 'The placeholder text to display to the user. Defaults to "Insert a number".',
                     "typeName": "str",
                     "isKwarg": True,
-                    "default": '"Your answer here"',
+                    "default": '"Insert a number"',
                 },
                 {
                     "argName": "min",
@@ -3353,7 +3353,7 @@ metadata = {
                     "argName": "placeholder",
                     "typeName": "string",
                     "description": "The placeholder text to display in the input",
-                    "default": "Your answer here",
+                    "default": "Insert a number",
                 },
             ]
         },
