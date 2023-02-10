@@ -1802,7 +1802,7 @@ metadata = {
                     "typeName": "str",
                     "isKwarg": False,
                     "default": None,
-                    "dashesInitialValue": '"Choose your option"',
+                    "dashesInitialValue": '"Select your preference"',
                 },
                 {
                     "argName": "multiple",
@@ -2180,7 +2180,7 @@ metadata = {
                     "typeName": "str",
                     "isKwarg": False,
                     "default": None,
-                    "dashesInitialValue": '"Upload Your file."',
+                    "dashesInitialValue": '"Upload a file."',
                 },
                 {
                     "argName": "initial_value",
@@ -2351,7 +2351,7 @@ metadata = {
                     "typeName": "str",
                     "isKwarg": False,
                     "default": None,
-                    "dashesInitialValue": '"Upload your image"',
+                    "dashesInitialValue": '"Upload"',
                 },
                 {
                     "argName": "initial_value",
@@ -5396,7 +5396,7 @@ metadata = {
                     "description": 'The text to display on the button that will download the file. Defaults to "Download here".',
                     "typeName": "str",
                     "isKwarg": True,
-                    "default": '"Download here"',
+                    "default": '"Download"',
                 },
                 {
                     "argName": "end_program",
@@ -5423,7 +5423,7 @@ metadata = {
                 {
                     "argName": "downloadText",
                     "typeName": "string",
-                    "default": "Download here",
+                    "default": "Download",
                     "description": "",
                 },
                 {
@@ -5818,9 +5818,9 @@ metadata = {
         "description": "Display a link to the user",
         "dashProperties": {
             "minWidth": 60,
-            "minHeight": 30,
+            "minHeight": 72,
             "initialWidth": 146,
-            "initialHeight": 32,
+            "initialHeight": 72,
         },
         "pythonAPI": {
             "name": "display_link",

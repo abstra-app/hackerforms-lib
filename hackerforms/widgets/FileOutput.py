@@ -9,7 +9,7 @@ class FileOutput(Output):
 
     def __init__(self, file: Union[str, io.IOBase], **kwargs):
         self.file = file
-        self.download_text = kwargs.get("download_text", "Download here")
+        self.download_text = kwargs.get("download_text", "Download")
         self.columns = kwargs.get("columns", 1)
         self.full_width = kwargs.get("full_width", False)
 

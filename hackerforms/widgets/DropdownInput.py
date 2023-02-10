@@ -15,7 +15,7 @@ class DropdownInput(Input):
         self.required = kwargs.get("required", True)
         self.hint = kwargs.get("hint", None)
         self.multiple = kwargs.get("multiple", False)
-        self.placeholder = kwargs.get("placeholder", "Choose an option")
+        self.placeholder = kwargs.get("placeholder", "Select your preference")
         self.columns = kwargs.get("columns", 1)
         self.full_width = kwargs.get("full_width", False)
         self.disabled = kwargs.get("disabled", False)
