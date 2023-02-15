@@ -3731,7 +3731,7 @@ metadata = {
                 "name": "Basic Example",
                 "description": "The following example demonstrate some of the available functionality for read_pandas",
                 "key": "example1",
-                "code": 'from r import read_pandas_row_selection\nimport pandas as pd\n\ndata = [\n    {"Country": "USA", "Population": "32,700,000"},\n    {"Country": "China", "Population": "1,300,000,000"},\n    {"Country": "Japan", "Population": "126,000,000"},\n]\ndf = pd.DataFrame(data)\nread_pandas_row_selection(df)\n',
+                "code": 'from hackerforms import read_pandas_row_selection\nimport pandas as pd\n\ndata = [\n    {"Country": "USA", "Population": "32,700,000"},\n    {"Country": "China", "Population": "1,300,000,000"},\n    {"Country": "Japan", "Population": "126,000,000"},\n]\ndf = pd.DataFrame(data)\nread_pandas_row_selection(df)\n',
             }
         ],
     },
