@@ -1,7 +1,13 @@
 metadata = {
     "answer-sheet-input": {
         "type": "answer-sheet-input",
-        "events": [{"key": "change", "payloadSchema": []}],
+        "events": [
+            {
+                "key": "change",
+                "description": "Function or expression to be run when the input value changes",
+                "payloadSchema": [],
+            }
+        ],
         "description": "Retrieve the answers from a test on a usual answersheet",
         "dashProperties": {
             "minWidth": 200,
@@ -163,7 +169,13 @@ metadata = {
     },
     "cards-input": {
         "type": "cards-input",
-        "events": [{"key": "change", "payloadSchema": []}],
+        "events": [
+            {
+                "key": "change",
+                "description": "Function or expression to be run when the input value changes",
+                "payloadSchema": [],
+            }
+        ],
         "dashProperties": {
             "minWidth": 530,
             "minHeight": 352,
@@ -450,7 +462,13 @@ metadata = {
     },
     "checkbox-input": {
         "type": "checkbox-input",
-        "events": [{"key": "change", "payloadSchema": []}],
+        "events": [
+            {
+                "key": "change",
+                "description": "Function or expression to be run when the input value changes",
+                "payloadSchema": [],
+            }
+        ],
         "description": "Read a checkbox value from the user",
         "dashProperties": {
             "minWidth": 60,
@@ -615,7 +633,13 @@ metadata = {
     },
     "checklist-input": {
         "type": "checklist-input",
-        "events": [{"key": "change", "payloadSchema": []}],
+        "events": [
+            {
+                "key": "change",
+                "description": "Function or expression to be run when the input value changes",
+                "payloadSchema": [],
+            }
+        ],
         "description": "Read a checklist value from the user",
         "dashProperties": {
             "minWidth": 60,
@@ -826,7 +850,13 @@ metadata = {
     "click-input": {
         "type": "click-input",
         "description": "A button that triggers click events",
-        "events": [{"key": "click", "payloadSchema": []}],
+        "events": [
+            {
+                "key": "click",
+                "description": "Function or expression to be run when the button is clicked",
+                "payloadSchema": [],
+            }
+        ],
         "dashOnly": True,
         "dashProperties": {
             "minWidth": 60,
@@ -942,7 +972,13 @@ metadata = {
     },
     "cnpj-input": {
         "type": "cnpj-input",
-        "events": [{"key": "change", "payloadSchema": []}],
+        "events": [
+            {
+                "key": "change",
+                "description": "Function or expression to be run when the input value changes",
+                "payloadSchema": [],
+            }
+        ],
         "description": "Read a CNPJ value from the user",
         "dashProperties": {
             "minWidth": 222,
@@ -1103,7 +1139,13 @@ metadata = {
     },
     "code-input": {
         "type": "code-input",
-        "events": [{"key": "change", "payloadSchema": []}],
+        "events": [
+            {
+                "key": "change",
+                "description": "Function or expression to be run when the input value changes",
+                "payloadSchema": [],
+            }
+        ],
         "description": "Read a piece of code from the user",
         "dashProperties": {
             "minWidth": 377,
@@ -1263,7 +1305,13 @@ metadata = {
     },
     "cpf-input": {
         "type": "cpf-input",
-        "events": [{"key": "change", "payloadSchema": []}],
+        "events": [
+            {
+                "key": "change",
+                "description": "Function or expression to be run when the input value changes",
+                "payloadSchema": [],
+            }
+        ],
         "description": "Read a CPF value from the user",
         "dashProperties": {
             "minWidth": 222,
@@ -1421,7 +1469,13 @@ metadata = {
     },
     "currency-input": {
         "type": "currency-input",
-        "events": [{"key": "change", "payloadSchema": []}],
+        "events": [
+            {
+                "key": "change",
+                "description": "Function or expression to be run when the input value changes",
+                "payloadSchema": [],
+            }
+        ],
         "description": "Read currency value from the user",
         "dashProperties": {
             "minWidth": 100,
@@ -1635,7 +1689,13 @@ metadata = {
     },
     "date-input": {
         "type": "date-input",
-        "events": [{"key": "change", "payloadSchema": []}],
+        "events": [
+            {
+                "key": "change",
+                "description": "Function or expression to be run when the input value changes",
+                "payloadSchema": [],
+            }
+        ],
         "description": "Read a date value from the user",
         "dashProperties": {
             "minWidth": 200,
@@ -1785,7 +1845,13 @@ metadata = {
     },
     "dropdown-input": {
         "type": "dropdown-input",
-        "events": [{"key": "change", "payloadSchema": []}],
+        "events": [
+            {
+                "key": "change",
+                "description": "Function or expression to be run when the input value changes",
+                "payloadSchema": [],
+            }
+        ],
         "description": "Read a dropdown value from the user",
         "dashProperties": {
             "minWidth": 60,
@@ -1995,7 +2061,13 @@ metadata = {
     },
     "email-input": {
         "type": "email-input",
-        "events": [{"key": "change", "payloadSchema": []}],
+        "events": [
+            {
+                "key": "change",
+                "description": "Function or expression to be run when the input value changes",
+                "payloadSchema": [],
+            }
+        ],
         "description": "Read an email value from the user",
         "dashProperties": {
             "minWidth": 220,
@@ -2163,7 +2235,13 @@ metadata = {
     },
     "file-input": {
         "type": "file-input",
-        "events": [{"key": "change", "payloadSchema": []}],
+        "events": [
+            {
+                "key": "change",
+                "description": "Function or expression to be run when the input value changes",
+                "payloadSchema": [],
+            }
+        ],
         "description": "Read a file value from the user",
         "dashProperties": {
             "minWidth": 150,
@@ -2334,7 +2412,13 @@ metadata = {
     },
     "image-input": {
         "type": "image-input",
-        "events": [{"key": "change", "payloadSchema": []}],
+        "events": [
+            {
+                "key": "change",
+                "description": "Function or expression to be run when the input value changes",
+                "payloadSchema": [],
+            }
+        ],
         "description": "Read a image file value from the user ",
         "dashProperties": {
             "minWidth": 150,
@@ -2509,7 +2593,13 @@ metadata = {
         "type": "list-input",
         "description": "Read a list value from the user",
         "formOnly": True,
-        "events": [{"key": "change", "payloadSchema": []}],
+        "events": [
+            {
+                "key": "change",
+                "description": "Function or expression to be run when the input value changes",
+                "payloadSchema": [],
+            }
+        ],
         "dashProperties": {
             "minWidth": 146,
             "minHeight": 32,
@@ -2727,7 +2817,13 @@ metadata = {
     },
     "multiple-choice-input": {
         "type": "multiple-choice-input",
-        "events": [{"key": "change", "payloadSchema": []}],
+        "events": [
+            {
+                "key": "change",
+                "description": "Function or expression to be run when the input value changes",
+                "payloadSchema": [],
+            }
+        ],
         "description": "Read a multiple choice value from the user",
         "dashProperties": {
             "minWidth": 60,
@@ -2969,7 +3065,13 @@ metadata = {
     },
     "nps-input": {
         "type": "nps-input",
-        "events": [{"key": "change", "payloadSchema": []}],
+        "events": [
+            {
+                "key": "change",
+                "description": "Function or expression to be run when the input value changes",
+                "payloadSchema": [],
+            }
+        ],
         "description": "Gets NPS feedback from user",
         "dashProperties": {
             "minWidth": 120,
@@ -3172,7 +3274,13 @@ metadata = {
     },
     "number-input": {
         "type": "number-input",
-        "events": [{"key": "change", "payloadSchema": []}],
+        "events": [
+            {
+                "key": "change",
+                "description": "Function or expression to be run when the input value changes",
+                "payloadSchema": [],
+            }
+        ],
         "description": "Read a number value from the user",
         "dashProperties": {
             "minWidth": 120,
@@ -3369,7 +3477,13 @@ metadata = {
     },
     "number-slider-input": {
         "type": "number-slider-input",
-        "events": [{"key": "change", "payloadSchema": []}],
+        "events": [
+            {
+                "key": "change",
+                "description": "Function or expression to be run when the input value changes",
+                "payloadSchema": [],
+            }
+        ],
         "description": "Read a number value from the user",
         "dashProperties": {
             "minWidth": 120,
@@ -3553,7 +3667,13 @@ metadata = {
     },
     "pandas-row-selection-input": {
         "type": "pandas-row-selection-input",
-        "events": [{"key": "change", "payloadSchema": []}],
+        "events": [
+            {
+                "key": "change",
+                "description": "Function or expression to be run when the input value changes",
+                "payloadSchema": [],
+            }
+        ],
         "description": "Display a pandas dataframe as a table and allow the user to select rows",
         "dashProperties": {
             "minWidth": 195,
@@ -3737,7 +3857,13 @@ metadata = {
     },
     "password-input": {
         "type": "password-input",
-        "events": [{"key": "change", "payloadSchema": []}],
+        "events": [
+            {
+                "key": "change",
+                "description": "Function or expression to be run when the input value changes",
+                "payloadSchema": [],
+            }
+        ],
         "description": "Read a password value from the user",
         "dashProperties": {
             "minWidth": 120,
@@ -4014,7 +4140,13 @@ metadata = {
     },
     "phone-input": {
         "type": "phone-input",
-        "events": [{"key": "change", "payloadSchema": []}],
+        "events": [
+            {
+                "key": "change",
+                "description": "Function or expression to be run when the input value changes",
+                "payloadSchema": [],
+            }
+        ],
         "description": "Read a phone value from the user",
         "dashProperties": {
             "minWidth": 377,
@@ -4185,7 +4317,13 @@ metadata = {
     },
     "rating-input": {
         "type": "rating-input",
-        "events": [{"key": "change", "payloadSchema": []}],
+        "events": [
+            {
+                "key": "change",
+                "description": "Function or expression to be run when the input value changes",
+                "payloadSchema": [],
+            }
+        ],
         "description": "Read a rating value from the user",
         "dashProperties": {
             "minWidth": 120,
@@ -4371,7 +4509,13 @@ metadata = {
     },
     "tag-input": {
         "type": "tag-input",
-        "events": [{"key": "change", "payloadSchema": []}],
+        "events": [
+            {
+                "key": "change",
+                "description": "Function or expression to be run when the input value changes",
+                "payloadSchema": [],
+            }
+        ],
         "description": "Read a tag value from the user",
         "dashProperties": {
             "minWidth": 120,
@@ -4535,7 +4679,13 @@ metadata = {
     },
     "text-input": {
         "type": "text-input",
-        "events": [{"key": "change", "payloadSchema": []}],
+        "events": [
+            {
+                "key": "change",
+                "description": "Function or expression to be run when the input value changes",
+                "payloadSchema": [],
+            }
+        ],
         "description": "Read a text value from the user",
         "dashProperties": {
             "minWidth": 120,
@@ -4715,7 +4865,13 @@ metadata = {
     },
     "textarea-input": {
         "type": "textarea-input",
-        "events": [{"key": "change", "payloadSchema": []}],
+        "events": [
+            {
+                "key": "change",
+                "description": "Function or expression to be run when the input value changes",
+                "payloadSchema": [],
+            }
+        ],
         "description": "Read a textarea value from the user",
         "dashProperties": {
             "minWidth": 200,
@@ -4873,7 +5029,13 @@ metadata = {
     },
     "time-input": {
         "type": "time-input",
-        "events": [{"key": "change", "payloadSchema": []}],
+        "events": [
+            {
+                "key": "change",
+                "description": "Function or expression to be run when the input value changes",
+                "payloadSchema": [],
+            }
+        ],
         "description": "Read a time value from the user",
         "dashProperties": {
             "minWidth": 120,
@@ -5034,7 +5196,13 @@ metadata = {
     },
     "toggle-input": {
         "type": "toggle-input",
-        "events": [{"key": "change", "payloadSchema": []}],
+        "events": [
+            {
+                "key": "change",
+                "description": "Function or expression to be run when the input value changes",
+                "payloadSchema": [],
+            }
+        ],
         "description": "Read a toggle value from the user",
         "dashProperties": {
             "minWidth": 120,
@@ -5197,7 +5365,13 @@ metadata = {
     },
     "video-input": {
         "type": "video-input",
-        "events": [{"key": "change", "payloadSchema": []}],
+        "events": [
+            {
+                "key": "change",
+                "description": "Function or expression to be run when the input value changes",
+                "payloadSchema": [],
+            }
+        ],
         "description": "Read a video file value from the user",
         "dashProperties": {
             "minWidth": 150,
