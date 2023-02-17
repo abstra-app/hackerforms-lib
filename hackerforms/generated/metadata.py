@@ -659,14 +659,6 @@ metadata = {
                     "dashesInitialValue": '"Choose your option"',
                 },
                 {
-                    "argName": "initial_value",
-                    "description": "The initial value to display to the user. Defaults to None.",
-                    "typeName": "str",
-                    "isKwarg": True,
-                    "default": "None",
-                    "formOnly": True,
-                },
-                {
                     "argName": "options",
                     "description": "The options to display to the user, eg. ['Option 1', 'Option 2'] or [{'label': 'Option 1', 'value': '1'}, {'label': 'Option 2', 'value': '2'}]",
                     "typeName": "list",
@@ -674,6 +666,14 @@ metadata = {
                     "isKwarg": False,
                     "default": None,
                     "dashesInitialValue": '[\n    {\n      "label": "Option 1",\n      "value": 1,\n    },\n    {\n      "label": "Option 2",\n      "value": 2,\n    },\n  ]',
+                },
+                {
+                    "argName": "initial_value",
+                    "description": "The initial value to display to the user. Defaults to None.",
+                    "typeName": "str",
+                    "isKwarg": True,
+                    "default": "None",
+                    "formOnly": True,
                 },
                 {
                     "argName": "disabled",
@@ -1871,6 +1871,15 @@ metadata = {
                     "dashesInitialValue": '"Select your preference"',
                 },
                 {
+                    "argName": "options",
+                    "description": "The options to display to the user, eg. ['Option 1', 'Option 2'] or [{'label': 'Option 1', 'value': '1'}, {'label': 'Option 2', 'value': '2'}]",
+                    "typeName": "list",
+                    "typeDescription": ["list[AbstraOption]"],
+                    "isKwarg": False,
+                    "default": None,
+                    "dashesInitialValue": '[\n    {\n      "label": "Option 1",\n      "value": 1,\n    },\n    {\n      "label": "Option 2",\n      "value": 2,\n    },\n  ]',
+                },
+                {
                     "argName": "multiple",
                     "description": "Whether the user can select multiple options. Defaults to False.",
                     "typeName": "bool",
@@ -1891,15 +1900,6 @@ metadata = {
                     "typeName": "str",
                     "isKwarg": True,
                     "default": '"Choose an option"',
-                },
-                {
-                    "argName": "options",
-                    "description": "The options to display to the user, eg. ['Option 1', 'Option 2'] or [{'label': 'Option 1', 'value': '1'}, {'label': 'Option 2', 'value': '2'}]",
-                    "typeName": "list",
-                    "typeDescription": ["list[AbstraOption]"],
-                    "isKwarg": False,
-                    "default": None,
-                    "dashesInitialValue": '[\n    {\n      "label": "Option 1",\n      "value": 1,\n    },\n    {\n      "label": "Option 2",\n      "value": 2,\n    },\n  ]',
                 },
                 {
                     "argName": "disabled",
@@ -2843,6 +2843,15 @@ metadata = {
                     "dashesInitialValue": '"Select your choices"',
                 },
                 {
+                    "argName": "options",
+                    "description": "The options to display to the user, eg. ['Option 1', 'Option 2'] or [{'label': 'Option 1', 'value': '1'}, {'label': 'Option 2', 'value': '2'}]",
+                    "typeName": "list",
+                    "typeDescription": ["list[AbstraOption]"],
+                    "isKwarg": False,
+                    "default": None,
+                    "dashesInitialValue": '[\n    {\n      "label": "Option 1",\n      "value": 1,\n    },\n    {\n      "label": "Option 2",\n      "value": 2,\n    },\n  ]',
+                },
+                {
                     "argName": "multiple",
                     "description": "Whether the user can select multiple options. Defaults to False.",
                     "typeName": "bool",
@@ -2870,15 +2879,6 @@ metadata = {
                     "isKwarg": True,
                     "default": "None",
                     "formOnly": True,
-                },
-                {
-                    "argName": "options",
-                    "description": "The options to display to the user, eg. ['Option 1', 'Option 2'] or [{'label': 'Option 1', 'value': '1'}, {'label': 'Option 2', 'value': '2'}]",
-                    "typeName": "list",
-                    "typeDescription": ["list[AbstraOption]"],
-                    "isKwarg": False,
-                    "default": None,
-                    "dashesInitialValue": '[\n    {\n      "label": "Option 1",\n      "value": 1,\n    },\n    {\n      "label": "Option 2",\n      "value": 2,\n    },\n  ]',
                 },
                 {
                     "argName": "disabled",
