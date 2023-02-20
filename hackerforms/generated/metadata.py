@@ -6155,7 +6155,19 @@ metadata = {
     },
     "pandas-output": {
         "type": "pandas-output",
-        "events": [],
+        "events": [
+            {
+                "key": "row-click",
+                "description": "When clicking on a row",
+                "payloadSchema": [
+                    {
+                        "key": "row",
+                        "typeName": "pandas.Series",
+                        "description": "The row that was clicked",
+                    }
+                ],
+            }
+        ],
         "description": "Display a pandas dataframe to the user",
         "dashProperties": {
             "minWidth": 195,
