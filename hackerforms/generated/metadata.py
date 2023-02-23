@@ -2589,6 +2589,173 @@ metadata = {
             }
         ],
     },
+    "kanban-board-input": {
+        "type": "kanban-board-input",
+        "dashOnly": True,
+        "events": [],
+        "dashProperties": {
+            "minWidth": 300,
+            "minHeight": 500,
+            "initialWidth": 500,
+            "initialHeight": 500,
+        },
+        "description": "Kanban board",
+        "pythonAPI": {
+            "name": "read_kanban_board",
+            "params": [
+                {
+                    "argName": "label",
+                    "description": "The label to display to the user",
+                    "typeName": "str",
+                    "isKwarg": False,
+                    "default": None,
+                },
+                {
+                    "argName": "initial_value",
+                    "description": "The initial board state.",
+                    "typeName": "KanbanBoard",
+                    "isKwarg": True,
+                    "default": None,
+                    "formOnly": True,
+                },
+            ],
+            "returns": [
+                {
+                    "typeName": None,
+                    "typeDescription": "KanbanBoard object containing all stages and cards",
+                }
+            ],
+        },
+        "brokerAPI": {
+            "params": [
+                {
+                    "argName": "label",
+                    "typeName": "string",
+                    "description": "The label of the input",
+                },
+                {
+                    "argName": "initialValue",
+                    "typeName": "object",
+                    "description": "The initial board state.",
+                },
+                {
+                    "argName": "key",
+                    "typeName": "string",
+                    "description": "The key of the input on the returning object",
+                },
+                {
+                    "argName": "disabled",
+                    "typeName": "boolean",
+                    "description": "Whether the input is disabled",
+                },
+                {
+                    "argName": "hint",
+                    "typeName": ["string", "null"],
+                    "description": "message describing the input",
+                    "default": None,
+                    "isOptional": True,
+                },
+                {
+                    "argName": "end_program",
+                    "typeName": ["boolean", "null"],
+                    "description": "End program after this widget is shown",
+                    "default": False,
+                    "isOptional": True,
+                },
+                {
+                    "argName": "required",
+                    "typeName": ["boolean", "string"],
+                    "description": "Whether the input is required or not",
+                    "default": True,
+                    "isOptional": True,
+                },
+                {
+                    "argName": "columns",
+                    "typeName": "number",
+                    "description": "number of columns this input will take",
+                    "isOptional": True,
+                    "formOnly": True,
+                },
+                {
+                    "argName": "fullWidth",
+                    "typeName": "boolean",
+                    "description": "Whether the widget should take up the full width of the page",
+                    "isOptional": True,
+                    "formOnly": True,
+                },
+            ]
+        },
+        "examples": [
+            {
+                "props": {
+                    "initialValue": {
+                        "type": "kanban-board",
+                        "stages": [
+                            {
+                                "type": "kanban-stage",
+                                "name": "Backlog",
+                                "cards": [
+                                    {
+                                        "type": "kanban-card",
+                                        "name": "Add a new feature #1",
+                                        "description": "Add a new feature to the product",
+                                        "tags": ["feature", "enhancement"],
+                                    },
+                                    {
+                                        "type": "kanban-card",
+                                        "name": "Fix a bug #2",
+                                        "description": "Fix a bug in the product",
+                                        "tags": ["bug"],
+                                    },
+                                ],
+                            },
+                            {
+                                "type": "kanban-stage",
+                                "name": "In progress",
+                                "cards": [
+                                    {
+                                        "type": "kanban-card",
+                                        "name": "Add a new feature #3",
+                                        "description": "Add a new feature to the product",
+                                        "tags": ["feature", "enhancement"],
+                                    },
+                                    {
+                                        "type": "kanban-card",
+                                        "name": "Fix a bug #4",
+                                        "description": "Fix a bug in the product",
+                                        "tags": ["bug"],
+                                    },
+                                ],
+                            },
+                            {
+                                "type": "kanban-stage",
+                                "name": "Done",
+                                "cards": [
+                                    {
+                                        "type": "kanban-card",
+                                        "name": "Add a new feature #5",
+                                        "description": "Add a new feature to the product",
+                                        "tags": ["feature", "enhancement"],
+                                    },
+                                    {
+                                        "type": "kanban-card",
+                                        "name": "Fix a bug #6",
+                                        "description": "Fix a bug in the product",
+                                        "tags": ["bug"],
+                                    },
+                                ],
+                            },
+                        ],
+                    },
+                    "label": "Spring backlog",
+                },
+                "name": "Basic Example",
+                "description": "The following example demonstrate some of the available functionality for read_kanban_board",
+                "key": "example1",
+                "code": 'import hackerforms as hf\n\nboard = {\n    "type": "kanban-board",\n    "stages": [\n        {\n            "type": "kanban-stage",\n            "name": "Backlog",\n            "cards": [\n                {\n                    "type": "kanban-card",\n                    "name": "Add a new feature #1",\n                    "description": "Add a new feature to the product",\n                    "tags": ["feature", "enhancement"],\n                },\n                {\n                    "type": "kanban-card",\n                    "name": "Fix a bug #2",\n                    "description": "Fix a bug in the product",\n                    "tags": ["bug"],\n                },\n            ],\n        },\n        {\n            "type": "kanban-stage",\n            "name": "In progress",\n            "cards": [\n                {\n                    "type": "kanban-card",\n                    "name": "Add a new feature #3",\n                    "description": "Add a new feature to the product",\n                    "tags": ["feature", "enhancement"],\n                },\n                {\n                    "type": "kanban-card",\n                    "name": "Fix a bug #4",\n                    "description": "Fix a bug in the product",\n                    "tags": ["bug"],\n                },\n            ],\n        },\n        {\n            "type": "kanban-stage",\n            "name": "Done",\n            "cards": [\n                {\n                    "type": "kanban-card",\n                    "name": "Add a new feature #5",\n                    "description": "Add a new feature to the product",\n                    "tags": ["feature", "enhancement"],\n                },\n                {\n                    "type": "kanban-card",\n                    "name": "Fix a bug #6",\n                    "description": "Fix a bug in the product",\n                    "tags": ["bug"],\n                },\n            ],\n        },\n    ],\n}\n\nhf.read_kanban_board(label="Product spring", initial_value=board)\n',
+            }
+        ],
+    },
     "list-input": {
         "type": "list-input",
         "description": "Read a list value from the user",
