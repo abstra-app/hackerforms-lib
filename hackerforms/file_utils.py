@@ -2,6 +2,7 @@ import io
 from typing import Union
 from .apis import upload_file
 from .types import PILImage
+from tempfile import NamedTemporaryFile
 
 
 def convert_file(file: Union[str, io.IOBase, PILImage]) -> str:
@@ -22,3 +23,15 @@ def convert_file(file: Union[str, io.IOBase, PILImage]) -> str:
         file = open(file_path, "rb")
 
     return upload_file(file)
+
+
+def download_file(url):
+    import requests
+
+    f = NamedTemporaryFile()
+    with requests.get(url, stream=True) as r:
+        r.raise_for_status()
+        for chunk in r.iter_content(chunk_size=8192):
+            f.write(chunk)
+    f.seek(0)
+    return f

@@ -1,6 +1,6 @@
-import requests, typing
+import typing
 from dataclasses import dataclass
-from tempfile import NamedTemporaryFile
+from file_utils import download_file
 
 
 class FileResponse:
@@ -12,7 +12,6 @@ class FileResponse:
         content (bytes): The content of the file
     """
 
-    __res = None
     __file = None
 
     def __init__(self, url):
@@ -21,16 +20,13 @@ class FileResponse:
 
     @property
     def content(self):
-        if not self.__res:
-            self.__res = requests.get(self.url)
-        return self.__res.content
+        with open(self.file.name, "rb") as f:
+            return f.read()
 
     @property
     def file(self) -> typing.BinaryIO:
         if not self.__file:
-            self.__file = NamedTemporaryFile()
-            self.__file.write(self.content)
-            self.__file.seek(0)
+            self.__file = download_file(self.url)
         return self.__file
 
 
