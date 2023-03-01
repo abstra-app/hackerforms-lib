@@ -43,20 +43,21 @@ class DateInput(Input):
         }
 
     @staticmethod
-    def __revert_value(value: Optional[datetime.date]):
-        if not value:
-            return None
-        return value.isoformat()
+    def __revert_value(value: Union[datetime.date, time.struct_time, str]) -> str:
+        return DateInput.convert_value(value)
 
     @staticmethod
     def __convert_answer(answer: str) -> Optional[datetime.date]:
         if not answer:
             return None
-        split_answer = answer.split("-")
-        year = int(split_answer[0])
-        month = int(split_answer[1])
-        day = int(split_answer[2])
-        return datetime.date(year, month, day)
+        try:
+            split_answer = answer.split("T")[0].split("-")
+            year = int(split_answer[0])
+            month = int(split_answer[1])
+            day = int(split_answer[2])
+            return datetime.date(year, month, day)
+        except Exception:
+            raise ValueError("Invalid date string format. Expected YYYY-MM-DD.")
 
     def convert_answer(self, answer: str) -> Optional[datetime.date]:
         """
