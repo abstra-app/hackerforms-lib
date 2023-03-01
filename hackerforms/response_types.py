@@ -1,6 +1,6 @@
 import typing
 from dataclasses import dataclass
-from file_utils import download_file
+from .file_utils import download_file
 
 
 class FileResponse:
