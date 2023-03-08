@@ -1,1 +1,1 @@
-from hackerforms.generated.metadata import metadata
+from abstra.widgets.metadata import metadata

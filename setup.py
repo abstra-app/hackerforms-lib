@@ -29,7 +29,6 @@ setup(
     packages=[
         "hackerforms",
         "hackerforms.generated",
-        "hackerforms.widgets",
         "hackerforms.connection",
     ],
     install_requires=requirements,
