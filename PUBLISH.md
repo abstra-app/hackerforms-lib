@@ -3,7 +3,7 @@
 ## Publish with github actions
 
 The workflow in .github/workflows/upload_pip.yml publishes the package to the PyPI.
-Create a release in Github with the tag to published in PyPI and the action will be triggered .
+Create a release in Github with the tag to published in PyPI and the action will be triggered.
 
 ## Publish Local
 
