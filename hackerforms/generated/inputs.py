@@ -5,7 +5,7 @@ from hackerforms.utils import get_single_value
 
 
 def read_answer_sheet(label: str, options: list, number_of_questions: int, **kwargs):
-    """Retrieve the answers from a test on a usual answersheet
+    """Retrieve the answers from a test on usual answersheet
 
     Position Args:
             label (str): The label to display to the user
@@ -62,7 +62,7 @@ def read_cards(label: str, options: list, **kwargs):
 
 
 def read_checkbox(label: str, **kwargs):
-    """Read a checkbox value from the user
+    """Allow users to select an option by interacting with a checkbox
 
     Position Args:
             label (str): The label to display to the user
@@ -84,7 +84,7 @@ def read_checkbox(label: str, **kwargs):
 
 
 def read_checklist(label: str, options: list, **kwargs):
-    """Read a checklist value from the user
+    """Show a checklist for users to select items
 
     Position Args:
             label (str): The label to display to the user
@@ -109,7 +109,7 @@ def read_checklist(label: str, options: list, **kwargs):
 
 
 def read_cnpj(label: str, **kwargs):
-    """Read a CNPJ value from the user
+    """Allow users to insert a CNPJ number into the app.
 
     Position Args:
             label (str): The label to display to the user
@@ -132,7 +132,7 @@ def read_cnpj(label: str, **kwargs):
 
 
 def read_code(label: str, **kwargs):
-    """Read a piece of code from the user
+    """Code field allow users to insert code and reads it.
 
     Position Args:
             label (str): The label to display to the user
@@ -155,7 +155,7 @@ def read_code(label: str, **kwargs):
 
 
 def read_cpf(label: str, **kwargs):
-    """Read a CPF value from the user
+    """Allow users to insert a CPF number into the app.
 
     Position Args:
             label (str): The label to display to the user
@@ -178,7 +178,7 @@ def read_cpf(label: str, **kwargs):
 
 
 def read_currency(label: str, **kwargs):
-    """Read currency value from the user
+    """Currency field allows users to enter monetary values.
 
     Position Args:
             label (str): The label to display to the user
@@ -205,7 +205,7 @@ def read_currency(label: str, **kwargs):
 
 
 def read_date(label: str, **kwargs):
-    """Read a date value from the user
+    """Allow users to select  a date, or a range of dates.*
 
     Position Args:
             label (str): The label to display to the user
@@ -227,7 +227,7 @@ def read_date(label: str, **kwargs):
 
 
 def read_dropdown(label: str, options: list, **kwargs):
-    """Read a dropdown value from the user
+    """Allow users to select one or more options by selecting items in a dropdown
 
     Position Args:
             label (str): The label to display to the user
@@ -254,7 +254,7 @@ def read_dropdown(label: str, options: list, **kwargs):
 
 
 def read_email(label: str, **kwargs):
-    """Read an email value from the user
+    """Email field allow users to enter a valid email address.
 
     Position Args:
             label (str): The label to display to the user
@@ -278,7 +278,7 @@ def read_email(label: str, **kwargs):
 
 
 def read_file(label: str, **kwargs):
-    """Read a file value from the user
+    """File upload adds a drop-area for users to upload one or more files
 
     Position Args:
             label (str): The label to display to the user
@@ -302,7 +302,7 @@ def read_file(label: str, **kwargs):
 
 
 def read_image(label: str, **kwargs):
-    """Read a image file value from the user
+    """Image upload adds a drop-area for users to upload one or more image files.
 
     Position Args:
             label (str): The label to display to the user
@@ -380,7 +380,7 @@ def read_multiple_choice(label: str, options: list, **kwargs):
 
 
 def read_nps(label: str, **kwargs):
-    """Gets NPS feedback from user
+    """NPS feedback allow users to rank their experience from 0 to 10.
 
     Position Args:
             label (str): The label to display to the user
@@ -406,7 +406,7 @@ def read_nps(label: str, **kwargs):
 
 
 def read_number(label: str, **kwargs):
-    """Read a number value from the user
+    """Number field allow users to enter numeric values.
 
     Position Args:
             label (str): The label to display to the user
@@ -432,7 +432,7 @@ def read_number(label: str, **kwargs):
 
 
 def read_number_slider(label: str, **kwargs):
-    """Read a number value from the user
+    """Allow users to select values in a slider bar.
 
     Position Args:
             label (str): The label to display to the user
@@ -483,7 +483,7 @@ def read_pandas_row_selection(df: PandasDataFrame, **kwargs):
 
 
 def read_password(label: str, **kwargs):
-    """Read a password value from the user
+    """Password field allow users to enter a password before seen the content.
 
     Position Args:
             label (str): The label to display to the user
@@ -514,7 +514,7 @@ def read_password(label: str, **kwargs):
 
 
 def read_phone(label: str, **kwargs):
-    """Read a phone value from the user
+    """Phone field allow users to enter a valid phone number.
 
     Position Args:
             label (str): The label to display to the user
@@ -537,7 +537,7 @@ def read_phone(label: str, **kwargs):
 
 
 def read_rating(label: str, **kwargs):
-    """Read a rating value from the user
+    """Rating feedback allow users to rank their experience from 1 to 5 starts.
 
     Position Args:
             label (str): The label to display to the user
@@ -584,7 +584,7 @@ def read_tag(label: str, **kwargs):
 
 
 def read(label: str, **kwargs):
-    """Read a text value from the user
+    """Text fields allow users to insert plain text.
 
     Position Args:
             label (str): The label to display to the user
@@ -608,7 +608,7 @@ def read(label: str, **kwargs):
 
 
 def read_textarea(label: str, **kwargs):
-    """Read a textarea value from the user
+    """Long text field allow users to type longer textual content.
 
     Position Args:
             label (str): The label to display to the user
@@ -654,7 +654,7 @@ def read_time(label: str, **kwargs):
 
 
 def read_toggle(label: str, **kwargs):
-    """Read a toggle value from the user
+    """Allow users to set between two items.
 
     Position Args:
             label (str): The label to display to the user
@@ -677,7 +677,7 @@ def read_toggle(label: str, **kwargs):
 
 
 def read_video(label: str, **kwargs):
-    """Read a video file value from the user
+    """Video upload adds a drop-area for users to upload one or more video files.
 
     Position Args:
             label (str): The label to display to the user

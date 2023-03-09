@@ -5,7 +5,7 @@ import io
 
 
 def display_file(file: Union[str, io.IOBase], **kwargs):
-    """Display a button for the user to download a file
+    """Show a button for the user to download a file.
 
     Position Args:
             file (Union[str, io.IOBase]): The file to download
@@ -24,7 +24,7 @@ def display_file(file: Union[str, io.IOBase], **kwargs):
 
 
 def display_html(html: str, **kwargs):
-    """Display a html snippet to the user
+    """Embed HTML to the app.
 
     Position Args:
             html (str): The html snippet to display to the user
@@ -42,7 +42,7 @@ def display_html(html: str, **kwargs):
 
 
 def display_iframe(url_or_html: str, **kwargs):
-    """Display an inline iframe to the user
+    """Embed content using iframe.
 
     Position Args:
             url_or_html (str): The link to the document or the own document to display to the user
@@ -66,7 +66,7 @@ def display_iframe(url_or_html: str, **kwargs):
 
 
 def display_image(image: Union[str, io.IOBase], **kwargs):
-    """Display an image to the user
+    """Show an image to the user
 
     Position Args:
             image (Union[str, io.IOBase]): The image to display to the user
@@ -88,7 +88,7 @@ def display_image(image: Union[str, io.IOBase], **kwargs):
 
 
 def display_latex(text: str, **kwargs):
-    """Display a latex formula to the user
+    """Show an Latex formula to the user
 
     Position Args:
             text (str): The latex formula to display to the user
@@ -108,7 +108,7 @@ def display_latex(text: str, **kwargs):
 
 
 def display_link(link_url: str, **kwargs):
-    """Display a link to the user
+    """Allow users to see and open content from text links.
 
     Position Args:
             link_url (str): The url of the link to display to the user
@@ -132,7 +132,7 @@ def display_link(link_url: str, **kwargs):
 
 
 def display_markdown(text: str, **kwargs):
-    """Display a formatted text to the user
+    """Show a formatted text to the user
 
     Position Args:
             text (str): The formatted text to display to the user
@@ -174,7 +174,7 @@ def display_pandas(df: PandasDataFrame, **kwargs):
 
 
 def display_plotly(fig: PlotlyFigure, **kwargs):
-    """Display a plotly figure to the user
+    """Show a line chart to the user using Plotly
 
     Position Args:
             fig (PlotlyFigure): The figure to display to the user
@@ -195,7 +195,7 @@ def display_plotly(fig: PlotlyFigure, **kwargs):
 
 
 def display_progress(current: float, total: float, **kwargs):
-    """Display a progress bar. This widget is shown on screen until the script shows a new widget. This widget does not work on Pages, and must be used only with its function.
+    """Show a progress bar when loading the app.
 
     Position Args:
             current (float): The progress being made. Defaults to 50.
@@ -219,7 +219,7 @@ def display_progress(current: float, total: float, **kwargs):
 
 
 def display(text: str, **kwargs):
-    """Display a text to the user
+    """ "Text display" adds textual information into the app.
 
     Position Args:
             text (str): The text to display to the user

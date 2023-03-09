@@ -54,7 +54,7 @@ class WidgetSchema:
     def read_answer_sheet(
         self, label: str, options: list, number_of_questions: int, **kwargs
     ):
-        """Retrieve the answers from a test on a usual answersheet
+        """Retrieve the answers from a test on usual answersheet
 
         Position Args:
                 label (str): The label to display to the user
@@ -109,7 +109,7 @@ class WidgetSchema:
         return self
 
     def read_checkbox(self, label: str, **kwargs):
-        """Read a checkbox value from the user
+        """Allow users to select an option by interacting with a checkbox
 
         Position Args:
                 label (str): The label to display to the user
@@ -132,7 +132,7 @@ class WidgetSchema:
         return self
 
     def read_checklist(self, label: str, options: list, **kwargs):
-        """Read a checklist value from the user
+        """Show a checklist for users to select items
 
         Position Args:
                 label (str): The label to display to the user
@@ -156,7 +156,7 @@ class WidgetSchema:
         return self
 
     def read_cnpj(self, label: str, **kwargs):
-        """Read a CNPJ value from the user
+        """Allow users to insert a CNPJ number into the app.
 
         Position Args:
                 label (str): The label to display to the user
@@ -180,7 +180,7 @@ class WidgetSchema:
         return self
 
     def read_code(self, label: str, **kwargs):
-        """Read a piece of code from the user
+        """Code field allow users to insert code and reads it.
 
         Position Args:
                 label (str): The label to display to the user
@@ -204,7 +204,7 @@ class WidgetSchema:
         return self
 
     def read_cpf(self, label: str, **kwargs):
-        """Read a CPF value from the user
+        """Allow users to insert a CPF number into the app.
 
         Position Args:
                 label (str): The label to display to the user
@@ -228,7 +228,7 @@ class WidgetSchema:
         return self
 
     def read_currency(self, label: str, **kwargs):
-        """Read currency value from the user
+        """Currency field allows users to enter monetary values.
 
         Position Args:
                 label (str): The label to display to the user
@@ -256,7 +256,7 @@ class WidgetSchema:
         return self
 
     def read_date(self, label: str, **kwargs):
-        """Read a date value from the user
+        """Allow users to select  a date, or a range of dates.*
 
         Position Args:
                 label (str): The label to display to the user
@@ -279,7 +279,7 @@ class WidgetSchema:
         return self
 
     def read_dropdown(self, label: str, options: list, **kwargs):
-        """Read a dropdown value from the user
+        """Allow users to select one or more options by selecting items in a dropdown
 
         Position Args:
                 label (str): The label to display to the user
@@ -305,7 +305,7 @@ class WidgetSchema:
         return self
 
     def read_email(self, label: str, **kwargs):
-        """Read an email value from the user
+        """Email field allow users to enter a valid email address.
 
         Position Args:
                 label (str): The label to display to the user
@@ -330,7 +330,7 @@ class WidgetSchema:
         return self
 
     def read_file(self, label: str, **kwargs):
-        """Read a file value from the user
+        """File upload adds a drop-area for users to upload one or more files
 
         Position Args:
                 label (str): The label to display to the user
@@ -355,7 +355,7 @@ class WidgetSchema:
         return self
 
     def read_image(self, label: str, **kwargs):
-        """Read a image file value from the user
+        """Image upload adds a drop-area for users to upload one or more image files.
 
         Position Args:
                 label (str): The label to display to the user
@@ -434,7 +434,7 @@ class WidgetSchema:
         return self
 
     def read_nps(self, label: str, **kwargs):
-        """Gets NPS feedback from user
+        """NPS feedback allow users to rank their experience from 0 to 10.
 
         Position Args:
                 label (str): The label to display to the user
@@ -461,7 +461,7 @@ class WidgetSchema:
         return self
 
     def read_number(self, label: str, **kwargs):
-        """Read a number value from the user
+        """Number field allow users to enter numeric values.
 
         Position Args:
                 label (str): The label to display to the user
@@ -488,7 +488,7 @@ class WidgetSchema:
         return self
 
     def read_number_slider(self, label: str, **kwargs):
-        """Read a number value from the user
+        """Allow users to select values in a slider bar.
 
         Position Args:
                 label (str): The label to display to the user
@@ -539,7 +539,7 @@ class WidgetSchema:
         return self
 
     def read_password(self, label: str, **kwargs):
-        """Read a password value from the user
+        """Password field allow users to enter a password before seen the content.
 
         Position Args:
                 label (str): The label to display to the user
@@ -571,7 +571,7 @@ class WidgetSchema:
         return self
 
     def read_phone(self, label: str, **kwargs):
-        """Read a phone value from the user
+        """Phone field allow users to enter a valid phone number.
 
         Position Args:
                 label (str): The label to display to the user
@@ -595,7 +595,7 @@ class WidgetSchema:
         return self
 
     def read_rating(self, label: str, **kwargs):
-        """Read a rating value from the user
+        """Rating feedback allow users to rank their experience from 1 to 5 starts.
 
         Position Args:
                 label (str): The label to display to the user
@@ -644,7 +644,7 @@ class WidgetSchema:
         return self
 
     def read(self, label: str, **kwargs):
-        """Read a text value from the user
+        """Text fields allow users to insert plain text.
 
         Position Args:
                 label (str): The label to display to the user
@@ -669,7 +669,7 @@ class WidgetSchema:
         return self
 
     def read_textarea(self, label: str, **kwargs):
-        """Read a textarea value from the user
+        """Long text field allow users to type longer textual content.
 
         Position Args:
                 label (str): The label to display to the user
@@ -717,7 +717,7 @@ class WidgetSchema:
         return self
 
     def read_toggle(self, label: str, **kwargs):
-        """Read a toggle value from the user
+        """Allow users to set between two items.
 
         Position Args:
                 label (str): The label to display to the user
@@ -741,7 +741,7 @@ class WidgetSchema:
         return self
 
     def read_video(self, label: str, **kwargs):
-        """Read a video file value from the user
+        """Video upload adds a drop-area for users to upload one or more video files.
 
         Position Args:
                 label (str): The label to display to the user
@@ -766,7 +766,7 @@ class WidgetSchema:
         return self
 
     def display_file(self, file: Union[str, io.IOBase], **kwargs):
-        """Display a button for the user to download a file
+        """Show a button for the user to download a file.
 
         Position Args:
                 file (Union[str, io.IOBase]): The file to download
@@ -783,7 +783,7 @@ class WidgetSchema:
         return self
 
     def display_html(self, html: str, **kwargs):
-        """Display a html snippet to the user
+        """Embed HTML to the app.
 
         Position Args:
                 html (str): The html snippet to display to the user
@@ -799,7 +799,7 @@ class WidgetSchema:
         return self
 
     def display_iframe(self, url_or_html: str, **kwargs):
-        """Display an inline iframe to the user
+        """Embed content using iframe.
 
         Position Args:
                 url_or_html (str): The link to the document or the own document to display to the user
@@ -817,7 +817,7 @@ class WidgetSchema:
         return self
 
     def display_image(self, image: Union[str, io.IOBase], **kwargs):
-        """Display an image to the user
+        """Show an image to the user
 
         Position Args:
                 image (Union[str, io.IOBase]): The image to display to the user
@@ -835,7 +835,7 @@ class WidgetSchema:
         return self
 
     def display_latex(self, text: str, **kwargs):
-        """Display a latex formula to the user
+        """Show an Latex formula to the user
 
         Position Args:
                 text (str): The latex formula to display to the user
@@ -851,7 +851,7 @@ class WidgetSchema:
         return self
 
     def display_link(self, link_url: str, **kwargs):
-        """Display a link to the user
+        """Allow users to see and open content from text links.
 
         Position Args:
                 link_url (str): The url of the link to display to the user
@@ -869,7 +869,7 @@ class WidgetSchema:
         return self
 
     def display_markdown(self, text: str, **kwargs):
-        """Display a formatted text to the user
+        """Show a formatted text to the user
 
         Position Args:
                 text (str): The formatted text to display to the user
@@ -903,7 +903,7 @@ class WidgetSchema:
         return self
 
     def display_plotly(self, fig: PlotlyFigure, **kwargs):
-        """Display a plotly figure to the user
+        """Show a line chart to the user using Plotly
 
         Position Args:
                 fig (PlotlyFigure): The figure to display to the user
@@ -920,7 +920,7 @@ class WidgetSchema:
         return self
 
     def display_progress(self, current: float, total: float, **kwargs):
-        """Display a progress bar. This widget is shown on screen until the script shows a new widget. This widget does not work on Pages, and must be used only with its function.
+        """Show a progress bar when loading the app.
 
         Position Args:
                 current (float): The progress being made. Defaults to 50.
@@ -938,7 +938,7 @@ class WidgetSchema:
         return self
 
     def display(self, text: str, **kwargs):
-        """Display a text to the user
+        """ "Text display" adds textual information into the app.
 
         Position Args:
                 text (str): The text to display to the user
