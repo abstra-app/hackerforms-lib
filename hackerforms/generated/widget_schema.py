@@ -10,6 +10,12 @@ class WidgetSchema:
     def __init__(self):
         self.widgets: List = []
 
+    def __get_next_result_key(self):
+        result_widgets = len(
+            [w for w in self.widgets if getattr(w, "key", None) == "result"]
+        )
+        return "result" if result_widgets == 0 else f"result_{result_widgets}"
+
     def reactive(self, callback):
         self.widgets.append(Reactive(callback))
         return self
@@ -401,7 +407,8 @@ class WidgetSchema:
           The values entered by the user
         """
 
-        key = kwargs.pop("key", "result")
+        default_key = self.__get_next_result_key()
+        key = kwargs.pop("key", default_key)
 
         self.widgets.append(ListInput(key, item_schema, **kwargs))
         return self
@@ -533,7 +540,8 @@ class WidgetSchema:
           The list of selected rows
         """
 
-        key = kwargs.pop("key", "result")
+        default_key = kwargs.get("label") or self.__get_next_result_key()
+        key = kwargs.pop("key", default_key)
 
         self.widgets.append(PandasRowSelectionInput(key, df, **kwargs))
         return self
