@@ -35,7 +35,7 @@ def read_cards(label: str, options: list, **kwargs):
     """Read a text value from the user simple text input
 
             Position Args:
-                    label (str): The text related to this field
+                    label (str): The text related to this input
                     options (list): The options to display to the user, eg. [
     {'title': 'Option 1', 'subtitle': 'Subtitle 1', 'image': 'https://image_1.png', 'description': 'option 1 description', 'topLeftExtra': 'Left 1', 'topRightExtra': 'Right 1' },
     {'title': 'Option 2', 'subtitle': 'Subtitle 2', 'image': 'https://image_2.png', 'description': 'option 2 description', 'topLeftExtra': 'Left 2', 'topRightExtra': 'Right 2' }]
@@ -132,7 +132,7 @@ def read_cnpj(label: str, **kwargs):
 
 
 def read_code(label: str, **kwargs):
-    """Code field allow users to insert code and reads it.
+    """Code input allow users to insert code and reads it.
 
     Position Args:
             label (str): The label to display to the user
@@ -178,7 +178,7 @@ def read_cpf(label: str, **kwargs):
 
 
 def read_currency(label: str, **kwargs):
-    """Currency field allows users to enter monetary values.
+    """Currency input allows users to enter monetary values.
 
     Position Args:
             label (str): The label to display to the user
@@ -254,7 +254,7 @@ def read_dropdown(label: str, options: list, **kwargs):
 
 
 def read_email(label: str, **kwargs):
-    """Email field allow users to enter a valid email address.
+    """Email input allow users to enter a valid email address.
 
     Position Args:
             label (str): The label to display to the user
@@ -406,7 +406,7 @@ def read_nps(label: str, **kwargs):
 
 
 def read_number(label: str, **kwargs):
-    """Number field allow users to enter numeric values.
+    """Number input allow users to enter numeric values.
 
     Position Args:
             label (str): The label to display to the user
@@ -483,7 +483,7 @@ def read_pandas_row_selection(df: PandasDataFrame, **kwargs):
 
 
 def read_password(label: str, **kwargs):
-    """Password field allow users to enter a password before seen the content.
+    """Password input allow users to enter a password before seen the content.
 
     Position Args:
             label (str): The label to display to the user
@@ -514,7 +514,7 @@ def read_password(label: str, **kwargs):
 
 
 def read_phone(label: str, **kwargs):
-    """Phone field allow users to enter a valid phone number.
+    """Phone input allow users to enter a valid phone number.
 
     Position Args:
             label (str): The label to display to the user
@@ -608,7 +608,7 @@ def read(label: str, **kwargs):
 
 
 def read_textarea(label: str, **kwargs):
-    """Long text field allow users to type longer textual content.
+    """Long text input allow users to type longer textual content.
 
     Position Args:
             label (str): The label to display to the user

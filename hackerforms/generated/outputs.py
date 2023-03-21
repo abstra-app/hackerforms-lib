@@ -174,7 +174,7 @@ def display_pandas(df: PandasDataFrame, **kwargs):
 
 
 def display_plotly(fig: PlotlyFigure, **kwargs):
-    """Show a line chart to the user using Plotly
+    """Displays a Plotly figure to the user
 
     Position Args:
             fig (PlotlyFigure): The figure to display to the user

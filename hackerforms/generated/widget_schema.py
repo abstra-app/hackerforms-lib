@@ -83,7 +83,7 @@ class WidgetSchema:
         """Read a text value from the user simple text input
 
                 Position Args:
-                        label (str): The text related to this field
+                        label (str): The text related to this input
                         options (list): The options to display to the user, eg. [
         {'title': 'Option 1', 'subtitle': 'Subtitle 1', 'image': 'https://image_1.png', 'description': 'option 1 description', 'topLeftExtra': 'Left 1', 'topRightExtra': 'Right 1' },
         {'title': 'Option 2', 'subtitle': 'Subtitle 2', 'image': 'https://image_2.png', 'description': 'option 2 description', 'topLeftExtra': 'Left 2', 'topRightExtra': 'Right 2' }]
@@ -180,7 +180,7 @@ class WidgetSchema:
         return self
 
     def read_code(self, label: str, **kwargs):
-        """Code field allow users to insert code and reads it.
+        """Code input allow users to insert code and reads it.
 
         Position Args:
                 label (str): The label to display to the user
@@ -228,7 +228,7 @@ class WidgetSchema:
         return self
 
     def read_currency(self, label: str, **kwargs):
-        """Currency field allows users to enter monetary values.
+        """Currency input allows users to enter monetary values.
 
         Position Args:
                 label (str): The label to display to the user
@@ -305,7 +305,7 @@ class WidgetSchema:
         return self
 
     def read_email(self, label: str, **kwargs):
-        """Email field allow users to enter a valid email address.
+        """Email input allow users to enter a valid email address.
 
         Position Args:
                 label (str): The label to display to the user
@@ -461,7 +461,7 @@ class WidgetSchema:
         return self
 
     def read_number(self, label: str, **kwargs):
-        """Number field allow users to enter numeric values.
+        """Number input allow users to enter numeric values.
 
         Position Args:
                 label (str): The label to display to the user
@@ -539,7 +539,7 @@ class WidgetSchema:
         return self
 
     def read_password(self, label: str, **kwargs):
-        """Password field allow users to enter a password before seen the content.
+        """Password input allow users to enter a password before seen the content.
 
         Position Args:
                 label (str): The label to display to the user
@@ -571,7 +571,7 @@ class WidgetSchema:
         return self
 
     def read_phone(self, label: str, **kwargs):
-        """Phone field allow users to enter a valid phone number.
+        """Phone input allow users to enter a valid phone number.
 
         Position Args:
                 label (str): The label to display to the user
@@ -669,7 +669,7 @@ class WidgetSchema:
         return self
 
     def read_textarea(self, label: str, **kwargs):
-        """Long text field allow users to type longer textual content.
+        """Long text input allow users to type longer textual content.
 
         Position Args:
                 label (str): The label to display to the user
@@ -903,7 +903,7 @@ class WidgetSchema:
         return self
 
     def display_plotly(self, fig: PlotlyFigure, **kwargs):
-        """Show a line chart to the user using Plotly
+        """Displays a Plotly figure to the user
 
         Position Args:
                 fig (PlotlyFigure): The figure to display to the user
