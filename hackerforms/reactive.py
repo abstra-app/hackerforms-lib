@@ -13,4 +13,4 @@ class Reactive:
         return self.page.json(payload) if self.page else []
 
     def get_widgets(self):
-        return self.page.get_concrete_widgets() if self.page else []
+        return self.page.widgets if self.page else []
