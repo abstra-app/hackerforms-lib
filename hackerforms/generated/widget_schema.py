@@ -34,17 +34,11 @@ class WidgetSchema:
         return answer
 
     def get_input_widgets(self):
-        concrete_widgets = []
-        for widget in self.widgets:
-            if isinstance(widget, Reactive):
-                concrete_widgets.extend(widget.get_widgets())
-            else:
-                concrete_widgets.append(widget)
-
-        inputs = list(
-            filter(lambda widget: isinstance(widget, Input), concrete_widgets)
+        return list(
+            filter(
+                lambda widget: isinstance(widget, Input), self.get_concrete_widgets()
+            )
         )
-        return inputs
 
     def json(self, payload):
         output = []
@@ -73,6 +67,7 @@ class WidgetSchema:
                 hint (str): A tooltip displayed to the user. Defaults to None.
                 end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
                 full_width (bool): Whether the input should use full screen width. Defaults to False.
+                button_text (str): What text to display on the button when the widget is not part of a Page. Defaults to 'Next'.
 
         Returns:
           list: The values/value selected by the user
@@ -98,12 +93,13 @@ class WidgetSchema:
                         multiple (bool): Whether the user can select multiple options. Defaults to False.
                         initial_value (list): The initial value to display to the user. Defaults to None.
                         searchable (bool): Whether to show a search bar. Defaults to False.
-                        layout (str): Whether the cards layout should be 'list' or 'grid'. Defaults to 'list'.%%%
+                        layout (str): Whether the cards layout should be 'list' or 'grid'. Defaults to 'list'.
                         disabled (bool): whether the input is disabled. Defaults to False.
                         required (Union[bool, str]): Whether the input is required or not eg. "this field is required". Defaults to True.
                         hint (str): A tooltip displayed to the user. Defaults to None.
                         end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
                         full_width (bool): Whether the input should use full screen width. Defaults to False.
+                        button_text (str): What text to display on the button when the widget is not part of a Page. Defaults to 'Next'.
 
                 Returns:
                   list, any: The options/option selected by the user
@@ -127,6 +123,7 @@ class WidgetSchema:
                 hint (str): A tooltip displayed to the user. Defaults to None.
                 end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
                 full_width (bool): Whether the input should use full screen width. Defaults to False.
+                button_text (str): What text to display on the button when the widget is not part of a Page. Defaults to 'Next'.
 
         Returns:
           list(str) or list(float): The value entered by the user
@@ -151,6 +148,7 @@ class WidgetSchema:
                 hint (str): A tooltip displayed to the user. Defaults to None.
                 end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
                 full_width (bool): Whether the input should use full screen width. Defaults to False.
+                button_text (str): What text to display on the button when the widget is not part of a Page. Defaults to 'Next'.
 
         Returns:
           list or any: The value entered by the user
@@ -175,6 +173,7 @@ class WidgetSchema:
                 hint (str): A tooltip displayed to the user. Defaults to None.
                 end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
                 full_width (bool): Whether the input should use full screen width. Defaults to False.
+                button_text (str): What text to display on the button when the widget is not part of a Page. Defaults to 'Next'.
 
         Returns:
           list(str) or list(float): The value entered by the user
@@ -199,6 +198,7 @@ class WidgetSchema:
                 hint (str): A tooltip displayed to the user. Defaults to None.
                 end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
                 full_width (bool): Whether the input should use full screen width. Defaults to False.
+                button_text (str): What text to display on the button when the widget is not part of a Page. Defaults to 'Next'.
 
         Returns:
           The value entered by the user
@@ -223,6 +223,7 @@ class WidgetSchema:
                 hint (str): A tooltip displayed to the user. Defaults to None.
                 end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
                 full_width (bool): Whether the input should use full screen width. Defaults to False.
+                button_text (str): What text to display on the button when the widget is not part of a Page. Defaults to 'Next'.
 
         Returns:
           The value entered by the user
@@ -251,6 +252,7 @@ class WidgetSchema:
                 hint (str): A tooltip displayed to the user. Defaults to None.
                 end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
                 full_width (bool): Whether the input should use full screen width. Defaults to False.
+                button_text (str): What text to display on the button when the widget is not part of a Page. Defaults to 'Next'.
 
         Returns:
           The value entered by the user
@@ -274,6 +276,7 @@ class WidgetSchema:
                 hint (str): A tooltip displayed to the user. Defaults to None.
                 end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
                 full_width (bool): Whether the input should use full screen width. Defaults to False.
+                button_text (str): What text to display on the button when the widget is not part of a Page. Defaults to 'Next'.
 
         Returns:
           The value entered by the user
@@ -300,6 +303,7 @@ class WidgetSchema:
                 hint (str): A tooltip displayed to the user. Defaults to None.
                 end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
                 full_width (bool): Whether the input should use full screen width. Defaults to False.
+                button_text (str): What text to display on the button when the widget is not part of a Page. Defaults to 'Next'.
 
         Returns:
           The value selected by the user
@@ -325,6 +329,7 @@ class WidgetSchema:
                 hint (str): A tooltip displayed to the user. Defaults to None.
                 end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
                 full_width (bool): Whether the input should use full screen width. Defaults to False.
+                button_text (str): What text to display on the button when the widget is not part of a Page. Defaults to 'Next'.
 
         Returns:
           The value entered by the user
@@ -350,6 +355,7 @@ class WidgetSchema:
                 hint (str): A tooltip displayed to the user. Defaults to None.
                 end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
                 full_width (bool): Whether the input should use full screen width. Defaults to False.
+                button_text (str): What text to display on the button when the widget is not part of a Page. Defaults to 'Next'.
 
         Returns:
           A dict containing the file uploaded by the user FileResponse(file: TemporaryFile, url: str, content: bytes) or a list of FileResponses in case of multiple flag set as True. ⚠️ The url expires after 48 hours
@@ -375,6 +381,7 @@ class WidgetSchema:
                 hint (str): A tooltip displayed to the user. Defaults to None.
                 end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
                 full_width (bool): Whether the input should use full screen width. Defaults to False.
+                button_text (str): What text to display on the button when the widget is not part of a Page. Defaults to 'Next'.
 
         Returns:
           A dict containing the image file uploaded by the user ({"file": file, "url": str, "content": bytes}) or a list of images in case of multiple flag set as True
@@ -402,6 +409,7 @@ class WidgetSchema:
                 hint (str): A tooltip displayed to the user. Defaults to None.
                 end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
                 full_width (bool): Whether the input should use full screen width. Defaults to False.
+                button_text (str): What text to display on the button when the widget is not part of a Page. Defaults to 'Next'.
 
         Returns:
           The values entered by the user
@@ -430,6 +438,7 @@ class WidgetSchema:
                 hint (str): A tooltip displayed to the user. Defaults to None.
                 end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
                 full_width (bool): Whether the input should use full screen width. Defaults to False.
+                button_text (str): What text to display on the button when the widget is not part of a Page. Defaults to 'Next'.
 
         Returns:
           list or any: The values/value selected by the user
@@ -457,6 +466,7 @@ class WidgetSchema:
                 hint (str): A tooltip displayed to the user. Defaults to None.
                 end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
                 full_width (bool): Whether the input should use full screen width. Defaults to False.
+                button_text (str): What text to display on the button when the widget is not part of a Page. Defaults to 'Next'.
 
         Returns:
           The value entered by the user
@@ -484,6 +494,7 @@ class WidgetSchema:
                 hint (str): A tooltip displayed to the user. Defaults to None.
                 end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
                 full_width (bool): Whether the input should use full screen width. Defaults to False.
+                button_text (str): What text to display on the button when the widget is not part of a Page. Defaults to 'Next'.
 
         Returns:
           The value entered by the user
@@ -510,6 +521,7 @@ class WidgetSchema:
                 hint (str): A tooltip displayed to the user. Defaults to None.
                 end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
                 full_width (bool): Whether the input should use full screen width. Defaults to False.
+                button_text (str): What text to display on the button when the widget is not part of a Page. Defaults to 'Next'.
 
         Returns:
           The value entered by the user
@@ -530,11 +542,13 @@ class WidgetSchema:
                 display_index (bool): Whether to show a index column. Defaults to False.
                 label (str): The label to display to the user
                 multiple (bool): Whether the user will be allowed to select multiple rows. Defaults to True.
+                filterable (bool): Whether the table is filterable
                 disabled (bool): whether the input is disabled. Defaults to False.
                 required (Union[bool, str]): Whether the input is required or not eg. "this field is required". Defaults to True.
                 hint (str): A tooltip displayed to the user. Defaults to None.
                 end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
                 full_width (bool): Whether the input should use full screen width. Defaults to False.
+                button_text (str): What text to display on the button when the widget is not part of a Page. Defaults to 'Next'.
 
         Returns:
           The list of selected rows
@@ -568,6 +582,7 @@ class WidgetSchema:
                 hint (str): A tooltip displayed to the user. Defaults to None.
                 end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
                 full_width (bool): Whether the input should use full screen width. Defaults to False.
+                button_text (str): What text to display on the button when the widget is not part of a Page. Defaults to 'Next'.
 
         Returns:
           The value entered by the user
@@ -592,6 +607,7 @@ class WidgetSchema:
                 hint (str): A tooltip displayed to the user. Defaults to None.
                 end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
                 full_width (bool): Whether the input should use full screen width. Defaults to False.
+                button_text (str): What text to display on the button when the widget is not part of a Page. Defaults to 'Next'.
 
         Returns:
           A dict containing the value entered by the user ({"raw": str, "masked": str})
@@ -617,6 +633,7 @@ class WidgetSchema:
                 hint (str): A tooltip displayed to the user. Defaults to None.
                 end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
                 full_width (bool): Whether the input should use full screen width. Defaults to False.
+                button_text (str): What text to display on the button when the widget is not part of a Page. Defaults to 'Next'.
 
         Returns:
           The value entered by the user
@@ -641,6 +658,7 @@ class WidgetSchema:
                 hint (str): A tooltip displayed to the user. Defaults to None.
                 end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
                 full_width (bool): Whether the input should use full screen width. Defaults to False.
+                button_text (str): What text to display on the button when the widget is not part of a Page. Defaults to 'Next'.
 
         Returns:
           list(str) or list(float): The value entered by the user
@@ -666,6 +684,7 @@ class WidgetSchema:
                 hint (str): A tooltip displayed to the user. Defaults to None.
                 end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
                 full_width (bool): Whether the input should use full screen width. Defaults to False.
+                button_text (str): What text to display on the button when the widget is not part of a Page. Defaults to 'Next'.
 
         Returns:
           The value entered by the user
@@ -690,6 +709,7 @@ class WidgetSchema:
                 hint (str): A tooltip displayed to the user. Defaults to None.
                 end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
                 full_width (bool): Whether the input should use full screen width. Defaults to False.
+                button_text (str): What text to display on the button when the widget is not part of a Page. Defaults to 'Next'.
 
         Returns:
           The value entered by the user
@@ -714,6 +734,7 @@ class WidgetSchema:
                 hint (str): A tooltip displayed to the user. Defaults to None.
                 end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
                 full_width (bool): Whether the input should use full screen width. Defaults to False.
+                button_text (str): What text to display on the button when the widget is not part of a Page. Defaults to 'Next'.
 
         Returns:
           A datetime.time object representing the value entered by the user
@@ -738,6 +759,7 @@ class WidgetSchema:
                 hint (str): A tooltip displayed to the user. Defaults to None.
                 end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
                 full_width (bool): Whether the input should use full screen width. Defaults to False.
+                button_text (str): What text to display on the button when the widget is not part of a Page. Defaults to 'Next'.
 
         Returns:
           bool: if the toggle was checked
@@ -763,6 +785,7 @@ class WidgetSchema:
                 hint (str): A tooltip displayed to the user. Defaults to None.
                 end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
                 full_width (bool): Whether the input should use full screen width. Defaults to False.
+                button_text (str): What text to display on the button when the widget is not part of a Page. Defaults to 'Next'.
 
         Returns:
           A dict containing the video uploaded by the user ({"file": file, "url": str, "content": bytes}) or a list of videos in case of multiple flag set as True
@@ -783,6 +806,7 @@ class WidgetSchema:
                 download_text (str): The text to display on the button that will download the file. Defaults to "Download here".
                 end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
                 full_width (bool): Whether the input should use full screen width. Defaults to False.
+                button_text (str): What text to display on the button when the widget is not part of a Page. Defaults to 'Next'.
 
 
         """
@@ -799,6 +823,7 @@ class WidgetSchema:
         Keyword Args:
                 end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
                 full_width (bool): Whether the input should use full screen width. Defaults to False.
+                button_text (str): What text to display on the button when the widget is not part of a Page. Defaults to 'Next'.
 
 
         """
@@ -817,6 +842,7 @@ class WidgetSchema:
                 height (int): The height of the iframe. Defaults to "600".
                 end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
                 full_width (bool): Whether the input should use full screen width. Defaults to False.
+                button_text (str): What text to display on the button when the widget is not part of a Page. Defaults to 'Next'.
 
 
         """
@@ -835,6 +861,7 @@ class WidgetSchema:
                 label (str): The label to display to the user
                 end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
                 full_width (bool): Whether the input should use full screen width. Defaults to False.
+                button_text (str): What text to display on the button when the widget is not part of a Page. Defaults to 'Next'.
 
 
         """
@@ -851,6 +878,7 @@ class WidgetSchema:
         Keyword Args:
                 end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
                 full_width (bool): Whether the input should use full screen width. Defaults to False.
+                button_text (str): What text to display on the button when the widget is not part of a Page. Defaults to 'Next'.
 
 
         """
@@ -869,6 +897,7 @@ class WidgetSchema:
                 same_tab (bool): Whether to open the link in the same tab or not. Defaults to False.
                 end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
                 full_width (bool): Whether the input should use full screen width. Defaults to False.
+                button_text (str): What text to display on the button when the widget is not part of a Page. Defaults to 'Next'.
 
 
         """
@@ -885,6 +914,7 @@ class WidgetSchema:
         Keyword Args:
                 end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
                 full_width (bool): Whether the input should use full screen width. Defaults to False.
+                button_text (str): What text to display on the button when the widget is not part of a Page. Defaults to 'Next'.
 
 
         """
@@ -901,8 +931,11 @@ class WidgetSchema:
         Keyword Args:
                 display_index (bool): Whether to show a index column. Defaults to False.
                 label (str): The label to display to the user
+                actions (list): Actions that can be triggered by table rows
+                filterable (bool): Whether the table is filterable
                 end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
                 full_width (bool): Whether the input should use full screen width. Defaults to False.
+                button_text (str): What text to display on the button when the widget is not part of a Page. Defaults to 'Next'.
 
 
         """
@@ -920,6 +953,7 @@ class WidgetSchema:
                 label (str): The label to display to the user
                 end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
                 full_width (bool): Whether the input should use full screen width. Defaults to False.
+                button_text (str): What text to display on the button when the widget is not part of a Page. Defaults to 'Next'.
 
 
         """
@@ -938,6 +972,7 @@ class WidgetSchema:
                 text (str): The text displayed with this progress step. Defaults to "".
                 end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
                 full_width (bool): Whether the input should use full screen width. Defaults to False.
+                button_text (str): What text to display on the button when the widget is not part of a Page. Defaults to 'Next'.
 
 
         """
@@ -954,11 +989,21 @@ class WidgetSchema:
         Keyword Args:
                 end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
                 full_width (bool): Whether the input should use full screen width. Defaults to False.
+                button_text (str): What text to display on the button when the widget is not part of a Page. Defaults to 'Next'.
 
 
         """
 
         self.widgets.append(TextOutput(text, **kwargs))
         return self
+
+    def get_concrete_widgets(self):
+        concrete_widgets = []
+        for widget in self.widgets:
+            if isinstance(widget, Reactive):
+                concrete_widgets.extend(widget.get_widgets())
+            else:
+                concrete_widgets.append(widget)
+        return concrete_widgets
 
     input = read

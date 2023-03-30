@@ -18,6 +18,7 @@ def read_answer_sheet(label: str, options: list, number_of_questions: int, **kwa
             hint (str): A tooltip displayed to the user. Defaults to None.
             end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
             full_width (bool): Whether the input should use full screen width. Defaults to False.
+            button_text (str): What text to display on the button when the widget is not part of a Page. Defaults to 'Next'.
 
     Returns:
       list: The values/value selected by the user
@@ -44,12 +45,13 @@ def read_cards(label: str, options: list, **kwargs):
                     multiple (bool): Whether the user can select multiple options. Defaults to False.
                     initial_value (list): The initial value to display to the user. Defaults to None.
                     searchable (bool): Whether to show a search bar. Defaults to False.
-                    layout (str): Whether the cards layout should be 'list' or 'grid'. Defaults to 'list'.%%%
+                    layout (str): Whether the cards layout should be 'list' or 'grid'. Defaults to 'list'.
                     disabled (bool): whether the input is disabled. Defaults to False.
                     required (Union[bool, str]): Whether the input is required or not eg. "this field is required". Defaults to True.
                     hint (str): A tooltip displayed to the user. Defaults to None.
                     end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
                     full_width (bool): Whether the input should use full screen width. Defaults to False.
+                    button_text (str): What text to display on the button when the widget is not part of a Page. Defaults to 'Next'.
 
             Returns:
               list, any: The options/option selected by the user
@@ -74,6 +76,7 @@ def read_checkbox(label: str, **kwargs):
             hint (str): A tooltip displayed to the user. Defaults to None.
             end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
             full_width (bool): Whether the input should use full screen width. Defaults to False.
+            button_text (str): What text to display on the button when the widget is not part of a Page. Defaults to 'Next'.
 
     Returns:
       list(str) or list(float): The value entered by the user
@@ -97,6 +100,7 @@ def read_checklist(label: str, options: list, **kwargs):
             hint (str): A tooltip displayed to the user. Defaults to None.
             end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
             full_width (bool): Whether the input should use full screen width. Defaults to False.
+            button_text (str): What text to display on the button when the widget is not part of a Page. Defaults to 'Next'.
 
     Returns:
       list or any: The value entered by the user
@@ -122,6 +126,7 @@ def read_cnpj(label: str, **kwargs):
             hint (str): A tooltip displayed to the user. Defaults to None.
             end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
             full_width (bool): Whether the input should use full screen width. Defaults to False.
+            button_text (str): What text to display on the button when the widget is not part of a Page. Defaults to 'Next'.
 
     Returns:
       list(str) or list(float): The value entered by the user
@@ -145,6 +150,7 @@ def read_code(label: str, **kwargs):
             hint (str): A tooltip displayed to the user. Defaults to None.
             end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
             full_width (bool): Whether the input should use full screen width. Defaults to False.
+            button_text (str): What text to display on the button when the widget is not part of a Page. Defaults to 'Next'.
 
     Returns:
       The value entered by the user
@@ -168,6 +174,7 @@ def read_cpf(label: str, **kwargs):
             hint (str): A tooltip displayed to the user. Defaults to None.
             end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
             full_width (bool): Whether the input should use full screen width. Defaults to False.
+            button_text (str): What text to display on the button when the widget is not part of a Page. Defaults to 'Next'.
 
     Returns:
       The value entered by the user
@@ -195,6 +202,7 @@ def read_currency(label: str, **kwargs):
             hint (str): A tooltip displayed to the user. Defaults to None.
             end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
             full_width (bool): Whether the input should use full screen width. Defaults to False.
+            button_text (str): What text to display on the button when the widget is not part of a Page. Defaults to 'Next'.
 
     Returns:
       The value entered by the user
@@ -217,6 +225,7 @@ def read_date(label: str, **kwargs):
             hint (str): A tooltip displayed to the user. Defaults to None.
             end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
             full_width (bool): Whether the input should use full screen width. Defaults to False.
+            button_text (str): What text to display on the button when the widget is not part of a Page. Defaults to 'Next'.
 
     Returns:
       The value entered by the user
@@ -242,6 +251,7 @@ def read_dropdown(label: str, options: list, **kwargs):
             hint (str): A tooltip displayed to the user. Defaults to None.
             end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
             full_width (bool): Whether the input should use full screen width. Defaults to False.
+            button_text (str): What text to display on the button when the widget is not part of a Page. Defaults to 'Next'.
 
     Returns:
       The value selected by the user
@@ -268,6 +278,7 @@ def read_email(label: str, **kwargs):
             hint (str): A tooltip displayed to the user. Defaults to None.
             end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
             full_width (bool): Whether the input should use full screen width. Defaults to False.
+            button_text (str): What text to display on the button when the widget is not part of a Page. Defaults to 'Next'.
 
     Returns:
       The value entered by the user
@@ -292,6 +303,7 @@ def read_file(label: str, **kwargs):
             hint (str): A tooltip displayed to the user. Defaults to None.
             end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
             full_width (bool): Whether the input should use full screen width. Defaults to False.
+            button_text (str): What text to display on the button when the widget is not part of a Page. Defaults to 'Next'.
 
     Returns:
       A dict containing the file uploaded by the user FileResponse(file: TemporaryFile, url: str, content: bytes) or a list of FileResponses in case of multiple flag set as True. ⚠️ The url expires after 48 hours
@@ -316,6 +328,7 @@ def read_image(label: str, **kwargs):
             hint (str): A tooltip displayed to the user. Defaults to None.
             end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
             full_width (bool): Whether the input should use full screen width. Defaults to False.
+            button_text (str): What text to display on the button when the widget is not part of a Page. Defaults to 'Next'.
 
     Returns:
       A dict containing the image file uploaded by the user ({"file": file, "url": str, "content": bytes}) or a list of images in case of multiple flag set as True
@@ -342,6 +355,7 @@ def read_list(item_schema: Any, **kwargs):
             hint (str): A tooltip displayed to the user. Defaults to None.
             end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
             full_width (bool): Whether the input should use full screen width. Defaults to False.
+            button_text (str): What text to display on the button when the widget is not part of a Page. Defaults to 'Next'.
 
     Returns:
       The values entered by the user
@@ -368,6 +382,7 @@ def read_multiple_choice(label: str, options: list, **kwargs):
             hint (str): A tooltip displayed to the user. Defaults to None.
             end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
             full_width (bool): Whether the input should use full screen width. Defaults to False.
+            button_text (str): What text to display on the button when the widget is not part of a Page. Defaults to 'Next'.
 
     Returns:
       list or any: The values/value selected by the user
@@ -396,6 +411,7 @@ def read_nps(label: str, **kwargs):
             hint (str): A tooltip displayed to the user. Defaults to None.
             end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
             full_width (bool): Whether the input should use full screen width. Defaults to False.
+            button_text (str): What text to display on the button when the widget is not part of a Page. Defaults to 'Next'.
 
     Returns:
       The value entered by the user
@@ -422,6 +438,7 @@ def read_number(label: str, **kwargs):
             hint (str): A tooltip displayed to the user. Defaults to None.
             end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
             full_width (bool): Whether the input should use full screen width. Defaults to False.
+            button_text (str): What text to display on the button when the widget is not part of a Page. Defaults to 'Next'.
 
     Returns:
       The value entered by the user
@@ -447,6 +464,7 @@ def read_number_slider(label: str, **kwargs):
             hint (str): A tooltip displayed to the user. Defaults to None.
             end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
             full_width (bool): Whether the input should use full screen width. Defaults to False.
+            button_text (str): What text to display on the button when the widget is not part of a Page. Defaults to 'Next'.
 
     Returns:
       The value entered by the user
@@ -466,11 +484,13 @@ def read_pandas_row_selection(df: PandasDataFrame, **kwargs):
             display_index (bool): Whether to show a index column. Defaults to False.
             label (str): The label to display to the user
             multiple (bool): Whether the user will be allowed to select multiple rows. Defaults to True.
+            filterable (bool): Whether the table is filterable
             disabled (bool): whether the input is disabled. Defaults to False.
             required (Union[bool, str]): Whether the input is required or not eg. "this field is required". Defaults to True.
             hint (str): A tooltip displayed to the user. Defaults to None.
             end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
             full_width (bool): Whether the input should use full screen width. Defaults to False.
+            button_text (str): What text to display on the button when the widget is not part of a Page. Defaults to 'Next'.
 
     Returns:
       The list of selected rows
@@ -504,6 +524,7 @@ def read_password(label: str, **kwargs):
             hint (str): A tooltip displayed to the user. Defaults to None.
             end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
             full_width (bool): Whether the input should use full screen width. Defaults to False.
+            button_text (str): What text to display on the button when the widget is not part of a Page. Defaults to 'Next'.
 
     Returns:
       The value entered by the user
@@ -527,6 +548,7 @@ def read_phone(label: str, **kwargs):
             hint (str): A tooltip displayed to the user. Defaults to None.
             end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
             full_width (bool): Whether the input should use full screen width. Defaults to False.
+            button_text (str): What text to display on the button when the widget is not part of a Page. Defaults to 'Next'.
 
     Returns:
       A dict containing the value entered by the user ({"raw": str, "masked": str})
@@ -551,6 +573,7 @@ def read_rating(label: str, **kwargs):
             hint (str): A tooltip displayed to the user. Defaults to None.
             end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
             full_width (bool): Whether the input should use full screen width. Defaults to False.
+            button_text (str): What text to display on the button when the widget is not part of a Page. Defaults to 'Next'.
 
     Returns:
       The value entered by the user
@@ -574,6 +597,7 @@ def read_tag(label: str, **kwargs):
             hint (str): A tooltip displayed to the user. Defaults to None.
             end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
             full_width (bool): Whether the input should use full screen width. Defaults to False.
+            button_text (str): What text to display on the button when the widget is not part of a Page. Defaults to 'Next'.
 
     Returns:
       list(str) or list(float): The value entered by the user
@@ -598,6 +622,7 @@ def read(label: str, **kwargs):
             hint (str): A tooltip displayed to the user. Defaults to None.
             end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
             full_width (bool): Whether the input should use full screen width. Defaults to False.
+            button_text (str): What text to display on the button when the widget is not part of a Page. Defaults to 'Next'.
 
     Returns:
       The value entered by the user
@@ -621,6 +646,7 @@ def read_textarea(label: str, **kwargs):
             hint (str): A tooltip displayed to the user. Defaults to None.
             end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
             full_width (bool): Whether the input should use full screen width. Defaults to False.
+            button_text (str): What text to display on the button when the widget is not part of a Page. Defaults to 'Next'.
 
     Returns:
       The value entered by the user
@@ -644,6 +670,7 @@ def read_time(label: str, **kwargs):
             hint (str): A tooltip displayed to the user. Defaults to None.
             end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
             full_width (bool): Whether the input should use full screen width. Defaults to False.
+            button_text (str): What text to display on the button when the widget is not part of a Page. Defaults to 'Next'.
 
     Returns:
       A datetime.time object representing the value entered by the user
@@ -667,6 +694,7 @@ def read_toggle(label: str, **kwargs):
             hint (str): A tooltip displayed to the user. Defaults to None.
             end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
             full_width (bool): Whether the input should use full screen width. Defaults to False.
+            button_text (str): What text to display on the button when the widget is not part of a Page. Defaults to 'Next'.
 
     Returns:
       bool: if the toggle was checked
@@ -691,6 +719,7 @@ def read_video(label: str, **kwargs):
             hint (str): A tooltip displayed to the user. Defaults to None.
             end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
             full_width (bool): Whether the input should use full screen width. Defaults to False.
+            button_text (str): What text to display on the button when the widget is not part of a Page. Defaults to 'Next'.
 
     Returns:
       A dict containing the video uploaded by the user ({"file": file, "url": str, "content": bytes}) or a list of videos in case of multiple flag set as True

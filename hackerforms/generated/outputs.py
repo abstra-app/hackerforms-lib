@@ -14,6 +14,7 @@ def display_file(file: Union[str, io.IOBase], **kwargs):
             download_text (str): The text to display on the button that will download the file. Defaults to "Download here".
             end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
             full_width (bool): Whether the input should use full screen width. Defaults to False.
+            button_text (str): What text to display on the button when the widget is not part of a Page. Defaults to 'Next'.
 
 
     """
@@ -32,6 +33,7 @@ def display_html(html: str, **kwargs):
     Keyword Args:
             end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
             full_width (bool): Whether the input should use full screen width. Defaults to False.
+            button_text (str): What text to display on the button when the widget is not part of a Page. Defaults to 'Next'.
 
 
     """
@@ -52,6 +54,7 @@ def display_iframe(url_or_html: str, **kwargs):
             height (int): The height of the iframe. Defaults to "600".
             end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
             full_width (bool): Whether the input should use full screen width. Defaults to False.
+            button_text (str): What text to display on the button when the widget is not part of a Page. Defaults to 'Next'.
 
 
     """
@@ -76,6 +79,7 @@ def display_image(image: Union[str, io.IOBase], **kwargs):
             label (str): The label to display to the user
             end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
             full_width (bool): Whether the input should use full screen width. Defaults to False.
+            button_text (str): What text to display on the button when the widget is not part of a Page. Defaults to 'Next'.
 
 
     """
@@ -96,6 +100,7 @@ def display_latex(text: str, **kwargs):
     Keyword Args:
             end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
             full_width (bool): Whether the input should use full screen width. Defaults to False.
+            button_text (str): What text to display on the button when the widget is not part of a Page. Defaults to 'Next'.
 
 
     """
@@ -118,6 +123,7 @@ def display_link(link_url: str, **kwargs):
             same_tab (bool): Whether to open the link in the same tab or not. Defaults to False.
             end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
             full_width (bool): Whether the input should use full screen width. Defaults to False.
+            button_text (str): What text to display on the button when the widget is not part of a Page. Defaults to 'Next'.
 
 
     """
@@ -140,6 +146,7 @@ def display_markdown(text: str, **kwargs):
     Keyword Args:
             end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
             full_width (bool): Whether the input should use full screen width. Defaults to False.
+            button_text (str): What text to display on the button when the widget is not part of a Page. Defaults to 'Next'.
 
 
     """
@@ -162,8 +169,11 @@ def display_pandas(df: PandasDataFrame, **kwargs):
     Keyword Args:
             display_index (bool): Whether to show a index column. Defaults to False.
             label (str): The label to display to the user
+            actions (list): Actions that can be triggered by table rows
+            filterable (bool): Whether the table is filterable
             end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
             full_width (bool): Whether the input should use full screen width. Defaults to False.
+            button_text (str): What text to display on the button when the widget is not part of a Page. Defaults to 'Next'.
 
 
     """
@@ -183,6 +193,7 @@ def display_plotly(fig: PlotlyFigure, **kwargs):
             label (str): The label to display to the user
             end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
             full_width (bool): Whether the input should use full screen width. Defaults to False.
+            button_text (str): What text to display on the button when the widget is not part of a Page. Defaults to 'Next'.
 
 
     """
@@ -205,6 +216,7 @@ def display_progress(current: float, total: float, **kwargs):
             text (str): The text displayed with this progress step. Defaults to "".
             end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
             full_width (bool): Whether the input should use full screen width. Defaults to False.
+            button_text (str): What text to display on the button when the widget is not part of a Page. Defaults to 'Next'.
 
 
     """
@@ -227,6 +239,7 @@ def display(text: str, **kwargs):
     Keyword Args:
             end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
             full_width (bool): Whether the input should use full screen width. Defaults to False.
+            button_text (str): What text to display on the button when the widget is not part of a Page. Defaults to 'Next'.
 
 
     """
