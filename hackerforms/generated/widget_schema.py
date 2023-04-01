@@ -987,6 +987,7 @@ class WidgetSchema:
                 text (str): The text to display to the user
 
         Keyword Args:
+                size (str): The size of the text: 'small', 'medium', 'large'
                 end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
                 full_width (bool): Whether the input should use full screen width. Defaults to False.
                 button_text (str): What text to display on the button when the widget is not part of a Page. Defaults to 'Next'.
