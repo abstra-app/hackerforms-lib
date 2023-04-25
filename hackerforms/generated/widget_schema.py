@@ -263,6 +263,31 @@ class WidgetSchema:
         self.widgets.append(CurrencyInput(key, label, **kwargs))
         return self
 
+    def read_custom(self, html_body: str, **kwargs):
+        """Widget with customizable UI and behaviour
+
+        Position Args:
+                html_body (str): The HTML body content
+
+        Keyword Args:
+                initial_value (Any): The initial value to be stored in custom widget state.
+                label (str): The label to display to the user
+                html_head (str): The HTML head content
+                css (str): The widget's CSS
+                js (str): The widget's JavaScript
+                full_width (bool): Whether the input should use full screen width. Defaults to False.
+                button_text (str): What text to display on the button when the widget is not part of a Page. Defaults to 'Next'.
+
+        Returns:
+          any: The custom response
+        """
+
+        default_key = kwargs.get("label") or self.__get_next_result_key()
+        key = kwargs.pop("key", default_key)
+
+        self.widgets.append(CustomInput(key, html_body, **kwargs))
+        return self
+
     def read_date(self, label: str, **kwargs):
         """Allow users to select  a date, or a range of dates.*
 

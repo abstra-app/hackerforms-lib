@@ -212,6 +212,29 @@ def read_currency(label: str, **kwargs):
     return get_single_value(Page().read_currency(label, **kwargs).run(button_text))
 
 
+def read_custom(html_body: str, **kwargs):
+    """Widget with customizable UI and behaviour
+
+    Position Args:
+            html_body (str): The HTML body content
+
+    Keyword Args:
+            initial_value (Any): The initial value to be stored in custom widget state.
+            label (str): The label to display to the user
+            html_head (str): The HTML head content
+            css (str): The widget's CSS
+            js (str): The widget's JavaScript
+            full_width (bool): Whether the input should use full screen width. Defaults to False.
+            button_text (str): What text to display on the button when the widget is not part of a Page. Defaults to 'Next'.
+
+    Returns:
+      any: The custom response
+    """
+
+    button_text = kwargs.get("button_text", "Next")
+    return get_single_value(Page().read_custom(html_body, **kwargs).run(button_text))
+
+
 def read_date(label: str, **kwargs):
     """Allow users to select  a date, or a range of dates.*
 
