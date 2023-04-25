@@ -69,7 +69,11 @@ class Page(WidgetSchema):
 
         if initial_payload:
             for widget in self.widgets:
-                if not isinstance(widget, Reactive) and widget.key in initial_payload:
+                if (
+                    not isinstance(widget, Reactive)
+                    and hasattr(widget, "key")
+                    and widget.key in initial_payload
+                ):
                     widget.initial_value = initial_payload[widget.key]
 
         widgets_json = self.__get_validated_page_widgets_json(self.convert_answer({}))
