@@ -507,7 +507,6 @@ def read_pandas_row_selection(df: PandasDataFrame, **kwargs):
             display_index (bool): Whether to show a index column. Defaults to False.
             label (str): The label to display to the user
             multiple (bool): Whether the user will be allowed to select multiple rows. Defaults to True.
-            filterable (bool): Whether the table is filterable
             disabled (bool): whether the input is disabled. Defaults to False.
             required (Union[bool, str]): Whether the input is required or not eg. "this field is required". Defaults to True.
             hint (str): A tooltip displayed to the user. Defaults to None.

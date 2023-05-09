@@ -170,7 +170,6 @@ def display_pandas(df: PandasDataFrame, **kwargs):
             display_index (bool): Whether to show a index column. Defaults to False.
             label (str): The label to display to the user
             actions (list): Actions that can be triggered by table rows
-            filterable (bool): Whether the table is filterable
             end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
             full_width (bool): Whether the input should use full screen width. Defaults to False.
             button_text (str): What text to display on the button when the widget is not part of a Page. Defaults to 'Next'.
