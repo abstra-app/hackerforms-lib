@@ -41,6 +41,7 @@ class Page(WidgetSchema):
         end_program: bool = False,
         reactive_polling_interval=0,
         initial_payload: Dict = None,
+        steps_info: Dict = None,
     ) -> Dict:
         """Run the form
 
@@ -85,6 +86,7 @@ class Page(WidgetSchema):
                 actions=[],
                 end_program=end_program,
                 reactive_polling_interval=reactive_polling_interval,
+                steps_info=steps_info,
             )
             return
 
@@ -94,6 +96,7 @@ class Page(WidgetSchema):
             actions=self.__actions_property(actions, end_program),
             end_program=end_program,
             reactive_polling_interval=reactive_polling_interval,
+            steps_info=steps_info,
         )
         response: Dict = self.__user_event_messages(validate=validate)
 
@@ -156,7 +159,13 @@ class Page(WidgetSchema):
         return {"status": validation_status, "message": validation_message}
 
     def __send_form_message(
-        self, widgets, actions, columns, end_program, reactive_polling_interval
+        self,
+        widgets,
+        actions,
+        columns,
+        end_program,
+        reactive_polling_interval,
+        steps_info,
     ):
         send(
             {
@@ -166,6 +175,7 @@ class Page(WidgetSchema):
                 "actions": actions,
                 "endProgram": end_program,
                 "reactivePollingInterval": reactive_polling_interval,
+                "steps": steps_info,
             }
         )
 

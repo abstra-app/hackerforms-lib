@@ -1,5 +1,4 @@
-from functools import reduce
-from typing import List, Union, Callable
+from typing import List, Union, Callable, Dict
 from .page import Page
 from .page_response import PageResponse
 
@@ -35,6 +34,10 @@ class StepsResponse:
         return step
 
 
+def get_steps_info(steps: Steps, current_step: Step) -> Dict:
+    return {"current": steps.index(current_step) + 1, "total": len(steps)}
+
+
 def run_steps(steps: Steps) -> StepsResponse:
     steps_to_execute: Steps = []  # stack
     executed_steps: Steps = []  # stack
@@ -48,40 +51,34 @@ def run_steps(steps: Steps) -> StepsResponse:
         raise ValueError("First step cannot be a function")
 
     if steps_to_execute:
-        response = run_page(
-            steps_to_execute, executed_steps, responses, first_page=True
-        )
+        response = run_page(steps, steps_to_execute, executed_steps, responses)
 
     while steps_to_execute or response.action == "Back":
         if steps_to_execute and response.action != "Back":
             responses = execute_functions(steps_to_execute, executed_steps, responses)
             if not steps_to_execute:
                 break
-            response = run_page(
-                steps_to_execute, executed_steps, responses, first_page=False
-            )
+            response = run_page(steps, steps_to_execute, executed_steps, responses)
 
         if response.action == "Back":
-            response = go_back(steps_to_execute, executed_steps, responses)
+            response = go_back(steps, steps_to_execute, executed_steps, responses)
 
     return responses
 
 
-def go_back(steps_to_execute: Steps, executed_steps: Steps, responses: StepsResponse):
+def go_back(
+    steps: Steps,
+    steps_to_execute: Steps,
+    executed_steps: Steps,
+    responses: StepsResponse,
+):
     page = executed_steps.pop()
     responses.pop()
     steps_to_execute.append(page)
 
     undo_functions(steps_to_execute, executed_steps, responses)
-    if len(executed_steps) == 1:
-        response = run_back_page(
-            steps_to_execute, executed_steps, responses, first_page=True
-        )
-        return response
 
-    response = run_back_page(
-        steps_to_execute, executed_steps, responses, first_page=False
-    )
+    response = run_back_page(steps, steps_to_execute, executed_steps, responses)
     return response
 
 
@@ -105,30 +102,40 @@ def undo_functions(
 
 
 def run_page(
+    steps: Steps,
     steps_to_execute: Steps,
     executed_steps: Steps,
     responses: StepsResponse,
-    first_page: bool = False,
 ):
     page = steps_to_execute.pop()
-    response = page.run() if first_page else page.run(actions=["Back", "Next"])
+    steps_info = get_steps_info(steps, page)
+    response = (
+        page.run(steps_info=steps_info)
+        if steps_info["current"] == 1
+        else page.run(actions=["Back", "Next"], steps_info=steps_info)
+    )
     responses.append(response)
     executed_steps.append(page)
     return response
 
 
 def run_back_page(
+    steps: Steps,
     steps_to_execute: Steps,
     executed_steps: Steps,
     responses: StepsResponse,
-    first_page: bool = False,
 ):
     page = executed_steps.pop()
+    steps_info = get_steps_info(steps, page)
     old_response: PageResponse = responses.pop()
     response = (
-        page.run(initial_payload=old_response)
-        if first_page
-        else page.run(actions=["Back", "Next"], initial_payload=old_response)
+        page.run(initial_payload=old_response, steps_info=steps_info)
+        if steps_info["current"] == 1
+        else page.run(
+            actions=["Back", "Next"],
+            initial_payload=old_response,
+            steps_info=steps_info,
+        )
     )
     responses.append(response)
     executed_steps.append(page)
