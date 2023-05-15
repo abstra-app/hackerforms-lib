@@ -35,7 +35,8 @@ class StepsResponse:
 
 
 def get_steps_info(steps: Steps, current_step: Step) -> Dict:
-    return {"current": steps.index(current_step) + 1, "total": len(steps)}
+    pages = [step for step in steps if isinstance(step, Page)]
+    return {"current": pages.index(current_step) + 1, "total": len(pages)}
 
 
 def run_steps(steps: Steps) -> StepsResponse:
