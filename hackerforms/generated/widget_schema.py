@@ -93,8 +93,7 @@ class WidgetSchema:
                         multiple (bool): Whether the user can select multiple options. Defaults to False.
                         initial_value (list): The initial value to display to the user. Defaults to None.
                         searchable (bool): Whether to show a search bar. Defaults to False.
-                        layout (str): Whether the cards layout should be 'list' or 'grid'. Defaults to 'list'. The 'grid' only applies to desktop resolutions.
-                        columns (int): When layout is 'grid', how many columns to display
+                        layout (str): Whether the cards layout should be 'list' or 'grid'. Defaults to 'list'.
                         disabled (bool): whether the input is disabled. Defaults to False.
                         required (Union[bool, str]): Whether the input is required or not eg. "this field is required". Defaults to True.
                         hint (str): A tooltip displayed to the user. Defaults to None.
