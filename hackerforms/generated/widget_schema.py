@@ -669,6 +669,31 @@ class WidgetSchema:
         self.widgets.append(RatingInput(key, label, **kwargs))
         return self
 
+    def read_richtext(self, label: str, **kwargs):
+        """Rich text input allows users to type and format textual content.
+
+        Position Args:
+                label (str): The label to display to the user
+
+        Keyword Args:
+                initial_value (str): The initial value to display to the user. Defaults to "".
+                placeholder (str): The placeholder text to display to the user. Defaults to "Your rich text here".
+                disabled (bool): whether the input is disabled. Defaults to False.
+                required (Union[bool, str]): Whether the input is required or not eg. "this field is required". Defaults to True.
+                hint (str): A tooltip displayed to the user. Defaults to None.
+                end_program (bool): Whether the program should end after the widget is shown. Defaults to False.
+                full_width (bool): Whether the input should use full screen width. Defaults to False.
+                button_text (str): What text to display on the button when the widget is not part of a Page. Defaults to 'Next'.
+
+        Returns:
+          The rich text value entered by the user
+        """
+
+        key = kwargs.pop("key", label)
+
+        self.widgets.append(RichTextInput(key, label, **kwargs))
+        return self
+
     def read_tag(self, label: str, **kwargs):
         """Read a tag value from the user
 
