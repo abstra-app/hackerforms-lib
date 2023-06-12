@@ -1,6 +1,4 @@
-import os
-import sys
-import builtins
+import sys, builtins, os
 
 from .socket import send
 from .page import Page
@@ -10,6 +8,8 @@ try:
     from .generated.outputs import display_plotly
 except ImportError:
     pass
+
+print_as_display = os.getenv("ENABLE_PRINT_AS_DISPLAY") == "true"
 
 
 def writeWraper(type, write, text):
@@ -62,9 +62,7 @@ def _overload_plotly_show():
         pass
 
 
-def initialize():
-    _overload_stdio()
+def _overload_to_widgets():
     _overload_input()
     _overload_plotly_show()
-    if os.getenv("ENABLE_PRINT_AS_DISPLAY") == "true":
-        _overload_print()
+    print_as_display and _overload_print()
