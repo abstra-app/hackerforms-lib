@@ -625,7 +625,7 @@ class WidgetSchema:
                 label (str): The label to display to the user
 
         Keyword Args:
-                initial_value (Union[str, dict]): The initial value to display to the user. If dictionary, it contains two keys: 'country_code' (string with optional + sign or number) and 'national_number' (str or number). Ex: {'country_code': '+55', 'national_number': '21999990000'}. Defaults to "".
+                initial_value (dict): The initial value to display to the user. If dictionary, it contains two keys: 'country_code' (string with optional + sign or number) and 'national_number' (str or number). Ex: {'country_code': '+55', 'national_number': '21999990000'}. Defaults to "".
                 placeholder (str): The placeholder text to display to the user. Defaults to "".
                 disabled (bool): whether the input is disabled. Defaults to False.
                 required (Union[bool, str]): Whether the input is required or not eg. "this field is required". Defaults to True.
