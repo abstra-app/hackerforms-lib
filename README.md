@@ -1,3 +1,5 @@
+> ⚠️ Hackerforms was deprecated in favor of the [Abstra](https://github.com/abstra-app/abstra-lib) package.
+
 [![pypi](https://img.shields.io/pypi/v/hackerforms.svg)](https://pypi.python.org/pypi/hackerforms)
 [![PyPI Downloads](https://img.shields.io/pypi/dm/hackerforms.svg)](https://pypi.org/project/hackerforms/)
 [![Code check](https://github.com/abstra-app/hackerforms-lib/actions/workflows/code_check.yml/badge.svg)](https://github.com/abstra-app/hackerforms-lib/actions/workflows/code_check.yml)
