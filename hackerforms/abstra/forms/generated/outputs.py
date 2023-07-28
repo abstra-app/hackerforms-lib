@@ -1,6 +1,6 @@
 from typing import Union, Any
-from ..abstra.widgets.types import PlotlyFigure, PandasDataFrame
-from hackerforms.page import Page
+from ...widgets.types import PlotlyFigure, PandasDataFrame
+from ..page import Page
 import io
 
 

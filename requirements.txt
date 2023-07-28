@@ -1,4 +1,3 @@
 setuptools
 requests
 websocket-client
-abstra==1.2.7

@@ -1,9 +1,9 @@
 from typing import List, Union, Dict, Any
 import io
-from hackerforms.reactive import Reactive
-from ..abstra.widgets.library import *
-from ..abstra.widgets import Input
-from ..abstra.widgets.types import PlotlyFigure, PandasDataFrame
+from ..reactive import Reactive
+from ...widgets.library import *
+from ...widgets import Input
+from ...widgets.types import PlotlyFigure, PandasDataFrame
 
 
 class WidgetSchema:
@@ -168,7 +168,6 @@ class WidgetSchema:
 
         Keyword Args:
                 initial_value (str): The initial value to display to the user. Defaults to None.
-                invalid_message (str): The message to display when the user enters an invalid value. Defaults to None.
                 placeholder (str): The placeholder text to display to the user. Defaults to "00.000.000/0001-00".
                 disabled (bool): whether the input is disabled. Defaults to False.
                 required (Union[bool, str]): Whether the input is required or not eg. "this field is required". Defaults to True.
@@ -219,7 +218,6 @@ class WidgetSchema:
 
         Keyword Args:
                 initial_value (str): The initial value to display to the user. Defaults to "".
-                invalid_message (str): The message to display when the user enters an invalid value. Defaults to None.
                 placeholder (str): The placeholder text to display to the user. Defaults to "000.000.000-00".
                 disabled (bool): whether the input is disabled. Defaults to False.
                 required (Union[bool, str]): Whether the input is required or not eg. "this field is required". Defaults to True.
