@@ -1,7 +1,7 @@
 from hackerforms.socket import send, receive
 from hackerforms.generated.widget_schema import WidgetSchema
 from hackerforms.page_response import PageResponse
-from .abstra.widgets.validation import validate_widget_props
+from abstra.widgets.validation import validate_widget_props
 from .reactive import Reactive
 
 from typing import Callable, Dict, Union, List

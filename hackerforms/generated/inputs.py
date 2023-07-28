@@ -1,5 +1,5 @@
 from typing import Any, Dict, Union, List
-from ..abstra.widgets.types import PandasDataFrame
+from abstra.widgets.types import PandasDataFrame
 from hackerforms.page import Page
 from hackerforms.utils import get_single_value
 
