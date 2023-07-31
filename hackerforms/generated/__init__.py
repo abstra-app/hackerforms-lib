@@ -1,1 +1,1 @@
-from abstra.widgets.metadata import metadata
+from ..widgets.metadata import metadata
