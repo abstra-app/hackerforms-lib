@@ -1,4 +1,4 @@
-from .generated.widget_schema import WidgetSchema
+from hackerforms.generated.widget_schema import WidgetSchema
 
 
 class ListItemSchema(WidgetSchema):

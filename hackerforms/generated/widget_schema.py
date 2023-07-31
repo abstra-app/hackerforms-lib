@@ -1,9 +1,9 @@
 from typing import List, Union, Dict, Any
 import io
 from hackerforms.reactive import Reactive
-from ..widgets.library import *
-from ..widgets import Input
-from ..widgets.types import PlotlyFigure, PandasDataFrame
+from abstra.widgets.library import *
+from abstra.widgets import Input
+from abstra.widgets.types import PlotlyFigure, PandasDataFrame
 
 
 class WidgetSchema:
