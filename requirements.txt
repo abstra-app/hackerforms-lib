@@ -1,7 +1,4 @@
 setuptools
 requests
 websocket-client
-simplejson
-validators
-
-multipart
+abstra==1.2.7
